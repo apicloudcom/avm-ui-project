@@ -1,7 +1,7 @@
 import {ListItem} from '../list/list-item'
 import classNames from 'classnames'
 
-// import checkedIcon from './checked.svg'
+import checkedIcon from './checked.png'
 
 const classPrefix = `adm-check-list-item`
 
@@ -16,7 +16,7 @@ export class CheckListItem extends Component {
 
     const extra = (
       <div className={`${classPrefix}-extra`}>
-        {active ? (<text>选中</text>) : ''}
+        {active ? (<img src={checkedIcon} alt="checked"/>) : ''}
       </div>
     )
 

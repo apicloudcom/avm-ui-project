@@ -1,9 +1,11 @@
 
 import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
-import { CheckIcon } from './check-icon'
 
 const classPrefix = `adm-checkbox`
+
+import checkIcon from './img/check.png'
+import disabledcheckIcon from './img/disabledcheckIcon.png'
 
 export type CheckboxValue = string | number
 
@@ -96,11 +98,18 @@ export class Checkbox extends Component {
       }
 
       return (
-        <div className={`${classPrefix}-icon`}>
+        <div className={classNames(`${classPrefix}-icon`, {
+          [`${classPrefix}-checked-icon`]: this.data.checked,
+          [`${classPrefix}-indeterminate-icon`]: indeterminate,
+          [`${classPrefix}-disabled-icon`]: disabled,
+          [`${classPrefix}-block-icon`]: block,
+          [`${classPrefix}-disabled-indeterminate-icon`]: disabled && indeterminate,
+          [`${classPrefix}-disabled-checked-icon`]: disabled && this.data.checked
+        })}>
           {indeterminate ? (
             <div className={`${classPrefix}-indeterminate-checked`} />
           ) : (
-            this.data.checked && <CheckIcon className={`${classPrefix}-icon-checked`} />
+            this.data.checked && <img src={!disabled ? checkIcon : disabledcheckIcon} alt="check" className={`${classPrefix}-checked-icon`}/>
           )}
         </div>
       )
@@ -111,10 +120,13 @@ export class Checkbox extends Component {
           [`${classPrefix}-checked`]: this.data.checked,
           [`${classPrefix}-indeterminate`]: indeterminate,
           [`${classPrefix}-disabled`]: disabled,
+          [`${classPrefix}-disabled-indeterminate`]: disabled && indeterminate,
+          [`${classPrefix}-disabled-checked`]: disabled && this.data.checked,
           [`${classPrefix}-block`]: block,
         })}
       >
         <input
+          className={`${classPrefix}-input`}
           type='checkbox'
           checked={this.data.checked}
           onChange={() => {
@@ -128,7 +140,12 @@ export class Checkbox extends Component {
         />
         {renderIcon()}
         {props.children && (
-          <div className={`${classPrefix}-content`}>{props.children}</div>
+          <div className={classNames(`${classPrefix}-content`, {
+            [`${classPrefix}-checked-content`]: this.data.checked,
+            [`${classPrefix}-indeterminate-content`]: indeterminate,
+            [`${classPrefix}-disabled-content`]: disabled,
+            [`${classPrefix}-block-content`]: block,
+          })}>{props.children}</div>
         )}
       </label>
     )

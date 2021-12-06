@@ -4,6 +4,8 @@ import { CheckboxGroup } from '../checkboxGroup'
 import { Space } from '../../space/space'
 import { SmileFill, SmileOutline } from '../../icon/icon'
 
+import '../checkbox.less'
+
 class Demo extends Component {
   data = {
     value: [],

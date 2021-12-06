@@ -6,5 +6,5 @@ import { Checkbox } from './checkbox'
 export type { CheckboxValue, CheckboxProps } from './checkbox'
 
 export default attachPropertiesToComponent(Checkbox, {
-  CheckboxGroup,
+  Group: CheckboxGroup,
 })
