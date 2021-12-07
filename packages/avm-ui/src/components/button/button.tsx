@@ -1,5 +1,8 @@
 import classNames from "classnames";
-import Loading from "../loading";
+
+import { mergeProps } from '../../utils/with-default-props'
+
+import loadingIcon from './loading.png'
 
 const classPrefix = `adm-button`;
 
@@ -16,41 +19,69 @@ export type ButtonProps = {
   children: any
 }
 
+const defaultProps = {
+  color: 'default',
+  fill: 'solid',
+  size: 'middle',
+  block: false,
+  disabled: false,
+  loading: false,
+  type: 'button',
+  shape: 'default'
+}
+
 export class Button extends Component {
   install = () => {
     console.log("Button !")
   }
 
-  render = (props: ButtonProps) => {
+  render = props => {
+    props = mergeProps(defaultProps, props)
+
     const disabled = props.disabled || props.loading
-    return <button
-      type={props.type}
-      onClick={props.onClick}
-      className={classNames(
-        classPrefix,
-        props.color ? `${classPrefix}-${props.color}` : null,
-        {
-          [`${classPrefix}-block`]: props.block,
-          [`${classPrefix}-disabled`]: disabled,
-          [`${classPrefix}-fill-outline`]: props.fill === 'outline',
-          [`${classPrefix}-fill-none`]: props.fill === 'none',
-          [`${classPrefix}-mini`]: props.size === 'mini',
-          [`${classPrefix}-small`]: props.size === 'small',
-          [`${classPrefix}-large`]: props.size === 'large',
-          [`${classPrefix}-loading`]: props.loading,
-        }
-      )}
-      disabled={disabled}
-    >
-      {props.loading ? (
-        <div className={`${classPrefix}-loading-wrapper`}>
-          <Loading color='currentColor'/>
-          {props.loadingText}
-        </div>
-      ) : (
-        props.children
-      )}
-    </button>
+
+    const btnStyles = {};
+    props.textColor && (btnStyles['color'] = props.textColor)
+    props.bgColor && (btnStyles['background-color'] = props.bgColor)
+    props.borderRadius && (btnStyles['border-radius'] = props.borderRadius)
+    props.borderWidth && (btnStyles['border-width'] = props.borderWidth)
+    props.borderStyle && (btnStyles['border-style'] = props.borderStyle)
+    props.borderColor && (btnStyles['border-color'] = props.borderColor)
+
+
+    return (
+      <button
+        type={props.type}
+        onClick={props.onClick}
+        style={btnStyles}
+        className={classNames(
+          classPrefix,
+          props.color ? `${classPrefix}-${props.color}` : null,
+          {
+            [`${classPrefix}-block`]: props.block,
+            [`${classPrefix}-disabled`]: disabled,
+            [`${classPrefix}-${props.color}-fill-outline`]: props.fill === 'outline',
+            [`${classPrefix}-${props.color}-fill-none`]: props.fill === 'none',
+            [`${classPrefix}-mini`]: props.size === 'mini',
+            [`${classPrefix}-mini-shape-${props.shape}`]: props.size === 'mini',
+            [`${classPrefix}-small`]: props.size === 'small',
+            [`${classPrefix}-large`]: props.size === 'large',
+            [`${classPrefix}-loading`]: props.loading,
+          },
+          `${classPrefix}-shape-${props.shape}`
+        )}
+        disabled={disabled}
+      >
+        {props.loading ? (
+          <div className={`${classPrefix}-loading-wrapper`}>
+            <img src={loadingIcon} alt="loading"/>
+            <text>{props.loadingText}</text>
+          </div>
+        ) : (
+          props.children
+        )}
+      </button>
+    )
   }
 
   test() {

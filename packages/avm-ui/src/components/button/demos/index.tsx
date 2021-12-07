@@ -4,7 +4,6 @@ import {DemoBlock} from "../../../demos";
 import Space from "../../space";
 
 const template =
-
   <>
     <DemoBlock title='不同颜色的按钮'>
       <Space wrap>

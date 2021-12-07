@@ -11,11 +11,7 @@
 | direction | 间距方向                               | `'vertical' \| 'horizontal'`                                                     | `'horizontal'` |
 | wrap      | 是否自动换行，仅在 `horizontal` 时有效 | `boolean`                                                                        | `false`        |
 | block     | 是否渲染为块级元素                     | `boolean`                                                                        | `false`        |
+| gap            | 间距大小      |-     | `8px`        |
+| gapVertical   | 垂直方向的间距大小|- | `8px` |
+| gapHorizontal | 水平方向的间距大小 |-| `8px` |
 
-### CSS 变量
-
-| 属性             | 说明               | 默认值       |
-| ---------------- | ------------------ | ------------ |
-| --gap            | 间距大小           | `8px`        |
-| --gap-vertical   | 垂直方向的间距大小 | `var(--gap)` |
-| --gap-horizontal | 水平方向的间距大小 | `var(--gap)` |

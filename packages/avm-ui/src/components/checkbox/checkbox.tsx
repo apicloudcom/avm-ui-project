@@ -133,7 +133,8 @@ export class Checkbox extends Component {
             this.setChecked(props)
           }}
           onClick={e => {
-            e.stopPropagation()
+            console.log(e)
+            // e.stopPropagation()
           }}
           disabled={disabled}
           id={id}
