@@ -9,7 +9,7 @@
 | color   | 标签色       | `'default' \| 'primary' \| 'success' \| 'warning' \| 'danger' \| string` | `'default'` |
 | fill    | 填充模式     | `'solid' \| 'outline'`                                                   | `'solid'`   |
 | round   | 是否圆角     | `boolean`                                                                | `false`     |
-| onClick | 标签点击事件 | `(event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void`         | -           |
+| onClick | 标签点击事件 | `(event) => void`         | -           |
 | textColor | 文字颜色   | -                                                                        | -           |
 | bgColor | 背景颜色     | -                                                                         | -           |
 | borderColor | 边框颜色 | -                                                                         | -           |
