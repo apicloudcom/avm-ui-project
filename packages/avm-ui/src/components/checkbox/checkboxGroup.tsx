@@ -3,7 +3,6 @@ import {Checkbox} from './checkbox'
 
 const defaultProps = {
   disabled: false,
-  defaultValue: [],
   list: []
 }
 

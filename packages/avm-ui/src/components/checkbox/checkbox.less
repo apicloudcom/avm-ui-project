@@ -1,81 +1,72 @@
 @import "../../global/theme";
 @class-prefix-checkbox: ~'adm-checkbox';
 
+@disabledColor: #ebedf0;
+
 .@{class-prefix-checkbox} {
   display: inline-flex;
   vertical-align: text-bottom;
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
-  &-input {
-    display: none;
-  }
   &-icon {
     flex: none;
-    border-radius: 22px;
-    border: 1px solid #ccc;
+    border-radius: 100%;
+    border: 1px solid var(--adm-color-light);
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 22px;
-    height: 22px;
-    color: #ffffff;
-    &-checked {
-      width: 22px;
-      height: 22px;
+    color: var(--adm-color-text);
+    background: var(--adm-color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &-block {
+    display: flex;
+  }
+  // 选中
+  &-checked {
+    &-icon {
+      border-color: var(--adm-color-primary);
+      background: var(--adm-color-primary);
+      &-text {
+        color: var(--adm-color-white);
+      }
     }
   }
-  &-custom-icon {
-    font-size: 22px;
+  // 不可选
+  &-disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    &-icon {
+      border-color: @disabledColor;
+      background: @disabledColor;
+      &-text {
+        color: var(--adm-color-light);
+      }
+    }
+    &-content {
+      color: var(--adm-color-weak);
+    }
   }
-
-  &-content {
-    flex: none;
-    font-size: 17px;
-    padding-left: 8px;
-  }
-}
-.@{class-prefix-checkbox}-block {
-  display: flex;
-}
-.@{class-prefix-checkbox}-checked {
-  &-icon {
-    border-color: var(--adm-color-primary);
-  }
-}
-.@{class-prefix-checkbox}-disabled {
-  cursor: not-allowed;
-  &-content {
-    color: var(--adm-color-weak);
-  }
+  // 半选
   &-indeterminate {
     &-icon {
-      color: #ccc;
-      border-color: #ccc;
-      background-color: #ebedf0;
+      border-color: var(--adm-color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &-text {
+        width: 60%;
+        height: 60%;
+        background: var(--adm-color-primary);
+        border-radius: 100%;
+      }
     }
   }
-  &-checked {
-    &-icon {
-      color: #ccc;
-    }
-  }
-  &-icon {
-    border-color: #ccc;
-    background-color: #ebedf0;
-  }
-}
-.@{class-prefix-checkbox}-indeterminate {
-  &-icon {
-    border-color: var(--adm-color-primary);
-    background-color: #ffffff;
-    color: var(--adm-color-primary);
-  }
-  &-checked {
-    width: 60%;
-    height: 60%;
-    border-radius: 100%;
-    background-color: currentColor;
+  &-content {
+    flex: none;
   }
 }

@@ -1,11 +1,7 @@
 
 import classNames from 'classnames'
-import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-checkbox`
-
-import checkIcon from './img/check.png'
-import disabledcheckIcon from './img/disabledcheckIcon.png'
 
 export type CheckboxValue = string | number
 
@@ -20,12 +16,6 @@ export type CheckboxProps = {
   id?: string
   icon?: any
 }
-
-const defaultProps = {
-  defaultChecked: false,
-  indeterminate: false,
-}
-
 export class Checkbox extends Component {
   install = () => {
     console.log('Checkbox!')
@@ -37,29 +27,19 @@ export class Checkbox extends Component {
   }
 
   setChecked = (props) => {
-    this.data.hasChecked = true
-    this.data.checked = !this.data.checked
-    if (this.data.checked) {
-      props.check?.(props.value)
-    } else {
-      props.uncheck?.(props.value)
+    if (!props.indeterminate && !props.disabled) {
+      this.data.hasChecked = true
+      this.data.checked = !this.data.checked
+      if (this.data.checked) {
+        props.check?.(props.value)
+      } else {
+        props.uncheck?.(props.value)
+      }
     }
     props.onChange?.(this.data.checked)
   }
 
-  render = props => {
-    props = mergeProps(defaultProps, props)
-
-    const {
-      defaultChecked,
-      defaultValue,
-      disabled,
-      icon,
-      indeterminate,
-      block,
-      id,
-      value} = props
-    
+  render = props => { 
     const usageWarning = () => {
       if (props.checked !== undefined) {
         const message = 'When used with `CheckboxGroup`, the `checked` prop of `Checkbox` will not work if `value` prop of `Checkbox` is not undefined.'
@@ -71,82 +51,61 @@ export class Checkbox extends Component {
       }
     }
 
-    if (props.checkedList !== undefined && value === undefined) {
+    if (props.checkedList !== undefined && props.value === undefined) {
       usageWarning()
     }
 
     // 设置默认值
     if (!this.data.hasChecked) {
-      if (defaultChecked) {
-        this.data.checked = defaultChecked
-      }
-      if (props.checked) {
-        this.data.checked = props.checked
-      }
-      if (defaultValue &&　defaultValue.length) {
-        this.data.checked = defaultValue.includes(value);
-      }
+      this.data.checked = !!(props.defaultChecked
+        || props.checked
+        || (props.defaultValue && props.defaultValue.includes(props.value)))
     }
 
-    const renderIcon = () => {
-      if (icon) {
-        return (
-          <div className={`${classPrefix}-custom-icon`}>
-            {icon(this.data.checked, indeterminate)}
-          </div>
-        )
-      }
-
-      return (
-        <div className={classNames(`${classPrefix}-icon`, {
-          [`${classPrefix}-checked-icon`]: this.data.checked,
-          [`${classPrefix}-indeterminate-icon`]: indeterminate,
-          [`${classPrefix}-disabled-icon`]: disabled,
-          [`${classPrefix}-block-icon`]: block,
-          [`${classPrefix}-disabled-indeterminate-icon`]: disabled && indeterminate,
-          [`${classPrefix}-disabled-checked-icon`]: disabled && this.data.checked
-        })}>
-          {indeterminate ? (
-            <div className={`${classPrefix}-indeterminate-checked`} />
-          ) : (
-            this.data.checked && <img src={!disabled ? checkIcon : disabledcheckIcon} alt="check" className={`${classPrefix}-checked-icon`}/>
-          )}
-        </div>
-      )
+    const boxClsObj = {
+      [`${classPrefix}-checked`]: this.data.checked && !props.disabled,
+      [`${classPrefix}-indeterminate`]: props.indeterminate,
+      [`${classPrefix}-disabled`]: props.disabled,
+      [`${classPrefix}-block`]: props.block
     }
+    const iconClsObj = Object.keys(boxClsObj).map(key => ({[`${key}-icon`]: boxClsObj[key]}))
+    const iconTextClsObj = Object.keys(boxClsObj).map(key => ({[`${key}-icon-text`]: boxClsObj[key]}))
+
+    // 外层class
+    const boxClassStr = classNames(classPrefix, boxClsObj)
+
+    // iconClass
+    const iconClassStr = classNames(`${classPrefix}-icon`, iconClsObj)
+
+    // iconTextClass
+    const iconTextClassStr = classNames(`${classPrefix}-icon-text`, iconTextClsObj);
+
+    // 文本class
+    const contentClassStr = classNames(`${classPrefix}-content`, {
+      [`${classPrefix}-disabled-content`]: props.disabled
+    })
+
+    const iconSize = props.iconSize || '22px'
+    const iconSizeStyle = {}
+    iconSizeStyle['width'] = iconSize
+    iconSizeStyle['height'] = iconSize
+    iconSizeStyle['lineHeight'] = iconSize
+
     return (
-      <label
-        className={classNames(classPrefix, {
-          [`${classPrefix}-checked`]: this.data.checked,
-          [`${classPrefix}-indeterminate`]: indeterminate,
-          [`${classPrefix}-disabled`]: disabled,
-          [`${classPrefix}-disabled-indeterminate`]: disabled && indeterminate,
-          [`${classPrefix}-disabled-checked`]: disabled && this.data.checked,
-          [`${classPrefix}-block`]: block,
-        })}
-      >
-        <input
-          className={`${classPrefix}-input`}
-          type='checkbox'
-          checked={this.data.checked}
-          onChange={() => {
-            this.setChecked(props)
-          }}
-          onClick={e => {
-            console.log(e)
-            // e.stopPropagation()
-          }}
-          disabled={disabled}
-          id={id}
-        />
-        {renderIcon()}
+      <label className={boxClassStr}>
+        <div
+          className={iconClassStr}
+          onClick={() => this.setChecked(props)}
+          style={iconSizeStyle}
+        >
+          <span className={iconTextClassStr} style={{fontSize: `${Number(iconSize.replace('px', ''))-6}px`, lineHeight: iconSize}}>{!!this.data.checked && '√'}</span>
+        </div>
         {props.children && (
-          <div className={classNames(`${classPrefix}-content`, {
-            [`${classPrefix}-checked-content`]: this.data.checked,
-            [`${classPrefix}-indeterminate-content`]: indeterminate,
-            [`${classPrefix}-disabled-content`]: disabled,
-            [`${classPrefix}-block-content`]: block,
-          })}>{props.children}</div>
+          <span
+            className={contentClassStr}
+            style={{fontSize: props.fontSize || '17px', paddingLeft: props.gap || '8px'}}>
+            {props.children}
+          </span>
         )}
       </label>
     )
