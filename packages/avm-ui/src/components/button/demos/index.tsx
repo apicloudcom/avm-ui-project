@@ -67,7 +67,7 @@ const template =
         <Button loading color='primary' loadingText='加载中'>
           Loading
         </Button>
-        <Button loading>Loading</Button>
+        <Button loading loadingText="Loading...">Loading</Button>
       </Space>
     </DemoBlock>
     <DemoBlock title='带图标的按钮'>

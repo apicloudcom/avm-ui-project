@@ -2,8 +2,6 @@ import classNames from "classnames";
 
 import { mergeProps } from '../../utils/with-default-props'
 
-import loadingIcon from './loading.png'
-
 const classPrefix = `adm-button`;
 
 export type ButtonProps = {
@@ -47,8 +45,6 @@ export class Button extends Component {
     props.borderWidth && (btnStyles['border-width'] = props.borderWidth)
     props.borderStyle && (btnStyles['border-style'] = props.borderStyle)
     props.borderColor && (btnStyles['border-color'] = props.borderColor)
-
-
     return (
       <button
         type={props.type}
@@ -66,20 +62,12 @@ export class Button extends Component {
             [`${classPrefix}-mini-shape-${props.shape}`]: props.size === 'mini',
             [`${classPrefix}-small`]: props.size === 'small',
             [`${classPrefix}-large`]: props.size === 'large',
-            [`${classPrefix}-loading`]: props.loading,
+            [`${classPrefix}-loading`]: props.loading
           },
           `${classPrefix}-shape-${props.shape}`
         )}
-        disabled={disabled}
-      >
-        {props.loading ? (
-          <div className={`${classPrefix}-loading-wrapper`}>
-            <img src={loadingIcon} alt="loading"/>
-            <text>{props.loadingText}</text>
-          </div>
-        ) : (
-          props.children
-        )}
+        disabled={disabled}>
+        {props.loading ? (props.loadingText) : (props.children)}
       </button>
     )
   }
