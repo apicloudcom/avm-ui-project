@@ -7,7 +7,7 @@ const classPrefix = `adm-rate`
 const defaultProps = {
   count: 5,
   allowHalf: false,
-  character: '星',
+  character: '★',
   defaultValue: 0,
   readOnly: false,
   allowClear: true,
