@@ -1,0 +1,53 @@
+@import url('../../global/theme.less');
+@class-prefix-search: ~'adm-search';
+:root {
+  --background: #f5f5f5;
+  --border-radius: 6px;
+  --placeholder-color: var(--adm-color-weak);
+  ---placeholder-color: var(--placeholder-color);
+}
+.adm-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  &-input-box {
+    flex: auto;
+    background: var(--background);
+    border-radius: var(--border-radius);
+    border: solid 1px transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    &-icon {
+      flex: none;
+      color: var(---placeholder-color);
+      padding-left: 8px;
+      font-size: 16px;
+    }
+  }
+  &-input {
+    flex: auto;
+    padding: 4px 8px 4px 4px;
+    height: 28px;
+  }
+
+  &-suffix {
+    flex: none;
+    margin-left: 16px;
+  }
+
+  &-active {
+    .adm-search-input-box {
+      border-color: var(--adm-color-primary);
+    }
+  }
+}
+.adm-input-wrapper {
+  --placeholder-color: var(---placeholder-color);
+}
+.adm-input {
+  font-size: 13px;
+  line-height: 20px;
+}
