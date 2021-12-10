@@ -14,7 +14,7 @@
 | disabled    | 是否禁用                         | `boolean`                                                          | `false`     |
 | loading     | 是否处于加载状态                 | `boolean`                                                          | `false`     |
 | loadingText | 加载状态下额外展示的文字         | `string`                                                           | -           |
-| onClick     | 点击事件                         | `(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void` | -           |
+| onClick     | 点击事件                         | `(event) => void`                                                  | -           |
 | type        | 原生 `button` 元素的 `type` 属性 | `'submit' \| 'reset' \| 'button'`                                  | `'button'`  |
 | shape       | 按钮的形状                       | `'default' \| 'rounded' \| 'rectangular'`                          | `'default'` |
 | textcolor       | 文字颜色 | -|`#333`   | 

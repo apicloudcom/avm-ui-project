@@ -15,7 +15,7 @@
 | multiple     | 是否允许多选   | `boolean`                   | `false`            |
 | readOnly     | 是否只读       | `boolean`                   | `false`            |
 | disabled     | 是否禁用       | `boolean`                   | `false`            |
-| list     | 选项列表        | `array`                   | `[]`            |
+| list     | 选项列表            | `array`                   | `[]`            |
 
 此外，还支持 [List](./list) 的 `mode` 属性
 

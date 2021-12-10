@@ -11,3 +11,5 @@
 | closeable | 是否可关闭                       | `boolean`                                   | `false`             |
 | onClose   | 关闭时的回调                     | `() => void`                                | -                   |
 | icon      | 左侧广播图标                     | `React.ReactNode`                           | `<SoundOutlined />` |
+
+## 注意：该组件中传参暂不支持标签属性

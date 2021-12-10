@@ -25,3 +25,4 @@
 | onClick     | 列表项的点击事件，当设置了 `onClick` 属性时，列表项会有点击效果 | `(e: React.MouseEvent) => void` | -                                                          |
 | prefixWidth            | prefix 部分的宽度 | `-` | `auto`                    |
 
+## 注意：该组件中传参暂不支持标签属性
