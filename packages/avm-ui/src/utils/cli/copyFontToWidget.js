@@ -1,5 +1,5 @@
 const {widgetDir} = require('../../../avm-ui.config.json');
-const {fontName, fontPath} = require('../../../src/components/icon/_gen/icon.config.json');
+const {fontName, fontPath} = require('../../../src/components/icon/icon.config.json');
 const fs = require('fs');
 const {resolve} = require('path');
 

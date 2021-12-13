@@ -4,7 +4,7 @@ import {mergeCustomIcons} from "./src/mergeCustomIcons.js";
 
 import fse from 'fs-extra';
 
-const {fontName, svgPath, fontPath} = JSON.parse(fse.readFileSync('./icon.config.json').toString());
+const {fontName, svgPath, fontPath} = JSON.parse(fse.readFileSync('../icon.config.json').toString());
 
 
 buildSvgFromReact(svgPath);
