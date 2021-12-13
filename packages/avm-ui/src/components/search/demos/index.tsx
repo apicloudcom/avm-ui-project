@@ -1,5 +1,4 @@
 import {Search } from '../search'
-import {Button} from '../../button/button'
 import {Space} from '../../space/space'
 import { DemoBlock } from '../../../demos'
 
@@ -14,58 +13,41 @@ const template =
     <Search placeholder='请输入内容' />
   </DemoBlock>
   <DemoBlock title='带取消按钮的搜索框'>
-    <Search placeholder='请输入内容' showCancelButton />
+    <Search placeholder='请输入内容' showCancelButton  onChange={val => console.log(val)}/>
   </DemoBlock>
   <DemoBlock title='取消按钮长显'>
-    <Search placeholder='请输入内容' showCancelButton={() => true} />
+    <Search placeholder='请输入内容' showCancelButton={() => true} onChange={val => console.log(val)}/>
   </DemoBlock>
   <DemoBlock title='事件监听和 Ref'>
     <Space block direction='vertical'>
-      {/* <Search
+      <Search
         placeholder='请输入内容'
         showCancelButton
         onSearch={val => {
-          alert(`你搜索了：${val}`)
+          console.log(`你搜索了：${val}`)
         }}
         onFocus={() => {
-          alert('获得焦点')
+          console.log('获得焦点')
         }}
         onBlur={() => {
-          alert('失去焦点')
+          console.log('失去焦点')
         }}
         onClear={() => {
-          alert('清空内容')
+          console.log('清空内容')
         }}
         onCancel={() => {
-          alert('取消搜索')
+          console.log('取消搜索')
         }}
-      /> */}
-      <Space>
-        <Button
-          onClick={() => {
-           console.log('清空')
-          }}
-        >
-          清空内容
-        </Button>
-        <Button
-          onClick={() => {
-            console.log('激活')
-          }}
-        >
-          激活
-        </Button>
-      </Space>
+      />
     </Space>
   </DemoBlock>
   <DemoBlock title='自定义样式'>
     <Search
       placeholder='请输入内容'
       showCancelButton
-      style={{
-        '--border-radius': '100px',
-        '--background': '#ffffff',
-      }}
+      borderRadius="100px"
+      bgColor="#f5f5f5"
+      placeholderColor="#f00"
     />
   </DemoBlock>
 </>

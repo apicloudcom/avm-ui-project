@@ -2,6 +2,20 @@ import classNames from 'classnames'
 
 const classPrefix = `adm-list-item`
 
+const checkLabelType = ele => {
+  return Object.prototype.toString.call(ele)
+}
+
+const formatLabel = (ele, cls, style={}) => {
+  if (checkLabelType(ele) === '[object Array]') {
+    return ele.map(el => {
+      return formatLabel(el, cls, style)
+    })
+  }
+  return checkLabelType(ele) === '[object String]'
+    ? <span className={cls} style={style}>{ele}</span>
+    : <div className={cls} style={style}>{ele}</div>
+}
 export class ListItem extends Component {
   install = () => {
     console.log('ListItem!');
@@ -16,25 +30,32 @@ export class ListItem extends Component {
 
     const disabledClass = props.disabled && 'list-disabled'
 
+    const childCls = `${classPrefix}-children`;
+    const prefixCls = classNames(`${classPrefix}-content-prefix`, disabledClass);
+    const prefixStyles = {width: prefixWidth}
+
+    const extraCls = classNames(`${classPrefix}-content-extra`, disabledClass);
+
+    const childEles = formatLabel(props.children, childCls)
+    const prefixEles = formatLabel(props.prefix, prefixCls, prefixStyles)
+    const extraEles = formatLabel(props.extra, extraCls)
+
     const content = (
       <div className={`${classPrefix}-content`}>
-        {props.prefix && (
-          <div className={classNames(`${classPrefix}-content-prefix`, disabledClass)} style={{width: prefixWidth}}>{props.prefix}</div>
-        )}
+        {props.prefix && prefixEles}
+
         <div className={classNames(`${classPrefix}-content-main`, disabledClass)}>
           {props.title && (
             <span className={`${classPrefix}-title`}>{props.title}</span>
           )}
-          <span className={`${classPrefix}-children`}>{props.children}</span>
+          {childEles}
           {props.description && (
             <span className={`${classPrefix}-description`}>
               {props.description}
             </span>
           )}
         </div>
-        {props.extra && (
-          <div className={classNames(`${classPrefix}-content-extra`, disabledClass)}>{props.extra}</div>
-        )}
+        {props.extra && extraEles}
         {arrow && (
           <div className={classNames(`${classPrefix}-content-arrow`, disabledClass)}>
             {arrow === true ? <span>&gt;</span> : arrow}

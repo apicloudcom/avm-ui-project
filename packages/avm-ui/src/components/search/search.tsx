@@ -11,7 +11,9 @@ const defaultProps = {
   showCancelButton: false,
   defaultValue: '',
   clearOnCancel: true,
-  cancelText: '取消'
+  cancelText: '取消',
+  bgColor: '#f5f5f5',
+  borderRadius: '6px'
 }
 
 export class Search extends Component {
@@ -20,13 +22,13 @@ export class Search extends Component {
   }
 
   data = {
-    value: '',
+    searchVal: '',
     hasFocus: false
   }
 
-  setValue = (val, props) => {
-    this.data.value = val
-    props.onChange?.(this.data.value)
+  setSearchValue = (val, props) => {
+    this.data.searchVal = val
+    props.onChange?.(this.data.searchVal)
   }
 
   setHasFocus = focus => {
@@ -39,9 +41,9 @@ export class Search extends Component {
     const renderCancelButton = () => {
       let isShowCancel = false
       if (typeof props.showCancelButton === 'function') {
-        isShowCancel = props.showCancelButton(this.data.hasFocus, this.data.value)
+        isShowCancel = props.showCancelButton(this.data.hasFocus, this.data.searchVal)
       } else {
-        isShowCancel = props.showCancelButton && this.data.hasFocus
+        isShowCancel = props.showCancelButton && this.data.searchVal
       }
 
       return (
@@ -49,7 +51,7 @@ export class Search extends Component {
           <span
             className={`${classPrefix}-suffix`}
             onClick={() => {
-              this.setValue('', props)
+              this.setSearchValue('', props);
               if (props.clearOnCancel) {
                 props.onClear?.()
               }
@@ -61,33 +63,42 @@ export class Search extends Component {
       )
     }
 
+    const boxStyles = {}
+    boxStyles['background'] = props.bgColor
+    boxStyles['borderRadius'] = props.borderRadius
+
+    const placeHolderStyle = `color: ${props.placeholderColor}`
+
     return (
       <div
         className={classNames(classPrefix, {
           [`${classPrefix}-active`]: this.data.hasFocus,
         })}
       >
-        <div className={`${classPrefix}-input-box`}>
+        <div className={classNames(`${classPrefix}-input-box`, this.data.hasFocus ? `${classPrefix}-active-input-box` : '')} style={boxStyles}>
           <div className={`${classPrefix}-input-box-icon`}>
             <img src={searchIcon} alt="search"/>
           </div>
           <Input
-            value={this.data.value}
+            isSearch={true}
             className={`${classPrefix}-input`}
-            placeholder={props.placeholder}
-            clearable={props.clearable}
-            placeholderClass={props.placeholderClass}
+            value={this.data.searchVal}
+            onChange={val => this.setSearchValue(val, props)}
             maxLength={props.maxLength}
-            onChange={val => this.setValue(val, props)}
-            onFocus={() => {this.setHasFocus(true)}}
-            onBlur={e => { 
+            placeholder={props.placeholder}
+            placeholderStyle={placeHolderStyle}
+            clearable={props.clearable}
+            onFocus={e => {
+              this.setHasFocus(true)
+              props.onFocus?.(e)
+            }}
+            onBlur={e => {
               this.setHasFocus(false)
               props.onBlur?.(e)
             }}
             onClear={props.onClear}
-            // type='search'
             onEnterPress={() => {
-              props.onSearch?.(this.data.value)
+              props.onSearch?.(this.data.searchVal)
             }}
           />
         </div>

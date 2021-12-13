@@ -17,4 +17,5 @@ export {default as Input} from './components/input'
 export {default as Tag} from './components/tag'
 // export {default as WaterMark} from './components/water-mark' // 由于avm中暂时不支持canvas，所以暂时不能使用
 // export {default as Radio} from './components/radio' // 暂时不能使用，正在修改中~
-export {default as rate} from './components/rate'
+export {default as Rate} from './components/rate'
+export {default as Search} from './components/search'

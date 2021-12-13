@@ -29,8 +29,9 @@ export class Input extends Component {
   }
 
   setValue = (val, props) => {
+    this.data.isInit = false
     this.data.value = val;
-    props.onChange?.(val)
+    props.onChange && props.onChange(val)
   }
 
   setHasFocus = state => {
@@ -40,11 +41,8 @@ export class Input extends Component {
   render = props => {
     props = mergeProps(defaultProps, props)
 
-    if(this.data.isInit && props.defaultValue) {
-      this.data.value = props.defaultValue
-    }
-    if(this.data.isInit && props.value) {
-      this.data.value = props.value
+    if(this.data.isInit) {
+      this.data.value = props.value || props.defaultValue
     }
 
     const handleKeydown = (e: any) => {
