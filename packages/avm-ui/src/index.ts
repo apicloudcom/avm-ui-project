@@ -19,3 +19,5 @@ export {default as Tag} from './components/tag'
 // export {default as Radio} from './components/radio' // 暂时不能使用，正在修改中~
 export {default as Rate} from './components/rate'
 export {default as Search} from './components/search'
+export {default as Grid} from './components/grid'
+export {default as Selector} from './components/selector'
