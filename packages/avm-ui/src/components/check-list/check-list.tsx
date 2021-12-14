@@ -16,17 +16,14 @@ export class CheckList extends Component {
   }
 
   data = {
-    checked: [],
-    hasChecked: false
+    checked: this.props.defaultValue || []
   }
 
   setChecked = val => {
-    this.data.hasChecked = true
     this.data.checked = val
   }
 
   check = (val, props) => {
-    this.data.hasChecked = true
     if (props.multiple) {
       this.setChecked([...this.data.checked, val])
     } else {
@@ -42,10 +39,7 @@ export class CheckList extends Component {
 
   render = props => {
     props = mergeProps(defaultProps, props)
-    const {list=[], defaultValue} = props
-    if(defaultValue && !this.data.hasChecked) {
-      this.data.checked = defaultValue
-    }
+    const {list=[]} = props
 
     const childEle = list.map(item => {
       const disabled = item.disabled ?? props.disabled

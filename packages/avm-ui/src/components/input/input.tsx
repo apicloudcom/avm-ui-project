@@ -23,13 +23,11 @@ export class Input extends Component {
   }
 
   data = {
-    value: '',
-    hasFocus: false,
-    isInit: true
+    value: this.props.value || this.props.defaultProps,
+    hasFocus: false
   }
 
   setValue = (val, props) => {
-    this.data.isInit = false
     this.data.value = val;
     props.onChange && props.onChange(val)
   }
@@ -41,10 +39,6 @@ export class Input extends Component {
   render = props => {
     props = mergeProps(defaultProps, props)
 
-    if(this.data.isInit) {
-      this.data.value = props.value || props.defaultValue
-    }
-
     const handleKeydown = (e: any) => {
       if (props.onEnterPress && (e.code === 'Enter' || e.keyCode === 13)) {
         props.onEnterPress(e)
@@ -53,18 +47,10 @@ export class Input extends Component {
     }
 
     const inputStyles = {};
-    if (props.fontSize) {
-      inputStyles['fontSize'] = props.fontSize;
-    }
-    if (props.color) {
-      inputStyles['color'] = props.color;
-    }
-    if (props.disabledColor && props.disabled) {
-      inputStyles['color'] = props.disabledColor
-    }
-    if (props.textAlign) {
-      inputStyles['textAlign'] = props.textAlign;
-    }
+    props.fontSize && (inputStyles['fontSize'] = props.fontSize)
+    props.color && (inputStyles['color'] = props.color)
+    props.disabledColor && props.disabled && (inputStyles['color'] = props.disabledColor)
+    props.textAlign && (inputStyles['textAlign'] = props.textAlign)
 
     return (
       <div className={`${classPrefix}-wrapper`}>
@@ -111,9 +97,9 @@ export class Input extends Component {
         {props.clearable && !!this.data.value && this.data.hasFocus && (
           <div
             className={`${classPrefix}-clear`}
-            onMouseDown={e => {
-              e.preventDefault()
-            }}
+            // onMouseDown={e => {
+            //   e.preventDefault()
+            // }}
             onClick={() => {
               this.setValue('', props)
               props.onClear?.()

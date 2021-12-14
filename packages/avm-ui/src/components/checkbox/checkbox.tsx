@@ -22,13 +22,11 @@ export class Checkbox extends Component {
   }
 
   data = {
-    checked: false,
-    hasChecked: false
+    checked: !!(this.props.defaultChecked || this.props.checked || (this.props.defaultValue && this.props.defaultValue.includes(this.props.value))),
   }
 
   setChecked = (props) => {
     if (!props.indeterminate && !props.disabled) {
-      this.data.hasChecked = true
       this.data.checked = !this.data.checked
       if (this.data.checked) {
         props.check?.(props.value)
@@ -53,13 +51,6 @@ export class Checkbox extends Component {
 
     if (props.checkedList !== undefined && props.value === undefined) {
       usageWarning()
-    }
-
-    // 设置默认值
-    if (!this.data.hasChecked) {
-      this.data.checked = !!(props.defaultChecked
-        || props.checked
-        || (props.defaultValue && props.defaultValue.includes(props.value)))
     }
 
     const boxClsObj = {
