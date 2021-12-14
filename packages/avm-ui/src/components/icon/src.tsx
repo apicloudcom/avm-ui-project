@@ -1,5 +1,5 @@
 // @ts-ignore
-import {fontName} from 'icon.config.json';
+import {fontName} from './icon.config.json';
 
 export type IconProps = {
   color?: '',
@@ -11,8 +11,8 @@ export class Icon extends Component {
   code = 59913;
 
   css() {
-    return `@font-face {font-family: "${fontName}"; src: url('../../components/act/a-iconfont/fonts/${fontName}.ttf') format('truetype');}
-        .${classPrefix} {font-family: iconfont;}`;
+    return `@font-face {font-family: "${fontName}"; src: url('../../res/${fontName}.ttf') format('truetype');}
+        .${classPrefix} {font-family: ${fontName};}`;
   }
 
 

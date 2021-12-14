@@ -1486,7 +1486,7 @@
 		}
 		return Image;
 	})(Component);
-	var fontName = "avm-icon";
+	var fontName = "iconfont";
 	var classPrefix$b = "adm-icon";
 	var Icon = /*#__PURE__*/ (function(_Component9) {
 		_inheritsLoose(Icon, _Component9);
@@ -1525,7 +1525,7 @@
 			return (
 				'@font-face {font-family: "' +
 				fontName +
-				"\"; src: url('widget://res/" +
+				"\"; src: url('../../res/" +
 				fontName +
 				".ttf') format('truetype');}\n        ." +
 				classPrefix$b +

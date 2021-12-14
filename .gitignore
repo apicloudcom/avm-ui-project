@@ -19,4 +19,5 @@ dist-ssr
 /.apicloud/
 /widget/.idea/
 /widget/.apicloud/.labelinfo
-/packages/avm-ui/widget/.apicloud/
+/widget/.apicloud/.project
+/packages/avm-ui/widget/.apicloud/.*
