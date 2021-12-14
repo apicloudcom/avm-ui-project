@@ -1,5 +1,4 @@
 import {Icon, AppOutline} from "../icon";
-import '../icon.less';
 import {DemoBlock} from "../../../demos";
 import Space from "../../space";
 
