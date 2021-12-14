@@ -1,12 +1,7 @@
-<template name='tpl'>
-
+<template>
 	<>
 		<Icon fontSize={30} color={'#9ac200'} />
 		<AppOutline fontSize={72} color={'#3af'} />
-		<text class="t">sdf</text>
-		<a-iconfont name="mine" />
-
-		<view style="width:100px;height:20px;border:1px dashed red;"></view>
 	</>
 </template>
 <style src="../../components/avm-ui/avm-ui.css"/>
@@ -14,7 +9,6 @@
 <script>
 
 import { Icon, AppOutline } from '../../components/avm-ui/avm-ui';
-import AIconfont from "../../components/act/a-iconfont";
 
 export default {
 	name: "tpl",
