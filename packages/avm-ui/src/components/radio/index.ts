@@ -3,9 +3,6 @@ import { attachPropertiesToComponent } from '../../utils/attach-properties-to-co
 import { Group } from './group'
 import { Radio } from './radio'
 
-export type { RadioProps, RadioValue } from './radio'
-export type { RadioGroupProps } from './group'
-
 export default attachPropertiesToComponent(Radio, {
   Group,
 })

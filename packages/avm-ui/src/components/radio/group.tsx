@@ -1,15 +1,5 @@
 import { mergeProps } from '../../utils/with-default-props'
-import { RadioValue } from '.'
-// import { RadioGroupContext } from './group-context'
-// import { usePropsValue } from '../../utils/use-props-value'
 import {Radio} from './radio'
-
-export interface RadioGroupProps {
-  value?: RadioValue | null
-  onChange?: (val: RadioValue) => void
-  defaultValue?: RadioValue | null
-  disabled?: boolean
-}
 
 const defaultProps = {
   disabled: false,
@@ -18,43 +8,36 @@ const defaultProps = {
 
 export class Group extends Component {
   install = () => {
-    console.log('radioGroup!')
+    console.log('RadioGroup!')
   }
 
   data = {
-    value: null,
-    isInit: true
+    value: this.props.value || this.props.defaultValue
   }
 
-  radioChange = (val, props) => {
+  setValue = val => {
     this.data.value = val;
-    this.data.isInit = false;
-    props.change?.(this.data.value)
+    this.props.onChange && this.props.onChange(val)
   }
 
   render = props => {
     props = mergeProps(defaultProps, props)
 
-    // 初始化
-    this.data.isInit && (this.data.value = props.defaultValue)
-
-    const groupContext = {
-      checkVal: this.data.value,
+    const RadioGroupContext = {
+      value: this.data.value === null ? [] : [this.data.value],
+      check: v => {
+        this.setValue(v)
+      },
+      uncheck: () => {},
       disabled: props.disabled
     }
-    const itemList = props.children
+
+    const eles = props.children.map(ele => (
+      <Radio {...ele.attributes} RadioGroupContext={RadioGroupContext}>{ele.children}</Radio>
+    ))
+
     return (
-      itemList.map(item => {
-        return (
-          <Radio
-            {...item.attributes}
-            checked={item.attributes.value === this.data.value}
-            groupContext={groupContext}
-            onChange={val => this.radioChange(val, props)}>
-            {item.children}
-          </Radio>
-        )
-      })
+      <div>{eles}</div>
     )
   }
 }

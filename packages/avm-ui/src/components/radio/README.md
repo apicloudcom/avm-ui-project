@@ -1,5 +1,3 @@
-## 暂时有问题，请忽略radio组件
-
 # Radio 单选框
 
 <code src="./demos/index.tsx"></code>
@@ -22,6 +20,9 @@ type RadioValue = string | number
 | block          | 是否渲染为块级元素                           | `boolean`                               | `false` |
 | id             | `input` 元素的 `id`，常用来配合 `label` 使用 | `string`                                | -       |
 | icon           | 自定义 `icon` 图标                           | `(checked: boolean) => React.ReactNode` | -       |
+| iconSize | 勾选图标的大小          | - | `22px` |
+| fontSize | 右侧文字描述的大小       | - | `17px` |
+| gap       | 图标和文字描述之间的间距 | - | `8px`  |
 
 ### Radio.Group
 
@@ -32,12 +33,3 @@ type RadioValue = string | number
 | value        | 指定选中的选项 | `RadioValue`                  | -       |
 | onChange     | 变化时回调函数 | `(value: RadioValue) => void` | -       |
 
-## CSS 变量
-
-### Radio
-
-| 属性        | 说明                     | 默认值 |
-| ----------- | ------------------------ | ------ |
-| --icon-size | 勾选图标的大小           | `22px` |
-| --font-size | 右侧文字描述的大小       | `17px` |
-| --gap       | 图标和文字描述之间的间距 | `8px`  |

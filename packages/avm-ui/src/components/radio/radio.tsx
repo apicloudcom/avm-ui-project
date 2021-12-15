@@ -3,108 +3,118 @@ import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-radio`
 
-export type RadioValue = string | number
+const checkLabelType = ele => {
+  return Object.prototype.toString.call(ele)
+}
 
-export type RadioProps = {
-  checked?: boolean
-  defaultChecked?: boolean
-  disabled?: boolean
-  onChange?: (checked: boolean) => void
-  value?: RadioValue
-  block?: boolean
-  id?: string
-  icon?: any
+const formatLabel = (ele, cls, style={}) => {
+  if (checkLabelType(ele) === '[object Array]') {
+    return ele.map(el => {
+      return formatLabel(el, cls, style)
+    })
+  }
+  return checkLabelType(ele) === '[object String]'
+    ? <span className={cls} style={style}>{ele}</span>
+    : <div className={cls} style={style}>{ele}</div>
 }
 
 const defaultProps = {
   defaultChecked: false,
 }
 
-export class Radio  extends Component {
-  install =() => {
+export class Radio extends Component {
+  install = () => {
     console.log('Radio!')
   }
 
   data = {
-    checked: false
+    checked: this.props.checked || this.props.defaultChecked
   }
 
-  radioClick = props => {
-    // this.data.checked = true
-    props.onChange?.(props.value)
-    if (props.groupContext) {
-      props.onClick?.(props.value)
-    } else {
-      this.data.checked = !this.data.checked
-      props.onChange?.(props.value, this.data.checked)
-    }
+  setChecked = check => {
+    this.data.checked = check
+
+    this.props.onChange && this.props.onChange(this.props.value)
   }
 
-  render = props =>{
+  render = props => {
     props = mergeProps(defaultProps, props)
-    const groupContext = props.groupContext
+
+    const groupContext = props.RadioGroupContext
+
     let disabled = props.disabled
 
-    if (groupContext && props.value !== undefined) {
-      this.data.checked = groupContext.checkVal == props.value
+    const { value } = props
+    if (groupContext && value !== undefined) {
+      this.data.checked = groupContext.value.includes(value)
+      this.setChecked = (checked: boolean) => {
+        if (checked) {
+          groupContext.check(value)
+        } else {
+          groupContext.uncheck(value)
+        }
+        props.onChange?.(checked)
+      }
       disabled = disabled || groupContext.disabled
-    } else {
-      this.data.checked = props.checked || props.defaultChecked
     }
 
-    // 样式class字符串
-    const boxClsObj = {
-      [`${classPrefix}-checked`]: this.data.checked && !disabled,
-      [`${classPrefix}-disabled`]: disabled,
-      [`${classPrefix}-block`]: props.block
+    const renderIcon = () => {
+      const iconCls = classNames(`${classPrefix}-icon`, {
+        [`${classPrefix}-checked-icon`]: this.data.checked,
+        [`${classPrefix}-disabled-icon`]: disabled
+      })
+
+      const radioSizeStyle = {}
+      const iconSize = props.iconSize || '22px'
+      radioSizeStyle['width'] = iconSize
+      radioSizeStyle['height'] = iconSize
+      radioSizeStyle['borderRadius'] = iconSize
+
+      if (props.icon) {
+        return (
+          <div style={{fontSize: iconSize}}>
+            {props.icon(this.data.checked)}
+          </div>
+        )
+      }
+      return (
+        <div className={iconCls} style={radioSizeStyle}>
+          {this.data.checked && <text className={classNames(`${classPrefix}-icon-checked`, {
+            [`${classPrefix}-icon-checked-disabled`]: disabled
+          })}>√</text>}
+        </div>
+      )
     }
-    const iconClsObj = Object.keys(boxClsObj).map(key => ({[`${key}-icon`]: boxClsObj[key]}))
-    const iconTextClsObj = Object.keys(boxClsObj).map(key => ({[`${key}-icon-text`]: boxClsObj[key]}))
 
-    // 外层class
-    const boxClassStr = classNames(classPrefix, boxClsObj)
-
-    // iconClass
-    const iconClassStr = classNames(`${classPrefix}-icon`, iconClsObj)
-
-    // iconTextClass
-    const iconTextClassStr = classNames(`${classPrefix}-icon-text`, iconTextClsObj);
-
-    // 文本class
-    const contentClassStr = classNames(`${classPrefix}-content`, {
-      [`${classPrefix}-disabled-content`]: props.disabled
+    const contentCls = classNames(`${classPrefix}-content`, {
+      [`${classPrefix}-disabled-content`]: disabled
     })
 
-    const iconSize = props.iconSize || '22px'
-    const iconSizeStyle = {}
-    iconSizeStyle['width'] = iconSize
-    iconSizeStyle['height'] = iconSize
-    iconSizeStyle['lineHeight'] = iconSize
+    const contentStyles = {}
+    contentStyles['fontSize'] = props.fontSize || '17px'
+    contentStyles['paddingLeft'] = props.gap || '8px'
 
     return (
       <label
-        className={boxClassStr}
-        style={props.style}
-      >
-        <div
-          className={iconClassStr}
-          onClick={() => {
-            this.radioClick(props)
+        className={classNames(classPrefix, props.className, {
+          [`${classPrefix}-checked`]: this.data.checked,
+          [`${classPrefix}-disabled`]: disabled,
+          [`${classPrefix}-block`]: props.block,
+        })}
+        style={props.style}>
+        <radio
+          className={`${classPrefix}-input`}
+          type='radio'
+          checked={this.data.checked}
+          onChange={e => {
+            !disabled && this.setChecked(e.detail.value)
           }}
-          style={iconSizeStyle}
-        >
-          <span
-            className={iconTextClassStr}
-            style={{fontSize: `${Number(iconSize.replace('px', ''))-6}px`, lineHeight: iconSize}}>
-            {!!this.data.checked && '√'}
-          </span>
-        </div>
+          disabled={disabled}
+          id={props.id}
+        />
+        {renderIcon()}
         {props.children && (
-          <span
-            className={contentClassStr}
-            style={{fontSize: props.fontSize || '17px', paddingLeft: props.gap || '8px'}}>
-            {props.children}
-          </span>
+          formatLabel(props.children, contentCls, contentStyles)
         )}
       </label>
     )
