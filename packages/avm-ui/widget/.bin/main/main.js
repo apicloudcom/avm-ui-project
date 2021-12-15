@@ -1486,7 +1486,8 @@
 		}
 		return Image;
 	})(Component);
-	var fontName = "iconfont";
+
+	var fontName = "avm-ui-icon";
 	var classPrefix$b = "adm-icon";
 	var Icon = /*#__PURE__*/ (function(_Component9) {
 		_inheritsLoose(Icon, _Component9);
@@ -1525,7 +1526,7 @@
 			return (
 				'@font-face {font-family: "' +
 				fontName +
-				"\"; src: url('../../res/" +
+				"\"; src: url('../../components/avm-ui/" +
 				fontName +
 				".ttf') format('truetype');}\n        ." +
 				classPrefix$b +
@@ -2925,6 +2926,7 @@
 		return Tpl;
 	})(Component);
 	Tpl.css = {
+		".t": {fontFamily: "avm-ui-icon"},
 		".page": {height: "100%", backgroundColor: "white"},
 		".header": {
 			background: "#81a9c3",

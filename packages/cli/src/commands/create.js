@@ -4,7 +4,7 @@ import {red} from 'kolorist'
 // create type 支持项
 const CREATE_TYPES = ['component', 'lib-entry']
 // 文档分类
-const DOCS_CATEGORIES = ['通用', '导航', '反馈', '数据录入', '数据展示', '布局']
+const DOCS_CATEGORIES = ['基础', '数据展示', '数据录入', '反馈', '导航和布局','实验性组件']
 
 export async function onCreate(cmd = {}) {
   let {type} = cmd
@@ -93,6 +93,7 @@ function createComponent(info) {
 }
 
 function createLibEntry() {
+  // TODO 暂不支持创建 API 类型组件
   console.log('create lib-entry file.')
 }
  

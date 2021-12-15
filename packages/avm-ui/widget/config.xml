@@ -44,8 +44,8 @@
 
   <preference name="statusBarAppearance" value="true"/>
 
-  <preference name="font" family="iconfont" value="widget/res/iconfont.ttf"/>
-
+  <preference name="font" family="avm-ui-icon" value="widget/components/avm-ui/avm-ui-icon.ttf"/>
+  
   <permission name="readPhoneState"/>
 
   <permission name="camera"/>

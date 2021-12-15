@@ -870,13 +870,12 @@ class Image extends Component {
     }, renderInner());
   };
 }
-var icon = "";
-const fontName = "iconfont";
+const fontName = "avm-ui-icon";
 const classPrefix$b = `adm-icon`;
 class Icon extends Component {
   code = 59913;
   css() {
-    return `@font-face {font-family: "${fontName}"; src: url('../../res/${fontName}.ttf') format('truetype');}
+    return `@font-face {font-family: "${fontName}"; src: url('../../components/avm-ui/${fontName}.ttf') format('truetype');}
         .${classPrefix$b} {font-family: ${fontName};}`;
   }
   render = (props) => {
