@@ -23,7 +23,7 @@ export class Input extends Component {
   }
 
   data = {
-    value: this.props.value || this.props.defaultProps,
+    value: this.props.value || this.props.defaultValue,
     hasFocus: false
   }
 
