@@ -1,13 +1,8 @@
 import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
+import {formatLabel} from '../../utils/format-label'
 
 const classPrefix = `adm-badge`
-
-const formatLabel = (ele, cls, style={}) => {
-  return Object.prototype.toString.call(ele) !== '[object Object]'
-    ? <span className={cls} style={style}>{ele}</span>
-    : <div className={cls} style={style}>{ele}</div>
-}
 
 const defaultProps = {
   color: '#FF411C'

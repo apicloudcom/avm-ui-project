@@ -25,7 +25,37 @@ const defaultProps = {
   disabled: false,
   loading: false,
   type: 'button',
-  shape: 'default'
+  shape: 'default',
+  style: {}
+}
+
+const colorAttr = {
+  default: {
+    textColor: '#333',
+    bgColor: '#fff'
+  },
+  primary: {
+    textColor: '#fff',
+    bgColor: '#1677ff'
+  },
+  success: {
+    textColor: '#fff',
+    bgColor: '#00b578'
+  },
+  warning: {
+    textColor: '#fff',
+    bgColor: '#ff8f1f'
+  },
+  danger: {
+    textColor: '#fff',
+    bgColor: '#ff3141'
+  }
+}
+
+const shapeAttr = {
+  default: '4px',
+  rounded: '1000px',
+  rectangular: 0
 }
 
 export class Button extends Component {
@@ -39,34 +69,39 @@ export class Button extends Component {
     const disabled = props.disabled || props.loading
 
     const btnStyles = {};
-    props.textColor && (btnStyles['color'] = props.textColor)
-    props.bgColor && (btnStyles['background-color'] = props.bgColor)
-    props.borderRadius && (btnStyles['border-radius'] = props.borderRadius)
-    props.borderWidth && (btnStyles['border-width'] = props.borderWidth)
-    props.borderStyle && (btnStyles['border-style'] = props.borderStyle)
-    props.borderColor && (btnStyles['border-color'] = props.borderColor)
+    btnStyles['opacity'] = disabled ? 0.4 : 1
+    btnStyles['color'] = props.textColor || colorAttr[props.color].textColor
+    btnStyles['backgroundColor'] = props.bgColor || colorAttr[props.color].bgColor
+    btnStyles['borderRadius'] = props.borderRadius || shapeAttr[props.shape]
+    btnStyles['borderWidth'] = props.borderWidth
+    btnStyles['borderStyle'] = props.borderStyle
+    btnStyles['borderColor'] = props.borderColor || colorAttr[props.color].bgColor
+
+    const btnCls = classNames(
+      classPrefix,
+      props.className,
+      props.color ? `${classPrefix}-${props.color}` : null,
+      {
+        [`${classPrefix}-block`]: props.block,
+        [`${classPrefix}-disabled`]: disabled,
+        [`${classPrefix}-${props.color}-fill-outline`]: props.fill === 'outline',
+        [`${classPrefix}-${props.color}-fill-none`]: props.fill === 'none',
+        [`${classPrefix}-mini`]: props.size === 'mini',
+        [`${classPrefix}-mini-shape-${props.shape}`]: props.size === 'mini',
+        [`${classPrefix}-small`]: props.size === 'small',
+        [`${classPrefix}-large`]: props.size === 'large',
+        [`${classPrefix}-loading`]: props.loading
+      },
+      `${classPrefix}-shape-${props.shape}`
+    )
+
     return (
       <button
         type={props.type}
         onClick={props.onClick}
-        style={btnStyles}
-        className={classNames(
-          classPrefix,
-          props.color ? `${classPrefix}-${props.color}` : null,
-          {
-            [`${classPrefix}-block`]: props.block,
-            [`${classPrefix}-disabled`]: disabled,
-            [`${classPrefix}-${props.color}-fill-outline`]: props.fill === 'outline',
-            [`${classPrefix}-${props.color}-fill-none`]: props.fill === 'none',
-            [`${classPrefix}-mini`]: props.size === 'mini',
-            [`${classPrefix}-mini-shape-${props.shape}`]: props.size === 'mini',
-            [`${classPrefix}-small`]: props.size === 'small',
-            [`${classPrefix}-large`]: props.size === 'large',
-            [`${classPrefix}-loading`]: props.loading
-          },
-          `${classPrefix}-shape-${props.shape}`
-        )}
-        disabled={disabled}>
+        className={btnCls}
+        disabled={disabled}
+        style={{...btnStyles, ...props.style}}>
         {props.loading ? (props.loadingText) : (props.children)}
       </button>
     )

@@ -3,9 +3,7 @@
 @class-prefix-button: ~'adm-button';
 
 .@{class-prefix-button} {
-  color: #333;
   border: 1px solid #eee;
-  background-color: #fff;
   position: relative;
   display: inline-block;
   box-sizing: border-box;
@@ -18,43 +16,7 @@
   cursor: pointer;
   transition: opacity ease 0.15s;
   user-select: none;
-
-  &-default {
-    &-fill-outline {
-      background-color: transparent;
-      border-color: #333;
-    }
-
-    &-fill-none {
-      background-color: transparent;
-      border-color: transparent;
-    }
-  }
-
-  &-primary {
-    background: var(--adm-color-primary);
-    border-color: var(--adm-color-primary);
-    color: #fff;
-  }
-
-  &-success {
-    background: var(--adm-color-success);
-    border-color: var(--adm-color-success);
-    color: #fff;
-  }
-
-  &-danger {
-    background: var(--adm-color-danger);
-    border-color: var(--adm-color-danger);
-    color: #fff;
-  }
-
-  &-warning {
-    background: var(--adm-color-warning);
-    border-color: var(--adm-color-warning);
-    color: #fff;
-  }
-
+  
   &-block {
     display: block;
     width: 100%;
@@ -62,7 +24,6 @@
 
   &-disabled {
     cursor: not-allowed;
-    opacity: 0.4;
 
 
     &:active::before {
