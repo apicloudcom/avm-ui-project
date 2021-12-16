@@ -119,14 +119,15 @@ export class Stepper extends Component {
 
     const btnStyle = {
       ...btnWidthStyle,
-      height: '100%',
+      height: height,
+      lineHeight: height,
       backgroundColor: btnBgColor,
       fontSize: `${Number(btnFontSize.replace('px', '')) + 5}px`,
       opacity: 1
     }
 
     const inputStyle = {
-      height: '100%',
+      height: height,
       width: inputWidth,
       fontSize: inputFontSize,
       color: disabled ? '#999' : inputFontColor,

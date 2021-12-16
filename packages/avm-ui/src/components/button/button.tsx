@@ -68,7 +68,7 @@ export class Button extends Component {
 
     const disabled = props.disabled || props.loading
 
-    const btnStyles = {};
+    const btnStyles = {height: 'auto', lineHeight: 1.4};
     btnStyles['opacity'] = disabled ? 0.4 : 1
     btnStyles['color'] = props.textColor || colorAttr[props.color].textColor
     btnStyles['backgroundColor'] = props.bgColor || colorAttr[props.color].bgColor
