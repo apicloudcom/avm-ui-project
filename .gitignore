@@ -21,3 +21,4 @@ dist-ssr
 /widget/.apicloud/.labelinfo
 /widget/.apicloud/.project
 /packages/avm-ui/widget/.apicloud/.*
+/packages/cli/lib/

@@ -10,6 +10,9 @@
     "lib": "lib",
     "test": "__tests__"
   },
+  "bin": {
+    "avm-ui": "lib/index.js"
+  },
   "files": [
     "lib"
   ],

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import {Command} from 'commander'
 import {onCreate} from "./commands/create";
+import {onGenIcon} from "./commands/genIcon";
 
 // 创建命令对象
 const program = new Command()
@@ -15,6 +16,12 @@ program
   .option('-t --type <type>', `创建类型，可选值：component, lib-entry`)
   // 注册命令回调
   .action(onCreate)
+
+
+// 注册命令、参数、回调
+program.command('icon')
+  .description('生成 icon 组件源码')
+  .action(onGenIcon)
 
 // 执行命令行参数解析
 program.parse()
