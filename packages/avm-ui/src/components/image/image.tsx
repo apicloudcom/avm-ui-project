@@ -1,5 +1,6 @@
 import {mergeProps} from '../../utils/with-default-props'
 import {toCSSLength} from '../../utils/to-css-length'
+import { formatLabel } from '../../utils/format-label'
 
 import outlineUrl from './img/outline.svg'
 import warnUrl from './img/warn.svg'
@@ -50,7 +51,7 @@ export class Image extends Component {
 
     const renderInner = () => {
       if (this.data.failed) {
-        return <view>{props.fallback}</view>
+        return formatLabel(props.fallback)
       }
       const img = (
         <img className={`${classPrefix}-img`}
