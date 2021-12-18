@@ -1,7 +1,6 @@
 import '../empty.less'
 import { Empty } from '../empty'
 import { DemoBlock } from '../../../demos'
-// import Warn from '../image/warn.svg'
 import {UiwCloseSquare} from '../../icon/icon'
 
 const template =

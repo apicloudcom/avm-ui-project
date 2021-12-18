@@ -20,7 +20,7 @@ export class Empty extends Component {
     console.log('Empty!')
   }
 
-  render = props => {debugger
+  render = props => {
     props = mergeProps(defaultProps, props)
     const { children, imageStyle, fontSize, color} = props
     const imageWidth = (imageStyle && imageStyle.width) ?? fontSize
