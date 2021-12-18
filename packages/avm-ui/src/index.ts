@@ -25,4 +25,5 @@ export {default as InfiniteScroll} from './components/infinite-scroll'
 export {default as Stepper} from './components/stepper'
 export {default as Divider} from './components/divider'
 export {default as Switch} from './components/switch'
+export {default as TextArea} from './components/text-area'
 
