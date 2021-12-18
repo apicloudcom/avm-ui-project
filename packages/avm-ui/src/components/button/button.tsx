@@ -68,14 +68,19 @@ export class Button extends Component {
 
     const disabled = props.disabled || props.loading
 
-    const btnStyles = {height: 'auto', lineHeight: 1.4};
-    btnStyles['opacity'] = disabled ? 0.4 : 1
-    btnStyles['color'] = props.textColor || colorAttr[props.color].textColor
-    btnStyles['backgroundColor'] = props.bgColor || colorAttr[props.color].bgColor
-    btnStyles['borderRadius'] = props.borderRadius || shapeAttr[props.shape]
-    btnStyles['borderWidth'] = props.borderWidth
-    btnStyles['borderStyle'] = props.borderStyle
-    btnStyles['borderColor'] = props.borderColor || colorAttr[props.color].bgColor
+    const {textColor, color, bgColor, borderRadius, shape, borderWidth, borderStyle, borderColor} = props
+
+    const btnStyles = {
+      height: 'auto',
+      lineHeight: 1.4,
+      opacity: disabled ? 0.4 : 1,
+      color:  textColor || colorAttr[color].textColor,
+      backgroundColor: bgColor || colorAttr[color].bgColor,
+      borderRadius: borderRadius || shapeAttr[shape],
+      borderWidth,
+      borderStyle,
+      borderColor: borderColor || colorAttr[color].bgColor
+    };
 
     const btnCls = classNames(
       classPrefix,
