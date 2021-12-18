@@ -27,11 +27,11 @@ const iconDefalutProps = {
 }
 
 const iconRecord = {
-  'success': <CheckCircleFill {...iconDefalutProps['success']}/>,
-  'error': <CloseCircleFill {...iconDefalutProps['error']}/>,
-  'info': <InformationCircleOutline {...iconDefalutProps['info']}/>,
-  'waiting': <ClockCircleOutline {...iconDefalutProps['waiting']}/>,
-  'warning': <ExclamationCircleFill {...iconDefalutProps['warning']}/>,
+  'success': <CheckCircleFill {...iconDefalutProps['success']} />,
+  'error': <CloseCircleFill {...iconDefalutProps['error']} />,
+  'info': <InformationCircleOutline {...iconDefalutProps['info']} />,
+  'waiting': <ClockCircleOutline {...iconDefalutProps['waiting']} />,
+  'warning': <ExclamationCircleFill {...iconDefalutProps['warning']} />,
 }
 
 
