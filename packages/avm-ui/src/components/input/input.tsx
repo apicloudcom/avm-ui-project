@@ -27,9 +27,8 @@ export class Input extends Component {
     hasFocus: false
   }
 
-  setValue = (val, props) => {
+  setValue = val => {
     this.data.value = val;
-    props.onChange && props.onChange(val)
   }
 
   setHasFocus = state => {
@@ -37,72 +36,78 @@ export class Input extends Component {
   }
 
   render = props => {
-    props = mergeProps(defaultProps, props)
+    this.props = mergeProps(defaultProps, props)
+    
+
+    const {id, color, fontSize, disabledColor, textAlign, placeholderColor, placeholderClass,
+      disabled, readOnly,  placeholder, maxLength, minLength, max, min, clearable,
+      onEnterPress, onKeyDown, onInput, onFocus, onBlur, onKeyUp, onClear,
+      autoComplete='on', enterKeyHint, pattern, type, autoCapitalize, autoCorrect} = this.props;
 
     const handleKeydown = (e: any) => {
-      if (props.onEnterPress && (e.code === 'Enter' || e.keyCode === 13)) {
-        props.onEnterPress(e)
+      if (onEnterPress && (e.code === 'Enter' || e.keyCode === 13)) {
+       onEnterPress(e)
       }
-      props.onKeyDown?.(e)
+      onKeyDown?.(e)
     }
 
-    const inputStyles = {};
-    props.fontSize && (inputStyles['fontSize'] = props.fontSize)
-    props.color && (inputStyles['color'] = props.color)
-    props.disabledColor && props.disabled && (inputStyles['color'] = props.disabledColor)
-    props.textAlign && (inputStyles['textAlign'] = props.textAlign)
+    const iptStyles = {
+      ['font-size']: fontSize,
+      color: disabled ? disabledColor : color,
+      textAlign
+    };
 
     return (
       <div className={`${classPrefix}-wrapper`}>
         <input
-          id={props.id}
-          className={classNames(classPrefix, {
-            [`${classPrefix}-disabled`]: props.disabled,
-            [`${classPrefix}-readOnly`]: props.readOnly,
-          })}
-          placeholder-class={props.placeholderClass}
-          style={inputStyles}
+          id={id}
           value={this.data.value}
+          className={classNames(classPrefix, {
+            [`${classPrefix}-disabled`]: disabled,
+            [`${classPrefix}-readOnly`]: readOnly,
+          })}
+          style={iptStyles}
+          placeholder-style={`color: ${placeholderColor}`}
+          placeholder-class={placeholderClass}
+          placeholder={placeholder}
+          disabled={disabled || readOnly}
+          maxLength={maxLength}
+          minLength={minLength}
+          max={max}
+          min={min}
+          autoComplete={autoComplete}
+          enterKeyHint={enterKeyHint}
+          pattern={pattern}
+          type={type}
+          autoCapitalize={autoCapitalize}
+          autoCorrect={autoCorrect}
+          onKeyDown={handleKeydown}
+          onKeyUp={onKeyUp}
           onInput={e => {
-            this.setValue(e.target.value, props)
-            props.onInput?.(e)
+            this.setValue(e.detail.value)
+            onInput?.(e)
           }}
           onChange={e => {
-            this.setValue(e.target.value, props)
+            this.setValue(e.detail.value)
           }}
           onFocus={e => {
             this.setHasFocus(true)
-            props.onFocus?.(e)
+            onFocus?.(e)
           }}
           onBlur={e => {
-            this.setHasFocus(false)
-            props.onBlur?.(e)
+            !clearable && this.setHasFocus(false)
+            !clearable && this.props.onChange && this.props.onChange(e.detail.value)
+            onBlur?.(e)
           }}
-          placeholder={props.placeholder}
-          disabled={props.disabled}
-          readOnly={props.readOnly}
-          maxLength={props.maxLength}
-          minLength={props.minLength}
-          max={props.max}
-          min={props.min}
-          autoComplete={props.autoComplete}
-          enterKeyHint={props.enterKeyHint}
-          pattern={props.pattern}
-          type={props.type}
-          autoCapitalize={props.autoCapitalize}
-          autoCorrect={props.autoCorrect}
-          onKeyDown={handleKeydown}
-          onKeyUp={props.onKeyUp}
         />
-        {props.clearable && !!this.data.value && this.data.hasFocus && (
+        {clearable && !!this.data.value && this.data.hasFocus && (
           <div
             className={`${classPrefix}-clear`}
-            // onMouseDown={e => {
-            //   e.preventDefault()
-            // }}
             onClick={() => {
-              this.setValue('', props)
-              props.onClear?.()
+              this.setValue('')
+              this.props.onChange && this.props.onChange('')
+              onClear?.()
+              this.setHasFocus(false)
             }}>
             <img src={closeIcon} alt="close" className={`${classPrefix}-clear-icon`}/>
           </div>
