@@ -1,14 +1,15 @@
 <template>
 	<>
-		<Icon fontSize={30} color={'#9ac200'} />
-		<AppOutline fontSize={72} color={'#3af'} />
+		<safe-area></safe-area>
+		<text>导航栏</text>
+		<NavBar :onBack="{()=>{}}">标题</NavBar>
 	</>
 </template>
 <style src="../../components/avm-ui/avm-ui.css"/>
 
 <script>
 
-import { Icon, AppOutline } from '../../components/avm-ui/avm-ui';
+import { Icon, AppOutline, Result, CheckCircleFill, Image, Steps, NavBar } from '../../components/avm-ui/avm-ui';
 
 export default {
 	name: "tpl",
@@ -18,7 +19,12 @@ export default {
 	data() {
 		return {
 			text: "Hello APICloud",
-			year: new Date().getFullYear()
+			year: new Date().getFullYear(),
+			stepList1: [
+				{title: '标题1', description: '描述1'},
+				{title: '标题2', description: '描述2'},
+				{title: '标题3', description: '描述3'}
+			]
 		};
 	},
 	computed: {

@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
-// import { StarFill } from '../icon/icon'
+import { formatLabel } from '../../utils/format-label'
 
 const classPrefix = `adm-rate`
 
@@ -55,7 +55,7 @@ export class Rate extends Component {
             }
           }}
         >
-          <text style={{color: this.data.value >= v ? activeColor : '#ccc', fontSize: starSize}}>{props.character}</text>
+          {formatLabel(props.character, '', {color: this.data.value >= v ? activeColor : '#ccc', fontSize: starSize})}
         </div>
       )
     }

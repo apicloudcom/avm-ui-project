@@ -1,10 +1,10 @@
 import {resolve} from 'path'
-import {readdirSync} from 'fs';
+import {readdirSync, readFileSync} from 'fs';
 import {defineConfig} from 'vite';
 
 const {name, widgetDir} = require('./avm-ui.config.json');
 
-export default defineConfig(({mode}) => {
+export default defineConfig(({mode, command}) => {
   const config = {
     build: {
       target: 'chrome99',
@@ -48,5 +48,19 @@ export default defineConfig(({mode}) => {
     config.build.rollupOptions.output.chunkFileNames = '[name]/[name].js';
     config.build.rollupOptions.output.assetFileNames = '[name]/[name].[ext]';
   }
+
+  if (command === 'serve') {
+    config.plugins = [(() => ({
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          if (req.url === '/components/avm-ui/avm-ui-icon.ttf') {
+            return res.end(readFileSync('./widget/components/avm-ui/avm-ui-icon.ttf'));
+          }
+          next();
+        })
+      }
+    }))()];
+  }
+  
   return config;
 })

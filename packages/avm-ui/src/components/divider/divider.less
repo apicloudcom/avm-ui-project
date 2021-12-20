@@ -1,0 +1,31 @@
+@import "../../global/theme";
+
+@class-prefix-divider: ~'adm-divider';
+
+.@{class-prefix-divider} {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+  font-size: 14px;
+  flex-direction: row;
+  &-left-before {
+    max-width: 10%;
+  }
+  &-right-after {
+    max-width: 10%;
+  }
+  &-after,
+  &-before {
+    flex: auto;
+    display: block;
+    content: '';
+    border-width: 0;
+    border-top-width: 1px;
+    border-color: var(--adm-border-color);
+    border-style: solid;
+  }
+  &-content {
+    flex: none;
+    padding: 0 16px;
+  }
+}
