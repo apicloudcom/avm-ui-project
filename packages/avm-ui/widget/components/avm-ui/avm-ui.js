@@ -2808,7 +2808,6 @@ class Grid$1 extends Component {
     const { gap = 0, columns } = props;
     const styles = {};
     styles["grid-template-columns"] = `repeat(${columns.toString()}, minmax(0, 1fr))`;
-    console.log(gap, "eee");
     if (Array.isArray(gap)) {
       styles["column-gap"] = toCSSLength(gap[0]);
       styles["row-gap"] = toCSSLength(gap[1]);
@@ -2816,7 +2815,6 @@ class Grid$1 extends Component {
       styles["column-gap"] = toCSSLength(gap);
       styles["row-gap"] = toCSSLength(gap);
     }
-    console.log(styles, 321);
     return /* @__PURE__ */ avm.h("div", {
       className: classPrefix$4,
       style: styles

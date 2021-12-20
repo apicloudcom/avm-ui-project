@@ -8,7 +8,7 @@
 
 <script>
 
-import { Icon, AppOutline } from '../../components/avm-ui/avm-ui';
+import { Icon, AppOutline, ProgressBar } from '../../components/avm-ui/avm-ui';
 
 export default {
 	name: "tpl",
