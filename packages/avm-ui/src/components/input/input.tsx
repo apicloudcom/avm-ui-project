@@ -29,6 +29,7 @@ export class Input extends Component {
 
   setValue = val => {
     this.data.value = val;
+    this.props.onChange && this.props.onChange(this.data.value)
   }
 
   setHasFocus = state => {
@@ -52,7 +53,7 @@ export class Input extends Component {
     }
 
     const iptStyles = {
-      ['font-size']: fontSize,
+      fontSize: fontSize,
       color: disabled ? disabledColor : color,
       textAlign
     };
@@ -95,8 +96,9 @@ export class Input extends Component {
             onFocus?.(e)
           }}
           onBlur={e => {
-            !clearable && this.setHasFocus(false)
-            !clearable && this.props.onChange && this.props.onChange(e.detail.value)
+            !clearable ? this.setHasFocus(false) : (setTimeout(() => {
+              this.setHasFocus(false)
+            }, 300))
             onBlur?.(e)
           }}
         />
@@ -105,9 +107,7 @@ export class Input extends Component {
             className={`${classPrefix}-clear`}
             onClick={() => {
               this.setValue('')
-              this.props.onChange && this.props.onChange('')
               onClear?.()
-              this.setHasFocus(false)
             }}>
             <img src={closeIcon} alt="close" className={`${classPrefix}-clear-icon`}/>
           </div>

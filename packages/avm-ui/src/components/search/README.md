@@ -19,15 +19,7 @@
 | onBlur           | 输入框失去焦点时触发                         | `(e: React.FocusEvent<HTMLInputElement>) => void`         | -        |
 | onClear          | 点击清除按钮后触发                           | `() => void`                                              | -        |
 | onCancel         | 点击取消按钮时触发                           | `() => void`                                              | -        |
+| background        | 背景色           | -      | `#f5f5f5`               |
+| borderRadius     | 圆角               | -    | `6px`                   |
+| placeholderColor | `placeholder` 文字颜色  | - | `var(--adm-color-weak)` |
 
-## CSS 变量
-
-| 属性                | 说明                   | 默认值                  |
-| ------------------- | ---------------------- | ----------------------- |
-| --background        | 背景色                 | `#f5f5f5`               |
-| --border-radius     | 圆角                   | `6px`                   |
-| --placeholder-color | `placeholder` 文字颜色 | `var(--adm-color-weak)` |
-
-## Ref
-
-同 [Input](./input)
