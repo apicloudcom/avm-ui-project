@@ -1,3 +1,4 @@
+import LoopOutline from "../icon"
 const classPrefix = `adm-loading`
 
 export type LoadingProps = {
@@ -13,7 +14,9 @@ export class Loading extends Component {
     >
       <span className={
         `${classPrefix}-${color}`
-      }>svg图占位</span>
+      }>
+        <LoopOutline />
+      </span>
       {/*<svg*/}
       {/*  height='1em'*/}
       {/*  viewBox='0 0 100 40'*/}

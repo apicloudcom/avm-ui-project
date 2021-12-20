@@ -53,7 +53,7 @@ export class Mask extends Component {
       props.forceRender,
       props.destroyOnClose
     )
-
+    console.log(props.onMaskClick)
     return <div
       className={classPrefix}
       style={{

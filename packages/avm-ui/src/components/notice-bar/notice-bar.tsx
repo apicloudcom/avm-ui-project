@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps } from '../../utils/native-props'
+import { formatLabel } from '../../utils/format-label'
 
 const classPrefix = `adm-notice-bar`
 
@@ -14,7 +15,7 @@ export type NoticeBarProps = {
   /** 关闭时的回调 */
   onClose?: () => void
   /** 额外操作区域，显示在关闭按钮左侧 */
-  // extra?: HTMLElement
+  extra?: HTMLElement
   /** 左侧广播图标 */
   icon?: HTMLElement
 } & NativeProps<'--background-color' | '--border-color' | '--text-color'>
@@ -41,41 +42,24 @@ export class NoticeBar extends Component {
   render = props => {
     props = mergeProps(defaultProps, props)
 
-    // const styles: Record<string, any> = {};
-    // const {bgColor, borderColor, textColor} = props;
-    // if (bgColor) {
-    //   styles.backgroundColor = bgColor
-    // }
-    // if (borderColor) {
-    //   styles.borderColor = borderColor
-    // }
-    // if (textColor) {
-    //   styles.color = textColor
-    // }
-
     if (!this.data.visible) return null
 
     return <div className={classNames(classPrefix, `${classPrefix}-${props.color}`)}>
-    <text className={classNames(`${classPrefix}-left`, `${classPrefix}-left-${props.color}`)}>
-      {'icon' in props ? props.icon : '默认icon'}
-    </text>
-    <view className={`${classPrefix}-content`}>
-      <text className={classNames(`${classPrefix}-content-inner`, `${classPrefix}-content-inner-${props.color}`)}>
-        {props.content}
-      </text>
-    </view>
-    {/* {(props.closeable || props.extra) && ( */}
-    {(props.closeable) && (
-      <view className={`${classPrefix}-right`}>
-        {/* <text className={`${classPrefix}-right-${props.color}`}>{props.extra}</text> */}
-        {props.closeable && (
-          <text onClick={() => {
-            this.setVisible(false)
-            props.onClose?.()
-          }}>X</text>
-        )}
+      {formatLabel('icon' in props ? props.icon : '默认icon', classNames(`${classPrefix}-left`, `${classPrefix}-left-${props.color}`))}
+      <view className={`${classPrefix}-content`}>
+        {formatLabel(props.content, classNames(`${classPrefix}-content-inner`, `${classPrefix}-content-inner-${props.color}`))}
       </view>
-    )}
+      {(props.closeable || props.extra) && (
+        <view className={`${classPrefix}-right`}>
+          {props.extra && formatLabel(props.extra, `${classPrefix}-right-${props.color}`)}
+          {props.closeable && (
+            <text onClick={() => {
+              this.setVisible(false)
+              props.onClose?.()
+            }}>X</text>
+          )}
+        </view>
+      )}
   </div>
   }
 }

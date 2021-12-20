@@ -17,11 +17,11 @@
 | clearable    | 是否启用清除图标，点击清除图标后会清空输入框 | `boolean`                                            | `false` |
 | onClear      | 点击清除按钮后触发                           | `() => void`                                         | -       |
 | onEnterPress | 按下回车的回调                               | `(e: React.KeyboardEvent<HTMLInputElement>) => void` | -       |
-| font-size         | 字号              | -     | `17px`                   |
+| fontSize         | 字号              | -     | `17px`                   |
 | color             | 文字颜色             | -  | `#333`  |
-| placeholder-color | `placeholder` 文字颜色 | -| `#ccc` |
-| disabled-color    | 禁用状态下的文字颜色   |   -   | `#999`  |
-| text-align        | 文字对齐方式          |-     | `left`                   |
+| placeholderColor | `placeholder` 文字颜色 | -| `#ccc` |
+| disabledColor    | 禁用状态下的文字颜色   |   -   | `#999`  |
+| textAlign        | 文字对齐方式          |-     | `left`                   |
 
 此外还支持以下原生属性：`maxLength` `minLength` `max` `min` `autoComplete` `enterKeyHint` `pattern` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp`
 

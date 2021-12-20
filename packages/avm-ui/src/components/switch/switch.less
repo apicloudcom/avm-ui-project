@@ -1,0 +1,73 @@
+@import url('../../global/theme.less');
+@class-prefix-switch: ~'adm-switch';
+
+@switch-width: 51px;
+@switch-height: 31px;
+@switch-border: 2px;
+@keyframes loading-rotate {
+  100% {
+    transform: translateX(10);
+  }
+}
+
+.@{class-prefix-switch} {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  position: relative;
+  align-self: center;
+  cursor: pointer;
+  opacity: 1;
+
+  input {
+    display: none;
+  }
+
+  &-checkbox {
+    min-width: @switch-width;
+    box-sizing: border-box;
+    border-radius: 31px;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  &-handle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    position: absolute;
+    z-index: 0;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2), 0 2px 11.5px 0 rgba(0, 0, 0, 0.08),
+      -1px 2px 2px 0 rgba(0, 0, 0, 0.1);
+    transition: left 200ms;
+  }
+
+  &-inner {
+    position: relative;
+    z-index: 1;
+    color: var(--adm-color-weak);
+    transition: margin 200ms;
+  }
+
+  /* 选中状态 */
+  &-checked {
+    &-inner {
+      color: var(--adm-color-white);
+    }
+  }
+
+  /* 禁用状态 */
+  &-disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+
+  /* loading图标 */
+  &-icon {
+    width: 14px;
+    height: 14px;
+    animation: loading-rotate 1s linear infinite;
+  }
+}

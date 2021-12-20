@@ -135,7 +135,7 @@
 			: typeof self !== "undefined"
 			? self
 			: {};
-	var classnames = {exports: {}};
+	var _classnames_2_3_1_classnames = {exports: {}};
 	/*!
     Copyright (c) 2018 Jed Watson.
     Licensed under the MIT License (MIT), see
@@ -180,8 +180,8 @@
 				window.classNames = classNames2;
 			}
 		})();
-	})(classnames);
-	var classNames = classnames.exports;
+	})(_classnames_2_3_1_classnames);
+	var classNames = _classnames_2_3_1_classnames.exports;
 	var freeGlobal$1 =
 		typeof commonjsGlobal == "object" &&
 		commonjsGlobal &&
@@ -208,7 +208,7 @@
 			value[symToStringTag$1] = void 0;
 			var unmasked = true;
 		} catch (e) {}
-		var result = nativeObjectToString$1.call(value);
+		var result2 = nativeObjectToString$1.call(value);
 		if (unmasked) {
 			if (isOwn) {
 				value[symToStringTag$1] = tag2;
@@ -216,7 +216,7 @@
 				delete value[symToStringTag$1];
 			}
 		}
-		return result;
+		return result2;
 	}
 	var _getRawTag = getRawTag$1;
 	var objectProto$7 = Object.prototype;
@@ -572,11 +572,11 @@
 	var _isPrototype = isPrototype$2;
 	function baseTimes$1(n, iteratee) {
 		var index2 = -1,
-			result = Array(n);
+			result2 = Array(n);
 		while (++index2 < n) {
-			result[index2] = iteratee(index2);
+			result2[index2] = iteratee(index2);
 		}
-		return result;
+		return result2;
 	}
 	var _baseTimes = baseTimes$1;
 	function isObjectLike$3(value) {
@@ -728,8 +728,8 @@
 			isBuff = !isArr && !isArg && isBuffer(value),
 			isType = !isArr && !isArg && !isBuff && isTypedArray(value),
 			skipIndexes = isArr || isArg || isBuff || isType,
-			result = skipIndexes ? baseTimes(value.length, String) : [],
-			length = result.length;
+			result2 = skipIndexes ? baseTimes(value.length, String) : [],
+			length = result2.length;
 		for (var key in value) {
 			if (
 				(inherited || hasOwnProperty$2.call(value, key)) &&
@@ -742,10 +742,10 @@
 						isIndex(key, length))
 				)
 			) {
-				result.push(key);
+				result2.push(key);
 			}
 		}
-		return result;
+		return result2;
 	}
 	var _arrayLikeKeys = arrayLikeKeys$1;
 	function overArg$1(func, transform) {
@@ -765,13 +765,13 @@
 		if (!isPrototype$1(object)) {
 			return nativeKeys(object);
 		}
-		var result = [];
+		var result2 = [];
 		for (var key in Object(object)) {
 			if (hasOwnProperty$1.call(object, key) && key != "constructor") {
-				result.push(key);
+				result2.push(key);
 			}
 		}
-		return result;
+		return result2;
 	}
 	var _baseKeys = baseKeys$1;
 	var arrayLikeKeys = _arrayLikeKeys,
@@ -831,8 +831,13 @@
 		}
 		return ret;
 	}
+<<<<<<< HEAD
 	var classPrefix$p = "adm-button";
 	var defaultProps$i = {
+=======
+	var classPrefix$q = "adm-button";
+	var defaultProps$j = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		color: "default",
 		fill: "solid",
 		size: "middle",
@@ -893,7 +898,11 @@
 			});
 			_defineProperty(_assertThisInitialized(_this), "render", function(props) {
 				var _classNames;
+<<<<<<< HEAD
 				props = mergeProps(defaultProps$i, props);
+=======
+				props = mergeProps(defaultProps$j, props);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				var disabled = props.disabled || props.loading;
 				var btnStyles = {height: "auto", lineHeight: 1.4};
 				btnStyles["opacity"] = disabled ? 0.4 : 1;
@@ -906,6 +915,7 @@
 				btnStyles["borderColor"] =
 					props.borderColor || colorAttr[props.color].bgColor;
 				var btnCls = classNames(
+<<<<<<< HEAD
 					classPrefix$p,
 					props.className,
 					props.color ? classPrefix$p + "-" + props.color : null,
@@ -924,6 +934,26 @@
 					(_classNames[classPrefix$p + "-loading"] = props.loading),
 					_classNames),
 					classPrefix$p + "-shape-" + props.shape
+=======
+					classPrefix$q,
+					props.className,
+					props.color ? classPrefix$q + "-" + props.color : null,
+					((_classNames = {}),
+					(_classNames[classPrefix$q + "-block"] = props.block),
+					(_classNames[classPrefix$q + "-disabled"] = disabled),
+					(_classNames[classPrefix$q + "-" + props.color + "-fill-outline"] =
+						props.fill === "outline"),
+					(_classNames[classPrefix$q + "-" + props.color + "-fill-none"] =
+						props.fill === "none"),
+					(_classNames[classPrefix$q + "-mini"] = props.size === "mini"),
+					(_classNames[classPrefix$q + "-mini-shape-" + props.shape] =
+						props.size === "mini"),
+					(_classNames[classPrefix$q + "-small"] = props.size === "small"),
+					(_classNames[classPrefix$q + "-large"] = props.size === "large"),
+					(_classNames[classPrefix$q + "-loading"] = props.loading),
+					_classNames),
+					classPrefix$q + "-shape-" + props.shape
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				);
 				return /* @__PURE__ */ avm.h(
 					"button",
@@ -977,8 +1007,13 @@
 					ele
 			  );
 	};
+<<<<<<< HEAD
 	var classPrefix$o = "adm-badge";
 	var defaultProps$h = {
+=======
+	var classPrefix$p = "adm-badge";
+	var defaultProps$i = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		color: "#FF411C"
 	};
 	var Badge = /*#__PURE__*/ (function(_Component2) {
@@ -998,7 +1033,11 @@
 			});
 			_defineProperty(_assertThisInitialized(_this2), "render", function(props) {
 				var _classNames2;
+<<<<<<< HEAD
 				props = mergeProps(defaultProps$h, props);
+=======
+				props = mergeProps(defaultProps$i, props);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				var _props = props,
 					content = _props.content,
 					color = _props.color,
@@ -1007,10 +1046,17 @@
 					right = _props.right,
 					top = _props.top;
 				var badgeCls = classNames(
+<<<<<<< HEAD
 					classPrefix$o,
 					((_classNames2 = {}),
 					(_classNames2[classPrefix$o + "--fixed"] = !!children),
 					(_classNames2[classPrefix$o + "--dot"] = isDot),
+=======
+					classPrefix$p,
+					((_classNames2 = {}),
+					(_classNames2[classPrefix$p + "--fixed"] = !!children),
+					(_classNames2[classPrefix$p + "--dot"] = isDot),
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 					_classNames2)
 				);
 
@@ -1024,7 +1070,11 @@
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
+<<<<<<< HEAD
 						className: classPrefix$o + "-wrap"
+=======
+						className: classPrefix$p + "-wrap"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 					},
 					children,
 					contentEle
@@ -1034,7 +1084,11 @@
 		}
 		return Badge;
 	})(Component);
+<<<<<<< HEAD
 	var classPrefix$n = "adm-loading";
+=======
+	var classPrefix$o = "adm-loading";
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 	var Loading = /*#__PURE__*/ (function(_Component3) {
 		_inheritsLoose(Loading, _Component3);
 		function Loading() {
@@ -1053,12 +1107,20 @@
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
+<<<<<<< HEAD
 						className: classPrefix$n
+=======
+						className: classPrefix$o
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 					},
 					/* @__PURE__ */ avm.h(
 						"span",
 						{
+<<<<<<< HEAD
 							className: classPrefix$n + "-" + color
+=======
+							className: classPrefix$o + "-" + color
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 						},
 						"svg\u56FE\u5360\u4F4D"
 					)
@@ -1068,8 +1130,13 @@
 		}
 		return Loading;
 	})(Component);
+<<<<<<< HEAD
 	var classPrefix$m = "adm-space";
 	var defaultProps$g = {
+=======
+	var classPrefix$n = "adm-space";
+	var defaultProps$h = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		direction: "horizontal",
 		gap: "8px"
 	};
@@ -1087,7 +1154,11 @@
 			_this4 = _Component4.call.apply(_Component4, [this].concat(args)) || this;
 			_defineProperty(_assertThisInitialized(_this4), "render", function(props) {
 				var _classNames3;
+<<<<<<< HEAD
 				props = mergeProps(defaultProps$g, props);
+=======
+				props = mergeProps(defaultProps$h, props);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				var _props2 = props,
 					direction = _props2.direction,
 					gap = _props2.gap,
@@ -1109,6 +1180,7 @@
 					"div",
 					{
 						className: classNames(
+<<<<<<< HEAD
 							classPrefix$m,
 							((_classNames3 = {}),
 							(_classNames3[classPrefix$m + "-wrap"] = props.wrap),
@@ -1118,6 +1190,17 @@
 							(_classNames3[classPrefix$m + "-align-" + props.align] = !!props.align),
 							(_classNames3[
 								classPrefix$m + "-justify-" + props.justify
+=======
+							classPrefix$n,
+							((_classNames3 = {}),
+							(_classNames3[classPrefix$n + "-wrap"] = props.wrap),
+							(_classNames3[classPrefix$n + "-" + direction + "-wrap"] = props.wrap),
+							(_classNames3[classPrefix$n + "-block"] = props.block),
+							(_classNames3[classPrefix$n + "-" + direction] = true),
+							(_classNames3[classPrefix$n + "-align-" + props.align] = !!props.align),
+							(_classNames3[
+								classPrefix$n + "-justify-" + props.justify
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							] = !!props.justify),
 							_classNames3)
 						),
@@ -1133,12 +1216,21 @@
 								"div",
 								{
 									className: classNames(
+<<<<<<< HEAD
 										classPrefix$m + "-item",
 										classPrefix$m + "-" + direction + "-item",
 										((_classNames4 = {}),
 										(_classNames4[classPrefix$m + "-" + direction + "-item-last"] =
 											index2 === props.children.length - 1),
 										(_classNames4[classPrefix$m + "-" + direction + "-wrap-item"] =
+=======
+										classPrefix$n + "-item",
+										classPrefix$n + "-" + direction + "-item",
+										((_classNames4 = {}),
+										(_classNames4[classPrefix$n + "-" + direction + "-item-last"] =
+											index2 === props.children.length - 1),
+										(_classNames4[classPrefix$n + "-" + direction + "-wrap-item"] =
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 											props.wrap),
 										_classNames4)
 									),
@@ -1155,8 +1247,13 @@
 		}
 		return Space;
 	})(Component);
+<<<<<<< HEAD
 	var classPrefix$l = "adm-list";
 	var defaultProps$f = {
+=======
+	var classPrefix$m = "adm-list";
+	var defaultProps$g = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		mode: "default"
 	};
 	var List$1 = /*#__PURE__*/ (function(_Component5) {
@@ -1175,16 +1272,28 @@
 				console.log("List!");
 			});
 			_defineProperty(_assertThisInitialized(_this5), "render", function(props) {
+<<<<<<< HEAD
 				props = mergeProps(defaultProps$f, props);
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
 						className: classNames(classPrefix$l, classPrefix$l + "--" + props.mode)
+=======
+				props = mergeProps(defaultProps$g, props);
+				return /* @__PURE__ */ avm.h(
+					"div",
+					{
+						className: classNames(classPrefix$m, classPrefix$m + "--" + props.mode)
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 					},
 					/* @__PURE__ */ avm.h(
 						"div",
 						{
+<<<<<<< HEAD
 							className: classPrefix$l + "--inner"
+=======
+							className: classPrefix$m + "--inner"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 						},
 						props.children
 					)
@@ -1195,7 +1304,11 @@
 		return List$1;
 	})(Component);
 
+<<<<<<< HEAD
 	var classPrefix$k = "adm-list-item";
+=======
+	var classPrefix$l = "adm-list-item";
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 	var ListItem = /*#__PURE__*/ (function(_Component6) {
 		_inheritsLoose(ListItem, _Component6);
 		function ListItem() {
@@ -1220,6 +1333,7 @@
 				var arrow = props.arrow === void 0 ? clickable : props.arrow;
 				var prefixWidth = !!props.prefixWidth ? props.prefixWidth : "auto";
 				var disabledClass = props.disabled && "list-disabled";
+<<<<<<< HEAD
 				var childCls = classPrefix$k + "-children";
 				var prefixCls = classNames(
 					classPrefix$k + "-content-prefix",
@@ -1227,25 +1341,46 @@
 				);
 				var prefixStyles = {width: prefixWidth};
 				var extraCls = classNames(classPrefix$k + "-content-extra", disabledClass);
+=======
+				var childCls = classPrefix$l + "-children";
+				var prefixCls = classNames(
+					classPrefix$l + "-content-prefix",
+					disabledClass
+				);
+				var prefixStyles = {width: prefixWidth};
+				var extraCls = classNames(classPrefix$l + "-content-extra", disabledClass);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				var childEles = formatLabel(props.children, childCls);
 				var prefixEles = formatLabel(props.prefix, prefixCls, prefixStyles);
 				var extraEles = formatLabel(props.extra, extraCls);
 				var content = /* @__PURE__ */ avm.h(
 					"div",
 					{
+<<<<<<< HEAD
 						className: classPrefix$k + "-content"
+=======
+						className: classPrefix$l + "-content"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 					},
 					props.prefix && prefixEles,
 					/* @__PURE__ */ avm.h(
 						"div",
 						{
+<<<<<<< HEAD
 							className: classNames(classPrefix$k + "-content-main", disabledClass)
+=======
+							className: classNames(classPrefix$l + "-content-main", disabledClass)
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 						},
 						props.title &&
 							/* @__PURE__ */ avm.h(
 								"span",
 								{
+<<<<<<< HEAD
 									className: classPrefix$k + "-title"
+=======
+									className: classPrefix$l + "-title"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 								},
 								props.title
 							),
@@ -1254,7 +1389,11 @@
 							/* @__PURE__ */ avm.h(
 								"span",
 								{
+<<<<<<< HEAD
 									className: classPrefix$k + "-description"
+=======
+									className: classPrefix$l + "-description"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 								},
 								props.description
 							)
@@ -1264,15 +1403,25 @@
 						/* @__PURE__ */ avm.h(
 							"div",
 							{
+<<<<<<< HEAD
 								className: classNames(classPrefix$k + "-content-arrow", disabledClass)
+=======
+								className: classNames(classPrefix$l + "-content-arrow", disabledClass)
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							},
 							arrow === true ? /* @__PURE__ */ avm.h("span", null, ">") : arrow
 						)
 				);
 				var listItemCls = classNames(
+<<<<<<< HEAD
 					"" + classPrefix$k,
 					clickable ? ["adm-plain-anchor"] : [],
 					props.disabled && classPrefix$k + "-disabled"
+=======
+					"" + classPrefix$l,
+					clickable ? ["adm-plain-anchor"] : [],
+					props.disabled && classPrefix$l + "-disabled"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				);
 				var listItemEvent = props.disabled ? void 0 : props.onClick;
 				return /* @__PURE__ */ avm.h(
@@ -1303,7 +1452,11 @@
 	};
 
 	var List = attachPropertiesToComponent(List$1, properties);
+<<<<<<< HEAD
 	var classPrefix$j = "adm-card";
+=======
+	var classPrefix$k = "adm-card";
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 	var Card = /*#__PURE__*/ (function(_Component7) {
 		_inheritsLoose(Card, _Component7);
 		function Card() {
@@ -1324,7 +1477,11 @@
 					return /* @__PURE__ */ avm.h(
 						"div",
 						{
+<<<<<<< HEAD
 							className: classNames(classPrefix$j + "-header", props.headerClassName),
+=======
+							className: classNames(classPrefix$k + "-header", props.headerClassName),
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							style: props.headerStyle,
 							onClick: props.onHeaderClick
 						},
@@ -1333,7 +1490,11 @@
 							: /* @__PURE__ */ avm.h(
 									"text",
 									{
+<<<<<<< HEAD
 										className: classPrefix$j + "-header-title"
+=======
+										className: classPrefix$k + "-header-title"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 									},
 									props.title
 							  ),
@@ -1350,7 +1511,11 @@
 					return /* @__PURE__ */ avm.h(
 						"div",
 						{
+<<<<<<< HEAD
 							className: classNames(classPrefix$j + "-body", props.bodyClassName),
+=======
+							className: classNames(classPrefix$k + "-body", props.bodyClassName),
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							style: props.bodyStyle,
 							onClick: props.onBodyClick
 						},
@@ -1360,7 +1525,11 @@
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
+<<<<<<< HEAD
 						className: classPrefix$j,
+=======
+						className: classPrefix$k,
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 						onClick: props.onClick
 					},
 					renderHeader(),
@@ -1378,13 +1547,22 @@
 		"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNjM4MDAxOTkwOTczIiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjI5NjAiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTE1MS41NTIgMTUxLjU1MnY3MjAuODk2aDcyMC44OTZWMTUxLjU1MkgxNTEuNTUyeiBtLTMyLjc2OC02NS41MzZoNzg2LjQzMmM5LjU1Njk5MiAwIDE3LjQwOCAzLjA3MiAyMy41NTIgOS4yMTZzOS4yMTYgMTMuOTk1MDA4IDkuMjE2IDIzLjU1MnY3ODYuNDMyYzAgOS41NTY5OTItMy4wNzIgMTcuNDA4LTkuMjE2IDIzLjU1MnMtMTMuOTk1MDA4IDkuMjE2LTIzLjU1MiA5LjIxNkgxMTguNzg0Yy05LjU1Njk5MiAwLTE3LjQwOC0zLjA3Mi0yMy41NTItOS4yMTZzLTkuMjE2LTEzLjk5NTAwOC05LjIxNi0yMy41NTJWMTE4Ljc4NGMwLTkuNTU2OTkyIDMuMDcyLTE3LjQwOCA5LjIxNi0yMy41NTJzMTMuOTk1MDA4LTkuMjE2IDIzLjU1Mi05LjIxNnogbTI2Mi4xNDQgMTk2LjYwOGM0My42OTEwMDggMCA2NS41MzYgMjEuODQ0OTkyIDY1LjUzNiA2NS41MzZzLTIxLjg0NDk5MiA2NS41MzYtNjUuNTM2IDY1LjUzNi02NS41MzYtMjEuODQ0OTkyLTY1LjUzNi02NS41MzYgMjEuODQ0OTkyLTY1LjUzNiA2NS41MzYtNjUuNTM2ek0xNzcuMTUyIDg4NS43NmwtNTEuMi0zOS45MzYgMjIxLjE4NC0yODguNzY4YzE2LjM4NC0yMS4xNjMwMDggMzguMDU5MDA4LTMzLjQ1MTAwOCA2NS4wMjQtMzYuODY0IDI2Ljk2NDk5Mi0zLjQxMjk5MiA1MS4wMjg5OTIgMi43MzEwMDggNzIuMTkyIDE4LjQzMmwxMjggMTAzLjQyNGM3LjUwODk5MiA1LjQ2MDk5MiAxNS41MzEwMDggNy42OCAyNC4wNjQgNi42NTZTNjUyLjI4OCA2NDMuNzU1MDA4IDY1OC40MzIgNjM2LjkyOGwyMjEuMTg0LTI3Ni40OCA1MS4yIDQwLjk2LTIyMS4xODQgMjc2LjQ4Yy0xNy4wNjcwMDggMjEuMTYzMDA4LTM5LjA4MzAwOCAzMy4xMDg5OTItNjYuMDQ4IDM1Ljg0LTI2Ljk2NDk5MiAyLjczMTAwOC01MS4wMjg5OTItNC4wOTYtNzIuMTkyLTIwLjQ4TDQ0NC40MTYgNTkwLjg0OGMtNy41MDg5OTItNS40NjA5OTItMTUuNTMxMDA4LTcuNjgtMjQuMDY0LTYuNjU2cy0xNS41MzEwMDggNS4yOTEwMDgtMjAuOTkyIDEyLjhMMTc3LjE1MiA4ODUuNzZ6IiBwLWlkPSIyOTYxIiBmaWxsPSIjYmZiZmJmIj48L3BhdGg+PC9zdmc+";
 	var warnUrl =
 		"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNjM4MDAyMDMxMzYzIiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjMyMDMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTEzNiA2NTkuMzQ0bDI1OS42NjctMjYwLjIxOWMzLjEtMy4xIDguMi0zLjEgMTEuMyAwbDg2LjEgODYuMiAzNy43NS0zNy43OWE3Ljg4OCA3Ljg4OCAwIDAgMSAxLjUwOC0yLjExbDE0NC4zLTE0NC4zYzIuOTU4LTIuOTU4IDcuNzM3LTMuMDkzIDEwLjg2Mi0wLjQwNyAwLjIzNSAwLjE4NyAwLjQ2MyAwLjM5IDAuNjggMC42MDdsMzYuOCAzNi44YzAuMjc0IDAuMjY1IDAuNTI0IDAuNTQ1IDAuNzUxIDAuODM3bDQyLjY0NyA0Mi42OTYgMC4wMDYgMC4wMDdhOCA4IDAgMCAxLTAuMDIgMTEuMzE0bC0zNi44NzYgMzYuNzQ3YTggOCAwIDAgMS0xMS4zMDctMC4wMTRsLTM3LjcwMy0zNy43NDctMTgzLjc5OCAxODMuOTZjLTMuMSAzLjEtOC4yIDMuMS0xMS4zIDBsLTg2LjEtODYuMkwxMzYgNzU1LjUxMlY3OTJoMzM0YTggOCAwIDAgMSA4IDh2NTZhOCA4IDAgMCAxLTggOEg5NmMtMTcuNyAwLTMyLTE0LjMtMzItMzJWMTkyYzAtMTcuNyAxNC4zLTMyIDMyLTMyaDc4NGMxNy43IDAgMzIgMTQuMyAzMiAzMnYyMzJhOCA4IDAgMCAxLTggOGgtNTZhOCA4IDAgMCAxLTgtOFYyMzJIMTM2djQyNy4zNDR6TTI3NCA0MzJjLTM1LjM0NSAwLTY0LTI4LjY1NS02NC02NHMyOC42NTUtNjQgNjQtNjQgNjQgMjguNjU1IDY0IDY0LTI4LjY1NSA2NC02NCA2NHogbTQ3MCA0OGMxMTkuMyAwIDIxNiA5Ni43IDIxNiAyMTZzLTk2LjcgMjE2LTIxNiAyMTYtMjE2LTk2LjctMjE2LTIxNiA5Ni43LTIxNiAyMTYtMjE2eiBtMTA3LjUgMzIzLjVDODgwLjIgNzc0LjggODk2IDczNi42IDg5NiA2OTZjMC00MC42LTE1LjgtNzguOC00NC41LTEwNy41QzgyMi44IDU1OS44IDc4NC42IDU0NCA3NDQgNTQ0Yy00MC42IDAtNzguOCAxNS44LTEwNy41IDQ0LjVDNjA3LjggNjE3LjIgNTkyIDY1NS40IDU5MiA2OTZjMCA0MC42IDE1LjggNzguOCA0NC41IDEwNy41QzY2NS4yIDgzMi4yIDcwMy40IDg0OCA3NDQgODQ4YzQwLjYgMCA3OC44LTE1LjggMTA3LjUtNDQuNXpNNzEyIDc3NmMwLTE3LjY3MyAxNC4zMjctMzIgMzItMzIgMTcuNjczIDAgMzIgMTQuMzI3IDMyIDMyIDAgMTcuNjczLTE0LjMyNyAzMi0zMiAzMi0xNy42NzMgMC0zMi0xNC4zMjctMzItMzJ6IG0xMi02NGMtNC40IDAtOC0zLjYtOC04VjU5MmMwLTQuNCAzLjYtOCA4LThoNDBjNC40IDAgOCAzLjYgOCA4djExMmMwIDQuNC0zLjYgOC04IDhoLTQweiIgcC1pZD0iMzIwNCIgZmlsbD0iI2JmYmZiZiI+PC9wYXRoPjwvc3ZnPg==";
+<<<<<<< HEAD
 	var classPrefix$i = "adm-image";
 	var defaultProps$e = {
+=======
+	var classPrefix$j = "adm-image";
+	var defaultProps$f = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		fit: "fill",
 		placeholder: /* @__PURE__ */ avm.h(
 			"div",
 			{
+<<<<<<< HEAD
 				className: classPrefix$i + "-tip"
+=======
+				className: classPrefix$j + "-tip"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 			},
 			/* @__PURE__ */ avm.h("text", null, "\u52A0\u8F09\u4E2D..."),
 			/* @__PURE__ */ avm.h("img", {
@@ -1395,7 +1573,11 @@
 		fallback: /* @__PURE__ */ avm.h(
 			"div",
 			{
+<<<<<<< HEAD
 				className: classPrefix$i + "-tip"
+=======
+				className: classPrefix$j + "-tip"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 			},
 			/* @__PURE__ */ avm.h("text", null, "\u52A0\u8F09\u5931\u6557"),
 			/* @__PURE__ */ avm.h("img", {
@@ -1438,7 +1620,11 @@
 				_this8.data.failed = status;
 			});
 			_defineProperty(_assertThisInitialized(_this8), "render", function(props) {
+<<<<<<< HEAD
 				props = mergeProps(defaultProps$e, props);
+=======
+				props = mergeProps(defaultProps$f, props);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				var src = props.src;
 				var srcSet = props.srcSet;
 				var renderInner = function renderInner() {
@@ -1446,7 +1632,11 @@
 						return /* @__PURE__ */ avm.h("view", null, props.fallback);
 					}
 					var img = /* @__PURE__ */ avm.h("img", {
+<<<<<<< HEAD
 						className: classPrefix$i + "-img",
+=======
+						className: classPrefix$j + "-img",
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 						src: src,
 						alt: props.alt,
 						onClick: props.onClick,
@@ -1493,7 +1683,11 @@
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
+<<<<<<< HEAD
 						className: classPrefix$i,
+=======
+						className: classPrefix$j,
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 						style: style
 					},
 					renderInner()
@@ -1505,7 +1699,11 @@
 	})(Component);
 
 	var fontName = "avm-ui-icon";
+<<<<<<< HEAD
 	var classPrefix$h = "adm-icon";
+=======
+	var classPrefix$i = "adm-icon";
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 	var Icon = /*#__PURE__*/ (function(_Component9) {
 		_inheritsLoose(Icon, _Component9);
 		function Icon() {
@@ -1530,7 +1728,11 @@
 							_code: _this9.code,
 							_name: _this9.constructor.name,
 							style: __spreadValues({}, props),
+<<<<<<< HEAD
 							class: classPrefix$h + " " + classPrefix$h + "-font-icon-text"
+=======
+							class: classPrefix$i + " " + classPrefix$i + "-font-icon-text"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 						},
 						String.fromCharCode(_this9.code)
 					);
@@ -1546,7 +1748,11 @@
 				"\"; src: url('../../components/avm-ui/" +
 				fontName +
 				".ttf') format('truetype');}\n        ." +
+<<<<<<< HEAD
 				classPrefix$h +
+=======
+				classPrefix$i +
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				" {font-family: " +
 				fontName +
 				";}"
@@ -1554,22 +1760,90 @@
 		};
 		return Icon;
 	})(Component);
-	var AppOutline = /*#__PURE__*/ (function(_Icon10) {
-		_inheritsLoose(AppOutline, _Icon10);
-		function AppOutline() {
-			var _this19;
+	var CheckCircleFill = /*#__PURE__*/ (function(_Icon27) {
+		_inheritsLoose(CheckCircleFill, _Icon27);
+		function CheckCircleFill() {
+			var _this36;
 			for (
-				var _len19 = arguments.length, args = new Array(_len19), _key19 = 0;
-				_key19 < _len19;
-				_key19++
+				var _len36 = arguments.length, args = new Array(_len36), _key36 = 0;
+				_key36 < _len36;
+				_key36++
 			) {
-				args[_key19] = arguments[_key19];
+				args[_key36] = arguments[_key36];
 			}
-			_this19 = _Icon10.call.apply(_Icon10, [this].concat(args)) || this;
-			_defineProperty(_assertThisInitialized(_this19), "code", 59914);
-			return _this19;
+			_this36 = _Icon27.call.apply(_Icon27, [this].concat(args)) || this;
+			_defineProperty(_assertThisInitialized(_this36), "code", 59931);
+			return _this36;
 		}
-		return AppOutline;
+		return CheckCircleFill;
+	})(Icon);
+	var ClockCircleOutline = /*#__PURE__*/ (function(_Icon33) {
+		_inheritsLoose(ClockCircleOutline, _Icon33);
+		function ClockCircleOutline() {
+			var _this42;
+			for (
+				var _len42 = arguments.length, args = new Array(_len42), _key42 = 0;
+				_key42 < _len42;
+				_key42++
+			) {
+				args[_key42] = arguments[_key42];
+			}
+			_this42 = _Icon33.call.apply(_Icon33, [this].concat(args)) || this;
+			_defineProperty(_assertThisInitialized(_this42), "code", 59937);
+			return _this42;
+		}
+		return ClockCircleOutline;
+	})(Icon);
+	var CloseCircleFill = /*#__PURE__*/ (function(_Icon34) {
+		_inheritsLoose(CloseCircleFill, _Icon34);
+		function CloseCircleFill() {
+			var _this43;
+			for (
+				var _len43 = arguments.length, args = new Array(_len43), _key43 = 0;
+				_key43 < _len43;
+				_key43++
+			) {
+				args[_key43] = arguments[_key43];
+			}
+			_this43 = _Icon34.call.apply(_Icon34, [this].concat(args)) || this;
+			_defineProperty(_assertThisInitialized(_this43), "code", 59938);
+			return _this43;
+		}
+		return CloseCircleFill;
+	})(Icon);
+	var InformationCircleOutline = /*#__PURE__*/ (function(_Icon80) {
+		_inheritsLoose(InformationCircleOutline, _Icon80);
+		function InformationCircleOutline() {
+			var _this89;
+			for (
+				var _len89 = arguments.length, args = new Array(_len89), _key89 = 0;
+				_key89 < _len89;
+				_key89++
+			) {
+				args[_key89] = arguments[_key89];
+			}
+			_this89 = _Icon80.call.apply(_Icon80, [this].concat(args)) || this;
+			_defineProperty(_assertThisInitialized(_this89), "code", 59984);
+			return _this89;
+		}
+		return InformationCircleOutline;
+	})(Icon);
+	var SmileOutline = /*#__PURE__*/ (function(_Icon125) {
+		_inheritsLoose(SmileOutline, _Icon125);
+		function SmileOutline() {
+			var _this134;
+			for (
+				var _len134 = arguments.length, args = new Array(_len134), _key134 = 0;
+				_key134 < _len134;
+				_key134++
+			) {
+				args[_key134] = arguments[_key134];
+			}
+			_this134 = _Icon125.call.apply(_Icon125, [this].concat(args)) || this;
+			_defineProperty(_assertThisInitialized(_this134), "code", 60029);
+			return _this134;
+		}
+		return SmileOutline;
 	})(Icon);
 	function useShouldRender(active, forceRender, destroyOnClose) {
 		var initialized = active;
@@ -1578,14 +1852,22 @@
 		if (!initialized) return false;
 		return !destroyOnClose;
 	}
+<<<<<<< HEAD
 	var classPrefix$g = "adm-mask";
+=======
+	var classPrefix$h = "adm-mask";
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 	var opacityRecord = {
 		default: 0.55,
 		thin: 0.35,
 		thick: 0.75
 	};
 
+<<<<<<< HEAD
 	var defaultProps$d = {
+=======
+	var defaultProps$e = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		visible: true,
 		destroyOnClose: false,
 		forceRender: false,
@@ -1610,7 +1892,11 @@
 				_Component10.call.apply(_Component10, [this].concat(args)) || this;
 			_defineProperty(_assertThisInitialized(_this376), "render", function(p) {
 				var _opacityRecord$props$;
+<<<<<<< HEAD
 				var props = mergeProps(defaultProps$d, p);
+=======
+				var props = mergeProps(defaultProps$e, p);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				var opacity =
 					(_opacityRecord$props$ = opacityRecord[props.opacity]) != null
 						? _opacityRecord$props$
@@ -1625,7 +1911,11 @@
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
+<<<<<<< HEAD
 						className: classPrefix$g,
+=======
+						className: classPrefix$h,
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 						style: __spreadProps(__spreadValues({}, props.style), {
 							background: background,
 							display: props.visible ? "flex" : "none"
@@ -1634,7 +1924,11 @@
 
 					props.onMaskClick &&
 						/* @__PURE__ */ avm.h("div", {
+<<<<<<< HEAD
 							className: classPrefix$g + "-aria-button",
+=======
+							className: classPrefix$h + "-aria-button",
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							role: "button",
 							"aria-label": "Mask",
 							onClick: props.onMaskClick
@@ -1642,7 +1936,11 @@
 					/* @__PURE__ */ avm.h(
 						"div",
 						{
+<<<<<<< HEAD
 							className: classPrefix$g + "-content",
+=======
+							className: classPrefix$h + "-content",
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							onClick: props.onMaskClick
 						},
 						shouldRender && props.children
@@ -1653,8 +1951,13 @@
 		}
 		return Mask;
 	})(Component);
+<<<<<<< HEAD
 	var classPrefix$f = "adm-notice-bar";
 	var defaultProps$c = {
+=======
+	var classPrefix$g = "adm-notice-bar";
+	var defaultProps$d = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		color: "default",
 		delay: 2e3,
 		speed: 50
@@ -1687,19 +1990,32 @@
 				}
 			);
 			_defineProperty(_assertThisInitialized(_this377), "render", function(props) {
+<<<<<<< HEAD
 				props = mergeProps(defaultProps$c, props);
+=======
+				props = mergeProps(defaultProps$d, props);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				if (!_this377.data.visible) return null;
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
+<<<<<<< HEAD
 						className: classNames(classPrefix$f, classPrefix$f + "-" + props.color)
+=======
+						className: classNames(classPrefix$g, classPrefix$g + "-" + props.color)
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 					},
 					/* @__PURE__ */ avm.h(
 						"text",
 						{
 							className: classNames(
+<<<<<<< HEAD
 								classPrefix$f + "-left",
 								classPrefix$f + "-left-" + props.color
+=======
+								classPrefix$g + "-left",
+								classPrefix$g + "-left-" + props.color
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							)
 						},
 						"icon" in props ? props.icon : "\u9ED8\u8BA4icon"
@@ -1707,14 +2023,23 @@
 					/* @__PURE__ */ avm.h(
 						"view",
 						{
+<<<<<<< HEAD
 							className: classPrefix$f + "-content"
+=======
+							className: classPrefix$g + "-content"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 						},
 						/* @__PURE__ */ avm.h(
 							"text",
 							{
 								className: classNames(
+<<<<<<< HEAD
 									classPrefix$f + "-content-inner",
 									classPrefix$f + "-content-inner-" + props.color
+=======
+									classPrefix$g + "-content-inner",
+									classPrefix$g + "-content-inner-" + props.color
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 								)
 							},
 							props.content
@@ -1724,7 +2049,11 @@
 						/* @__PURE__ */ avm.h(
 							"view",
 							{
+<<<<<<< HEAD
 								className: classPrefix$f + "-right"
+=======
+								className: classPrefix$g + "-right"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							},
 							props.closeable &&
 								/* @__PURE__ */ avm.h(
@@ -1744,8 +2073,13 @@
 		}
 		return NoticeBar;
 	})(Component);
+<<<<<<< HEAD
 	var classPrefix$e = "adm-page-indicator";
 	var defaultProps$b = {
+=======
+	var classPrefix$f = "adm-page-indicator";
+	var defaultProps$c = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		color: "primary",
 		direction: "horizontal"
 	};
@@ -1766,7 +2100,11 @@
 				console.log("PageIndicator!");
 			});
 			_defineProperty(_assertThisInitialized(_this378), "render", function(props) {
+<<<<<<< HEAD
 				props = mergeProps(defaultProps$b, props);
+=======
+				props = mergeProps(defaultProps$c, props);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				var _props3 = props,
 					direction = _props3.direction,
 					_props3$dotColor = _props3.dotColor,
@@ -1796,9 +2134,15 @@
 						/* @__PURE__ */ avm.h("div", {
 							key: i,
 							className: classNames(
+<<<<<<< HEAD
 								classPrefix$e + "-dot",
 								((_classNames5 = {}),
 								(_classNames5[classPrefix$e + "-dot-active"] = props.current === i),
+=======
+								classPrefix$f + "-dot",
+								((_classNames5 = {}),
+								(_classNames5[classPrefix$f + "-dot-active"] = props.current === i),
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 								_classNames5)
 							),
 
@@ -1828,9 +2172,15 @@
 					"div",
 					{
 						className: classNames(
+<<<<<<< HEAD
 							classPrefix$e,
 							classPrefix$e + "-" + props.direction,
 							classPrefix$e + "-color-" + props.color
+=======
+							classPrefix$f,
+							classPrefix$f + "-" + props.direction,
+							classPrefix$f + "-color-" + props.color
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 						)
 					},
 					dots
@@ -1840,7 +2190,11 @@
 		}
 		return PageIndicator;
 	})(Component);
+<<<<<<< HEAD
 	var classPrefix$d = "adm-step";
+=======
+	var classPrefix$e = "adm-step";
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 	var Step = /*#__PURE__*/ (function(_Component13) {
 		_inheritsLoose(Step, _Component13);
 		function Step() {
@@ -1869,37 +2223,63 @@
 					"div",
 					{
 						className: classNames(
+<<<<<<< HEAD
 							"" + classPrefix$d,
 							classPrefix$d + "-" + direction,
 							classPrefix$d + "-status-" + status
+=======
+							"" + classPrefix$e,
+							classPrefix$e + "-" + direction,
+							classPrefix$e + "-status-" + status
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 						)
 					},
 					/* @__PURE__ */ avm.h(
 						"div",
 						{
 							className: classNames(
+<<<<<<< HEAD
 								classPrefix$d + "-indicator",
 								classPrefix$d + "-" + direction + "-indicator"
+=======
+								classPrefix$e + "-indicator",
+								classPrefix$e + "-" + direction + "-indicator"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							)
 						},
 						/* @__PURE__ */ avm.h(
 							"div",
 							{
+<<<<<<< HEAD
 								className: classNames(classPrefix$d + "-icon-container")
 							},
 							/* @__PURE__ */ avm.h("span", {
 								className: classNames(
 									classPrefix$d + "-icon-dot",
 									classPrefix$d + "-icon-dot-" + status
+=======
+								className: classNames(classPrefix$e + "-icon-container")
+							},
+							/* @__PURE__ */ avm.h("span", {
+								className: classNames(
+									classPrefix$e + "-icon-dot",
+									classPrefix$e + "-icon-dot-" + status
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 								)
 							})
 						),
 						curIndex !== totalLen - 1 &&
 							/* @__PURE__ */ avm.h("div", {
 								className: classNames(
+<<<<<<< HEAD
 									classPrefix$d + "-line",
 									classPrefix$d + "-" + direction + "-line",
 									classPrefix$d + "-line-" + status
+=======
+									classPrefix$e + "-line",
+									classPrefix$e + "-" + direction + "-line",
+									classPrefix$e + "-line-" + status
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 								)
 							})
 					),
@@ -1907,16 +2287,26 @@
 						"div",
 						{
 							className: classNames(
+<<<<<<< HEAD
 								classPrefix$d + "-content",
 								classPrefix$d + "-" + direction + "-content"
+=======
+								classPrefix$e + "-content",
+								classPrefix$e + "-" + direction + "-content"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							)
 						},
 						/* @__PURE__ */ avm.h(
 							"span",
 							{
 								className: classNames(
+<<<<<<< HEAD
 									classPrefix$d + "-title",
 									classPrefix$d + "-title-" + status
+=======
+									classPrefix$e + "-title",
+									classPrefix$e + "-title-" + status
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 								)
 							},
 							title
@@ -1926,8 +2316,13 @@
 								"span",
 								{
 									className: classNames(
+<<<<<<< HEAD
 										classPrefix$d + "-description",
 										classPrefix$d + "-" + direction + "-content-description"
+=======
+										classPrefix$e + "-description",
+										classPrefix$e + "-" + direction + "-content-description"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 									)
 								},
 								description
@@ -1940,8 +2335,13 @@
 		return Step;
 	})(Component);
 
+<<<<<<< HEAD
 	var classPrefix$c = "adm-steps";
 	var defaultProps$a = {
+=======
+	var classPrefix$d = "adm-steps";
+	var defaultProps$b = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		current: 0,
 		direction: "horizontal"
 	};
@@ -1962,7 +2362,11 @@
 				console.log("Steps!");
 			});
 			_defineProperty(_assertThisInitialized(_this380), "render", function(props) {
+<<<<<<< HEAD
 				props = mergeProps(defaultProps$a, props);
+=======
+				props = mergeProps(defaultProps$b, props);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				var _props4 = props,
 					direction = _props4.direction,
 					current = _props4.current,
@@ -1991,7 +2395,11 @@
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
+<<<<<<< HEAD
 						className: classNames(classPrefix$c, classPrefix$c + "-" + direction)
+=======
+						className: classNames(classPrefix$d, classPrefix$d + "-" + direction)
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 					},
 					stemItem
 				);
@@ -2002,7 +2410,11 @@
 	})(Component);
 	var checkedIcon =
 		"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAARVJREFUOE/l1KFOw1AYxfH/12AQCJKtJQgEggQxg8AgMAgEhgcYBMcLdCtqnYONd0AxXgCNRWB4ASzJikCi6CFr6dYtK1vK3O4D/PKde757jQUfW7DHEoBeUzXBA/AS3djFvyJXfO05ToLtINpRx8LS4EZD+7El2HaGDQouBbq+DnDoAVt5rBRY8XXopNjmJDYE3abugF3FXH507bVoN71AR1KCVadhI7ChEKMFvPFNPbq150m0GujYET3BehE2Ftkdoe9m1PvX9pSh3pVOFCeTrSHCqGPtohRjpWSowScxZ/2uPbqBThH3wOosbGopuUm/ZJxbemcr82CFLefQNNmMmPn4hXs4RH9fwLy/UqnF/gtfQvAHBvFvFZsqVOUAAAAASUVORK5CYII=";
+<<<<<<< HEAD
 	var classPrefix$b = "adm-check-list-item";
+=======
+	var classPrefix$c = "adm-check-list-item";
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 	var CheckListItem = /*#__PURE__*/ (function(_Component15) {
 		_inheritsLoose(CheckListItem, _Component15);
 		function CheckListItem() {
@@ -2026,7 +2438,11 @@
 				var extra = /* @__PURE__ */ avm.h(
 					"div",
 					{
+<<<<<<< HEAD
 						className: classPrefix$b + "-extra"
+=======
+						className: classPrefix$c + "-extra"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 					},
 					active
 						? /* @__PURE__ */ avm.h("img", {
@@ -2041,7 +2457,11 @@
 						title: props.title,
 						className: classNames(
 							((_classNames6 = {}),
+<<<<<<< HEAD
 							(_classNames6[classPrefix$b + "-readonly"] = readOnly),
+=======
+							(_classNames6[classPrefix$c + "-readonly"] = readOnly),
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							_classNames6)
 						),
 
@@ -2069,7 +2489,11 @@
 		return CheckListItem;
 	})(Component);
 
+<<<<<<< HEAD
 	var defaultProps$9 = {
+=======
+	var defaultProps$a = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		multiple: false,
 		defaultValue: [],
 		disabled: false,
@@ -2125,7 +2549,11 @@
 				props.onChange && props.onChange(_this382.data.checked);
 			});
 			_defineProperty(_assertThisInitialized(_this382), "render", function(props) {
+<<<<<<< HEAD
 				props = mergeProps(defaultProps$9, props);
+=======
+				props = mergeProps(defaultProps$a, props);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				var _props5 = props,
 					_props5$list = _props5.list,
 					list2 = _props5$list === void 0 ? [] : _props5$list;
@@ -2166,7 +2594,11 @@
 		}
 		return CheckList;
 	})(Component);
+<<<<<<< HEAD
 	var classPrefix$a = "adm-checkbox";
+=======
+	var classPrefix$b = "adm-checkbox";
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 	var Checkbox = /*#__PURE__*/ (function(_Component17) {
 		_inheritsLoose(Checkbox, _Component17);
 		function Checkbox() {
@@ -2226,11 +2658,19 @@
 				}
 				var boxClsObj =
 					((_boxClsObj = {}),
+<<<<<<< HEAD
 					(_boxClsObj[classPrefix$a + "-checked"] =
 						_this383.data.checked && !props.disabled),
 					(_boxClsObj[classPrefix$a + "-indeterminate"] = props.indeterminate),
 					(_boxClsObj[classPrefix$a + "-disabled"] = props.disabled),
 					(_boxClsObj[classPrefix$a + "-block"] = props.block),
+=======
+					(_boxClsObj[classPrefix$b + "-checked"] =
+						_this383.data.checked && !props.disabled),
+					(_boxClsObj[classPrefix$b + "-indeterminate"] = props.indeterminate),
+					(_boxClsObj[classPrefix$b + "-disabled"] = props.disabled),
+					(_boxClsObj[classPrefix$b + "-block"] = props.block),
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 					_boxClsObj);
 
 				var iconClsObj = Object.keys(boxClsObj).map(function(key) {
@@ -2241,6 +2681,7 @@
 					var _ref2;
 					return (_ref2 = {}), (_ref2[key + "-icon-text"] = boxClsObj[key]), _ref2;
 				});
+<<<<<<< HEAD
 				var boxClassStr = classNames(classPrefix$a, boxClsObj);
 				var iconClassStr = classNames(classPrefix$a + "-icon", iconClsObj);
 				var iconTextClassStr = classNames(
@@ -2251,6 +2692,18 @@
 					classPrefix$a + "-content",
 					((_classNames7 = {}),
 					(_classNames7[classPrefix$a + "-disabled-content"] = props.disabled),
+=======
+				var boxClassStr = classNames(classPrefix$b, boxClsObj);
+				var iconClassStr = classNames(classPrefix$b + "-icon", iconClsObj);
+				var iconTextClassStr = classNames(
+					classPrefix$b + "-icon-text",
+					iconTextClsObj
+				);
+				var contentClassStr = classNames(
+					classPrefix$b + "-content",
+					((_classNames7 = {}),
+					(_classNames7[classPrefix$b + "-disabled-content"] = props.disabled),
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 					_classNames7)
 				);
 
@@ -2304,7 +2757,11 @@
 		return Checkbox;
 	})(Component);
 
+<<<<<<< HEAD
 	var defaultProps$8 = {
+=======
+	var defaultProps$9 = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		disabled: false,
 		list: []
 	};
@@ -2339,7 +2796,11 @@
 				}
 			);
 			_defineProperty(_assertThisInitialized(_this384), "render", function(props) {
+<<<<<<< HEAD
 				props = mergeProps(defaultProps$8, props);
+=======
+				props = mergeProps(defaultProps$9, props);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				var _props6 = props,
 					defaultValue = _props6.defaultValue,
 					list2 = _props6.list,
@@ -2381,8 +2842,13 @@
 	});
 	var closeIcon =
 		"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAe5JREFUSEutlT9rFFEUxc/ZXbZUEK3Ewj8QFYyycx8Kotj4AWy01DQiCdqIYiEkaRUsDJI2EBuxsLcRVJYN7800ohjUYGGlfoY5MsvOsLuZ2VnMDkwz79zfu+++e88QNU+v19vXarVOkTwrqSHpE8ltM/s7KZRViyGER5JukDxXodkG8NbM7pWt7wInSXI6TdNNAJ260wzWd0jeiqLow7B+BOy9XyG5PCVwRCZp1Tm3kn8swN77OZJf/weax0g66ZzLSoQCHELoATg/JFqty17SKwBXSR4YxG2Z2YUC7L1/QvLBULavzex6TWk2zGxhXCPpqXPuYT/jEMI3ACfGyjAJvm5mi2UbS/rlnDvCJEkOpWn6u6K2ZfBnZna/5jQRvfdXSL6bcGkFvNFotKIoejxF9ywxhLAI4EVNN/ThmWYKKCS9zMB3AKzPEkxyIyvFRZIfZ1mKNE0XsowPAvgz48ubz9stm7i5snaL43hZUjGqA01luwH4aWZHc/BzAHdnMSAA1jLHGx7pHwCO7XGkd8zs+IhXxHF8SdL7vZgQycu5fY7YZkU9p9qr0jbz6G63e7jdbq8BuDYVEdiSdDO3y11+PA6J43hJ0m0A8xUbfJf0JnOysvXKf14uDiHsB3Bm8FLSl2az+bnT6VT1fj/0H9kXDeO4/QD9AAAAAElFTkSuQmCC";
+<<<<<<< HEAD
 	var classPrefix$9 = "adm-input";
 	var defaultProps$7 = {
+=======
+	var classPrefix$a = "adm-input";
+	var defaultProps$8 = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		defaultValue: "",
 		maxLength: 500,
 		minLength: 0,
@@ -2428,7 +2894,11 @@
 			});
 			_defineProperty(_assertThisInitialized(_this385), "render", function(props) {
 				var _classNames8;
+<<<<<<< HEAD
 				props = mergeProps(defaultProps$7, props);
+=======
+				props = mergeProps(defaultProps$8, props);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				var handleKeydown = function handleKeydown(e) {
 					if (props.onEnterPress && (e.code === "Enter" || e.keyCode === 13)) {
 						props.onEnterPress(e);
@@ -2445,15 +2915,26 @@
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
+<<<<<<< HEAD
 						className: classPrefix$9 + "-wrapper"
+=======
+						className: classPrefix$a + "-wrapper"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 					},
 					/* @__PURE__ */ avm.h("input", {
 						id: props.id,
 						className: classNames(
+<<<<<<< HEAD
 							classPrefix$9,
 							((_classNames8 = {}),
 							(_classNames8[classPrefix$9 + "-disabled"] = props.disabled),
 							(_classNames8[classPrefix$9 + "-readOnly"] = props.readOnly),
+=======
+							classPrefix$a,
+							((_classNames8 = {}),
+							(_classNames8[classPrefix$a + "-disabled"] = props.disabled),
+							(_classNames8[classPrefix$a + "-readOnly"] = props.readOnly),
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							_classNames8)
 						),
 
@@ -2497,7 +2978,11 @@
 						/* @__PURE__ */ avm.h(
 							"div",
 							{
+<<<<<<< HEAD
 								className: classPrefix$9 + "-clear",
+=======
+								className: classPrefix$a + "-clear",
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 								onClick: function onClick() {
 									_this385.setValue("", props);
 									props.onClear == null ? void 0 : props.onClear();
@@ -2506,7 +2991,11 @@
 							/* @__PURE__ */ avm.h("img", {
 								src: closeIcon,
 								alt: "close",
+<<<<<<< HEAD
 								className: classPrefix$9 + "-clear-icon"
+=======
+								className: classPrefix$a + "-clear-icon"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							})
 						)
 				);
@@ -2515,7 +3004,11 @@
 		}
 		return Input;
 	})(Component);
+<<<<<<< HEAD
 	var classPrefix$8 = "adm-tag";
+=======
+	var classPrefix$9 = "adm-tag";
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 	var colorRecord = {
 		default: "#666666",
 		primary: "#1677ff",
@@ -2524,7 +3017,11 @@
 		danger: "#ff3141"
 	};
 
+<<<<<<< HEAD
 	var defaultProps$6 = {
+=======
+	var defaultProps$7 = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		color: "default",
 		fill: "solid",
 		round: false
@@ -2547,7 +3044,11 @@
 			});
 			_defineProperty(_assertThisInitialized(_this386), "render", function(props) {
 				var _colorRecord$props$co, _props$borderColor, _classNames9;
+<<<<<<< HEAD
 				props = mergeProps(defaultProps$6, props);
+=======
+				props = mergeProps(defaultProps$7, props);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				var color =
 					(_colorRecord$props$co = colorRecord[props.color]) != null
 						? _colorRecord$props$co
@@ -2580,9 +3081,15 @@
 						style: styles,
 						onClick: props.onClick,
 						className: classNames(
+<<<<<<< HEAD
 							classPrefix$8,
 							((_classNames9 = {}),
 							(_classNames9[classPrefix$8 + "-round"] = props.round),
+=======
+							classPrefix$9,
+							((_classNames9 = {}),
+							(_classNames9[classPrefix$9 + "-round"] = props.round),
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							_classNames9)
 						)
 					},
@@ -2594,8 +3101,13 @@
 		}
 		return Tag;
 	})(Component);
+<<<<<<< HEAD
 	var classPrefix$7 = "adm-radio";
 	var defaultProps$5 = {
+=======
+	var classPrefix$8 = "adm-radio";
+	var defaultProps$6 = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		defaultChecked: false
 	};
 	var Radio = /*#__PURE__*/ (function(_Component21) {
@@ -2628,7 +3140,11 @@
 			);
 			_defineProperty(_assertThisInitialized(_this387), "render", function(props) {
 				var _classNames12, _classNames13;
+<<<<<<< HEAD
 				props = mergeProps(defaultProps$5, props);
+=======
+				props = mergeProps(defaultProps$6, props);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				var groupContext = props.RadioGroupContext;
 				var disabled = props.disabled;
 				var _props7 = props,
@@ -2648,10 +3164,17 @@
 				var renderIcon = function renderIcon() {
 					var _classNames10, _classNames11;
 					var iconCls = classNames(
+<<<<<<< HEAD
 						classPrefix$7 + "-icon",
 						((_classNames10 = {}),
 						(_classNames10[classPrefix$7 + "-checked-icon"] = _this387.data.checked),
 						(_classNames10[classPrefix$7 + "-disabled-icon"] = disabled),
+=======
+						classPrefix$8 + "-icon",
+						((_classNames10 = {}),
+						(_classNames10[classPrefix$8 + "-checked-icon"] = _this387.data.checked),
+						(_classNames10[classPrefix$8 + "-disabled-icon"] = disabled),
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 						_classNames10)
 					);
 
@@ -2680,9 +3203,15 @@
 								"text",
 								{
 									className: classNames(
+<<<<<<< HEAD
 										classPrefix$7 + "-icon-checked",
 										((_classNames11 = {}),
 										(_classNames11[classPrefix$7 + "-icon-checked-disabled"] = disabled),
+=======
+										classPrefix$8 + "-icon-checked",
+										((_classNames11 = {}),
+										(_classNames11[classPrefix$8 + "-icon-checked-disabled"] = disabled),
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 										_classNames11)
 									)
 								},
@@ -2692,9 +3221,15 @@
 					);
 				};
 				var contentCls = classNames(
+<<<<<<< HEAD
 					classPrefix$7 + "-content",
 					((_classNames12 = {}),
 					(_classNames12[classPrefix$7 + "-disabled-content"] = disabled),
+=======
+					classPrefix$8 + "-content",
+					((_classNames12 = {}),
+					(_classNames12[classPrefix$8 + "-disabled-content"] = disabled),
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 					_classNames12)
 				);
 
@@ -2705,19 +3240,32 @@
 					"label",
 					{
 						className: classNames(
+<<<<<<< HEAD
 							classPrefix$7,
 							props.className,
 							((_classNames13 = {}),
 							(_classNames13[classPrefix$7 + "-checked"] = _this387.data.checked),
 							(_classNames13[classPrefix$7 + "-disabled"] = disabled),
 							(_classNames13[classPrefix$7 + "-block"] = props.block),
+=======
+							classPrefix$8,
+							props.className,
+							((_classNames13 = {}),
+							(_classNames13[classPrefix$8 + "-checked"] = _this387.data.checked),
+							(_classNames13[classPrefix$8 + "-disabled"] = disabled),
+							(_classNames13[classPrefix$8 + "-block"] = props.block),
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							_classNames13)
 						),
 
 						style: props.style
 					},
 					/* @__PURE__ */ avm.h("radio", {
+<<<<<<< HEAD
 						className: classPrefix$7 + "-input",
+=======
+						className: classPrefix$8 + "-input",
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 						type: "radio",
 						checked: _this387.data.checked,
 						onChange: function onChange(e) {
@@ -2735,7 +3283,11 @@
 		return Radio;
 	})(Component);
 
+<<<<<<< HEAD
 	var defaultProps$4 = {
+=======
+	var defaultProps$5 = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		disabled: false,
 		defaultValue: null
 	};
@@ -2768,7 +3320,11 @@
 				}
 			);
 			_defineProperty(_assertThisInitialized(_this388), "render", function(props) {
+<<<<<<< HEAD
 				props = mergeProps(defaultProps$4, props);
+=======
+				props = mergeProps(defaultProps$5, props);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				var RadioGroupContext = {
 					value: _this388.data.value === null ? [] : [_this388.data.value],
 					check: function check(v) {
@@ -2797,8 +3353,13 @@
 	var index = attachPropertiesToComponent(Radio, {
 		Group: Group
 	});
+<<<<<<< HEAD
 	var classPrefix$6 = "adm-rate";
 	var defaultProps$3 = {
+=======
+	var classPrefix$7 = "adm-rate";
+	var defaultProps$4 = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		count: 5,
 		allowHalf: false,
 		character: "\u2605",
@@ -2835,7 +3396,11 @@
 				}
 			);
 			_defineProperty(_assertThisInitialized(_this389), "render", function(props) {
+<<<<<<< HEAD
 				props = mergeProps(defaultProps$3, props);
+=======
+				props = mergeProps(defaultProps$4, props);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				var starList = Array(props.count).fill(null);
 				var styles = {};
 				var _props8 = props,
@@ -2853,12 +3418,21 @@
 						"div",
 						{
 							className: classNames(
+<<<<<<< HEAD
 								classPrefix$6 + "-star",
 								((_classNames14 = {}),
 								(_classNames14[classPrefix$6 + "-star-active"] =
 									_this389.data.value >= v),
 								(_classNames14[classPrefix$6 + "-star-half"] = half),
 								(_classNames14[classPrefix$6 + "-star-readonly"] = props.readOnly),
+=======
+								classPrefix$7 + "-star",
+								((_classNames14 = {}),
+								(_classNames14[classPrefix$7 + "-star-active"] =
+									_this389.data.value >= v),
+								(_classNames14[classPrefix$7 + "-star-half"] = half),
+								(_classNames14[classPrefix$7 + "-star-readonly"] = props.readOnly),
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 								_classNames14)
 							),
 
@@ -2889,14 +3463,22 @@
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
+<<<<<<< HEAD
 						className: classPrefix$6
+=======
+						className: classPrefix$7
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 					},
 					starList.map(function(_, i) {
 						return /* @__PURE__ */ avm.h(
 							"div",
 							{
 								key: i,
+<<<<<<< HEAD
 								className: classNames(classPrefix$6 + "-box")
+=======
+								className: classNames(classPrefix$7 + "-box")
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							},
 							props.allowHalf && renderStar(i + 0.5, true),
 							renderStar(i + 1, false)
@@ -2910,8 +3492,13 @@
 	})(Component);
 	var searchIcon =
 		"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAZJJREFUOE+l0zFoFUEQBuB/ltdaiK02lhaChSCIWEm6gEXQUjhuZ/dFUBvrCBZpxCLBu9njgWBhWtMoGJJIumBpIUHSRdFgEWzfzcgFL+Quz0TilXOz387M7hL+86P+ehHxAC4DuAhgD8BOXddvhsPhxqS9OoCIfATwFcCqc27LzM6a2QUAj4nogff+VR85AEREVPVbjHFu0k4ppU91Xd+PMa4f/r8PFEUx5Zx7ysxX/zaSsiwvEdHyYDC4kmXZrzavBeaI6GcIYeG4mYrIkqqWh6vYB0Rk2cxehBDeHQeUZTlPRLvM/KxTQdM/Ea1575dOqKB0zn3I8/x1B6iqKlPV88z85ATgPRHNeu+3OsBoNDozHo+3VXWmP+U2UUQeArjNzDePnEITSClNm9lzVc36SEopN7MEYIWZb00EmmBVVTdUddHMHBG9BXAOQANvOuceNfM2s+/MfLfTQr/voiiuO+eumdkuEW0y8+c2J6W0ZmZfmDlvYkfewr+8rQZR1R8hhDunAv7c3nsxxpenBtpKfwNXwLQR3X6r9QAAAABJRU5ErkJggg==";
+<<<<<<< HEAD
 	var classPrefix$5 = "adm-search";
 	var defaultProps$2 = {
+=======
+	var classPrefix$6 = "adm-search";
+	var defaultProps$3 = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		clearable: true,
 		showCancelButton: false,
 		defaultValue: "",
@@ -2956,7 +3543,11 @@
 			});
 			_defineProperty(_assertThisInitialized(_this390), "render", function(props) {
 				var _classNames15;
+<<<<<<< HEAD
 				props = mergeProps(defaultProps$2, props);
+=======
+				props = mergeProps(defaultProps$3, props);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				var renderCancelButton = function renderCancelButton() {
 					var isShowCancel = false;
 					if (typeof props.showCancelButton === "function") {
@@ -2972,7 +3563,11 @@
 						/* @__PURE__ */ avm.h(
 							"span",
 							{
+<<<<<<< HEAD
 								className: classPrefix$5 + "-suffix",
+=======
+								className: classPrefix$6 + "-suffix",
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 								onClick: function onClick() {
 									_this390.setSearchValue("", props);
 									if (props.clearOnCancel) {
@@ -2993,9 +3588,15 @@
 					"div",
 					{
 						className: classNames(
+<<<<<<< HEAD
 							classPrefix$5,
 							((_classNames15 = {}),
 							(_classNames15[classPrefix$5 + "-active"] = _this390.data.hasFocus),
+=======
+							classPrefix$6,
+							((_classNames15 = {}),
+							(_classNames15[classPrefix$6 + "-active"] = _this390.data.hasFocus),
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							_classNames15)
 						)
 					},
@@ -3004,15 +3605,24 @@
 						"div",
 						{
 							className: classNames(
+<<<<<<< HEAD
 								classPrefix$5 + "-input-box",
 								_this390.data.hasFocus ? classPrefix$5 + "-active-input-box" : ""
+=======
+								classPrefix$6 + "-input-box",
+								_this390.data.hasFocus ? classPrefix$6 + "-active-input-box" : ""
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							),
 							style: boxStyles
 						},
 						/* @__PURE__ */ avm.h(
 							"div",
 							{
+<<<<<<< HEAD
 								className: classPrefix$5 + "-input-box-icon"
+=======
+								className: classPrefix$6 + "-input-box-icon"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							},
 							/* @__PURE__ */ avm.h("img", {
 								src: searchIcon,
@@ -3021,7 +3631,11 @@
 						),
 						/* @__PURE__ */ avm.h(Input, {
 							isSearch: true,
+<<<<<<< HEAD
 							className: classPrefix$5 + "-input",
+=======
+							className: classPrefix$6 + "-input",
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							value: _this390.data.searchVal,
 							onChange: function onChange(val) {
 								return _this390.setSearchValue(val, props);
@@ -3053,7 +3667,11 @@
 		}
 		return Search;
 	})(Component);
+<<<<<<< HEAD
 	var classPrefix$4 = "adm-grid";
+=======
+	var classPrefix$5 = "adm-grid";
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 	var Grid$1 = /*#__PURE__*/ (function(_Component25) {
 		_inheritsLoose(Grid$1, _Component25);
 		function Grid$1() {
@@ -3087,7 +3705,11 @@
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
+<<<<<<< HEAD
 						className: classPrefix$4,
+=======
+						className: classPrefix$5,
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 						style: styles
 					},
 					props.children
@@ -3120,7 +3742,11 @@
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
+<<<<<<< HEAD
 						className: classPrefix$4 + "-item",
+=======
+						className: classPrefix$5 + "-item",
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 						style: itemStyle,
 						onClick: props.onClick
 					},
@@ -3137,8 +3763,13 @@
 	});
 	var checkIcon =
 		"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAIxJREFUOE/Vk7ENg0AQBGfbcSdIFpmphwJIiMgd2gk5ASkNUM8ipLdk4MF+EVj+fEa3e/fi5NNJnj8U2L4AhaRyjp8UIcBjEDyTBDF4IbDdA7Wkdr2ZPXgtuAF3IJfUvSRH8CaC7VnSAFdJwyc42kGQVEAGLAqLHV10C0HyeG9772KT1vj1BCn/4/cTTKW4NxE23iIWAAAAAElFTkSuQmCC";
+<<<<<<< HEAD
 	var classPrefix$3 = "adm-selector";
 	var defaultProps$1 = {
+=======
+	var classPrefix$4 = "adm-selector";
+	var defaultProps$2 = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		multiple: false,
 		defaultValue: [],
 		color: "#333",
@@ -3176,7 +3807,11 @@
 				}
 			);
 			_defineProperty(_assertThisInitialized(_this393), "render", function(props) {
+<<<<<<< HEAD
 				props = mergeProps(defaultProps$1, props);
+=======
+				props = mergeProps(defaultProps$2, props);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				var activeStyles = {};
 				activeStyles["color"] = props.color;
 				activeStyles["background"] = props.checkedColor;
@@ -3185,6 +3820,7 @@
 					var active = (_this393.data.value || []).includes(option.value);
 					var disabled = option.disabled || props.disabled;
 					var itemCls = classNames(
+<<<<<<< HEAD
 						classPrefix$3 + "-item",
 						((_classNames16 = {}),
 						(_classNames16[classPrefix$3 + "-item-active"] =
@@ -3192,6 +3828,15 @@
 						(_classNames16[classPrefix$3 + "-item-multiple-active"] =
 							active && props.multiple),
 						(_classNames16[classPrefix$3 + "-item-disabled"] = disabled),
+=======
+						classPrefix$4 + "-item",
+						((_classNames16 = {}),
+						(_classNames16[classPrefix$4 + "-item-active"] =
+							active && !props.multiple),
+						(_classNames16[classPrefix$4 + "-item-multiple-active"] =
+							active && props.multiple),
+						(_classNames16[classPrefix$4 + "-item-disabled"] = disabled),
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 						_classNames16)
 					);
 
@@ -3221,7 +3866,11 @@
 						/* @__PURE__ */ avm.h(
 							"span",
 							{
+<<<<<<< HEAD
 								className: classPrefix$3 + "-label",
+=======
+								className: classPrefix$4 + "-label",
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 								style: {color: active ? props.color : "#333"}
 							},
 							option.label
@@ -3231,11 +3880,19 @@
 							/* @__PURE__ */ avm.h(
 								"div",
 								{
+<<<<<<< HEAD
 									className: classPrefix$3 + "-check-mark-wrapper"
 								},
 								/* @__PURE__ */ avm.h("img", {
 									src: checkIcon,
 									className: classPrefix$3 + "-check-mark-wrapper-img"
+=======
+									className: classPrefix$4 + "-check-mark-wrapper"
+								},
+								/* @__PURE__ */ avm.h("img", {
+									src: checkIcon,
+									className: classPrefix$4 + "-check-mark-wrapper-img"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 								})
 							)
 					);
@@ -3243,7 +3900,11 @@
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
+<<<<<<< HEAD
 						className: classPrefix$3
+=======
+						className: classPrefix$4
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 					},
 					!props.columns &&
 						/* @__PURE__ */ avm.h(
@@ -3268,7 +3929,11 @@
 		}
 		return Selector;
 	})(Component);
+<<<<<<< HEAD
 	var classPrefix$2 = "adm-infinite-scroll";
+=======
+	var classPrefix$3 = "adm-infinite-scroll";
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 	var InfiniteScrollContent = /*#__PURE__*/ (function(_Component28) {
 		_inheritsLoose(InfiniteScrollContent, _Component28);
 		function InfiniteScrollContent() {
@@ -3286,7 +3951,11 @@
 				return /* @__PURE__ */ avm.h(
 					"view",
 					{
+<<<<<<< HEAD
 						className: classPrefix$2 + "-tip"
+=======
+						className: classPrefix$3 + "-tip"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 					},
 					props.hasMore
 						? /* @__PURE__ */ avm.h(
@@ -3295,7 +3964,11 @@
 								/* @__PURE__ */ avm.h(
 									"span",
 									{
+<<<<<<< HEAD
 										className: classPrefix$2 + "-tip-text"
+=======
+										className: classPrefix$3 + "-tip-text"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 									},
 									props.hasMoreText || "\u52A0\u8F7D\u4E2D"
 								)
@@ -3303,7 +3976,11 @@
 						: /* @__PURE__ */ avm.h(
 								"span",
 								{
+<<<<<<< HEAD
 									className: classPrefix$2 + "-tip-text"
+=======
+									className: classPrefix$3 + "-tip-text"
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 								},
 								props.notHasMoreText || "\u6CA1\u6709\u66F4\u591A\u4E86"
 						  )
@@ -3340,7 +4017,11 @@
 						"scroll-y": true,
 						"show-scrollbar": false,
 						bounces: true,
+<<<<<<< HEAD
 						className: classPrefix$2,
+=======
+						className: classPrefix$3,
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 						"lower-threshold": props.threshold,
 						onscrolltolower: doLoadMore
 					},
@@ -3370,8 +4051,13 @@
 		}
 		return ret;
 	}
+<<<<<<< HEAD
 	var classPrefix$1 = "adm-stepper";
 	var defaultProps = {
+=======
+	var classPrefix$2 = "adm-stepper";
+	var defaultProps$1 = {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 		defaultValue: 0,
 		step: 1,
 		disabled: false
@@ -3480,7 +4166,11 @@
 			);
 			_defineProperty(_assertThisInitialized(_this396), "render", function(props) {
 				var _classNames17;
+<<<<<<< HEAD
 				_this396.props = mergeProps(defaultProps, props);
+=======
+				_this396.props = mergeProps(defaultProps$1, props);
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				if (_this396.data.isInit) {
 					_this396.data.value = props.value || props.defaultValue;
 					_this396.data.inputValue =
@@ -3556,10 +4246,17 @@
 					"div",
 					{
 						className: classNames(
+<<<<<<< HEAD
 							classPrefix$1,
 							((_classNames17 = {}),
 							(_classNames17[classPrefix$1 + "-disabled"] = disabled),
 							(_classNames17[classPrefix$1 + "-active"] = _this396.data.hasFocus),
+=======
+							classPrefix$2,
+							((_classNames17 = {}),
+							(_classNames17[classPrefix$2 + "-disabled"] = disabled),
+							(_classNames17[classPrefix$2 + "-active"] = _this396.data.hasFocus),
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							_classNames17)
 						),
 
@@ -3568,7 +4265,11 @@
 					/* @__PURE__ */ avm.h(
 						Button,
 						{
+<<<<<<< HEAD
 							className: classPrefix$1 + "-minus",
+=======
+							className: classPrefix$2 + "-minus",
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							onClick: _this396.handleMinus,
 							disabled: _this396.minusDisabled(),
 							fill: "none",
@@ -3581,7 +4282,11 @@
 						"-"
 					),
 					/* @__PURE__ */ avm.h("input", {
+<<<<<<< HEAD
 						className: classPrefix$1 + "-input",
+=======
+						className: classPrefix$2 + "-input",
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 						style: inputStyle,
 						onFocus: function onFocus(e) {
 							_this396.setHasFocus(true);
@@ -3598,7 +4303,11 @@
 					/* @__PURE__ */ avm.h(
 						Button,
 						{
+<<<<<<< HEAD
 							className: classPrefix$1 + "-plus",
+=======
+							className: classPrefix$2 + "-plus",
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 							onClick: _this396.handlePlus,
 							disabled: _this396.plusDisabled(),
 							fill: "none",
@@ -3616,10 +4325,17 @@
 		}
 		return Stepper;
 	})(Component);
+<<<<<<< HEAD
 	var classPrefix = "adm-progress-bar";
 	var ProgressBar = /*#__PURE__*/ (function(_Component31) {
 		_inheritsLoose(ProgressBar, _Component31);
 		function ProgressBar() {
+=======
+	var classPrefix$1 = "adm-result";
+	var Result = /*#__PURE__*/ (function(_Component31) {
+		_inheritsLoose(Result, _Component31);
+		function Result() {
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 			var _this397;
 			for (
 				var _len397 = arguments.length, args = new Array(_len397), _key397 = 0;
@@ -3630,6 +4346,7 @@
 			}
 			_this397 =
 				_Component31.call.apply(_Component31, [this].concat(args)) || this;
+<<<<<<< HEAD
 			_defineProperty(_assertThisInitialized(_this397), "install", function() {
 				console.log("progress-bar!");
 			});
@@ -3645,10 +4362,36 @@
 					"div",
 					{
 						className: classPrefix
+=======
+			_defineProperty(_assertThisInitialized(_this397), "render", function(props) {
+				debugger;
+				var status = props.status,
+					title = props.title,
+					description = props.description;
+				if (!status) return null;
+				var resultIcon = function resultIcon(status2) {
+					if (status2 === "success") {
+						return /* @__PURE__ */ avm.h(CheckCircleFill, null);
+					} else if (status2 === "error") {
+						return /* @__PURE__ */ avm.h(CloseCircleFill, null);
+					} else if (status2 === "info") {
+						return /* @__PURE__ */ avm.h(InformationCircleOutline, null);
+					} else if (status2 === "waiting") {
+						return /* @__PURE__ */ avm.h(ClockCircleOutline, null);
+					} else if (status2 === "warning") {
+						return /* @__PURE__ */ avm.h(SmileOutline, null);
+					}
+				};
+				return /* @__PURE__ */ avm.h(
+					"div",
+					{
+						className: classNames(classPrefix$1, classPrefix$1 + "-" + status)
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 					},
 					/* @__PURE__ */ avm.h(
 						"div",
 						{
+<<<<<<< HEAD
 							className: classPrefix + "-trail",
 							style: back
 						},
@@ -3657,11 +4400,121 @@
 							style: styles
 						})
 					)
+=======
+							className: classPrefix$1 + "-icon"
+						},
+						resultIcon
+					),
+					/* @__PURE__ */ avm.h(
+						"div",
+						{
+							className: classPrefix$1 + "-title"
+						},
+						title
+					),
+					description
+						? /* @__PURE__ */ avm.h(
+								"div",
+								{
+									className: classPrefix$1 + "-description"
+								},
+								description
+						  )
+						: null
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 				);
 			});
 			return _this397;
 		}
+<<<<<<< HEAD
 		return ProgressBar;
+=======
+		return Result;
+	})(Component);
+	var classPrefix = "adm-nav-bar";
+	var defaultProps = {
+		back: "",
+		backArrow: true
+	};
+	var NavBar = /*#__PURE__*/ (function(_Component32) {
+		_inheritsLoose(NavBar, _Component32);
+		function NavBar() {
+			var _this398;
+			for (
+				var _len398 = arguments.length, args = new Array(_len398), _key398 = 0;
+				_key398 < _len398;
+				_key398++
+			) {
+				args[_key398] = arguments[_key398];
+			}
+			_this398 =
+				_Component32.call.apply(_Component32, [this].concat(args)) || this;
+			_defineProperty(
+				_assertThisInitialized(_this398),
+				"render",
+
+				function(props) {
+					props = mergeProps(defaultProps, props);
+					var _props9 = props,
+						back = _props9.back,
+						backArrow = _props9.backArrow;
+					return /* @__PURE__ */ avm.h(
+						"div",
+						{
+							className: classNames(classPrefix)
+						},
+						/* @__PURE__ */ avm.h(
+							"div",
+							{
+								className: classPrefix + "-left",
+								role: "button"
+							},
+							back !== null &&
+								/* @__PURE__ */ avm.h(
+									"div",
+									{
+										className: classPrefix + "-back",
+										onClick: props.onBack
+									},
+									backArrow &&
+										/* @__PURE__ */ avm.h("span", {
+											className: classPrefix + "-back-arrow"
+										}),
+									/* @__PURE__ */ avm.h(
+										"span",
+										{
+											"aria-hidden": "true"
+										},
+										back
+									)
+								),
+							props.left
+						),
+						/* @__PURE__ */ avm.h(
+							"div",
+							{
+								className: classPrefix + "-title"
+							},
+							props.children
+						),
+						/* @__PURE__ */ avm.h(
+							"div",
+							{
+								className: classPrefix + "-right"
+							},
+							props.right
+						)
+					);
+				}
+			);
+			return _this398;
+		}
+		var _proto3 = NavBar.prototype;
+		_proto3.install = function install() {
+			console.log("NavBar");
+		};
+		return NavBar;
+>>>>>>> 7d4da1d858e6d04961744f861ed62153a51723be
 	})(Component);
 
 	var Tpl = /*@__PURE__*/ (function(Component) {
@@ -3669,7 +4522,12 @@
 			Component.call(this, props);
 			this.data = {
 				text: "Hello APICloud",
-				year: new Date().getFullYear()
+				year: new Date().getFullYear(),
+				stepList1: [
+					{title: "标题1", description: "描述1"},
+					{title: "标题2", description: "描述2"},
+					{title: "标题3", description: "描述3"}
+				]
 			};
 			this.compute = {
 				list: function() {
@@ -3723,8 +4581,9 @@
 			return apivm.h(
 				apivm.f,
 				null,
-				apivm.h(Icon, {fontSize: 30, color: "#9ac200"}),
-				apivm.h(AppOutline, {fontSize: 72, color: "#3af"})
+				apivm.h("safe-area", null),
+				apivm.h("text", null, "导航栏"),
+				apivm.h(NavBar, {onBack: "{()=>{}"}, "标题")
 			);
 		};
 

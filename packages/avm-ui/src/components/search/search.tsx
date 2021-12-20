@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
 import searchIcon from './search.png'
-import {Input} from '../input/input'
+import closeIcon from './img/close.png'
 
 
 const classPrefix = `adm-search`
@@ -13,7 +13,9 @@ const defaultProps = {
   clearOnCancel: true,
   cancelText: '取消',
   bgColor: '#f5f5f5',
-  borderRadius: '6px'
+  borderRadius: '6px',
+  maxLength: 500,
+  minLength: 0
 }
 
 export class Search extends Component {
@@ -22,13 +24,13 @@ export class Search extends Component {
   }
 
   data = {
-    searchVal: '',
+    searchVal: this.props.value,
     hasFocus: false
   }
 
-  setSearchValue = (val, props) => {
+  setSearchValue = val => {
     this.data.searchVal = val
-    props.onChange?.(this.data.searchVal)
+    this.props.onChange && this.props.onChange(this.data.searchVal)
   }
 
   setHasFocus = focus => {
@@ -36,14 +38,27 @@ export class Search extends Component {
   }
 
   render = props => {
-    props = mergeProps(defaultProps,  props)
+    this.props = mergeProps(defaultProps,  props)
+
+    const {
+      showCancelButton, clearOnCancel, clearable, bgColor, borderRadius, placeholderColor, 
+      onClear, onCancel, onFocus, onBlur, onSearch, onEnterPress, onKeyDown,
+      maxLength, placeholder, cancelText
+    } = this.props
+
+    const handleKeydown = (e: any) => {
+      if (onEnterPress && (e.code === 'Enter' || e.keyCode === 13)) {
+        onSearch && onSearch(this.data.searchVal)
+      }
+      onKeyDown && onKeyDown(e)
+    }
 
     const renderCancelButton = () => {
       let isShowCancel = false
-      if (typeof props.showCancelButton === 'function') {
-        isShowCancel = props.showCancelButton(this.data.hasFocus, this.data.searchVal)
+      if (typeof showCancelButton === 'function') {
+        isShowCancel = showCancelButton(this.data.hasFocus, this.data.searchVal)
       } else {
-        isShowCancel = props.showCancelButton && this.data.searchVal
+        isShowCancel = showCancelButton && !!this.data.searchVal
       }
 
       return (
@@ -51,23 +66,26 @@ export class Search extends Component {
           <span
             className={`${classPrefix}-suffix`}
             onClick={() => {
-              this.setSearchValue('', props);
-              if (props.clearOnCancel) {
-                props.onClear?.()
+              if (clearOnCancel) {
+                this.setSearchValue('');
+                onClear?.()
               }
-              props.onCancel?.()
+              onCancel?.()
             }}>
-            {props.cancelText}
+            {cancelText}
           </span>
         )
       )
     }
 
-    const boxStyles = {}
-    boxStyles['background'] = props.bgColor
-    boxStyles['borderRadius'] = props.borderRadius
+    const boxStyles = {
+      background: bgColor,
+      borderRadius: borderRadius
+    }
 
-    const placeHolderStyle = `color: ${props.placeholderColor}`
+    const boxCls = classNames(`${classPrefix}-input-box`, {
+      [`${classPrefix}-active-input-box`] : this.data.hasFocus
+    })
 
     return (
       <div
@@ -75,32 +93,43 @@ export class Search extends Component {
           [`${classPrefix}-active`]: this.data.hasFocus,
         })}
       >
-        <div className={classNames(`${classPrefix}-input-box`, this.data.hasFocus ? `${classPrefix}-active-input-box` : '')} style={boxStyles}>
+        <div className={boxCls} style={boxStyles}>
           <div className={`${classPrefix}-input-box-icon`}>
             <img src={searchIcon} alt="search"/>
           </div>
-          <Input
-            isSearch={true}
-            className={`${classPrefix}-input`}
+          <input
+            className={(`${classPrefix}-input`)}
             value={this.data.searchVal}
-            onChange={val => this.setSearchValue(val, props)}
-            maxLength={props.maxLength}
-            placeholder={props.placeholder}
-            placeholderStyle={placeHolderStyle}
-            clearable={props.clearable}
+            onInput={e => {
+              this.setSearchValue(e.detail.value)
+            }}
+            maxLength={maxLength}
+            placeholder={placeholder}
+            placeholder-style={`color: ${placeholderColor}`}
+            clearable={clearable}
             onFocus={e => {
               this.setHasFocus(true)
-              props.onFocus?.(e)
+              onFocus?.(e)
             }}
             onBlur={e => {
-              this.setHasFocus(false)
-              props.onBlur?.(e)
+              setTimeout(() => {
+                this.setHasFocus(false)
+              }, 300)
+              onBlur?.(e)
             }}
-            onClear={props.onClear}
-            onEnterPress={() => {
-              props.onSearch?.(this.data.searchVal)
-            }}
+            onClear={onClear}
+            onKeyDown={handleKeydown}
           />
+          {!!this.data.searchVal && this.data.hasFocus && (
+            <div
+              className={`${classPrefix}-clear`}
+              onClick={() => {
+                this.setSearchValue('')
+                onClear?.()
+              }}>
+              <img src={closeIcon} alt="close" className={`${classPrefix}-clear-icon`}/>
+            </div>
+          )}
         </div>
         {renderCancelButton()}
       </div>

@@ -22,5 +22,5 @@
 | gapY        | 水印之间的垂直间距                                   | `number`           | `48`                 |
 | fullPage    | 是否覆盖整个页面                                     | `boolean`          | `true`               |
 
-## 注意：该组件主要由canvas实现，暂不支持在avm中使用
+`注意：该组件主要由canvas实现，暂不支持在avm中使用`
 
