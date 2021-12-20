@@ -2,6 +2,7 @@
 import {Command} from 'commander'
 import {onCreate} from "./commands/create";
 import {onGenIcon} from "./commands/genIcon";
+import {onBuild} from "./commands/build";
 
 // 创建命令对象
 const program = new Command()
@@ -18,10 +19,14 @@ program
   .action(onCreate)
 
 
-// 注册命令、参数、回调
 program.command('icon')
   .description('生成 icon 组件源码')
   .action(onGenIcon)
+
+
+program.command('widget')
+  .description('生成 icon 组件源码')
+  .action(onBuild)
 
 // 执行命令行参数解析
 program.parse()
