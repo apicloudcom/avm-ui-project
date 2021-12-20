@@ -831,8 +831,8 @@
 		}
 		return ret;
 	}
-	var classPrefix$j = "adm-button";
-	var defaultProps$e = {
+	var classPrefix$p = "adm-button";
+	var defaultProps$i = {
 		color: "default",
 		fill: "solid",
 		size: "middle",
@@ -840,7 +840,41 @@
 		disabled: false,
 		loading: false,
 		type: "button",
-		shape: "default"
+		shape: "default",
+		style: {}
+	};
+
+	var colorAttr = {
+		default: {
+			textColor: "#333",
+			bgColor: "#fff"
+		},
+
+		primary: {
+			textColor: "#fff",
+			bgColor: "#1677ff"
+		},
+
+		success: {
+			textColor: "#fff",
+			bgColor: "#00b578"
+		},
+
+		warning: {
+			textColor: "#fff",
+			bgColor: "#ff8f1f"
+		},
+
+		danger: {
+			textColor: "#fff",
+			bgColor: "#ff3141"
+		}
+	};
+
+	var shapeAttr = {
+		default: "4px",
+		rounded: "1000px",
+		rectangular: 0
 	};
 	var Button = /*#__PURE__*/ (function(_Component) {
 		_inheritsLoose(Button, _Component);
@@ -859,41 +893,46 @@
 			});
 			_defineProperty(_assertThisInitialized(_this), "render", function(props) {
 				var _classNames;
-				props = mergeProps(defaultProps$e, props);
+				props = mergeProps(defaultProps$i, props);
 				var disabled = props.disabled || props.loading;
-				var btnStyles = {};
-				props.textColor && (btnStyles["color"] = props.textColor);
-				props.bgColor && (btnStyles["background-color"] = props.bgColor);
-				props.borderRadius && (btnStyles["border-radius"] = props.borderRadius);
-				props.borderWidth && (btnStyles["border-width"] = props.borderWidth);
-				props.borderStyle && (btnStyles["border-style"] = props.borderStyle);
-				props.borderColor && (btnStyles["border-color"] = props.borderColor);
+				var btnStyles = {height: "auto", lineHeight: 1.4};
+				btnStyles["opacity"] = disabled ? 0.4 : 1;
+				btnStyles["color"] = props.textColor || colorAttr[props.color].textColor;
+				btnStyles["backgroundColor"] =
+					props.bgColor || colorAttr[props.color].bgColor;
+				btnStyles["borderRadius"] = props.borderRadius || shapeAttr[props.shape];
+				btnStyles["borderWidth"] = props.borderWidth;
+				btnStyles["borderStyle"] = props.borderStyle;
+				btnStyles["borderColor"] =
+					props.borderColor || colorAttr[props.color].bgColor;
+				var btnCls = classNames(
+					classPrefix$p,
+					props.className,
+					props.color ? classPrefix$p + "-" + props.color : null,
+					((_classNames = {}),
+					(_classNames[classPrefix$p + "-block"] = props.block),
+					(_classNames[classPrefix$p + "-disabled"] = disabled),
+					(_classNames[classPrefix$p + "-" + props.color + "-fill-outline"] =
+						props.fill === "outline"),
+					(_classNames[classPrefix$p + "-" + props.color + "-fill-none"] =
+						props.fill === "none"),
+					(_classNames[classPrefix$p + "-mini"] = props.size === "mini"),
+					(_classNames[classPrefix$p + "-mini-shape-" + props.shape] =
+						props.size === "mini"),
+					(_classNames[classPrefix$p + "-small"] = props.size === "small"),
+					(_classNames[classPrefix$p + "-large"] = props.size === "large"),
+					(_classNames[classPrefix$p + "-loading"] = props.loading),
+					_classNames),
+					classPrefix$p + "-shape-" + props.shape
+				);
 				return /* @__PURE__ */ avm.h(
 					"button",
 					{
 						type: props.type,
 						onClick: props.onClick,
-						style: btnStyles,
-						className: classNames(
-							classPrefix$j,
-							props.color ? classPrefix$j + "-" + props.color : null,
-							((_classNames = {}),
-							(_classNames[classPrefix$j + "-block"] = props.block),
-							(_classNames[classPrefix$j + "-disabled"] = disabled),
-							(_classNames[classPrefix$j + "-" + props.color + "-fill-outline"] =
-								props.fill === "outline"),
-							(_classNames[classPrefix$j + "-" + props.color + "-fill-none"] =
-								props.fill === "none"),
-							(_classNames[classPrefix$j + "-mini"] = props.size === "mini"),
-							(_classNames[classPrefix$j + "-mini-shape-" + props.shape] =
-								props.size === "mini"),
-							(_classNames[classPrefix$j + "-small"] = props.size === "small"),
-							(_classNames[classPrefix$j + "-large"] = props.size === "large"),
-							(_classNames[classPrefix$j + "-loading"] = props.loading),
-							_classNames),
-							classPrefix$j + "-shape-" + props.shape
-						),
-						disabled: disabled
+						className: btnCls,
+						disabled: disabled,
+						style: __spreadValues(__spreadValues({}, btnStyles), props.style)
 					},
 					props.loading ? props.loadingText : props.children
 				);
@@ -908,247 +947,6 @@
 		};
 		return Button;
 	})(Component);
-	var classPrefix$i = "adm-badge";
-	var formatLabel$1 = function formatLabel$1(ele, cls, style) {
-		if (style === void 0) {
-			style = {};
-		}
-		return Object.prototype.toString.call(ele) !== "[object Object]"
-			? /* @__PURE__ */ avm.h(
-					"span",
-					{
-						className: cls,
-						style: style
-					},
-					ele
-			  )
-			: /* @__PURE__ */ avm.h(
-					"div",
-					{
-						className: cls,
-						style: style
-					},
-					ele
-			  );
-	};
-	var defaultProps$d = {
-		color: "#FF411C"
-	};
-	var Badge = /*#__PURE__*/ (function(_Component2) {
-		_inheritsLoose(Badge, _Component2);
-		function Badge() {
-			var _this2;
-			for (
-				var _len2 = arguments.length, args = new Array(_len2), _key2 = 0;
-				_key2 < _len2;
-				_key2++
-			) {
-				args[_key2] = arguments[_key2];
-			}
-			_this2 = _Component2.call.apply(_Component2, [this].concat(args)) || this;
-			_defineProperty(_assertThisInitialized(_this2), "install", function() {
-				console.log("Badge!");
-			});
-			_defineProperty(_assertThisInitialized(_this2), "render", function(props) {
-				var _classNames2;
-				props = mergeProps(defaultProps$d, props);
-				var _props = props,
-					content = _props.content,
-					color = _props.color,
-					children = _props.children,
-					isDot = _props.isDot,
-					right = _props.right,
-					top = _props.top;
-				var badgeCls = classNames(
-					classPrefix$i,
-					((_classNames2 = {}),
-					(_classNames2[classPrefix$i + "--fixed"] = !!children),
-					(_classNames2[classPrefix$i + "--dot"] = isDot),
-					_classNames2)
-				);
-
-				var styleRight = !!right && !!children ? right : 0;
-				var styleTop = !!top && !!children ? top : 0;
-				var contentEle = formatLabel$1(content, badgeCls, {
-					backgroundColor: color,
-					right: styleRight,
-					top: styleTop
-				});
-				return /* @__PURE__ */ avm.h(
-					"div",
-					{
-						className: classPrefix$i + "-wrap"
-					},
-					children,
-					contentEle
-				);
-			});
-			return _this2;
-		}
-		return Badge;
-	})(Component);
-	var classPrefix$h = "adm-loading";
-	var Loading = /*#__PURE__*/ (function(_Component3) {
-		_inheritsLoose(Loading, _Component3);
-		function Loading() {
-			var _this3;
-			for (
-				var _len3 = arguments.length, args = new Array(_len3), _key3 = 0;
-				_key3 < _len3;
-				_key3++
-			) {
-				args[_key3] = arguments[_key3];
-			}
-			_this3 = _Component3.call.apply(_Component3, [this].concat(args)) || this;
-			_defineProperty(_assertThisInitialized(_this3), "render", function(props) {
-				var _props$color = props.color,
-					color = _props$color === void 0 ? "default" : _props$color;
-				return /* @__PURE__ */ avm.h(
-					"div",
-					{
-						className: classPrefix$h
-					},
-					/* @__PURE__ */ avm.h(
-						"span",
-						{
-							className: classPrefix$h + "-" + color
-						},
-						"svg\u56FE\u5360\u4F4D"
-					)
-				);
-			});
-			return _this3;
-		}
-		return Loading;
-	})(Component);
-	var classPrefix$g = "adm-space";
-	var defaultProps$c = {
-		direction: "horizontal",
-		gap: "8px"
-	};
-	var Space = /*#__PURE__*/ (function(_Component4) {
-		_inheritsLoose(Space, _Component4);
-		function Space() {
-			var _this4;
-			for (
-				var _len4 = arguments.length, args = new Array(_len4), _key4 = 0;
-				_key4 < _len4;
-				_key4++
-			) {
-				args[_key4] = arguments[_key4];
-			}
-			_this4 = _Component4.call.apply(_Component4, [this].concat(args)) || this;
-			_defineProperty(_assertThisInitialized(_this4), "render", function(props) {
-				var _classNames3;
-				props = mergeProps(defaultProps$c, props);
-				var _props2 = props,
-					direction = _props2.direction,
-					gap = _props2.gap,
-					gapHorizontal = _props2.gapHorizontal,
-					gapVertical = _props2.gapVertical;
-				var itemStyles = {};
-				var gaps =
-					direction === "horizontal" ? gapHorizontal || gap : gapVertical || gap;
-				itemStyles[
-					direction === "horizontal" ? "marginRight" : "marginBottom"
-				] = gaps;
-				var wrapStyles = {};
-				if (props.wrap && direction === "horizontal") {
-					var vGap = gapVertical || gap;
-					wrapStyles["marginBottom"] = "-" + vGap;
-					itemStyles["paddingBottom"] = vGap;
-				}
-				return /* @__PURE__ */ avm.h(
-					"div",
-					{
-						className: classNames(
-							classPrefix$g,
-							((_classNames3 = {}),
-							(_classNames3[classPrefix$g + "-wrap"] = props.wrap),
-							(_classNames3[classPrefix$g + "-" + direction + "-wrap"] = props.wrap),
-							(_classNames3[classPrefix$g + "-block"] = props.block),
-							(_classNames3[classPrefix$g + "-" + direction] = true),
-							(_classNames3[classPrefix$g + "-align-" + props.align] = !!props.align),
-							(_classNames3[
-								classPrefix$g + "-justify-" + props.justify
-							] = !!props.justify),
-							_classNames3)
-						),
-
-						style: wrapStyles
-					},
-					props.children.map(function(child, index2) {
-						var _classNames4;
-						return (
-							child !== null &&
-							child !== void 0 &&
-							/* @__PURE__ */ avm.h(
-								"div",
-								{
-									className: classNames(
-										classPrefix$g + "-item",
-										classPrefix$g + "-" + direction + "-item",
-										((_classNames4 = {}),
-										(_classNames4[classPrefix$g + "-" + direction + "-item-last"] =
-											index2 === props.children.length - 1),
-										(_classNames4[classPrefix$g + "-" + direction + "-wrap-item"] =
-											props.wrap),
-										_classNames4)
-									),
-
-									style: itemStyles
-								},
-								child
-							)
-						);
-					})
-				);
-			});
-			return _this4;
-		}
-		return Space;
-	})(Component);
-	var classPrefix$f = "adm-list";
-	var defaultProps$b = {
-		mode: "default"
-	};
-	var List$1 = /*#__PURE__*/ (function(_Component5) {
-		_inheritsLoose(List$1, _Component5);
-		function List$1() {
-			var _this5;
-			for (
-				var _len5 = arguments.length, args = new Array(_len5), _key5 = 0;
-				_key5 < _len5;
-				_key5++
-			) {
-				args[_key5] = arguments[_key5];
-			}
-			_this5 = _Component5.call.apply(_Component5, [this].concat(args)) || this;
-			_defineProperty(_assertThisInitialized(_this5), "install", function() {
-				console.log("List!");
-			});
-			_defineProperty(_assertThisInitialized(_this5), "render", function(props) {
-				props = mergeProps(defaultProps$b, props);
-				return /* @__PURE__ */ avm.h(
-					"div",
-					{
-						className: classNames(classPrefix$f, classPrefix$f + "--" + props.mode)
-					},
-					/* @__PURE__ */ avm.h(
-						"div",
-						{
-							className: classPrefix$f + "--inner"
-						},
-						props.children
-					)
-				);
-			});
-			return _this5;
-		}
-		return List$1;
-	})(Component);
-
-	var classPrefix$e = "adm-list-item";
 	var checkLabelType = function checkLabelType(ele) {
 		return Object.prototype.toString.call(ele);
 	};
@@ -1179,6 +977,225 @@
 					ele
 			  );
 	};
+	var classPrefix$o = "adm-badge";
+	var defaultProps$h = {
+		color: "#FF411C"
+	};
+	var Badge = /*#__PURE__*/ (function(_Component2) {
+		_inheritsLoose(Badge, _Component2);
+		function Badge() {
+			var _this2;
+			for (
+				var _len2 = arguments.length, args = new Array(_len2), _key2 = 0;
+				_key2 < _len2;
+				_key2++
+			) {
+				args[_key2] = arguments[_key2];
+			}
+			_this2 = _Component2.call.apply(_Component2, [this].concat(args)) || this;
+			_defineProperty(_assertThisInitialized(_this2), "install", function() {
+				console.log("Badge!");
+			});
+			_defineProperty(_assertThisInitialized(_this2), "render", function(props) {
+				var _classNames2;
+				props = mergeProps(defaultProps$h, props);
+				var _props = props,
+					content = _props.content,
+					color = _props.color,
+					children = _props.children,
+					isDot = _props.isDot,
+					right = _props.right,
+					top = _props.top;
+				var badgeCls = classNames(
+					classPrefix$o,
+					((_classNames2 = {}),
+					(_classNames2[classPrefix$o + "--fixed"] = !!children),
+					(_classNames2[classPrefix$o + "--dot"] = isDot),
+					_classNames2)
+				);
+
+				var styleRight = !!right && !!children ? right : 0;
+				var styleTop = !!top && !!children ? top : 0;
+				var contentEle = formatLabel(content, badgeCls, {
+					backgroundColor: color,
+					right: styleRight,
+					top: styleTop
+				});
+				return /* @__PURE__ */ avm.h(
+					"div",
+					{
+						className: classPrefix$o + "-wrap"
+					},
+					children,
+					contentEle
+				);
+			});
+			return _this2;
+		}
+		return Badge;
+	})(Component);
+	var classPrefix$n = "adm-loading";
+	var Loading = /*#__PURE__*/ (function(_Component3) {
+		_inheritsLoose(Loading, _Component3);
+		function Loading() {
+			var _this3;
+			for (
+				var _len3 = arguments.length, args = new Array(_len3), _key3 = 0;
+				_key3 < _len3;
+				_key3++
+			) {
+				args[_key3] = arguments[_key3];
+			}
+			_this3 = _Component3.call.apply(_Component3, [this].concat(args)) || this;
+			_defineProperty(_assertThisInitialized(_this3), "render", function(props) {
+				var _props$color = props.color,
+					color = _props$color === void 0 ? "default" : _props$color;
+				return /* @__PURE__ */ avm.h(
+					"div",
+					{
+						className: classPrefix$n
+					},
+					/* @__PURE__ */ avm.h(
+						"span",
+						{
+							className: classPrefix$n + "-" + color
+						},
+						"svg\u56FE\u5360\u4F4D"
+					)
+				);
+			});
+			return _this3;
+		}
+		return Loading;
+	})(Component);
+	var classPrefix$m = "adm-space";
+	var defaultProps$g = {
+		direction: "horizontal",
+		gap: "8px"
+	};
+	var Space = /*#__PURE__*/ (function(_Component4) {
+		_inheritsLoose(Space, _Component4);
+		function Space() {
+			var _this4;
+			for (
+				var _len4 = arguments.length, args = new Array(_len4), _key4 = 0;
+				_key4 < _len4;
+				_key4++
+			) {
+				args[_key4] = arguments[_key4];
+			}
+			_this4 = _Component4.call.apply(_Component4, [this].concat(args)) || this;
+			_defineProperty(_assertThisInitialized(_this4), "render", function(props) {
+				var _classNames3;
+				props = mergeProps(defaultProps$g, props);
+				var _props2 = props,
+					direction = _props2.direction,
+					gap = _props2.gap,
+					gapHorizontal = _props2.gapHorizontal,
+					gapVertical = _props2.gapVertical;
+				var itemStyles = {};
+				var gaps =
+					direction === "horizontal" ? gapHorizontal || gap : gapVertical || gap;
+				itemStyles[
+					direction === "horizontal" ? "marginRight" : "marginBottom"
+				] = gaps;
+				var wrapStyles = {};
+				if (props.wrap && direction === "horizontal") {
+					var vGap = gapVertical || gap;
+					wrapStyles["marginBottom"] = "-" + vGap;
+					itemStyles["paddingBottom"] = vGap;
+				}
+				return /* @__PURE__ */ avm.h(
+					"div",
+					{
+						className: classNames(
+							classPrefix$m,
+							((_classNames3 = {}),
+							(_classNames3[classPrefix$m + "-wrap"] = props.wrap),
+							(_classNames3[classPrefix$m + "-" + direction + "-wrap"] = props.wrap),
+							(_classNames3[classPrefix$m + "-block"] = props.block),
+							(_classNames3[classPrefix$m + "-" + direction] = true),
+							(_classNames3[classPrefix$m + "-align-" + props.align] = !!props.align),
+							(_classNames3[
+								classPrefix$m + "-justify-" + props.justify
+							] = !!props.justify),
+							_classNames3)
+						),
+
+						style: wrapStyles
+					},
+					props.children.map(function(child, index2) {
+						var _classNames4;
+						return (
+							child !== null &&
+							child !== void 0 &&
+							/* @__PURE__ */ avm.h(
+								"div",
+								{
+									className: classNames(
+										classPrefix$m + "-item",
+										classPrefix$m + "-" + direction + "-item",
+										((_classNames4 = {}),
+										(_classNames4[classPrefix$m + "-" + direction + "-item-last"] =
+											index2 === props.children.length - 1),
+										(_classNames4[classPrefix$m + "-" + direction + "-wrap-item"] =
+											props.wrap),
+										_classNames4)
+									),
+
+									style: itemStyles
+								},
+								child
+							)
+						);
+					})
+				);
+			});
+			return _this4;
+		}
+		return Space;
+	})(Component);
+	var classPrefix$l = "adm-list";
+	var defaultProps$f = {
+		mode: "default"
+	};
+	var List$1 = /*#__PURE__*/ (function(_Component5) {
+		_inheritsLoose(List$1, _Component5);
+		function List$1() {
+			var _this5;
+			for (
+				var _len5 = arguments.length, args = new Array(_len5), _key5 = 0;
+				_key5 < _len5;
+				_key5++
+			) {
+				args[_key5] = arguments[_key5];
+			}
+			_this5 = _Component5.call.apply(_Component5, [this].concat(args)) || this;
+			_defineProperty(_assertThisInitialized(_this5), "install", function() {
+				console.log("List!");
+			});
+			_defineProperty(_assertThisInitialized(_this5), "render", function(props) {
+				props = mergeProps(defaultProps$f, props);
+				return /* @__PURE__ */ avm.h(
+					"div",
+					{
+						className: classNames(classPrefix$l, classPrefix$l + "--" + props.mode)
+					},
+					/* @__PURE__ */ avm.h(
+						"div",
+						{
+							className: classPrefix$l + "--inner"
+						},
+						props.children
+					)
+				);
+			});
+			return _this5;
+		}
+		return List$1;
+	})(Component);
+
+	var classPrefix$k = "adm-list-item";
 	var ListItem = /*#__PURE__*/ (function(_Component6) {
 		_inheritsLoose(ListItem, _Component6);
 		function ListItem() {
@@ -1203,32 +1220,32 @@
 				var arrow = props.arrow === void 0 ? clickable : props.arrow;
 				var prefixWidth = !!props.prefixWidth ? props.prefixWidth : "auto";
 				var disabledClass = props.disabled && "list-disabled";
-				var childCls = classPrefix$e + "-children";
+				var childCls = classPrefix$k + "-children";
 				var prefixCls = classNames(
-					classPrefix$e + "-content-prefix",
+					classPrefix$k + "-content-prefix",
 					disabledClass
 				);
 				var prefixStyles = {width: prefixWidth};
-				var extraCls = classNames(classPrefix$e + "-content-extra", disabledClass);
+				var extraCls = classNames(classPrefix$k + "-content-extra", disabledClass);
 				var childEles = formatLabel(props.children, childCls);
 				var prefixEles = formatLabel(props.prefix, prefixCls, prefixStyles);
 				var extraEles = formatLabel(props.extra, extraCls);
 				var content = /* @__PURE__ */ avm.h(
 					"div",
 					{
-						className: classPrefix$e + "-content"
+						className: classPrefix$k + "-content"
 					},
 					props.prefix && prefixEles,
 					/* @__PURE__ */ avm.h(
 						"div",
 						{
-							className: classNames(classPrefix$e + "-content-main", disabledClass)
+							className: classNames(classPrefix$k + "-content-main", disabledClass)
 						},
 						props.title &&
 							/* @__PURE__ */ avm.h(
 								"span",
 								{
-									className: classPrefix$e + "-title"
+									className: classPrefix$k + "-title"
 								},
 								props.title
 							),
@@ -1237,7 +1254,7 @@
 							/* @__PURE__ */ avm.h(
 								"span",
 								{
-									className: classPrefix$e + "-description"
+									className: classPrefix$k + "-description"
 								},
 								props.description
 							)
@@ -1247,15 +1264,15 @@
 						/* @__PURE__ */ avm.h(
 							"div",
 							{
-								className: classNames(classPrefix$e + "-content-arrow", disabledClass)
+								className: classNames(classPrefix$k + "-content-arrow", disabledClass)
 							},
 							arrow === true ? /* @__PURE__ */ avm.h("span", null, ">") : arrow
 						)
 				);
 				var listItemCls = classNames(
-					"" + classPrefix$e,
+					"" + classPrefix$k,
 					clickable ? ["adm-plain-anchor"] : [],
-					props.disabled && classPrefix$e + "-disabled"
+					props.disabled && classPrefix$k + "-disabled"
 				);
 				var listItemEvent = props.disabled ? void 0 : props.onClick;
 				return /* @__PURE__ */ avm.h(
@@ -1286,7 +1303,7 @@
 	};
 
 	var List = attachPropertiesToComponent(List$1, properties);
-	var classPrefix$d = "adm-card";
+	var classPrefix$j = "adm-card";
 	var Card = /*#__PURE__*/ (function(_Component7) {
 		_inheritsLoose(Card, _Component7);
 		function Card() {
@@ -1307,7 +1324,7 @@
 					return /* @__PURE__ */ avm.h(
 						"div",
 						{
-							className: classNames(classPrefix$d + "-header", props.headerClassName),
+							className: classNames(classPrefix$j + "-header", props.headerClassName),
 							style: props.headerStyle,
 							onClick: props.onHeaderClick
 						},
@@ -1316,7 +1333,7 @@
 							: /* @__PURE__ */ avm.h(
 									"text",
 									{
-										className: classPrefix$d + "-header-title"
+										className: classPrefix$j + "-header-title"
 									},
 									props.title
 							  ),
@@ -1333,7 +1350,7 @@
 					return /* @__PURE__ */ avm.h(
 						"div",
 						{
-							className: classNames(classPrefix$d + "-body", props.bodyClassName),
+							className: classNames(classPrefix$j + "-body", props.bodyClassName),
 							style: props.bodyStyle,
 							onClick: props.onBodyClick
 						},
@@ -1343,7 +1360,7 @@
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
-						className: classPrefix$d,
+						className: classPrefix$j,
 						onClick: props.onClick
 					},
 					renderHeader(),
@@ -1361,13 +1378,13 @@
 		"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNjM4MDAxOTkwOTczIiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjI5NjAiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTE1MS41NTIgMTUxLjU1MnY3MjAuODk2aDcyMC44OTZWMTUxLjU1MkgxNTEuNTUyeiBtLTMyLjc2OC02NS41MzZoNzg2LjQzMmM5LjU1Njk5MiAwIDE3LjQwOCAzLjA3MiAyMy41NTIgOS4yMTZzOS4yMTYgMTMuOTk1MDA4IDkuMjE2IDIzLjU1MnY3ODYuNDMyYzAgOS41NTY5OTItMy4wNzIgMTcuNDA4LTkuMjE2IDIzLjU1MnMtMTMuOTk1MDA4IDkuMjE2LTIzLjU1MiA5LjIxNkgxMTguNzg0Yy05LjU1Njk5MiAwLTE3LjQwOC0zLjA3Mi0yMy41NTItOS4yMTZzLTkuMjE2LTEzLjk5NTAwOC05LjIxNi0yMy41NTJWMTE4Ljc4NGMwLTkuNTU2OTkyIDMuMDcyLTE3LjQwOCA5LjIxNi0yMy41NTJzMTMuOTk1MDA4LTkuMjE2IDIzLjU1Mi05LjIxNnogbTI2Mi4xNDQgMTk2LjYwOGM0My42OTEwMDggMCA2NS41MzYgMjEuODQ0OTkyIDY1LjUzNiA2NS41MzZzLTIxLjg0NDk5MiA2NS41MzYtNjUuNTM2IDY1LjUzNi02NS41MzYtMjEuODQ0OTkyLTY1LjUzNi02NS41MzYgMjEuODQ0OTkyLTY1LjUzNiA2NS41MzYtNjUuNTM2ek0xNzcuMTUyIDg4NS43NmwtNTEuMi0zOS45MzYgMjIxLjE4NC0yODguNzY4YzE2LjM4NC0yMS4xNjMwMDggMzguMDU5MDA4LTMzLjQ1MTAwOCA2NS4wMjQtMzYuODY0IDI2Ljk2NDk5Mi0zLjQxMjk5MiA1MS4wMjg5OTIgMi43MzEwMDggNzIuMTkyIDE4LjQzMmwxMjggMTAzLjQyNGM3LjUwODk5MiA1LjQ2MDk5MiAxNS41MzEwMDggNy42OCAyNC4wNjQgNi42NTZTNjUyLjI4OCA2NDMuNzU1MDA4IDY1OC40MzIgNjM2LjkyOGwyMjEuMTg0LTI3Ni40OCA1MS4yIDQwLjk2LTIyMS4xODQgMjc2LjQ4Yy0xNy4wNjcwMDggMjEuMTYzMDA4LTM5LjA4MzAwOCAzMy4xMDg5OTItNjYuMDQ4IDM1Ljg0LTI2Ljk2NDk5MiAyLjczMTAwOC01MS4wMjg5OTItNC4wOTYtNzIuMTkyLTIwLjQ4TDQ0NC40MTYgNTkwLjg0OGMtNy41MDg5OTItNS40NjA5OTItMTUuNTMxMDA4LTcuNjgtMjQuMDY0LTYuNjU2cy0xNS41MzEwMDggNS4yOTEwMDgtMjAuOTkyIDEyLjhMMTc3LjE1MiA4ODUuNzZ6IiBwLWlkPSIyOTYxIiBmaWxsPSIjYmZiZmJmIj48L3BhdGg+PC9zdmc+";
 	var warnUrl =
 		"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNjM4MDAyMDMxMzYzIiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjMyMDMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTEzNiA2NTkuMzQ0bDI1OS42NjctMjYwLjIxOWMzLjEtMy4xIDguMi0zLjEgMTEuMyAwbDg2LjEgODYuMiAzNy43NS0zNy43OWE3Ljg4OCA3Ljg4OCAwIDAgMSAxLjUwOC0yLjExbDE0NC4zLTE0NC4zYzIuOTU4LTIuOTU4IDcuNzM3LTMuMDkzIDEwLjg2Mi0wLjQwNyAwLjIzNSAwLjE4NyAwLjQ2MyAwLjM5IDAuNjggMC42MDdsMzYuOCAzNi44YzAuMjc0IDAuMjY1IDAuNTI0IDAuNTQ1IDAuNzUxIDAuODM3bDQyLjY0NyA0Mi42OTYgMC4wMDYgMC4wMDdhOCA4IDAgMCAxLTAuMDIgMTEuMzE0bC0zNi44NzYgMzYuNzQ3YTggOCAwIDAgMS0xMS4zMDctMC4wMTRsLTM3LjcwMy0zNy43NDctMTgzLjc5OCAxODMuOTZjLTMuMSAzLjEtOC4yIDMuMS0xMS4zIDBsLTg2LjEtODYuMkwxMzYgNzU1LjUxMlY3OTJoMzM0YTggOCAwIDAgMSA4IDh2NTZhOCA4IDAgMCAxLTggOEg5NmMtMTcuNyAwLTMyLTE0LjMtMzItMzJWMTkyYzAtMTcuNyAxNC4zLTMyIDMyLTMyaDc4NGMxNy43IDAgMzIgMTQuMyAzMiAzMnYyMzJhOCA4IDAgMCAxLTggOGgtNTZhOCA4IDAgMCAxLTgtOFYyMzJIMTM2djQyNy4zNDR6TTI3NCA0MzJjLTM1LjM0NSAwLTY0LTI4LjY1NS02NC02NHMyOC42NTUtNjQgNjQtNjQgNjQgMjguNjU1IDY0IDY0LTI4LjY1NSA2NC02NCA2NHogbTQ3MCA0OGMxMTkuMyAwIDIxNiA5Ni43IDIxNiAyMTZzLTk2LjcgMjE2LTIxNiAyMTYtMjE2LTk2LjctMjE2LTIxNiA5Ni43LTIxNiAyMTYtMjE2eiBtMTA3LjUgMzIzLjVDODgwLjIgNzc0LjggODk2IDczNi42IDg5NiA2OTZjMC00MC42LTE1LjgtNzguOC00NC41LTEwNy41QzgyMi44IDU1OS44IDc4NC42IDU0NCA3NDQgNTQ0Yy00MC42IDAtNzguOCAxNS44LTEwNy41IDQ0LjVDNjA3LjggNjE3LjIgNTkyIDY1NS40IDU5MiA2OTZjMCA0MC42IDE1LjggNzguOCA0NC41IDEwNy41QzY2NS4yIDgzMi4yIDcwMy40IDg0OCA3NDQgODQ4YzQwLjYgMCA3OC44LTE1LjggMTA3LjUtNDQuNXpNNzEyIDc3NmMwLTE3LjY3MyAxNC4zMjctMzIgMzItMzIgMTcuNjczIDAgMzIgMTQuMzI3IDMyIDMyIDAgMTcuNjczLTE0LjMyNyAzMi0zMiAzMi0xNy42NzMgMC0zMi0xNC4zMjctMzItMzJ6IG0xMi02NGMtNC40IDAtOC0zLjYtOC04VjU5MmMwLTQuNCAzLjYtOCA4LThoNDBjNC40IDAgOCAzLjYgOCA4djExMmMwIDQuNC0zLjYgOC04IDhoLTQweiIgcC1pZD0iMzIwNCIgZmlsbD0iI2JmYmZiZiI+PC9wYXRoPjwvc3ZnPg==";
-	var classPrefix$c = "adm-image";
-	var defaultProps$a = {
+	var classPrefix$i = "adm-image";
+	var defaultProps$e = {
 		fit: "fill",
 		placeholder: /* @__PURE__ */ avm.h(
 			"div",
 			{
-				className: classPrefix$c + "-tip"
+				className: classPrefix$i + "-tip"
 			},
 			/* @__PURE__ */ avm.h("text", null, "\u52A0\u8F09\u4E2D..."),
 			/* @__PURE__ */ avm.h("img", {
@@ -1378,7 +1395,7 @@
 		fallback: /* @__PURE__ */ avm.h(
 			"div",
 			{
-				className: classPrefix$c + "-tip"
+				className: classPrefix$i + "-tip"
 			},
 			/* @__PURE__ */ avm.h("text", null, "\u52A0\u8F09\u5931\u6557"),
 			/* @__PURE__ */ avm.h("img", {
@@ -1421,7 +1438,7 @@
 				_this8.data.failed = status;
 			});
 			_defineProperty(_assertThisInitialized(_this8), "render", function(props) {
-				props = mergeProps(defaultProps$a, props);
+				props = mergeProps(defaultProps$e, props);
 				var src = props.src;
 				var srcSet = props.srcSet;
 				var renderInner = function renderInner() {
@@ -1429,7 +1446,7 @@
 						return /* @__PURE__ */ avm.h("view", null, props.fallback);
 					}
 					var img = /* @__PURE__ */ avm.h("img", {
-						className: classPrefix$c + "-img",
+						className: classPrefix$i + "-img",
 						src: src,
 						alt: props.alt,
 						onClick: props.onClick,
@@ -1476,7 +1493,7 @@
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
-						className: classPrefix$c,
+						className: classPrefix$i,
 						style: style
 					},
 					renderInner()
@@ -1488,7 +1505,7 @@
 	})(Component);
 
 	var fontName = "avm-ui-icon";
-	var classPrefix$b = "adm-icon";
+	var classPrefix$h = "adm-icon";
 	var Icon = /*#__PURE__*/ (function(_Component9) {
 		_inheritsLoose(Icon, _Component9);
 		function Icon() {
@@ -1513,7 +1530,7 @@
 							_code: _this9.code,
 							_name: _this9.constructor.name,
 							style: __spreadValues({}, props),
-							class: classPrefix$b + " " + classPrefix$b + "-font-icon-text"
+							class: classPrefix$h + " " + classPrefix$h + "-font-icon-text"
 						},
 						String.fromCharCode(_this9.code)
 					);
@@ -1529,7 +1546,7 @@
 				"\"; src: url('../../components/avm-ui/" +
 				fontName +
 				".ttf') format('truetype');}\n        ." +
-				classPrefix$b +
+				classPrefix$h +
 				" {font-family: " +
 				fontName +
 				";}"
@@ -1561,14 +1578,14 @@
 		if (!initialized) return false;
 		return !destroyOnClose;
 	}
-	var classPrefix$a = "adm-mask";
+	var classPrefix$g = "adm-mask";
 	var opacityRecord = {
 		default: 0.55,
 		thin: 0.35,
 		thick: 0.75
 	};
 
-	var defaultProps$9 = {
+	var defaultProps$d = {
 		visible: true,
 		destroyOnClose: false,
 		forceRender: false,
@@ -1593,7 +1610,7 @@
 				_Component10.call.apply(_Component10, [this].concat(args)) || this;
 			_defineProperty(_assertThisInitialized(_this376), "render", function(p) {
 				var _opacityRecord$props$;
-				var props = mergeProps(defaultProps$9, p);
+				var props = mergeProps(defaultProps$d, p);
 				var opacity =
 					(_opacityRecord$props$ = opacityRecord[props.opacity]) != null
 						? _opacityRecord$props$
@@ -1608,7 +1625,7 @@
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
-						className: classPrefix$a,
+						className: classPrefix$g,
 						style: __spreadProps(__spreadValues({}, props.style), {
 							background: background,
 							display: props.visible ? "flex" : "none"
@@ -1617,7 +1634,7 @@
 
 					props.onMaskClick &&
 						/* @__PURE__ */ avm.h("div", {
-							className: classPrefix$a + "-aria-button",
+							className: classPrefix$g + "-aria-button",
 							role: "button",
 							"aria-label": "Mask",
 							onClick: props.onMaskClick
@@ -1625,7 +1642,7 @@
 					/* @__PURE__ */ avm.h(
 						"div",
 						{
-							className: classPrefix$a + "-content",
+							className: classPrefix$g + "-content",
 							onClick: props.onMaskClick
 						},
 						shouldRender && props.children
@@ -1636,8 +1653,8 @@
 		}
 		return Mask;
 	})(Component);
-	var classPrefix$9 = "adm-notice-bar";
-	var defaultProps$8 = {
+	var classPrefix$f = "adm-notice-bar";
+	var defaultProps$c = {
 		color: "default",
 		delay: 2e3,
 		speed: 50
@@ -1670,19 +1687,19 @@
 				}
 			);
 			_defineProperty(_assertThisInitialized(_this377), "render", function(props) {
-				props = mergeProps(defaultProps$8, props);
+				props = mergeProps(defaultProps$c, props);
 				if (!_this377.data.visible) return null;
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
-						className: classNames(classPrefix$9, classPrefix$9 + "-" + props.color)
+						className: classNames(classPrefix$f, classPrefix$f + "-" + props.color)
 					},
 					/* @__PURE__ */ avm.h(
 						"text",
 						{
 							className: classNames(
-								classPrefix$9 + "-left",
-								classPrefix$9 + "-left-" + props.color
+								classPrefix$f + "-left",
+								classPrefix$f + "-left-" + props.color
 							)
 						},
 						"icon" in props ? props.icon : "\u9ED8\u8BA4icon"
@@ -1690,14 +1707,14 @@
 					/* @__PURE__ */ avm.h(
 						"view",
 						{
-							className: classPrefix$9 + "-content"
+							className: classPrefix$f + "-content"
 						},
 						/* @__PURE__ */ avm.h(
 							"text",
 							{
 								className: classNames(
-									classPrefix$9 + "-content-inner",
-									classPrefix$9 + "-content-inner-" + props.color
+									classPrefix$f + "-content-inner",
+									classPrefix$f + "-content-inner-" + props.color
 								)
 							},
 							props.content
@@ -1707,7 +1724,7 @@
 						/* @__PURE__ */ avm.h(
 							"view",
 							{
-								className: classPrefix$9 + "-right"
+								className: classPrefix$f + "-right"
 							},
 							props.closeable &&
 								/* @__PURE__ */ avm.h(
@@ -1727,8 +1744,8 @@
 		}
 		return NoticeBar;
 	})(Component);
-	var classPrefix$8 = "adm-page-indicator";
-	var defaultProps$7 = {
+	var classPrefix$e = "adm-page-indicator";
+	var defaultProps$b = {
 		color: "primary",
 		direction: "horizontal"
 	};
@@ -1749,7 +1766,7 @@
 				console.log("PageIndicator!");
 			});
 			_defineProperty(_assertThisInitialized(_this378), "render", function(props) {
-				props = mergeProps(defaultProps$7, props);
+				props = mergeProps(defaultProps$b, props);
 				var _props3 = props,
 					direction = _props3.direction,
 					_props3$dotColor = _props3.dotColor,
@@ -1779,9 +1796,9 @@
 						/* @__PURE__ */ avm.h("div", {
 							key: i,
 							className: classNames(
-								classPrefix$8 + "-dot",
+								classPrefix$e + "-dot",
 								((_classNames5 = {}),
-								(_classNames5[classPrefix$8 + "-dot-active"] = props.current === i),
+								(_classNames5[classPrefix$e + "-dot-active"] = props.current === i),
 								_classNames5)
 							),
 
@@ -1811,9 +1828,9 @@
 					"div",
 					{
 						className: classNames(
-							classPrefix$8,
-							classPrefix$8 + "-" + props.direction,
-							classPrefix$8 + "-color-" + props.color
+							classPrefix$e,
+							classPrefix$e + "-" + props.direction,
+							classPrefix$e + "-color-" + props.color
 						)
 					},
 					dots
@@ -1823,7 +1840,7 @@
 		}
 		return PageIndicator;
 	})(Component);
-	var classPrefix$7 = "adm-step";
+	var classPrefix$d = "adm-step";
 	var Step = /*#__PURE__*/ (function(_Component13) {
 		_inheritsLoose(Step, _Component13);
 		function Step() {
@@ -1852,37 +1869,37 @@
 					"div",
 					{
 						className: classNames(
-							"" + classPrefix$7,
-							classPrefix$7 + "-" + direction,
-							classPrefix$7 + "-status-" + status
+							"" + classPrefix$d,
+							classPrefix$d + "-" + direction,
+							classPrefix$d + "-status-" + status
 						)
 					},
 					/* @__PURE__ */ avm.h(
 						"div",
 						{
 							className: classNames(
-								classPrefix$7 + "-indicator",
-								classPrefix$7 + "-" + direction + "-indicator"
+								classPrefix$d + "-indicator",
+								classPrefix$d + "-" + direction + "-indicator"
 							)
 						},
 						/* @__PURE__ */ avm.h(
 							"div",
 							{
-								className: classNames(classPrefix$7 + "-icon-container")
+								className: classNames(classPrefix$d + "-icon-container")
 							},
 							/* @__PURE__ */ avm.h("span", {
 								className: classNames(
-									classPrefix$7 + "-icon-dot",
-									classPrefix$7 + "-icon-dot-" + status
+									classPrefix$d + "-icon-dot",
+									classPrefix$d + "-icon-dot-" + status
 								)
 							})
 						),
 						curIndex !== totalLen - 1 &&
 							/* @__PURE__ */ avm.h("div", {
 								className: classNames(
-									classPrefix$7 + "-line",
-									classPrefix$7 + "-" + direction + "-line",
-									classPrefix$7 + "-line-" + status
+									classPrefix$d + "-line",
+									classPrefix$d + "-" + direction + "-line",
+									classPrefix$d + "-line-" + status
 								)
 							})
 					),
@@ -1890,16 +1907,16 @@
 						"div",
 						{
 							className: classNames(
-								classPrefix$7 + "-content",
-								classPrefix$7 + "-" + direction + "-content"
+								classPrefix$d + "-content",
+								classPrefix$d + "-" + direction + "-content"
 							)
 						},
 						/* @__PURE__ */ avm.h(
 							"span",
 							{
 								className: classNames(
-									classPrefix$7 + "-title",
-									classPrefix$7 + "-title-" + status
+									classPrefix$d + "-title",
+									classPrefix$d + "-title-" + status
 								)
 							},
 							title
@@ -1909,8 +1926,8 @@
 								"span",
 								{
 									className: classNames(
-										classPrefix$7 + "-description",
-										classPrefix$7 + "-" + direction + "-content-description"
+										classPrefix$d + "-description",
+										classPrefix$d + "-" + direction + "-content-description"
 									)
 								},
 								description
@@ -1923,8 +1940,8 @@
 		return Step;
 	})(Component);
 
-	var classPrefix$6 = "adm-steps";
-	var defaultProps$6 = {
+	var classPrefix$c = "adm-steps";
+	var defaultProps$a = {
 		current: 0,
 		direction: "horizontal"
 	};
@@ -1945,7 +1962,7 @@
 				console.log("Steps!");
 			});
 			_defineProperty(_assertThisInitialized(_this380), "render", function(props) {
-				props = mergeProps(defaultProps$6, props);
+				props = mergeProps(defaultProps$a, props);
 				var _props4 = props,
 					direction = _props4.direction,
 					current = _props4.current,
@@ -1974,7 +1991,7 @@
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
-						className: classNames(classPrefix$6, classPrefix$6 + "-" + direction)
+						className: classNames(classPrefix$c, classPrefix$c + "-" + direction)
 					},
 					stemItem
 				);
@@ -1985,7 +2002,7 @@
 	})(Component);
 	var checkedIcon =
 		"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAARVJREFUOE/l1KFOw1AYxfH/12AQCJKtJQgEggQxg8AgMAgEhgcYBMcLdCtqnYONd0AxXgCNRWB4ASzJikCi6CFr6dYtK1vK3O4D/PKde757jQUfW7DHEoBeUzXBA/AS3djFvyJXfO05ToLtINpRx8LS4EZD+7El2HaGDQouBbq+DnDoAVt5rBRY8XXopNjmJDYE3abugF3FXH507bVoN71AR1KCVadhI7ChEKMFvPFNPbq150m0GujYET3BehE2Ftkdoe9m1PvX9pSh3pVOFCeTrSHCqGPtohRjpWSowScxZ/2uPbqBThH3wOosbGopuUm/ZJxbemcr82CFLefQNNmMmPn4hXs4RH9fwLy/UqnF/gtfQvAHBvFvFZsqVOUAAAAASUVORK5CYII=";
-	var classPrefix$5 = "adm-check-list-item";
+	var classPrefix$b = "adm-check-list-item";
 	var CheckListItem = /*#__PURE__*/ (function(_Component15) {
 		_inheritsLoose(CheckListItem, _Component15);
 		function CheckListItem() {
@@ -2009,7 +2026,7 @@
 				var extra = /* @__PURE__ */ avm.h(
 					"div",
 					{
-						className: classPrefix$5 + "-extra"
+						className: classPrefix$b + "-extra"
 					},
 					active
 						? /* @__PURE__ */ avm.h("img", {
@@ -2024,7 +2041,7 @@
 						title: props.title,
 						className: classNames(
 							((_classNames6 = {}),
-							(_classNames6[classPrefix$5 + "-readonly"] = readOnly),
+							(_classNames6[classPrefix$b + "-readonly"] = readOnly),
 							_classNames6)
 						),
 
@@ -2052,7 +2069,7 @@
 		return CheckListItem;
 	})(Component);
 
-	var defaultProps$5 = {
+	var defaultProps$9 = {
 		multiple: false,
 		defaultValue: [],
 		disabled: false,
@@ -2075,15 +2092,13 @@
 				console.log("CheckList!");
 			});
 			_defineProperty(_assertThisInitialized(_this382), "data", {
-				checked: [],
-				hasChecked: false
+				checked: _this382.props.defaultValue || []
 			});
 			_defineProperty(
 				_assertThisInitialized(_this382),
 				"setChecked",
 
 				function(val) {
-					_this382.data.hasChecked = true;
 					_this382.data.checked = val;
 				}
 			);
@@ -2091,7 +2106,6 @@
 				val,
 				props
 			) {
-				_this382.data.hasChecked = true;
 				if (props.multiple) {
 					_this382.setChecked([].concat(_this382.data.checked, [val]));
 				} else {
@@ -2111,14 +2125,10 @@
 				props.onChange && props.onChange(_this382.data.checked);
 			});
 			_defineProperty(_assertThisInitialized(_this382), "render", function(props) {
-				props = mergeProps(defaultProps$5, props);
+				props = mergeProps(defaultProps$9, props);
 				var _props5 = props,
 					_props5$list = _props5.list,
-					list2 = _props5$list === void 0 ? [] : _props5$list,
-					defaultValue = _props5.defaultValue;
-				if (defaultValue && !_this382.data.hasChecked) {
-					_this382.data.checked = defaultValue;
-				}
+					list2 = _props5$list === void 0 ? [] : _props5$list;
 				var childEle = list2.map(function(item) {
 					var _item$disabled, _item$readOnly;
 					var disabled =
@@ -2156,7 +2166,7 @@
 		}
 		return CheckList;
 	})(Component);
-	var classPrefix$4 = "adm-checkbox";
+	var classPrefix$a = "adm-checkbox";
 	var Checkbox = /*#__PURE__*/ (function(_Component17) {
 		_inheritsLoose(Checkbox, _Component17);
 		function Checkbox() {
@@ -2174,8 +2184,12 @@
 				console.log("Checkbox!");
 			});
 			_defineProperty(_assertThisInitialized(_this383), "data", {
-				checked: false,
-				hasChecked: false
+				checked: !!(
+					_this383.props.defaultChecked ||
+					_this383.props.checked ||
+					(_this383.props.defaultValue &&
+						_this383.props.defaultValue.includes(_this383.props.value))
+				)
 			});
 			_defineProperty(
 				_assertThisInitialized(_this383),
@@ -2183,7 +2197,6 @@
 
 				function(props) {
 					if (!props.indeterminate && !props.disabled) {
-						_this383.data.hasChecked = true;
 						_this383.data.checked = !_this383.data.checked;
 						if (_this383.data.checked) {
 							props.check == null ? void 0 : props.check(props.value);
@@ -2211,20 +2224,13 @@
 				if (props.checkedList !== void 0 && props.value === void 0) {
 					usageWarning();
 				}
-				if (!_this383.data.hasChecked) {
-					_this383.data.checked = !!(
-						props.defaultChecked ||
-						props.checked ||
-						(props.defaultValue && props.defaultValue.includes(props.value))
-					);
-				}
 				var boxClsObj =
 					((_boxClsObj = {}),
-					(_boxClsObj[classPrefix$4 + "-checked"] =
+					(_boxClsObj[classPrefix$a + "-checked"] =
 						_this383.data.checked && !props.disabled),
-					(_boxClsObj[classPrefix$4 + "-indeterminate"] = props.indeterminate),
-					(_boxClsObj[classPrefix$4 + "-disabled"] = props.disabled),
-					(_boxClsObj[classPrefix$4 + "-block"] = props.block),
+					(_boxClsObj[classPrefix$a + "-indeterminate"] = props.indeterminate),
+					(_boxClsObj[classPrefix$a + "-disabled"] = props.disabled),
+					(_boxClsObj[classPrefix$a + "-block"] = props.block),
 					_boxClsObj);
 
 				var iconClsObj = Object.keys(boxClsObj).map(function(key) {
@@ -2235,16 +2241,16 @@
 					var _ref2;
 					return (_ref2 = {}), (_ref2[key + "-icon-text"] = boxClsObj[key]), _ref2;
 				});
-				var boxClassStr = classNames(classPrefix$4, boxClsObj);
-				var iconClassStr = classNames(classPrefix$4 + "-icon", iconClsObj);
+				var boxClassStr = classNames(classPrefix$a, boxClsObj);
+				var iconClassStr = classNames(classPrefix$a + "-icon", iconClsObj);
 				var iconTextClassStr = classNames(
-					classPrefix$4 + "-icon-text",
+					classPrefix$a + "-icon-text",
 					iconTextClsObj
 				);
 				var contentClassStr = classNames(
-					classPrefix$4 + "-content",
+					classPrefix$a + "-content",
 					((_classNames7 = {}),
-					(_classNames7[classPrefix$4 + "-disabled-content"] = props.disabled),
+					(_classNames7[classPrefix$a + "-disabled-content"] = props.disabled),
 					_classNames7)
 				);
 
@@ -2298,7 +2304,7 @@
 		return Checkbox;
 	})(Component);
 
-	var defaultProps$4 = {
+	var defaultProps$8 = {
 		disabled: false,
 		list: []
 	};
@@ -2333,7 +2339,7 @@
 				}
 			);
 			_defineProperty(_assertThisInitialized(_this384), "render", function(props) {
-				props = mergeProps(defaultProps$4, props);
+				props = mergeProps(defaultProps$8, props);
 				var _props6 = props,
 					defaultValue = _props6.defaultValue,
 					list2 = _props6.list,
@@ -2370,13 +2376,13 @@
 		return CheckboxGroup;
 	})(Component);
 
-	var index = attachPropertiesToComponent(Checkbox, {
+	var index$1 = attachPropertiesToComponent(Checkbox, {
 		Group: CheckboxGroup
 	});
 	var closeIcon =
 		"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAe5JREFUSEutlT9rFFEUxc/ZXbZUEK3Ewj8QFYyycx8Kotj4AWy01DQiCdqIYiEkaRUsDJI2EBuxsLcRVJYN7800ohjUYGGlfoY5MsvOsLuZ2VnMDkwz79zfu+++e88QNU+v19vXarVOkTwrqSHpE8ltM/s7KZRViyGER5JukDxXodkG8NbM7pWt7wInSXI6TdNNAJ260wzWd0jeiqLow7B+BOy9XyG5PCVwRCZp1Tm3kn8swN77OZJf/weax0g66ZzLSoQCHELoATg/JFqty17SKwBXSR4YxG2Z2YUC7L1/QvLBULavzex6TWk2zGxhXCPpqXPuYT/jEMI3ACfGyjAJvm5mi2UbS/rlnDvCJEkOpWn6u6K2ZfBnZna/5jQRvfdXSL6bcGkFvNFotKIoejxF9ywxhLAI4EVNN/ThmWYKKCS9zMB3AKzPEkxyIyvFRZIfZ1mKNE0XsowPAvgz48ubz9stm7i5snaL43hZUjGqA01luwH4aWZHc/BzAHdnMSAA1jLHGx7pHwCO7XGkd8zs+IhXxHF8SdL7vZgQycu5fY7YZkU9p9qr0jbz6G63e7jdbq8BuDYVEdiSdDO3y11+PA6J43hJ0m0A8xUbfJf0JnOysvXKf14uDiHsB3Bm8FLSl2az+bnT6VT1fj/0H9kXDeO4/QD9AAAAAElFTkSuQmCC";
-	var classPrefix$3 = "adm-input";
-	var defaultProps$3 = {
+	var classPrefix$9 = "adm-input";
+	var defaultProps$7 = {
 		defaultValue: "",
 		maxLength: 500,
 		minLength: 0,
@@ -2403,16 +2409,14 @@
 				console.log("Input!");
 			});
 			_defineProperty(_assertThisInitialized(_this385), "data", {
-				value: "",
-				hasFocus: false,
-				isInit: true
+				value: _this385.props.value || _this385.props.defaultValue,
+				hasFocus: false
 			});
 			_defineProperty(
 				_assertThisInitialized(_this385),
 				"setValue",
 
 				function(val, props) {
-					_this385.data.isInit = false;
 					_this385.data.value = val;
 					props.onChange && props.onChange(val);
 				}
@@ -2424,10 +2428,7 @@
 			});
 			_defineProperty(_assertThisInitialized(_this385), "render", function(props) {
 				var _classNames8;
-				props = mergeProps(defaultProps$3, props);
-				if (_this385.data.isInit) {
-					_this385.data.value = props.value || props.defaultValue;
-				}
+				props = mergeProps(defaultProps$7, props);
 				var handleKeydown = function handleKeydown(e) {
 					if (props.onEnterPress && (e.code === "Enter" || e.keyCode === 13)) {
 						props.onEnterPress(e);
@@ -2435,30 +2436,24 @@
 					props.onKeyDown == null ? void 0 : props.onKeyDown(e);
 				};
 				var inputStyles = {};
-				if (props.fontSize) {
-					inputStyles["fontSize"] = props.fontSize;
-				}
-				if (props.color) {
-					inputStyles["color"] = props.color;
-				}
-				if (props.disabledColor && props.disabled) {
-					inputStyles["color"] = props.disabledColor;
-				}
-				if (props.textAlign) {
-					inputStyles["textAlign"] = props.textAlign;
-				}
+				props.fontSize && (inputStyles["fontSize"] = props.fontSize);
+				props.color && (inputStyles["color"] = props.color);
+				props.disabledColor &&
+					props.disabled &&
+					(inputStyles["color"] = props.disabledColor);
+				props.textAlign && (inputStyles["textAlign"] = props.textAlign);
 				return /* @__PURE__ */ avm.h(
 					"div",
 					{
-						className: classPrefix$3 + "-wrapper"
+						className: classPrefix$9 + "-wrapper"
 					},
 					/* @__PURE__ */ avm.h("input", {
 						id: props.id,
 						className: classNames(
-							classPrefix$3,
+							classPrefix$9,
 							((_classNames8 = {}),
-							(_classNames8[classPrefix$3 + "-disabled"] = props.disabled),
-							(_classNames8[classPrefix$3 + "-readOnly"] = props.readOnly),
+							(_classNames8[classPrefix$9 + "-disabled"] = props.disabled),
+							(_classNames8[classPrefix$9 + "-readOnly"] = props.readOnly),
 							_classNames8)
 						),
 
@@ -2502,10 +2497,7 @@
 						/* @__PURE__ */ avm.h(
 							"div",
 							{
-								className: classPrefix$3 + "-clear",
-								onMouseDown: function onMouseDown(e) {
-									e.preventDefault();
-								},
+								className: classPrefix$9 + "-clear",
 								onClick: function onClick() {
 									_this385.setValue("", props);
 									props.onClear == null ? void 0 : props.onClear();
@@ -2514,7 +2506,7 @@
 							/* @__PURE__ */ avm.h("img", {
 								src: closeIcon,
 								alt: "close",
-								className: classPrefix$3 + "-clear-icon"
+								className: classPrefix$9 + "-clear-icon"
 							})
 						)
 				);
@@ -2523,7 +2515,7 @@
 		}
 		return Input;
 	})(Component);
-	var classPrefix$2 = "adm-tag";
+	var classPrefix$8 = "adm-tag";
 	var colorRecord = {
 		default: "#666666",
 		primary: "#1677ff",
@@ -2532,7 +2524,7 @@
 		danger: "#ff3141"
 	};
 
-	var defaultProps$2 = {
+	var defaultProps$6 = {
 		color: "default",
 		fill: "solid",
 		round: false
@@ -2555,7 +2547,7 @@
 			});
 			_defineProperty(_assertThisInitialized(_this386), "render", function(props) {
 				var _colorRecord$props$co, _props$borderColor, _classNames9;
-				props = mergeProps(defaultProps$2, props);
+				props = mergeProps(defaultProps$6, props);
 				var color =
 					(_colorRecord$props$co = colorRecord[props.color]) != null
 						? _colorRecord$props$co
@@ -2588,9 +2580,9 @@
 						style: styles,
 						onClick: props.onClick,
 						className: classNames(
-							classPrefix$2,
+							classPrefix$8,
 							((_classNames9 = {}),
-							(_classNames9[classPrefix$2 + "-round"] = props.round),
+							(_classNames9[classPrefix$8 + "-round"] = props.round),
 							_classNames9)
 						)
 					},
@@ -2602,18 +2594,13 @@
 		}
 		return Tag;
 	})(Component);
-	var classPrefix$1 = "adm-rate";
-	var defaultProps$1 = {
-		count: 5,
-		allowHalf: false,
-		character: "\u2605",
-		defaultValue: 0,
-		readOnly: false,
-		allowClear: true
+	var classPrefix$7 = "adm-radio";
+	var defaultProps$5 = {
+		defaultChecked: false
 	};
-	var Rate = /*#__PURE__*/ (function(_Component21) {
-		_inheritsLoose(Rate, _Component21);
-		function Rate() {
+	var Radio = /*#__PURE__*/ (function(_Component21) {
+		_inheritsLoose(Radio, _Component21);
+		function Radio() {
 			var _this387;
 			for (
 				var _len387 = arguments.length, args = new Array(_len387), _key387 = 0;
@@ -2625,109 +2612,136 @@
 			_this387 =
 				_Component21.call.apply(_Component21, [this].concat(args)) || this;
 			_defineProperty(_assertThisInitialized(_this387), "install", function() {
-				console.log("Rate!");
+				console.log("Radio!");
 			});
 			_defineProperty(_assertThisInitialized(_this387), "data", {
-				value: 0
+				checked: _this387.props.checked || _this387.props.defaultChecked
 			});
 			_defineProperty(
 				_assertThisInitialized(_this387),
-				"setValue",
+				"setChecked",
 
-				function(val, props) {
-					_this387.data.value = val;
-					props.onChange == null ? void 0 : props.onChange(_this387.data.value);
+				function(check) {
+					_this387.data.checked = check;
+					_this387.props.onChange && _this387.props.onChange(_this387.props.value);
 				}
 			);
 			_defineProperty(_assertThisInitialized(_this387), "render", function(props) {
-				props = mergeProps(defaultProps$1, props);
-				var starList = Array(props.count).fill(null);
-				var styles = {};
+				var _classNames12, _classNames13;
+				props = mergeProps(defaultProps$5, props);
+				var groupContext = props.RadioGroupContext;
+				var disabled = props.disabled;
 				var _props7 = props,
-					_props7$starSize = _props7.starSize,
-					starSize = _props7$starSize === void 0 ? "24px" : _props7$starSize,
-					_props7$activeColor = _props7.activeColor,
-					activeColor =
-						_props7$activeColor === void 0 ? "#ffd21e" : _props7$activeColor;
-				styles["padding"] = Number(starSize.replace("px", "")) / 8 + "px";
-				styles["line-height"] = starSize;
-				styles["font-size"] = starSize;
-				var renderStar = function renderStar(v, half) {
-					var _classNames10;
-					return /* @__PURE__ */ avm.h(
-						"div",
-						{
-							className: classNames(
-								classPrefix$1 + "-star",
-								((_classNames10 = {}),
-								(_classNames10[classPrefix$1 + "-star-active"] =
-									_this387.data.value >= v),
-								(_classNames10[classPrefix$1 + "-star-half"] = half),
-								(_classNames10[classPrefix$1 + "-star-readonly"] = props.readOnly),
-								_classNames10)
-							),
-
-							style: __spreadProps(__spreadValues({}, styles), {
-								color: _this387.data.value >= v ? activeColor : "#ccc"
-							}),
-							onClick: function onClick() {
-								if (props.readOnly) return;
-								if (props.allowClear && _this387.data.value === v) {
-									_this387.setValue(0, props);
-								} else {
-									_this387.setValue(v, props);
-								}
-							}
-						},
-						/* @__PURE__ */ avm.h(
-							"text",
-							{
-								style: {
-									color: _this387.data.value >= v ? activeColor : "#ccc",
-									fontSize: starSize
-								}
-							},
-							props.character
-						)
+					value = _props7.value;
+				if (groupContext && value !== void 0) {
+					_this387.data.checked = groupContext.value.includes(value);
+					_this387.setChecked = function(checked) {
+						if (checked) {
+							groupContext.check(value);
+						} else {
+							groupContext.uncheck(value);
+						}
+						props.onChange == null ? void 0 : props.onChange(checked);
+					};
+					disabled = disabled || groupContext.disabled;
+				}
+				var renderIcon = function renderIcon() {
+					var _classNames10, _classNames11;
+					var iconCls = classNames(
+						classPrefix$7 + "-icon",
+						((_classNames10 = {}),
+						(_classNames10[classPrefix$7 + "-checked-icon"] = _this387.data.checked),
+						(_classNames10[classPrefix$7 + "-disabled-icon"] = disabled),
+						_classNames10)
 					);
-				};
-				return /* @__PURE__ */ avm.h(
-					"div",
-					{
-						className: classPrefix$1
-					},
-					starList.map(function(_, i) {
+
+					var radioSizeStyle = {};
+					var iconSize = props.iconSize || "22px";
+					radioSizeStyle["width"] = iconSize;
+					radioSizeStyle["height"] = iconSize;
+					radioSizeStyle["borderRadius"] = iconSize;
+					if (props.icon) {
 						return /* @__PURE__ */ avm.h(
 							"div",
 							{
-								key: i,
-								className: classNames(classPrefix$1 + "-box")
+								style: {fontSize: iconSize}
 							},
-							props.allowHalf && renderStar(i + 0.5, true),
-							renderStar(i + 1, false)
+							props.icon(_this387.data.checked)
 						);
-					})
+					}
+					return /* @__PURE__ */ avm.h(
+						"div",
+						{
+							className: iconCls,
+							style: radioSizeStyle
+						},
+						_this387.data.checked &&
+							/* @__PURE__ */ avm.h(
+								"text",
+								{
+									className: classNames(
+										classPrefix$7 + "-icon-checked",
+										((_classNames11 = {}),
+										(_classNames11[classPrefix$7 + "-icon-checked-disabled"] = disabled),
+										_classNames11)
+									)
+								},
+
+								"\u221A"
+							)
+					);
+				};
+				var contentCls = classNames(
+					classPrefix$7 + "-content",
+					((_classNames12 = {}),
+					(_classNames12[classPrefix$7 + "-disabled-content"] = disabled),
+					_classNames12)
+				);
+
+				var contentStyles = {};
+				contentStyles["fontSize"] = props.fontSize || "17px";
+				contentStyles["paddingLeft"] = props.gap || "8px";
+				return /* @__PURE__ */ avm.h(
+					"label",
+					{
+						className: classNames(
+							classPrefix$7,
+							props.className,
+							((_classNames13 = {}),
+							(_classNames13[classPrefix$7 + "-checked"] = _this387.data.checked),
+							(_classNames13[classPrefix$7 + "-disabled"] = disabled),
+							(_classNames13[classPrefix$7 + "-block"] = props.block),
+							_classNames13)
+						),
+
+						style: props.style
+					},
+					/* @__PURE__ */ avm.h("radio", {
+						className: classPrefix$7 + "-input",
+						type: "radio",
+						checked: _this387.data.checked,
+						onChange: function onChange(e) {
+							!disabled && _this387.setChecked(e.detail.value);
+						},
+						disabled: disabled,
+						id: props.id
+					}),
+					renderIcon(),
+					props.children && formatLabel(props.children, contentCls, contentStyles)
 				);
 			});
 			return _this387;
 		}
-		return Rate;
+		return Radio;
 	})(Component);
-	var searchIcon =
-		"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAZJJREFUOE+l0zFoFUEQBuB/ltdaiK02lhaChSCIWEm6gEXQUjhuZ/dFUBvrCBZpxCLBu9njgWBhWtMoGJJIumBpIUHSRdFgEWzfzcgFL+Quz0TilXOz387M7hL+86P+ehHxAC4DuAhgD8BOXddvhsPhxqS9OoCIfATwFcCqc27LzM6a2QUAj4nogff+VR85AEREVPVbjHFu0k4ppU91Xd+PMa4f/r8PFEUx5Zx7ysxX/zaSsiwvEdHyYDC4kmXZrzavBeaI6GcIYeG4mYrIkqqWh6vYB0Rk2cxehBDeHQeUZTlPRLvM/KxTQdM/Ea1575dOqKB0zn3I8/x1B6iqKlPV88z85ATgPRHNeu+3OsBoNDozHo+3VXWmP+U2UUQeArjNzDePnEITSClNm9lzVc36SEopN7MEYIWZb00EmmBVVTdUddHMHBG9BXAOQANvOuceNfM2s+/MfLfTQr/voiiuO+eumdkuEW0y8+c2J6W0ZmZfmDlvYkfewr+8rQZR1R8hhDunAv7c3nsxxpenBtpKfwNXwLQR3X6r9QAAAABJRU5ErkJggg==";
-	var classPrefix = "adm-search";
-	var defaultProps = {
-		clearable: true,
-		showCancelButton: false,
-		defaultValue: "",
-		clearOnCancel: true,
-		cancelText: "\u53D6\u6D88",
-		bgColor: "#f5f5f5",
-		borderRadius: "6px"
+
+	var defaultProps$4 = {
+		disabled: false,
+		defaultValue: null
 	};
-	var Search = /*#__PURE__*/ (function(_Component22) {
-		_inheritsLoose(Search, _Component22);
-		function Search() {
+	var Group = /*#__PURE__*/ (function(_Component22) {
+		_inheritsLoose(Group, _Component22);
+		function Group() {
 			var _this388;
 			for (
 				var _len388 = arguments.length, args = new Array(_len388), _key388 = 0;
@@ -2739,47 +2753,228 @@
 			_this388 =
 				_Component22.call.apply(_Component22, [this].concat(args)) || this;
 			_defineProperty(_assertThisInitialized(_this388), "install", function() {
-				console.log("Search!");
+				console.log("RadioGroup!");
 			});
 			_defineProperty(_assertThisInitialized(_this388), "data", {
+				value: _this388.props.value || _this388.props.defaultValue
+			});
+			_defineProperty(
+				_assertThisInitialized(_this388),
+				"setValue",
+
+				function(val) {
+					_this388.data.value = val;
+					_this388.props.onChange && _this388.props.onChange(val);
+				}
+			);
+			_defineProperty(_assertThisInitialized(_this388), "render", function(props) {
+				props = mergeProps(defaultProps$4, props);
+				var RadioGroupContext = {
+					value: _this388.data.value === null ? [] : [_this388.data.value],
+					check: function check(v) {
+						_this388.setValue(v);
+					},
+					uncheck: function uncheck() {},
+					disabled: props.disabled
+				};
+
+				var eles = props.children.map(function(ele) {
+					return /* @__PURE__ */ avm.h(
+						Radio,
+						__spreadProps(__spreadValues({}, ele.attributes), {
+							RadioGroupContext: RadioGroupContext
+						}),
+						ele.children
+					);
+				});
+				return /* @__PURE__ */ avm.h("div", null, eles);
+			});
+			return _this388;
+		}
+		return Group;
+	})(Component);
+
+	var index = attachPropertiesToComponent(Radio, {
+		Group: Group
+	});
+	var classPrefix$6 = "adm-rate";
+	var defaultProps$3 = {
+		count: 5,
+		allowHalf: false,
+		character: "\u2605",
+		defaultValue: 0,
+		readOnly: false,
+		allowClear: true
+	};
+	var Rate = /*#__PURE__*/ (function(_Component23) {
+		_inheritsLoose(Rate, _Component23);
+		function Rate() {
+			var _this389;
+			for (
+				var _len389 = arguments.length, args = new Array(_len389), _key389 = 0;
+				_key389 < _len389;
+				_key389++
+			) {
+				args[_key389] = arguments[_key389];
+			}
+			_this389 =
+				_Component23.call.apply(_Component23, [this].concat(args)) || this;
+			_defineProperty(_assertThisInitialized(_this389), "install", function() {
+				console.log("Rate!");
+			});
+			_defineProperty(_assertThisInitialized(_this389), "data", {
+				value: 0
+			});
+			_defineProperty(
+				_assertThisInitialized(_this389),
+				"setValue",
+
+				function(val, props) {
+					_this389.data.value = val;
+					props.onChange == null ? void 0 : props.onChange(_this389.data.value);
+				}
+			);
+			_defineProperty(_assertThisInitialized(_this389), "render", function(props) {
+				props = mergeProps(defaultProps$3, props);
+				var starList = Array(props.count).fill(null);
+				var styles = {};
+				var _props8 = props,
+					_props8$starSize = _props8.starSize,
+					starSize = _props8$starSize === void 0 ? "24px" : _props8$starSize,
+					_props8$activeColor = _props8.activeColor,
+					activeColor =
+						_props8$activeColor === void 0 ? "#ffd21e" : _props8$activeColor;
+				styles["padding"] = Number(starSize.replace("px", "")) / 8 + "px";
+				styles["line-height"] = starSize;
+				styles["font-size"] = starSize;
+				var renderStar = function renderStar(v, half) {
+					var _classNames14;
+					return /* @__PURE__ */ avm.h(
+						"div",
+						{
+							className: classNames(
+								classPrefix$6 + "-star",
+								((_classNames14 = {}),
+								(_classNames14[classPrefix$6 + "-star-active"] =
+									_this389.data.value >= v),
+								(_classNames14[classPrefix$6 + "-star-half"] = half),
+								(_classNames14[classPrefix$6 + "-star-readonly"] = props.readOnly),
+								_classNames14)
+							),
+
+							style: __spreadProps(__spreadValues({}, styles), {
+								color: _this389.data.value >= v ? activeColor : "#ccc"
+							}),
+							onClick: function onClick() {
+								if (props.readOnly) return;
+								if (props.allowClear && _this389.data.value === v) {
+									_this389.setValue(0, props);
+								} else {
+									_this389.setValue(v, props);
+								}
+							}
+						},
+						/* @__PURE__ */ avm.h(
+							"text",
+							{
+								style: {
+									color: _this389.data.value >= v ? activeColor : "#ccc",
+									fontSize: starSize
+								}
+							},
+							props.character
+						)
+					);
+				};
+				return /* @__PURE__ */ avm.h(
+					"div",
+					{
+						className: classPrefix$6
+					},
+					starList.map(function(_, i) {
+						return /* @__PURE__ */ avm.h(
+							"div",
+							{
+								key: i,
+								className: classNames(classPrefix$6 + "-box")
+							},
+							props.allowHalf && renderStar(i + 0.5, true),
+							renderStar(i + 1, false)
+						);
+					})
+				);
+			});
+			return _this389;
+		}
+		return Rate;
+	})(Component);
+	var searchIcon =
+		"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAZJJREFUOE+l0zFoFUEQBuB/ltdaiK02lhaChSCIWEm6gEXQUjhuZ/dFUBvrCBZpxCLBu9njgWBhWtMoGJJIumBpIUHSRdFgEWzfzcgFL+Quz0TilXOz387M7hL+86P+ehHxAC4DuAhgD8BOXddvhsPhxqS9OoCIfATwFcCqc27LzM6a2QUAj4nogff+VR85AEREVPVbjHFu0k4ppU91Xd+PMa4f/r8PFEUx5Zx7ysxX/zaSsiwvEdHyYDC4kmXZrzavBeaI6GcIYeG4mYrIkqqWh6vYB0Rk2cxehBDeHQeUZTlPRLvM/KxTQdM/Ea1575dOqKB0zn3I8/x1B6iqKlPV88z85ATgPRHNeu+3OsBoNDozHo+3VXWmP+U2UUQeArjNzDePnEITSClNm9lzVc36SEopN7MEYIWZb00EmmBVVTdUddHMHBG9BXAOQANvOuceNfM2s+/MfLfTQr/voiiuO+eumdkuEW0y8+c2J6W0ZmZfmDlvYkfewr+8rQZR1R8hhDunAv7c3nsxxpenBtpKfwNXwLQR3X6r9QAAAABJRU5ErkJggg==";
+	var classPrefix$5 = "adm-search";
+	var defaultProps$2 = {
+		clearable: true,
+		showCancelButton: false,
+		defaultValue: "",
+		clearOnCancel: true,
+		cancelText: "\u53D6\u6D88",
+		bgColor: "#f5f5f5",
+		borderRadius: "6px"
+	};
+	var Search = /*#__PURE__*/ (function(_Component24) {
+		_inheritsLoose(Search, _Component24);
+		function Search() {
+			var _this390;
+			for (
+				var _len390 = arguments.length, args = new Array(_len390), _key390 = 0;
+				_key390 < _len390;
+				_key390++
+			) {
+				args[_key390] = arguments[_key390];
+			}
+			_this390 =
+				_Component24.call.apply(_Component24, [this].concat(args)) || this;
+			_defineProperty(_assertThisInitialized(_this390), "install", function() {
+				console.log("Search!");
+			});
+			_defineProperty(_assertThisInitialized(_this390), "data", {
 				searchVal: "",
 				hasFocus: false
 			});
 			_defineProperty(
-				_assertThisInitialized(_this388),
+				_assertThisInitialized(_this390),
 				"setSearchValue",
 
 				function(val, props) {
-					_this388.data.searchVal = val;
-					props.onChange == null ? void 0 : props.onChange(_this388.data.searchVal);
+					_this390.data.searchVal = val;
+					props.onChange == null ? void 0 : props.onChange(_this390.data.searchVal);
 				}
 			);
-			_defineProperty(_assertThisInitialized(_this388), "setHasFocus", function(
+			_defineProperty(_assertThisInitialized(_this390), "setHasFocus", function(
 				focus
 			) {
-				_this388.data.hasFocus = focus;
+				_this390.data.hasFocus = focus;
 			});
-			_defineProperty(_assertThisInitialized(_this388), "render", function(props) {
-				var _classNames11;
-				props = mergeProps(defaultProps, props);
+			_defineProperty(_assertThisInitialized(_this390), "render", function(props) {
+				var _classNames15;
+				props = mergeProps(defaultProps$2, props);
 				var renderCancelButton = function renderCancelButton() {
 					var isShowCancel = false;
 					if (typeof props.showCancelButton === "function") {
 						isShowCancel = props.showCancelButton(
-							_this388.data.hasFocus,
-							_this388.data.searchVal
+							_this390.data.hasFocus,
+							_this390.data.searchVal
 						);
 					} else {
-						isShowCancel = props.showCancelButton && _this388.data.searchVal;
+						isShowCancel = props.showCancelButton && _this390.data.searchVal;
 					}
 					return (
 						isShowCancel &&
 						/* @__PURE__ */ avm.h(
 							"span",
 							{
-								className: classPrefix + "-suffix",
+								className: classPrefix$5 + "-suffix",
 								onClick: function onClick() {
-									_this388.setSearchValue("", props);
+									_this390.setSearchValue("", props);
 									if (props.clearOnCancel) {
 										props.onClear == null ? void 0 : props.onClear();
 									}
@@ -2798,10 +2993,10 @@
 					"div",
 					{
 						className: classNames(
-							classPrefix,
-							((_classNames11 = {}),
-							(_classNames11[classPrefix + "-active"] = _this388.data.hasFocus),
-							_classNames11)
+							classPrefix$5,
+							((_classNames15 = {}),
+							(_classNames15[classPrefix$5 + "-active"] = _this390.data.hasFocus),
+							_classNames15)
 						)
 					},
 
@@ -2809,15 +3004,15 @@
 						"div",
 						{
 							className: classNames(
-								classPrefix + "-input-box",
-								_this388.data.hasFocus ? classPrefix + "-active-input-box" : ""
+								classPrefix$5 + "-input-box",
+								_this390.data.hasFocus ? classPrefix$5 + "-active-input-box" : ""
 							),
 							style: boxStyles
 						},
 						/* @__PURE__ */ avm.h(
 							"div",
 							{
-								className: classPrefix + "-input-box-icon"
+								className: classPrefix$5 + "-input-box-icon"
 							},
 							/* @__PURE__ */ avm.h("img", {
 								src: searchIcon,
@@ -2826,37 +3021,649 @@
 						),
 						/* @__PURE__ */ avm.h(Input, {
 							isSearch: true,
-							className: classPrefix + "-input",
-							value: _this388.data.searchVal,
+							className: classPrefix$5 + "-input",
+							value: _this390.data.searchVal,
 							onChange: function onChange(val) {
-								return _this388.setSearchValue(val, props);
+								return _this390.setSearchValue(val, props);
 							},
 							maxLength: props.maxLength,
 							placeholder: props.placeholder,
 							placeholderStyle: placeHolderStyle,
 							clearable: props.clearable,
 							onFocus: function onFocus(e) {
-								_this388.setHasFocus(true);
+								_this390.setHasFocus(true);
 								props.onFocus == null ? void 0 : props.onFocus(e);
 							},
 							onBlur: function onBlur(e) {
-								_this388.setHasFocus(false);
+								_this390.setHasFocus(false);
 								props.onBlur == null ? void 0 : props.onBlur(e);
 							},
 							onClear: props.onClear,
 							onEnterPress: function onEnterPress() {
 								props.onSearch == null
 									? void 0
-									: props.onSearch(_this388.data.searchVal);
+									: props.onSearch(_this390.data.searchVal);
 							}
 						})
 					),
 					renderCancelButton()
 				);
 			});
-			return _this388;
+			return _this390;
 		}
 		return Search;
+	})(Component);
+	var classPrefix$4 = "adm-grid";
+	var Grid$1 = /*#__PURE__*/ (function(_Component25) {
+		_inheritsLoose(Grid$1, _Component25);
+		function Grid$1() {
+			var _this391;
+			for (
+				var _len391 = arguments.length, args = new Array(_len391), _key391 = 0;
+				_key391 < _len391;
+				_key391++
+			) {
+				args[_key391] = arguments[_key391];
+			}
+			_this391 =
+				_Component25.call.apply(_Component25, [this].concat(args)) || this;
+			_defineProperty(_assertThisInitialized(_this391), "install", function() {
+				console.log("Grid!");
+			});
+			_defineProperty(_assertThisInitialized(_this391), "render", function(props) {
+				var _props$gap = props.gap,
+					gap = _props$gap === void 0 ? 0 : _props$gap,
+					columns = props.columns;
+				var styles = {};
+				styles["grid-template-columns"] =
+					"repeat(" + columns.toString() + ", minmax(0, 1fr))";
+				console.log(gap, "eee");
+				if (Array.isArray(gap)) {
+					styles["column-gap"] = toCSSLength(gap[0]);
+					styles["row-gap"] = toCSSLength(gap[1]);
+				} else {
+					styles["column-gap"] = toCSSLength(gap);
+					styles["row-gap"] = toCSSLength(gap);
+				}
+				console.log(styles, 321);
+				return /* @__PURE__ */ avm.h(
+					"div",
+					{
+						className: classPrefix$4,
+						style: styles
+					},
+					props.children
+				);
+			});
+			return _this391;
+		}
+		return Grid$1;
+	})(Component);
+	var GridItem = /*#__PURE__*/ (function(_Component26) {
+		_inheritsLoose(GridItem, _Component26);
+		function GridItem() {
+			var _this392;
+			for (
+				var _len392 = arguments.length, args = new Array(_len392), _key392 = 0;
+				_key392 < _len392;
+				_key392++
+			) {
+				args[_key392] = arguments[_key392];
+			}
+			_this392 =
+				_Component26.call.apply(_Component26, [this].concat(args)) || this;
+			_defineProperty(_assertThisInitialized(_this392), "install", function() {
+				console.log("GridItem!");
+			});
+			_defineProperty(_assertThisInitialized(_this392), "render", function(props) {
+				props = mergeProps({span: 1}, props);
+				var itemStyle = {};
+				itemStyle["grid-column-end"] = "span " + props.span;
+				return /* @__PURE__ */ avm.h(
+					"div",
+					{
+						className: classPrefix$4 + "-item",
+						style: itemStyle,
+						onClick: props.onClick
+					},
+					props.children
+				);
+			});
+			return _this392;
+		}
+		return GridItem;
+	})(Component);
+
+	var Grid = attachPropertiesToComponent(Grid$1, {
+		Item: GridItem
+	});
+	var checkIcon =
+		"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAIxJREFUOE/Vk7ENg0AQBGfbcSdIFpmphwJIiMgd2gk5ASkNUM8ipLdk4MF+EVj+fEa3e/fi5NNJnj8U2L4AhaRyjp8UIcBjEDyTBDF4IbDdA7Wkdr2ZPXgtuAF3IJfUvSRH8CaC7VnSAFdJwyc42kGQVEAGLAqLHV10C0HyeG9772KT1vj1BCn/4/cTTKW4NxE23iIWAAAAAElFTkSuQmCC";
+	var classPrefix$3 = "adm-selector";
+	var defaultProps$1 = {
+		multiple: false,
+		defaultValue: [],
+		color: "#333",
+		checkedColor: "#e7f1ff"
+	};
+	var Selector = /*#__PURE__*/ (function(_Component27) {
+		_inheritsLoose(Selector, _Component27);
+		function Selector() {
+			var _this393;
+			for (
+				var _len393 = arguments.length, args = new Array(_len393), _key393 = 0;
+				_key393 < _len393;
+				_key393++
+			) {
+				args[_key393] = arguments[_key393];
+			}
+			_this393 =
+				_Component27.call.apply(_Component27, [this].concat(args)) || this;
+			_defineProperty(_assertThisInitialized(_this393), "install", function() {
+				console.log("Selector!");
+			});
+			_defineProperty(_assertThisInitialized(_this393), "data", {
+				value: _this393.props.value || _this393.props.defaultValue
+			});
+			_defineProperty(
+				_assertThisInitialized(_this393),
+				"setValue",
+
+				function(val) {
+					_this393.data.value = val;
+					var extend = _this393.props.options.filter(function(option) {
+						return val.includes(option.value);
+					});
+					_this393.props.onChange && _this393.props.onChange(val, extend);
+				}
+			);
+			_defineProperty(_assertThisInitialized(_this393), "render", function(props) {
+				props = mergeProps(defaultProps$1, props);
+				var activeStyles = {};
+				activeStyles["color"] = props.color;
+				activeStyles["background"] = props.checkedColor;
+				var items = props.options.map(function(option) {
+					var _classNames16;
+					var active = (_this393.data.value || []).includes(option.value);
+					var disabled = option.disabled || props.disabled;
+					var itemCls = classNames(
+						classPrefix$3 + "-item",
+						((_classNames16 = {}),
+						(_classNames16[classPrefix$3 + "-item-active"] =
+							active && !props.multiple),
+						(_classNames16[classPrefix$3 + "-item-multiple-active"] =
+							active && props.multiple),
+						(_classNames16[classPrefix$3 + "-item-disabled"] = disabled),
+						_classNames16)
+					);
+
+					return /* @__PURE__ */ avm.h(
+						"div",
+						{
+							key: option.value,
+							className: itemCls,
+							style: active ? activeStyles : {background: "#f5f5f5"},
+							onClick: function onClick() {
+								if (disabled) {
+									return;
+								}
+								if (props.multiple) {
+									var val = active
+										? _this393.data.value.filter(function(v) {
+												return v !== option.value;
+										  })
+										: [].concat(_this393.data.value, [option.value]);
+									_this393.setValue(val);
+								} else {
+									var _val = active ? [] : [option.value];
+									_this393.setValue(_val);
+								}
+							}
+						},
+						/* @__PURE__ */ avm.h(
+							"span",
+							{
+								className: classPrefix$3 + "-label",
+								style: {color: active ? props.color : "#333"}
+							},
+							option.label
+						),
+						active &&
+							props.multiple &&
+							/* @__PURE__ */ avm.h(
+								"div",
+								{
+									className: classPrefix$3 + "-check-mark-wrapper"
+								},
+								/* @__PURE__ */ avm.h("img", {
+									src: checkIcon,
+									className: classPrefix$3 + "-check-mark-wrapper-img"
+								})
+							)
+					);
+				});
+				return /* @__PURE__ */ avm.h(
+					"div",
+					{
+						className: classPrefix$3
+					},
+					!props.columns &&
+						/* @__PURE__ */ avm.h(
+							Space,
+							{
+								wrap: true
+							},
+							items
+						),
+					props.columns &&
+						/* @__PURE__ */ avm.h(
+							Grid,
+							{
+								columns: props.columns,
+								gap: 8
+							},
+							items
+						)
+				);
+			});
+			return _this393;
+		}
+		return Selector;
+	})(Component);
+	var classPrefix$2 = "adm-infinite-scroll";
+	var InfiniteScrollContent = /*#__PURE__*/ (function(_Component28) {
+		_inheritsLoose(InfiniteScrollContent, _Component28);
+		function InfiniteScrollContent() {
+			var _this394;
+			for (
+				var _len394 = arguments.length, args = new Array(_len394), _key394 = 0;
+				_key394 < _len394;
+				_key394++
+			) {
+				args[_key394] = arguments[_key394];
+			}
+			_this394 =
+				_Component28.call.apply(_Component28, [this].concat(args)) || this;
+			_defineProperty(_assertThisInitialized(_this394), "render", function(props) {
+				return /* @__PURE__ */ avm.h(
+					"view",
+					{
+						className: classPrefix$2 + "-tip"
+					},
+					props.hasMore
+						? /* @__PURE__ */ avm.h(
+								"view",
+								null,
+								/* @__PURE__ */ avm.h(
+									"span",
+									{
+										className: classPrefix$2 + "-tip-text"
+									},
+									props.hasMoreText || "\u52A0\u8F7D\u4E2D"
+								)
+						  )
+						: /* @__PURE__ */ avm.h(
+								"span",
+								{
+									className: classPrefix$2 + "-tip-text"
+								},
+								props.notHasMoreText || "\u6CA1\u6709\u66F4\u591A\u4E86"
+						  )
+				);
+			});
+			return _this394;
+		}
+		return InfiniteScrollContent;
+	})(Component);
+	var InfiniteScroll = /*#__PURE__*/ (function(_Component29) {
+		_inheritsLoose(InfiniteScroll, _Component29);
+		function InfiniteScroll() {
+			var _this395;
+			for (
+				var _len395 = arguments.length, args = new Array(_len395), _key395 = 0;
+				_key395 < _len395;
+				_key395++
+			) {
+				args[_key395] = arguments[_key395];
+			}
+			_this395 =
+				_Component29.call.apply(_Component29, [this].concat(args)) || this;
+			_defineProperty(_assertThisInitialized(_this395), "install", function() {
+				console.log("InfiniteScroll!");
+			});
+			_defineProperty(_assertThisInitialized(_this395), "render", function(props) {
+				props = mergeProps({threshold: 250}, props);
+				var doLoadMore = function doLoadMore() {
+					props.hasMore && props.loadMore();
+				};
+				return /* @__PURE__ */ avm.h(
+					"scroll-view",
+					{
+						"scroll-y": true,
+						"show-scrollbar": false,
+						bounces: true,
+						className: classPrefix$2,
+						"lower-threshold": props.threshold,
+						onscrolltolower: doLoadMore
+					},
+					props.children,
+					/* @__PURE__ */ avm.h(
+						InfiniteScrollContent,
+						__spreadValues(
+							{
+								hasMore: props.hasMore
+							},
+							props
+						)
+					)
+				);
+			});
+			return _this395;
+		}
+		return InfiniteScroll;
+	})(Component);
+	function bound(position, min, max) {
+		var ret = position;
+		if (min !== void 0) {
+			ret = Math.max(position, min);
+		}
+		if (max !== void 0) {
+			ret = Math.min(ret, max);
+		}
+		return ret;
+	}
+	var classPrefix$1 = "adm-stepper";
+	var defaultProps = {
+		defaultValue: 0,
+		step: 1,
+		disabled: false
+	};
+
+	var toStringVal = function toStringVal(val) {
+		return val ? val.toString() : val === 0 ? "0" : "";
+	};
+	var Stepper = /*#__PURE__*/ (function(_Component30) {
+		_inheritsLoose(Stepper, _Component30);
+		function Stepper() {
+			var _this396;
+			for (
+				var _len396 = arguments.length, args = new Array(_len396), _key396 = 0;
+				_key396 < _len396;
+				_key396++
+			) {
+				args[_key396] = arguments[_key396];
+			}
+			_this396 =
+				_Component30.call.apply(_Component30, [this].concat(args)) || this;
+			_defineProperty(_assertThisInitialized(_this396), "install", function() {
+				console.log("Stepper!");
+			});
+			_defineProperty(_assertThisInitialized(_this396), "data", {
+				value: 0,
+				inputValue: 0,
+				hasFocus: false,
+				isInit: true
+			});
+			_defineProperty(
+				_assertThisInitialized(_this396),
+				"setValue",
+
+				function(val) {
+					_this396.data.isInit = false;
+					_this396.data.value = val;
+					_this396.setInputValue(toStringVal(val));
+					_this396.props.onChange && _this396.props.onChange(Number(val));
+				}
+			);
+			_defineProperty(_assertThisInitialized(_this396), "setInputValue", function(
+				val
+			) {
+				_this396.data.inputValue = val;
+			});
+			_defineProperty(_assertThisInitialized(_this396), "setHasFocus", function(
+				focus
+			) {
+				_this396.data.hasFocus = focus;
+				if (!_this396.data.hasFocus) {
+					_this396.setInputValue(toStringVal(_this396.data.value));
+				}
+			});
+			_defineProperty(
+				_assertThisInitialized(_this396),
+				"setValueWithCheck",
+				function(v) {
+					if (isNaN(v)) return;
+					var target = bound(v, _this396.props.min, _this396.props.max);
+					if (_this396.props.digits || _this396.props.digits === 0) {
+						target = parseFloat(target.toFixed(_this396.props.digits));
+					}
+					_this396.setValue(target);
+				}
+			);
+			_defineProperty(
+				_assertThisInitialized(_this396),
+				"handleInputChange",
+				function(v) {
+					_this396.setInputValue(v);
+					_this396.setValueWithCheck(parseFloat(v));
+				}
+			);
+			_defineProperty(_assertThisInitialized(_this396), "handleMinus", function() {
+				_this396.setValueWithCheck(_this396.data.value - _this396.props.step);
+			});
+			_defineProperty(_assertThisInitialized(_this396), "handlePlus", function() {
+				_this396.setValueWithCheck(_this396.data.value + _this396.props.step);
+			});
+			_defineProperty(
+				_assertThisInitialized(_this396),
+				"minusDisabled",
+				function() {
+					if (_this396.props.min === void 0) {
+						return _this396.props.disabled;
+					} else {
+						return (
+							_this396.props.disabled || _this396.data.value <= _this396.props.min
+						);
+					}
+				}
+			);
+			_defineProperty(
+				_assertThisInitialized(_this396),
+				"plusDisabled",
+				function() {
+					if (_this396.props.max === void 0) {
+						return _this396.props.disabled;
+					} else {
+						return (
+							_this396.props.disabled || _this396.data.value >= _this396.props.max
+						);
+					}
+				}
+			);
+			_defineProperty(_assertThisInitialized(_this396), "render", function(props) {
+				var _classNames17;
+				_this396.props = mergeProps(defaultProps, props);
+				if (_this396.data.isInit) {
+					_this396.data.value = props.value || props.defaultValue;
+					_this396.data.inputValue =
+						props.value !== void 0
+							? toStringVal(props.value)
+							: toStringVal(props.defaultValue);
+				}
+				var borderStyle = "1px solid #e5e5e5";
+				var disabled = props.disabled,
+					_props$height = props.height,
+					height = _props$height === void 0 ? "22px" : _props$height,
+					_props$inputWidth = props.inputWidth,
+					inputWidth = _props$inputWidth === void 0 ? "40px" : _props$inputWidth,
+					_props$inputFontSize = props.inputFontSize,
+					inputFontSize =
+						_props$inputFontSize === void 0 ? "13px" : _props$inputFontSize,
+					_props$inputFontColor = props.inputFontColor,
+					inputFontColor =
+						_props$inputFontColor === void 0 ? "#333" : _props$inputFontColor,
+					_props$borderRaduis = props.borderRaduis,
+					borderRaduis =
+						_props$borderRaduis === void 0 ? "2px" : _props$borderRaduis,
+					_props$border = props.border,
+					border = _props$border === void 0 ? borderStyle : _props$border,
+					_props$activeBorder = props.activeBorder,
+					activeBorder =
+						_props$activeBorder === void 0 ? borderStyle : _props$activeBorder,
+					_props$borderInner = props.borderInner,
+					borderInner =
+						_props$borderInner === void 0 ? borderStyle : _props$borderInner,
+					_props$btnFontSize = props.btnFontSize,
+					btnFontSize = _props$btnFontSize === void 0 ? "10px" : _props$btnFontSize,
+					_props$btnBgColor = props.btnBgColor,
+					btnBgColor =
+						_props$btnBgColor === void 0 ? "transparent" : _props$btnBgColor,
+					_props$btnWidth = props.btnWidth,
+					btnWidth = _props$btnWidth === void 0 ? "22px" : _props$btnWidth,
+					_props$btnTextColor = props.btnTextColor,
+					btnTextColor =
+						_props$btnTextColor === void 0 ? "#1677ff" : _props$btnTextColor;
+				var btnWidthStyle = {};
+				btnWidthStyle["width"] = btnWidth;
+				var boxStyle = {
+					height: height,
+					width:
+						Number(inputWidth.replace("px", "")) +
+						Number(btnWidth.replace("px", "")) * 2 +
+						"px",
+					borderRadius: borderRaduis,
+					border: _this396.data.hasFocus ? activeBorder : border
+				};
+
+				var btnStyle = __spreadProps(__spreadValues({}, btnWidthStyle), {
+					height: height,
+					lineHeight: height,
+					backgroundColor: btnBgColor,
+					fontSize: Number(btnFontSize.replace("px", "")) + 5 + "px",
+					opacity: 1
+				});
+
+				var inputStyle = {
+					height: height,
+					width: inputWidth,
+					fontSize: inputFontSize,
+					color: disabled ? "#999" : inputFontColor,
+					border: "none",
+					borderLeft: borderInner,
+					borderRight: borderInner,
+					background: "transparent"
+				};
+
+				return /* @__PURE__ */ avm.h(
+					"div",
+					{
+						className: classNames(
+							classPrefix$1,
+							((_classNames17 = {}),
+							(_classNames17[classPrefix$1 + "-disabled"] = disabled),
+							(_classNames17[classPrefix$1 + "-active"] = _this396.data.hasFocus),
+							_classNames17)
+						),
+
+						style: boxStyle
+					},
+					/* @__PURE__ */ avm.h(
+						Button,
+						{
+							className: classPrefix$1 + "-minus",
+							onClick: _this396.handleMinus,
+							disabled: _this396.minusDisabled(),
+							fill: "none",
+							style: __spreadProps(__spreadValues({}, btnStyle), {
+								color: !_this396.minusDisabled() ? btnTextColor : "#999",
+								borderRadius: borderRaduis + " 0 0 " + borderRaduis
+							})
+						},
+
+						"-"
+					),
+					/* @__PURE__ */ avm.h("input", {
+						className: classPrefix$1 + "-input",
+						style: inputStyle,
+						onFocus: function onFocus(e) {
+							_this396.setHasFocus(true);
+							props.onFocus == null ? void 0 : props.onFocus(e);
+						},
+						value: _this396.data.inputValue,
+						disabled: disabled,
+						onBlur: function onBlur(e) {
+							disabled || _this396.handleInputChange(e.detail.value);
+							_this396.setHasFocus(false);
+							props.onBlur == null ? void 0 : props.onBlur(e);
+						}
+					}),
+					/* @__PURE__ */ avm.h(
+						Button,
+						{
+							className: classPrefix$1 + "-plus",
+							onClick: _this396.handlePlus,
+							disabled: _this396.plusDisabled(),
+							fill: "none",
+							style: __spreadProps(__spreadValues({}, btnStyle), {
+								color: !_this396.plusDisabled() ? btnTextColor : "#999",
+								borderRadius: "0 " + borderRaduis + " " + borderRaduis + " 0"
+							})
+						},
+
+						"+"
+					)
+				);
+			});
+			return _this396;
+		}
+		return Stepper;
+	})(Component);
+	var classPrefix = "adm-progress-bar";
+	var ProgressBar = /*#__PURE__*/ (function(_Component31) {
+		_inheritsLoose(ProgressBar, _Component31);
+		function ProgressBar() {
+			var _this397;
+			for (
+				var _len397 = arguments.length, args = new Array(_len397), _key397 = 0;
+				_key397 < _len397;
+				_key397++
+			) {
+				args[_key397] = arguments[_key397];
+			}
+			_this397 =
+				_Component31.call.apply(_Component31, [this].concat(args)) || this;
+			_defineProperty(_assertThisInitialized(_this397), "install", function() {
+				console.log("progress-bar!");
+			});
+			_defineProperty(_assertThisInitialized(_this397), "render", function(props) {
+				var back = {};
+				back["height"] = toCSSLength(props.strokeWidth) || "3px";
+				back["borderRadius"] = toCSSLength(props.strokeWidth) || "3px";
+				var styles = {};
+				styles["width"] = props.percent + "%";
+				styles["background"] = props.strokeColor || "#1677ff";
+				styles["borderRadius"] = toCSSLength(props.strokeWidth) || "3px";
+				return /* @__PURE__ */ avm.h(
+					"div",
+					{
+						className: classPrefix
+					},
+					/* @__PURE__ */ avm.h(
+						"div",
+						{
+							className: classPrefix + "-trail",
+							style: back
+						},
+						/* @__PURE__ */ avm.h("div", {
+							className: classPrefix + "-fill",
+							style: styles
+						})
+					)
+				);
+			});
+			return _this397;
+		}
+		return ProgressBar;
 	})(Component);
 
 	var Tpl = /*@__PURE__*/ (function(Component) {
