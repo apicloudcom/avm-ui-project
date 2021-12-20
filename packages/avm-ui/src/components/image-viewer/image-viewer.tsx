@@ -22,7 +22,7 @@ export type ImageViewerProps = {
 
 const defaultProps = {
   maxZoom: 3,
-  getContainer: document.body,
+  getContainer: null,
   visible: false,
 }
 
@@ -43,7 +43,7 @@ export class ImageViewer extends Component {
             <Slide
               image={props.image}
               onTap={() => {
-                console.log(1)
+                console.log('onTab')
                 props.onClose?.()
               }}
               maxZoom={props.maxZoom}

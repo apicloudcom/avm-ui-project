@@ -18,7 +18,6 @@ export class Slide extends Component {
       <div
         className={`${classPrefix}-slide`}
         onTouchMove={e => {
-          console.log(1)
           e.stopPropagation ? e.stopPropagation() : e.cancelBubble = true
         }}
       >
@@ -26,9 +25,7 @@ export class Slide extends Component {
           <div
             className={`${classPrefix}-image-wrapper`}
             style={`transform: scale(${ zoom });`}
-            ondrag={e => {
-              console.log(e)
-            }}
+            onclick={ () => props.onTap() }
           >
             <img src={props.image} draggable={false} />
           </div>
