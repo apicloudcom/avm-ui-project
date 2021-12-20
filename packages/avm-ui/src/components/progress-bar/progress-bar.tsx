@@ -22,6 +22,7 @@ export class ProgressBar extends Component {
 
     const styles = {}
     styles['width'] = `${props.percent}%`
+    styles['width'] = props.percent? `${props.percent}%`:'0%'
     styles['background'] = props.strokeColor || '#1677ff'
     styles['borderRadius'] = toCSSLength(props.strokeWidth) || '3px'
 
