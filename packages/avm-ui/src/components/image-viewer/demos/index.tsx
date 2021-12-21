@@ -31,12 +31,12 @@ class Demo extends Component {
       <>
         <DemoBlock title='单张图片预览'>
           <button onclick={() => {this.data.visible = true}}>打开ImageViewer</button>
-          <ImageViewer
-            image={demoImages[0]}
-            visible={this.data.visible}
-            onClose={ () => {this.data.visible = false} }
-          />
         </DemoBlock>
+        <ImageViewer
+          image={demoImages[0]}
+          visible={this.data.visible}
+          onClose={ () => { console.log('1231321231');this.data.visible = false} }
+        />
       </>
     );
   }
