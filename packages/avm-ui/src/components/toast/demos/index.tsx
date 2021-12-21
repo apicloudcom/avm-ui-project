@@ -1,9 +1,12 @@
 import Toast from '../index'
-import {Space, Button} from '../../../../widget/components/avm-ui/avm-ui'
+import {Space} from '../../space/space'
+import {Button} from '../../button/button'
 import { DemoBlock } from '../../../demos'
 import { UploadOutline } from '../../icon/icon'
 
-import '../../../../widget/components/avm-ui/avm-ui.css'
+import '../../space/space.less'
+import '../../button/button.less'
+import '../toast.less'
 
 class CountDownText extends Component {
   data = {
