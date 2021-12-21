@@ -9,8 +9,15 @@ const classPrefix = `adm-image-viewer`
 // }
 
 export class Slide extends Component {
-  data = {
-    zoom: this.props.zoom || 1
+  data =  {
+      zoom: this.props.zoom || 1,
+      touchTime: new Date()
+  }
+  touchEnd() {
+    const delayTime = new Date().getTime() - this.data.touchTime.getTime()
+    if (delayTime < 300) {
+      this.props.onTap()
+    }
   }
   render = props => {
     const { zoom } = this.data
@@ -25,7 +32,8 @@ export class Slide extends Component {
           <div
             className={`${classPrefix}-image-wrapper`}
             style={`transform: scale(${ zoom });`}
-            onclick={ () => props.onTap() }
+            ontouchstart={ ()=> { this.data.touchTime = new Date() } }
+            ontouchend={ this.touchEnd.bind(this) }
           >
             <img src={props.image} draggable={false} />
           </div>
