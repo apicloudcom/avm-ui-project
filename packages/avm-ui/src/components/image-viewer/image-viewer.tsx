@@ -43,8 +43,8 @@ export class ImageViewer extends Component {
             <Slide
               image={props.image}
               onTap={() => {
-                console.log('onTab')
                 props.onClose?.()
+                props.afterClose?.()
               }}
               maxZoom={props.maxZoom}
             />
@@ -56,9 +56,28 @@ export class ImageViewer extends Component {
   }
 }
 
-// export function showImageViewer(props) {
-//   const Wrapper = forwardRef()
-// }
+class Wrapper extends Component {
+  data = {
+    visible: true
+  }
+  render = props => {
+    const node = (
+      <ImageViewer
+        {...props}
+        visible={this.data.visible}
+        onClose={() => {
+          props.onClose?.()
+          this.data.visible = false
+        }}
+      />
+    )
+    return node
+  }
+}
+
+export function showImageViewer(props) {
+  renderToContainer(document.body, <Wrapper {...props} />)
+}
 
 // export type MultiImageViewerProps = Omit<ImageViewerProps, 'image'> & {
 //   images?: string[]

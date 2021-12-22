@@ -1,7 +1,8 @@
 import './image-viewer.less'
-// import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
+import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 import {
   ImageViewer,
+  showImageViewer
 } from './image-viewer'
 
 export type { ImageViewerProps } from './image-viewer'
@@ -10,4 +11,7 @@ export type { ImageViewerProps } from './image-viewer'
 //   show: showMultiImageViewer,
 // })
 
-export default ImageViewer
+export default attachPropertiesToComponent(ImageViewer, {
+  show: showImageViewer,
+})
+// export default ImageViewer
