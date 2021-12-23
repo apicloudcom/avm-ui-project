@@ -32,23 +32,28 @@ const defaultProps = {
 const colorAttr = {
   default: {
     textColor: '#333',
-    bgColor: '#fff'
+    bgColor: '#fff',
+    borderColor: '#eee'
   },
   primary: {
     textColor: '#fff',
-    bgColor: '#1677ff'
+    bgColor: '#1677ff',
+    borderColor: '#1677ff'
   },
   success: {
     textColor: '#fff',
-    bgColor: '#00b578'
+    bgColor: '#00b578',
+    borderColor: '#00b578'
   },
   warning: {
     textColor: '#fff',
-    bgColor: '#ff8f1f'
+    bgColor: '#ff8f1f',
+    borderColor: '#ff8f1f'
   },
   danger: {
     textColor: '#fff',
-    bgColor: '#ff3141'
+    bgColor: '#ff3141',
+    borderColor: '#ff3141'
   }
 }
 
@@ -79,7 +84,7 @@ export class Button extends Component {
       borderRadius: borderRadius || shapeAttr[shape],
       borderWidth,
       borderStyle,
-      borderColor: borderColor || colorAttr[color].bgColor
+      borderColor: borderColor || colorAttr[color].borderColor
     };
 
     const btnCls = classNames(
