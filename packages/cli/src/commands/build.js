@@ -1,16 +1,25 @@
-const fse = require('fs-extra');
-const {resolve} = require('path');
+import fse from 'fs-extra';
+import {resolve} from 'path';
+import cp from 'child_process';
+import * as rollup from "rollup";
+import jsx from 'rollup-plugin-jsx'
+
+const uiDir = `packages/avm-ui`;
+const dist = './widget';
 
 
 export async function onBuild() {
 
-  const dist = './widget';
+  return genPageCode();
 
+  // 1. 重置输出目录
   fse.ensureDirSync(dist);
   fse.emptyDirSync(dist);
-
+  // 2. 创建 config.xml
   fse.outputFileSync(resolve(dist, 'config.xml'), createConfigXml());
-
+  // 3. 创建 components 到 widget
+  buildComponentToWidget();
+  // 4. 创建pages
   createPagesFromDemos();
 }
 
@@ -61,14 +70,34 @@ function createConfigXml() {
   });
 }
 
-function buildComponentToWidget(){
-  
+function buildComponentToWidget() {
+
+  try {
+
+    const cmd = `cd ${uiDir} && tsc && vite build --mode single`;
+    console.log(`running ${cmd}`);
+    const data = cp.execSync(cmd);
+    console.log(data.toString());
+    const dest = `${dist}/components`;
+    fse.copySync(`${uiDir}/widget/components`, dest, {});
+    console.log(`components copied to ${dest}`);
+  } catch (e) {
+    console.log("buildComponentToWidget error", e);
+  }
+
 }
 
 function createPagesFromDemos() {
   const glob = require("glob");
-  const pages = glob.sync("components/*/demos/*.tsx",{cwd:resolve('./packages/avm-ui/src')});
+  const demos = glob.sync("src/components/*/demos/*.tsx", {cwd: resolve(uiDir)});
 
-  console.log(pages)
+  console.log(demos)
+
+}
+
+async function genPageCode(path = 'src/components/button/demos/index.tsx') {
+  const file = resolve(uiDir, path);
+
+  console.log(file)
 
 }
