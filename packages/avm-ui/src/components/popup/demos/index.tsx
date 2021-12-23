@@ -35,7 +35,7 @@ class Stack extends Component {
           onMaskClick={() => {
             this.setVisible1(false)
           }}
-          bodyStyle={{ height: '40vh' }}
+          bodyStyle={{ height: '200px' }}
         >
           <div style={{ padding: '24px' }}>
             <Space direction='vertical'>
@@ -55,7 +55,7 @@ class Stack extends Component {
           onMaskClick={() => {
             this.setVisible2(false)
           }}
-          bodyStyle={{ height: '20vh' }}
+          bodyStyle={{ height: '100px' }}
         >
           <div style={{ padding: '24px' }}>
             <div>这是弹出层2</div>
@@ -76,7 +76,7 @@ export class Demo extends Component {
     visible6: false,
     borderRadiusStyle: {
       borderRadius: '8px 8px 0 0',
-      minHeight: '60vh'
+      minHeight: '300px'
     },
   }
   setVisible1 = v => {
@@ -115,7 +115,7 @@ export class Demo extends Component {
                 onMaskClick={() => {
                   this.setVisible1(false)
                 }}
-                bodyStyle={{ minHeight: '40vh' }}
+                bodyStyle={{ minHeight: '300px' }}
               >
                 Hello
               </Popup>
@@ -134,7 +134,7 @@ export class Demo extends Component {
                   this.setVisible2(false)
                 }}
                 position='top'
-                bodyStyle={{ minHeight: '40vh' }}
+                bodyStyle={{ minHeight: '300px' }}
               >
                 Hello
               </Popup>
@@ -153,7 +153,7 @@ export class Demo extends Component {
                   this.setVisible3(false)
                 }}
                 position='left'
-                bodyStyle={{ minWidth: '60vw' }}
+                bodyStyle={{ minWidth: '150px' }}
               >
                 Hello
               </Popup>
@@ -172,7 +172,7 @@ export class Demo extends Component {
                   this.setVisible4(false)
                 }}
                 position='right'
-                bodyStyle={{ minWidth: '60vw' }}
+                bodyStyle={{ minWidth: '150px' }}
               >
                 Hello
               </Popup>
@@ -208,6 +208,7 @@ export class Demo extends Component {
                 内容超长滚动
               </Button>
               <Popup
+                bodyStyle={{height: '500px'}}
                 visible={this.data.visible6}
                 onMaskClick={() => {
                   this.setVisible6(false)
