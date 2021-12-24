@@ -1,6 +1,5 @@
 import { DemoBlock } from '../../../demos'
 import { TabBar } from '../tab-bar'
-import {dot as badgeDot} from '../../badge/badge'
 import {
   AppOutline,
   MessageOutline,
@@ -19,7 +18,7 @@ class Demo extends Component {
         key: 'home',
         title: '首页',
         icon: <AppOutline />,
-        badge: badgeDot,
+        badge: 123,
       },
       {
         key: 'todo',
