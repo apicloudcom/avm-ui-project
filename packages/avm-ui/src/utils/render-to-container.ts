@@ -7,7 +7,6 @@ export function renderToContainer(
   getContainer: GetContainer,
   node: HTMLElement
 ) {
-  console.log(getContainer)
   if (canUseDom && getContainer) {
     const container = resolveContainer(getContainer)
     // return createPortal(node, container)\

@@ -24,3 +24,4 @@ dist-ssr
 /packages/cli/lib/
 /packages/avm-ui/.idea
 /widget
+/packages/avm-ui/widget/

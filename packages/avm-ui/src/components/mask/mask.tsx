@@ -41,19 +41,18 @@ export class Mask extends Component {
     const opacity = opacityRecord[props.opacity] ?? props.opacity
     const rgb = props.color === 'white' ? '255, 255, 255' : '0, 0, 0'
     const background = `rgba(${rgb}, ${opacity})`
-    
-    // if (props.visible) {
-    //   props.afterShow?.()
-    // } else {
-    //   props.afterClose?.()
-    // }
+
+    if (props.visible) {
+      props.afterShow?.()
+    } else {
+      props.afterClose?.()
+    }
 
     const shouldRender = useShouldRender(
       props.visible,
       props.forceRender,
       props.destroyOnClose
     )
-    console.log(props.onMaskClick)
     return <div
       className={classPrefix}
       style={{

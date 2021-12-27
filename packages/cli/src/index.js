@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import {Command} from 'commander'
-import {onCreate} from "./commands/create";
-import {onGenIcon} from "./commands/genIcon";
-import {onBuild} from "./commands/build";
+import {onCreate} from "./commands/create.js";
+import {onGenIcon} from "./commands/genIcon.js";
+import {onBuild} from "./commands/build.js";
 
 // 创建命令对象
 const program = new Command()
