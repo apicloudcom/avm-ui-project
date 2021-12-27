@@ -23,4 +23,4 @@
 | key   | 对应 `activeKey`                            | `string`                                        | -      |
 | title | 标题                                        | `ReactNode`                                     | -      |
 | icon  | 图标                                        | `ReactNode \| ((active: boolean) => ReactNode)` | -      |
-| badge | 徽标，同 [Badge](./badge) 的 `content` 属性 | `React.ReactNode \| typeof Badge.dot`           | -      |
+| badge | 徽标，同 [Badge](./badge) 的 `content` 属性 | `React.ReactNode`           | -      |
