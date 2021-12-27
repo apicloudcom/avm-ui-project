@@ -1,19 +1,11 @@
 @import url('../../global/theme.less');
 
 @class-prefix-grid: ~'adm-grid';
-:root {
-  --gap: 0;
-  --gap-horizontal: var(--gap);
-  --gap-vertical: var(--gap);
-}
 .@{class-prefix-grid} {
-  display: grid;
-  grid-gap: 10px;
-  column-gap: var(--gap-horizontal);
-  row-gap: var(--gap-vertical);
-  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
   align-items: stretch;
-  &-item {
-    grid-column-end: span var(--item-span);
-  }
+  flex-wrap: wrap;
 }

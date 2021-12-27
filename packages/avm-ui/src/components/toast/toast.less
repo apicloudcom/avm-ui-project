@@ -6,10 +6,8 @@
     position: absolute;
     left: 50%;
     width: auto;
+    white-space: wrap;
     min-width: 96px;
-    max-width: 70%;
-    max-height: 70%;
-    overflow: auto;
     color: white;
     text-align: center;
     word-break: break-all;
@@ -20,9 +18,13 @@
   }
   &-wrap-text {
     padding: 8px 12px;
+    display: flex;
+    flex-direction: row;
   }
   &-wrap-icon {
     padding: 16px;
+    display: flex;
+    flex-direction: row;
     .@{class-prefix-toast}-icon {
       margin-bottom: 8px;
       font-size: 36px;
