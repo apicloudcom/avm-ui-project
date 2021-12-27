@@ -5,7 +5,7 @@ import {
   renderToContainer,
 } from '../../utils/render-to-container'
 import { Slide } from './slide'
-// import { Slides } from './slides'
+import { Slides } from './slides'
 
 // import { renderToBody } from '../../utils/render-to-body'
 
@@ -56,6 +56,44 @@ export class ImageViewer extends Component {
   }
 }
 
+export type MultiImageViewerProps = Omit<ImageViewerProps, 'image'> & {
+  images?: string[]
+  defaultIndex?: number
+  onIndexChange?: (index: number) => void
+}
+
+const multiDefaultProps = {
+  ...defaultProps,
+  defaultIndex: 0,
+}
+export class MultiImageViewer extends Component {
+  render = (p: MultiImageViewerProps) => {
+    const props = mergeProps(multiDefaultProps, p)
+    const node = (
+      <Mask
+        visible={props.visible}
+        disableBodyScroll={false}
+        opacity='thick'
+        afterClose={props.afterClose}
+      >
+        <div className={`${classPrefix}-content`}>
+          {props.images && (
+            <Slides
+              images={props.images}
+              onTap={() => {
+                props.onClose?.()
+              }}
+              onIndexChange={(e) => {props.onIndexChange?.(e)}}
+              maxZoom={props.maxZoom}
+            />
+          )}
+        </div>
+      </Mask>
+    )
+    return renderToContainer(props.getContainer, node)
+  }
+}
+
 class Wrapper extends Component {
   data = {
     visible: true
@@ -76,124 +114,42 @@ class Wrapper extends Component {
 }
 
 export function showImageViewer(props) {
-  renderToContainer(document.body, <Wrapper {...props} />)
+  // renderToContainer(document.body, <Wrapper {...props} />)
+  avm.render(<Wrapper {...props} />, "#toast-box")
 }
 
-// export type MultiImageViewerProps = Omit<ImageViewerProps, 'image'> & {
-//   images?: string[]
-//   defaultIndex?: number
-//   onIndexChange?: (index: number) => void
-// }
-//
-// const multiDefaultProps = {
-//   ...defaultProps,
-//   defaultIndex: 0,
-// }
-//
-// export class MultiImageViewer extends Component {
-//   render = p => {
-//     const props = mergeProps(multiDefaultProps, p)
-//
-//     const node = (
-//       <Mask
-//         visible={props.visible}
-//         disableBodyScroll={false}
-//         opacity='thick'
-//         afterClose={props.afterClose}
-//       >
-//         <div className={`${classPrefix}-content`}>
-//           {props.images && (
-//             <Slides
-//               defaultIndex={props.defaultIndex}
-//               onIndexChange={props.onIndexChange}
-//               images={props.images}
-//               onTap={() => {
-//                 props.onClose?.()
-//               }}
-//               maxZoom={props.maxZoom}
-//             />
-//           )}
-//         </div>
-//       </Mask>
-//     )
-//     return renderToContainer(props.getContainer, node)
-//   }
-// }
-//
-// export function showImageViewer(props: Omit<ImageViewerProps, 'visible'>) {
-//   type Ref = {
-//     close: () => void
-//   }
-//   const Wrapper = forwardRef<Ref>((_, ref) => {
-//     const [visible, setVisible] = useState(false)
-//     useEffect(() => {
-//       setVisible(true)
-//     }, [])
-//     useImperativeHandle(ref, () => ({
-//       close: () => {
-//         setVisible(false)
-//       },
-//     }))
-//     return (
-//       <ImageViewer
-//         {...props}
-//         visible={visible}
-//         onClose={() => {
-//           props.onClose?.()
-//           setVisible(false)
-//         }}
-//         afterClose={() => {
-//           props.afterClose?.()
-//           unmount()
-//         }}
-//       />
-//     )
-//   })
-//   const ref = createRef<Ref>()
-//   const unmount = renderToBody(<Wrapper ref={ref} />)
-//   return {
-//     close: () => {
-//       ref.current?.close()
-//     },
-//   }
-// }
-//
-// export function showMultiImageViewer(
-//   props: Omit<MultiImageViewerProps, 'visible'>
-// ) {
-//   type Ref = {
-//     close: () => void
-//   }
-//   const Wrapper = forwardRef<Ref>((_, ref) => {
-//     const [visible, setVisible] = useState(false)
-//     useEffect(() => {
-//       setVisible(true)
-//     }, [])
-//     useImperativeHandle(ref, () => ({
-//       close: () => {
-//         setVisible(false)
-//       },
-//     }))
-//     return (
-//       <MultiImageViewer
-//         {...props}
-//         visible={visible}
-//         onClose={() => {
-//           props.onClose?.()
-//           setVisible(false)
-//         }}
-//         afterClose={() => {
-//           props.afterClose?.()
-//           unmount()
-//         }}
-//       />
-//     )
-//   })
-//   const ref = createRef<Ref>()
-//   const unmount = renderToBody(<Wrapper ref={ref} />)
-//   return {
-//     close: () => {
-//       ref.current?.close()
-//     },
-//   }
-// }
+class MultiWrapper extends Component {
+  data = {
+    visible: true
+  }
+  render = props => {
+    const node = (
+      <MultiImageViewer
+        {...props}
+        visible={this.data.visible}
+        onClose={() => {
+          props.onClose?.()
+          this.data.visible = false
+        }}
+        onChange={(e) => {
+          console.log(e)
+        }}
+      />
+    )
+    return node
+  }
+}
+
+export function showMultiImageViewer(props) {
+  // renderToContainer(document.body, <MultiWrapper {...props} />)
+  const imageViewerContainer = document.getElementById('image-viewer-container')
+  
+  if (!imageViewerContainer) {
+    const  node = (
+      <div id="image-viewer-container" className={`${classPrefix}-container`}></div>
+    )
+    avm.render(node, 'body')
+  }
+  
+  avm.render(<MultiWrapper {...props} />, "#image-viewer-container")
+}
