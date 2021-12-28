@@ -4,6 +4,8 @@ import {formatLabel} from '../../utils/format-label'
 
 const classPrefix = `adm-badge`
 
+export const dot = Symbol()
+
 const defaultProps = {
   color: '#FF411C'
 }
@@ -14,7 +16,8 @@ export class Badge extends Component {
 
   render = (props) => {
     props = mergeProps(defaultProps, props)
-    const {content, color, children, isDot, right, top} = props
+    const {content, color, children, right, top} = props
+    const isDot = content === dot
     const badgeCls = classNames(classPrefix, {
       [`${classPrefix}--fixed`]: !!children,
       [`${classPrefix}--dot`]: isDot
@@ -23,7 +26,7 @@ export class Badge extends Component {
     const styleRight = !!right && !!children ? right : 0;
     const styleTop = !!top && !!children ? top : 0;
 
-    const contentEle = formatLabel(content, badgeCls, {backgroundColor: color, right: styleRight, top: styleTop})
+    const contentEle = formatLabel(!isDot ? content : null, badgeCls, {backgroundColor: color, right: styleRight, top: styleTop})
     return (
       <div className={`${classPrefix}-wrap`}>
         {children}

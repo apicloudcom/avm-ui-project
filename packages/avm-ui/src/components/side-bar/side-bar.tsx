@@ -49,7 +49,10 @@ export class SideBar extends Component {
   }
   render = props => {
     const { children } = props
-
+    
+    api.alert({
+      msg:JSON.stringify(children)
+    })
     return (
       <div className={classNames(classPrefix)}>
         {
@@ -60,7 +63,7 @@ export class SideBar extends Component {
                 [`${classPrefix}-item-disabled`]: item.attributes.disabled,
               })}>
                 <Badge content={item.attributes.badge}>
-                  {item.attributes.title}
+                  <span>{item.attributes.title}</span>
                 </Badge>
               </span>
             )

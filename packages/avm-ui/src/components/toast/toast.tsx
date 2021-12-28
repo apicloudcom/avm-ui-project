@@ -68,7 +68,7 @@ export class InternalToast extends Component {
           )}
         >
           <div className={`${classPrefix}-icon`}>{iconsArr[icon] || icon}</div>
-          <text>{content}</text>
+          <text style={{color: '#fff'}}>{content}</text>
         </div>
       </Mask>
     )
