@@ -20,7 +20,7 @@
 
 | 属性        | 说明           | 类型               | 默认值  |
 | ----------- | -------------- | ------------------ | ------- |
-| key         | 唯一标记       | `string \| number` | -       |
+| key         | 唯一标记       | `string` `number` | -       |
 | text        | 标题           | `string`           | -       |
 | disabled    | 是否为禁用状态 | `boolean`          | `false` |
 | danger      | 是否为危险状态 | `boolean`          | `false` |
