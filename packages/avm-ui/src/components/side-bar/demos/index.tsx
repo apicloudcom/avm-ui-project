@@ -42,12 +42,7 @@ class Demo extends Component {
           </SideBar>
         </DemoBlock>
         <DemoBlock title='配合 Badge 使用' padding='0'>
-          <SideBar
-            onChange={key => {
-              this.setActiveKey(key)
-            }}
-            activeKey={this.data.activeKey}
-          >
+          <SideBar>
             {this.data.tabs.map(item => (
               <SideBarItem key={item.key} title={item.title} badge={item.badge} />
             ))}
@@ -61,6 +56,31 @@ class Demo extends Component {
           </SideBar>
         </DemoBlock>
 
+        <DemoBlock title='受控组件' padding='0'>
+          <div className={'container'}>
+            <div>
+              <SideBar activeKey={this.data.activeKey} onChange={key => {
+                this.setActiveKey(key)
+              }}>
+                {this.data.tabs.map(item => (
+                  <SideBarItem key={item.key} title={item.title} />
+                ))}
+              </SideBar>
+            </div>
+            <div>
+              <div className={ this.data.activeKey == 'key1' ? 'isVisable' : 'isHidden' }>A</div>
+              <div className={ this.data.activeKey == 'key2' ? 'isVisable' : 'isHidden' }>B</div>
+              <div className={ this.data.activeKey == 'key3' ? 'isVisable' : 'isHidden' }>C</div>
+            </div>
+          </div>
+        </DemoBlock>
+        <DemoBlock title='自定义宽度' padding='0'>
+        <SideBar style={{ 'width': '120px' }}>
+          {this.data.tabs.map(item => (
+            <SideBarItem key={item.key} title={item.title} />
+          ))}
+        </SideBar>
+      </DemoBlock>
 
       </>
     )

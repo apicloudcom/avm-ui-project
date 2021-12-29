@@ -39,13 +39,13 @@ export class SideBar extends Component {
     }
   }
   render = props => {
-    const { children } = props
+    const { children,style } = props
     return (
-      <div className={classNames(classPrefix)}>
+      <div style={style} className={classNames(classPrefix)}>
         {
           children.map(item => {
             return (
-              <div onClick={this.activeItem.bind(this, item)} className={classNames(`${classPrefix}-item`, {
+              <div  onClick={this.activeItem.bind(this, item)} className={classNames(`${classPrefix}-item`, {
                 [`${classPrefix}-item-active`]: this.data.activeKey == item.attributes.key,
                 [`${classPrefix}-item-disabled`]: item.attributes.disabled,
               })}>
