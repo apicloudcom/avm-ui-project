@@ -79,7 +79,7 @@ export class Popup extends Component {
     )
     return (
       <div
-        className={classPrefix}
+        className={classNames(classPrefix, props.className)}
         onClick={() => {
           onClick && onClick();
         }}

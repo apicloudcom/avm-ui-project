@@ -1,4 +1,4 @@
-import {Badge} from "../badge";
+import {Badge, dot} from "../badge";
 import './index.less';
 import {DemoBlock} from "../../../demos";
 import Space from "../../space";
@@ -26,22 +26,22 @@ const template =
       <Space style={{ '--gap': '24px' }}>
         <Badge
           color='#108ee9'
-          isDot={true}
+          content={dot}
           right='100%'
           top='100%'>
           <div className="box"/>
         </Badge>
         <Badge
           color='#87d068'
-          isDot={true}
+          content={dot}
           right="100%"
         >
           <div className="box"/>
         </Badge>
-        <Badge isDot={true}>
+        <Badge content={dot}>
           <div className="box"/>
         </Badge>
-        <Badge color='orange' isDot={true} top="100%">
+        <Badge color='orange' content={dot} top="100%">
           <div className="box"/>
         </Badge>
       </Space>

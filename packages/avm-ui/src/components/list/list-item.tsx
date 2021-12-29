@@ -2,6 +2,8 @@ import classNames from 'classnames'
 import {formatLabel} from '../../utils/format-label'
 
 const classPrefix = `adm-list-item`
+
+import rightArrowIcon from './img/rightArrow.png'
 export class ListItem extends Component {
   install = () => {
     console.log('ListItem!');
@@ -44,7 +46,7 @@ export class ListItem extends Component {
         {props.extra && extraEles}
         {arrow && (
           <div className={classNames(`${classPrefix}-content-arrow`, disabledClass)}>
-            {arrow === true ? <span>&gt;</span> : arrow}
+            {arrow === true ? <img src={rightArrowIcon} alt="rightArrow"/> : arrow}
           </div>
         )}
       </div>

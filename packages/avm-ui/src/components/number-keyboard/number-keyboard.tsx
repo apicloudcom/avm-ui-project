@@ -1,9 +1,10 @@
 import classNames from 'classnames'
-import { DownOutline, TextDeletionOutline } from '../icon/icon'
 import { mergeProps } from '../../utils/with-default-props'
 import { shuffle } from '../../utils/shuffle'
 import Popup from '../popup'
 import { GetContainer } from '../../utils/render-to-container'
+import DownOutlineSrc from './img/downoutline.png'
+import TextDeletionOutlineSrc from './img/textDeletionOutline.png'
 
 const classPrefix = 'adm-number-keyboard'
 
@@ -22,7 +23,6 @@ export type NumberKeyboardProps = {
   afterShow?: () => void
   afterClose?: () => void
   closeOnConfirm?: boolean
-  safeArea?: boolean
 }
 
 const defaultProps = {
@@ -30,11 +30,15 @@ const defaultProps = {
   randomOrder: false,
   showCloseButton: true,
   confirmText: null,
-  closeOnConfirm: true,
-  safeArea: true,
+  closeOnConfirm: true
 }
 
 export class NumberKeyboard extends Component {
+  data = {
+    popupBodyStyle: {
+      background: '#f5f5f5'
+    }
+  }
   render = props => {
     props = mergeProps(defaultProps, props)
     const {
@@ -87,21 +91,22 @@ export class NumberKeyboard extends Component {
       return (
         <div
           className={classNames(`${classPrefix}-header`, {
-            'with-title': !!title,
+            [`${classPrefix}-header-with-title`]: !!title,
           })}
         >
-          {title && <div className={`${classPrefix}-title`}>{title}</div>}
+          {title && <span className={`${classPrefix}-title`}>{title}</span>}
           {showCloseButton && (
-            <span
-              className={`${classPrefix}-header-close-button`}
+            <div
+              className={classNames(`${classPrefix}-header-close-button`, {
+                [`${classPrefix}-header-with-title-close-button`]: !!title
+              })}
               onClick={() => {
                 props.onClose?.()
               }}
               role='button'
-              title='CLOSE'
-            >
-              <DownOutline />
-            </span>
+              title='CLOSE'>
+              <img src={DownOutlineSrc} alt="downoutline"/>
+            </div>
           )}
         </div>
       )
@@ -110,21 +115,24 @@ export class NumberKeyboard extends Component {
     // 渲染基础键盘按键
     const renderKey = (key: string, index: number) => {
       const isNumberKey = /^\d$/.test(key)
-      const className = classNames(`${classPrefix}-key`, {
-        'number-key': isNumberKey,
-        'sign-key': !isNumberKey && key,
-        'mid-key': index === 9 && !!confirmText,
+      const keyCls = classNames(`${classPrefix}-key`, {
+        [`${classPrefix}-key-number`]: isNumberKey,
+        [`${classPrefix}-key-sign`]: !isNumberKey && key,
+        [`${classPrefix}-key-mid`]: index === 9 && !!confirmText,
       })
 
       return (
         <div
           key={key}
-          className={className}
+          className={keyCls}
           onClick={() => key && onKeyPress(key)}
           title={key}
-          role='button'
-        >
-          {key === 'BACKSPACE' ? <TextDeletionOutline /> : key}
+          role='button'>
+          {
+            key === 'BACKSPACE'
+              ? <img src={TextDeletionOutlineSrc} alt="textDeletionOutline"/>
+              : <span className={`${classPrefix}-key-text`}>{key}</span>
+          }
         </div>
       )
     }
@@ -137,35 +145,31 @@ export class NumberKeyboard extends Component {
         afterClose={props.afterClose}
         afterShow={props.afterShow}
         className={`${classPrefix}-popup`}
-        stopPropagation={props.stopPropagation}>
-        <div
-          className={classPrefix}
-          onMouseDown={e => {
-            e.preventDefault()
-          }}>
+        bodyStyle={this.data.popupBodyStyle}>
+        <div className={classPrefix}>
           {renderHeader()}
           <div className={`${classPrefix}-wrapper`}>
             <div
               className={classNames(`${classPrefix}-main`, {
-                'confirmed-style': !!confirmText,
+                [`${classPrefix}-confirmed-style`]: !!confirmText,
               })}>
               {keys().map((key, index) => renderKey(key, index))}
             </div>
             {!!confirmText && (
               <div className={`${classPrefix}-confirm`}>
                 <div
-                  className={`${classPrefix}-key extra-key bs-key`}
+                  className={`${classPrefix}-key-extra ${classPrefix}-key-bs`}
                   onClick={() => onKeyPress('BACKSPACE')}
                   title='BACKSPACE'
                   role='button'>
-                  <TextDeletionOutline />
+                  <img src={TextDeletionOutlineSrc} alt="textDeletionOutline"/>
                 </div>
-                <div
-                  className={`${classPrefix}-key extra-key ok-key`}
+                <span
+                  className={`${classPrefix}-key-extra ${classPrefix}-key-ok`}
                   onClick={() => onKeyPress('OK')}
                   role='button'>
                   {confirmText}
-                </div>
+                </span>
               </div>
             )}
           </div>
