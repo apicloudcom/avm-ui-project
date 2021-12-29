@@ -1,16 +1,16 @@
 import fse from 'fs-extra';
 import {resolve} from 'path';
 import cp from 'child_process';
-import * as rollup from "rollup";
-import jsx from 'rollup-plugin-jsx'
+
+import {build} from "esbuild";
+import {lessLoader} from 'esbuild-plugin-less';
+
 
 const uiDir = `packages/avm-ui`;
-const dist = './widget';
+const dist = './_widget';
 
 
 export async function onBuild() {
-
-  return genPageCode();
 
   // 1. 重置输出目录
   fse.ensureDirSync(dist);
@@ -23,9 +23,9 @@ export async function onBuild() {
   createPagesFromDemos();
 }
 
+import xml2js from 'xml2js';
 
 function createConfigXml() {
-  const xml2js = require('xml2js');
   const builder = new xml2js.Builder();
 
 
@@ -87,17 +87,52 @@ function buildComponentToWidget() {
 
 }
 
-function createPagesFromDemos() {
-  const glob = require("glob");
+import glob from 'glob'
+
+const assetsLoader = {
+  name: 'assets',
+  setup(build) {
+    build.onResolve({filter: /\.png|\.svg$/}, args => {
+      console.log(args)
+      return {
+        path: 'a.png',
+        external: true,
+      }
+    })
+  },
+}
+
+async function createPagesFromDemos() {
   const demos = glob.sync("src/components/*/demos/*.tsx", {cwd: resolve(uiDir)});
 
-  console.log(demos)
+  const files = demos.map(demo => resolve(uiDir, demo));
+
+  console.log(files)
+
+  await build({
+    entryPoints: files, 
+    outdir: 'out',
+    bundle: true,
+    plugins: [lessLoader(), assetsLoader]
+  })
 
 }
+
+
+
+
 
 async function genPageCode(path = 'src/components/button/demos/index.tsx') {
   const file = resolve(uiDir, path);
 
-  console.log(file)
+  console.log(file);
+
+  await build({
+    entryPoints: [file],
+    outfile: 'out.js',
+    bundle: true,
+    plugins: [lessLoader(), assetsLoader]
+  })
+
 
 }

@@ -26,12 +26,14 @@
   },
   "dependencies": {
     "commander": "^8.3.0",
+    "esbuild-plugin-less": "^1.1.6",
     "fs-extra": "^10.0.0",
     "glob": "^7.2.0",
     "inquirer": "^8.2.0",
     "kolorist": "^1.5.0",
-    "rollup": "^2.61.1",
-    "rollup-plugin-jsx": "^1.0.3",
     "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "esbuild": "^0.14.9"
   }
 }
