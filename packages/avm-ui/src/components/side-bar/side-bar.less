@@ -1,34 +1,53 @@
 @import url('../../global/theme.less');
 @class-prefix-side-bar: ~'adm-side-bar';
-
+.active-color {
+  color: var(--adm-color-primary);
+}
 .@{class-prefix-side-bar} {
-  --height: 100%;
-  --width: 96px;
-  --item-border-radius: 8px;
-  width: var(--width);
-  height: var(--height);
+  height: 100%;
+  width: 96px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  // justify-content: center;
+  // align-items: center;
+  // width: var(--width);
+  // height: var(--height);
   font-size: 15px;
   overflow-y: auto;
   // https://github.com/PolymerElements/iron-list/issues/18
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-
+  // transform: translateZ(0);
+  // -webkit-transform: translateZ(0);
+  background-color: red;
 
   &-item {
     display: flex;
     align-items: center;
+    justify-content: center;
     min-height: 50px;
     padding: 6px 22px;
+    font-size: 15px;
     position: relative;
     cursor: pointer;
     background-color: #f5f5f5;
-
+    
     &-active {
       color: var(--adm-color-primary);
       background-color: white;
-      font-weight: bold;
       position: relative;
+      &-none{
+        color: #000;
+        font-weight: normal;
+      }
+      &-text{
+        font-weight: bold;
+        color: var(--adm-color-primary);
+      }
+     
+     
     }
+    
+    
 
     &-active + .@{class-prefix-side-bar}-item {
       border-top-right-radius: var(--item-border-radius);

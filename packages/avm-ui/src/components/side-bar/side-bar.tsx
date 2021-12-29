@@ -14,17 +14,8 @@ export type SideBarItemProps = {
 } & NativeProps
 
 export class SideBarItem extends Component {
-  data = {
-
-  }
   render = () => {
-    // props = mergeProps(props)
-    // console.log(props,666);
-
-    // const { title } = props
-
     return (
-      // <span>{ title }111</span>
       null
     )
   }
@@ -39,33 +30,32 @@ export type SideBarProps = {
 
 export class SideBar extends Component {
   data = {
-    activeItem: ''
+    activeKey: this.props.activeKey || this.props.defaultActiveKey
   }
   activeItem = (val) => {
     if (!val.attributes.disabled) {
-      console.log(1111, val);
-      this.data.activeItem = val.attributes.key
+      this.data.activeKey = val.attributes.key
+      this.props.onChange && this.props.onChange(val.attributes.key)
     }
   }
   render = props => {
     const { children } = props
-    
-    api.alert({
-      msg:JSON.stringify(children)
-    })
     return (
       <div className={classNames(classPrefix)}>
         {
           children.map(item => {
             return (
-              <span onClick={this.activeItem.bind(this, item)} className={classNames(`${classPrefix}-item`, {
-                [`${classPrefix}-item-active`]: this.data.activeItem == item.attributes.key,
+              <div onClick={this.activeItem.bind(this, item)} className={classNames(`${classPrefix}-item`, {
+                [`${classPrefix}-item-active`]: this.data.activeKey == item.attributes.key,
                 [`${classPrefix}-item-disabled`]: item.attributes.disabled,
               })}>
                 <Badge content={item.attributes.badge}>
-                  <span>{item.attributes.title}</span>
+                  <span className={classNames(`${classPrefix}-item-active-none`, {
+                    [`${classPrefix}-item-active-text`]: this.data.activeKey == item.attributes.key,
+                    [`${classPrefix}-item-disabled`]: item.attributes.disabled,
+                  })}>{item.attributes.title}</span>
                 </Badge>
-              </span>
+              </div>
             )
           })
         }
