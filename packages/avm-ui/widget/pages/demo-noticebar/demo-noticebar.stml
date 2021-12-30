@@ -48,8 +48,10 @@ import { NoticeBar, DemoBlock, Space, NavBar } from '../../components/avm-ui/avm
 
 export default {
 	name: 'demo-noticebar',
-	back() {
-		api.closeWin();
+	methods: {
+		back() {
+			api.closeWin();
+		}
 	}
 }
 </script>

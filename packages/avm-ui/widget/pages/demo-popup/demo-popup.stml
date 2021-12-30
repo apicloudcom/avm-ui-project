@@ -1,23 +1,25 @@
 <template>
 	<safe-area class="page">
 		<NavBar onBack={this.back}>Popup</NavBar>
-		<DemoBlock title='不同位置'>
-			<Space direction='vertical'>
-				<Button @Click="setVisible('visible1', true)">底部弹出</Button>
-				<Button onClick={() => this.setVisible('visible2', true)}>顶部弹出</Button>
-				<Button onClick={() => this.setVisible('visible3', true)}>左侧弹出</Button>
-				<Button onClick={() => this.setVisible('visible4', true)}>右侧弹出</Button>
-			</Space>
-        </DemoBlock>
-        <DemoBlock title='自定义样式'>
-          	<Space direction='vertical'>
-				<Button onClick={() => this.setVisible('visible5', true)}>圆角的弹出层</Button>
-				<Button onClick={() => this.setVisible('visible6', true)}>内容超长滚动</Button>
-          	</Space>
-        </DemoBlock>
-		<DemoBlock title='多层堆叠'>
-          	<Button onClick={() => this.setVisible('visible7', true)}>展开弹出层1</Button>
-        </DemoBlock>
+		<scroll-view>
+			<DemoBlock title='不同位置'>
+				<Space direction='vertical'>
+					<Button @Click="setVisible('visible1', true)">底部弹出</Button>
+					<Button onClick={() => this.setVisible('visible2', true)}>顶部弹出</Button>
+					<Button onClick={() => this.setVisible('visible3', true)}>左侧弹出</Button>
+					<Button onClick={() => this.setVisible('visible4', true)}>右侧弹出</Button>
+				</Space>
+			</DemoBlock>
+			<DemoBlock title='自定义样式'>
+				<Space direction='vertical'>
+					<Button onClick={() => this.setVisible('visible5', true)}>圆角的弹出层</Button>
+					<Button onClick={() => this.setVisible('visible6', true)}>内容超长滚动</Button>
+				</Space>
+			</DemoBlock>
+			<DemoBlock title='多层堆叠'>
+				<Button onClick={() => this.setVisible('visible7', true)}>展开弹出层1</Button>
+			</DemoBlock>
+		</scroll-view>
 		<Popup
 			:visible="visible1"
 			:bodyStyle="{minHeight: '500px'}"

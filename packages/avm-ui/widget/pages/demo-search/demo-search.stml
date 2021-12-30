@@ -1,36 +1,38 @@
 <template>
 	<safe-area class="page">
 		<NavBar onBack={this.back}>Search</NavBar>
-		<DemoBlock title='基础用法'>
-			<Search placeholder='请输入内容' value="123"/>
-		</DemoBlock>
-		<DemoBlock title='带取消按钮的搜索框'>
-			<Search placeholder='请输入内容' showCancelButton  onChange={val => this.onChange(val)}/>
-		</DemoBlock>
-		<DemoBlock title='取消按钮长显'>
-			<Search placeholder='请输入内容' showCancelButton={() => true} onChange={val => this.onChange(val)}/>
-		</DemoBlock>
-		<DemoBlock title='事件监听和 Ref'>
-			<Space block direction='vertical'>
-			<Search
+		<scroll-view>
+			<DemoBlock title='基础用法'>
+				<Search placeholder='请输入内容' value="123"/>
+			</DemoBlock>
+			<DemoBlock title='带取消按钮的搜索框'>
+				<Search placeholder='请输入内容' showCancelButton  onChange={val => this.onChange(val)}/>
+			</DemoBlock>
+			<DemoBlock title='取消按钮长显'>
+				<Search placeholder='请输入内容' showCancelButton={() => true} onChange={val => this.onChange(val)}/>
+			</DemoBlock>
+			<DemoBlock title='事件监听和 Ref'>
+				<Space block direction='vertical'>
+				<Search
+					placeholder='请输入内容'
+					showCancelButton
+					onFocus={() => this.onFocus()}
+					onBlur={() => this.onBlur()}
+					onClear={() => this.onClear()}
+					onCancel={() => this.onCancel()}
+					/>
+				</Space>
+			</DemoBlock>
+			<DemoBlock title='自定义样式'>
+				<Search
 				placeholder='请输入内容'
 				showCancelButton
-				onFocus={() => this.onFocus()}
-				onBlur={() => this.onBlur()}
-				onClear={() => this.onClear()}
-				onCancel={() => this.onCancel()}
+				borderRadius="100px"
+				bgColor="#f5f5f5"
+				placeholderColor="#f00"
 				/>
-			</Space>
-		</DemoBlock>
-		<DemoBlock title='自定义样式'>
-			<Search
-			placeholder='请输入内容'
-			showCancelButton
-			borderRadius="100px"
-			bgColor="#f5f5f5"
-			placeholderColor="#f00"
-			/>
-		</DemoBlock>
+			</DemoBlock>
+		</scroll-view>
 	</safe-area>
 </template>
 <script>

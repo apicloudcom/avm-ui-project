@@ -68,8 +68,10 @@ import { Badge, DemoBlock, Space, NavBar } from '../../components/avm-ui/avm-ui'
 
 export default {
 	name: 'demo-badge',
-	back() {
-		api.closeWin();
+	methods: {
+		back() {
+			api.closeWin();
+		}
 	}
 }
 </script>

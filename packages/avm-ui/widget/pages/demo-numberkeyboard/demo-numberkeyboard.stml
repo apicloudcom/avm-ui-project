@@ -1,16 +1,18 @@
 <template>
 	<safe-area class="page">
 		<NavBar onBack={this.back}>NumberKeyboard</NavBar>
-		<List>
-			<List.Item onClick={() => this.openKeyboard('demo1')}>默认键盘</List.Item>
-			<List.Item onClick={() => this.openKeyboard('demo2')}>带标题键盘</List.Item>
-			<List.Item onClick={() => this.openKeyboard('demo3')}>带确认键盘</List.Item>
-			<List.Item onClick={() => this.openKeyboard('demo4')}>带自定义键盘</List.Item>
-			<List.Item onClick={() => this.openKeyboard('demo5')}>乱序键盘</List.Item>
-			<List.Item onClick={() => this.openKeyboard('demo7')} arrow={false}>
-				<text :class="`${!value || value == null || value == '' ? 'placeholder-class' : 'text-class'}`">{{value || '请输入内容'}}</text>
-			</List.Item>
-		</List>
+		<scroll-view>
+			<List>
+				<List.Item onClick={() => this.openKeyboard('demo1')}>默认键盘</List.Item>
+				<List.Item onClick={() => this.openKeyboard('demo2')}>带标题键盘</List.Item>
+				<List.Item onClick={() => this.openKeyboard('demo3')}>带确认键盘</List.Item>
+				<List.Item onClick={() => this.openKeyboard('demo4')}>带自定义键盘</List.Item>
+				<List.Item onClick={() => this.openKeyboard('demo5')}>乱序键盘</List.Item>
+				<List.Item onClick={() => this.openKeyboard('demo7')} arrow={false}>
+					<text :class="`${!value || value == null || value == '' ? 'placeholder-class' : 'text-class'}`">{{value || '请输入内容'}}</text>
+				</List.Item>
+			</List>
+		</scroll-view>
 		<NumberKeyboard
 			visible={this.data.visible === 'demo1'}
 			onClose={this.data.actions.onClose}

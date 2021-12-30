@@ -1,21 +1,23 @@
 <template>
 	<safe-area class="page">
 		<NavBar onBack={this.back}>Steps</NavBar>
-		<DemoBlock title='横向'>
-			<Steps current={1} list={stepList1}/>
-		</DemoBlock>
+		<scroll-view>
+			<DemoBlock title='横向'>
+				<Steps current={1} list={stepList1}/>
+			</DemoBlock>
 
-		<DemoBlock title='横向（失败状态）'>
-			<Steps current={2} list={stepList2}/>
-		</DemoBlock>
+			<DemoBlock title='横向（失败状态）'>
+				<Steps current={2} list={stepList2}/>
+			</DemoBlock>
 
-		<DemoBlock title='纵向'>
-			<Steps direction='vertical' list={stepList3}/>
-		</DemoBlock>
+			<DemoBlock title='纵向'>
+				<Steps direction='vertical' list={stepList3}/>
+			</DemoBlock>
 
-		<DemoBlock title='纵向（失败状态）'>
-			<Steps direction='vertical' list={stepList4}/>
-		</DemoBlock>
+			<DemoBlock title='纵向（失败状态）'>
+				<Steps direction='vertical' list={stepList4}/>
+			</DemoBlock>
+		</scroll-view>
 	</safe-area>
 </template>
 <script>

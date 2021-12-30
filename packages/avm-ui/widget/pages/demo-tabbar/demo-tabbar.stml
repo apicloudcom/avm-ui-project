@@ -1,76 +1,115 @@
 <template>
 	<safe-area class="page">
-		<NavBar onBack={this.back}>Tag</NavBar>
-		<DemoBlock title='基本用法'>
-			<Space>
-				<Tag>123</Tag>
-			</Space>
-		</DemoBlock>
-
-		<DemoBlock title='默认提供 5 种通用标签颜色'>
-			<Space>
-				<Tag color='default'>Default</Tag>
-				<Tag color='primary'>Primary</Tag>
-				<Tag color='success'>Success</Tag>
-				<Tag color='warning'>Warning</Tag>
-				<Tag color='danger'>Danger</Tag>
-			</Space>
-		</DemoBlock>
-
-		<DemoBlock title='自定义颜色'>
-			<Space>
-				<Tag color='#2db7f5'>#2db7f5</Tag>
-				<Tag color='#87d068'>#87d068</Tag>
-				<Tag color='#108ee9'>#108ee9</Tag>
-			</Space>
-		</DemoBlock>
-		<DemoBlock title='线框填充'>
-			<Space>
-				<Tag color='primary' fill='outline'>
-					Primary
-				</Tag>
-				<Tag color='#87d068' fill='outline'>
-					#87d068
-				</Tag>
-				<Tag color='#ff6430' fill='outline'>
-					#ff6430
-				</Tag>
-			</Space>
-		</DemoBlock>
-
-		<DemoBlock title='圆角'>
-			<Space>
-				<Tag round color='#2db7f5'>
-					kongxin
-				</Tag>
-			</Space>
-		</DemoBlock>
-		<DemoBlock title='自定义问题颜色/背景色/border色以及border-radius'>
-			<Space wrap>
-				<Tag textColor='#f00' bgColor="#000">
-					textColor #f00
-				</Tag>
-				<Tag bgColor='#ff0' textColor="#000">
-					bgColor #ff0
-				</Tag>
-				<Tag borderColor='#f0f'>
-					borderColor #f0f
-				</Tag>
-				<Tag borderRadius='4px'>
-					borderRadius 20px
-				</Tag>
-			</Space>
-		</DemoBlock>
+		<NavBar onBack={this.back}>TabBar</NavBar>
+		<scroll-view>
+			<DemoBlock title='基本用法' padding='0'>
+				<TabBar>
+					{{
+						tabs.map(item => {
+							return (
+								<TabBar.Item key={item.key} icon={item.icon} title={item.title}/>
+							)
+						})
+					}}
+				</TabBar>
+			</DemoBlock>
+			<DemoBlock title='徽标' padding='0'>
+				<TabBar>
+					{{
+						tabs.map(item => {
+							return (
+								<TabBar.Item key={item.key} icon={item.icon} title={item.title} badge={item.badge}/>
+							)
+						})
+					}}
+				</TabBar>
+			</DemoBlock>
+			<DemoBlock title='仅图标' padding='0'>
+				<TabBar>
+					{{
+						tabs.map(item => {
+							return (
+								<TabBar.Item key={item.key} icon={item.icon}/>
+							)
+						})
+					}}
+				</TabBar>
+			</DemoBlock>
+			<DemoBlock title='仅标题' padding='0'>
+				<TabBar>
+					{{
+						tabs.map(item => {
+							return (
+								<TabBar.Item key={item.key} title={item.title} badge={item.badge}/>
+							)
+						})
+					}}
+				</TabBar>
+			</DemoBlock>
+			<DemoBlock title='受控组件' padding='0'>
+				<TabBar activeKey={activeKey} onChange={this.setActiveKey}>
+					{{
+						tabs.map(item => {
+							return (
+								<TabBar.Item key={item.key} icon={item.icon} title={item.title}/>
+							)
+						})
+					}}
+				</TabBar>
+			</DemoBlock>
+		</scroll-view>
 	</safe-area>
 </template>
 <script>
-import { Tag, NavBar, DemoBlock, Space } from '../../components/avm-ui/avm-ui';
+import { TabBar, NavBar, DemoBlock, Badge } from '../../components/avm-ui/avm-ui';
+
+const tabs = [
+	{
+		key: 'home',
+		title: '首页',
+		// icon: <AppOutline/>,
+		icon: '占位',
+		badge: Badge.dot
+	},
+	{
+		key: 'todo',
+		title: '我的待办',
+		// icon: <UnorderedListOutline/>,
+		icon: '占位',
+		badge: '5'
+	},
+	{
+		key: 'message',
+		title: '我的消息',
+		// icon:  active => active ? <MessageFill/> : <MessageOutline/>,
+		icon: '占位',
+		badge: '99+'
+	},
+	{
+		key: 'personalCenter',
+		title: '个人中心',
+		// icon: <UserOutline/>,
+		icon: '占位',
+		badge: Badge.dot
+	},
+]
 
 export default {
-	name: 'demo-tag',
+	name: 'demo-tabbar',
+	data() {
+		return{
+			activeKey: 'todo'
+		}
+	},
 	methods: {
 		back() {
 			api.closeWin();
+		},
+		setActiveKey(key) {
+			api.toast({
+				msg: key
+			})
+			this.data.activeKey = key
 		}
 	}
 }
