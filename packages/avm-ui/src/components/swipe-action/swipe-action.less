@@ -1,0 +1,41 @@
+.adm-swipe-action {
+  background: #fff;
+  cursor: grab;
+  // overflow: visible;
+  touch-action: pan-y;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  &-track {
+    width: 100%;
+    height: 100%;
+  }
+  &-content {
+    width: 100%;
+  }
+  &-actions {
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
+    white-space: nowrap;
+    position: absolute;
+    &-right {
+      left: 100%;
+      height: 100%;
+      top: 0;
+    }
+    &-left {
+      right: 100%;
+      height: 100%;
+      top: 0;
+    }
+  }
+  &-action-button.adm-button {
+    border-radius: 0;
+    border-width: 1;
+    color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 100%;
+  }
+}
