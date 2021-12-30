@@ -91,7 +91,10 @@ export default {
 			api.toast({
 				msg: '点击列表了~'
 			})
-		}
+		},
+		back() {
+			api.closeWin();
+		},
 	}
 }
 </script>
