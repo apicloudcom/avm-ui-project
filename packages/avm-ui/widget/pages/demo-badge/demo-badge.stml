@@ -1,0 +1,86 @@
+<template>
+	<safe-area>
+		<NavBar onBack={this.back}>Badge</NavBar>
+		<scroll-view>
+			<DemoBlock title='基本用法'>
+				<Space>
+					<Badge color='#108ee9' content='5'>
+						<div className="box"/>
+					</Badge>
+					<Badge content='新'>
+						<div className="box"/>
+					</Badge>
+					<Badge content='更新'>
+						<div className="box"/>
+					</Badge>
+					<Badge>
+						<div className="box"/>
+					</Badge>
+				</Space>
+			</DemoBlock>
+			<DemoBlock title='自定义颜色和偏移量'>
+				<Space gap="24px">
+					<Badge
+						color='#108ee9'
+						content={Badge.dot}
+						right='100%'
+						top='100%'>
+						<div className="box"/>
+					</Badge>
+					<Badge
+						color='#87d068'
+						content={Badge.dot}
+						right="100%"
+						>
+						<div className="box"/>
+					</Badge>
+					<Badge content={Badge.dot}>
+						<div className="box"/>
+					</Badge>
+					<Badge color='orange' content={Badge.dot} top="100%">
+						<div className="box"/>
+					</Badge>
+				</Space>
+			</DemoBlock>
+			<DemoBlock title='自定义徽标内容'>
+				<Space>
+					<Badge content={<text>自定义</text>}>
+						<div className="box"/>
+					</Badge>
+				</Space>
+				</DemoBlock>
+				<DemoBlock title='独立展示'>
+				<Space>
+					<Badge content='99+'/>
+					<Badge content='新消息!'/>
+				</Space>
+			</DemoBlock>
+		</scroll-view>
+
+
+	</safe-area>
+</template>
+
+<style src="../../components/avm-ui/avm-ui.css"/>
+
+<script>
+import { Badge, DemoBlock, Space, NavBar } from '../../components/avm-ui/avm-ui';
+
+export default {
+	name: 'demo-badge',
+	methods: {
+		back() {
+			api.closeWin();
+		}
+	}
+}
+</script>
+<style>
+.box {
+	background: #eee;
+	width: 40px;
+	height: 40px;
+	display: block;
+	border-radius: 8px;
+}
+</style>

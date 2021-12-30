@@ -1,0 +1,129 @@
+<template>
+	<safe-area class="page">
+		<NavBar onBack={this.back}>NumberKeyboard</NavBar>
+		<scroll-view>
+			<List>
+				<List.Item onClick={() => this.openKeyboard('demo1')}>默认键盘</List.Item>
+				<List.Item onClick={() => this.openKeyboard('demo2')}>带标题键盘</List.Item>
+				<List.Item onClick={() => this.openKeyboard('demo3')}>带确认键盘</List.Item>
+				<List.Item onClick={() => this.openKeyboard('demo4')}>带自定义键盘</List.Item>
+				<List.Item onClick={() => this.openKeyboard('demo5')}>乱序键盘</List.Item>
+				<List.Item onClick={() => this.openKeyboard('demo7')} arrow={false}>
+					<text :class="`${!value || value == null || value == '' ? 'placeholder-class' : 'text-class'}`">{{value || '请输入内容'}}</text>
+				</List.Item>
+			</List>
+		</scroll-view>
+		<NumberKeyboard
+			visible={this.data.visible === 'demo1'}
+			onClose={this.data.actions.onClose}
+			onInput={this.data.actions.onInput}
+			onDelete={this.data.actions.onDelete}
+		/>
+		<NumberKeyboard
+			visible={this.data.visible === 'demo2'}
+			onClose={this.data.actions.onClose}
+			onInput={this.data.actions.onInput}
+			onDelete={this.data.actions.onDelete}
+			title='数字键盘'
+			customKey='-'
+		/>
+		<NumberKeyboard
+			visible={this.data.visible === 'demo3'}
+			onClose={this.data.actions.onClose}
+			onInput={this.data.actions.onInput}
+			onDelete={this.data.actions.onDelete}
+			showCloseButton={false}
+			confirmText='确定'
+		/>
+		<NumberKeyboard
+			visible={this.data.visible === 'demo4'}
+			onClose={this.data.actions.onClose}
+			onInput={this.data.actions.onInput}
+			onDelete={this.data.actions.onDelete}
+			customKey='.'
+			showCloseButton={false}
+			confirmText='确定'
+		/>
+		<NumberKeyboard
+			visible={this.data.visible === 'demo5'}
+			onClose={this.data.actions.onClose}
+			onInput={this.data.actions.onInput}
+			onDelete={this.data.actions.onDelete}
+			randomOrder
+			customKey='X'
+			confirmText='确定'
+		/>
+		<NumberKeyboard
+			visible={this.data.visible === 'demo7'}
+			onClose={this.data.actions.onClose}
+			onInput={this.onInput}
+			onDelete={this.onDelete}
+			customKey='X'
+		/>
+	</safe-area>
+</template>
+<script>
+import { NumberKeyboard, List, NavBar } from '../../components/avm-ui/avm-ui';
+
+export default {
+	name: 'demo-numberkeyboard',
+	data() {
+		return {
+			visible: '',
+			value: '',
+			value1: '123',
+			actions: {
+				onClose: () => {
+					api.toast({
+						msg: 'close'
+					})
+					this.setVisible('')
+				},
+				onInput: key => {
+					api.toast({
+						msg: 'input' + key
+					})
+				},
+				onDelete: () => {
+					api.toast({
+						msg: 'delete'
+					})
+				},
+			}
+		}
+	},
+	methods: {
+		back() {
+			api.closeWin();
+		},
+		setVisible(v) {
+			this.data.visible = v;
+		},
+		openKeyboard(name) {
+			this.setVisible(name)
+		},
+		onInput(v) {
+			api.toast({
+				msg: this.data.value+v
+			})
+			this.data.value = this.data.value+v
+		},
+		onDelete() {
+			const {value} = this.data
+			this.data.value = value.slice(0, value.length - 1)
+		},
+		InputOnInput(val) {
+			api.toast({
+				msg: val
+			})
+		}
+	}
+}
+</script>
+<style src="../../components/avm-ui/avm-ui.css"/>
+<style>
+.page {
+	height: 100%;
+	width: 100%;
+}
+</style>

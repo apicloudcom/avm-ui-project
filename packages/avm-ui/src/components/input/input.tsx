@@ -37,7 +37,7 @@ export class Input extends Component {
   }
 
   render = props => {
-    props = mergeProps(defaultProps, props)
+    this.props = mergeProps(defaultProps, props)
     
 
     const {id, color, fontSize, disabledColor, textAlign, placeholderColor, placeholderClass,

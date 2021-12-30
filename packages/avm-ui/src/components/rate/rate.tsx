@@ -19,7 +19,7 @@ export class Rate extends Component {
   }
 
   data = {
-    value: 0
+    value: this.props.value || this.props.defaultValue || 0
   }
 
   setValue = (val, props) => {

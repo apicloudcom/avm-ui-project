@@ -1,0 +1,124 @@
+<template>
+	<safe-area class="page">
+		<NavBar onBack={this.back}>ActionSheet</NavBar>
+		<DemoBlock title='基础用法'>
+			<Space wrap>
+				<Button onClick={() => this.setVisible('visible1', true)}>基础用法</Button>
+				<Button onClick={() => this.setVisible('visible2', true)}>取消按钮和额外描述</Button>
+			</Space>
+		</DemoBlock>
+		<DemoBlock title='选项状态'>
+			<Button onClick={() => this.setVisible('visible3', true)}>禁用和危险的选项</Button>
+		</DemoBlock>
+		<DemoBlock title='事件处理'>
+			<Button onClick={() => this.setVisible('visible4', true)}>事件处理</Button>
+		</DemoBlock>
+		<ActionSheet
+			visible={this.data.visible1}
+			actions={actions}
+			onClose={this.closeSheet1}
+			onAction={(action, index) => this.onAction(action, index)}/>
+		<ActionSheet
+			extra='请选择你要进行的操作'
+			cancelText='取消'
+			visible={this.data.visible2}
+			actions={actions}
+			onClose={() => this.setVisible('visible2', false)}
+		/>
+		<ActionSheet
+			visible={this.data.visible3}
+			actions={this.data.actions3}
+			onClose={() => this.onClose3()}
+		/>
+		<ActionSheet
+			visible={this.data.visible4}
+			actions={this.data.actions4}
+			onClose={() => this.onClose4()}}
+			onAction={(action, index) => this.onAction(action, index)}/>
+	</safe-area>
+</template>
+
+<style src="../../components/avm-ui/avm-ui.css"/>
+
+<script>
+import { ActionSheet, DemoBlock, Space, NavBar, Button } from '../../components/avm-ui/avm-ui';
+const actions = [
+  { text: '复制', key: 'copy' },
+  { text: '修改', key: 'edit' },
+  { text: '删除', key: 'delete' },
+]
+export default {
+	name: 'demo-actionsheet',
+	data() {
+		return {
+			visible1: false,
+			visible2: false,
+			visible3: false,
+			visible4: false,
+			actions3: [
+				{ text: '复制', key: 'copy' },
+				{ text: '修改', key: 'edit', disabled: true },
+				{
+					text: '删除',
+					key: 'delete',
+					description: '删除后数据不可恢复',
+					danger: true,
+				},
+			],
+			actions4: [
+				{ text: '复制', key: 'copy' },
+				{ text: '修改', key: 'edit' },
+				{
+					text: '删除',
+					key: 'delete',
+					onClick: () => {
+						api.toast({
+							msg: '删除',
+							location: 'top'
+						});
+					},
+				},
+			]
+		}
+	},
+	methods: {
+		setVisible(key, value) {
+			this.data[key] = value
+		},
+		back() {
+			api.closeWin();
+		},
+		closeSheet1() {
+			this.setVisible('visible1', false)
+		},
+		onAction(action, index) {
+			if (action.key === 'edit' || action.key === 'copy') {
+				api.toast({
+					msg: `点击了${action.text} + ${index}`,
+					location: 'top'
+				})
+			}
+		},
+		onClose3() {
+			api.toast({
+				msg: '关闭动作面板啦~',
+				location: 'top'
+			})
+			this.setVisible('visible3', false)
+		},
+		onClose4() {
+			api.toast({
+				msg: '关闭事件处理动作面板啦~',
+				location: 'top'
+			})
+			this.setVisible('visible4', false)
+		}
+	}
+}
+</script>
+<style>
+.page {
+	width: 100%;
+	height: 100%;
+}
+</style>

@@ -1,0 +1,84 @@
+<template>
+	<safe-area class="page">
+		<NavBar onBack={this.back}>Radio</NavBar>
+		<scroll-view>
+			<DemoBlock title='基础用法'>
+				<Space direction='vertical'>
+					<div @click="handleClick">
+						<Radio/>
+					</div>
+					<Radio>有描述的勾选框</Radio>
+					<Radio defaultChecked>默认选中</Radio>
+					<Radio defaultChecked disabled>禁用状态</Radio>
+				</Space>
+			</DemoBlock>
+			<DemoBlock title='选项组'>
+				<Radio.Group
+					value={this.data.value}
+					@change="handleChange">
+					<Radio value='apple' :checked="this.data.value === 'apple'">苹果</Radio>
+					<Radio value='orange':checked="this.data.value === 'orange'">橘子</Radio>
+					<Radio value='banana':checked="this.data.value === 'banana'">香蕉</Radio>
+				</Radio.Group>
+			</DemoBlock>
+			<DemoBlock title='整组禁用'>
+				<Radio.Group defaultValue='orange' disabled>
+					<Radio value='apple'>苹果</Radio>
+					<Radio value='orange'>橘子</Radio>
+					<Radio value='banana'>香蕉</Radio>
+				</Radio.Group>
+			</DemoBlock>
+			<DemoBlock title='占满整行宽度'>
+				<Space direction='vertical' block>
+					<Radio block>块级元素</Radio>
+					<Radio>非块级元素</Radio>
+				</Space>
+			</DemoBlock>
+			<DemoBlock title='自定义 icon'>
+				<Radio.Group
+					:value="value"
+					@change="handleChange">
+					<Radio value='radio1'>单选框一</Radio>
+					<Radio value='radio2' icon={checked => checked ? (<text>选中</text>) : (<text>没选中</text>)}>单选框二</Radio>
+				</Radio.Group>
+			</DemoBlock>
+			<DemoBlock title='自定义大小'>
+				<Radio iconSize="18px" fontSize="14px" gap="8px">小号的勾选框</Radio>
+			</DemoBlock>
+		</scroll-view>
+	</safe-area>
+</template>
+<script>
+import { Radio, NavBar, DemoBlock, Space } from '../../components/avm-ui/avm-ui';
+
+export default {
+	name: 'demo-radio',
+	data() {
+		return{
+			value: ''
+		}
+	},
+	methods: {
+		back() {
+			api.closeWin();
+		},
+		handleClick() {
+			api.toast({
+				msg: '点击啦'
+			})
+		},
+		handleChange(val) {
+			api.toast({
+				msg: val
+			})
+		}
+	}
+}
+</script>
+<style src="../../components/avm-ui/avm-ui.css"/>
+<style>
+.page {
+	height: 100%;
+	width: 100%;
+}
+</style>

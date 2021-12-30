@@ -3,7 +3,7 @@ import {toCSSLength} from '../../utils/to-css-length'
 import { formatLabel } from '../../utils/format-label'
 
 import outlineUrl from './img/outline.svg'
-import warnUrl from './img/warn.svg'
+import warnUrl from './img/warn.png'
 
 const classPrefix = `adm-image`
 
@@ -11,14 +11,12 @@ const defaultProps = {
   fit: 'fill',
   placeholder: (
     <div className={`${classPrefix}-tip`}>
-       <text>加載中...</text>
       <img src={outlineUrl}/>
     </div>
   ),
   fallback: (
     <div className={`${classPrefix}-tip`}>
-       <text>加載失敗</text>
-      <img src={warnUrl}/>
+      <img src={warnUrl} className={`${classPrefix}-tip-icon`}/>
     </div>
   )
 }
