@@ -31,7 +31,7 @@
 import { DemoBlock, NavBar, TreeSelect } from '../../components/avm-ui/avm-ui';
 
 export default {
-	name: 'demo-button',
+	name: 'demo-tree-select',
 	data() {
 		return {
 			defaultList: ['A', 'A1', 'A12'],

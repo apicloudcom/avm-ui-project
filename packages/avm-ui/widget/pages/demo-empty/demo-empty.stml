@@ -1,0 +1,39 @@
+<template>
+
+	<safe-area>
+		<NavBar onBack={this.back}>Empty</NavBar>
+		<scroll-view>
+			<DemoBlock title='基础用法' padding='0'>
+				<Empty />
+			</DemoBlock>
+
+			<DemoBlock title='描述文字' padding='0'>
+				<Empty description='暂无数据' />
+			</DemoBlock>
+
+			<DemoBlock title='自定义样式' padding='0'>
+				<Empty style="padding: '64px 0'" imageStyle={ {width: 128} } description='暂无数据' />
+			</DemoBlock>
+			<DemoBlock title='自定义图片' padding='0'>
+				<Empty style="padding: '64px 0'" description='暂无数据'>
+					<UiwCloseSquare  fontSize={60} color={'#9ac200'}/>
+				</Empty>
+			</DemoBlock>
+		</scroll-view>
+
+
+	</safe-area>
+</template>
+
+<style src="../../components/avm-ui/avm-ui.css"/>
+
+<script>
+import { DemoBlock, Empty, NavBar, UiwCloseSquare } from '../../components/avm-ui/avm-ui';
+
+export default {
+	name: 'demo-empty',
+	back() {
+		api.closeWin();
+	}
+}
+</script>

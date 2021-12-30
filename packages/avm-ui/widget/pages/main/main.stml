@@ -2,6 +2,10 @@
 	<safe-area>
 		<text class="demo-item" onclick="goto">button</text>
 		<text class="demo-item" onclick="goto">tree-select</text>
+		<text class="demo-item" onclick="goto">divider</text>
+		<text class="demo-item" onclick="goto">result</text>
+		<text class="demo-item" onclick="goto">empty</text>
+		<text class="demo-item" onclick="goto">nav-bar</text>
 	</safe-area>
 </template>
 

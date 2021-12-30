@@ -4,7 +4,6 @@ import { DemoBlock } from '../../../demos/demo-block'
 
 const template =
   <>
-    <text>sdfasdf</text>
     <DemoBlock title='基础分割线'>
       <Divider />
     </DemoBlock>
