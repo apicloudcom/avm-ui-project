@@ -1,11 +1,13 @@
 import classNames from 'classnames'
 // import Badge from '../badge'
-// import { mergeProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps } from '../../utils/native-props'
 import { Badge } from '../badge/badge'
 
 const classPrefix = `adm-side-bar`
-
+const defaultProps = {
+ width:'96px',
+}
 export type SideBarItemProps = {
   key?: string
   title?: string
@@ -39,19 +41,33 @@ export class SideBar extends Component {
     }
   }
   render = props => {
+    props = mergeProps(defaultProps, props)
+    console.log(props);
+    
     const { children,style } = props
+    const width = {
+      width:props.width
+    }
+    const fontWeight = {
+      fontWeight:'bold'
+    }
+    const fontWeightNormal = {
+      fontWeight:'normal'
+    }
+
+
     return (
-      <div style={style} className={classNames(classPrefix)}>
+      <div style={style || width} className={classNames(classPrefix)}>
         {
           children.map(item => {
             return (
-              <div  onClick={this.activeItem.bind(this, item)} className={classNames(`${classPrefix}-item`, {
+              <div style={style || width} onClick={this.activeItem.bind(this, item)} className={classNames(`${classPrefix}-item`, {
                 [`${classPrefix}-item-active`]: this.data.activeKey == item.attributes.key,
                 [`${classPrefix}-item-disabled`]: item.attributes.disabled,
               })}>
                 <Badge content={item.attributes.badge}>
-                  <span className={classNames(`${classPrefix}-item-active-none`, {
-                    [`${classPrefix}-item-active-text`]: this.data.activeKey == item.attributes.key,
+                  <span style={this.data.activeKey == item.attributes.key?fontWeight:fontWeightNormal} className={classNames(`${classPrefix}-item-active-none`, {
+                    [`${classPrefix}-item-text`]: this.data.activeKey == item.attributes.key,
                     [`${classPrefix}-item-disabled`]: item.attributes.disabled,
                   })}>{item.attributes.title}</span>
                 </Badge>
