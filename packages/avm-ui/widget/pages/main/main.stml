@@ -6,6 +6,7 @@
 		<text class="demo-item" onclick="goto">result</text>
 		<text class="demo-item" onclick="goto">empty</text>
 		<text class="demo-item" onclick="goto">nav-bar</text>
+		<text class="demo-item" onclick="goto">side-bar</text>
 	</safe-area>
 </template>
 
