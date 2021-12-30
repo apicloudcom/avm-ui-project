@@ -1,0 +1,76 @@
+<template>
+	<safe-area>
+		<NavBar onBack={this.back}>Checkbox</NavBar>
+		<scroll-view>
+			<DemoBlock title='基础用法'>
+				<Space direction='vertical'>
+					<div onClick={this.onClick}>
+						<Checkbox/>
+					</div>
+					<Checkbox onChange={val => this.onChange(val)}>有描述的勾选框</Checkbox>
+					<Checkbox defaultChecked>默认选中</Checkbox>
+					<Checkbox defaultChecked disabled>禁用状态</Checkbox>
+					<Checkbox indeterminate={true}>半选</Checkbox>
+				</Space>
+			</DemoBlock>
+			<DemoBlock title='选项组'>
+				<Checkbox.Group
+					value={this.data.value}
+					onChange={val => this.onChange(val)}
+					list={list1}/>
+			</DemoBlock>
+			<DemoBlock title='整组禁用'>
+				<Checkbox.Group
+					defaultValue={['B', 'C']}
+					disabled
+					list={list1}/>
+			</DemoBlock>
+			<DemoBlock title='占满整行宽度'>
+				<Space direction='vertical' block>
+					<Checkbox block>块级元素</Checkbox>
+					<Checkbox>非块级元素</Checkbox>
+				</Space>
+			</DemoBlock>
+			<DemoBlock title='自定义大小'>
+				<Checkbox iconSize="18px" fontSize="14px" gap="6px">
+					小号的勾选框
+				</Checkbox>
+			</DemoBlock>
+		</scroll-view>
+
+
+	</safe-area>
+</template>
+
+<style src="../../components/avm-ui/avm-ui.css"/>
+
+<script>
+import { DemoBlock, Space, NavBar, Checkbox } from '../../components/avm-ui/avm-ui';
+const list1 = [
+  {value: 'A', label: 'A'},
+  {value: 'B', label: 'B'},
+  {value: 'C', label: 'C', disabled: true},
+  {value: 'D', label: 'D', readOnly: true}
+]
+export default {
+	name: 'demo-checkbox',
+	data() {
+		return {
+			value: []
+		}
+	},
+	methods: {
+		onClick() {
+			api.toast({
+				msg: '点击啦'
+			})
+		},
+		onChange(val) {
+			api.toast({msg: val})
+		},
+		back() {
+			api.closeWin();
+		},
+	}
+}
+</script>

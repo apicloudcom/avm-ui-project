@@ -95,8 +95,7 @@ export class Collapse extends Component {
                         })}>
                         <img
                           src={panel.disabled ? disabledSpreadIcon  : spreadIcon}
-                          alt="spread"
-                          style={{transform: `rotate(${active ? 90 : 0}deg)`, transition: 'transform .5s'}}/>
+                          alt="spread"/>
                       </div>
                     }>
                     {formatLabel(panel.title, (panel.disabled ? `${classPrefix}-disabled` : ''))}

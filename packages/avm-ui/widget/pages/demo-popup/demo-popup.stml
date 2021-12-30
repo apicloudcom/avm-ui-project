@@ -1,0 +1,141 @@
+<template>
+	<safe-area class="page">
+		<NavBar onBack={this.back}>Popup</NavBar>
+		<DemoBlock title='不同位置'>
+			<Space direction='vertical'>
+				<Button @Click="setVisible('visible1', true)">底部弹出</Button>
+				<Button onClick={() => this.setVisible('visible2', true)}>顶部弹出</Button>
+				<Button onClick={() => this.setVisible('visible3', true)}>左侧弹出</Button>
+				<Button onClick={() => this.setVisible('visible4', true)}>右侧弹出</Button>
+			</Space>
+        </DemoBlock>
+        <DemoBlock title='自定义样式'>
+          	<Space direction='vertical'>
+				<Button onClick={() => this.setVisible('visible5', true)}>圆角的弹出层</Button>
+				<Button onClick={() => this.setVisible('visible6', true)}>内容超长滚动</Button>
+          	</Space>
+        </DemoBlock>
+		<DemoBlock title='多层堆叠'>
+          	<Button onClick={() => this.setVisible('visible7', true)}>展开弹出层1</Button>
+        </DemoBlock>
+		<Popup
+			:visible="visible1"
+			:bodyStyle="{minHeight: '500px'}"
+			onMaskClick={() => this.setVisible('visible1', false)}>Hello</Popup>
+		<Popup
+			:visible="visible2"
+			position='top'
+			:bodyStyle="{minHeight: '500px'}"
+			onMaskClick={() => this.setVisible('visible2', false)}>Hello</Popup>
+
+		<Popup
+			:visible="visible3"
+			position='left'
+			:bodyStyle="{minWidth: '200px'}"
+			onMaskClick={() => this.setVisible('visible3', false)}>Hello</Popup>
+
+		<Popup
+			:visible="visible4"
+			position='right'
+			:bodyStyle="{minWidth: '200px'}"
+			onMaskClick={() => this.setVisible('visible4', false)}>Hello</Popup>
+
+		<Popup
+			:visible="visible5"
+			:bodyStyle="borderRadiusStyle"
+			onMaskClick={() => this.setVisible('visible5', false)}>Hello</Popup>
+
+		<Popup
+			:visible="visible6"
+			@afterShow="afterShow"
+			:bodyStyle="{height: '500px'}"
+			onMaskClick={() => this.setVisible('visible6', false)}>
+			<scroll-view>
+				<text class="long-scroll-item">Hello</text>
+				<text class="long-scroll-item">Hello</text>
+				<text class="long-scroll-item">Hello</text>
+				<text class="long-scroll-item">Hello</text>
+				<text class="long-scroll-item">Hello</text>
+				<text class="long-scroll-item">Hello</text>
+				<text class="long-scroll-item">Hello</text>
+				<text class="long-scroll-item">Hello</text>
+				<text class="long-scroll-item">Hello</text>
+				<text class="long-scroll-item">Hello</text>
+				<text class="long-scroll-item">Hello</text>
+				<text class="long-scroll-item">Hello</text>
+				<text class="long-scroll-item">Hello</text>
+				<text class="long-scroll-item">Hello</text>
+			</scroll-view>
+		</Popup>
+		<Popup
+			visible={this.data.visible7}
+			:bodyStyle="{height: '300px'}"
+			onMaskClick={() => this.setVisible('visible7', false)}>
+			<div :style="{padding: '24px'}">
+				<text>这是弹出层1</text>
+				<Button onClick={() => this.setVisible('visible8', true)}>展开弹出层2</Button>
+			</div>
+		</Popup>
+		<Popup
+			visible={this.data.visible8}
+			:bodyStyle="{height: '100px'}"
+			onMaskClick={() => this.setVisible('visible8', false)}>
+			<div :style="{padding: '24px'}">
+			<text>这是弹出层2</text>
+			</div>
+		</Popup>
+	</safe-area>
+</template>
+<script>
+import { Popup, NavBar, DemoBlock, Space, Button } from '../../components/avm-ui/avm-ui';
+
+export default {
+	name: 'demo-popup',
+	data() {
+		return{
+			borderRadiusStyle: {
+				borderRadius: '8px 8px 0 0',
+				minHeight: '300px'
+			},
+			visible: false,
+			visible1: false,
+			visible2: false,
+			visible3: false,
+			visible4: false,
+			visible5: false,
+			visible6: false,
+			visible7: false,
+			visible8: false
+		}
+	},
+	methods: {
+		back() {
+			api.closeWin();
+		},
+		setVisible(key, val) {
+			api.toast({
+				msg: key + val.toString()
+			})
+			this.data[key] = val;
+		},
+		toggle() {
+			this.data.visible = !this.data.visible
+		},
+		afterShow() {
+			api.toast({
+				msg:'关闭啦'
+			})
+		}
+	}
+}
+</script>
+<style src="../../components/avm-ui/avm-ui.css"/>
+<style>
+.page {
+	height: 100%;
+	width: 100%;
+}
+.long-scroll-item {
+	line-height: 60px;
+}
+</style>

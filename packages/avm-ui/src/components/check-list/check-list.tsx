@@ -50,6 +50,7 @@ export class CheckList extends Component {
           disabled={disabled}
           readOnly={readOnly}
           checked={this.data.checked}
+          activeIcon={props.activeIcon}
           check={() => this.check(item.value, props)}
           uncheck={() => this.uncheck(item.value, props)}
         />

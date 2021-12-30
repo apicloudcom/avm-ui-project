@@ -1,0 +1,20 @@
+<template>
+    <view class="page">
+
+    </view>
+</template>
+<script>
+	export default {
+		name: 'demo-tag',
+		methods: {
+			back() {
+				api.closeWin();
+			}
+		}
+	}
+</script>
+<style>
+    .page {
+        height: 100%;
+    }
+</style>

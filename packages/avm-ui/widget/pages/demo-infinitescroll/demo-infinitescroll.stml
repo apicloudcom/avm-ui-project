@@ -1,0 +1,84 @@
+<template>
+<safe-area class="page">
+	<NavBar onBack={this.back}>InfiniteScroll</NavBar>
+	<InfiniteScroll
+		loadMore={this.loadMore}
+		hasMore={this.data.hasMore}
+		hasMoreText="loading"
+		notHasMoreText="---我是有底线的---">
+		<List>
+			{{this.data.dataList && this.data.dataList.map((item, index) => (<List.Item key={index}>{item}</List.Item>))}}
+		</List>
+	</InfiniteScroll>
+</safe-area>
+</template>
+<script>
+import {List, InfiniteScroll, NavBar} from '../../components/avm-ui/avm-ui'
+
+export default {
+	name: 'demo-infinitescroll',
+	apiready(){//like created
+		this.loadMore()
+	},
+	data() {
+		return{
+			dataList: [],
+    		hasMore: true,
+      		count: 0
+		}
+	},
+	methods: {
+		mockRequest() {
+			if (this.data.count >= 5) {
+				return []
+			}
+			this.data.count++
+			return [
+				'A',
+				'B',
+				'C',
+				'D',
+				'E',
+				'F',
+				'G',
+				'H',
+				'I',
+				'J',
+				'K',
+				'L',
+				'M',
+				'N',
+				'O',
+				'P',
+				'Q',
+				'O',
+				'P',
+				'Q',
+			]
+		},
+		loadMore() {
+			setTimeout(() => {
+				const append = this.mockRequest()
+				this.setList([...this.data.dataList, ...append])
+				this.setHasMore(append.length > 0)
+			}, 3000)
+			
+		},
+		setList(list) {
+			this.data.dataList = list
+		},
+		setHasMore(hasmore) {
+			this.data.hasMore = hasmore
+		},
+		back() {
+			api.closeWin();
+		},
+	}
+}
+</script>
+<style src="../../components/avm-ui/avm-ui.css"/>
+<style>
+.page {
+	height: 100%;
+}
+</style>

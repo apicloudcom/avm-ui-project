@@ -3,6 +3,10 @@ import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps } from '../../utils/native-props'
 import { formatLabel } from '../../utils/format-label'
 
+import defaultIcon from './img/default.png'
+import alertIcon from './img/alert.png'
+import infoIcon from './img/info.png'
+
 const classPrefix = `adm-notice-bar`
 
 export type NoticeBarProps = {
@@ -26,6 +30,29 @@ const defaultProps = {
   speed: 50,
 }
 
+const colorsObj = {
+  default: {
+    bgColor: '#b2b2b2',
+    borderColor: '#a0a0a0',
+    textColor: '#fff'
+  },
+  alert: {
+    bgColor: '#fff9ed',
+    borderColor: '#fff3e9',
+    textColor: '#ff6010'
+  },
+  error: {
+    bgColor: '#ff3b30',
+    borderColor: '#d9281e',
+    textColor: '#fff'
+  },
+  info: {
+    bgColor: '#d0e4ff',
+    borderColor: '#bcd8ff',
+    textColor: '#1677ff'
+  }
+}
+
 export class NoticeBar extends Component {
   install = () => {
     console.log('notice-bar!')
@@ -44,22 +71,52 @@ export class NoticeBar extends Component {
 
     if (!this.data.visible) return null
 
-    return <div className={classNames(classPrefix, `${classPrefix}-${props.color}`)}>
-      {formatLabel('icon' in props ? props.icon : '默认icon', classNames(`${classPrefix}-left`, `${classPrefix}-left-${props.color}`))}
-      <view className={`${classPrefix}-content`}>
-        {formatLabel(props.content, classNames(`${classPrefix}-content-inner`, `${classPrefix}-content-inner-${props.color}`))}
-      </view>
-      {(props.closeable || props.extra) && (
-        <view className={`${classPrefix}-right`}>
-          {props.extra && formatLabel(props.extra, `${classPrefix}-right-${props.color}`)}
-          {props.closeable && (
-            <text onClick={() => {
-              this.setVisible(false)
-              props.onClose?.()
-            }}>X</text>
-          )}
+    const curTheme = colorsObj[props.color];
+
+    const bgColor = props.bgColor || curTheme.bgColor
+    const textColor = props.textColor || curTheme.textColor
+    const borderColor = props.borderColor || curTheme.borderColor
+
+    const leftCls = classNames(`${classPrefix}-left`, `${classPrefix}-left-${props.color}`)
+    const leftEle = 'icon' in props
+      ? props.icon
+      : (<img src={['default', 'error'].includes(props.color) ? defaultIcon : (props.color === 'info' ? infoIcon : alertIcon)} alt="icon"/>)
+
+    const contentInnerCls = classNames(`${classPrefix}-content-inner`, `${classPrefix}-content-inner-${props.color}`)
+
+    const textStyle = {
+      color: textColor
+    }
+
+    const boxStyle = {
+      background: bgColor,
+      borderColor: borderColor
+    }
+
+    return (
+      <div className={classNames(classPrefix, `${classPrefix}-${props.color}`)} style={boxStyle}>
+        {/* left */}
+        {formatLabel(leftEle, leftCls, textStyle)}
+
+        {/* content */}
+        <view className={`${classPrefix}-content`}>
+          {formatLabel(props.content, contentInnerCls, textStyle)}
         </view>
-      )}
-  </div>
+
+        {/* right */}
+        {(props.closeable || props.extra) && (
+          <view className={`${classPrefix}-right`}>
+            {props.extra && formatLabel(props.extra, `${classPrefix}-right-${props.color}`, textStyle)}
+            {props.closeable && (
+              <text onClick={() => {
+                this.setVisible(false)
+                props.onClose?.()
+              }}
+              style={textStyle}>X</text>
+            )}
+          </view>
+        )}
+      </div>
+    )
   }
 }

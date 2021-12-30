@@ -18,13 +18,15 @@ export class Badge extends Component {
     props = mergeProps(defaultProps, props)
     const {content, color, children, right, top} = props
     const isDot = content === dot
+
+    const hasChild = children && children.length
     const badgeCls = classNames(classPrefix, {
-      [`${classPrefix}--fixed`]: !!children,
+      [`${classPrefix}--fixed`]: hasChild,
       [`${classPrefix}--dot`]: isDot
     })
 
-    const styleRight = !!right && !!children ? right : 0;
-    const styleTop = !!top && !!children ? top : 0;
+    const styleRight = !!right && hasChild ? right : 0;
+    const styleTop = !!top && hasChild ? top : 0;
 
     const contentEle = formatLabel(!isDot ? content : null, badgeCls, {backgroundColor: color, right: styleRight, top: styleTop})
     return (

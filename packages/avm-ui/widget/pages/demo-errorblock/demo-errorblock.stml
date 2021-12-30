@@ -1,0 +1,42 @@
+<template>
+
+	<safe-area>
+		<NavBar onBack={this.back}>ErrorBlock</NavBar>
+		<scroll-view>
+			<DemoBlock title='四种状态' padding='0' border='none'>
+				<Space block direction='vertical' gap="16px">
+					<ErrorBlock status='default' imageHeight="150px"/>
+					<ErrorBlock status='disconnected' />
+					<ErrorBlock status='empty' />
+					<ErrorBlock status='busy' />
+				</Space>
+			</DemoBlock>
+			<DemoBlock title='全屏' padding='0' border='none'>
+				<ErrorBlock fullPage/>
+			</DemoBlock>
+			<DemoBlock title='自定义' padding='0' border='none'>
+				<ErrorBlock
+					image='../../image/cf.png'
+					imgHeight="150px"
+					description={<text>Customize Description</text>}>
+					<Button color='primary'>Create Now</Button>
+				</ErrorBlock>
+			</DemoBlock>
+		</scroll-view>
+	</safe-area>
+</template>
+
+<style src="../../components/avm-ui/avm-ui.css"/>
+
+<script>
+import { ErrorBlock, DemoBlock, Space, NavBar, Button } from '../../components/avm-ui/avm-ui';
+
+export default {
+	name: 'demo-errorblock',
+	methods: {
+		back() {
+			api.closeWin();
+		}
+	}
+}
+</script>

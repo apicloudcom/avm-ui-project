@@ -1,0 +1,61 @@
+<template>
+	<safe-area>
+		<NavBar onBack={this.back}>NoticeBar</NavBar>
+		<scroll-view>
+			<DemoBlock
+				title='四种配色'
+				padding='0'
+				border='none'
+				background='transparent'>
+				<Space block direction='vertical'>
+					<NoticeBar content='默认' color='default'/>
+					<NoticeBar content='警告' color='alert'/>
+					<NoticeBar content='错误' color='error' />
+					<NoticeBar content='信息' color='info' />
+					<NoticeBar content='自定义颜色' color='自定义颜色' bgColor="#f0f" textColor="#ff0" borderColor="#0f0"/>
+				</Space>
+			</DemoBlock>
+			<DemoBlock title='可关闭' padding='0' border='none'>
+				<NoticeBar content='这条通知可以关闭' color='alert' closeable />
+			</DemoBlock>
+			<DemoBlock
+				title='自定义'
+				padding='0'
+				border='none'
+				background='transparent'>
+				<Space block direction='vertical'>
+					<NoticeBar
+						icon={<img src="../../image/cf.png"/>}
+						extra={<img src="../../image/cf.png"/>}
+						content={'自定义图标'}
+						closeable/>
+				<NoticeBar
+					extra={<text>查看详情</text>}
+					content={'自定义右侧功能区'}
+					color='alert'/>
+				</Space>
+			</DemoBlock>
+		</scroll-view>
+
+
+	</safe-area>
+</template>
+
+<style src="../../components/avm-ui/avm-ui.css"/>
+
+<script>
+import { NoticeBar, DemoBlock, Space, NavBar } from '../../components/avm-ui/avm-ui';
+
+export default {
+	name: 'demo-noticebar',
+	back() {
+		api.closeWin();
+	}
+}
+</script>
+<style>
+.page {
+	height: 100%;
+	width: 100%;
+}
+</style>

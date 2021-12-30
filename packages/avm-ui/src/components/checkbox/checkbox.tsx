@@ -83,10 +83,9 @@ export class Checkbox extends Component {
     iconSizeStyle['lineHeight'] = iconSize
 
     return (
-      <label className={boxClassStr}>
+      <label className={boxClassStr} onClick={() => this.setChecked(props)}>
         <div
           className={iconClassStr}
-          onClick={() => this.setChecked(props)}
           style={iconSizeStyle}
         >
           <span className={iconTextClassStr} style={{fontSize: `${Number(iconSize.replace('px', ''))-6}px`, lineHeight: iconSize}}>{!!this.data.checked && '√'}</span>

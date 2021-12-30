@@ -13,10 +13,10 @@ export class CheckListItem extends Component {
   render = props => {
     const active = props.checked ? props.checked.includes(props.value) : false
     const readOnly = props.readOnly
-
+    const activeIcon = props.activeIcon
     const extra = (
       <div className={`${classPrefix}-extra`}>
-        {active ? (<img src={checkedIcon} alt="checked"/>) : ''}
+        {active ? (activeIcon ?? (<img src={checkedIcon} alt="checked"/>)) : ''}
       </div>
     )
 

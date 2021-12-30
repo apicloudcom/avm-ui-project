@@ -1,0 +1,76 @@
+<template>
+
+	<safe-area>
+		<NavBar onBack={this.back}>Grid</NavBar>
+		<scroll-view>
+			<DemoBlock title='基础用法' padding='0' border='none'>
+				<Grid columns={3} gap={8}>
+					<Grid.Item>
+						<span class='grid-demo-item-block'>A</span>
+					</Grid.Item>
+					<Grid.Item>
+						<span class='grid-demo-item-block'>B</span>
+					</Grid.Item>
+					<Grid.Item>
+						<span class='grid-demo-item-block'>C</span>
+					</Grid.Item>
+					<Grid.Item>
+						<span class='grid-demo-item-block'>D</span>
+					</Grid.Item>
+					<Grid.Item>
+						<span class='grid-demo-item-block'>E</span>
+					</Grid.Item>
+				</Grid>
+			</DemoBlock>
+			<DemoBlock title='控制格子的跨度' padding='0' border='none'>
+				<Grid columns={3} gap={8}>
+					<Grid.Item>
+						<span class='grid-demo-item-block'>A</span>
+					</Grid.Item>
+					<Grid.Item span={2}>
+						<span class='grid-demo-item-block'>B</span>
+					</Grid.Item>
+					<Grid.Item span={2}>
+						<span class='grid-demo-item-block'>C</span>
+					</Grid.Item>
+					<Grid.Item @click="handleClick">
+						<span class='grid-demo-item-block'>D</span>
+					</Grid.Item>
+					<Grid.Item span={3} @click="handleClick">
+						<span class='grid-demo-item-block'>E</span>
+					</Grid.Item>
+				</Grid>
+			</DemoBlock>
+		</scroll-view>
+	</safe-area>
+</template>
+
+<style src="../../components/avm-ui/avm-ui.css"/>
+
+<script>
+import { Grid, DemoBlock, NavBar } from '../../components/avm-ui/avm-ui';
+
+export default {
+	name: 'demo-grid',
+	methods: {
+		back() {
+			api.closeWin();
+		},
+		handleClick() {
+			api.toast({
+				msg: '点击啦'
+			})
+		}
+	}
+}
+</script>
+<style lang="less">
+.grid-demo-item-block {
+	border: solid 1px #999;
+	background: #f5f5f5;
+	text-align: center;
+	color: #999999;
+	height: 30px;
+	line-height: 30px;
+}
+</style>

@@ -1,0 +1,92 @@
+<template>
+	<safe-area class="page">
+		<NavBar onBack={this.back}>Selector</NavBar>
+		<DemoBlock title='单选'>
+			<Selector
+				options={ItemList}
+				defaultValue={['1']}
+				onChange={(arr, extend) => console.log(arr, extend.items)}
+			/>
+        </DemoBlock>
+        <DemoBlock title='多选'>
+			<Selector
+				options={ItemList}
+				defaultValue={['2', '3']}
+				multiple={true}
+				onChange={(arr, extend) => console.log(arr, extend.items)}
+			/>
+        </DemoBlock>
+        <DemoBlock title='全局禁止'>
+			<Selector
+				options={ItemList}
+				defaultValue={['1']}
+				disabled={true}
+				onChange={arr => console.log(arr)}
+			/>
+        </DemoBlock>
+        <DemoBlock title='固定两列'>
+			<Selector
+				columns={2}
+				options={ItemList}
+				defaultValue={['2', '3']}
+				multiple={true}
+				onChange={arr => console.log(arr)}
+			/>
+        </DemoBlock>
+        <DemoBlock title='固定三列'>
+			<Selector
+				columns={3}
+				options={ItemList}
+				defaultValue={['2', '3']}
+				multiple={true}
+				onChange={arr => console.log(arr)}
+			/>
+        </DemoBlock>
+        <DemoBlock title='自定义样式'>
+			<Selector
+				color="#f00"
+				checkedColor="#ffe2e5"
+				options={ItemList}
+				defaultValue={['1', '2']}
+				multiple={true}
+			/>
+        </DemoBlock>
+	</safe-area>
+</template>
+<script>
+import { Selector, NavBar, DemoBlock } from '../../components/avm-ui/avm-ui';
+const ItemList = [
+  {
+    label: '选项一',
+    value: '1',
+  },
+  {
+    label: '选项二',
+    value: '2',
+    disabled: true,
+  },
+  {
+    label: '选项三',
+    value: '3',
+  },
+  {
+    label: '选项四',
+    value: '4',
+  },
+]
+export default {
+	name: 'demo-selector',
+	methods: {
+		back() {
+			api.closeWin();
+		}
+	}
+}
+</script>
+<style src="../../components/avm-ui/avm-ui.css"/>
+<style>
+.page {
+	height: 100%;
+	width: 100%;
+}
+</style>
