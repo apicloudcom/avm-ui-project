@@ -115,100 +115,100 @@ declare namespace api {
 		url: string;
 
 		/**（可选项）页面加载的数据内容，可以为html片段或者整张html文件的数据*/
-		data: string;
+		data?: string;
 
 		/**（可选项）请求头*/
-		headers: JSON;
+		headers?: JSON;
 
 		/**（可选项）设置该window是否为单例对象。若设置为单例对象，当调用closeWin方法关闭时，window将只是从屏幕移除而不会被销毁，下次再打开时将直接使用已存在的window，而不会再重新创建。*/
-		singleInstance: boolean;
+		singleInstance?: boolean;
 
 		/**（可选项）是否使用原生引擎来加载页面，页面必须是使用avm框架语法生成。*/
-		avm: boolean;
+		avm?: boolean;
 
 		/**（可选项）是否使用WKWebView来加载页面。参考[WKWebView介绍](https://community.apicloud.com/bbs/thread-151904-1-1.html)。*/
-		useWKWebView: boolean;
+		useWKWebView?: boolean;
 
 		/**（可选项）是否可以通过手势来进行历史记录前进后退，只在useWKWebView参数为true时有效。*/
-		historyGestureEnabled: boolean;
+		historyGestureEnabled?: boolean;
 
 		/**（可选项）是否自动同步WKWebView外部如ajax产生的Cookie到WKWebView中，只在useWKWebView参数为true时有效。*/
-		syncCookie: boolean;
+		syncCookie?: boolean;
 
 		/**（可选项）页面参数，新页面中可以通过 api.pageParam 获取*/
-		pageParam: JSON;
+		pageParam?: JSON;
 
 		/**（可选项）页面是否弹动。注意如果页面使用了上拉、下拉刷新等功能，该属性可能会被刷新组件重新设置。*/
-		bounces: boolean;
+		bounces?: boolean;
 
 		/**（可选项）背景色，支持图片和颜色，格式为 #fff、#ffffff、rgba(r,g,b,a)等，图片路径支持 fs://、widget://等 APICloud 自定义文件路径协议，同时支持相对路径*/
-		bgColor: string;
+		bgColor?: string;
 
 		/**（可选项）当点击状态栏，页面是否滚动到顶部。若当前屏幕上不止一个页面的 scrollToTop 属性为 true，则所有的都不会起作用。只 iOS 有效*/
-		scrollToTop: boolean;
+		scrollToTop?: boolean;
 
 		/**（可选项）页面内容超出后是否可以滚动，只支持iOS*/
-		scrollEnabled: boolean;
+		scrollEnabled?: boolean;
 
 		/**（可选项）是否显示垂直滚动条*/
-		vScrollBarEnabled: boolean;
+		vScrollBarEnabled?: boolean;
 
 		/**（可选项）是否显示水平滚动条*/
-		hScrollBarEnabled: boolean;
+		hScrollBarEnabled?: boolean;
 
 		/**（可选项）页面是否可以缩放*/
-		scaleEnabled: boolean;
+		scaleEnabled?: boolean;
 
 		/**（可选项）是否隐藏原生navigationBar控件，该字段只 iOS 有效*/
-		hideTopBar: boolean;
+		hideTopBar?: boolean;
 
 		/**（可选项）是否隐藏原生tabBar控件，该字段只 iOS 有效*/
-		hideBottomBar: boolean;
+		hideBottomBar?: boolean;
 
 		/**（可选项）是否支持滑动返回。iOS7.0及以上系统中，在新打开的页面中向右滑动，可以返回到上一个页面，该字段只 iOS 有效*/
-		slidBackEnabled: boolean;
+		slidBackEnabled?: boolean;
 
 		/**（可选项）当支持滑动返回时，设置手指在页面右滑的有效作用区域。取值范围（full:整个页面范围都可以右滑返回，edge:在页面左边缘右滑才可以返回），该字段只iOS有效*/
-		slidBackType: string;
+		slidBackType?: string;
 
 		/**（可选项）动画参数，不传时使用默认动画*/
-		animation: JSON;
+		animation?: JSON;
 
 		/**（可选项）页面加载进度配置信息，若不传则无加载进度效果*/
-		progress: JSON;
+		progress?: JSON;
 
 		/**（可选项）window 显示延迟时间，适用于将被打开的 window 中可能需要打开有耗时操作的模块时，可延迟 window 展示到屏幕的时间，保持 UI 的整体性*/
-		delay: number;
+		delay?: number;
 
 		/**（可选项）页面已经打开时，是否重新加载页面，重新加载页面后 apiready 方法将会被执行*/
-		reload: boolean;
+		reload?: boolean;
 
 		/**（可选项）是否允许长按页面时弹出选择菜单*/
-		allowEdit: boolean;
+		allowEdit?: boolean;
 
 		/**（可选项）当键盘弹出时，输入框被盖住时，当前页面的调整方式，只iOS有效，Android请在 [config.xml](/APICloud/技术专题/app-config-manual) 里面配置并云编译使用*/
-		softInputMode: string;
+		softInputMode?: string;
 
 		/**（可选项）收起键盘的方式，只iOS有效。*/
-		softInputDismissMode: Array;
+		softInputDismissMode?: Array;
 
 		/**（可选项）是否显示键盘上方的工具条。只支持iOS*/
-		softInputBarEnabled: boolean;
+		softInputBarEnabled?: boolean;
 
 		/**（可选项）设置页面滚动到头部或尾部时，显示回弹阴影效果的模式，仅Android有效。*/
-		overScrollMode: string;
+		overScrollMode?: string;
 
 		/**（可选项）是否允许iOS 11及以上系统中页面元素默认的拖拽行为。只支持iOS*/
-		dragAndDrop: boolean;
+		dragAndDrop?: boolean;
 
 		/**（可选项）是否隐藏虚拟home键。设置为true时，虚拟home键会在屏幕没有触摸操作时自动隐藏，触摸后又会显示出来。只支持iOS*/
-		hideHomeIndicator: boolean;
+		hideHomeIndicator?: boolean;
 
 		/**（可选项）设置使用默认下拉刷新类型，取值范围：pull、swipe*/
-		defaultRefreshHeader: string;
+		defaultRefreshHeader?: string;
 
 		/**（可选项）设置使用自定义下拉刷新模块的名称，设置后可以使用 api.setCustomRefreshHeaderInfo 方法来使用自定义下拉刷新组件*/
-		customRefreshHeader: string;
+		customRefreshHeader?: string;
 
 	}
 	/**
@@ -267,7 +267,7 @@ declare namespace api {
 	 *
 	 * `allowEdit` :boolean : （可选项）是否允许长按页面时弹出选择菜单
 	 *
-	 * `softInputMode` :string : （可选项）当键盘弹出时，输入框被盖住时，当前页面的调整方式，只iOS有效，Android请在 [config.xml](/APICloud/技术专题/app-config-manual) 里面配置并云编译使用
+	 * `softInputMode` :string : （可选项）当键盘弹出时，输入框被盖住时，当前页面的调整方式，只iOS有效，Android请在 [config.xml](https://docs.apicloud.com//APICloud/技术专题/app-config-manual) 里面配置并云编译使用
 	 *
 	 * `softInputDismissMode` :Array : （可选项）收起键盘的方式，只iOS有效。
 	 *
