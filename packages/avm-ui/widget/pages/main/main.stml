@@ -1,0 +1,27 @@
+<template>
+	<safe-area>
+		<text class="demo-item" onclick="goto">button</text>
+		<text class="demo-item" onclick="goto">tree-select</text>
+	</safe-area>
+</template>
+
+
+<script>
+export default {
+	name: 'main',
+	goto(e) {
+		const demoName = e.target.attributes.text;
+		api.openWin({
+			name: demoName,
+			url: `../demo-${demoName}/demo-${demoName}.stml`
+		})
+	}
+}
+</script>
+
+
+<style scoped>
+.demo-item {
+	padding: 5px;
+}
+</style>

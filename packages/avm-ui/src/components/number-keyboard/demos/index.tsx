@@ -1,13 +1,9 @@
 import {NumberKeyboard} from '../number-keyboard'
 import {List} from '../../list/list'
 import {ListItem} from '../../list/list-item'
-import {Input} from '../../input/input'
-// import {Button} from '../../button/button'
 import { DemoBlock } from '../../../demos'
 
 import '../../list/list.less'
-import '../../input/input.less'
-// import '../../button/button.less'
 import '../number-keyboard.less'
 
 class Demo extends Component {
@@ -41,11 +37,12 @@ class Demo extends Component {
   }
 
   onInput = (value: string) => {
-    this.setValue(v => v + value)
+    this.setValue(this.data.value+value)
   }
 
   onDelete = () => {
-    this.setValue(v => v.slice(0, v.length - 1))
+    const {value} = this.data
+    this.setValue(value.slice(0, value.length - 1))
   }
 
 
@@ -60,7 +57,10 @@ class Demo extends Component {
             <ListItem onClick={() => this.openKeyboard('demo4')}>带自定义键盘</ListItem>
             <ListItem onClick={() => this.openKeyboard('demo5')}>乱序键盘</ListItem>
             <ListItem onClick={() => this.openKeyboard('demo7')} arrow={false}>
-              <Input placeholder='请输入内容' value={this.data.value} readOnly/>
+              <span
+                className={(!this.data.value || this.data.value == null || this.data.value == '')
+                  ? 'placeholder-class'
+                  : 'text-class'}>{this.data.value || '请输入内容'}</span>
             </ListItem>
           </List>
         </DemoBlock>

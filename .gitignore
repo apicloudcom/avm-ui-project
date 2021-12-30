@@ -23,5 +23,7 @@ dist-ssr
 /packages/avm-ui/widget/.apicloud/.*
 /packages/cli/lib/
 /packages/avm-ui/.idea
-/widget
-/packages/avm-ui/widget/
+/packages/avm-ui/widget/.apicloud/
+/packages/avm-ui/widget/components/avm-ui/
+/packages/avm-ui/widget/.bin/
+/packages/avm-ui/widget/.bin/.*

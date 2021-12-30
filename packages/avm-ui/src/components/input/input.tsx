@@ -29,7 +29,7 @@ export class Input extends Component {
 
   setValue = val => {
     this.data.value = val;
-    this.props.onChange && this.props.onChange(this.data.value)
+    this.props.onChange?.(this.data.value)
   }
 
   setHasFocus = state => {
@@ -37,12 +37,12 @@ export class Input extends Component {
   }
 
   render = props => {
-    this.props = mergeProps(defaultProps, props)
+    props = mergeProps(defaultProps, props)
     
 
     const {id, color, fontSize, disabledColor, textAlign, placeholderColor, placeholderClass,
       disabled, readOnly,  placeholder, maxLength, minLength, max, min, clearable,
-      onEnterPress, onKeyDown, onInput, onFocus, onBlur, onKeyUp, onClear,
+      onEnterPress, onKeyDown, onFocus, onBlur, onKeyUp, onClear,
       autoComplete='on', enterKeyHint, pattern, type, autoCapitalize, autoCorrect} = this.props;
 
     const handleKeydown = (e: any) => {
@@ -86,7 +86,6 @@ export class Input extends Component {
           onKeyUp={onKeyUp}
           onInput={e => {
             this.setValue(e.detail.value)
-            onInput?.(e)
           }}
           onChange={e => {
             this.setValue(e.detail.value)

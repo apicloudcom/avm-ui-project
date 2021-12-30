@@ -1,3 +1,6 @@
+export {DemoBlock} from './demos/demo-block'
+export {DemoDescription} from './demos/demo-description'
+
 export {default as Button} from './components/button'
 export {default as Badge} from './components/badge'
 export {default as Loading} from './components/loading'
@@ -40,3 +43,6 @@ export {default as TabBar} from './components/tab-bar'
 export {default as SideBar} from './components/side-bar'
 export {default as Collapse} from './components/collapse'
 export {default as ActionSheet} from './components/action-sheet'
+export {ListItem} from './components/list/list-item'
+export {default as SwipeAction} from './components/swipe-action'
+export {default as TreeSelect} from './components/tree-select'

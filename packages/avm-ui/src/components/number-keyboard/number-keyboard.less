@@ -2,37 +2,39 @@
 @import url('../../global/theme.less');
 @class-prefix-number-keyboard: ~'adm-number-keyboard';
 
+@keyboard-bg-color: #f5f5f5;
+@active-bg-color: #eee;
+@border-style: 1px solid #f5f5f5;
+
 .@{class-prefix-number-keyboard} {
   &-main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    flex: 1;
   }
 
-  &.confirmed-style {
+  &-confirmed-style {
     width: 75%;
     background-color: var(--adm-color-white);
   }
 
-  &-popup.adm-popup {
+  &-popup {
     width: 100%;
     user-select: none;
     z-index: 1050;
-    .adm-popup-body {
-      background-color: #f5f5f5;
-    }
   }
 
   &-wrapper {
     display: flex;
+    flex-direction: row;
   }
 
   &-header {
     height: 34px;
     line-height: 34px;
-    border-top: solid 1px #f5f5f5;
+    border-top: @border-style;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 0 12px;
@@ -40,21 +42,20 @@
     background-color: var(--adm-color-white);
     &-close-button {
       padding: 0 12px;
-      font-size: 16px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
     }
-    &.with-title {
+    &-with-title {
       justify-content: space-between;
-      .@{class-prefix-number-keyboard}-header-close-button {
+      &-close-button {
         padding-right: 0;
       }
     }
   }
 
-  &-footer {
-    background: var(--adm-color-white);
-  }
-
   &-title {
+    color: var(--adm-color-weak);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -62,72 +63,58 @@
 
   &-confirm {
     width: 25%;
+    display: flex;
+    flex-direction: column;
   }
 
   &-key {
-    flex: 1 33.33%;
-    position: relative;
+    width: 33.33%;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 48px;
-    font-size: 22px;
     box-sizing: border-box;
-    border: solid 1px #f5f5f5;
-    border-bottom: none;
-    border-left: none;
-
-    &:nth-child(3n),
-    &:last-child {
-      border-right: none;
+    border-top: @border-style;
+    border-right: @border-style;
+    background: @keyboard-bg-color;
+    &-text {
+      font-size: 22px;
     }
-
-    &::before {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      height: 100%;
-      background-color: #000;
-      border: inherit;
-      border-color: #000;
-      border-radius: inherit;
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      content: ' ';
-      box-sizing: content-box;
-    }
-
-    &.mid-key {
+    &-mid {
       flex-basis: 66.67%;
     }
-
-    &.sign-key:active::before {
-      opacity: 0.1;
+  
+    &-sign:active {
+      background-color: @active-bg-color;
     }
-
-    &.extra-key {
-      border-left: solid 1px #f5f5f5;
-      border-right: none;
-    }
-
-    &.extra-key,
-    &.number-key {
+  
+    &-extra {
       background-color: var(--adm-color-white);
-      &:active::before {
-        opacity: 0.1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    &-number {
+      background-color: var(--adm-color-white);
+      &:active {
+        background-color: @active-bg-color;
       }
     }
-
-    &.ok-key {
+  
+    &-ok {
       background-color: var(--adm-color-primary);
       color: var(--adm-color-white);
-      height: 144px;
       font-size: 16px;
+      height: 144px;
+      line-height: 144px;
+      text-align: center;
     }
-  }
-
-  &-bs-key {
-    height: 20px;
+  
+    &-bs {
+      height: 48px;
+      border-top: @border-style;
+      border-bottom: @border-style;
+    }
   }
 }

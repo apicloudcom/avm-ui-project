@@ -29,7 +29,7 @@ class CollapsePanelContent extends Component {
     return (
       <div
         className={`${classPrefix}-panel-content`}
-        style={{height: visible ? 'auto' : 0, animation: 'height .5s'}}>
+        style={{height: visible ? 'auto' : 0, transition: 'height .5s'}}>
          <ListItem>{visible && formatLabel(props.children, '', {color: '#999'})}</ListItem>
       </div>
     )
@@ -96,7 +96,7 @@ export class Collapse extends Component {
                         <img
                           src={panel.disabled ? disabledSpreadIcon  : spreadIcon}
                           alt="spread"
-                          style={{transform: `rotate(${active ? 90 : 0}deg)`, animation: 'transform .5s'}}/>
+                          style={{transform: `rotate(${active ? 90 : 0}deg)`, transition: 'transform .5s'}}/>
                       </div>
                     }>
                     {formatLabel(panel.title, (panel.disabled ? `${classPrefix}-disabled` : ''))}

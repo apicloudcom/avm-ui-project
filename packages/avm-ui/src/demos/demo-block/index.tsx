@@ -11,7 +11,7 @@ export class DemoBlock extends Component {
   render = props => {
     return (
       <div className={"demoBlock"}>
-        <div className={"title"}>{props.title}</div>
+        <span className={"title"}>{props.title}</span>
         <div
           className={"content"}
           style={{
