@@ -16,11 +16,9 @@ const template =
 
     <DemoBlock title='自定义样式'>
       <Divider
-        style={{
-          color: '#1677ff',
-          borderColor: '#1677ff',
-          borderStyle: 'dashed',
-        }}
+        color= '#1677ff'
+        borderColor= '#1677ff'
+        borderStyle= 'dashed'
       >
         自定义样式
       </Divider>

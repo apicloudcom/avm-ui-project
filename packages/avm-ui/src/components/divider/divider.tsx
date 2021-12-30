@@ -19,29 +19,37 @@ export class Divider extends Component {
   install = () => {
     console.log('Empty!')
   }
-  render = props => {
+  render = props => {debugger
     props = mergeProps(defaultProps, props)
-    const {color} = props
+    const { color, borderStyle, borderColor, borderTopWidth,contentPosition,children} = props
     const fontContentSty = {
-      'color': ( props.style && props.style['color']) ?? color,
+      color: color,
+      flex: 'none'
     }
     const dividerLineSty = {
-      'border-style': (props.style && props.style['borderStyle']) ?? 'solid',
-      'border-color': (props.style && props.style['borderColor']) ?? '#eeeeee'
+      borderStyle:  borderStyle,
+      borderColor: borderColor,
+      borderTopWidth: borderTopWidth,
+      flex: 'auto'
     }
-    
+    const dividerLeftSty = Object.assign({
+      maxWidth:contentPosition === 'left'? '10%': 'auto'
+    },dividerLineSty)
+    const dividerRightSty = Object.assign({
+      maxWidth:contentPosition === 'right'? '10%': 'auto'
+    },dividerLineSty)
     return (
       <div
         className={classNames(
           classPrefix,
-          `${classPrefix}-${props.contentPosition}`
+          `${classPrefix}-${contentPosition}`
         )}
       >
-        <div className={`${classPrefix}-${props.contentPosition}-before ${classPrefix}-before`} style={dividerLineSty}></div>
-        {props.children.length > 0 && (
-          <text className={`${classPrefix}-content`} style={fontContentSty}>{props.children}</text>
+        <div className={classNames(`${classPrefix}-before`)} style={dividerLeftSty}></div>
+        {children.length > 0 && (
+          <text className={`${classPrefix}-content`} style={fontContentSty}>{children}</text>
         )}
-        <div className={`${classPrefix}-after ${classPrefix}-${props.contentPosition}-after`} style={dividerLineSty}></div>
+        <div className={ classNames(`${classPrefix}-after`)} style={dividerRightSty}></div>
       </div>
     )
   }

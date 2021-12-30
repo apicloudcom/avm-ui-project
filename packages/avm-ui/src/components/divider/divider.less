@@ -3,17 +3,11 @@
 @class-prefix-divider: ~'adm-divider';
 
 .@{class-prefix-divider} {
-  display: flex;
   align-items: center;
   margin: 16px 0;
   font-size: 14px;
   flex-direction: row;
-  &-left-before {
-    max-width: 10%;
-  }
-  &-right-after {
-    max-width: 10%;
-  }
+  width: 100%;
   &-after,
   &-before {
     flex: auto;
@@ -27,5 +21,11 @@
   &-content {
     flex: none;
     padding: 0 16px;
+  }
+  &-left-before {
+    max-width: 10%;
+  }
+  &-right-after {
+    max-width: 10%;
   }
 }
