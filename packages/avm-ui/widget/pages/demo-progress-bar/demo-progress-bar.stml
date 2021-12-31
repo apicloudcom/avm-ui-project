@@ -1,0 +1,59 @@
+<template>
+	<safe-area>
+		<NavBar onBack={this.back}>ProgressBar</NavBar>
+		<DemoBlock title='基本用法'>
+			<Space wrap className={'adm-progress-bar-trail'}>
+				<Button color='primary' disabled={this.data.disabled} onClick={this.setPercent.bind(this,10)} :style="{margin-right:'8px'}">
+					进度+10
+				</Button>
+				<Button color='primary' fill='outline' onClick={this.resetPercent}>
+					重置
+				</Button>
+			</Space>
+			<ProgressBar percent={this.data.percent} />
+		</DemoBlock>
+		<DemoBlock title='指定线条宽度'>
+			<Space direction='vertical' block>
+				<ProgressBar percent={75} strokeWidth={2} />
+				<ProgressBar percent={75} strokeWidth={5} />
+				<ProgressBar percent={75} strokeWidth={20} />
+			</Space>
+		</DemoBlock>
+		<DemoBlock title='指定颜色'>
+			<ProgressBar percent={60} strokeColor='#ff0000' />
+		</DemoBlock>
+	</safe-area>
+</template>
+
+<style src="../../components/avm-ui/avm-ui.css"/>
+<style>
+.adm-progress-bar-trail {
+	margin-top: 20px;
+}
+</style>
+<script>
+import { DemoBlock, ProgressBar, NavBar, Button, Space } from '../../components/avm-ui/avm-ui';
+
+export default {
+
+	name: 'demo-progress-bar',
+	data() {
+		return {
+			disabled: false,
+			percent: 0
+		}
+	},
+	methods: {
+		setPercent(val) {
+			this.data.percent += val
+		},
+		resetPercent(){
+			this.data.percent = 0
+		},
+		back() {
+			api.closeWin();
+		}
+	}
+
+}
+</script>

@@ -7,6 +7,8 @@
 		<text class="demo-item" onclick="goto">empty</text>
 		<text class="demo-item" onclick="goto">nav-bar</text>
 		<text class="demo-item" onclick="goto">side-bar</text>
+		<text class="demo-item" onclick="goto">desense-text</text>
+		<text class="demo-item" onclick="goto">progress-bar</text>
 	</safe-area>
 </template>
 

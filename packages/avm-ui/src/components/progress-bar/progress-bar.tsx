@@ -14,15 +14,14 @@ export class ProgressBar extends Component {
   }
 
   render = props => {
-
     const back = {}
     back['height'] = toCSSLength(props.strokeWidth) || '3px'
-    back['borderRadius'] = toCSSLength(props.strokeWidth) ||'3px'
-
+    back['borderRadius'] = toCSSLength(props.strokeWidth) || '3px'
+    back['backgroundColor'] = '#e5e5e5'
 
     const styles = {}
     styles['width'] = `${props.percent}%`
-    styles['width'] = props.percent? `${props.percent}%`:'0%'
+    styles['width'] = props.percent ? `${props.percent}%` : '0%'
     styles['background'] = props.strokeColor || '#1677ff'
     styles['borderRadius'] = toCSSLength(props.strokeWidth) || '3px'
 
