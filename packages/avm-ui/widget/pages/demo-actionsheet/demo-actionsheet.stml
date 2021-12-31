@@ -1,18 +1,22 @@
 <template>
-	<safe-area class="page">
-		<NavBar onBack={this.back}>ActionSheet</NavBar>
-		<DemoBlock title='基础用法'>
-			<Space wrap>
-				<Button onClick={() => this.setVisible('visible1', true)}>基础用法</Button>
-				<Button onClick={() => this.setVisible('visible2', true)}>取消按钮和额外描述</Button>
-			</Space>
-		</DemoBlock>
-		<DemoBlock title='选项状态'>
-			<Button onClick={() => this.setVisible('visible3', true)}>禁用和危险的选项</Button>
-		</DemoBlock>
-		<DemoBlock title='事件处理'>
-			<Button onClick={() => this.setVisible('visible4', true)}>事件处理</Button>
-		</DemoBlock>
+	<view class="page">
+		<safe-area>
+			<NavBar onBack={this.back}>ActionSheet</NavBar>
+			<scroll-view>
+				<DemoBlock title='基础用法'>
+					<Space wrap>
+						<Button onClick={() => this.setVisible('visible1', true)}>基础用法</Button>
+						<Button onClick={() => this.setVisible('visible2', true)}>取消按钮和额外描述</Button>
+					</Space>
+				</DemoBlock>
+				<DemoBlock title='选项状态'>
+					<Button onClick={() => this.setVisible('visible3', true)}>禁用和危险的选项</Button>
+				</DemoBlock>
+				<DemoBlock title='事件处理'>
+					<Button onClick={() => this.setVisible('visible4', true)}>事件处理</Button>
+				</DemoBlock>
+			</scroll-view>
+		</safe-area>
 		<ActionSheet
 			visible={this.data.visible1}
 			actions={actions}
@@ -35,7 +39,7 @@
 			actions={this.data.actions4}
 			onClose={() => this.onClose4()}}
 			onAction={(action, index) => this.onAction(action, index)}/>
-	</safe-area>
+	</view>
 </template>
 
 <style src="../../components/avm-ui/avm-ui.css"/>
@@ -120,5 +124,6 @@ export default {
 .page {
 	width: 100%;
 	height: 100%;
+	padding-bottom: 20px;
 }
 </style>

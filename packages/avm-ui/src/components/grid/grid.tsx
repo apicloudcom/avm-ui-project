@@ -17,7 +17,7 @@ export class Grid extends Component {
     //   styles['row-gap'] = toCSSLength(gap)
     // }
 
-    const baseWidth = 100 / columns
+    const baseWidth = (100 / Number(columns)).toFixed(2)
     const columnGap = Array.isArray(gap) ? toCSSLength(gap[0]) : toCSSLength(gap)
     const rowGap = Array.isArray(gap) ? toCSSLength(gap[1]) : toCSSLength(gap)
     return (
@@ -50,7 +50,7 @@ export class GridItem extends Component {
     // itemStyle['grid-column-end'] = `span ${props.span}`
 
     const itemStyle = {
-      width: `${props.baseWidth * props.span}%`,
+      width: props.baseWidth ? `${Number(props.baseWidth) * Number(props.span)}%` : 'auto',
       // marginRight: props.columnGap,
       // marginBottom: props.rowGap
     }

@@ -2,6 +2,11 @@ import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
 import {formatLabel} from '../../utils/format-label'
 
+import selectedIcon from './img/selected.png'
+import unselectedIcon from './img/unselected.png'
+import disabledSelectedIcon from './img/disabled_selected.png'
+import disabledUnSelectedIcon from './img/disabled_unselected.png'
+
 const classPrefix = `adm-radio`
 
 const defaultProps = {
@@ -28,7 +33,7 @@ export class Radio extends Component {
 
     const groupContext = props.RadioGroupContext
 
-    let disabled = props.disabled
+    let disabled = props.disabled || (groupContext ? groupContext.disabled : false)
 
     const { value } = props
     if (groupContext && value !== undefined) {
@@ -41,35 +46,6 @@ export class Radio extends Component {
         }
         props.onChange?.(checked)
       }
-      disabled = disabled || groupContext.disabled
-    }
-
-    const renderIcon = () => {
-      const iconCls = classNames(`${classPrefix}-icon`, {
-        [`${classPrefix}-checked-icon`]: this.data.checked,
-        [`${classPrefix}-disabled-icon`]: disabled
-      })
-
-      const radioSizeStyle = {}
-      const iconSize = props.iconSize || '22px'
-      radioSizeStyle['width'] = iconSize
-      radioSizeStyle['height'] = iconSize
-      radioSizeStyle['borderRadius'] = iconSize
-
-      if (props.icon) {
-        return (
-          <div style={{fontSize: iconSize}}>
-            {props.icon(this.data.checked)}
-          </div>
-        )
-      }
-      return (
-        <div className={iconCls} style={radioSizeStyle}>
-          {this.data.checked && <text className={classNames(`${classPrefix}-icon-checked`, {
-            [`${classPrefix}-icon-checked-disabled`]: disabled
-          })}>√</text>}
-        </div>
-      )
     }
 
     const contentCls = classNames(`${classPrefix}-content`, {
@@ -80,6 +56,11 @@ export class Radio extends Component {
     contentStyles['fontSize'] = props.fontSize || '17px'
     contentStyles['paddingLeft'] = props.gap || '8px'
 
+      const radioSizeStyle = {}
+      const iconSize = props.iconSize || '22px'
+      radioSizeStyle['width'] = iconSize
+      radioSizeStyle['height'] = iconSize
+
     return (
       <label
         className={classNames(classPrefix, props.className, {
@@ -87,18 +68,20 @@ export class Radio extends Component {
           [`${classPrefix}-disabled`]: disabled,
           [`${classPrefix}-block`]: props.block,
         })}
-        style={props.style}>
+        style={{...props.style, marginBottom: props.gap || '8px'}}>
         <radio
-          className={`${classPrefix}-input`}
-          type='radio'
+          style={radioSizeStyle}
           checked={this.data.checked}
+          icon={props.unselectedIcon ?? (disabled == true ? disabledUnSelectedIcon : unselectedIcon)}
+          selectedIcon={props.selectedIcon ?? (disabled == true ? disabledSelectedIcon : selectedIcon)}
+          value={props.value}
           onChange={e => {
-            !disabled && this.setChecked(e.detail.value)
+            if (disabled == true) return;
+            this.setChecked(e.detail.checked)
           }}
           disabled={disabled}
           id={props.id}
         />
-        {renderIcon()}
         {props.children && (
           formatLabel(props.children, contentCls, contentStyles)
         )}

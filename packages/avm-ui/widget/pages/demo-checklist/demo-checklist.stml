@@ -10,7 +10,7 @@
 				<CheckList multiple defaultValue={['B', 'C']} list={list2} onChange={this.onChange}/>
 			</DemoBlock>
 			<DemoBlock title='自定义选中图标' padding='0' border='none'>
-				<CheckList defaultValue={['B']} list={list2} activeIcon={<text>选中</text>}/>
+				<CheckList defaultValue={['B']} list={list2} activeIcon={<img src="../../image/cf.png"/>}/>
 			</DemoBlock>
 			<DemoBlock title='整组只读' padding='0' border='none'>
 				<CheckList defaultValue={['B']} readOnly list={list3}/>

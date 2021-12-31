@@ -1,6 +1,12 @@
 
 import classNames from 'classnames'
 
+import selectedIcon from './img/selected.png'
+import unselectedIcon from './img/unselected.png'
+import disabledSelectedIcon from './img/disabled_selected.png'
+import disabledUnSelectedIcon from './img/disabled_unselected.png'
+import indeterminateIcon from './img/indeterminate.png'
+
 const classPrefix = `adm-checkbox`
 
 export type CheckboxValue = string | number
@@ -25,71 +31,62 @@ export class Checkbox extends Component {
     checked: !!(this.props.defaultChecked || this.props.checked || (this.props.defaultValue && this.props.defaultValue.includes(this.props.value))),
   }
 
-  setChecked = (props) => {
-    if (!props.indeterminate && !props.disabled) {
-      this.data.checked = !this.data.checked
+  setChecked = val => {
+    if (!!!this.props.indeterminate) {
+      this.data.checked = val
       if (this.data.checked) {
-        props.check?.(props.value)
+        this.props.check?.(this.props.value)
       } else {
-        props.uncheck?.(props.value)
+        this.props.uncheck?.(this.props.value)
       }
+      this.props.onChange?.(this.data.checked)
     }
-    props.onChange?.(this.data.checked)
   }
 
   render = props => { 
-    const usageWarning = () => {
-      if (props.checked !== undefined) {
-        const message = 'When used with `CheckboxGroup`, the `checked` prop of `Checkbox` will not work if `value` prop of `Checkbox` is not undefined.'
-        console.warn(`[antd-mobile: Checkbox] ${message}`)
-      }
-      if (props.defaultChecked !== undefined) {
-        const message = 'When used with `CheckboxGroup`, the `defaultChecked` prop of `Checkbox` will not work if `value` prop of `Checkbox` is not undefined.'
-        console.warn(`[antd-mobile: Checkbox] ${message}`)
-      }
-    }
-
-    if (props.checkedList !== undefined && props.value === undefined) {
-      usageWarning()
-    }
-
-    const boxClsObj = {
+    // 外层class
+    const boxCls = classNames(classPrefix, {
       [`${classPrefix}-checked`]: this.data.checked && !props.disabled,
-      [`${classPrefix}-indeterminate`]: props.indeterminate,
       [`${classPrefix}-disabled`]: props.disabled,
       [`${classPrefix}-block`]: props.block
-    }
-    const iconClsObj = Object.keys(boxClsObj).map(key => ({[`${key}-icon`]: boxClsObj[key]}))
-    const iconTextClsObj = Object.keys(boxClsObj).map(key => ({[`${key}-icon-text`]: boxClsObj[key]}))
-
-    // 外层class
-    const boxClassStr = classNames(classPrefix, boxClsObj)
-
-    // iconClass
-    const iconClassStr = classNames(`${classPrefix}-icon`, iconClsObj)
-
-    // iconTextClass
-    const iconTextClassStr = classNames(`${classPrefix}-icon-text`, iconTextClsObj);
+    })
 
     // 文本class
     const contentClassStr = classNames(`${classPrefix}-content`, {
       [`${classPrefix}-disabled-content`]: props.disabled
     })
 
+    const {disabled} = props
+
     const iconSize = props.iconSize || '22px'
     const iconSizeStyle = {}
     iconSizeStyle['width'] = iconSize
     iconSizeStyle['height'] = iconSize
-    iconSizeStyle['lineHeight'] = iconSize
+
+    const selectedIcons = props.indeterminate
+      ? indeterminateIcon
+      : (props.selectedIcon ?? (disabled == true ? disabledSelectedIcon : selectedIcon))
+    const unSelectedIcons = props.indeterminate
+      ? indeterminateIcon
+      : (props.unselectedIcon ?? (disabled == true ? disabledUnSelectedIcon : unselectedIcon))
 
     return (
-      <label className={boxClassStr} onClick={() => this.setChecked(props)}>
-        <div
-          className={iconClassStr}
+      <label
+        className={boxCls}
+        style={{...props.style, marginBottom: props.gap || '8px'}}>
+        <checkbox
           style={iconSizeStyle}
-        >
-          <span className={iconTextClassStr} style={{fontSize: `${Number(iconSize.replace('px', ''))-6}px`, lineHeight: iconSize}}>{!!this.data.checked && '√'}</span>
-        </div>
+          checked={this.data.checked}
+          icon={unSelectedIcons}
+          selectedIcon={selectedIcons}
+          value={props.value}
+          onChange={e => {
+            if (disabled == true) return;
+            this.setChecked(e.detail.checked)
+          }}
+          disabled={disabled}
+          id={props.id}
+        />
         {props.children && (
           <span
             className={contentClassStr}

@@ -81,7 +81,7 @@ export class TextArea extends Component {
         <textarea
           placeholder={placeholder}
           autoComplete={autoComplete}
-          disabled={disabled || readOnly}
+          disabled={!!(disabled || readOnly)}
           className={textareaCls}
           style={textareaStyle}
           maxlength={maxLength}

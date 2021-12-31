@@ -2,7 +2,7 @@ import {mergeProps} from '../../utils/with-default-props'
 import {toCSSLength} from '../../utils/to-css-length'
 import { formatLabel } from '../../utils/format-label'
 
-import outlineUrl from './img/outline.svg'
+import outlineUrl from './img/loading.png'
 import warnUrl from './img/warn.png'
 
 const classPrefix = `adm-image`
@@ -11,7 +11,7 @@ const defaultProps = {
   fit: 'fill',
   placeholder: (
     <div className={`${classPrefix}-tip`}>
-      <img src={outlineUrl}/>
+      <img src={outlineUrl} className={`${classPrefix}-tip-icon`}/>
     </div>
   ),
   fallback: (
@@ -24,8 +24,8 @@ const defaultProps = {
 export class Image extends Component {
   install = () => {
     console.log('Image!');
-    this.setLoaded(false)
-    this.setFailed(false)
+    // this.setLoaded(false)
+    // this.setFailed(false)
   }
 
   data = {
@@ -51,8 +51,9 @@ export class Image extends Component {
       if (this.data.failed) {
         return formatLabel(props.fallback)
       }
-      const img = (
-        <img className={`${classPrefix}-img`}
+      const imgs = () => (
+        <img
+          className={`${classPrefix}-img`}
           src={src}
           alt={props.alt}
           onClick={props.onClick}
@@ -78,9 +79,9 @@ export class Image extends Component {
       )
       return (
         <view>
-        <div>{!this.data.loaded && props.placeholder}</div>
-        {img}
-      </view>
+          {imgs()}
+          {!this.data.loaded && props.placeholder}
+        </view>
       )
     }
 
@@ -91,8 +92,10 @@ export class Image extends Component {
     if (props.height) {
       style['height'] = toCSSLength(props.height)
     }
-    return <div className={classPrefix} style={style}>
-    {renderInner()}
-  </div>
+    return (
+      <div className={classPrefix} style={style}>
+        {renderInner()}
+      </div>
+    )
   }
 }

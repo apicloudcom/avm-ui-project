@@ -71,7 +71,7 @@ export class Input extends Component {
           placeholder-style={`color: ${placeholderColor}`}
           placeholder-class={placeholderClass}
           placeholder={placeholder}
-          disabled={disabled || readOnly}
+          disabled={!!(disabled || readOnly)}
           maxLength={maxLength}
           minLength={minLength}
           max={max}

@@ -44,7 +44,8 @@
 			</DemoBlock>
 			<DemoBlock title='自定义徽标内容'>
 				<Space>
-					<Badge content={<text>自定义</text>}>
+					<Badge content={<img src={'../../image/money.png'}/>} color="#0ff"/>
+					<Badge content={'自定义'}>
 						<div className="box"/>
 					</Badge>
 				</Space>
