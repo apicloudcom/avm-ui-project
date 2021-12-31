@@ -1,0 +1,45 @@
+<template>
+	<safe-area>
+    <NavBar onBack={this.back}>DesenseText</NavBar>
+		<DemoBlock title='基础用法'>
+			<DesenseText text='18812341234' desenseText='188****1234' />
+		</DemoBlock>
+		<DemoBlock title='受控组件'>
+			<DesenseText text='这是全部数据脱敏信息' desenseText='这是**信息' defaultDesense={false} onChange={val=> console.log(val)}
+				/>
+		</DemoBlock>
+	</safe-area>
+</template>
+
+<style src="../../components/avm-ui/avm-ui.css"/>
+<style>
+.container {
+	display: flex;
+	flex-direction: row;
+}
+.isVisable {
+	display: block;
+}
+.isHidden {
+	display: none;
+}
+</style>
+<script>
+import { DemoBlock, DesenseText,NavBar } from '../../components/avm-ui/avm-ui';
+
+export default {
+
+	name: 'demo-desense-text',
+	data() {
+		return {
+
+		}
+	},
+	methods: {
+        back(){
+            api.closeWin()
+        }
+	}
+
+}
+</script>

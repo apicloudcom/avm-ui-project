@@ -12,10 +12,10 @@ export function withNativeProps<P extends NativeProps>(
   const p = {
     ...element.props,
   }
-  if (props.className) {
+  if (props?.className) {
     p.className = classNames(element.props.className, props.className)
   }
-  if (props.style) {
+  if (props?.style) {
     p.style = {
       ...p.style,
       ...props.style,
