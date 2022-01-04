@@ -18,7 +18,14 @@ export class Steps extends Component {
   render = props => {
     props = mergeProps(defaultProps, props)
 
-    const {direction, current, list=[]} = props
+    const {direction, current} = props
+
+    const list = props.children.map(item => {
+      return {
+        ...item.attributes,
+        children: item.children
+      }
+    })
 
     const stemItem = list.map((item, index) => {
       let {status, title, description} = item;

@@ -1,10 +1,7 @@
 import {List} from '../list/list'
 import {ListItem} from '../list/list-item'
-// import { RightOutline } from '../icon/icon'
-import classNames from 'classnames'
 import { formatLabel } from '../../utils/format-label'
-import spreadIcon from './spread.png'
-import disabledSpreadIcon from './disabled_spread.png'
+import rightArrow from './img/right_arrow.png'
 
 const classPrefix = `adm-collapse`
 
@@ -29,7 +26,7 @@ class CollapsePanelContent extends Component {
     return (
       <div
         className={`${classPrefix}-panel-content`}
-        style={{height: visible ? 'auto' : 0, transition: 'height .5s'}}>
+        style={{height: visible ? 'auto' : 0}}>
          <ListItem>{visible && formatLabel(props.children, '', {color: '#999'})}</ListItem>
       </div>
     )
@@ -78,27 +75,21 @@ export class Collapse extends Component {
                 const activekey = active ? activeKeyList.filter(v => v !== key) : [...activeKeyList, key]
                 this.setActiveKey(activekey)
               }
-              // panel.onClick && panel.onClick(event)
             }
 
             return (
               <div key={panel.key}>
                 <ListItem
-                    className={classNames(`${classPrefix}-panel-header`, {
-                      [`${classPrefix}-panel-header-disabled`]: panel.disabled,
-                    })}
+                    className={`${classPrefix}-panel-header`}
+                    disabled={panel.disabled}
                     onClick={panel.disabled ? undefined : handleClick}
                     arrow={
-                      <div
-                        className={classNames(`${classPrefix}-arrow`, {
-                          [`${classPrefix}-arrow-active`]: active,
-                        })}>
-                        <img
-                          src={panel.disabled ? disabledSpreadIcon  : spreadIcon}
-                          alt="spread"/>
-                      </div>
+                      <img
+                        src={rightArrow}
+                        alt="spread"
+                        style={{transform: `rotate(${active ? '90deg' : '0deg'})`}}/>
                     }>
-                    {formatLabel(panel.title, (panel.disabled ? `${classPrefix}-disabled` : ''))}
+                    {formatLabel(panel.title)}
                   </ListItem>
                 <CollapsePanelContent visible={active}>
                   {panel.children}

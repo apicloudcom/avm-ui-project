@@ -87,14 +87,14 @@ export class Stepper extends Component {
     this.props = mergeProps(defaultProps, props)
 
     if (this.data.isInit) {
-      this.data.value = props.value || props.defaultValue
-      this.data.inputValue = props.value !== undefined ? toStringVal(props.value) : toStringVal(props.defaultValue)
+      this.data.value = this.props.value || this.props.defaultValue
+      this.data.inputValue = this.props.value !== undefined ? toStringVal(this.props.value) : toStringVal(this.props.defaultValue)
     }
     const borderStyle = '1px solid #e5e5e5'
     const {
       disabled,
-      height='22px',
-      inputWidth='40px',
+      height='30px',
+      inputWidth='60px',
       inputFontSize='13px',
       inputFontColor='#333',
       borderRaduis='2px',
@@ -103,9 +103,9 @@ export class Stepper extends Component {
       borderInner=borderStyle,
       btnFontSize='10px',
       btnBgColor='transparent',
-      btnWidth='22px',
+      btnWidth='30px',
       btnTextColor='#1677ff'
-    } = props;
+    } = this.props;
 
     const btnWidthStyle = {}
     btnWidthStyle['width'] = btnWidth
@@ -159,14 +159,13 @@ export class Stepper extends Component {
           style={inputStyle}
           onFocus={e => {
             this.setHasFocus(true)
-            props.onFocus?.(e)
+            this.props.onFocus?.(e)
           }}
           value={this.data.inputValue}
-          disabled={disabled}
           onBlur={e => {
-            disabled || this.handleInputChange(e.detail.value)
+            !disabled && this.handleInputChange(e.detail.value)
             this.setHasFocus(false)
-            props.onBlur?.(e)
+            this.props.onBlur?.(e)
           }}/>
         <Button
           className={`${classPrefix}-plus`}
