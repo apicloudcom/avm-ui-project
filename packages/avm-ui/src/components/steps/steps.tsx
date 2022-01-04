@@ -28,7 +28,7 @@ export class Steps extends Component {
     })
 
     const stemItem = list.map((item, index) => {
-      let {status, title, description} = item;
+      let {status} = item;
 
       if (index < current) {
         status = status || 'finish'
@@ -40,9 +40,8 @@ export class Steps extends Component {
 
       return (
         <Step
+          {...item}
           status={status}
-          title={title}
-          description={description}
           direction={direction}
           totalLen={list.length}
           curIndex={index}/>

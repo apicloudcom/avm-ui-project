@@ -25,7 +25,7 @@ export class Step extends Component {
           `${classPrefix}-indicator`,
           `${classPrefix}-${direction}-indicator`)}>
           {/* 点 */}
-          <div className={dotCls}></div>
+          {props.icon ? props.icon : (<div className={dotCls}></div>)}
           {/* 线 */}
           {curIndex !== totalLen - 1 && (<div
             className={classNames(

@@ -35,6 +35,26 @@
 					<Steps.step title="审批失败" status="error" description='完成时间：2020-12-01 12:30'/>
 				</Steps>
 			</DemoBlock>
+
+			<DemoBlock title='自定义图标'>
+				<Steps direction='vertical'>
+					<Steps.step
+						title="第一步"
+						status="finish"
+						description='完成人111'
+						icon={<img src="./img/select.png" className={'icon-style'}/>}/>
+					<Steps.step
+						title="第二步"
+						status="finish"
+						description='完成人222'
+						icon={<img src="./img/select.png" className={'icon-style'}/>}/>
+					<Steps.step
+						title="第三步"
+						status="wait"
+						description='完成人333'
+						icon={<img src="./img/unSelect.png" className={'icon-style'}/>}/>
+				</Steps>
+			</DemoBlock>
 		</scroll-view>
 	</safe-area>
 </template>
@@ -64,5 +84,9 @@ export default {
 	font-size: 16px;
 	color: #f0f;
 	background: #ff0;
+}
+.icon-style {
+	width: 20px;
+	height: 20px;
 }
 </style>
