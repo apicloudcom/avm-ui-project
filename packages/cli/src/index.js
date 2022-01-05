@@ -2,7 +2,12 @@
 import {Command} from 'commander'
 import {onCreate} from "./commands/create.js";
 import {onGenIcon} from "./commands/genIcon.js";
+import {onWidget} from "./commands/widget.js";
 import {onBuild} from "./commands/build.js";
+
+
+export const uiDir = `packages/avm-ui`;
+export const dist = './_widget';
 
 // 创建命令对象
 const program = new Command()
@@ -25,9 +30,19 @@ program.command('icon')
 
 
 program.command('widget')
-  .description('生成 icon 组件源码')
+  .description('生成 widget 演示包')
+  .action(onWidget)
+
+
+program.command('build')
+  .description('生成 avm-ui 组件源码')
+  .option('-t --type <type>', `创建类型 默认 single`)
+  .option('-p --path <path>', `输出路径`)
+  .alias('B')
   .action(onBuild)
 
+
 // 执行命令行参数解析
-program.parse()
+program.parse();
+
 
