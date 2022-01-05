@@ -4,9 +4,7 @@
 		<scroll-view>
 			<DemoBlock title='基础用法'>
 				<Space direction='vertical'>
-					<div onClick={this.onClick}>
-						<Checkbox/>
-					</div>
+					<Checkbox/>
 					<Checkbox onChange={val => this.onChange(val)}>有描述的勾选框</Checkbox>
 					<Checkbox defaultChecked>默认选中</Checkbox>
 					<Checkbox defaultChecked disabled>禁用状态</Checkbox>
@@ -16,14 +14,30 @@
 			<DemoBlock title='选项组'>
 				<Checkbox.Group
 					value={this.data.value}
-					onChange={val => this.onChange(val)}
-					list={list1}/>
+					onChange={val => this.onChange(val)}>
+					<Checkbox
+						value="A"
+						label="A"
+						icon={'../../image/unSelect.png'}
+						selectedIcon={'../../image/select.png'}/>
+					<Checkbox
+						value="B"
+						label="B"
+						icon={'../../image/unSelect.png'}
+						selectedIcon={'../../image/select.png'}/>
+					<Checkbox value="C" label="C" disabled/>
+					<Checkbox value="D" label="D" readOnly/>
+				</Checkbox.Group>
 			</DemoBlock>
 			<DemoBlock title='整组禁用'>
 				<Checkbox.Group
 					defaultValue={['B', 'C']}
-					disabled
-					list={list1}/>
+					disabled>
+					<Checkbox value="A" label="A"/>
+					<Checkbox value="B" label="B"/>
+					<Checkbox value="C" label="C"/>
+					<Checkbox value="D" label="D"/>
+				</Checkbox.Group>
 			</DemoBlock>
 			<DemoBlock title='占满整行宽度'>
 				<Space direction='vertical' block>
@@ -46,12 +60,6 @@
 
 <script>
 import { DemoBlock, Space, NavBar, Checkbox } from '../../components/avm-ui/avm-ui';
-const list1 = [
-  {value: 'A', label: 'A'},
-  {value: 'B', label: 'B'},
-  {value: 'C', label: 'C', disabled: true},
-  {value: 'D', label: 'D', readOnly: true}
-]
 export default {
 	name: 'demo-checkbox',
 	data() {
@@ -66,7 +74,7 @@ export default {
 			})
 		},
 		onChange(val) {
-			api.toast({msg: val})
+			api.toast({msg: JSON.stringify(val)})
 		},
 		back() {
 			api.closeWin();

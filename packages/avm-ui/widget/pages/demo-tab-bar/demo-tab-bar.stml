@@ -11,12 +11,10 @@
 					<TabBar.Item
 						key="todo"
 						title="我的待办"
-						badge={'5'}
 						icon={<img src="../../image/cf.png" className={'icon-style'}/>}/>
 					<TabBar.Item
 						key="message"
 						title="我的消息"
-						badge={'99+'}
 						icon={<img src="../../image/unSelect.png" className={'icon-style'}/>}/>
 					<TabBar.Item
 						key="personalCenter"

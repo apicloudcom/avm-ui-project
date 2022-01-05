@@ -20,7 +20,7 @@
 		<text class="demo-item" onclick="goto">infinite-scroll</text>
 		<text class="demo-item" onclick="goto">input</text>
 		<text class="demo-item" onclick="goto">list</text>
-		<text class="demo-item" onclick="goto">notive-bar</text>
+		<text class="demo-item" onclick="goto">notice-bar</text>
 		<text class="demo-item" onclick="goto">number-keyboard</text>
 		<text class="demo-item" onclick="goto">page-indicator</text>
 		<text class="demo-item" onclick="goto">popup</text>
