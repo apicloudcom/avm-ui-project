@@ -1,7 +1,7 @@
 import {build} from "esbuild";
 import glob from "glob";
 import {resolve} from "path";
-import {uiDir} from "../index.js";
+import {dist, uiDir} from "../index.js";
 import stylePlugin from "esbuild-style-plugin";
 
 
@@ -30,7 +30,7 @@ export async function onBuild(cmd = {}) {
 
   const result = await build({
     entryPoints,
-    outdir: 'out',
+    outdir: `${dist}/components/avm-ui`,
     bundle: true,
     plugins: [stylePlugin(), assetPlugin()],
     format: 'esm',

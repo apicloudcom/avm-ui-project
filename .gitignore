@@ -27,3 +27,5 @@ dist-ssr
 /packages/avm-ui/widget/components/avm-ui/
 /packages/avm-ui/widget/.bin/
 /packages/avm-ui/widget/.bin/.*
+_widget
+_widget/.*

@@ -12,10 +12,6 @@ export async function onWidget() {
   fse.emptyDirSync(dist);
   // 2. 创建 config.xml
   fse.outputFileSync(resolve(dist, 'config.xml'), createConfigXml());
-  // 3. 创建 components 到 widget
-  buildComponentToWidget();
-  // 4. 创建pages
-  await createPagesFromDemos();
 }
 
 import xml2js from 'xml2js';
@@ -65,21 +61,6 @@ function createConfigXml() {
   });
 }
 
-function buildComponentToWidget() {
-  try {
-    const cmd = `avm-ui B`;
-    console.log(`running ${cmd}`);
-  } catch (e) {
-    console.log("buildComponentToWidget error", e);
-  }
 
-}
-
-
-async function createPagesFromDemos() {
-  const demos = glob.sync("src/components/*/demos/*.tsx", {cwd: resolve(uiDir)});
-  const files = demos.map(demo => resolve(uiDir, demo));
-  console.log(files);
-}
 
 
