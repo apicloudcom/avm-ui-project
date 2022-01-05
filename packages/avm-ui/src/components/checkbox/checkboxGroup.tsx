@@ -2,8 +2,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import {Checkbox} from './checkbox'
 
 const defaultProps = {
-  disabled: false,
-  list: []
+  disabled: false
 }
 
 export class CheckboxGroup extends Component {
@@ -24,7 +23,14 @@ export class CheckboxGroup extends Component {
 
   render = props => {
     props = mergeProps(defaultProps, props)
-    const {defaultValue, list, disabled} = props
+    const {defaultValue, disabled} = props
+
+    const list = props.children.map(item => {
+      return {
+        ...item.attributes,
+        children: item.children
+      }
+    })
 
     if (defaultValue && !this.data.hasChecked) {
       this.data.checkList = defaultValue

@@ -18,10 +18,17 @@ export class Steps extends Component {
   render = props => {
     props = mergeProps(defaultProps, props)
 
-    const {direction, current, list=[]} = props
+    const {direction, current} = props
+
+    const list = props.children.map(item => {
+      return {
+        ...item.attributes,
+        children: item.children
+      }
+    })
 
     const stemItem = list.map((item, index) => {
-      let {status, title, description} = item;
+      let {status} = item;
 
       if (index < current) {
         status = status || 'finish'
@@ -33,9 +40,8 @@ export class Steps extends Component {
 
       return (
         <Step
+          {...item}
           status={status}
-          title={title}
-          description={description}
           direction={direction}
           totalLen={list.length}
           curIndex={index}/>

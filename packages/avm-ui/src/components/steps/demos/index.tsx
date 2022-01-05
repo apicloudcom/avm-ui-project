@@ -1,50 +1,44 @@
 import { Steps } from '../steps'
+import {Step} from '../step'
 import { DemoBlock } from '../../../demos'
 
 import '../steps.less'
 
-const stepList1 = [
-  {title: '标题1', description: '描述1'},
-  {title: '标题2', description: '描述2'},
-  {title: '标题3', description: '描述3'}
-]
-
-const stepList2 = [
-  {title: '第一步'},
-  {title: '第二步'},
-  {title: '第三步', status: 'error'}
-]
-
-const stepList3 = [
-  {title: '填写机构信息',  status: 'process'},
-  {title: '签约机构', status: 'wait'},
-  {title: '关联服务区', status: 'wait'}
-]
-
-const stepList4 = [
-  {title: '填写机构信息', description: '完成时间：2020-12-01 12:30', status: 'finish'},
-  {title: '签约机构', description: '完成时间：2020-12-01 12:33', status: 'finish'},
-  {title: '关联服务区', description: '完成时间：2020-12-01 12:36', status: 'finish'},
-  {title: '审批失败', status: 'error'}
-]
-
 const template = (
   <>
     <DemoBlock title='横向'>
-      <Steps current={1} list={stepList1}/>
-    </DemoBlock>
+		<Steps current={1}>
+			<Step title={<span style={{color: '#f0f'}}>标题1</span>} description="描述1"/>
+			<Step title="标题2" description="描述2"/>
+			<Step title="标题3" description="描述3"/>
+		</Steps>
+	</DemoBlock>
 
-    <DemoBlock title='横向（失败状态）'>
-      <Steps current={2} list={stepList2}/>
-    </DemoBlock>
+	<DemoBlock title='横向（失败状态）' current={2}>
+		<Steps>
+			<Step title="第一步"/>
+			<Step title="第二步"/>
+			<Step title="第三步" status="error"/>
+		</Steps>
 
-    <DemoBlock title='纵向'>
-      <Steps direction='vertical' list={stepList3}/>
-    </DemoBlock>
+	</DemoBlock>
 
-    <DemoBlock title='纵向（失败状态）'>
-      <Steps direction='vertical' list={stepList4}/>
-    </DemoBlock>
+	<DemoBlock title='纵向'>
+		<Steps direction='vertical'>
+			<Step title="填写机构信息" status="process"/>
+			<Step title="签约机构" status="wait"/>
+			<Step title="关联服务区" status="wait"/>
+		</Steps>
+	</DemoBlock>
+
+	<DemoBlock title='纵向（失败状态）'>
+		<Steps direction='vertical'>
+			<Step title="填写机构信息" status="finish" description='完成时间：2020-12-01 12:30'/>
+			<Step title="签约机构" status="finish" description='完成时间：2020-12-01 12:30'/>
+			<Step title="关联服务区" status="finish" description='完成时间：2020-12-01 12:30'/>
+			<Step title="审批失败" status="error" description='完成时间：2020-12-01 12:30'/>
+		</Steps>
+	</DemoBlock>
   </>
 )
 

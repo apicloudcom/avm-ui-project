@@ -3,25 +3,6 @@
 
 .@{class-prefix-collapse} {
   width: 100%;
-  &-disabled {
-    color: var(--adm-color-light);
-  }
-  &-panel-header {
-    &-disabled {
-      color: var(--adm-color-light);
-      cursor: not-allowed;
-      .@{class-prefix-collapse}-arrow {
-        color: var(--adm-color-light);
-      }
-    }
-  }
-  &-arrow {
-    transform: rotate(0deg);
-    &-active {
-      transform: rotate(90deg);
-    }
-    transition: all ease 0.2s;
-  }
   &-panel-content {
     width: 100%;
     display: flex;

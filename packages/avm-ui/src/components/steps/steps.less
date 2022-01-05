@@ -11,8 +11,22 @@
   --icon-color: #e5e5e5;
 }
 
+.@{class-prefix-steps} {
+  width: 100%;
+
+  &-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 8px 0;
+  }
+
+  &-vertical {
+    padding: 8px 16px;
+  }
+}
+
 .@{class-prefix-step} {
-  flex: 1;
   &-indicator {
     display: flex;
     align-items: center;
@@ -39,14 +53,10 @@
     width: 100%;
     white-space: wrap;
   }
-  
-  &-icon-container {
-    z-index: 1;
-    background: #fff;
-  }
   &-horizontal {
+    flex: 1;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     &-indicator {
       width: 100%;
       height: 24px;
@@ -59,9 +69,12 @@
     }
 
     &-content {
-      font-size: 12px;
       padding-top: 2px;
+      &-title {
+        font-size: 12px;
+      }
       &-description {
+        font-size: 12px;
         margin-top: 2px;
         color: var(--adm-color-weak);
       }
@@ -69,13 +82,13 @@
   }
   &-vertical {
     flex-direction: row;
-    align-items: baseline;
+    align-items: flex-start;
     &-indicator {
-      flex: none;
       width: 24px;
       height: 100%;
       margin-right: 8px;
       flex-direction: column;
+      margin-top: 7px;
     }
     &-line {
       flex: 1;
@@ -85,10 +98,9 @@
 
     &-content {
       flex: auto;
-      padding: 10px 0;
+      margin: 0 0 15px 0;
       &-title {
         font-size: 17px;
-        line-height: 1.5;
       }
       &-description {
         padding-top: 2px;
@@ -108,43 +120,24 @@
       background: #ff3141;
     }
   }
-}
-
-.@{class-prefix-steps} {
-  width: 100%;
-
-  &-horizontal {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 8px 0;
-  }
-
-  &-vertical {
-    padding: 8px 16px;
-  }
-}
-
-.@{class-prefix-step}-icon-container {
-  font-size: 18px;
-}
-
-.@{class-prefix-step}-icon-dot {
-  display: block;
-  width: 8px;
-  height: 8px;
-  background: #e5e5e5;
-  border-radius: 4px;
-  &-wait {
-    background: #e8e8e8;
-  }
-  &-process {
-    background: #1677ff;
-  }
-  &-finish {
-    background: #1677ff;
-  }
-  &-error {
-    background: #ff3141;
+  &-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    z-index: 6;
+    background-color: #e5e5e5;
+    &-wait {
+      background-color: #e5e5e5;
+    }
+    &-process {
+      background-color: #1677ff;
+    }
+    &-finish {
+      background-color: #1677f1;
+    }
+    &-error {
+      background-color: #ff3141;
+    }
   }
 }
+

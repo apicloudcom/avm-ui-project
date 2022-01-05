@@ -75,12 +75,12 @@ export class Switch extends Component {
       background: this.data.checked ? checkedColor : '#e5e5e5'
     }
 
-    const handleSize = `${formatPx(props.height) - 2 * formatPx(borderWidth)}px`
+    const handleSize = `${formatPx(props.height)-(formatPx(borderWidth) * 2)}px`
     const handleStyle = {
       width: handleSize,
       height: handleSize,
       borderRadius: handleSize,
-      top: borderWidth,
+      top: api.systemType === 'ios' ? `${formatPx(borderWidth)/2}px` : borderWidth,
       left: this.data.checked ? `${formatPx(width)-formatPx(handleSize)}px` : borderWidth
     }
 

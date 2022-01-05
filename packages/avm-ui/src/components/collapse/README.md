@@ -20,3 +20,4 @@
 | key            | 唯一标识符                  | `string`                                                 | -       |
 | title          | 标题栏左侧内容              | `ReactNode`                                              | -       |
 | disabled       | 是否为禁用状态              | `boolean`                                                | `false` |
+| onClick        | 标题栏的点击事件            | `(event: React.MouseEvent<Element, MouseEvent>) => void` | -       |

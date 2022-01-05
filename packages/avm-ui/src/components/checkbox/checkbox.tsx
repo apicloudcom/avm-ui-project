@@ -3,9 +3,8 @@ import classNames from 'classnames'
 
 import selectedIcon from './img/selected.png'
 import unselectedIcon from './img/unselected.png'
-import disabledSelectedIcon from './img/disabled_selected.png'
-import disabledUnSelectedIcon from './img/disabled_unselected.png'
 import indeterminateIcon from './img/indeterminate.png'
+import { formatLabel } from '../../utils/format-label'
 
 const classPrefix = `adm-checkbox`
 
@@ -43,20 +42,14 @@ export class Checkbox extends Component {
     }
   }
 
-  render = props => { 
+  render = props => {
+    const {disabled=false, block=false} = props
     // 外层class
     const boxCls = classNames(classPrefix, {
-      [`${classPrefix}-checked`]: this.data.checked && !props.disabled,
-      [`${classPrefix}-disabled`]: props.disabled,
-      [`${classPrefix}-block`]: props.block
+      [`${classPrefix}-checked`]: this.data.checked && !disabled,
+      [`${classPrefix}-disabled`]: disabled,
+      [`${classPrefix}-block`]: block
     })
-
-    // 文本class
-    const contentClassStr = classNames(`${classPrefix}-content`, {
-      [`${classPrefix}-disabled-content`]: props.disabled
-    })
-
-    const {disabled} = props
 
     const iconSize = props.iconSize || '22px'
     const iconSizeStyle = {}
@@ -65,10 +58,15 @@ export class Checkbox extends Component {
 
     const selectedIcons = props.indeterminate
       ? indeterminateIcon
-      : (props.selectedIcon ?? (disabled == true ? disabledSelectedIcon : selectedIcon))
+      : (props.selectedIcon ?? selectedIcon)
     const unSelectedIcons = props.indeterminate
       ? indeterminateIcon
-      : (props.unselectedIcon ?? (disabled == true ? disabledUnSelectedIcon : unselectedIcon))
+      : (props.icon ?? unselectedIcon)
+    
+    const childStyles = {
+      fontSize: props.fontSize || '17px',
+      paddingLeft: props.gap || '8px'
+    }
 
     return (
       <label
@@ -81,19 +79,11 @@ export class Checkbox extends Component {
           selectedIcon={selectedIcons}
           value={props.value}
           onChange={e => {
-            if (disabled == true) return;
-            this.setChecked(e.detail.checked)
+            !disabled && this.setChecked(e.detail.checked)
           }}
           disabled={disabled}
-          id={props.id}
-        />
-        {props.children && (
-          <span
-            className={contentClassStr}
-            style={{fontSize: props.fontSize || '17px', paddingLeft: props.gap || '8px'}}>
-            {props.children}
-          </span>
-        )}
+          id={props.id}/>
+        {props.children && formatLabel(props.children, `${classPrefix}-content`, childStyles)}
       </label>
     )
   }

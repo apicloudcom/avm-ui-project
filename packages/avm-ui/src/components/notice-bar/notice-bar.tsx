@@ -78,9 +78,17 @@ export class NoticeBar extends Component {
     const borderColor = props.borderColor || curTheme.borderColor
 
     const leftCls = classNames(`${classPrefix}-left`, `${classPrefix}-left-${props.color}`)
+
+    const leftIcon = {
+      default: defaultIcon,
+      error: defaultIcon,
+      info: infoIcon,
+      alert: alertIcon
+    }
+
     const leftEle = 'icon' in props
       ? props.icon
-      : (<img src={['default', 'error'].includes(props.color) ? defaultIcon : (props.color === 'info' ? infoIcon : alertIcon)} alt="icon"/>)
+      : (<img src={!props.bgColor ? leftIcon[props.color] : defaultIcon} alt="icon"/>)
 
     const contentInnerCls = classNames(`${classPrefix}-content-inner`, `${classPrefix}-content-inner-${props.color}`)
 
