@@ -20,17 +20,20 @@ program
   .description('创建一个组件模板或配置文件')
   // 添加命令参数 -t | --type <type> ，<type> 表示该参数必填，[type] 表示选填
   .option('-t --type <type>', `创建类型，可选值：component, lib-entry`)
+  .alias('C')
   // 注册命令回调
   .action(onCreate)
 
 
 program.command('icon')
   .description('生成 icon 组件源码')
+  .alias('I')
   .action(onGenIcon)
 
 
 program.command('widget')
   .description('生成 widget 演示包')
+  .alias('W')
   .action(onWidget)
 
 

@@ -2,6 +2,8 @@ import fse from 'fs-extra';
 import {resolve} from 'path';
 import cp from 'child_process';
 
+import glob from 'glob'
+import {dist, uiDir} from "../index.js";
 
 export async function onWidget() {
 
@@ -64,46 +66,20 @@ function createConfigXml() {
 }
 
 function buildComponentToWidget() {
-
   try {
-
-    const cmd = `cd ${uiDir} && tsc && vite build --mode single`;
+    const cmd = `avm-ui B`;
     console.log(`running ${cmd}`);
-    const data = cp.execSync(cmd);
-    console.log(data.toString());
-    const dest = `${dist}/components`;
-    fse.copySync(`${uiDir}/widget/components`, dest, {});
-    console.log(`components copied to ${dest}`);
   } catch (e) {
     console.log("buildComponentToWidget error", e);
   }
 
 }
 
-import glob from 'glob'
-import {dist, uiDir} from "../index.js";
-
-const assetsLoader = {
-  name: 'assets',
-  setup(build) {
-    build.onResolve({filter: /\.png|\.svg$/}, args => {
-      console.log(args)
-      return {
-        path: 'a.png',
-        external: true,
-      }
-    })
-  },
-}
 
 async function createPagesFromDemos() {
   const demos = glob.sync("src/components/*/demos/*.tsx", {cwd: resolve(uiDir)});
-
   const files = demos.map(demo => resolve(uiDir, demo));
-
-  console.log(files)
-
-
+  console.log(files);
 }
 
 
