@@ -28,5 +28,6 @@
 | value          | 携带的标识值，用于 `Group` 模式              | `CheckboxValue`          | -       |
 | indeterminate  | 设置 `indeterminate` 状态，只负责样式控制    | `boolean`                | `false` |
 | block          | 是否渲染为块级元素                           | `boolean`                | `false` |
-
+| icon           | 未选中图标                                  | `ReactNode`                | - |
+| selectedIcon   | 选中图标                                    | `ReactNode`                | - |
 

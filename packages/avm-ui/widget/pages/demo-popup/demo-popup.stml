@@ -1,7 +1,7 @@
 <template>
-	<safe-area class="page">
-		<NavBar onBack={this.back}>Popup</NavBar>
-		<scroll-view>
+	<view class="page">
+		<safe-area>
+			<NavBar onBack={this.back}>Popup</NavBar>
 			<DemoBlock title='不同位置'>
 				<Space direction='vertical'>
 					<Button @Click="setVisible('visible1', true)">底部弹出</Button>
@@ -19,27 +19,27 @@
 			<DemoBlock title='多层堆叠'>
 				<Button onClick={() => this.setVisible('visible7', true)}>展开弹出层1</Button>
 			</DemoBlock>
-		</scroll-view>
+		</safe-area>
 		<Popup
 			:visible="visible1"
-			:bodyStyle="{minHeight: '500px'}"
+			bodyStyle={bodyStyle1}
 			onMaskClick={() => this.setVisible('visible1', false)}>Hello</Popup>
 		<Popup
 			:visible="visible2"
 			position='top'
-			:bodyStyle="{minHeight: '500px'}"
+			bodyStyle={bodyStyle3}
 			onMaskClick={() => this.setVisible('visible2', false)}>Hello</Popup>
 
 		<Popup
 			:visible="visible3"
 			position='left'
-			:bodyStyle="{minWidth: '200px'}"
+			bodyStyle={bodyStyle2}
 			onMaskClick={() => this.setVisible('visible3', false)}>Hello</Popup>
 
 		<Popup
 			:visible="visible4"
 			position='right'
-			:bodyStyle="{minWidth: '200px'}"
+			bodyStyle={bodyStyle2}
 			onMaskClick={() => this.setVisible('visible4', false)}>Hello</Popup>
 
 		<Popup
@@ -71,7 +71,7 @@
 		</Popup>
 		<Popup
 			visible={this.data.visible7}
-			:bodyStyle="{height: '300px'}"
+			bodyStyle={bodyStyle1}
 			onMaskClick={() => this.setVisible('visible7', false)}>
 			<div :style="{padding: '24px'}">
 				<text>这是弹出层1</text>
@@ -80,25 +80,41 @@
 		</Popup>
 		<Popup
 			visible={this.data.visible8}
-			:bodyStyle="{height: '100px'}"
+			bodyStyle={bodyStyle4}
 			onMaskClick={() => this.setVisible('visible8', false)}>
 			<div :style="{padding: '24px'}">
 			<text>这是弹出层2</text>
 			</div>
 		</Popup>
-	</safe-area>
+	</view>
 </template>
 <script>
 import { Popup, NavBar, DemoBlock, Space, Button } from '../../components/avm-ui/avm-ui';
-
+const bodyStyle1 = {
+	minHeight: '300px',
+	padding: '16px'
+}
+const bodyStyle2 = {
+	minWidth: '200px',
+	padding: '35px 16px 20px'
+}
+const bodyStyle3 = {
+	minHeight: '200px',
+	padding: '35px 16px 20px'
+}
+const bodyStyle4 = {
+	height: '100px',
+	padding: '16px'
+}
+const borderRadiusStyle = {
+	borderRadius: '8px 8px 0 0',
+	minHeight: '300px',
+	padding: '16px'
+}
 export default {
 	name: 'demo-popup',
 	data() {
 		return{
-			borderRadiusStyle: {
-				borderRadius: '8px 8px 0 0',
-				minHeight: '300px'
-			},
 			visible: false,
 			visible1: false,
 			visible2: false,

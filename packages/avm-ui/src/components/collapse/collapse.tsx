@@ -75,6 +75,7 @@ export class Collapse extends Component {
                 const activekey = active ? activeKeyList.filter(v => v !== key) : [...activeKeyList, key]
                 this.setActiveKey(activekey)
               }
+              panel.onClick?.()
             }
 
             return (
@@ -83,16 +84,16 @@ export class Collapse extends Component {
                     className={`${classPrefix}-panel-header`}
                     disabled={panel.disabled}
                     onClick={panel.disabled ? undefined : handleClick}
-                    arrow={
-                      <img
+                    arrow={panel.arrow ??
+                     (<img
                         src={rightArrow}
                         alt="spread"
-                        style={{transform: `rotate(${active ? '90deg' : '0deg'})`}}/>
+                        style={{transform: `rotate(${active ? '90deg' : '0deg'})`}}/>)
                     }>
                     {formatLabel(panel.title)}
                   </ListItem>
                 <CollapsePanelContent visible={active}>
-                  {panel.children}
+                  {panel.content || panel.children}
                 </CollapsePanelContent>
               </div>
             )

@@ -4,35 +4,54 @@
 		<scroll-view>
 			<DemoBlock title='基本用法' padding='0'>
 				<TabBar>
-					{{
-						tabs.map(item => {
-							return (
-								<TabBar.Item key={item.key} icon={item.icon} title={item.title}/>
-							)
-						})
-					}}
+					<TabBar.Item
+						key="home"
+						title="首页"
+						icon={<img src="../../image/money.png" className={'icon-style'}/>}/>
+					<TabBar.Item
+						key="todo"
+						title="我的待办"
+						badge={'5'}
+						icon={<img src="../../image/cf.png" className={'icon-style'}/>}/>
+					<TabBar.Item
+						key="message"
+						title="我的消息"
+						badge={'99+'}
+						icon={<img src="../../image/unSelect.png" className={'icon-style'}/>}/>
+					<TabBar.Item
+						key="personalCenter"
+						title="个人中心"
+						icon={<img src="../../image/cf.png" className={'icon-style'}/>}/>
 				</TabBar>
 			</DemoBlock>
 			<DemoBlock title='徽标' padding='0'>
 				<TabBar>
-					{{
-						tabs.map(item => {
-							return (
-								<TabBar.Item key={item.key} icon={item.icon} title={item.title} badge={item.badge}/>
-							)
-						})
-					}}
+					<TabBar.Item
+						key="home"
+						title="首页"
+						icon={<img src="../../image/money.png" className={'icon-style'}/>}/>
+					<TabBar.Item
+						key="todo"
+						title="我的待办"
+						badge={'5'}
+						icon={<img src="../../image/cf.png" className={'icon-style'}/>}/>
+					<TabBar.Item
+						key="message"
+						title="我的消息"
+						badge={'99+'}
+						icon={<img src="../../image/unSelect.png" className={'icon-style'}/>}/>
+					<TabBar.Item
+						key="personalCenter"
+						title="个人中心"
+						icon={<img src="../../image/cf.png" className={'icon-style'}/>}/>
 				</TabBar>
 			</DemoBlock>
 			<DemoBlock title='仅图标' padding='0'>
 				<TabBar>
-					{{
-						tabs.map(item => {
-							return (
-								<TabBar.Item key={item.key} icon={item.icon}/>
-							)
-						})
-					}}
+					<TabBar.Item key="home" icon={<img src="../../image/money.png" className={'icon-style'}/>}/>
+					<TabBar.Item key="todo" icon={<img src="../../image/cf.png" className={'icon-style'}/>}/>
+					<TabBar.Item key="message" icon={<img src="../../image/money.png" className={'icon-style'}/>}/>
+					<TabBar.Item key="personalCenter" icon={<img src="../../image/cf.png" className={'icon-style'}/>}/>
 				</TabBar>
 			</DemoBlock>
 			<DemoBlock title='仅标题' padding='0'>
@@ -40,7 +59,10 @@
 					{{
 						tabs.map(item => {
 							return (
-								<TabBar.Item key={item.key} title={item.title} badge={item.badge}/>
+								<TabBar.Item
+									key={item.key}
+									title={item.title}
+									badge={item.badge}/>
 							)
 						})
 					}}
@@ -48,13 +70,23 @@
 			</DemoBlock>
 			<DemoBlock title='受控组件' padding='0'>
 				<TabBar activeKey={activeKey} onChange={this.setActiveKey}>
-					{{
-						tabs.map(item => {
-							return (
-								<TabBar.Item key={item.key} icon={item.icon} title={item.title}/>
-							)
-						})
-					}}
+					<TabBar.Item
+						key="home"
+						title="首页"
+						className={'icon-style'}
+						icon={<img src={this.getIcon('home')} className={'icon-style'}/>}/>
+					<TabBar.Item
+						key="todo"
+						title="我的待办"
+						icon={<img src={this.getIcon('todo')} className={'icon-style'}/>}/>
+					<TabBar.Item
+						key="message"
+						title="我的消息"
+						icon={<img src={this.getIcon('message')} className={'icon-style'}/>}/>
+					<TabBar.Item
+						key="personalCenter"
+						title="个人中心"
+						icon={<img src={this.getIcon('personalCenter')} className={'icon-style'}/>}/>
 				</TabBar>
 			</DemoBlock>
 		</scroll-view>
@@ -67,29 +99,21 @@ const tabs = [
 	{
 		key: 'home',
 		title: '首页',
-		// icon: <AppOutline/>,
-		icon: '占位',
 		badge: Badge.dot
 	},
 	{
 		key: 'todo',
 		title: '我的待办',
-		// icon: <UnorderedListOutline/>,
-		icon: '占位',
 		badge: '5'
 	},
 	{
 		key: 'message',
 		title: '我的消息',
-		// icon:  active => active ? <MessageFill/> : <MessageOutline/>,
-		icon: '占位',
 		badge: '99+'
 	},
 	{
 		key: 'personalCenter',
 		title: '个人中心',
-		// icon: <UserOutline/>,
-		icon: '占位',
 		badge: Badge.dot
 	},
 ]
@@ -110,6 +134,9 @@ export default {
 				msg: key
 			})
 			this.data.activeKey = key
+		},
+		getIcon(key) {
+			return key === this.activeKey ? '../../image/select.png' : '../../image/unSelect.png'
 		}
 	}
 }
@@ -119,5 +146,9 @@ export default {
 .page {
 	height: 100%;
 	width: 100%;
+}
+.icon-style {
+	width: 20px;
+	height: 20px;
 }
 </style>

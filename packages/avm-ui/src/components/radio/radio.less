@@ -8,48 +8,15 @@
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
-  &-input {
-    display: none;
-  }
   &-content {
     flex: none;
-  }
-  &-icon {
-    background: #fff;
-    flex: none;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff;
-    &-checked {
-      display: block;
-      color: #fff;
-      &-disabled {
-        color: #ccc;
-      }
-    }
   }
   &-block {
     display: flex;
   }
-  &-checked {
-    &-icon {
-      border-color: var(--adm-color-primary);
-      background-color: var(--adm-color-primary);
-    }
-  }
   &-disabled {
     cursor: not-allowed;
-    &-content {
-      color: var(--adm-color-weak);
-    }
-    &-icon {
-      color: #ccc;
-      border-color: #ccc;
-      background-color: #ebedf0;
-    }
+    opacity: 0.3;
   }
 
   

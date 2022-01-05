@@ -41,9 +41,9 @@ export class Search extends Component {
     this.props = mergeProps(defaultProps,  props)
 
     const {
-      showCancelButton, clearOnCancel, clearable, bgColor, borderRadius, placeholderColor, 
+      showCancelButton, clearOnCancel, clearable, bgColor, borderRadius, placeholderColor='#ccc', 
       onClear, onCancel, onFocus, onBlur, onSearch, onEnterPress, onKeyDown,
-      maxLength, placeholder, cancelText
+      maxLength, placeholder="请输入", cancelText
     } = this.props
 
     const handleKeydown = (e: any) => {

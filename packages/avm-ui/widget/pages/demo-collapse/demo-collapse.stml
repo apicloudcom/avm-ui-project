@@ -52,12 +52,31 @@
 					</Collapse.Panel>
 				</Collapse>
 			</DemoBlock>
+			<DemoBlock title='自定义箭头' padding='0' border='none'>
+				<Collapse>
+					<Collapse.Panel
+						key='1'
+						title='第一项'
+						content="你可以通过 Collapse.Panel 的 arrow 属性来自定义单个面板的箭头"
+						arrow={<img src="../../image/cf.png"/>}/>
+					<Collapse.Panel
+						key='2'
+						title='第二项'
+						content="你可以通过 Collapse.Panel 的 arrow 属性来自定义单个面板的箭头"
+						arrow={<img src="../../image/cf.png"/>}/>
+					<Collapse.Panel
+						key='3'
+						title='第三项'
+						content="你可以通过 Collapse.Panel 的 arrow 属性来自定义单个面板的箭头"
+						arrow={<img src="../../image/cf.png"/>}/>
+				</Collapse>
+			</DemoBlock>
 			<DemoBlock title='动态内容' padding='0' border='none'>
 				<Collapse accordion>
-					<Collapse.Panel key='1' title='第一项'>
+					<Collapse.Panel key='1' title='第一项' onClick={() => api.toast({msg: '点击第一项'})}>
 						<DynamicContent />
 					</Collapse.Panel>
-					<Collapse.Panel key='2' title='第二项'>
+					<Collapse.Panel key='2' title='第二项' onClick={() => api.toast({msg: '点击第二项'})}>
 						<DynamicContent />
 					</Collapse.Panel>
 				</Collapse>
