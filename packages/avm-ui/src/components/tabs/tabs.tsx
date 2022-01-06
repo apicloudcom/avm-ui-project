@@ -62,9 +62,6 @@ export class Tabs extends Component {
         }
       })
     }
-
-    
-    
     
     this.data.activeKey = key || this.props.children[0].key
     setTimeout(() => {
