@@ -15,16 +15,8 @@
 				<Checkbox.Group
 					value={this.data.value}
 					onChange={val => this.onChange(val)}>
-					<Checkbox
-						value="A"
-						label="A"
-						icon={'../../image/unSelect.png'}
-						selectedIcon={'../../image/select.png'}/>
-					<Checkbox
-						value="B"
-						label="B"
-						icon={'../../image/unSelect.png'}
-						selectedIcon={'../../image/select.png'}/>
+					<Checkbox value="A" label="A"/>
+					<Checkbox value="B" label="B"/>
 					<Checkbox value="C" label="C" disabled/>
 					<Checkbox value="D" label="D" readOnly/>
 				</Checkbox.Group>
@@ -44,6 +36,22 @@
 					<Checkbox block>块级元素</Checkbox>
 					<Checkbox>非块级元素</Checkbox>
 				</Space>
+			</DemoBlock>
+			<DemoBlock title='自定义icon'>
+				<Checkbox.Group
+					value={this.data.value1}
+					onChange={val => this.onChange(val)}>
+					<Checkbox
+						value="A"
+						label="A"
+						icon={'../../image/unSelect.png'}
+						selectedIcon={'../../image/select.png'}/>
+					<Checkbox
+						value="B"
+						label="B"
+						icon={'../../image/unSelect.png'}
+						selectedIcon={'../../image/select.png'}/>
+				</Checkbox.Group>
 			</DemoBlock>
 			<DemoBlock title='自定义大小'>
 				<Checkbox iconSize="18px" fontSize="14px" gap="6px">
