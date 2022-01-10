@@ -6,6 +6,7 @@ import { DropdownItem } from './item'
 import classNames from 'classnames'
 // import { Radio } from '../radio/radio'
 import '../popup/popup.less'
+import { DownFill } from '../icon/icon'
 
 
 const classPrefix = `adm-dropdown`
@@ -75,10 +76,12 @@ export class Dropdown extends Component {
                 [`${classPrefix}-item-active`]: item.key === this.data.activeKey
               })} onClick={
                 this.setVisible.bind(this, true, item.key)
-              }>{item.attributes.title}</div>
+              }>{item.attributes.title}  <DownFill /></div>
+
             )
           })
         }
+      
         <Popup
           className={'pop'}
           visible={this.data.visible}

@@ -1,4 +1,4 @@
-# Button 按钮
+# Ellipsis 文本省略
 
 <code src="./demos/index.tsx"></code>
 <!-- <code src="./demos/demo2.tsx" debug></code> -->
