@@ -1,9 +1,9 @@
 import './dropdown.less'
-import { Dropdown, DropdownItem } from './dropdown'
-import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
+import { Dropdown } from './dropdown'
+// import { DropdownItem } from './item'
+// import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 
-export type { DropdownProps, DropdownItemProps } from './dropdown'
+export type { DropdownProps } from './dropdown'
+export type { DropdownItemProps } from './item'
 
-export default attachPropertiesToComponent(Dropdown, {
-    Item: DropdownItem,
-  })
+export default Dropdown

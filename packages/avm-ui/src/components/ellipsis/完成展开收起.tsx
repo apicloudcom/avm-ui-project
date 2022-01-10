@@ -1,6 +1,6 @@
-import classNames from "classnames";
+// import classNames from "classnames";
 import { mergeProps } from '../../utils/with-default-props'
-const classPrefix = `adm-Ellipsis`;
+// const classPrefix = `adm-Ellipsis`;
 
 
 
