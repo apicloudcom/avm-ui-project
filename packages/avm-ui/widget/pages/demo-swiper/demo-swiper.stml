@@ -1,0 +1,213 @@
+<template>
+<safe-area class="main">
+    <scroll-view>
+        <DemoBlock title='基础用法'>
+            <Swiper>
+                {{
+                    colors.map((color, index) => {
+                        const styles = {
+                            background: color
+                        }
+                        return (
+                            <Swiper.Item key={index}>
+                                <span
+                                    className='contents'
+                                    style={styles}
+                                    onClick={() => api.toast({msg: `你点击了卡片 ${index + 1}`})}>{index + 1}</span>
+                            </Swiper.Item>
+                        )
+                    })
+                }}
+            </Swiper>
+        </DemoBlock>
+        <DemoBlock title='自动播放'>
+            <Swiper autoplay>
+                {{
+                    colors.map((color, index) => {
+                        const styles = {
+                            background: color
+                        }
+                        return (
+                            <Swiper.Item key={index}>
+                                <span className='contents' style={styles}>{index + 1}</span>
+                            </Swiper.Item>
+                        )
+                    })
+                }}
+            </Swiper>
+        </DemoBlock>
+        <DemoBlock title='自定义圆角样式'>
+            <Space direction='vertical' block>
+                <Swiper borderRadius="10px" defaultIndex={2}>
+                    {{
+                        colors.map((color, index) => {
+                            const styles = {
+                                background: color
+                            }
+                            return (
+                                <Swiper.Item key={index}>
+                                    <span className='contents' style={styles}>{index + 1}</span>
+                                </Swiper.Item>
+                            )
+                        })
+                    }}
+                </Swiper>
+            </Space>
+        </DemoBlock>
+        <DemoBlock title='指示器颜色'>
+            <Space direction='vertical' block>
+                <Swiper indicatorProps={indicatorProps} defaultIndex={1}>
+                    {{
+                        colors.map((color, index) => {
+                            const styles = {
+                                background: color
+                            }
+                            return (
+                                <Swiper.Item key={index}>
+                                    <span className='contents' style={styles}>{index + 1}</span>
+                                </Swiper.Item>
+                            )
+                        })
+                    }}
+                </Swiper>
+                <DemoDescription content='通过indicatorProps可以控制指示器的外观' />
+            </Space>
+        </DemoBlock>
+        <DemoBlock title='指示器在滑块外面'>
+            <Space direction='vertical' block>
+            <Swiper trackPadding="16px auto">
+                {{
+                    colors.map((color, index) => {
+                        const styles = {
+                            background: color
+                        }
+                        return (
+                            <Swiper.Item key={index}>
+                                <span className='contents' style={styles}>{index + 1}</span>
+                            </Swiper.Item>
+                        )
+                    })
+                }}
+            </Swiper>
+            <DemoDescription content='通过 trackPadding 可以控制滑动轨道区域的 padding，从而实现指示器和滑块"分离"的效果' />
+            </Space>
+        </DemoBlock>
+        <DemoBlock title='自定义指示器'>
+            <Space direction='vertical' block>
+                <Swiper indicator={data => (<span className='customIndicator'>{{`${data.current + 1} / ${data.total}`}}</span>)}>
+                    {{
+                        colors.map((color, index) => {
+                            const styles = {
+                                background: color
+                            }
+                            return (
+                                <Swiper.Item key={index}>
+                                    <span className='contents' style={styles}>{index + 1}</span>
+                                </Swiper.Item>
+                            )
+                        })
+                    }}
+                </Swiper>
+                <DemoDescription content='你可以完全自定义指示器的渲染，甚至改变指示器的位置' />
+            </Space>
+        </DemoBlock>
+        <DemoBlock title='无指示器'>
+            <Swiper indicator={() => null}>
+                {{
+                    colors.map((color, index) => {
+                        const styles = {
+                            background: color
+                        }
+                        return (
+                            <Swiper.Item key={index}>
+                                <span className='contents' style={styles}>{index + 1}</span>
+                            </Swiper.Item>
+                        )
+                    })
+                }}
+            </Swiper>
+        </DemoBlock>
+        <DemoBlock title="全屏引导">
+            <Button onClick={() => this.setVisible(true)}>显示弹出层</Button>
+            <DemoDescription content='配合 Popup 组件可以实现全屏引导'/>
+        </DemoBlock>
+    </scroll-view>
+    <Popup position='bottom' visible={this.data.visiable} bodyStyle={popupBodyStyle}>
+        <Swiper loop={false} height="100%">
+            <Swiper.Item>
+                <span className='contentFull' :style="{background: '#ace0ff'}">1</span>
+            </Swiper.Item>
+            <Swiper.Item>
+                <span className='contentFull' :style="{background: '#bcffbd'}">2</span>
+            </Swiper.Item>
+            <Swiper.Item>
+                <div className='contentFull' :style="{background: '#fff'}">
+                    <Button onClick={() => this.setVisible(false)}>开始使用</Button>
+                </div>
+            </Swiper.Item>
+        </Swiper>
+    </Popup>
+</safe-area>
+</template>
+<script>
+import {Swiper, DemoBlock, Space, Button, DemoDescription, Popup} from '../../components/avm-ui/avm-ui'
+const colors = ['#ace0ff', '#bcffbd', '#e4fabd', '#ffcfac']
+export default {
+    data() {
+        return {
+            current: 0,
+            indicatorProps: {
+                color: 'white'
+            },
+            visiable: false,
+            popupBodyStyle:{ height: '100%', background: '#f00'}
+        }
+    },
+    methods: {
+        onchange(v){
+            api.toast({
+                msg: v
+            })
+            this.data.current = v;
+        },
+        setVisible(v) {
+            this.data.visiable = v
+        }
+    }
+}
+</script>
+<style src="../../components/avm-ui/avm-ui.css"></style>
+<style>
+.main {
+    width: 100%;
+    height: 100%;
+}
+.contents {
+    width: 100%;
+    height: 120px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 120px;
+    font-size: 48px;
+    user-select: none;
+}
+.customIndicator {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 4px 8px;
+    color: #ffffff;
+    border-radius: 4px;
+    user-select: none;
+}
+.contentFull {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 48px;
+    user-select: none;
+    padding-top: 60px;
+}
+</style>
