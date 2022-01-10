@@ -57,6 +57,7 @@ export class PageIndicator extends Component {
 
     return <div className={classNames(
         classPrefix,
+        props.className,
         `${classPrefix}-${props.direction}`,
         `${classPrefix}-color-${props.color}`
       )}

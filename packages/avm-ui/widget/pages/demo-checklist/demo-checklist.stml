@@ -4,10 +4,10 @@
 		<NavBar onBack={this.back}>CheckList</NavBar>
 		<scroll-view>
 			<DemoBlock title='基础用法' padding='0' border='none'>
-				<CheckList defaultValue={['B']} list={list1} onChange={this.onChange}/>
+				<CheckList defaultValue={['B']} list={list1} onChange={val => this.onChange(val)}/>
 			</DemoBlock>
 			<DemoBlock title='多选' padding='0' border='none'>
-				<CheckList multiple defaultValue={['B', 'C']} list={list2} onChange={this.onChange}/>
+				<CheckList multiple defaultValue={['B', 'C']} list={list2} onChange={(val) => this.onChange(val)}/>
 			</DemoBlock>
 			<DemoBlock title='自定义选中图标' padding='0' border='none'>
 				<CheckList defaultValue={['B']} list={list2} activeIcon={<img src="../../image/cf.png"/>}/>
@@ -49,7 +49,7 @@ export default {
 		},
 		onChange(val) {
 			api.toast({
-				msg: val
+				msg: JSON.stringify(val)
 			})
 		}
 	}

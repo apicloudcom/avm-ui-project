@@ -2,7 +2,9 @@ import { DemoBlock } from '../../../demos'
 import { Checkbox } from '../checkbox'
 import { CheckboxGroup } from '../checkboxGroup'
 import { Space } from '../../space/space'
-import { SmileFill, SmileOutline } from '../../icon/icon'
+
+import selectIcon from '../../../../widget/image/select.png'
+import unSelectIcon from '../../../../widget/image/unSelect.png'
 
 import '../checkbox.less'
 
@@ -53,14 +55,22 @@ class Demo extends Component {
             value={this.data.value}
             onChange={(val) => {
               console.log(val)
-            }}
-            list={this.data.list1}/>
+            }}>
+              <Checkbox value="A" label="A"/>
+              <Checkbox value="B" label="B"/>
+              <Checkbox value="C" label="C" disabled/>
+              <Checkbox value="D" label="D" readOnly/>
+            </CheckboxGroup>
         </DemoBlock>
         <DemoBlock title='整组禁用'>
           <CheckboxGroup
-            defaultValue={['orange', 'banana']}
-            disabled
-            list={this.data.list1}/>
+            defaultValue={['A', 'B']}
+            disabled>
+            <Checkbox value="A" label="A"/>
+            <Checkbox value="B" label="B"/>
+            <Checkbox value="C" label="C"/>
+            <Checkbox value="D" label="D"/>
+          </CheckboxGroup>
         </DemoBlock>
         <DemoBlock title='占满整行宽度'>
           <Space direction='vertical' block>
@@ -71,25 +81,14 @@ class Demo extends Component {
         <DemoBlock title='自定义图标'>
           <Checkbox
             value='banana'
-            icon={checked =>
-              checked ? (
-                <SmileFill style={{ color: 'var(--adm-color-primary)' }} />
-              ) : (
-                <SmileOutline style={{ color: 'var(--adm-color-weak)' }} />
-              )
-            }
+            icon={unSelectIcon}
+            selectedIcon={selectIcon}
           >
             自定义图标
           </Checkbox>
         </DemoBlock>
         <DemoBlock title='自定义大小'>
-          <Checkbox
-            style={{
-              '--icon-size': '18px',
-              '--font-size': '14px',
-              '--gap': '6px',
-            }}
-          >
+          <Checkbox iconSize="18px" fontSize="14px" gap="6px">
             小号的勾选框
           </Checkbox>
         </DemoBlock>

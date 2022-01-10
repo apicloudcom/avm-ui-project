@@ -1,0 +1,23 @@
+@import url('../../global/theme.less');
+
+@class-prefix-swiper: ~'adm-swiper';
+
+.@{class-prefix-swiper}-wrapper {
+  position: relative;
+}
+.@{class-prefix-swiper} {
+  &-item {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    &-child {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &-pageindicator {
+    position: absolute;
+    bottom: 12px;
+  }
+}

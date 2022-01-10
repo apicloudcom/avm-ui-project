@@ -80,7 +80,7 @@ export class Switch extends Component {
       width: handleSize,
       height: handleSize,
       borderRadius: handleSize,
-      top: api.systemType === 'ios' ? `${formatPx(borderWidth)/2}px` : borderWidth,
+      top: borderWidth,
       left: this.data.checked ? `${formatPx(width)-formatPx(handleSize)}px` : borderWidth
     }
 

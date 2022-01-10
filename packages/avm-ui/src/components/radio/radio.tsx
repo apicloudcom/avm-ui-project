@@ -1,13 +1,5 @@
-import classNames from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
-import {formatLabel} from '../../utils/format-label'
-
-import defaultSelectIcon from './img/selected.png'
-import defaultUnSelectIcon from './img/unselected.png'
-// import disabledSelectedIcon from './img/disabled_selected.png'
-// import disabledUnSelectedIcon from './img/disabled_unselected.png'
-
-const classPrefix = `adm-radio`
+import { MyRadio } from './myRadio'
 
 const defaultProps = {
   defaultChecked: false,
@@ -24,7 +16,7 @@ export class Radio extends Component {
 
   setChecked = check => {
     this.data.checked = check
-    this.props.onChange && this.props.onChange(this.props.value)
+    this.props.onChange?.(this.props.value)
   }
 
   render = props => {
@@ -32,9 +24,11 @@ export class Radio extends Component {
 
     const {
       RadioGroupContext,
-      fontSize='17px',
-      gap='8px',
-      iconSize='22px',
+      style,
+      id,
+      fontSize,
+      gap,
+      iconSize,
       value,
       onChange,
       icon,
@@ -57,27 +51,19 @@ export class Radio extends Component {
     }
 
     return (
-      <label
-        className={classNames(classPrefix, props.className, {
-          [`${classPrefix}-checked`]: this.data.checked,
-          [`${classPrefix}-disabled`]: disabled,
-          [`${classPrefix}-block`]: props.block,
-        })}
-        style={{...props.style, marginBottom: props.gap || '8px'}}>
-        <radio
-          style={{width: iconSize, height: iconSize}}
-          checked={this.data.checked}
-          icon={icon ?? defaultUnSelectIcon}
-          selectedIcon={selectedIcon ?? defaultSelectIcon}
-          value={this.props.value}
-          onChange={e => {
-            !disabled && this.setChecked(e.detail.checked)
-          }}
-          disabled={disabled}
-          id={props.id}
-        />
-        {props.children && formatLabel(props.children, `${classPrefix}-content`, {fontSize, paddingLeft: gap})}
-      </label>
+      <MyRadio
+        style={style}
+        checked={this.data.checked}
+        icon={icon}
+        selectedIcon={selectedIcon}
+        value={value}
+        onChange={checked => this.setChecked(checked)}
+        disabled={disabled}
+        id={id}
+        fontSize={fontSize}
+        iconSize={iconSize}
+        gap={gap}
+      >{props.children}</MyRadio>
     )
   }
 }

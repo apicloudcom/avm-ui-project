@@ -1,12 +1,5 @@
 
-import classNames from 'classnames'
-
-import selectedIcon from './img/selected.png'
-import unselectedIcon from './img/unselected.png'
-import indeterminateIcon from './img/indeterminate.png'
-import { formatLabel } from '../../utils/format-label'
-
-const classPrefix = `adm-checkbox`
+import { MyCheckbox } from './myCheckbox'
 
 export type CheckboxValue = string | number
 
@@ -43,48 +36,35 @@ export class Checkbox extends Component {
   }
 
   render = props => {
-    const {disabled=false, block=false} = props
-    // 外层class
-    const boxCls = classNames(classPrefix, {
-      [`${classPrefix}-checked`]: this.data.checked && !disabled,
-      [`${classPrefix}-disabled`]: disabled,
-      [`${classPrefix}-block`]: block
-    })
-
-    const iconSize = props.iconSize || '22px'
-    const iconSizeStyle = {}
-    iconSizeStyle['width'] = iconSize
-    iconSizeStyle['height'] = iconSize
-
-    const selectedIcons = props.indeterminate
-      ? indeterminateIcon
-      : (props.selectedIcon ?? selectedIcon)
-    const unSelectedIcons = props.indeterminate
-      ? indeterminateIcon
-      : (props.icon ?? unselectedIcon)
+    const {
+      disabled,
+      block,
+      icon,
+      selectedIcon,
+      value,
+      id,
+      iconSize,
+      fontSize,
+      gap,
+      indeterminate
+    } = props
     
-    const childStyles = {
-      fontSize: props.fontSize || '17px',
-      paddingLeft: props.gap || '8px'
-    }
 
     return (
-      <label
-        className={boxCls}
-        style={{...props.style, marginBottom: props.gap || '8px'}}>
-        <checkbox
-          style={iconSizeStyle}
-          checked={this.data.checked}
-          icon={unSelectedIcons}
-          selectedIcon={selectedIcons}
-          value={props.value}
-          onChange={e => {
-            !disabled && this.setChecked(e.detail.checked)
-          }}
-          disabled={disabled}
-          id={props.id}/>
-        {props.children && formatLabel(props.children, `${classPrefix}-content`, childStyles)}
-      </label>
+      <MyCheckbox
+      indeterminate={indeterminate}
+        icon={icon}
+        selectedIcon={selectedIcon}
+        checked={this.data.checked}
+        value={value}
+        onChange={checked => this.setChecked(checked)}
+        disabled={disabled}
+        id={id}
+        iconSize={iconSize}
+        fontSize={fontSize}
+        gap={gap}
+        block={block}
+      >{props.children}</MyCheckbox>
     )
   }
 }
