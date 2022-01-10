@@ -11,10 +11,15 @@ export type PageIndicatorProps = {
 }
 
 const defaultProps = {
-  color: 'primary',
   direction: 'horizontal',
+  style: {},
+  color: 'primary'
 }
 
+const colorMapping = {
+  primary: '#1677ff',
+  white: '#fff'
+}
 export class PageIndicator extends Component {
   install = () => {
     console.log('PageIndicator!')
@@ -25,7 +30,7 @@ export class PageIndicator extends Component {
     const {
       direction,
       dotColor='rgba(0, 0, 0, 0.2)',
-      activeDotColor='#1677ff',
+      activeDotColor= ['primary', 'white'].includes(props.color) ? colorMapping[props.color] : props.color,
       dotSize='3px',
       activeDotSize='13px',
       dotBorderRadius='1px',
@@ -55,12 +60,14 @@ export class PageIndicator extends Component {
       )
     }
 
-    return <div className={classNames(
+    return <div
+      className={classNames(
         classPrefix,
         props.className,
         `${classPrefix}-${props.direction}`,
         `${classPrefix}-color-${props.color}`
       )}
+      style={props.style}
     >
       {dots}
     </div>

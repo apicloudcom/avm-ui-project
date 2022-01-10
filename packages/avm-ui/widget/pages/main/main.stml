@@ -35,6 +35,7 @@
 		<text class="demo-item" onclick="goto">tab-bar</text>
 		<text class="demo-item" onclick="goto">tag</text>
 		<text class="demo-item" onclick="goto">textarea</text>
+		<text class="demo-item" onclick="goto">swiper</text>
 	</safe-area>
 </template>
 
