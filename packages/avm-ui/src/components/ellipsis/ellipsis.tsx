@@ -8,7 +8,6 @@ export type EllipsisProps = {
   collapseText?: string
 }
 
-
 const defaultProps = {
   direction: 'end',
   rows: 1,
@@ -16,109 +15,114 @@ const defaultProps = {
   collapseText: '',
 }
 
-
 export class Ellipsis extends Component {
   install = () => {
-    console.log(this.props.direction)
     this.props = mergeProps(defaultProps, this.props)
   }
+  // 初始化显示内容
+  installed = () => {
+    const actionText = this.data.expanded ? this.props.collapseText : this.props.expandText
+    const leading = this.props.content.slice(0, 6) + '...';
+    const tailing = '...' + this.props.content.slice(-6);
 
-
+    if (this.props.direction === 'start') {
+      this.data.content = actionText + '...' + this.props.content.slice(-12) 
+      return this.data.content
+    } else if (this.props.direction === 'middle'){
+      this.data.content = leading + '...' + actionText + '...' + tailing
+      return this.data.content
+     } else if (this.props.rows ){
+      this.data.content = this.props.content.slice(0,this.props.rows*28) + "..."
+      return this.data.content
+    } else {
+      this.data.content = this.props.content.slice(0,12) + "..." + actionText
+      return this.data.content
+    }
+  }
 
   data = {
-    // 判断文本是展开还是关闭
-    check: true,
-    // 展开与收起按钮 字符串
-    expandOrNotText: this.props.expandText ? this.props.expandText : '',
-    // 初始的展示行数
-    content: this.props.rows ? this.props.content : this.props.content.slice(0, 23) + '...',
-    // 省略哪块
-    omitDirectionText: this.props.direction || 'end',
-
+    expanded: false,
+    content: " "
   }
 
-  // start middle end
-  omitDirection = (direction:string) => {
-    if (direction == 'start') {
-
-    }
-    if (direction == 'middle') {
-
-    }
-    if (direction == 'end') {
-
-    }
-  }
-
-
-  // 默认的样式
-  defaultStyle = {
-    'width': '100%',
-    'word-break': 'break-all',
-    'display': '-webkit-box',
-    '-webkit-line-clamp': this.props.rows ? this.props.rows.toString() : '1',
-    '-webkit-box-orient': 'vertical',
-    'overflow': 'hidden'
-  };
-
-  // 展开和收起的样式
-  expandAndCollapseStyle = {
-    'display': 'inline-block',
-    'white-space': 'nowrap',
-    'width': '100%',
-    'overflow': 'hidden',
-    'text-overflow': 'ellipsis',
-  };
-
-  expandedTextStyle = {
-    'color': 'blue',
+  setExpanded = (trueOrFalse) => {
+    this.data.expanded = trueOrFalse
   }
 
   render = props => {
     props = mergeProps(defaultProps, props)
+    const that = this
+    const actionText = !this.data.expanded ? props.collapseText : props.expandText
 
+    const expandActionElement =
+        <a style= "border: 1px solid white"
+          onClick={() => {
+            this.setExpanded(true)
+            if (props.direction === 'start') {
+              that.data.content =   props.content + actionText
+              return that.data.content
+            } else if (props.direction === 'middle') {
+              that.data.content = props.content + actionText
+              return that.data.content
+            } else {
+              that.data.content = props.content +  actionText
+              return that.data.content
+            }
+          }}
+        >
+          {" "}
+        </a>
 
-    const onClick = () => {
-      // 如果展开了 -就关闭
-      if (this.data.check) {
-        this.data.check = !this.data.check// 更改if判断条件
-        this.data.expandOrNotText = props.collapseText// 更换按钮
-        this.data.content = props.content// 更换点击之后的内容
-        return this.data.content// 返回更改好的内容
-        // 如果关闭了，就展开
+    const collapseActionElement =
+        <a style= "border: 1px solid white"
+          onClick={() => {
+            this.setExpanded(false)
+              const leading = props.content.slice(0, 6) + '...';
+              const tailing = '...' + props.content.slice(-6);
+        
+              if (props.direction === 'start') {
+                that.data.content = actionText + '...' + props.content.slice(-12) + "3333"
+                return that.data.content
+              } else if (props.direction === 'middle') {
+                that.data.content = leading + '...' + actionText + '...' + tailing
+                return that.data.content
+              } else {
+                that.data.content = props.content.slice(0,12) + "..." + actionText
+                return that.data.content
+              }
+          }}
+        >
+          {" "}
+        </a>
+      
+    const renderContent = () => {
+      if (props.content.length <= 20) {
+        return props.content
+      }
+      // 如果展开
+      if (this.data.expanded) {
+        return (
+          <>
+            {this.data.content}
+            {collapseActionElement}
+          </>
+        )
       } else {
-        this.data.check = !this.data.check
-        this.data.expandOrNotText = props.expandText
-        this.data.content = this.data.content.slice(0, 23) + '...'
-        return this.data.content
+        return (
+          <>
+            {this.data.content}
+            {expandActionElement}
+          </>
+        )
       }
     }
-
-    // 如果没有传入展开关闭操作，就返回默认样式，如果传入了，就返回展开和收起状态
-    const style = (expand, collapse) => {
-      if (expand || collapse) {
-        return
-      } else {
-        return this.defaultStyle
-      }
-    }
-
-
-
 
     return (
-      <ellipsis
-        style={style(props.expandText, props.collapseText)}
-      >
-        {this.data.content}
-        <a
-          style={this.expandedTextStyle}
-          onClick={onClick}
-        >
-          {this.data.expandOrNotText}
-        </a>
+      <ellipsis>
+        {renderContent()}
       </ellipsis >
     )
   }
-
 }
+
+
