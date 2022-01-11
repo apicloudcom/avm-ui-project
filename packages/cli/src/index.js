@@ -4,6 +4,7 @@ import {onCreate} from "./commands/create.js";
 import {onGenIcon} from "./commands/genIcon.js";
 import {onWidget} from "./commands/widget.js";
 import {onBuild} from "./commands/build.js";
+import {onPreview} from "./commands/preview.js";
 
 
 export const uiDir = `packages/avm-ui`;
@@ -43,6 +44,12 @@ program.command('build')
   .option('-p --path <path>', `输出路径`)
   .alias('B')
   .action(onBuild)
+
+program.command('preview')
+  .description('在 APP 中预览一个 demo 页面')
+  .option('<page>', '预览的页面')
+  .alias('P')
+  .action(onPreview)
 
 
 // 执行命令行参数解析
