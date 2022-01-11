@@ -1,5 +1,6 @@
 <template>
 	<safe-area>
+		<text class="demo-item" onclick="goto">dropdown</text>
 		<text class="demo-item" onclick="goto">button</text>
 		<text class="demo-item" onclick="goto">tree-select</text>
 		<text class="demo-item" onclick="goto">divider</text>

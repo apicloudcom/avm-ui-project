@@ -10,14 +10,14 @@ class Demo extends Component {
     activeKey: '2'
   }
   setActiveKey = key => {
-    console.log(key);
+    // console.log(key);
     this.data.activeKey = key;
   }
   render = () => {
     return (
       <>
         <DemoBlock title='一列' padding={'0'}>
-          <Dropdown arrow={"asdasd"}  onChange={key => {
+          <Dropdown arrow={"asdasd"} onChange={key => {
             this.setActiveKey(key)
           }}>
             <DropdownItem key='a' title='水果'>

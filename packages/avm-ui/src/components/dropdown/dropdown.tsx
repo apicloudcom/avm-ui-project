@@ -1,19 +1,14 @@
-// import className from 'classnames'
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps } from '../../utils/native-props'
 import { Popup } from '../popup/popup'
 import { DropdownItem } from './item'
 import classNames from 'classnames'
-// import { Radio } from '../radio/radio'
 import '../popup/popup.less'
 import { DownFill } from '../icon/icon'
 
 
 const classPrefix = `adm-dropdown`
 
-// export type children = {
-//   key?: string
-// }
 
 export type DropdownProps = {
   activeKey?: string | null
@@ -24,8 +19,6 @@ export type DropdownProps = {
 } & NativeProps
 
 
-
-
 const defaultProps = {
   defaultActiveKey: null,
   closeOnMaskClick: true,
@@ -33,38 +26,50 @@ const defaultProps = {
 }
 
 
-
-
 export class Dropdown extends Component {
   data = {
     visible: false,
     children: [],
     activeKey: this.props.activeKey || this.props.defaultActiveKey,
-    list: []
+    list: [],
+    isActived: true
   }
   setVisible = (v, key) => {
-    // console.log(v,'children');
-    this.props.onChange?.(key);
-    this.props.children.forEach(item => {
-      if (item.key === key) {
-        this.data.list = item.children
-      }
-    })
-    this.data.visible = v
-    this.data.activeKey = key
+    if (key === this.data.activeKey) {
+      this.data.visible = false
+      this.data.activeKey = ''
+    } else {
+      this.props.onChange?.(key);
+      this.props.children.forEach(item => {
+        if (item.key === key) {
+          this.data.list = item.children
+        }
+      })
+      this.data.visible = v
+      this.data.activeKey = key
+    }
   }
 
   render = props => {
     props = mergeProps(defaultProps, props)
     const { children } = props
-    if (this.data.activeKey) {
+
+    if (props.activeKey && this.data.isActived) {
       this.data.visible = true
+      this.data.isActived = false
       this.props.children.forEach(item => {
         if (item.key === this.data.activeKey) {
           this.data.list = item.children
         }
       })
-
+    } else if (props.defaultActiveKey && this.data.isActived) {
+      this.data.visible = true
+      this.data.isActived = false
+      this.props.children.forEach(item => {
+        if (item.key === this.data.activeKey) {
+          this.data.list = item.children
+        }
+      })
     }
     this.data.children = children
     return (
@@ -76,12 +81,20 @@ export class Dropdown extends Component {
                 [`${classPrefix}-item-active`]: item.key === this.data.activeKey
               })} onClick={
                 this.setVisible.bind(this, true, item.key)
-              }>{item.attributes.title}  <DownFill /></div>
-
+              }>
+                <span>
+                  {item.attributes.title}
+                </span>
+                <span className={classNames('', {
+                  ['container-icon']: item.key === this.data.activeKey,
+                  ['default-icon']: item.key !== this.data.activeKey,
+                })}><DownFill />
+                </span>
+              </div>
             )
           })
         }
-      
+
         <Popup
           className={'pop'}
           visible={this.data.visible}

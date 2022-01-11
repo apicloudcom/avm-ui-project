@@ -1,0 +1,52 @@
+<template>
+	<safe-area>
+		<NavBar onBack={this.back}>Dropdown</NavBar>
+		 <DemoBlock title='一列' padding="0">
+          <Dropdown>
+            <Dropdown.Item key='a' title='水果'>
+              <Radio value='apple'>苹果</Radio>
+              <Radio value='orange'>橘子</Radio>
+              <Radio value='banana'>香蕉</Radio>
+            </Dropdown.Item>
+            <Dropdown.Item key='b' title='英文'>
+              <div>asdasdas</div>
+              <div>asdasdas</div>
+              <div>asdasdas</div>
+              <div>asdasdas</div>
+            </Dropdown.Item>
+            <Dropdown.Item key="c" title='排序'>
+              <div style="padding: 12px" >
+                排序内容
+                <!-- <br /> -->
+                排序内容
+                <!-- <br /> -->
+                排序内容
+                <!-- <br /> -->
+                排序内容
+                <!-- <br /> -->
+              </div>
+            </Dropdown.Item>
+          </Dropdown>
+        </DemoBlock>
+	</safe-area>
+</template>
+
+<style src="../../components/avm-ui/avm-ui.css"/>
+
+<script>
+import { Dropdown, DemoBlock, NavBar,Radio } from '../../components/avm-ui/avm-ui';
+export default {
+	name: 'demo-divider',
+	back() {
+		api.closeWin();
+	}
+}
+</script>
+<style scoped>
+.adm-dropdown {
+  height: 40px;
+}
+.adm-dropdown-item{
+  height: 40px;
+}
+</style>

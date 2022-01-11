@@ -15,10 +15,25 @@
   border-bottom: 1px solid var(--adm-border-color);
  &-item{
    flex: 1;
+   flex-direction: row;
    padding: 12px;
-   text-align: center;
+   justify-content: center;
+   align-items: center;
    font-size: 13px;
    cursor: pointer;
+ }
+ .container-icon {
+  transform: rotate(180deg) translateY(0px);
+  transition: all .2s ease;
+ }
+ .adm-icon{
+  
+   font-size: 8px;
+ }
+ .default-icon{
+  // color: var(--adm-color-primary);
+  transition: all .2s ease;
+  transform: rotate(0deg) translateY(1px);
  }
  &-item-active{
    color: var(--adm-color-primary);
