@@ -24,8 +24,6 @@ const defaultProps = {
 export class Image extends Component {
   install = () => {
     console.log('Image!');
-    // this.setLoaded(false)
-    // this.setFailed(false)
   }
 
   data = {
@@ -43,6 +41,14 @@ export class Image extends Component {
 
   render = props => {
     props = mergeProps(defaultProps, props)
+
+    const style = {};
+    if (props.width) {
+      style['width'] = toCSSLength(props.width)
+    }
+    if (props.height) {
+      style['height'] = toCSSLength(props.height)
+    }
 
     let src = props.src
     let srcSet = props.srcSet
@@ -66,6 +72,7 @@ export class Image extends Component {
           }}
           style={{
             objectFit: props.fit,
+            ...style,
             ...props.style
           }}
           crossOrigin={props.crossOrigin}
@@ -78,19 +85,13 @@ export class Image extends Component {
         />
       )
       return (
-        <view>
+        <view className={`${classPrefix}-wrapper`}>
           {imgs()}
-          {!this.data.loaded && props.placeholder}
+          <div className={!this.data.loaded ? `${classPrefix}-placeholder-wrapper` : ''}>
+            {!this.data.loaded && props.placeholder}
+          </div>
         </view>
       )
-    }
-
-    const style = {};
-    if (props.width) {
-      style['width'] = toCSSLength(props.width)
-    }
-    if (props.height) {
-      style['height'] = toCSSLength(props.height)
     }
     return (
       <div className={classPrefix} style={style}>

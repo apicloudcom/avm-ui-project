@@ -2243,7 +2243,7 @@ declare namespace api {
 	 *
 	 * `buttons` :Array : （可选项）按钮
 	 */
-	function alert(option: api_alert_Params): void;
+	function alert(option: api_alert_Params, callback?: (ret: any, err: any) => void): void;
 
 	interface api_confirm_Params {
 		/**（可选项）标题*/
@@ -2371,16 +2371,16 @@ declare namespace api {
 
 	interface api_toast_Params {
 		/**提示消息*/
-		msg: string;
+		msg?: string;
 
 		/**（可选项）持续时长，单位：毫秒*/
-		duration: number;
+		duration?: number;
 
 		/**（可选项）弹出位置，顶部、中间或底部*/
-		location: string;
+		location?: string;
 
 		/**（可选项）是否是全局的toast。若为false，toast将只在当前window范围可见；若为true，安卓手机上面弹出的位置将会固定在底部区域。*/
-		global: boolean;
+		global?: boolean;
 
 	}
 	/**
@@ -2395,7 +2395,7 @@ declare namespace api {
 	 *
 	 * `global` :boolean : （可选项）是否是全局的toast。若为false，toast将只在当前window范围可见；若为true，安卓手机上面弹出的位置将会固定在底部区域。
 	 */
-	function toast(option: api_toast_Params): void;
+	function toast(option: api_toast_Params, callback?: (ret: any, err: any) => void): void;
 
 	interface api_openPicker_Params {
 		/**拾取器类型*/
@@ -2547,43 +2547,43 @@ declare namespace api {
 
 	interface api_getPicture_Params {
 		/**（可选项）图片源类型，从相册、图片库或相机获取图片*/
-		sourceType: string;
+		sourceType?: string;
 
 		/**（可选项）返回图片类型，jpg或png*/
-		encodingType: string;
+		encodingType?: string;
 
 		/**（可选项）媒体类型，图片或视频*/
-		mediaValue: string;
+		mediaValue?: string;
 
 		/**（可选项）返回数据类型，指定返回图片地址或图片经过base64编码后的字符串*/
-		destinationType: string;
+		destinationType?: string;
 
 		/**（可选项）选择前置或后置摄像头，取值范围（front、rear），只支持iOS*/
-		direction: string;
+		direction?: string;
 
 		/**（可选项）是否可以选择图片后进行编辑，支持iOS及部分安卓手机*/
-		allowEdit: boolean;
+		allowEdit?: boolean;
 
 		/**（可选项）是否选择图片后进行预览，只支持iOS。*/
-		preview: boolean;
+		preview?: boolean;
 
 		/**（可选项）图片质量，只针对jpg格式图片（0-100整数）*/
-		quality: number;
+		quality?: number;
 
 		/**（可选项）视频质量，调用相机录制视频时该参数生效。取值范围(low、medium、high)，质量越高，录制的视频文件占用存储空间越大。*/
-		videoQuality: string;
+		videoQuality?: string;
 
 		/**（可选项）压缩后的图片宽度，图片会按比例适配此宽度*/
 		targetWidth: number;
 
 		/**（可选项）压缩后的图片高度，图片会按比例适配此高度*/
-		targetHeight: number;
+		targetHeight?: number;
 
 		/**（可选项）拍照或录制视频后是否保存到系统相册目录。注意此处仅是文件系统层面的操作，使用诸如“图库”App仍然有可能查看到。*/
-		saveToPhotoAlbum: boolean;
+		saveToPhotoAlbum?: boolean;
 
 		/**（可选项）保存图片到自定义分组相册目录，相册不存在则会进行创建。*/
-		groupName: string;
+		groupName?: string;
 
 	}
 	/**
@@ -2616,7 +2616,7 @@ declare namespace api {
 	 *
 	 * `groupName` :string : （可选项）保存图片到自定义分组相册目录，相册不存在则会进行创建。
 	 */
-	function getPicture(option: api_getPicture_Params): void;
+	function getPicture(option: api_getPicture_Params, callback: (ret: any, err: any) => void): void;
 
 	interface api_saveMediaToAlbum_Params {
 		/**文件路径，支持网络链接地址、fs://、widget://等扩展文件路径协议，本地文件路径必须带有扩展名*/
