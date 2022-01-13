@@ -13,7 +13,7 @@ interface clientRectProps  {
 } 
 
 declare class AVMElement{
-  public getBoundingClientRect: () => clientRectProps
+  public getBoundingClientRect?: () => clientRectProps
   scrollWidth: number;
 }
 

@@ -1,9 +1,9 @@
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps } from '../../utils/native-props'
-import { Popup } from '../popup/popup'
 import { DropdownItem } from './item'
 import classNames from 'classnames'
-import '../popup/popup.less'
+// import { Popup } from '../popup/popup'
+// import '../popup/popup.less'
 import { DownFill } from '../icon/icon'
 
 
@@ -27,6 +27,11 @@ const defaultProps = {
 
 
 export class Dropdown extends Component {
+  installed() {
+    // console.log(this.ele.getBoundingClientRect(),111111)
+
+  }
+  // ele:AVMElement = ''
   data = {
     visible: false,
     children: [],
@@ -35,6 +40,9 @@ export class Dropdown extends Component {
     isActived: true
   }
   setVisible = (v, key) => {
+
+    // console.log(this.ele.getBoundingClientRect());
+    // this.ele.getBoundingClientRect().height="200"
     if (key === this.data.activeKey) {
       this.data.visible = false
       this.data.activeKey = ''
@@ -51,6 +59,7 @@ export class Dropdown extends Component {
   }
 
   render = props => {
+
     props = mergeProps(defaultProps, props)
     const { children } = props
 
@@ -77,25 +86,28 @@ export class Dropdown extends Component {
         {
           children.map(item => {
             return (
-              <div {...item.attributes} className={classNames(`${classPrefix}-item`, {
-                [`${classPrefix}-item-active`]: item.key === this.data.activeKey
-              })} onClick={
+              <div {...item.attributes} className={`${classPrefix}-item`} onClick={
                 this.setVisible.bind(this, true, item.key)
               }>
-                <span>
+                <span className={classNames(`${classPrefix}-default`, {
+                  [`${classPrefix}-active`]: item.key === this.data.activeKey,
+                  [`${classPrefix}-default`]: item.key !== this.data.activeKey,
+                })}>
                   {item.attributes.title}
                 </span>
-                <span className={classNames('', {
+                <div ><DownFill className={classNames('', {
                   ['container-icon']: item.key === this.data.activeKey,
                   ['default-icon']: item.key !== this.data.activeKey,
-                })}><DownFill />
-                </span>
+                })} />
+                </div>
               </div>
             )
           })
         }
 
-        <Popup
+        <div
+          id="dialog"
+          style
           className={'pop'}
           visible={this.data.visible}
           onMaskClick={() => {
@@ -103,10 +115,9 @@ export class Dropdown extends Component {
             this.data.list = []
             this.data.visible = false
           }}
-          position='top'
         >
           <DropdownItem className={`${classPrefix}-item`} onClick={this.setVisible.bind(this, true)}>{this.data.list}</DropdownItem>
-        </Popup>
+        </div>
       </div>
     )
   }
