@@ -24,17 +24,25 @@ const assetPlugin = options => {
 
 export async function onBuild(cmd = {}) {
 
-  const entryPoints = glob.sync("src/components/*/index.ts", {cwd: resolve(uiDir)})
-    // .concat(['src/demos/index.ts'])
-    .map(com => resolve(uiDir, com))
 
-  const result = await build({
-    entryPoints,
-    outdir: `${dist}/components/avm-ui`,
+  const base = {
     bundle: true,
     plugins: [stylePlugin(), assetPlugin()],
     format: 'esm',
+    splitting: true,
+    minify: true
+  }
+
+
+  await build({
+    entryPoints: glob.sync("src/components/*/index.ts", {cwd: resolve(uiDir)}).map(com => resolve(uiDir, com)),
+    outdir: `${dist}/components/avm-ui`, ...base
   })
 
-  console.log(result)
+  await build({
+    entryPoints: [resolve(uiDir, 'src/demos/index.ts')],
+    outdir: `${dist}/components/avm-ui/demos`, ...base
+  })
+
+
 }

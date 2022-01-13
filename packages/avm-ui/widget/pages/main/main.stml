@@ -37,6 +37,7 @@
 		<text class="demo-item" onclick="goto">tag</text>
 		<text class="demo-item" onclick="goto">textarea</text>
 		<text class="demo-item" onclick="goto">swiper</text>
+		<text class="demo-item" onClick="goto">image-uploader</text>
 	</safe-area>
 </template>
 

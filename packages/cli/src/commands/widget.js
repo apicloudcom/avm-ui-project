@@ -1,9 +1,7 @@
 import fse from 'fs-extra';
 import {resolve} from 'path';
-import cp from 'child_process';
 
-import glob from 'glob'
-import {dist, uiDir} from "../index.js";
+import {dist} from "../index.js";
 
 export async function onWidget() {
 
