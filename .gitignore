@@ -29,3 +29,4 @@ dist-ssr
 /packages/avm-ui/widget/.bin/.*
 _widget
 _widget/.*
+/out.js

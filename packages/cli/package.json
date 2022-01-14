@@ -25,12 +25,17 @@
     "url": "git@git.yonyou.com:APICloud-CF/AVM-UI.git"
   },
   "dependencies": {
+    "@vue/component-compiler": "^4.2.4",
+    "@vue/component-compiler-utils": "^3.3.0",
     "commander": "^8.3.0",
     "esbuild-style-plugin": "^1.1.2",
     "fs-extra": "^10.0.0",
     "glob": "^7.2.0",
+    "hash-sum": "^2.0.0",
     "inquirer": "^8.2.0",
     "kolorist": "^1.5.0",
+    "lodash.escaperegexp": "^4.1.2",
+    "vue-template-compiler": "^2.6.14",
     "xml2js": "^0.4.23"
   },
   "devDependencies": {
