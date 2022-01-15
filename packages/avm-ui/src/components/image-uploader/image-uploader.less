@@ -4,13 +4,20 @@
 
 .@{class-prefix-image-uploader} {
   &-cell {
-    position: relative;
     border-radius: 4px;
     overflow: hidden;
 
     &-fail {
       border: 1px solid #f00;
       box-sizing: border-box;
+    }
+    &-delete-wrap {
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 7;
     }
 
     &-delete {
@@ -25,9 +32,10 @@
       color: #fff;
       cursor: pointer;
       &-img {
-        position: absolute;
-        left: 4px;
-        top: 3px;
+        width: 8px;
+        height: 8px;
+        margin-left: 3px;
+        margin-top: 2px;
       }
     }
 

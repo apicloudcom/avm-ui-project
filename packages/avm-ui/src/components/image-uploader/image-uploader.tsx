@@ -41,7 +41,6 @@ export class ImageUploader extends Component {
     const {imgList} = this.data
 
     if (!maxCount || (maxCount && imgList.length <= maxCount)) {
-      
       const newData = [...this.data.imgList, {url: imgSrc}]
       this.setValue(newData)
     } else {
@@ -51,39 +50,45 @@ export class ImageUploader extends Component {
 
   // 选择图片
   selectPicture = () => {
-    api.getPicture({
-      sourceType: this.props.capture,
-      encodingType: this.props.accept,
-      mediaValue: 'pic',
-      destinationType: 'url',
-      quality: 50,
-      targetWidth: 100,
-      targetHeight: 100,
-    }, (ret, err) => {
-        if (ret) {
-          if (this.props.beforeUpload) {
-            new Promise((resolve, reject) => {
-              const status = this.props.beforeUpload(ret.data)
-              if (status) {
-                resolve(status)
-              } else {
-                reject(status)
-              }
-            }).then(res => {
-              if (res) {
-                this.saveImg(ret.data)
-              }
-            })
+    try{
+      api.getPicture({
+        sourceType: this.props.capture,
+        encodingType: this.props.accept,
+        mediaValue: 'pic',
+        destinationType: 'url',
+        quality: 50,
+        targetWidth: 100,
+        targetHeight: 100,
+      }, (ret, err) => {
+          if (ret) {
+            if (this.props.beforeUpload) {
+              new Promise((resolve, reject) => {
+                const status = this.props.beforeUpload(ret.data)
+                if (status) {
+                  resolve(status)
+                } else {
+                  reject(status)
+                }
+              }).then(res => {
+                if (res) {
+                  ret.data && ret.data !== '' && this.saveImg(ret.data)
+                }
+              })
+            } else {
+              ret.data && ret.data !== '' && this.saveImg(ret.data)
+            }
+            
           } else {
-            this.saveImg(ret.data)
+              api.toast({
+                msg: '上传失败'+err
+              });
           }
-          
-        } else {
-            api.toast({
-              msg: '上传失败'+err
-            });
-        }
-    });
+      });
+    } catch(err) {
+      api.toast({
+        msg: JSON.stringify(err)
+      })
+    }
   }
 
   render = props => {
@@ -101,7 +106,7 @@ export class ImageUploader extends Component {
     // 预览
     const previewImage = (index: number) => {
       this.data.defaultPreviewIndex = index
-      this.data.imageViewvisible = true
+      // this.data.imageViewvisible = true
       onPreview?.(index)
     }
 

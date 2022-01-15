@@ -26,9 +26,11 @@ export class PreviewItem extends Component {
     const renderDelete = () => {
       return (
         deletable && (
-          <span className={`${classPrefix}-cell-delete`} onClick={onDelete}>
-            <img src={deleteIcon} alt="delete" className={`${classPrefix}-cell-delete-img`}/>
-          </span>
+          <div className={`${classPrefix}-cell-delete-wrap`} onClick={onDelete}>
+            <div className={`${classPrefix}-cell-delete`}>
+              <img src={deleteIcon} alt="delete" className={`${classPrefix}-cell-delete-img`}/>
+            </div>
+          </div>
         )
       )
     }
@@ -44,7 +46,9 @@ export class PreviewItem extends Component {
           height={cellSizeStyle.height}
           className={`${classPrefix}-cell-image`}
           src={url}
-          onClick={props.onClick}
+          onClick={() => {
+            props.onClick?.();
+          }}
         />
         {renderLoading()}
         {renderDelete()}
