@@ -28,7 +28,8 @@ export class Card extends Component {
           style={props.headerStyle}
           onClick={props.onHeaderClick}
         >
-          {props.title.children ? props.title : <text className={`${classPrefix}-header-title`}>{props.title}</text>}
+          {props.title.children ? props.title :
+            <text className={`${classPrefix}-header-title`} style={props.headerStyle}>{props.title}</text>}
           {props.extra ? props.extra : <text>{props.extra}</text>}
         </div>
       )
@@ -37,14 +38,22 @@ export class Card extends Component {
       if (!props.children) {
         return null
       }
-      console.log(props.children)
+      let children = ''
+      props.children.map(item => {
+        if (typeof item === 'string') {
+          children = <text class={props.bodyClassName}>{item}</text>
+        } else {
+          children = props.children
+        }
+      })
+      console.log(children)
       return (
         <div
           className={classNames(`${classPrefix}-body`, props.bodyClassName)}
           style={props.bodyStyle}
           onClick={props.onBodyClick}
         >
-          {props.children}
+          {children}
         </div>
       )
     }
