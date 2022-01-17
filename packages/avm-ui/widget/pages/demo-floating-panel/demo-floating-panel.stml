@@ -7,9 +7,9 @@
 	</safe-area>
 </template>
 
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/floating-panel/index.css"/>
 <script>
-import { FloatingPanel } from '../../components/avm-ui/avm-ui';
+import FloatingPanel from '../../components/avm-ui/floating-panel';
 export default {
 	name: 'test',
     data() {
