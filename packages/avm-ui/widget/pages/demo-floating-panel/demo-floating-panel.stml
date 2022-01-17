@@ -1,10 +1,10 @@
 <template>
-	<safe-area class="page">
-        <text>测试</text>
-		<FloatingPanel anchors={[100, 200, 400]}>
-            <text v-for="item in list">{item}</text>
-        </FloatingPanel>
-	</safe-area>
+  <safe-area class="page">
+    <text>测试</text>
+    <FloatingPanel anchors={[100, 200, 400]}>
+      <text v-for="item in list">{item}</text>
+    </FloatingPanel>
+  </safe-area>
 </template>
 
 <style src="../../components/avm-ui/floating-panel/index.css"/>
