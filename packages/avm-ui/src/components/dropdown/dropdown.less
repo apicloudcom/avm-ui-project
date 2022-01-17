@@ -1,12 +1,16 @@
 @import url('../../global/theme.less');
 @class-prefix-dropdown: ~'adm-dropdown';
 @class-prefix-dropdown-item: ~'adm-dropdown-item';
-.pop {
-  position: absolute;
+.container{
+  position: relative;
   width: 100%;
-  top: 40px;
-  height: 100vh;
-  background-color: green;
+  height: 100%;
+  .pop {
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    height: 100%;
+  }
 }
 .@{class-prefix-dropdown} {
   // position: relative;
@@ -17,7 +21,6 @@
   justify-content: center;
   // align-items: center;
   // height: 40px;
-  background-color: pink;
   border-top: 1px solid var(--adm-border-color);
   border-bottom: 1px solid var(--adm-border-color);
   
@@ -55,7 +58,9 @@
 
 }
 
-
+.adm-popup{
+  top: 50px;
+}
 
 .adm-popup-body-position-top {
   padding: 12px;

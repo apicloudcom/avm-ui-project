@@ -2,8 +2,8 @@ import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps } from '../../utils/native-props'
 import { DropdownItem } from './item'
 import classNames from 'classnames'
-// import { Popup } from '../popup/popup'
-// import '../popup/popup.less'
+import { Popup } from '../popup/popup'
+import '../popup/popup.less'
 import { DownFill } from '../icon/icon'
 
 
@@ -14,7 +14,9 @@ export type DropdownProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
   closeOnMaskClick?: boolean
+  closeOnClickAway?: boolean
   onChange?: (key: string | null) => void
+  arrow?:HTMLElement 
   // mask?: boolean;
 } & NativeProps
 
@@ -22,27 +24,22 @@ export type DropdownProps = {
 const defaultProps = {
   defaultActiveKey: null,
   closeOnMaskClick: true,
-  activeKey: ''
+  closeOnClickAway: true,
+  activeKey: '',
+  arrow:<DownFill />
 }
 
 
 export class Dropdown extends Component {
-  installed() {
-    // console.log(this.ele.getBoundingClientRect(),111111)
 
-  }
-  // ele:AVMElement = ''
   data = {
     visible: false,
     children: [],
     activeKey: this.props.activeKey || this.props.defaultActiveKey,
     list: [],
-    isActived: true
+    isActived: true,
   }
   setVisible = (v, key) => {
-
-    // console.log(this.ele.getBoundingClientRect());
-    // this.ele.getBoundingClientRect().height="200"
     if (key === this.data.activeKey) {
       this.data.visible = false
       this.data.activeKey = ''
@@ -59,10 +56,11 @@ export class Dropdown extends Component {
   }
 
   render = props => {
-
+    
     props = mergeProps(defaultProps, props)
+    console.log(props,123123123);
+    
     const { children } = props
-
     if (props.activeKey && this.data.isActived) {
       this.data.visible = true
       this.data.isActived = false
@@ -82,42 +80,44 @@ export class Dropdown extends Component {
     }
     this.data.children = children
     return (
-      <div className={classPrefix}>
-        {
-          children.map(item => {
-            return (
-              <div {...item.attributes} className={`${classPrefix}-item`} onClick={
-                this.setVisible.bind(this, true, item.key)
-              }>
-                <span className={classNames(`${classPrefix}-default`, {
-                  [`${classPrefix}-active`]: item.key === this.data.activeKey,
-                  [`${classPrefix}-default`]: item.key !== this.data.activeKey,
-                })}>
-                  {item.attributes.title}
-                </span>
-                <div ><DownFill className={classNames('', {
-                  ['container-icon']: item.key === this.data.activeKey,
-                  ['default-icon']: item.key !== this.data.activeKey,
-                })} />
+      <div className="container">
+        <div className={classPrefix}>
+          {
+            children.map(item => {
+              return (
+                <div {...item.attributes} className={`${classPrefix}-item`} onClick={
+                  this.setVisible.bind(this, true, item.key)
+                }>
+                  <span className={classNames(`${classPrefix}-default`, {
+                    [`${classPrefix}-active`]: item.key === this.data.activeKey,
+                    [`${classPrefix}-default`]: item.key !== this.data.activeKey,
+                  })}>
+                    {item.attributes.title}
+                  </span>
+                  <div className={classNames('', {
+                    ['container-icon']: item.key === this.data.activeKey,
+                    ['default-icon']: item.key !== this.data.activeKey,
+                  })}>{props.arrow}
+                  </div>
                 </div>
-              </div>
-            )
-          })
-        }
-
-        <div
-          id="dialog"
-          style
+              )
+            })
+          }
+        </div>
+        <Popup
           className={'pop'}
           visible={this.data.visible}
+          position="top"
           onMaskClick={() => {
-            this.setVisible(false, '')
-            this.data.list = []
-            this.data.visible = false
+            if (props.closeOnMaskClick && props.closeOnClickAway) {
+              this.setVisible(false, '')
+              this.data.list = []
+              this.data.visible = false
+            }
           }}
         >
           <DropdownItem className={`${classPrefix}-item`} onClick={this.setVisible.bind(this, true)}>{this.data.list}</DropdownItem>
-        </div>
+        </Popup>
       </div>
     )
   }
