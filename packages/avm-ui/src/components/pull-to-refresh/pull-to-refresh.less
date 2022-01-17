@@ -1,0 +1,20 @@
+@import "../../global/theme";
+@class-prefix-pull-to-refresh: ~'adm-pull-to-refresh';
+
+.@{class-prefix-pull-to-refresh} {
+  background-color: #f3f3f3;
+  &-head {
+    overflow: hidden;
+    position: relative;
+    &-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      color: var(--adm-color-weak);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
