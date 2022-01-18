@@ -45,11 +45,11 @@ export class Divider extends Component {
           `${classPrefix}-${contentPosition}`
         )}
       >
-        <div className={classNames(`${classPrefix}-before`)} style={dividerLeftSty}></div>
+        <div style={dividerLeftSty}></div>
         {children.length > 0 && (
           <text className={`${classPrefix}-content`} style={fontContentSty}>{children}</text>
         )}
-        <div className={ classNames(`${classPrefix}-after`)} style={dividerRightSty}></div>
+        <div style={dividerRightSty}></div>
       </div>
     )
   }
