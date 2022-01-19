@@ -25,10 +25,14 @@
 	</safe-area>
 </template>
 
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/nav-bar/index.css"/>
+<style src="../../components/avm-ui/tree-select/index.css"/>
+<style src="../../components/avm-ui/demos/index.css"/>
 
 <script>
-import { DemoBlock, NavBar, TreeSelect } from '../../components/avm-ui/avm-ui';
+import TreeSelect from '../../components/avm-ui/tree-select';
+import NavBar from '../../components/avm-ui/nav-bar';
+import {DemoBlock} from '../../components/avm-ui/demos';
 
 export default {
 	name: 'demo-tree-select',

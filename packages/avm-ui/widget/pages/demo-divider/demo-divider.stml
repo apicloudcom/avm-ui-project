@@ -20,10 +20,14 @@
 	</safe-area>
 </template>
 
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/divider/index.css"/>
+<style src="../../components/avm-ui/nav-bar/index.css"/>
+<style src="../../components/avm-ui/demos/index.css"/>
 
 <script>
-import { DemoBlock, Divider, NavBar } from '../../components/avm-ui/avm-ui';
+import Divider from '../../components/avm-ui/divider'
+import NavBar from '../../components/avm-ui/nav-bar'
+import {DemoBlock} from '../../components/avm-ui/demos';
 
 export default {
 	name: 'demo-divider',
