@@ -64,12 +64,12 @@ export class Tabs extends Component {
     }
     
     this.data.activeKey = key || this.props.children[0].key
-    setTimeout(() => {
-      const width = this.ele[index].getBoundingClientRect().width
-      const left = this.ele[index].getBoundingClientRect().left
-      this.data.width = width
-      this.data.left = left
-    }, 5)
+    // setTimeout(() => {
+    //   const width = this.ele[index].getBoundingClientRect().width
+    //   const left = this.ele[index].getBoundingClientRect().left
+    //   this.data.width = width
+    //   this.data.left = left
+    // }, 5)
   }
   
   // 滚动事件
