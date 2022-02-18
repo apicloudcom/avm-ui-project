@@ -1,0 +1,10 @@
+{
+    "component": "ProgressBar",
+    "desc": "progress-bar 组件定义一个进度条",
+    "type": 2,
+    "props": [
+        {"name": "percent", "type": "number", "tip": "百分比"},
+        {"name": "strokeWidth", "type": "number",  "tip": "线条宽度"},
+        {"name": "strokeColor", "type": "string",  "tip": "线条的颜色"}
+    ]
+}
