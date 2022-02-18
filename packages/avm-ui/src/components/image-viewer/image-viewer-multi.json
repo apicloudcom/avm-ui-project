@@ -1,0 +1,22 @@
+{
+  "component": "ImageViewer.Multi",
+  "desc": "多张图片查看器",
+  "type": 2,
+  "event": [
+    "onClose",
+    "onIndexChange"
+  ],
+  "props": [
+    {
+      "name": "visible",
+      "tip": "是否显示",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "images",
+      "tip": "图片资源的地址",
+      "type": "string[]"
+    }
+  ]
+}

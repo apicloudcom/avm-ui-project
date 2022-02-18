@@ -1,0 +1,29 @@
+{
+  "component": "Tabs.Tab",
+  "desc": "标签页面板",
+  "type": 2,
+  "props": [
+    {
+      "name": "key",
+      "tip": "面板的 key",
+      "type": "string",
+    },
+    {
+      "name": "title",
+      "tip": "选项卡头显示文字",
+      "type": "string"
+    },
+    {
+      "name": "disabled",
+      "tip": "是否禁用面板",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "forceRender",
+      "tip": "被隐藏时是否渲染 DOM 结构",
+      "type": "boolean",
+      "default": false
+    }
+  ]
+}

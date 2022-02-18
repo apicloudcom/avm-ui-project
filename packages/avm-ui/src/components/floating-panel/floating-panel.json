@@ -1,0 +1,24 @@
+{
+  "component": "FloatingPanel",
+  "desc": "浮动面板",
+  "type": 2,
+  "props": [
+    {
+      "name": "anchors",
+      "tip": "可拖拽至哪些高度，单位为px",
+      "type": "number[]"
+    },
+    {
+      "name": "background",
+      "tip": "背景颜色",
+      "type": "string",
+      "default": "#fff"
+    },
+    {
+      "name": "height",
+      "tip": "面板总高度，单位为px",
+      "type": "number",
+      "default": 300
+    }
+  ]
+}

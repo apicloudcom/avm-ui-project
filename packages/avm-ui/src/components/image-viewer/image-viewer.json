@@ -1,0 +1,21 @@
+{
+  "component": "ImageViewer",
+  "desc": "单张图片查看器",
+  "type": 2,
+  "event": [
+    "onClose"
+  ],
+  "props": [
+    {
+      "name": "visible",
+      "tip": "是否显示",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "image",
+      "tip": "图片资源的地址",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "component": "Card",
+  "desc": "卡片",
+  "type": 2,
+  "event": [
+    "onClick",
+    "onHeaderClick",
+    "onBodyClick"
+  ],
+  "props": [
+    {
+      "name": "title",
+      "tip": "header 左边区域",
+      "type": "Node/string"
+    },
+    {
+      "name": "extra",
+      "tip": "header 右边区域",
+      "type": "Node/string"
+    },
+    {
+      "name": "headerStyle",
+      "tip": "header 自定义样式",
+      "type": "CSSProperties"
+    },
+    {
+      "name": "headerClassName",
+      "tip": "header 自定义类名",
+      "type": "string"
+    },
+    {
+      "name": "headerClassName",
+      "tip": "header 自定义类名",
+      "type": "string"
+    },
+    {
+      "name": "bodyStyle",
+      "tip": "body 自定义样式",
+      "type": "CSSProperties"
+    },
+    {
+      "name": "bodyClassName",
+      "tip": "body 自定义类名",
+      "type": "string"
+    }
+  ]
+}

@@ -19,6 +19,6 @@
 | 属性        | 说明                        | 类型        | 默认值  |
 | ----------- | --------------------------- | ----------- | ------- |
 | key         | 对应 `activeKey`            | `string`    | -       |
-| title       | 选项卡头显示文字            | `ReactNode` | -       |
+| title       | 选项卡头显示文字            | `string` | -       |
 | disabled    | 是否禁用                    | `boolean`   | `false` |
 | forceRender | 被隐藏时是否渲染 `DOM` 结构 | `boolean`   | `false` |

@@ -1,0 +1,28 @@
+{
+  "component": "Mask",
+  "desc": "遮罩层",
+  "type": 2,
+  "event": [
+    "onMaskClick"
+  ],
+  "props": [
+    {
+      "name": "visible",
+      "tip": "是否可见",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "name": "color",
+      "tip": "遮罩层的颜色",
+      "enum": ["white", "black"],
+      "default": "black"
+    },
+    {
+      "name": "opacity",
+      "tip": "透明度",
+      "enum": ["default", "thin", "thick", "number"],
+      "default": "default"
+    }
+  ]
+}

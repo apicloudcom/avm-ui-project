@@ -1,0 +1,28 @@
+{
+  "component": "Tabs",
+  "desc": "标签页容器",
+  "type": 2,
+  "event": [
+    "onChange"
+  ],
+  "props": [
+    {
+      "name": "defaultActiveKey",
+      "tip": "初始化选中面板的 key",
+      "type": "string",
+      "default": "第一个面板的 key"
+    },
+    {
+      "name": "activeLineMode",
+      "tip": "激活 tab 下划线的模式  ",
+      "enum": ["auto", "full", "fixed"],
+      "default": "auto"
+    },
+    {
+      "name": "fixedLineWidth",
+      "tip": "当前激活 tab 下划线的宽度",
+      "type": "number",
+      "default": 30
+    }
+  ]
+}
