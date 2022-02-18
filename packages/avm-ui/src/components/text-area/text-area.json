@@ -1,0 +1,72 @@
+{
+    "component": "TextArea",
+    "desc": "文本域",
+    "type": 2,
+    "event": [
+        "onChange",
+        "onFocus",
+        "onBlur"
+    ],
+    "props": [
+        {
+            "name": "value",
+            "tip": "输入值",
+            "type": "string"
+        },
+        {
+            "name": "defaultValue",
+            "tip": "默认值",
+            "type": "string"
+        },
+        {
+            "name": "placeholder",
+            "tip": "提示文本",
+            "type": "string"
+        },
+        {
+            "name": "autoSize",
+            "tip": "自适应内容高度",
+            "type": "boolean",
+            "default": "false"
+        },
+        {
+            "name": "rows",
+            "tip": "行数",
+            "type": "number",
+            "default": "2"
+        },
+        {
+            "name": "maxLength",
+            "tip": "最大字符数",
+            "type": "number",
+            "default": "500"
+        },
+        {
+            "name": "showCount",
+            "tip": "显示字数，支持自定义渲染",
+            "type": "boolean",
+            "default": "false"
+        },
+        {
+            "name": "fontSize",
+            "tip": "字号",
+            "type": "string",
+            "default": "17px"
+        },
+        {
+            "name": "color",
+            "tip": "文字颜色",
+            "default": "#333"
+        },
+        {
+            "name": "placeholderColor",
+            "tip": "placeholder颜色",
+            "default": "#ccc"
+        },
+        {
+            "name": "disabledColor",
+            "tip": "禁用状态下的文字颜色",
+            "default": "#999"
+        }
+    ]
+}
