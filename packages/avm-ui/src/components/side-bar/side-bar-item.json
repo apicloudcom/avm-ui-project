@@ -1,0 +1,31 @@
+{
+    "component": "SideBar.item",
+    "desc": "SideBar.item 侧边导航item",
+    "type": 2,
+    "props": [
+        {
+            "name": "key",
+            "type": "string",
+            "tip": "对应 activeKey"
+        },
+        {
+            "name": "title",
+            "type": "HTML",
+            "tip": "显示内容"
+        },
+        {
+            "name": "disabled",
+            "type": "boolean",
+            "enum": [
+                "false",
+                "true"
+            ],
+            "tip": "是否禁用"
+        },
+        {
+            "name": "badge",
+            "type": "HTML",
+            "tip": "徽标"
+        }
+    ]
+}

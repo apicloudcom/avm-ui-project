@@ -1,52 +1,20 @@
 {
-    "side-bar": {
-        "component": "SideBar",
-        "desc": "side-bar 侧边导航",
-        "type": 2,
-        "props": [
-            {
-                "name": "activeKey",
-                "type": "string | null",
-                "tip": "当前激活 item 的 key"
-            },
-            {
-                "name": "defaultActiveKey",
-                "type": "string | null",
-                "tip": "初始化选中 item 的 key，如果没有设置 activeKey"
-            }
-        ],
-        "event": [
-            "onchange"
-        ]
-    },
-    "side-bar-item": {
-        "component": "SideBar.item",
-        "type": 2,
-        "props": [
-            {
-                "name": "key",
-                "type": "string",
-                "tip": "对应 activeKey"
-            },
-            {
-                "name": "title",
-                "type": "HTML",
-                "tip": "显示内容"
-            },
-            {
-                "name": "disabled",
-                "type": "boolean",
-                "enum": [
-                    "false",
-                    "true"
-                ],
-                "tip": "是否禁用"
-            },
-            {
-                "name": "badge",
-                "type": "HTML",
-                "tip": "徽标"
-            }
-        ]
-    }
+    "component": "SideBar",
+    "desc": "side-bar 侧边导航",
+    "type": 2,
+    "props": [
+        {
+            "name": "activeKey",
+            "type": "string | null",
+            "tip": "当前激活 item 的 key"
+        },
+        {
+            "name": "defaultActiveKey",
+            "type": "string | null",
+            "tip": "初始化选中 item 的 key，如果没有设置 activeKey"
+        }
+    ],
+    "event": [
+        "onchange"
+    ]
 }

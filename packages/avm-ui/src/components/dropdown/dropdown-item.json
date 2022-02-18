@@ -1,0 +1,27 @@
+{
+        "component": "Dropdown.Item",
+        "desc": "Dropdown.Item 下来菜单中item",
+        "type": 2,
+        "props": [
+                {
+                        "name": "key",
+                        "type": "string",
+                        "tip": "唯一值"
+                },
+                {
+                        "name": "title",
+                        "type": "string",
+                        "tip": "标题"
+                },
+                {
+                        "name": "title",
+                        "type": "string",
+                        "tip": "标题"
+                },
+                {
+                        "name": "arrow",
+                        "type": "node",
+                        "tip": "自定义 arrow"
+                }
+        ]
+}

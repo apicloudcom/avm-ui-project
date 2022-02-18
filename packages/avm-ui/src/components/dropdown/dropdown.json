@@ -1,0 +1,43 @@
+{
+    "component": "Dropdown",
+    "desc": "Dropdown 组件定义下拉菜单",
+    "type": 2,
+    "props": [
+        {
+            "name": "activeKey",
+            "type": "string | null",
+            "tip": "激活的 Item key"
+        },
+        {
+            "name": "defaultActiveKey",
+            "type": "string | null",
+            "tip": "默认激活的 Item key"
+        },
+        {
+            "name": "closeOnMaskClick",
+            "type": "boolean",
+            "tip": "是否在点击遮罩后自动隐藏",
+            "enum": [
+                "false",
+                "true"
+            ]
+        },
+        {
+            "name": "closeOnClickAway",
+            "type": "boolean",
+            "tip": "是否在点击外部区域后自动隐藏",
+            "enum": [
+                "false",
+                "true"
+            ]
+        },
+        {
+            "name": "arrow",
+            "type": "node",
+            "tip": "自定义 arrow"
+        }
+    ],
+    "event": [
+        "onChange"
+    ]
+}
