@@ -1,0 +1,38 @@
+{
+    "component": "DesenseText",
+    "desc": "desense-text 脱敏组件",
+    "type": 2,
+    "props": [
+        {
+            "name": "text",
+            "type": "string",
+            "tip": "未脱敏的内容"
+        },
+        {
+            "name": "desenseText",
+            "type": "string",
+            "tip": "脱敏后的内容"
+        },
+        {
+            "name": "desense",
+            "type": "boolean",
+            "tip": "脱敏状态",
+            "enum": [
+                "true",
+                "false"
+            ]
+        },
+        {
+            "name": "defaultDesens",
+            "type": "boolean",
+            "tip": "默认脱敏状态",
+            "enum": [
+                "true",
+                "false"
+            ]
+        }
+    ],
+    "event": [
+        "onChange"
+    ]
+}
