@@ -1,0 +1,19 @@
+{
+  "component": "Loading",
+  "desc": "加载状态",
+  "type": 2,
+  "props": [
+    {
+      "name": "color",
+      "tip": "颜色",
+      "type": "string"
+    },
+    {
+      "name": "size",
+      "tip": "尺寸",
+      "type": "string",
+      "enum": ["small", "default", "big"],
+      "default": "default"
+    }
+  ]
+}
