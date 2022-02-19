@@ -51,25 +51,24 @@ export class Tabs extends Component {
   scrollEle: AVMElement[] = []
   
   installed() {
-    let index = 0
+    let index: string | number = 0
     const key = this.props.defaultActiveKey
-    
+
     if (key) {
-      this.props.children?.forEach((child,idx) => {
+      this.props.children?.forEach((child) => {
         if (child.key === key) {
-          index = idx
           return
         }
       })
     }
     
     this.data.activeKey = key || this.props.children[0].key
-    // setTimeout(() => {
-    //   const width = this.ele[index].getBoundingClientRect().width
-    //   const left = this.ele[index].getBoundingClientRect().left
-    //   this.data.width = width
-    //   this.data.left = left
-    // }, 5)
+    setTimeout(() => {
+      const width = this.ele[index].getBoundingClientRect().width
+      const left = this.ele[index].getBoundingClientRect().left
+      this.data.width = width
+      this.data.left = left
+    }, 5)
   }
   
   // 滚动事件
@@ -142,7 +141,7 @@ export class Tabs extends Component {
                       : `translate(${this.data.left}px, 0px)`,
                 }}
               />
-              {panes.map((pane: Pane,index) => {
+              {panes.map((pane: Pane,index: string | number) => {
                 return (
                   <div key={pane.key} className={`${classPrefix}-tab-wrapper`}>
                     <div
@@ -187,7 +186,7 @@ export class Tabs extends Component {
                       : `translate(${this.data.left}px, 0px)`,
                 }}
               />
-              {panes.map((pane: Pane,index) => {
+              {panes.map((pane: Pane,index: string | number) => {
                 return (
                   <div key={pane.key} className={`${classPrefix}-tab-wrapper`}>
                     <div
@@ -211,7 +210,7 @@ export class Tabs extends Component {
                           [`${classPrefix}-tab-none`]: pane.key !== this.data.activeKey,
                           [`${classPrefix}-tab-disabled`]: pane.attributes?.disabled || false,
                         })}
-                        ref={e => {this.ele.push(e)}}>{pane.attributes?.title}</span>
+                        ref={(e:AVMElement) => {this.ele.push(e)}}>{pane.attributes?.title}</span>
                     </div>
                   </div>
                 )
