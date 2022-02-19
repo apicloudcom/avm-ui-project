@@ -1,0 +1,52 @@
+{
+    "component": "Tag",
+    "desc": "标签",
+    "type": 2,
+    "event": [
+        "onClick"
+    ],
+    "props": [
+        {
+            "name": "color",
+            "tip": "标签色",
+            "enum": ["default", "primary", "success", "warning", "danger", "string"],
+            "type": "string",
+            "default": "default"
+        },
+        {
+            "name": "fill",
+            "tip": "填充模式",
+            "type": "string",
+            "enum": ["solid", "outline"],
+            "default": "solid"
+        },
+        {
+            "name": "round",
+            "tip": "是否圆角",
+            "type": "boolean",
+            "default": "false"
+        },
+        {
+            "name": "textColor",
+            "tip": "文字颜色",
+            "default": "#666"
+        },
+        {
+            "name": "bgColor",
+            "tip": "背景颜色",
+            "type": "string"
+        },
+        {
+            "name": "borderColor",
+            "tip": "边框颜色",
+            "type": "boolean",
+            "default": "#666"
+        },
+        {
+            "name": "borderRadius",
+            "tip": "round=false时的圆角大小",
+            "default": "2px"
+
+        }
+    ]
+}

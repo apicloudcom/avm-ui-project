@@ -1,0 +1,63 @@
+{
+    "component": "Switch",
+    "desc": "开关",
+    "type": 2,
+    "event": [
+        "onChange",
+        "beforeChange"
+    ],
+    "props": [
+        {
+            "name": "checked",
+            "tip": "指定当前是否打开",
+            "type": "boolean",
+            "default": "false"
+        },
+        {
+            "name": "defaultChecked",
+            "tip": "初始是否打开",
+            "type": "boolean",
+            "default": "false"
+        },
+        {
+            "name": "loading",
+            "tip": "加载状态",
+            "type": "boolean",
+            "default": "false"
+        },
+        {
+            "name": "disabled",
+            "tip": "禁用状态",
+            "type": "boolean",
+            "default": "false"
+        },
+        {
+            "name": "checkedText",
+            "tip": "选中时的内容"
+        },
+        {
+            "name": "uncheckedText",
+            "tip": "非选中时的内容"
+        },
+        {
+            "name": "checkedColor",
+            "tip": "填充颜色",
+            "default": "#1677ff"
+        },
+        {
+            "name": "width",
+            "tip": "宽度",
+            "default": "50px"
+        },
+        {
+            "name": "height",
+            "tip": "高度",
+            "default": "30px"
+        },
+        {
+            "name": "borderWidth",
+            "tip": "边框宽度",
+            "default": "2px"
+        }
+    ]
+}

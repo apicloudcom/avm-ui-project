@@ -1,0 +1,39 @@
+{
+    "component": "TabBar",
+    "desc": "标签栏",
+    "type": 2,
+    "event": [
+        "onChange"
+    ],
+    "props": [
+        {
+            "name": "activeKey",
+            "tip": "当前激活item的key",
+            "type": "string",
+            "default": "null"
+        },
+        {
+            "name": "defaultActiveKey",
+            "tip": "初始化选中item的key，如果没有设置为activeKey",
+            "type": "string/null",
+            "default": "第一个Tab的key"
+        },
+        {
+            "name": "key",
+            "tip": "对应activeKey",
+            "type": "string"
+        },
+        {
+            "name": "title",
+            "tip": "标题"
+        },
+        {
+            "name": "icon",
+            "tip": "图标"
+        },
+        {
+            "name": "badge",
+            "tip": "徽标，同 [Badge](./badge) 的 `content` 属性"
+        }
+    ]
+}
