@@ -1,0 +1,23 @@
+{
+  "component": "Empty",
+  "desc": "空状态",
+  "type": 2,
+  "event": [],
+  "props": [
+    {
+      "name": "imageStyle",
+      "tip": "图片样式",
+      "type": "CSSProperties"
+    },
+    {
+      "name": "description",
+      "tip": "图片下方的描述文字",
+      "type": "string"
+    },
+    {
+      "name": "children",
+      "tip": "自定义图片",
+      "type": "Node"
+    }
+  ]
+}

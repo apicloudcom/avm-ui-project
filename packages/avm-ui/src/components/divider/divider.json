@@ -1,0 +1,40 @@
+{
+  "component": "Divider",
+  "desc": "分割线",
+  "type": 2,
+  "event": [],
+  "props": [
+    {
+      "name": "contentPosition",
+      "tip": "内容位置",
+      "type": "string",
+      "enum": ["center", "left", "right"],
+      "default": "center"
+    },
+    {
+      "name": "borderTopWidth",
+      "tip": "分割线大小",
+      "type": "string",
+      "default": "1px"
+    },
+    {
+      "name": "color",
+      "tip": "文字颜色",
+      "type": "string",
+      "default": "#999999"
+    },
+    {
+      "name": "borderColor",
+      "tip": "分割线颜色",
+      "type": "string",
+      "default": "#eeeeee"
+    },
+    {
+      "name": "borderStyle",
+      "tip": "边框样式",
+      "type": "string",
+      "enum": ["solid", "dashed"],
+      "default": "solid"
+    }
+  ]
+}

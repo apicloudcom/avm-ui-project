@@ -1,0 +1,34 @@
+{
+  "component": "TreeSelect",
+  "desc": "级联选择器",
+  "type": 2,
+  "event": [
+    "onChange"
+  ],
+  "props": [
+    {
+      "name": "value",
+      "tip": "选中项",
+      "type": "string[]",
+      "default": "[]"
+    },
+    {
+      "name": "defaultValue",
+      "tip": "默认选中项",
+      "type": "string[]",
+      "default": []
+    },
+    {
+      "name": "options",
+      "tip": "级联数据",
+      "type": "TreeSelectOption[]",
+      "default": []
+    },
+    {
+      "name": "fieldNames",
+      "tip": "自定义 options 中 label value children 的字段",
+      "type": "{ label?: string; value?: string; children?: string }",
+      "default": {}
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "component": "Result",
+  "desc": "结果",
+  "type": 2,
+  "event": [],
+  "props": [
+    {
+      "name": "status",
+      "tip": "状态类型",
+      "type": "string",
+      "enum": ["success","error","info","waiting","warning"],
+      "default": "success"
+    },
+    {
+      "name": "title",
+      "tip": "标题",
+      "type": "string"
+    },
+    {
+      "name": "description",
+      "tip": "描述",
+      "type": "string"
+    },
+    {
+      "name": "children",
+      "tip": "自定义 icon",
+      "type": "Node"
+    }
+  ]
+}

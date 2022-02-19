@@ -1,0 +1,37 @@
+{
+  "component": "NavBar",
+  "desc": "导航栏",
+  "type": 2,
+  "event": [
+    "onBack"
+  ],
+  "props": [
+    {
+      "name": "back",
+      "tip": "返回区域的文字，如果为 null 的话，backArrow 也不会渲染",
+      "type": "string | null",
+      "default": ""
+    },
+    {
+      "name": "backArrow",
+      "tip": "是否显示返回区域的箭头",
+      "type": "boolean",
+      "default": "true"
+    },
+    {
+      "name": "left",
+      "tip": "左侧内容，渲染在返回区域的右侧",
+      "type": "string"
+    },
+    {
+      "name": "children",
+      "tip": "标题",
+      "type": "Node/string"
+    },
+    {
+      "name": "right",
+      "tip": "右侧图标",
+      "type": "Node"
+    }
+  ]
+}
