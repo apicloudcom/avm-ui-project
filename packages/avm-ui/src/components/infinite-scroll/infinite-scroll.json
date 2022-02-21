@@ -1,0 +1,36 @@
+{
+    "component": "InfiniteScroll ",
+    "desc": "无限滚动",
+    "type": 2,
+    "props": [
+        {
+            "name": "loadMore",
+            "type": "string",
+            "tip": "加载更多的回调函数"
+        },
+        {
+            "name": "hasMore",
+            "type": "boolean",
+            "enum": [
+                "true",
+                "false"
+            ],
+            "tip": "是否还有更多内容"
+        },
+        {
+            "name": "threshold",
+            "type": "number",
+            "tip": "触发加载事件的滚动触底距离阈值，单位为像素"
+        },
+        {
+            "name": "hasMoreText",
+            "type": "string",
+            "tip": "加载中文字提示"
+        },
+        {
+            "name": "notHasMoreText",
+            "type": "string",
+            "tip": "没有更多数据时下方文字提示"
+        }
+    ]
+}

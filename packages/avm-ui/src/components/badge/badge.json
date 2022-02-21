@@ -5,7 +5,7 @@
     "props": [
         {
             "name": "content",
-            "type": "HTML",
+            "type": "string",
             "tip": "徽标内容：如果传 null undefined '' 或不传，则不显示徽标；如果传 Badge.dot，会显示小红点"
         },
         {
