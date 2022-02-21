@@ -26,12 +26,12 @@
     {
       "name": "children",
       "tip": "标题",
-      "type": "Node/string"
+      "type": "string"
     },
     {
       "name": "right",
       "tip": "右侧图标",
-      "type": "Node"
+      "type": "string"
     }
   ]
 }

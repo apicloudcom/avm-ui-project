@@ -30,3 +30,4 @@ dist-ssr
 _widget
 _widget/.*
 /out.js
+/avm-ui.json

@@ -1,0 +1,25 @@
+{
+  "component": "Ellipsis",
+  "desc": "文本省略组件",
+  "type": 2,
+  "props": [
+    {
+      "name": "content",
+      "tip": "文本内容",
+      "type": "string"
+    },
+    {
+      "name": "direction",
+      "tip": "省略位置",
+      "type": "string",
+      "enum": ["start", "end", "middle"],
+      "default": "end"
+    },
+    {
+      "name": "rows",
+      "tip": "展示几行",
+      "type": "number",
+      "default": 1
+    }
+  ]
+}

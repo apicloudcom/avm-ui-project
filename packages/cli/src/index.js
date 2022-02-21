@@ -5,6 +5,7 @@ import {onGenIcon} from "./commands/genIcon.js";
 import {onWidget} from "./commands/widget.js";
 import {onBuild} from "./commands/build.js";
 import {onPreview} from "./commands/preview.js";
+import {onJSON} from "./commands/json.js";
 
 
 export const uiDir = `packages/avm-ui`;
@@ -51,6 +52,10 @@ program.command('preview')
   .alias('P')
   .action(onPreview)
 
+program.command('json')
+  .description('生成组件的 json 文件')
+  .alias("J")
+  .action(onJSON)
 
 // 执行命令行参数解析
 program.parse();

@@ -10,7 +10,7 @@
       "name": "value",
       "tip": "选中项",
       "type": "string[]",
-      "default": "[]"
+      "default": []
     },
     {
       "name": "defaultValue",

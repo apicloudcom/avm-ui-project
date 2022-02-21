@@ -24,7 +24,7 @@
     {
       "name": "children",
       "tip": "自定义 icon",
-      "type": "Node"
+      "type": "string"
     }
   ]
 }

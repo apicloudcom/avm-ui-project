@@ -17,7 +17,7 @@
     {
       "name": "children",
       "tip": "自定义图片",
-      "type": "Node"
+      "type": "string"
     }
   ]
 }
