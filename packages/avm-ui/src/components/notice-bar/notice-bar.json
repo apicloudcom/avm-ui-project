@@ -1,0 +1,40 @@
+{
+    "component": "NoticeBar",
+    "desc": "通告栏",
+    "type": 2,
+    "props": [
+        {
+            "name": "color",
+            "type": "string",
+            "enum": [
+                "default",
+                "alert",
+                "error",
+                "info"
+            ],
+            "tip": "通告栏的类型"
+        },
+        {
+            "name": "content",
+            "type": "string",
+            "tip": "公告内容"
+        },
+        {
+            "name": "closeable",
+            "type": "string",
+            "enum": [
+                "true",
+                "false"
+            ],
+            "tip": "是否可关闭"
+        },
+        {
+            "name": "icon",
+            "type": "string",
+            "tip": "左侧广播图标"
+        }
+    ],
+    "event": [
+        "onClose"
+    ]
+}
