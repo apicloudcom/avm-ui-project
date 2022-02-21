@@ -1,0 +1,59 @@
+{
+    "component": "NumberKeyboard",
+    "desc": "数字键盘",
+    "type": 2,
+    "event": [
+        "onInput",
+        "onDelete",
+        "onClose",
+        "onConfirm",
+        "afterClose"
+    ],
+    "props": [
+        {
+            "name": "visible",
+            "tip": "是否展示",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "title",
+            "tip": "键盘标题",
+            "type": "string"
+        },
+        {
+            "name": "confirmText",
+            "tip": "完成按钮文案，`null` 不展示",
+            "type": "string"
+        },
+        {
+            "name": "customKey",
+            "tip": "自定义按钮",
+            "type": "string"
+        },
+        {
+            "name": "randomOrder",
+            "tip": "是否乱序键盘",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "showCloseButton",
+            "tip": "是否展示收起键盘箭头",
+            "type": "boolean",
+            "default": true
+        },
+        {
+            "name": "closeOnConfirm",
+            "tip": "是否在点击确定按钮时自动关闭",
+            "type": "boolean",
+            "default": true
+        },
+        {
+            "name": "safeArea",
+            "tip": "是否开启安全区适配",
+            "type": "boolean",
+            "default": true
+        }
+    ]
+}

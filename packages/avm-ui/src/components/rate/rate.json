@@ -1,0 +1,62 @@
+{
+    "component": "Rate",
+    "desc": "评分",
+    "type": 2,
+    "event": [
+        "onChange"
+    ],
+    "props": [
+        {
+            "name": "allowClear",
+            "tip": "是否允许再次点击后清除",
+            "type": "boolean",
+            "default": true
+        },
+        {
+            "name": "allowHalf",
+            "tip": "是否允许半选",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "character",
+            "tip": "自定义字符",
+            "type": "string"
+        },
+        {
+            "name": "count",
+            "tip": "star总数",
+            "type": "number",
+            "default": 5
+        },
+        {
+            "name": "defaultValue",
+            "tip": "默认值",
+            "type": "number",
+            "default": 0
+        },
+        {
+            "name": "readOnly",
+            "tip": "只读，无法进行交互",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "value",
+            "tip": "当前数，受控值",
+            "type": "number"
+        },
+        {
+            "name": "starSize",
+            "tip": "star大小",
+            "type": "string",
+            "default": "24px"
+        },
+        {
+            "name": "activeColor",
+            "tip": "填充色",
+            "type": "string",
+            "default": "#ffd21e"
+        }
+    ]
+}

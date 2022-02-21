@@ -1,0 +1,62 @@
+{
+    "component": "Radio",
+    "desc": "单选框-radio",
+    "type": 2,
+    "event": [
+        "onChange"
+    ],
+    "props": [
+        {
+            "name": "checked",
+            "tip": "指定当前是否选中",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "defaultChecked",
+            "tip": "初始是否选中",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "disabled",
+            "tip": "失效状态",
+            "type": "boolean",
+            "default": false   
+        },
+        {
+            "name": "value",
+            "tip": "携带的标识值，用于 `Group` 模式 ",
+            "type": "string"
+        },
+        {
+            "name": "block",
+            "tip": "是否渲染为块级元素",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "icon",
+            "tip": "自定义 `icon` 图标",
+            "type": "string"
+        },
+        {
+            "name": "iconSize",
+            "tip": "勾选图标的大小",
+            "type": "string",
+            "default": "22px"
+        },
+        {
+            "name": "fontSize",
+            "tip": "右侧文字描述的大小",
+            "type": "string",
+            "default": "17px"
+        },
+        {
+            "name": "gap",
+            "tip": "图标和文字描述之间的间距",
+            "type": "string",
+            "default": "8px"
+        }
+    ]
+}
