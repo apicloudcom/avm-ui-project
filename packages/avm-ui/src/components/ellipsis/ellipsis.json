@@ -1,0 +1,37 @@
+{
+  "component": "Ellipsis",
+  "desc": "一个快速定义样式尺寸的按钮组件",
+  "type": 2,
+  "event": [
+    "onClick"
+  ],
+  "props": [
+    {
+      "name": "color",
+      "tip": "按钮的颜色",
+      "type": "string",
+      "enum": ["default", "primary", "success", "warning", "danger"],
+      "default": "default"
+    },
+    {
+      "name": "fill",
+      "tip": "填充模式",
+      "type": "string",
+      "enum": ["solid", "outline", "none"],
+      "default": "solid"
+    },
+    {
+      "name": "size",
+      "tip": "大小",
+      "type": "string",
+      "enum": ["mini", "small", "middle","large"],
+      "default": "middle"
+    },
+    {
+      "name": "block",
+      "tip": "是否是块级元素",
+      "type": "boolean",
+      "default": "false"
+    }
+  ]
+}
