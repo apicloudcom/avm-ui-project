@@ -1,37 +1,25 @@
 {
   "component": "Ellipsis",
-  "desc": "一个快速定义样式尺寸的按钮组件",
+  "desc": "文本省略组件",
   "type": 2,
-  "event": [
-    "onClick"
-  ],
   "props": [
     {
-      "name": "color",
-      "tip": "按钮的颜色",
-      "type": "string",
-      "enum": ["default", "primary", "success", "warning", "danger"],
-      "default": "default"
+      "name": "content",
+      "tip": "文本内容",
+      "type": "string"
     },
     {
-      "name": "fill",
-      "tip": "填充模式",
+      "name": "direction",
+      "tip": "省略位置",
       "type": "string",
-      "enum": ["solid", "outline", "none"],
-      "default": "solid"
+      "enum": ["start", "end", "middle"],
+      "default": "end"
     },
     {
-      "name": "size",
-      "tip": "大小",
-      "type": "string",
-      "enum": ["mini", "small", "middle","large"],
-      "default": "middle"
-    },
-    {
-      "name": "block",
-      "tip": "是否是块级元素",
-      "type": "boolean",
-      "default": "false"
+      "name": "rows",
+      "tip": "展示几行",
+      "type": "number",
+      "default": 1
     }
   ]
 }
