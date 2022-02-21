@@ -1,0 +1,26 @@
+{
+    "component": "Badge",
+    "desc": "徽标",
+    "type": 2,
+    "props": [
+        {
+            "name": "content",
+            "type": "HTML",
+            "tip": "徽标内容：如果传 null undefined '' 或不传，则不显示徽标；如果传 Badge.dot，会显示小红点"
+        },
+        {
+            "name": "color",
+            "type": "string",
+            "tip": "徽标背景色，等效于设置 --color CSS 变量"
+        },
+        {
+            "name": "bordered",
+            "type": "boolean",
+            "enum": [
+                "false",
+                "true"
+            ],
+            "tip": "是否增加描边"
+        }
+    ]
+}
