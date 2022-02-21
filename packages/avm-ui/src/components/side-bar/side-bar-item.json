@@ -10,7 +10,7 @@
         },
         {
             "name": "title",
-            "type": "HTML",
+            "type": "string",
             "tip": "显示内容"
         },
         {
@@ -24,7 +24,7 @@
         },
         {
             "name": "badge",
-            "type": "HTML",
+            "type": "string",
             "tip": "徽标"
         }
     ]

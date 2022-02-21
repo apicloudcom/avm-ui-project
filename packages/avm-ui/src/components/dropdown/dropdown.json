@@ -33,7 +33,7 @@
         },
         {
             "name": "arrow",
-            "type": "node",
+            "type": "string",
             "tip": "自定义 arrow"
         }
     ],
