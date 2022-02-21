@@ -1,0 +1,57 @@
+{
+    "component": "Selector",
+    "desc": "选择组",
+    "type": 2,
+    "event": [
+        "onChange"
+    ],
+    "props": [
+        {
+            "name": "value",
+            "tip": "选中项",
+            "type": "array",
+            "default": []
+        },
+        {
+            "name": "defaultValue",
+            "tip": "默认项",
+            "type": "array",
+            "default": []
+        },
+        {
+            "name": "columns",
+            "tip": "行展示数",
+            "type": "number"
+        },
+        {
+            "name": "options",
+            "tip": "可选项",
+            "type": "array",
+            "default": []
+        },
+        {
+            "name": "multiple",
+            "tip": "是否允许多选",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "disabled",
+            "tip": "是否全局禁止选中",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "checkedColor",
+            "tip": "选中填充背景颜色",
+            "type": "string",
+            "default": "#e7f1ff"
+        },
+        {
+            "name": "color",
+            "tip": "选中字体颜色",
+            "type": "string",
+            "default": "#333"
+        }
+    ]
+}

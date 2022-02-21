@@ -1,0 +1,72 @@
+{
+    "component": "Search",
+    "desc": "搜索",
+    "type": 2,
+    "event": [
+        "onChange",
+        "onSearch",
+        "onFocus",
+        "onBlur",
+        "onClear",
+        "onCancel"
+    ],
+    "props": [
+        {
+            "name": "value",
+            "tip": "输入值",
+            "type": "string"
+        },
+        {
+            "name": "placeholder",
+            "tip": "提示文本",
+            "type": "string"
+        },
+        {
+            "name": "maxLength",
+            "tip": "输入的最大字符数",
+            "type": "number"
+        },
+        {
+            "name": "clearable",
+            "tip": "是否启用清除图标，点击清除图标后会清空输入框",
+            "type": "boolean",
+            "default": true
+        },
+        {
+            "name": "showCancelButton",
+            "tip": "是否在搜索框右侧显示取消按钮",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "cancelText",
+            "tip": "取消按钮的文案",
+            "type": "string",
+            "default": "取消"
+        },
+        {
+            "name": "clearOnCancel",
+            "tip": "点击取消按钮后是否清空输入框",
+            "type": "boolean",
+            "default": true
+        },
+        {
+            "name": "background",
+            "tip": "背景色",
+            "type": "string",
+            "default": "#f5f5f5"
+        },
+        {
+            "name": "borderRadius",
+            "tip": "圆角",
+            "type": "string",
+            "default": "6px"
+        },
+        {
+            "name": "placeholderColor",
+            "tip": "文字颜色",
+            "type": "string",
+            "default": "#ccc"
+        }
+    ]
+}

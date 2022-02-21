@@ -1,0 +1,70 @@
+{
+    "component": "Swiper",
+    "desc": "走马灯",
+    "type": 2,
+    "event": [
+        "onIndexChange",
+        "onClick"
+    ],
+    "props": [
+        {
+            "name": "defaultIndex",
+            "tip": "初始位置",
+            "type": "number",
+            "default": 0
+        },
+        {
+            "name": "autoplay",
+            "tip": "是否自动切换",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "autoplayInterval",
+            "tip": "自动切换的间隔，单位为ms",
+            "type": "number",
+            "default": 3000
+        },
+        {
+            "name": "direction",
+            "tip": "方向，默认是水平方向",
+            "type": "string",
+            "enum": ["horizontal", "vertical"],
+            "default": "horizontal"
+        },
+        {
+            "name": "indicatorProps",
+            "tip": "指示器的相关属性",
+            "type": "string"
+        },
+        {
+            "name": "indicator",
+            "tip": "自定义指示器",
+            "type": "string"
+        },
+        {
+            "name": "height",
+            "tip": "高度",
+            "type": "string",
+            "default": "120px"
+        },
+        {
+            "name": "width",
+            "tip": "宽度",
+            "type": "string",
+            "default": "100%"
+        },
+        {
+            "name": "borderRadius",
+            "tip": "整体组件的圆角",
+            "type": "number",
+            "default": 0
+        },
+        {
+            "name": "trackPadding",
+            "tip": "轨道区域的padding",
+            "type": "number",
+            "default": 0
+        }
+    ]
+}
