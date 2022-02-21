@@ -1,0 +1,54 @@
+{
+    "component": "Image",
+    "desc": "图片",
+    "type": 2,
+    "props": [
+        {
+            "name": "src",
+            "type": "string",
+            "tip": "图片地址"
+        },
+        {
+            "name": "alt",
+            "type": "string",
+            "tip": "图片描述"
+        },
+        {
+            "name": "width",
+            "type": "string | number",
+            "tip": "图片宽度，如果传入数字则单位为 px"
+        },
+        {
+            "name": "height",
+            "type": "string | number",
+            "tip": "图片高度，如果传入数字则单位为 px"
+        },
+        {
+            "name": "fit",
+            "type": "string",
+            "enum": [
+                "contain",
+                "cover",
+                "fill",
+                "none",
+                "scale-down"
+            ],
+            "tip": "图片填充模式"
+        },
+        {
+            "name": "placeholder",
+            "type": "string",
+            "tip": "加载时的占位"
+        },
+        {
+            "name": "fallback",
+            "type": "string",
+            "tip": "加载失败的占位"
+        }
+    ],
+    "event": [
+        "onError",
+        "onClick",
+        "onLoad"
+    ]
+}
