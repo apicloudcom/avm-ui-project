@@ -1,0 +1,54 @@
+{
+    "component": "Input",
+    "desc": "输入框",
+    "type": 2,
+    "props": [
+        {
+            "name": "value",
+            "type": "string",
+            "tip": "输入值"
+        },
+        {
+            "name": "defaultValue",
+            "type": "string",
+            "tip": "默认值"
+        },
+        {
+            "name": "placeholder",
+            "type": "string",
+            "tip": "提示文本"
+        },
+        {
+            "name": "disabled",
+            "type": "boolean",
+            "enum": [
+                "true",
+                "false"
+            ],
+            "tip": "是否禁用"
+        },
+        {
+            "name": "readOnly",
+            "type": "boolean",
+            "enum": [
+                "true",
+                "false"
+            ],
+            "tip": "是否只读"
+        },
+        {
+            "name": "clearable",
+            "type": "boolean",
+            "enum": [
+                "true",
+                "false"
+            ],
+            "tip": "是否启用清除图标，点击清除图标后会清空输入框"
+        }
+    ],
+    "event": [
+        "onChange",
+        "onClear",
+        "onEnterPress"
+    ]
+}
