@@ -17,5 +17,13 @@ export function onJSON(){
   })
 
   // console.log(jsonMap)
-  fse.writeJsonSync(resolve(uiDir,'../../','avm-ui.json'),jsonMap);
+  try {
+    const savePath = resolve(uiDir,'../../','avm-ui.json');
+
+    fse.writeJsonSync(savePath,jsonMap);
+    console.log(`文件输出在${savePath}，文件大小：${fse.statSync(savePath).size/1000} KB`)
+    
+  }catch (e){
+    console.log(e)
+  }
 }
