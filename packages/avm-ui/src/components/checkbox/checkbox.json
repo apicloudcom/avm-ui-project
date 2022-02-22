@@ -1,0 +1,70 @@
+{
+    "component": "Checkbox",
+    "desc": "定义一个复选框",
+    "type": 2,
+    "props": [
+        {
+            "name": "checked",
+            "type": "boolean",
+            "enum": [
+                "true",
+                "false"
+            ],
+            "tip": "指定当前是否选中"
+        },
+        {
+            "name": "defaultChecked",
+            "type": "boolean",
+            "enum": [
+                "true",
+                "false"
+            ],
+            "tip": "初始是否选中"
+        },
+        {
+            "name": "disabled",
+            "type": "boolean",
+            "enum": [
+                "true",
+                "false"
+            ],
+            "tip": "失效状态"
+        },
+        {
+            "name": "value",
+            "type": "string",
+            "tip": "携带的标识值，用于 `Group` 模式"
+        },
+        {
+            "name": "indeterminate",
+            "type": "boolean",
+            "enum": [
+                "true",
+                "false"
+            ],
+            "tip": "设置indeterminate状态，只负责样式控制"
+        },
+        {
+            "name": "block",
+            "type": "boolean",
+            "enum": [
+                "true",
+                "false"
+            ],
+            "tip": "是否渲染为块级元素"
+        },
+        {
+            "name": "icon",
+            "type": "string",
+            "tip": "未选中图标"
+        },
+        {
+            "name": "selectedIcon",
+            "type": "string",
+            "tip": "选中图标"
+        }
+    ],
+    "event": [
+        "onChange"
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "component": "CheckboxGroup",
+    "desc": "定义一个勾选框组",
+    "type": 2,
+    "props": [
+        {
+            "name": "list",
+            "type": "array",
+            "tip": "选项列表"
+        },
+        {
+            "name": "defaultValue",
+            "type": "array",
+            "tip": "默认选中的选项"
+        },
+        {
+            "name": "disabled",
+            "type": "boolean",
+            "enum": [
+                "true",
+                "false"
+            ],
+            "tip": "整组失效"
+        },
+        {
+            "name": "value",
+            "type": "array",
+            "tip": "指定选中的选项"
+        },
+        {
+            "name": "iconSize",
+            "type": "string",
+            "tip": "勾选图标的大小"
+        },
+        {
+            "name": "fontSize",
+            "type": "string",
+            "tip": "右侧文字描述的大小"
+        },
+        {
+            "name": "gap",
+            "type": "string",
+            "tip": "图标和文字描述之间的间距"
+        }
+    ],
+    "event": [
+        "onChange"
+    ]
+}
