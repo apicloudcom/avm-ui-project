@@ -1,0 +1,76 @@
+{
+    "component": "ImageUploader",
+    "desc": "图片上传",
+    "type": 2,
+    "event": [
+        "onChange",
+        "onCountExceed",
+        "onDelete"
+    ],
+    "props": [
+        {
+            "name": "value",
+            "tip": "已上传的文件列表",
+            "type": "array"
+        },
+        {
+            "name": "defaultValue",
+            "tip": "默认已上传的文件列表",
+            "type": "array"
+        },
+        {
+            "name": "accept",
+            "tip": "文件类型",
+            "enum": ["jpg", "png"],
+            "type": "string",
+            "default": "jpg"
+        },
+        {
+            "name": "maxCount",
+            "tip": "最多上传几张图片，超出数量会自动隐藏上传按钮",
+            "type": "string"
+        },
+        {
+            "name": "disableUpload",
+            "tip": "是否禁用上传按钮",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "showUpload",
+            "tip": "是否展示上传按钮",
+            "type": "boolean",
+            "default": true
+        },
+        {
+            "name": "deletable",
+            "tip": "是否展示删除按钮",
+            "type": "boolean",
+            "default": true
+        },
+        {
+            "name": "capture",
+            "tip": "图片选取模式，可选值为library（图片库）camera（直接调起摄像头）album（相册）",
+            "enum": ["library", "camera", "album"],
+            "type": "string",
+            "default": "library"
+        },
+        {
+            "name": "uploadIcon",
+            "tip": "自定义上传icon",
+            "type": "string"
+        },
+        {
+            "name": "gap",
+            "tip": "每张图片间距",
+            "type": "string",
+            "default": "12px"
+        },
+        {
+            "name": "cellSize",
+            "tip": "图片和上传按钮的大小",
+            "type": "string",
+            "default": "80px"
+        }
+    ]
+}

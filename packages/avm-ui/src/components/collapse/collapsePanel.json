@@ -1,0 +1,26 @@
+{
+    "component": "CollapsePanel",
+    "desc": "折叠面板-子元素",
+    "type": 2,
+    "event": [
+        "onClick"
+    ],
+    "props": [
+        {
+            "name": "key",
+            "tip": "唯一标识符",
+            "type": "string"
+        },
+        {
+            "name": "title",
+            "tip": "标题栏左侧内容",
+            "type": "string"
+        },
+        {
+            "name": "disabled",
+            "tip": "是否为禁用状态",
+            "type": "boolean",
+            "default": false
+        }
+    ]
+}

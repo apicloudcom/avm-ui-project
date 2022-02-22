@@ -1,0 +1,45 @@
+{
+    "component": "CheckList",
+    "desc": "可勾选列表",
+    "type": 2,
+    "event": [
+        "onChange"
+    ],
+    "props": [
+        {
+            "name": "defaultValue",
+            "tip": "默认选中项",
+            "type": "array",
+            "default": []
+        },
+        {
+            "name": "multiple",
+            "tip": "是否允许多选",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "readOnly",
+            "tip": "是否只读",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "disabled",
+            "tip": "是否禁用",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "list",
+            "tip": "选项列表, 格式为[{value: 选项值, label: 选项text值, readonly: 是否只读, disabled: 是否禁用}]",
+            "type": "array",
+            "default": []
+        },
+        {
+            "name": "activeIcon",
+            "tip": "选中图标",
+            "type": "string"
+        }
+    ]
+}

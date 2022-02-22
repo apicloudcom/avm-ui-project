@@ -1,0 +1,13 @@
+{
+    "component": "Grid",
+    "desc": "栅格",
+    "type": 2,
+    "event": [],
+    "props": [
+        {
+            "name": "columns",
+            "tip": "列数",
+            "type": "number"
+        }
+    ]
+}

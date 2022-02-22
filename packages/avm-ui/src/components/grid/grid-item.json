@@ -1,0 +1,15 @@
+{
+    "component": "GridItem",
+    "desc": "栅格子元素",
+    "type": 2,
+    "event": [
+        "onClick"
+    ],
+    "props": [
+        {
+            "name": "span",
+            "tip": "跨度",
+            "type": "number"
+        }
+    ]
+}
