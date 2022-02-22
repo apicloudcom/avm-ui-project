@@ -1,0 +1,121 @@
+{
+    "component": "Step",
+    "desc": "步进器",
+    "type": 2,
+    "event": [
+        "onChange",
+        "onFocus",
+        "onBlur"
+    ],
+    "props": [
+        {
+            "name": "value",
+            "tip": "当前数，受控值",
+            "type": "number"
+        },
+        {
+            "name": "defaultValue",
+            "tip": "默认值",
+            "type": "number"
+        },
+        {
+            "name": "min",
+            "tip": "最小值",
+            "type": "number"
+        },
+        {
+            "name": "max",
+            "tip": "最大值",
+            "type": "number"
+        },
+        {
+            "name": "step",
+            "tip": "每次改变步数，可以为小数",
+            "type": "number",
+            "default": 1
+        },
+        {
+            "name": "digits",
+            "tip": "格式化到小数点后固定位数，设置为0表示格式化到整数",
+            "type": "number"
+        },
+        {
+            "name": "disabled",
+            "tip": "是否禁用步进器",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "height",
+            "tip": "组件整体高度",
+            "type": "string",
+            "default": "30px"
+        },
+        {
+            "name": "inputWidth",
+            "tip": "仅输入框的宽度",
+            "type": "string",
+            "default": "60px"
+        },
+        {
+            "name": "inputFontSize",
+            "tip": "输入框文字大小",
+            "type": "string",
+            "default": "13px"
+        },
+        {
+            "name": "borderRadius",
+            "tip": "组件整体的圆角",
+            "type": "string",
+            "default": "2px"
+        },
+        {
+            "name": "border",
+            "tip": "组件四周边框的样式",
+            "type": "string",
+            "default": "1px solid #e5e5e5"
+        },
+        {
+            "name": "borderInner",
+            "tip": "组件内部边框的样式",
+            "type": "string",
+            "default": "1px solid #e5e5e5"
+        },
+        {
+            "name": "activeBorder",
+            "tip": "输入框 Focus 状态下，四周边框样式",
+            "type": "string",
+            "default": "1px solid #e5e5e5"
+        },
+        {
+            "name": "btnFontSize",
+            "tip": "左右两侧按钮文字大小",
+            "type": "string",
+            "default": "10px"
+        },
+        {
+            "name": "btnBgColor",
+            "tip": "左右两侧按钮背景颜色",
+            "type": "string",
+            "default": "transparent"
+        },
+        {
+            "name": "btnWidth",
+            "tip": "左右两侧按钮的宽度",
+            "type": "string",
+            "default": "30px"
+        },
+        {
+            "name": "inputFontColor",
+            "tip": "输入框文字颜色",
+            "type": "string",
+            "default": "#333"
+        },
+        {
+            "name": "btnTextColor",
+            "tip": "左右两侧按钮文字颜色",
+            "type": "string",
+            "default": "#1677ff"
+        }
+    ]
+}

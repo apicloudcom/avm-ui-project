@@ -1,0 +1,60 @@
+{
+    "component": "Popup",
+    "desc": "弹出层",
+    "type": 2,
+    "event": [
+        "onMaskClick",
+        "onClick"
+    ],
+    "props": [
+        {
+            "name": "visible",
+            "tip": "是否可见",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "position",
+            "tip": "指定弹出的位置",
+            "type": "string",
+            "enum": ["bottom", "top", "left", "right"],
+            "default": "bottom"
+        },
+        {
+            "name": "className",
+            "tip": "容器类名",
+            "type": "string"
+        },
+        {
+            "name": "style",
+            "tip": "容器样式",
+            "type": "object"
+        },
+        {
+            "name": "bodyClassName",
+            "tip": "内容区域类名",
+            "type": "string"
+        },
+        {
+            "name": "bodyStyle",
+            "tip": "内容区域样式",
+            "type": "object"
+        },
+        {
+            "name": "maskClassName",
+            "tip": "遮罩类名",
+            "type": "string"
+        },
+        {
+            "name": "maskStyle",
+            "tip": "遮罩样式",
+            "type": "object"
+        },
+        {
+            "name": "zIndex",
+            "tip": "元素的 `z-index`",
+            "type": "number",
+            "default": 1000
+        }
+    ]
+}

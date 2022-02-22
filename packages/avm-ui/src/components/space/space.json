@@ -1,0 +1,59 @@
+{
+    "component": "Space",
+    "desc": "间距",
+    "type": 2,
+    "event": [],
+    "props": [
+        {
+            "name": "justify",
+            "tip": "主轴对齐方式",
+            "type": "string",
+            "enum": ["start", "end", "center", "between", "around", "evenly", "stretch"],
+            "default": "start"
+        },
+        {
+            "name": "align",
+            "tip": "交叉轴对齐方式",
+            "enum": ["start", "end", "center", "baseline"],
+            "type": "string",
+            "default": "start"
+        },
+        {
+            "name": "direction",
+            "tip": "间距方向",
+            "type": "string",
+            "enum": ["vertical", "horizontal"],
+            "default": "horizontal"
+        },
+        {
+            "name": "wrap",
+            "tip": "是否自动换行，仅在horizontal时有效",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "block",
+            "tip": "是否渲染为块级元素",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "gap",
+            "tip": "间距大小",
+            "type": "string",
+            "default": "8px"
+        },
+        {
+            "name": "gapVertical",
+            "tip": "垂直方向的间距大小",
+            "type": "string",
+            "default": "8px"
+        },
+        {
+            "name": "gapHorizontal",
+            "tip": "水平方向的间距大小",
+            "type": "string",
+            "default": "8px"
+        }
+    ]
+}

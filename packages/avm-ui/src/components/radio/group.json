@@ -1,0 +1,26 @@
+{
+    "component": "Group",
+    "desc": "单选框-Group",
+    "type": 2,
+    "event": [
+        "onChange"
+    ],
+    "props": [
+        {
+            "name": "defaultValue",
+            "tip": "默认选中的选项",
+            "type": "string"
+        },
+        {
+            "name": "disabled",
+            "tip": "整组失效",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "value",
+            "tip": "指定选中的选项",
+            "type": "string"
+        }
+    ]
+}
