@@ -1,7 +1,7 @@
 {
     "component": "Popup",
     "desc": "弹出层",
-    "type": 2,
+    "type": 3,
     "event": [
         "onMaskClick",
         "onClick"

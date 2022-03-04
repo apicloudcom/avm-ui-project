@@ -1,7 +1,7 @@
 {
     "component": "ActionSheet",
     "desc": "动作面板",
-    "type": 2,
+    "type": 3,
     "event": [
         "onClick",
         "onAction",

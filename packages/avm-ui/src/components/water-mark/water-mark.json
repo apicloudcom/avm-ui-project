@@ -1,0 +1,83 @@
+{
+  "component": "WaterMark",
+  "desc": "水印",
+  "type": 3,
+  "props": [
+    {
+      "name": "width",
+      "tip": "水印宽度",
+      "type": "number",
+      "default": 120
+    },
+    {
+      "name": "height",
+      "tip": "水印高度",
+      "type": "number",
+      "default": 64
+    },
+    {
+      "name": "rotate",
+      "tip": "水印绘制时，旋转的角度，单位 °",
+      "type": "number",
+      "default": -22
+    },
+    {
+      "name": "image",
+      "tip": "图片源，建议导出 2 倍或 3 倍图，优先使用图片渲染水印",
+      "type": "string"
+    },
+    {
+      "name": "imageWidth",
+      "tip": "图片宽度",
+      "type": "number",
+      "default": 120
+    },
+    {
+      "name": "imageHeight",
+      "tip": "图片高度",
+      "type": "number",
+      "default": 64
+    },
+    {
+      "name": "zIndex",
+      "tip": "追加水印元素的z-index",
+      "type": "number",
+      "default": 2000
+    },
+    {
+      "name": "content",
+      "tip": "水印文字内容",
+      "type": "string"
+    },
+    {
+      "name": "fontColor",
+      "tip": "水印文字颜色",
+      "type": "string",
+      "default": "rgba(0, 0, 0, .15)"
+    },
+    {
+      "name": "fontSize",
+      "tip": "水印文字大小",
+      "type": "string | number",
+      "default": 16
+    },
+    {
+      "name": "gapX",
+      "tip": "水印之间的水平间距",
+      "type": "number",
+      "default": 24
+    },
+    {
+      "name": "gapY",
+      "tip": "水印之间的垂直间距",
+      "type": "number",
+      "default": 48
+    },
+    {
+      "name": "fullPage",
+      "tip": "是否覆盖整个页面",
+      "type": "boolean",
+      "default": true
+    }
+  ]
+}

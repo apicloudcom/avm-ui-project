@@ -1,7 +1,7 @@
 {
   "component": "FloatingPanel",
   "desc": "浮动面板",
-  "type": 2,
+  "type": 3,
   "props": [
     {
       "name": "anchors",
