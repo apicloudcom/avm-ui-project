@@ -5,6 +5,7 @@ declare class Component {
 
 declare namespace avm {
   function render(Component, dom);
+  function define(name:string,Component);
 }
 
 interface clientRectProps  {
