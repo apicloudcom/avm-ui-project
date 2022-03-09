@@ -29,8 +29,10 @@ export async function onBuild(cmd = {}) {
     bundle: true,
     plugins: [stylePlugin(), assetPlugin()],
     format: 'esm',
-    splitting: true,
-    minify: true
+    splitting: false,
+    minify: true,
+    legalComments:'none',
+    jsx:'preserve'
   }
 
 
