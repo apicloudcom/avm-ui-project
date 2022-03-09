@@ -54,7 +54,7 @@ export default defineConfig(({mode, command}) => {
       configureServer(server) {
         server.middlewares.use((req, res, next) => {
           if (req.url === '/components/avm-ui/avm-ui-icon.ttf') {
-            return res.end(readFileSync('./widget/components/avm-ui/avm-ui-icon.ttf'));
+            return res.end(readFileSync('./src/components/icon/_gen/dist/fonts/avm-ui-icon.ttf'));
           }
           next();
         })

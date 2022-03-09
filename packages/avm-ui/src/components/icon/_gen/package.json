@@ -1,4 +1,8 @@
 {
   "name": "avm-ui-icon_gen",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "colors-cli": "^1.0.28",
+    "image2uri": "^1.1.0"
+  }
 }
