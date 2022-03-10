@@ -1,6 +1,7 @@
 declare class Component {
   public render: (props) => void;
   public props: Record<string, any>;
+  public css:()=> string;
 }
 
 declare namespace avm {
