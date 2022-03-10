@@ -30,7 +30,7 @@ export async function onBuild(cmd = {}) {
     plugins: [stylePlugin(), assetPlugin()],
     format: 'esm',
     splitting: false,
-    minify: true,
+    minify: false,
     legalComments:'none',
     jsx:'preserve'
   }
@@ -38,7 +38,8 @@ export async function onBuild(cmd = {}) {
 
   await build({
     entryPoints: glob.sync("src/components/*/index.ts", {cwd: resolve(uiDir)}).map(com => resolve(uiDir, com)),
-    outdir: `${dist}/components/avm-ui`, ...base
+    outdir: `${dist}/components/avm-ui`, ...base,
+    assetNames:'[name]'
   })
 
   await build({
