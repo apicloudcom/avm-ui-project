@@ -1,4 +1,3 @@
-import './badge.less';
 import {Badge, dot} from "./badge";
 import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 

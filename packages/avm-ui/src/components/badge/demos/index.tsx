@@ -2,7 +2,6 @@ import {Badge, dot} from "../badge";
 import './index.less';
 import {DemoBlock} from "../../../demos";
 import Space from "../../space";
-import '../badge.less'
 import CFImg from  './img/cf.svg'
 const template =
   <>
