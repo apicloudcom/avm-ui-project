@@ -1,6 +1,6 @@
 import classNames from "../../utils/classnames";
 
-import { mergeProps } from '../../utils/with-default-props'
+import {mergeProps} from '../../utils/with-default-props'
 
 const classPrefix = `adm-button`;
 
@@ -63,7 +63,7 @@ const shapeAttr = {
   rectangular: 0
 }
 
-export class Button extends Component {
+ class Button extends Component {
   install = () => {
     console.log("Button !")
   }
@@ -79,7 +79,7 @@ export class Button extends Component {
       height: 'auto',
       lineHeight: 1.4,
       opacity: disabled ? 0.4 : 1,
-      color:  textColor || colorAttr[color].textColor,
+      color: textColor || colorAttr[color].textColor,
       backgroundColor: bgColor || colorAttr[color].bgColor,
       borderRadius: borderRadius || shapeAttr[shape],
       borderWidth,
@@ -122,5 +122,93 @@ export class Button extends Component {
       msg: "Button"
     })
   }
+
+  css = () => {
+    return `
+   /* temp_stylePlugin:/var/folders/k8/fz71r0pd1gb70k2pmgd9b54m0000gn/T/2022210-13320-3gijym.o0r79.css */
+:root {
+  --adm-color-primary: #1677ff;
+  --adm-color-success: #00b578;
+  --adm-color-warning: #ff8f1f;
+  --adm-color-danger: #ff3141;
+  --adm-color-white: #ffffff;
+  --adm-color-weak: #999999;
+  --adm-color-light: #cccccc;
+  --adm-border-color: #eeeeee;
+  --adm-font-size-main: 13px;
+  --adm-color-text: #333333;
+  --adm-font-family:
+    -apple-system,
+    blinkmacsystemfont,
+    "Helvetica Neue",
+    helvetica,
+    segoe ui,
+    arial,
+    roboto,
+    "PingFang SC",
+    "miui",
+    "Hiragino Sans GB",
+    "Microsoft Yahei",
+    sans-serif;
+}
+.adm-button {
+  border: 1px solid #eee;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 7px 16px;
+  margin: 0;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: opacity ease 0.15s;
+  user-select: none;
+}
+.adm-button-block {
+  display: block;
+  width: 100%;
+}
+.adm-button-disabled {
+  cursor: not-allowed;
+}
+.adm-button-disabled:active::before {
+  display: none;
+}
+.adm-button-mini {
+  padding: 3px 7px;
+  font-size: 13px;
+}
+.adm-button-mini-shape-rounded {
+  padding-left: 9px;
+  padding-right: 9px;
+}
+.adm-button-small {
+  padding: 3px 11px;
+  font-size: 15px;
+}
+.adm-button-large {
+  padding: 11px 22px;
+  font-size: 18px;
+}
+.adm-button-shape-rounded {
+  border-radius: 1000px;
+}
+.adm-button-shape-rectangular {
+  border-radius: 0;
+}
+.adm-button-loading {
+  vertical-align: bottom;
+  background-image: url(./loading.png);
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 22px 22px;
+  padding-left: 24px;
+}
+
+   `
+  }
 }
   
+export {Button};
+export default Button;
+avm.define('avm-button',Button);
