@@ -1,5 +1,4 @@
-import {Button} from "../button";
-import '../button.less';
+import Button from "../";
 import {DemoBlock} from "../../../demos";
 import Space from "../../space";
 
@@ -14,7 +13,7 @@ const template =
         >
           Default
         </Button>
-        <Button color='primary'>Primary</Button>
+        <avm-button color='primary'>Primary</avm-button>
         <Button color='success'>Success</Button>
         <Button color='danger'>Danger</Button>
         <Button color='warning'>Warning</Button>

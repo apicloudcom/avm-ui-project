@@ -63,7 +63,7 @@ const shapeAttr = {
   rectangular: 0
 }
 
- class Button extends Component {
+ export class Button extends Component {
   install = () => {
     console.log("Button !")
   }
@@ -208,7 +208,3 @@ const shapeAttr = {
    `
   }
 }
-  
-export {Button};
-export default Button;
-avm.define('avm-button',Button);
