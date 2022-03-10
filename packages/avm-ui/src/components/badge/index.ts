@@ -5,3 +5,5 @@ import { attachPropertiesToComponent } from '../../utils/attach-properties-to-co
 export default attachPropertiesToComponent(Badge, {
     dot,
   })
+
+avm.define('avm-badge',Badge);
