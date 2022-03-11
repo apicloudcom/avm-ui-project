@@ -1,9 +1,7 @@
 import classNames from "../../utils/classnames";
-
 import {mergeProps} from '../../utils/with-default-props'
 
 const classPrefix = `adm-button`;
-
 export type ButtonProps = {
   color?: 'default' | 'primary' | 'success' | 'warning' | 'danger'
   fill?: 'solid' | 'outline' | 'none'
@@ -37,23 +35,23 @@ const colorAttr = {
   },
   primary: {
     textColor: '#fff',
-    bgColor: '#1677ff',
-    borderColor: '#1677ff'
+    bgColor: '#9AC200',
+    borderColor: '#9AC200'
   },
   success: {
     textColor: '#fff',
-    bgColor: '#00b578',
-    borderColor: '#00b578'
+    bgColor: '#7FA000',
+    borderColor: '#7FA000'
   },
   warning: {
     textColor: '#fff',
-    bgColor: '#ff8f1f',
-    borderColor: '#ff8f1f'
+    bgColor: '#FFA600',
+    borderColor: '#FFA600'
   },
   danger: {
     textColor: '#fff',
-    bgColor: '#ff3141',
-    borderColor: '#ff3141'
+    bgColor: '#FA6400',
+    borderColor: '#FA6400'
   }
 }
 
@@ -63,18 +61,11 @@ const shapeAttr = {
   rectangular: 0
 }
 
- export class Button extends Component {
-  install = () => {
-    console.log("Button !")
-  }
-
+export class Button extends Component {
   render = props => {
     props = mergeProps(defaultProps, props)
-
     const disabled = props.disabled || props.loading
-
     const {textColor, color, bgColor, borderRadius, shape, borderWidth, borderStyle, borderColor} = props
-
     const btnStyles = {
       height: 'auto',
       lineHeight: 1.4,
@@ -117,40 +108,8 @@ const shapeAttr = {
     )
   }
 
-  test() {
-    api.alert({
-      msg: "Button"
-    })
-  }
-
   css = () => {
     return `
-   /* temp_stylePlugin:/var/folders/k8/fz71r0pd1gb70k2pmgd9b54m0000gn/T/2022210-13320-3gijym.o0r79.css */
-:root {
-  --adm-color-primary: #1677ff;
-  --adm-color-success: #00b578;
-  --adm-color-warning: #ff8f1f;
-  --adm-color-danger: #ff3141;
-  --adm-color-white: #ffffff;
-  --adm-color-weak: #999999;
-  --adm-color-light: #cccccc;
-  --adm-border-color: #eeeeee;
-  --adm-font-size-main: 13px;
-  --adm-color-text: #333333;
-  --adm-font-family:
-    -apple-system,
-    blinkmacsystemfont,
-    "Helvetica Neue",
-    helvetica,
-    segoe ui,
-    arial,
-    roboto,
-    "PingFang SC",
-    "miui",
-    "Hiragino Sans GB",
-    "Microsoft Yahei",
-    sans-serif;
-}
 .adm-button {
   border: 1px solid #eee;
   position: relative;
@@ -204,7 +163,6 @@ const shapeAttr = {
   background-size: 22px 22px;
   padding-left: 24px;
 }
-
    `
   }
 }

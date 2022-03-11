@@ -19,8 +19,8 @@ export type MaskProps = {
   color?: 'black' | 'white'
   opacity?: 'default' | 'thin' | 'thick' | number
   getContainer?: GetContainer
-  afterShow?: () => void
-  afterClose?: () => void
+  // afterShow?: () => void
+  // afterClose?: () => void
   stopPropagation?: PropagationEvent[]
 }
 
@@ -42,11 +42,12 @@ export class Mask extends Component {
     const rgb = props.color === 'white' ? '255, 255, 255' : '0, 0, 0'
     const background = `rgba(${rgb}, ${opacity})`
 
-    if (props.visible) {
-      props.afterShow?.()
-    } else {
-      props.afterClose?.()
-    }
+    // 页面存在多个会覆盖
+    // if (props.visible) {
+    //   props.afterShow?.()
+    // } else {
+    //   props.afterClose?.()
+    // }
 
     const shouldRender = useShouldRender(
       props.visible,
