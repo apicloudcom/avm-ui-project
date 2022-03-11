@@ -1,5 +1,4 @@
-import { mergeProps } from '../../utils/with-default-props'
-import classNames from 'classnames'
+import classNames from '../../utils/classnames'
 import Popup from '../popup'
 import { GetContainer } from '../../utils/render-to-container'
 import { formatLabel } from '../../utils/format-label'
@@ -33,7 +32,7 @@ export type ActionSheetProps = {
 const defaultProps = {
   visible: false,
   actions: [],
-  cancelText: '',
+  cancelText: null,
   closeOnAction: false,
   closeOnMaskClick: true,
   safeArea: true,
@@ -46,7 +45,7 @@ export class ActionSheet extends Component {
     }
   }
   render = props => {
-    props = mergeProps(defaultProps, props)
+    props = Object.assign({}, defaultProps, props)
 
     const btnListEle = props.actions.map((action, index) => {
       const {key, disabled, danger, text, description} = action;
@@ -56,11 +55,11 @@ export class ActionSheet extends Component {
           className={`${classPrefix}-button-item-wrapper`}>
           <div
             onClick={() => {
-              if (!disabled) {
+              if (disabled !== true) {
                 action.onClick && action.onClick()
                 props.onAction && props.onAction(action, index)
                 if (props.closeOnAction) {
-                  props.onClose && props.onClose()
+                  props.onClose()
                 }
               }
             }}
@@ -104,13 +103,66 @@ export class ActionSheet extends Component {
                 <div
                   className={`${classPrefix}-button-item`}
                   onClick={() => {
-                    props.onClose?.()
-                  }}>{formatLabel(props.cancelText, `${classPrefix}-button-item-name`)}</div>
+                    props.onClose && props.onClose()
+                  }}>{formatLabel(props.cancelText, `${classPrefix}-button-item-cancel`)}</div>
               </div>
             </div>
           )}
         </div>
       </Popup>
     )
+  }
+
+  css = () => {
+    return `
+      .adm-action-sheet-extra {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #333;
+        font-size: 16px;
+        padding: 18px 16px;
+        border-bottom: 1px solid #eee;
+      }
+      .adm-action-sheet-button-item-wrapper {
+        background-color: #ffffff;
+        border-top: 1px solid #eee;
+      }
+      .adm-action-sheet-button-item {
+        padding: 14px;
+        text-align: center;
+        border-radius: 0;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .adm-action-sheet-button-item-name {
+        color: #333;
+        font-size: 16px;
+      }
+      .adm-action-sheet-button-item-cancel {
+        color: #646566;
+      }
+      .adm-action-sheet-button-item-description {
+        font-size: 14px;
+        color: #999;
+        padding-top: 4px;
+      }
+      .adm-action-sheet-button-item-danger-name {
+        color: #FA6400;
+      }
+      .adm-action-sheet-button-item-disabled {
+        cursor: not-allowed;
+        pointer-events: none;
+        opacity: 0.4;
+      }
+      .adm-action-sheet-cancel {
+        background-color: #f2f2f2;
+        padding-top: 8px;
+      }
+    `
   }
 }

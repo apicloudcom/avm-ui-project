@@ -2,63 +2,76 @@
 	<view class="page">
 		<safe-area>
 			<NavBar onBack={this.back}>ActionSheet</NavBar>
-			<scroll-view>
-				<DemoBlock title='基础用法'>
-					<Space wrap>
-						<Button onClick={() => this.setVisible('visible1', true)}>基础用法</Button>
-						<Button onClick={() => this.setVisible('visible2', true)}>取消按钮和额外描述</Button>
-					</Space>
-				</DemoBlock>
-				<DemoBlock title='选项状态'>
-					<Button onClick={() => this.setVisible('visible3', true)}>禁用和危险的选项</Button>
-				</DemoBlock>
-				<DemoBlock title='事件处理'>
-					<Button onClick={() => this.setVisible('visible4', true)}>事件处理</Button>
-				</DemoBlock>
-			</scroll-view>
+			
 		</safe-area>
-		<ActionSheet
-			visible={this.data.visible1}
+		<DemoBlock title='基础用法'>
+			<avm-space wrap>
+				<avm-button onClick={() => this.setVisible('visibleOne', true)}>基础用法</avm-button>
+				<avm-button onClick={() => this.setVisible('visibleTwo', true)}>取消按钮和额外描述</avm-button>
+			</avm-space>
+		</DemoBlock>
+		<DemoBlock title='选项状态'>
+			<avm-button onClick={() => this.setVisible('visibleThree', true)}>禁用和危险的选项</avm-button>
+		</DemoBlock>
+		<DemoBlock title='事件处理'>
+			<avm-button onClick={() => this.setVisible('visibleFour', true)}>事件处理</avm-button>
+		</DemoBlock>
+		<avm-action-sheet
+			:visible="visibleOne"
 			actions={actions}
-			onClose={this.closeSheet1}
+			onClose={() => this.setVisible('visibleOne', false)}
 			onAction={(action, index) => this.onAction(action, index)}/>
-		<ActionSheet
+		<avm-action-sheet
 			extra='请选择你要进行的操作'
-			cancelText='取消'
-			visible={this.data.visible2}
+			cancelText="取消"
+			:visible="visibleTwo"
 			actions={actions}
-			onClose={() => this.setVisible('visible2', false)}
+			onClose={() => this.setVisible('visibleTwo', false)}
 		/>
-		<ActionSheet
-			visible={this.data.visible3}
+		<avm-action-sheet
+			:visible="visibleThree"
 			actions={this.data.actions3}
-			onClose={() => this.onClose3()}
+			cancelText="取消了哦"
+			onClose={() => this.setVisible('visibleThree', false)}
 		/>
-		<ActionSheet
-			visible={this.data.visible4}
+		<avm-action-sheet
+			:visible="visibleFour"
 			actions={this.data.actions4}
-			onClose={() => this.onClose4()}}
+			onClose={() => this.setVisible('visibleFour', false)}}
 			onAction={(action, index) => this.onAction(action, index)}/>
 	</view>
 </template>
 
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/nav-bar/index.css"/>
+<style src="../../components/avm-ui/demos/index.css"/>
 
 <script>
-import { ActionSheet, DemoBlock, Space, NavBar, Button } from '../../components/avm-ui/avm-ui';
+import '../../components/avm-ui/action-sheet'
+import '../../components/avm-ui/space'
+import '../../components/avm-ui/button'
+import NavBar from '../../components/avm-ui/nav-bar'
+import {DemoBlock} from '../../components/avm-ui/demos'
+
 const actions = [
   { text: '复制', key: 'copy' },
   { text: '修改', key: 'edit' },
-  { text: '删除', key: 'delete' },
+  {
+	text: '删除',
+	key: 'delete',
+	onClick: () => {
+		api.toast({
+			msg: '点击删除操作了!'
+		})
+	}},
 ]
 export default {
 	name: 'demo-actionsheet',
 	data() {
 		return {
-			visible1: false,
-			visible2: false,
-			visible3: false,
-			visible4: false,
+			visibleOne: false,
+			visibleTwo: false,
+			visibleThree: false,
+			visibleFour: false,
 			actions3: [
 				{ text: '复制', key: 'copy' },
 				{ text: '修改', key: 'edit', disabled: true },
@@ -67,6 +80,12 @@ export default {
 					key: 'delete',
 					description: '删除后数据不可恢复',
 					danger: true,
+					onClick: () => {
+						api.toast({
+							msg: '点击删除操作了!'
+						})
+						this.data.visibleThree = false
+					}
 				},
 			],
 			actions4: [
@@ -80,6 +99,7 @@ export default {
 							msg: '删除',
 							location: 'top'
 						});
+						this.data.visibleFour = false
 					},
 				},
 			]
@@ -92,8 +112,8 @@ export default {
 		back() {
 			api.closeWin();
 		},
-		closeSheet1() {
-			this.setVisible('visible1', false)
+		closeOne() {
+			this.setVisible('visibleOne', false)
 		},
 		onAction(action, index) {
 			if (action.key === 'edit' || action.key === 'copy') {
@@ -104,18 +124,18 @@ export default {
 			}
 		},
 		onClose3() {
-			api.toast({
-				msg: '关闭动作面板啦~',
+			api.alert({
+				msg: this.data.visibleThree.toString(),
 				location: 'top'
 			})
-			this.setVisible('visible3', false)
+			this.setVisible('visibleThree', false)
 		},
 		onClose4() {
 			api.toast({
 				msg: '关闭事件处理动作面板啦~',
 				location: 'top'
 			})
-			this.setVisible('visible4', false)
+			this.setVisible('visibleFour', false)
 		}
 	}
 }

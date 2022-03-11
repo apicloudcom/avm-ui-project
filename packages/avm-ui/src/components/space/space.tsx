@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import classNames from '../../utils/classnames'
 import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-space`
@@ -72,5 +72,67 @@ export class Space extends Component {
         )
       })}
     </div>
+  }
+
+  css = () => {
+    return `
+    .adm-space-item {
+      flex: none;
+    }
+    .adm-space {
+      display: inline-flex;
+    }
+    .adm-space-vertical {
+      flex-direction: column;
+    }
+    .adm-space-vertical-item-last {
+      margin-bottom: 0;
+    }
+    .adm-space-horizontal {
+      flex-direction: row;
+    }
+    .adm-space-horizontal-item-last {
+      margin-right: 0;
+    }
+    .adm-space-horizontal-wrap {
+      flex-wrap: wrap;
+    }
+    .adm-space-align-center {
+      align-items: center;
+    }
+    .adm-space-align-start {
+      align-items: flex-start;
+    }
+    .adm-space-align-end {
+      align-items: flex-end;
+    }
+    .adm-space-align-baseline {
+      align-items: baseline;
+    }
+    .adm-space-justify-center {
+      justify-content: center;
+    }
+    .adm-space-justify-start {
+      justify-content: flex-start;
+    }
+    .adm-space-justify-end {
+      justify-content: flex-end;
+    }
+    .adm-space-justify-between {
+      justify-content: space-between;
+    }
+    .adm-space-justify-around {
+      justify-content: space-around;
+    }
+    .adm-space-justify-evenly {
+      justify-content: space-evenly;
+    }
+    .adm-space-justify-stretch {
+      justify-content: stretch;
+    }
+    .adm-space-block {
+      display: flex;
+    }
+    `
   }
 }
