@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import classNames from '../../utils/classnames'
 import {mergeProps} from '../../utils/with-default-props'
 
 const classPrefix = `adm-list`
@@ -13,9 +13,86 @@ export class List extends Component {
   }
 
   render = props => {
-    props = mergeProps(defaultProps, props);
+    props = Object.assign({}, defaultProps, props);
     return <div className={classNames(classPrefix, `${classPrefix}--${props.mode}`)}>
       <div className={`${classPrefix}--inner`}>{props.children}</div>
     </div>
+  }
+
+  css = () => {
+    return `
+    .adm-list {
+      background-color: #ffffff;
+      overflow: hidden;
+      font-size: 17px;
+    }
+    .adm-list--inner {
+      margin-bottom: -1px;
+    }
+    .adm-list--default {
+      border: solid 1px #eee;
+      border-right: none;
+      border-left: none;
+    }
+    .adm-list--card {
+      margin: 12px;
+      border-radius: 8px;
+    }
+    .adm-list-item {
+      width: 100%;
+      display: block;
+      padding-left: 12px;
+    }
+    .adm-list-item-title {
+      font-size: 16px;
+      color: #333;
+    }
+    .adm-list-item-description {
+      color: #999;
+      font-size: 12px;
+    }
+    .adm-list-item-children {
+      font-size: 16px;
+    }
+    .adm-list-item-content {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 12px 12px 12px 0;
+      border-bottom: solid 1px #eee;
+    }
+    .adm-list-item-content-prefix {
+      flex: none;
+      padding-right: 12px;
+    }
+    .adm-list-item-content-main {
+      flex: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .adm-list-item-content-extra {
+      flex: none;
+      padding-left: 12px;
+    }
+    .adm-list-item-content-arrow {
+      flex: none;
+      display: flex;
+      align-items: center;
+      padding-left: 12px;
+      font-size: 16px;
+      color: #999;
+    }
+    .adm-list-item-content-arrow span {
+      font-size: 16px;
+    }
+    .list-disabled {
+      cursor: not-allowed;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    
+    `
   }
 }

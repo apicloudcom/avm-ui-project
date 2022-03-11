@@ -9,3 +9,6 @@ const properties = {
 };
 
 export default attachPropertiesToComponent(List, properties);
+
+avm.define('avm-list', List)
+avm.define('avm-list-item', ListItem)

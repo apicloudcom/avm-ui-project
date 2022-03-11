@@ -4,92 +4,92 @@
 		<NavBar onBack={this.back}>Collapse</NavBar>
 		<scroll-view>
 			<DemoBlock title='基础用法' padding='0' border='none'>
-				<Collapse defaultActiveKey={['1']}>
-					<Collapse.Panel key='1' title='第一项'>
+				<avm-collapse defaultActiveKey={['1']}>
+					<avm-collapse-panel key='1' title='第一项'>
 						这里是第一项的内容
 						这里是第一项的内容
 						这里是第一项的内容
 						这里是第一项的内容
 						这里是第一项的内容
 						这里是第一项的内容
-					</Collapse.Panel>
-					<Collapse.Panel key='2' title='第二项'>
+					</avm-collapse-panel>
+					<avm-collapse-panel key='2' title='第二项'>
 						这里是第二项的内容
-					</Collapse.Panel>
-					<Collapse.Panel key='3' title='第三项'>
+					</avm-collapse-panel>
+					<avm-collapse-panel key='3' title='第三项'>
 						这里是第三项的内容
-					</Collapse.Panel>
-				</Collapse>
+					</avm-collapse-panel>
+				</avm-collapse>
 			</DemoBlock>
 			<DemoBlock title='手风琴模式' padding='0' border='none'>
-				<Collapse accordion>
-					<Collapse.Panel key='1' title='第一项'>
+				<avm-collapse accordion>
+					<avm-collapse-panel key='1' title='第一项'>
 						手风琴模式只能同时展开一个
 						手风琴模式只能同时展开一个
 						手风琴模式只能同时展开一个
 						手风琴模式只能同时展开一个
 						手风琴模式只能同时展开一个
 						手风琴模式只能同时展开一个
-					</Collapse.Panel>
-					<Collapse.Panel key='2' title='第二项'>
+					</avm-collapse-panel>
+					<avm-collapse-panel key='2' title='第二项'>
 						手风琴模式只能同时展开一个
-					</Collapse.Panel>
-					<Collapse.Panel key='3' title='第三项'>
+					</avm-collapse-panel>
+					<avm-collapse-panel key='3' title='第三项'>
 						手风琴模式只能同时展开一个
-					</Collapse.Panel>
-				</Collapse>
+					</avm-collapse-panel>
+				</avm-collapse>
 			</DemoBlock>
 			<DemoBlock title='禁用' padding='0' border='none'>
-				<Collapse>
-					<Collapse.Panel key='1' title='第一项'>
+				<avm-collapse>
+					<avm-collapse-panel key='1' title='第一项'>
 						这里是第一项的内容
-					</Collapse.Panel>
-					<Collapse.Panel key='2' title='第二项' disabled>
+					</avm-collapse-panel>
+					<avm-collapse-panel key='2' title='第二项' disabled>
 						这里是第二项的内容
-					</Collapse.Panel>
-					<Collapse.Panel key='3' title='第三项' disabled>
+					</avm-collapse-panel>
+					<avm-collapse-panel key='3' title='第三项' disabled>
 						这里是第三项的内容
-					</Collapse.Panel>
-				</Collapse>
+					</avm-collapse-panel>
+				</avm-collapse>
 			</DemoBlock>
 			<DemoBlock title='自定义箭头' padding='0' border='none'>
-				<Collapse>
-					<Collapse.Panel
+				<avm-collapse>
+					<avm-collapse-panel
 						key='1'
 						title='第一项'
-						content="你可以通过 Collapse.Panel 的 arrow 属性来自定义单个面板的箭头"
+						content="你可以通过 avm-collapse-panel 的 arrow 属性来自定义单个面板的箭头"
 						arrow={<img src="../../image/cf.png"/>}/>
-					<Collapse.Panel
+					<avm-collapse-panel
 						key='2'
 						title='第二项'
-						content="你可以通过 Collapse.Panel 的 arrow 属性来自定义单个面板的箭头"
+						content="你可以通过 avm-collapse-panel 的 arrow 属性来自定义单个面板的箭头"
 						arrow={<img src="../../image/cf.png"/>}/>
-					<Collapse.Panel
+					<avm-collapse-panel
 						key='3'
 						title='第三项'
-						content="你可以通过 Collapse.Panel 的 arrow 属性来自定义单个面板的箭头"
+						content="你可以通过 avm-collapse-panel 的 arrow 属性来自定义单个面板的箭头"
 						arrow={<img src="../../image/cf.png"/>}/>
-				</Collapse>
+				</avm-collapse>
 			</DemoBlock>
-			<DemoBlock title='动态内容' padding='0' border='none'>
-				<Collapse accordion>
-					<Collapse.Panel key='1' title='第一项' onClick={() => api.toast({msg: '点击第一项'})}>
+			<!-- <DemoBlock title='动态内容' padding='0' border='none'>
+				<avm-collapse accordion>
+					<avm-collapse-panel key='1' title='第一项' onClick={() => api.toast({msg: '点击第一项'})}>
 						<DynamicContent />
-					</Collapse.Panel>
-					<Collapse.Panel key='2' title='第二项' onClick={() => api.toast({msg: '点击第二项'})}>
+					</avm-collapse-panel>
+					<avm-collapse-panel key='2' title='第二项' onClick={() => api.toast({msg: '点击第二项'})}>
 						<DynamicContent />
-					</Collapse.Panel>
-				</Collapse>
-			</DemoBlock>
+					</avm-collapse-panel>
+				</avm-collapse>
+			</DemoBlock> -->
 		</scroll-view>
 	</safe-area>
 </template>
 
-<style src="../../components/avm-ui/avm-ui.css"/>
-
 <script>
-import {DynamicContent} from './dynamicContent.js'
-import { Collapse, DemoBlock, Space, NavBar } from '../../components/avm-ui/avm-ui';
+// import {DynamicContent} from './dynamicContent.js'
+import '../../components/avm-ui/collapse'
+import NavBar from '../../components/avm-ui/nav-bar'
+import {DemoBlock} from '../../components/avm-ui/demos'
 
 export default {
 	name: 'demo-collapse',
@@ -100,3 +100,6 @@ export default {
 	}
 }
 </script>
+<style src="../../components/avm-ui/collapse/index.css"></style>
+<style src="../../components/avm-ui/nav-bar/index.css"></style>
+<style src="../../components/avm-ui/demos/index.css"></style>

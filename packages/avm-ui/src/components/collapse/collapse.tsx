@@ -1,7 +1,7 @@
 import {List} from '../list/list'
 import {ListItem} from '../list/list-item'
 import { formatLabel } from '../../utils/format-label'
-import rightArrow from './img/right_arrow.png'
+import {DownOutline} from '../icon/icon'
 
 const classPrefix = `adm-collapse`
 
@@ -85,13 +85,10 @@ export class Collapse extends Component {
                     disabled={panel.disabled}
                     onClick={panel.disabled ? undefined : handleClick}
                     arrow={panel.arrow ??
-                     (<img
-                        src={rightArrow}
-                        alt="spread"
-                        style={{transform: `rotate(${active ? '90deg' : '0deg'})`}}/>)
+                     (<DownOutline/>)
                     }>
                     {formatLabel(panel.title)}
-                  </ListItem>
+                </ListItem>
                 <CollapsePanelContent visible={active}>
                   {panel.content || panel.children}
                 </CollapsePanelContent>
@@ -101,5 +98,23 @@ export class Collapse extends Component {
         </List>
       </div>
     )
+  }
+
+  css = () => {
+    return `
+      .adm-collapse {
+        width: 100%;
+      }
+      .adm-collapse-panel-content {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: baseline;
+        font-size: 16px;
+        color: #999;
+        overflow: hidden;
+      }
+    `
   }
 }
