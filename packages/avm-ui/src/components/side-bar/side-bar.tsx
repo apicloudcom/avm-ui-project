@@ -1,13 +1,9 @@
-import classNames from 'classnames'
-// import Badge from '../badge'
-import { mergeProps } from '../../utils/with-default-props'
+import classNames from '../../utils/classnames'
 import { NativeProps } from '../../utils/native-props'
 import { Badge } from '../badge/badge'
 
 const classPrefix = `adm-side-bar`
-const defaultProps = {
- width:'96px',
-}
+
 export type SideBarItemProps = {
   key?: string
   title?: string
@@ -41,32 +37,35 @@ export class SideBar extends Component {
     }
   }
   render = props => {
-    props = mergeProps(defaultProps, props)
-    console.log(props);
-    
-    const { children,style } = props
-    const width = {
-      width:props.width
-    }
+
+    const { children } = props
+
     const fontWeight = {
-      fontWeight:'bold'
+      fontWeight: 'bold'
     }
     const fontWeightNormal = {
-      fontWeight:'normal'
+      fontWeight: 'normal'
     }
 
+    let customizeWidth = ''
+    if (props.style) {
+      customizeWidth = props.style.split(':')[1]
+    }
+    const back = {
+      'width': customizeWidth || '96px'
+    }
 
     return (
-      <div style={style || width} className={classNames(classPrefix)}>
+      <div style={back} className={classNames(classPrefix)}>
         {
           children.map(item => {
             return (
-              <div style={style || width} onClick={this.activeItem.bind(this, item)} className={classNames(`${classPrefix}-item`, {
+              <div style={back} onClick={this.activeItem.bind(this, item)} className={classNames(`${classPrefix}-item`, {
                 [`${classPrefix}-item-active`]: this.data.activeKey == item.attributes.key,
                 [`${classPrefix}-item-disabled`]: item.attributes.disabled,
               })}>
                 <Badge content={item.attributes.badge}>
-                  <span style={this.data.activeKey == item.attributes.key?fontWeight:fontWeightNormal} className={classNames(`${classPrefix}-item-active-none`, {
+                  <span style={this.data.activeKey == item.attributes.key ? fontWeight : fontWeightNormal} className={classNames(`${classPrefix}-item-active-none`, {
                     [`${classPrefix}-item-text`]: this.data.activeKey == item.attributes.key,
                     [`${classPrefix}-item-disabled`]: item.attributes.disabled,
                   })}>{item.attributes.title}</span>
@@ -79,4 +78,72 @@ export class SideBar extends Component {
     )
   }
 
+  css = () => {
+    return `
+    :root {
+      --adm-color-primary: #1677ff;
+      --adm-color-success: #00b578;
+      --adm-color-warning: #ff8f1f;
+      --adm-color-danger: #ff3141;
+      --adm-color-white: #ffffff;
+      --adm-color-weak: #999999;
+      --adm-color-light: #cccccc;
+      --adm-border-color: #eeeeee;
+      --adm-font-size-main: 13px;
+      --adm-color-text: #333333;
+      --adm-font-family:
+        -apple-system,
+        blinkmacsystemfont,
+        "Helvetica Neue",
+        helvetica,
+        segoe ui,
+        arial,
+        roboto,
+        "PingFang SC",
+        "miui",
+        "Hiragino Sans GB",
+        "Microsoft Yahei",
+        sans-serif;
+    }
+    .active-color {
+      color: var(--adm-color-primary);
+    }
+    .adm-side-bar {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      font-size: 15px;
+      overflow-y: auto;
+    }
+    .adm-side-bar-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 6px 22px;
+      font-size: 15px;
+      position: relative;
+      cursor: pointer;
+      background-color: #f5f5f5;
+    }
+    .adm-side-bar-item-active {
+      background-color: #fff;
+      font-weight: bold;
+      position: relative;
+      color: #000;
+    }
+    .adm-side-bar-item-active-none {
+      color: #000;
+    }
+    .adm-side-bar-item-text {
+      font-weight: bold;
+      color: #000;
+    }
+    .adm-side-bar-item-disabled {
+      cursor: not-allowed;
+      color: #000;
+      opacity: 0.4;
+    }
+   `
+  }
 }

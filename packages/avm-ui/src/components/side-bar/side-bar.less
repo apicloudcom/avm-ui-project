@@ -10,8 +10,6 @@
   font-size: 15px;
   overflow-y: auto;
 
-
-
   &-item {
     display: flex;
     align-items: center;
@@ -24,13 +22,12 @@
     background-color: #f5f5f5;
     
     &-active {
-      color: var(--adm-color-primary);
-      background-color: white;
+      background-color:#fff;
       font-weight: bold;
       position: relative;
+      color: #000;
       &-none{
         color: #000;
-        // font-weight: normal;
       }
      
      
@@ -39,60 +36,14 @@
 
     &-text{
       font-weight: bold;
-      color: var(--adm-color-primary);
+      color: #000;
+      
     }
     
-    &-active + .@{class-prefix-side-bar}-item {
-      border-top-right-radius: 10px;
-    }
-
-    &-active::before {
-      content: '';
-      width: 10px;
-      height: 10px;
-      background-color: white;
-      position: absolute;
-      top: calc(10px * -1);
-      right: 0;
-    }
-
-    &-active::after {
-      content: '';
-      width: 10px;
-      height: 10px;
-      background-color: #f5f5f5;
-      border-bottom-right-radius: 10px;
-      position: absolute;
-      top: calc(10px * -1);
-      right: 0;
-    }
-
-    
-
-    &-active::before {
-      content: '';
-      width: 10px;
-      height: 10px;
-      background-color: white;
-      position: absolute;
-      top: calc(10px * -1);
-      right: 0;
-    }
-
-    &-active::after {
-      content: '';
-      width: 10px;
-      height: 10px;
-      background-color: #f5f5f5;
-      border-bottom-right-radius: 10px;
-      position: absolute;
-      top: calc(10px * -1);
-      right: 0;
-    }
-
     &-disabled {
       cursor: not-allowed;
-      color: var(--adm-color-light);
+      color: #000;
+      opacity: .4;
     }
   }
 }

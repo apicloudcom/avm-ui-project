@@ -51,7 +51,10 @@
 	</scroll-view>
 </template>
 
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/demos/index.css"/>
+<style src="../../components/avm-ui/side-bar/index.css"/>
+<style src="../../components/avm-ui/badge/index.css"/>
+<style src="../../components/avm-ui/nav-bar/index.css"/>
 <style>
 .demoBlock {
 	background-color: #f5f7fa;
@@ -68,8 +71,11 @@
 }
 </style>
 <script>
-import { DemoBlock, SideBar, Badge, NavBar } from '../../components/avm-ui/avm-ui';
-
+// import { DemoBlock, SideBar, Badge, NavBar } from '../../components/avm-ui/avm-ui';
+import { DemoBlock }from '../../components/avm-ui/demos'
+import SideBar from '../../components/avm-ui/side-bar'
+import Badge from '../../components/avm-ui/badge'
+import NavBar from '../../components/avm-ui/nav-bar'
 export default {
 
 	name: 'demo-side-bar',

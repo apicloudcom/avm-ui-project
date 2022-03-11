@@ -7,3 +7,4 @@ export type { SideBarProps, SideBarItemProps } from './side-bar'
 export default attachPropertiesToComponent(SideBar, {
   Item: SideBarItem,
 })
+avm.define('avm-side-bar',SideBar);

@@ -3,7 +3,7 @@
 		<NavBar onBack={this.back}>ProgressBar</NavBar>
 		<DemoBlock title='基本用法'>
 			<Space wrap className={'adm-progress-bar-trail'}>
-				<Button color='primary' disabled={this.data.disabled} onClick={this.setPercent.bind(this,10)} :style="{margin-right:'8px'}">
+				<Button color='primary' disabled={this.data.disabled} onClick={this.setPercent.bind(this,10)} :style="{'margin-right':'8px'}">
 					进度+10
 				</Button>
 				<Button color='primary' fill='outline' onClick={this.resetPercent}>
@@ -25,14 +25,20 @@
 	</safe-area>
 </template>
 
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/button/index.css"/>
+<style src="../../components/avm-ui/nav-bar/index.css"/>
+<style src="../../components/avm-ui/side-bar/index.css"/>
+<style src="../../components/avm-ui/demos/index.css"/>
 <style>
 .adm-progress-bar-trail {
 	margin-top: 20px;
 }
 </style>
 <script>
-import { DemoBlock, ProgressBar, NavBar, Button, Space } from '../../components/avm-ui/avm-ui';
+import { DemoBlock }from '../../components/avm-ui/demos'
+import SideBar from '../../components/avm-ui/side-bar'
+import Badge from '../../components/avm-ui/badge'
+import NavBar from '../../components/avm-ui/nav-bar'
 
 export default {
 
