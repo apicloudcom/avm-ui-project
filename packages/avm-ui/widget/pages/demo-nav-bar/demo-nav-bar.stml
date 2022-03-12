@@ -31,11 +31,11 @@
 				</NavBar>
 			</DemoBlock>
 
-			<DemoBlock title='自定义右侧区域' padding='0'>
+			<!-- <DemoBlock title='自定义右侧区域' padding='0'>
 				<NavBar right={right} onBack={this.backClick}>
 					标题
 				</NavBar>
-			</DemoBlock>
+			</DemoBlock> -->
 
 			<DemoBlock title='自定义标题内容' padding='0'>
 				<NavBar onBack={this.backClick}>
@@ -61,10 +61,16 @@
 	</safe-area>
 </template>
 
-<style src="../../components/avm-ui/avm-ui.css"/>
+
+<style src="../../components/avm-ui/demos/index.css"/>
+<style src="../../components/avm-ui/nav-bar/index.css"/>
+<style src="../../components/avm-ui/icon/index.css"/>
 
 <script>
-import { DemoBlock, NavBar, SearchOutline, MoreOutline } from '../../components/avm-ui/avm-ui';
+// import { DemoBlock, NavBar, SearchOutline, MoreOutline } from '../../components/avm-ui/avm-ui';
+import { DemoBlock }from '../../components/avm-ui/demos';
+import NavBar from '../../components/avm-ui/nav-bar';
+import {SearchOutline,MoreOutline} from '../../components/avm-ui/icon';
 
 export default {
 	name: 'demo-nav-bar',

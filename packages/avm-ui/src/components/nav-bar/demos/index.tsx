@@ -2,7 +2,7 @@ import { NavBar } from '../../../index'
 import { DemoBlock } from '../../../demos/demo-block'
 import { SearchOutline, MoreOutline } from '../../icon/icon'
 
-import './index.less';
+import './index.css';
 const right = (
   <div>
     <SearchOutline />
