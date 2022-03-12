@@ -1,5 +1,5 @@
 {
-  "fontName": "avm-ui-icon",
+  "fontName": "avm-icon",
   "svgPath": "./dist/svg/",
   "fontPath": "./dist/fonts/"
 }
