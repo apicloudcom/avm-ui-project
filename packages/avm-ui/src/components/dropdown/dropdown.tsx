@@ -1,7 +1,7 @@
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps } from '../../utils/native-props'
 import { DropdownItem } from './item'
-import classNames from 'classnames'
+import classNames from '../../utils/classnames'
 import { Popup } from '../popup/popup'
 import '../popup/popup.less'
 import { DownFill } from '../icon/icon'
@@ -120,5 +120,144 @@ export class Dropdown extends Component {
         </Popup>
       </div>
     )
+  }
+  css = ()=>{
+    return `
+    :root {
+      --adm-color-primary: #9AC200;
+      --adm-color-success: #7FA000;
+      --adm-color-warning: #FFA600;
+      --adm-color-danger: #FA6400;
+      --adm-color-white: #ffffff;
+      --adm-color-weak: #999999;
+      --adm-color-light: #cccccc;
+      --adm-border-color: #eeeeee;
+      --adm-font-size-main: 13px;
+      --adm-color-text: #333333;
+      --adm-font-family:
+        -apple-system,
+        blinkmacsystemfont,
+        "Helvetica Neue",
+        helvetica,
+        segoe ui,
+        arial,
+        roboto,
+        "PingFang SC",
+        "miui",
+        "Hiragino Sans GB",
+        "Microsoft Yahei",
+        sans-serif;
+    }
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .pop {
+      position: absolute;
+      width: 100%;
+      top: 50px;
+      height: 100%;
+    }
+    .adm-dropdown {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      border-top: 1px solid var(--adm-border-color);
+      border-bottom: 1px solid var(--adm-border-color);
+    }
+    .adm-dropdown-item {
+      flex: 1;
+      flex-direction: row;
+      padding: 12px;
+      justify-content: center;
+      align-items: center;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .adm-dropdown-default {
+      color: #000;
+    }
+    .adm-dropdown-active {
+      color: #9AC200;
+    }
+    .adm-dropdown .container-icon {
+      transform: rotate(180deg) translateY(0px);
+      transition: all 0.2s ease;
+    }
+    .adm-dropdown .adm-icon {
+      font-size: 8px;
+    }
+    .adm-dropdown .default-icon {
+      transition: all 0.2s ease;
+      transform: rotate(0deg) translateY(1px);
+    }
+    .adm-popup {
+      top: 50px;
+    }
+    .adm-popup-body-position-top {
+      padding: 12px;
+    }
+    
+
+    .adm-mask {
+      --z-index: var(--adm-mask-z-index, 1000);
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: var(--z-index);
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .adm-mask-aria-button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .adm-mask-content {
+      height: 100%;
+      z-index: 1;
+    }
+    
+    .adm-popup {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .adm-popup-body {
+      position: absolute;
+      background-color: #fff;
+    }
+    .adm-popup-body-position-bottom {
+      width: 100%;
+      bottom: 0;
+      left: 0;
+    }
+    .adm-popup-body-position-top {
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+    .adm-popup-body-position-left {
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+    .adm-popup-body-position-right {
+      height: 100%;
+      top: 0;
+      right: 0;
+    }
+    
+    `
   }
 }

@@ -1,9 +1,9 @@
 <template>
 	<safe-area>
-		<NavBar onBack={this.back}>Dropdown</NavBar>
+		<NavBar onBack={this.back}>avm-dropdown</NavBar>
 		<DemoBlock title='一列' padding={'0'}>
-			<Dropdown>
-				<Dropdown.Item key='sorter' title='排序'>
+			<avm-dropdown>
+				<avm-dropdown-item key='sorter' title='排序'>
 
 					<Space direction='vertical' block>
 						<Radio block value='default'>
@@ -17,67 +17,69 @@
 						</Radio>
 					</Space>
 
-				</Dropdown.Item>
+				</avm-dropdown-item>
 
-			</Dropdown>
+			</avm-dropdown>
 		</DemoBlock>
 
 		<DemoBlock title='两列' padding={'0'}>
-			<Dropdown>
-				<Dropdown.Item key='sorter' title='排序'>
+			<avm-dropdown>
+				<avm-dropdown-item key='sorter' title='排序'>
 					<div style="padding: 12px">
 						<span>排序内容</span>
 						<span>排序内容</span>
 						<span>排序内容</span>
 					</div>
-				</Dropdown.Item>
-				<Dropdown.Item key='bizop' title='商机筛选'>
+				</avm-dropdown-item>
+				<avm-dropdown-item key='bizop' title='商机筛选'>
 					<div style="padding: 12px">
 						<span>商机筛选内容</span>
 						<span>商机筛选内容</span>
 						<span>商机筛选内容</span>
 					</div>
-				</Dropdown.Item>
-			</Dropdown>
+				</avm-dropdown-item>
+			</avm-dropdown>
 		</DemoBlock>
 		<DemoBlock title='自定义arrow' padding={'0'}>
-			<Dropdown arrow={'xx'}>
-			<Dropdown.Item key='sorter' title='排序'>
-				<div style="padding: 12px">
-					<span>排序内容</span>
-					<span>排序内容</span>
-					<span>排序内容</span>
-				</div>
-			</Dropdown.Item>
-			<Dropdown.Item key='bizop' title='商机筛选' arrow={'xx'}
-			>
-			<div style="padding: 12px">
-				<span>商机筛选内容</span>
-				<span>商机筛选内容</span>
-				<span>商机筛选内容</span>
-			</div>
-			</Dropdown.Item>
-			<Dropdown.Item key='more' title='更多筛选'>
-				<div style="padding: 12px">
-					<span>更多筛选内容</span>
-					<span>更多筛选内容</span>
-				</div>
-			</Dropdown.Item>
-			</Dropdown>
+			<avm-dropdown arrow={'xx'}>
+				<avm-dropdown-item key='sorter' title='排序'>
+					<div style="padding: 12px">
+						<span>排序内容</span>
+						<span>排序内容</span>
+						<span>排序内容</span>
+					</div>
+				</avm-dropdown-item>
+				<avm-dropdown-item key='bizop' title='商机筛选' arrow={'xx'}>
+					<div style="padding: 12px">
+						<span>商机筛选内容</span>
+						<span>商机筛选内容</span>
+						<span>商机筛选内容</span>
+					</div>
+				</avm-dropdown-item>
+				<avm-dropdown-item key='more' title='更多筛选'>
+					<div style="padding: 12px">
+						<span>更多筛选内容</span>
+						<span>更多筛选内容</span>
+					</div>
+				</avm-dropdown-item>
+			</avm-dropdown>
 		</DemoBlock>
 	</safe-area>
 </template>
 
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/demos/index.css"/>
+<style src="../../components/avm-ui/avm-dropdown/index.css"/>
+<style src="../../components/avm-ui/radio/index.css"/>
+<style src="../../components/avm-ui/nav-bar/index.css"/>
+<style src="../../components/avm-ui/space/index.css"/>
 
 <script>
-// import { Dropdown, DemoBlock, NavBar, Radio, ClockCircleOutline, Space } from '../../components/avm-ui/avm-ui';
 
-import { DemoBlock }from '../../components/avm-ui/demos'
-import Dropdown from '../../components/avm-ui/dropdown'
+import { DemoBlock } from '../../components/avm-ui/demos'
+import '../../components/avm-ui/dropdown'
 import Radio from '../../components/avm-ui/radio'
-import NavBar from '../../components/avm-ui/nav-bar'
-import Space from '../../components/avm-ui/space'
+import NavBar from '../../components/avm-ui/nav-bar'
+import Space from '../../components/avm-ui/space'
 
 export default {
 	name: 'demo-divider',
