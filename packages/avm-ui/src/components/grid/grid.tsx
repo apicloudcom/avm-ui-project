@@ -1,4 +1,3 @@
-import { mergeProps } from '../../utils/with-default-props'
 import { toCSSLength } from '../../utils/to-css-length'
 
 const classPrefix = `adm-grid`
@@ -41,11 +40,24 @@ export class Grid extends Component {
       </div>
     )
   }
+
+  css = () => {
+    return `
+      .adm-grid {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        flex-wrap: wrap;
+      }
+    `
+  }
 }
 
 export class GridItem extends Component {
   render = props => {
-    props = mergeProps({span: 1}, props)
+    props = Object.assign({}, {span: 1}, props)
     // const itemStyle = {}
     // itemStyle['grid-column-end'] = `span ${props.span}`
 

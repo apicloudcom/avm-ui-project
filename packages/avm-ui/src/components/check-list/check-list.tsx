@@ -1,5 +1,4 @@
 import List from '../list'
-import { mergeProps } from '../../utils/with-default-props'
 import {CheckListItem} from './check-list-item'
 
 
@@ -38,7 +37,7 @@ export class CheckList extends Component {
   }
 
   render = props => {
-    props = mergeProps(defaultProps, props)
+    props = Object.assign({}, defaultProps, props)
     const {list=[]} = props
 
     const childEle = list.map(item => {
@@ -60,5 +59,21 @@ export class CheckList extends Component {
     return (
       <List mode={props.mode}>{childEle}</List>
     )
+  }
+
+  css = () => {
+    return `
+      .adm-check-list-item-extra {
+        font-size: 16px;
+        color: #9AC200;
+      }
+      .adm-check-list-item-readonly {
+        cursor: unset;
+      }
+    
+      .adm-check-list-item-active {
+        color: #9AC200;
+      }
+    `
   }
 }

@@ -1,7 +1,8 @@
-import classNames from 'classnames'
-import { mergeProps } from '../../utils/with-default-props'
+import classNames from '../../utils/classnames'
 
-import closeIcon from './img/close.png'
+// import closeIcon from './img/close.png'
+
+import {CloseCircleOutline} from '../icon/icon'
 
 const classPrefix = `adm-input`
 
@@ -10,9 +11,9 @@ const defaultProps = {
   defaultValue: '',
   maxLength: 500,
   minLength: 0,
-  fontSize: '17px',
+  fontSize: '16px',
   color: '#333',
-  placeholderColor: '#ccc',
+  placeholderColor: '#bbb',
   disabledColor: '#999',
   textAlign: 'left'
 }
@@ -37,7 +38,7 @@ export class Input extends Component {
   }
 
   render = props => {
-    this.props = mergeProps(defaultProps, props)
+    this.props = Object.assign({}, defaultProps, props)
     
 
     const {id, color, fontSize, disabledColor, textAlign, placeholderColor, placeholderClass,
@@ -108,11 +109,59 @@ export class Input extends Component {
               this.setValue('')
               onClear?.()
             }}>
-            <img src={closeIcon} alt="close" className={`${classPrefix}-clear-icon`}/>
+            {/* <img src={closeIcon} alt="close" className={`${classPrefix}-clear-icon`}/> */}
+            <CloseCircleOutline {...{fontSize: '16px'}}/>
           </div>
         )}
       </div>
     )
+  }
+
+  css = () => {
+    return `
+      .adm-input-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+      }
+      .adm-input {
+        flex: auto;
+        display: inline-block;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        padding: 0;
+        margin: 0;
+        line-height: 1.5;
+        background: transparent;
+        border: 0;
+        outline: none;
+        appearance: none;
+        min-height: 1.5em;
+      }
+      .adm-input-disabled {
+        cursor: not-allowed;
+        opacity: 1;
+      }
+      .adm-input-read-only {
+        cursor: default;
+      }
+      .adm-input-clear {
+        flex: none;
+        margin-left: 8px;
+        padding: 3px;
+        cursor: pointer;
+      }
+      .adm-input-clear-icon {
+        width: 16px;
+        height: 16px;
+      }
+    `
   }
   
 }

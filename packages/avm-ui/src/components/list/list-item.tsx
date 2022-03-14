@@ -4,13 +4,14 @@ import {formatLabel} from '../../utils/format-label'
 const classPrefix = `adm-list-item`
 
 // import rightArrowIcon from './img/rightArrow.png'
-import {DownOutline} from '../icon/icon'
+import {RightOutline} from '../icon/icon'
 export class ListItem extends Component {
   install = () => {
     console.log('ListItem!');
   }
 
   render = props => {
+    const active = props.active || false;
     const clickable = props.clickable ?? !!props.onClick
 
     const arrow = props.arrow === undefined ? clickable : props.arrow
@@ -35,7 +36,9 @@ export class ListItem extends Component {
 
         <div className={classNames(`${classPrefix}-content-main`, disabledClass)}>
           {props.title && (
-            <span className={`${classPrefix}-title`}>{props.title}</span>
+            <span className={classNames(`${classPrefix}-title`, {
+              [`${classPrefix}-title-active`]: active
+            })}>{props.title}</span>
           )}
           {childEles}
           {props.description && (
@@ -48,7 +51,7 @@ export class ListItem extends Component {
         {arrow && (
           <div className={classNames(`${classPrefix}-content-arrow`, disabledClass)}>
             {/* {arrow === true ? <img src={rightArrowIcon} alt="rightArrow"/> : arrow} */}
-            {arrow === true ? <DownOutline/> : arrow}
+            {arrow === true ? <RightOutline {...{color: (active ? '#9AC200' : '#666')}}/> : arrow}
           </div>
         )}
       </div>

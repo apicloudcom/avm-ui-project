@@ -1,11 +1,12 @@
-import classNames from 'classnames'
-import { mergeProps } from '../../utils/with-default-props'
+import classNames from '../../utils/classnames'
 import { NativeProps } from '../../utils/native-props'
 import { formatLabel } from '../../utils/format-label'
 
-import defaultIcon from './img/default.png'
-import alertIcon from './img/alert.png'
-import infoIcon from './img/info.png'
+// import defaultIcon from './img/default.png'
+// import alertIcon from './img/alert.png'
+// import infoIcon from './img/info.png'
+
+import {SoundOutline, CloseOutline} from '../icon/icon'
 
 const classPrefix = `adm-notice-bar`
 
@@ -32,24 +33,24 @@ const defaultProps = {
 
 const colorsObj = {
   default: {
-    bgColor: '#b2b2b2',
-    borderColor: '#a0a0a0',
-    textColor: '#fff'
+    bgColor: '#f4f8e5',
+    borderColor: '#f4f8e5',
+    textColor: '#9AC200'
   },
   alert: {
-    bgColor: '#fff9ed',
-    borderColor: '#fff3e9',
-    textColor: '#ff6010'
+    bgColor: '#FFFBE8',
+    borderColor: '#FFFBE8',
+    textColor: '#FA6400'
   },
   error: {
-    bgColor: '#ff3b30',
-    borderColor: '#d9281e',
-    textColor: '#fff'
+    bgColor: '#FBE7E7',
+    borderColor: '#FBE7E7',
+    textColor: '#E02020'
   },
   info: {
-    bgColor: '#d0e4ff',
-    borderColor: '#bcd8ff',
-    textColor: '#1677ff'
+    bgColor: '#E8EFFA',
+    borderColor: '#E8EFFA',
+    textColor: '#1677FF'
   }
 }
 
@@ -67,7 +68,7 @@ export class NoticeBar extends Component {
   }
 
   render = props => {
-    props = mergeProps(defaultProps, props)
+    props = Object.assign({}, defaultProps, props)
 
     if (!this.data.visible) return null
 
@@ -80,15 +81,19 @@ export class NoticeBar extends Component {
     const leftCls = classNames(`${classPrefix}-left`, `${classPrefix}-left-${props.color}`)
 
     const leftIcon = {
-      default: defaultIcon,
-      error: defaultIcon,
-      info: infoIcon,
-      alert: alertIcon
+      default: '#9AC200',
+      error: '#E02020',
+      info: '#1677FF',
+      alert: '#FA6400'
     }
+
+    // const leftEle = 'icon' in props
+    //   ? props.icon
+    //   : (<img src={!props.bgColor ? leftIcon[props.color] : defaultIcon} alt="icon"/>)
 
     const leftEle = 'icon' in props
       ? props.icon
-      : (<img src={!props.bgColor ? leftIcon[props.color] : defaultIcon} alt="icon"/>)
+      : (<SoundOutline {...{color: leftIcon[props.color]}}/>)
 
     const contentInnerCls = classNames(`${classPrefix}-content-inner`, `${classPrefix}-content-inner-${props.color}`)
 
@@ -116,15 +121,59 @@ export class NoticeBar extends Component {
           <view className={`${classPrefix}-right`}>
             {props.extra && formatLabel(props.extra, `${classPrefix}-right-${props.color}`, textStyle)}
             {props.closeable && (
-              <text onClick={() => {
+              <view onClick={() => {
                 this.setVisible(false)
                 props.onClose?.()
               }}
-              style={textStyle}>X</text>
+              style={textStyle}><CloseOutline/></view>
             )}
           </view>
         )}
       </div>
     )
+  }
+
+  css = () => {
+    return `
+      .adm-notice-bar {
+        width: 100%;
+        height: 30px;
+        font-size: 14px;
+        line-height: 30px;
+        padding: 0 12px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-top: solid 1px transparent;
+        border-bottom: solid 1px transparent;
+      }
+      .adm-notice-bar-left {
+        flex-shrink: 0;
+        margin-right: 8px;
+      }
+      .adm-notice-bar-content {
+        flex: 1;
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .adm-notice-bar-content-inner {
+        width: fit-content;
+        transition-timing-function: linear;
+        position: absolute;
+        padding: 0 4px;
+        white-space: nowrap;
+      }
+      .adm-notice-bar-right {
+        flex-shrink: 0;
+        margin-left: 12px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+    `
   }
 }

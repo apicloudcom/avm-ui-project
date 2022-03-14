@@ -1,7 +1,8 @@
 import {ListItem} from '../list/list-item'
-import classNames from 'classnames'
+import classNames from '../../utils/classnames'
 
-import checkedIcon from './checked.png'
+// import checkedIcon from './checked.png'
+import {RightOutline} from '../icon/icon'
 
 const classPrefix = `adm-check-list-item`
 
@@ -16,7 +17,7 @@ export class CheckListItem extends Component {
     const activeIcon = props.activeIcon
     const extra = (
       <div className={`${classPrefix}-extra`}>
-        {active ? (activeIcon ?? (<img src={checkedIcon} alt="checked"/>)) : ''}
+        {active ? (activeIcon || <RightOutline/>) : ''}
       </div>
     )
 
@@ -24,8 +25,9 @@ export class CheckListItem extends Component {
       <ListItem
         title={props.title}
         className={classNames({
-          [`${classPrefix}-readonly`]: readOnly,
+          [`${classPrefix}-readonly`]: readOnly
         })}
+        active={active}
         description={props.description}
         prefix={props.prefix}
         onClick={() => {

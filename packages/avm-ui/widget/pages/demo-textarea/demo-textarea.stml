@@ -3,7 +3,7 @@
 		<NavBar onBack={this.back}>Textarea</NavBar>
 		<scroll-view>
 			<DemoBlock title='基本的输入框组件'>
-			<TextArea
+			<avm-textarea
 					defaultValue={'123'}
 					placeholder='请输入内容'
 					placeholderColor="#f5f5f5"
@@ -12,33 +12,33 @@
 				/>
 			</DemoBlock>
 			<DemoBlock title='指定行数'>
-				<TextArea placeholder='请输入内容' rows={3} />
+				<avm-textarea placeholder='请输入内容' rows={3} />
 			</DemoBlock>
 			<DemoBlock title='根据内容自动调整高度'>
-				<TextArea
+				<avm-textarea
 					placeholder='请输入内容'
 					autoSize={true}
 				/>
 			</DemoBlock>
 			<DemoBlock title='字数统计'>
-			<TextArea defaultValue={'北极星垂地，\n东山月满川。'} showCount />
+			<avm-textarea defaultValue={'北极星垂地，\n东山月满川。'} showCount />
 			</DemoBlock>
 			<DemoBlock title='字数限制'>
-			<TextArea
+			<avm-textarea
 					defaultValue={'北极星垂地，\n东山月满川。'}
-					showCount={(len, maxLength) => (<text style="text-align: right; padding-top: 8px; color: #999;">{len} \ {maxLength}</text>)}
+					showCount={(len, maxLength) => (<text style="text-align: right; padding-top: 8px; color: #999; font-size: 12px;">{len} / {maxLength}</text>)}
 					maxLength={30}
 				/>
 			</DemoBlock>
 			<DemoBlock title='禁用状态'>
-				<TextArea
+				<avm-textarea
 					placeholder='请输入内容'
 					value={'北极星垂地，\n东山月满川。'}
 					disabled
 				/>
 			</DemoBlock>
 			<DemoBlock title='只读状态'>
-				<TextArea
+				<avm-textarea
 					placeholder='请输入内容'
 					value={'北极星垂地，\n东山月满川。'}
 					readOnly
@@ -48,8 +48,9 @@
 	</safe-area>
 </template>
 <script>
-import { TextArea, NavBar, DemoBlock } from '../../components/avm-ui/avm-ui';
-
+import '../../components/avm-ui/text-area'
+import NavBar from '../../components/avm-ui/nav-bar'
+import {DemoBlock} from '../../components/avm-ui/demos'
 export default {
 	name: 'demo-textarea',
 	methods: {
@@ -64,7 +65,7 @@ export default {
 	}
 }
 </script>
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/demos/index.css"></style>
 <style>
 .page {
 	height: 100%;

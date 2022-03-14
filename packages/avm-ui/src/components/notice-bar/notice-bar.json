@@ -32,6 +32,26 @@
             "name": "icon",
             "type": "string",
             "tip": "左侧广播图标"
+        },
+        {
+            "name": "extra",
+            "type": "string",
+            "tip": "额外操作区域，显示在关闭按钮左侧"
+        },
+        {
+            "name": "bgColor",
+            "type": "string",
+            "tip": "背景颜色"
+        },
+        {
+            "name": "borderColor",
+            "type": "string",
+            "tip": "边框颜色"
+        },
+        {
+            "name": "textColor",
+            "type": "string",
+            "tip": "文字颜色"
         }
     ],
     "event": [

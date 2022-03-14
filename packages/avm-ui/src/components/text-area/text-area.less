@@ -1,16 +1,13 @@
-@import url('../../global/theme.less');
-
 .adm-text-area-wrapper {
   width: 100%;
   max-width: 100%;
   max-height: 100%;
   border-radius: 4px;
-  border: 1px solid #e5e5e5;
+  border: 1px solid transparent;
   padding: 5px;
 }
 
 .adm-text-area {
-  font-family: var(--adm-font-family);
   resize: none;
   flex: auto;
   display: block;
@@ -38,8 +35,9 @@
   }
   &-count {
     text-align: right;
-    color: var(--adm-color-weak);
-    font-size: 17px;
+    color: #999;
+    font-size: 12px;
     padding-top: 8px;
+    line-height: 17px;
   }
 }
