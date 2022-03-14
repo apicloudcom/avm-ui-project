@@ -63,20 +63,17 @@ export class List extends Component {
         border-bottom: solid 1px #e8e8e8;
       }
       .adm-list-item-content-prefix {
-        flex: none;
         padding-right: 12px;
       }
       .adm-list-item-content-main {
-        flex: auto;
+        flex: 1;
         display: flex;
         flex-direction: column;
       }
       .adm-list-item-content-extra {
-        flex: none;
         padding-left: 12px;
       }
       .adm-list-item-content-arrow {
-        flex: none;
         display: flex;
         align-items: center;
         padding-left: 12px;

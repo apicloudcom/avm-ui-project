@@ -1,5 +1,4 @@
-import classNames from 'classnames'
-import { mergeProps } from '../../utils/with-default-props'
+import classNames from '../../utils/classnames'
 
 const classPrefix = 'adm-text-area'
 
@@ -8,9 +7,9 @@ const defaultProps = {
   showCount: false,
   autoSize: false,
   defaultValue: '',
-  fontSize: '17px',
+  fontSize: '16px',
   color: '#333',
-  placeholderColor: '#ccc',
+  placeholderColor: '#bbb',
   disabledColor: '#999'
 }
 
@@ -28,7 +27,7 @@ export class TextArea extends Component {
   }
 
   render = props => {
-    this.props = mergeProps(defaultProps, props)
+    this.props = Object.assign({}, defaultProps, props)
 
     const {
       className,
@@ -102,5 +101,50 @@ export class TextArea extends Component {
         {count}
       </div>
     )
+  }
+
+  css = () => {
+    return `
+      .adm-text-area-wrapper {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        padding: 5px;
+      }
+      .adm-text-area {
+        resize: none;
+        flex: auto;
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        padding: 0;
+        margin: 0;
+        line-height: 1.5;
+        background: transparent;
+        border: 0;
+        outline: none;
+        appearance: none;
+        min-height: 52px;
+      }
+      .adm-text-area-disabled {
+        cursor: not-allowed;
+        opacity: 1;
+      }
+      .adm-text-area-readonly {
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+      .adm-text-area-count {
+        text-align: right;
+        color: #999;
+        font-size: 12px;
+        padding-top: 8px;
+        line-height: 17px;
+      }
+    `
   }
 }

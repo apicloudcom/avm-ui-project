@@ -4,56 +4,55 @@
 		<NavBar onBack={this.back}>Image</NavBar>
 		<scroll-view>
 			<DemoBlock title='基础用法'>
-				<Space wrap>
-					<Image src={demoSrc}  width={200} height={200}/>
-				</Space>
+				<avm-space wrap>
+					<avm-image src={demoSrc}  width={200} height={200}/>
+				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='多种填充模式'>
-				<Space wrap>
-					<Image src={demoSrc} width={100} height={100} fit='fill'/>
-					<Image src={demoSrc} width={100} height={100} fit='contain'/>
-					<Image src={demoSrc} width={100} height={100} fit='cover'/>
-					<Image src={demoSrc} width={100} height={100} fit='scale-down'/>
-					<Image src={demoSrc} width={100} height={100} fit='none'/>
-				</Space>
+				<avm-space wrap>
+					<avm-image src={demoSrc} width={100} height={100} fit='fill'/>
+					<avm-image src={demoSrc} width={100} height={100} fit='contain'/>
+					<avm-image src={demoSrc} width={100} height={100} fit='cover'/>
+					<avm-image src={demoSrc} width={100} height={100} fit='scale-down'/>
+					<avm-image src={demoSrc} width={100} height={100} fit='none'/>
+				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='自定义圆角、自定义图片宽高'>
-				<Space wrap>
-					<Image
+				<avm-space wrap>
+					<avm-image
 						src={demoSrc}
 						width={64}
 						height={64}
 						fit='cover'
 						:style="{borderRadius: 4}"
 					/>
-					<Image
+					<avm-image
 						src={demoSrc}
 						width={64}
 						height={64}
 						fit='cover'
 						:style="{borderRadius: 8}"
 					/>
-					<Image
+					<avm-image
 						src={demoSrc2}
 						width={90}
 						height={90}
 						fit='cover'
 						:style="{borderRadius: 32}"
 					/>
-				</Space>
+				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='加载失败'>
-				<Image src='/404' width={100} height={100} />
+				<avm-image src='/404' width={100} height={100} />
 			</DemoBlock>
 		</scroll-view>
 	</safe-area>
 </template>
-
-<style src="../../components/avm-ui/avm-ui.css"/>
-
 <script>
-import { Image, DemoBlock, NavBar, Space } from '../../components/avm-ui/avm-ui';
-
+import '../../components/avm-ui/image'
+import '../../components/avm-ui/space'
+import NavBar from '../../components/avm-ui/nav-bar'
+import {DemoBlock} from '../../components/avm-ui/demos'
 export default {
 	name: 'demo-image',
 	data() {
@@ -74,3 +73,4 @@ export default {
 	}
 }
 </script>
+<style src="../../components/avm-ui/demos/index.css"></style>
