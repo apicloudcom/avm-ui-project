@@ -19,5 +19,6 @@
 
 | 属性          | 说明       | 默认值    | 全局变量                         |
 | ------------- | ---------- | --------- | -------------------------------- |
-| strokeWidth   | 线条宽度   | `3px`     | `--adm-progress-bar-track-width` |
-| strokeColor  | 填充的颜色 | `#1677FF` | `--adm-progress-bar-fill-color`  |
+| trackWidth   | 线条宽度   | `3px`     | `--adm-progress-bar-track-width` |
+| trackColor  | 线条的颜色 | `#1677FF` | `--adm-progress-bar-track-color`  |
+| fillColor  | 填充的颜色 | `#E5E5E5` | `--adm-progress-bar-fill-color`  |

@@ -15,15 +15,15 @@ export class ProgressBar extends Component {
 
   render = props => {
     const back = {}
-    back['height'] = toCSSLength(props.strokeWidth) || '3px'
-    back['borderRadius'] = toCSSLength(props.strokeWidth) || '3px'
-    back['backgroundColor'] = '#e5e5e5'
+    back['height'] = toCSSLength(props.trackWidth) || '3px'
+    back['borderRadius'] = toCSSLength(props.trackWidth) || '3px'
+    back['backgroundColor'] =props.fillColor || '#E5E5E5'  
 
     const styles = {}
     styles['width'] = `${props.percent}%`
     styles['width'] = props.percent ? `${props.percent}%` : '0%'
-    styles['background'] = props.strokeColor || '#1677ff'
-    styles['borderRadius'] = toCSSLength(props.strokeWidth) || '3px'
+    styles['background'] = props.trackColor || '#1677ff'
+    styles['borderRadius'] = toCSSLength(props.trackWidth) || '3px'
 
     return (
       <div className={classPrefix}  >
@@ -33,5 +33,43 @@ export class ProgressBar extends Component {
       </div>
     )
   }
-
+  css=()=>{
+    return `
+:root {
+  --adm-color-primary: #9AC200;
+  --adm-color-success: #7FA000;
+  --adm-color-warning: #FFA600;
+  --adm-color-danger: #FA6400;
+  --adm-color-white: #ffffff;
+  --adm-color-weak: #999999;
+  --adm-color-light: #cccccc;
+  --adm-border-color: #eeeeee;
+  --adm-font-size-main: 13px;
+  --adm-color-text: #333333;
+  --adm-font-family:
+    -apple-system,
+    blinkmacsystemfont,
+    "Helvetica Neue",
+    helvetica,
+    segoe ui,
+    arial,
+    roboto,
+    "PingFang SC",
+    "miui",
+    "Hiragino Sans GB",
+    "Microsoft Yahei",
+    sans-serif;
+}
+.adm-progress-bar {
+  width: 100%;
+}
+.adm-progress-bar-trail {
+  width: 100%;
+}
+.adm-progress-bar-fill {
+  transition: width 0.3s;
+  height: 100%;
+}
+`
+  }
 }

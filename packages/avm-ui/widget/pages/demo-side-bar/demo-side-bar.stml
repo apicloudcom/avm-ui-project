@@ -1,36 +1,36 @@
 <template>
 	<scroll-view>
 		<safe-area>
-		    <NavBar onBack={this.back}>SideBar</NavBar>
+		    <NavBar onBack={this.back}>avm-side-bar</NavBar>
 			<DemoBlock title='基本用法' padding='0'>
-				<SideBar>
+				<avm-side-bar>
 					{this.data.tabs.map(item => (
-					<SideBar.Item key={item.key} title={item.title} />
+					<avm-side-bar-item key={item.key} title={item.title} />
 					))}
-				</SideBar>
+				</avm-side-bar>
 			</DemoBlock>
 			<DemoBlock title='配合 Badge 使用' padding='0'>
-				<SideBar>
+				<avm-side-bar>
 					{this.data.tabs.map(item => (
-					<SideBar.Item key={item.key} title={item.title} badge={item.badge} />
+					<avm-side-bar-item key={item.key} title={item.title} badge={item.badge} />
 					))}
-				</SideBar>
+				</avm-side-bar>
 			</DemoBlock>
 			<DemoBlock title='禁用某个选项' padding='0'>
-				<SideBar>
+				<avm-side-bar>
 					{this.data.tabs.map(item => (
-					<SideBar.Item key={item.key} title={item.title} disabled={item.disabled} />
+					<avm-side-bar-item key={item.key} title={item.title} disabled={item.disabled} />
 					))}
-				</SideBar>
+				</avm-side-bar>
 			</DemoBlock>
 			<DemoBlock title='受控组件' padding='0'>
 				<div className={'container'}>
 					<div>
-						<SideBar activeKey={this.data.activeKey} onChange={this.setActiveKey}>
+						<avm-side-bar activeKey={this.data.activeKey} onChange={this.setActiveKey}>
 							{this.data.tabs.map(item => (
-							<SideBar.Item key={item.key} title={item.title} />
+							<avm-side-bar-item key={item.key} title={item.title} />
 							))}
-						</SideBar>
+						</avm-side-bar>
 					</div>
 					<div>
 						<text>{{ this.data.activeKey }}</text>
@@ -41,11 +41,11 @@
 				</div>
 			</DemoBlock>
 			<DemoBlock title='自定义宽度' padding='0'>
-				<SideBar style="width:120px">
+				<avm-side-bar style="width:120px">
 					{this.data.tabs.map(item => (
-					<SideBar.Item key={item.key} title={item.title} />
+					<avm-side-bar-item key={item.key} title={item.title} />
 					))}
-				</SideBar>
+				</avm-side-bar>
 			</DemoBlock>
 		</safe-area>
 	</scroll-view>
@@ -71,9 +71,8 @@
 }
 </style>
 <script>
-// import { DemoBlock, SideBar, Badge, NavBar } from '../../components/avm-ui/avm-ui';
 import { DemoBlock }from '../../components/avm-ui/demos'
-import SideBar from '../../components/avm-ui/side-bar'
+import  '../../components/avm-ui/side-bar'
 import Badge from '../../components/avm-ui/badge'
 import NavBar from '../../components/avm-ui/nav-bar'
 export default {

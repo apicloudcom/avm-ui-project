@@ -4,7 +4,8 @@
     "type": 2,
     "props": [
         {"name": "percent", "type": "number", "tip": "百分比"},
-        {"name": "strokeWidth", "type": "number",  "tip": "线条宽度"},
-        {"name": "strokeColor", "type": "string",  "tip": "线条的颜色"}
+        {"name": "trackWidth", "type": "number",  "tip": "线条宽度"},
+        {"name": "trackColor", "type": "string",  "tip": "线条的颜色"},
+        {"name": "fillColor", "type": "string",  "tip": "填充的颜色"}
     ]
 }

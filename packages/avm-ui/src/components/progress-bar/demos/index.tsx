@@ -72,7 +72,7 @@ class Demo extends Component {
         <DemoBlock title='指定颜色'>
           <ProgressBar
             percent={60}
-            strokeColor='#ff0000'
+            trackColor='#ff0000'
           />
         </DemoBlock>
       </>
