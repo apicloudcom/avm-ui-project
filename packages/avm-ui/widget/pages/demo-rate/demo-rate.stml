@@ -1,47 +1,49 @@
 <template>
 	<safe-area class="page">
-		<NavBar onBack={this.back}>Rate</NavBar>
+		<avm-nav-bar onBack={this.back}>Rate</avm-nav-bar>
 		<scroll-view>
 			<DemoBlock title='基础用法'>
-				<Rate onChange={val => api.toast({msg: val})} />
+				<avm-rate onChange={val => api.toast({msg: val})} />
 			</DemoBlock>
 			<DemoBlock title='半星'>
-				<Rate allowHalf defaultValue={2.5} />
+				<avm-rate allowHalf defaultValue={2.5} />
 			</DemoBlock>
 			<DemoBlock title='只读'>
-				<Rate readOnly value={4} />
+				<avm-rate readOnly value={4} />
 			</DemoBlock>
 			<DemoBlock title='清除'>
-				<Space direction='vertical'>
-				<Space align='center'>
-					<Rate defaultValue={3} allowClear={true} />
+				<avm-space direction='vertical'>
+				<avm-space align='center'>
+					<avm-rate defaultValue={3} allowClear={true} />
 					<div>可清除</div>
-				</Space>
-				<Space align='center'>
-					<Rate defaultValue={3} allowClear={false} />
+				</avm-space>
+				<avm-space align='center'>
+					<avm-rate defaultValue={3} allowClear={false} />
 					<div>不可清除</div>
-				</Space>
-				</Space>
+				</avm-space>
+				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='自定义字符和样式'>
-				<Space direction='vertical'>
-					<Rate allowHalf defaultValue={2} character={"棒"} />
-					<Rate allowHalf defaultValue={1.5} character={'A'} />
-					<Rate
+				<avm-space direction='vertical'>
+					<avm-rate allowHalf defaultValue={2} character={"棒"} />
+					<avm-rate allowHalf defaultValue={1.5} character={'♤'} />
+					<avm-rate
 						allowHalf
 						defaultValue={3.5}
-						character={'好'}
+						character={'♡'}
 						starSize="32px"
 						activeColor="#ff7f7f"
 					/>
-				</Space>
+				</avm-space>
 			</DemoBlock>
 		</scroll-view>
 	</safe-area>
 </template>
 <script>
-import { Rate, NavBar, DemoBlock, Space } from '../../components/avm-ui/avm-ui';
-
+import '../../components/avm-ui/rate'
+import '../../components/avm-ui/space'
+import '../../components/avm-ui/nav-bar'
+import {DemoBlock} from '../../components/avm-ui/demos'
 export default {
 	name: 'demo-rate',
 	methods: {
@@ -51,7 +53,7 @@ export default {
 	}
 }
 </script>
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/demos/index.css"/>
 <style>
 .page {
 	height: 100%;

@@ -1,5 +1,4 @@
-import classNames from 'classnames'
-import { mergeProps } from '../../utils/with-default-props'
+import classNames from '../../utils/classnames'
 
 const classPrefix = `adm-page-indicator`
 
@@ -17,7 +16,7 @@ const defaultProps = {
 }
 
 const colorMapping = {
-  primary: '#1677ff',
+  primary: '#9AC200',
   white: '#fff'
 }
 export class PageIndicator extends Component {
@@ -26,16 +25,16 @@ export class PageIndicator extends Component {
   }
 
   render = props => {
-    props = mergeProps(defaultProps, props)
+    props = Object.assign({}, defaultProps, props)
     const {
       direction,
-      dotColor='rgba(0, 0, 0, 0.2)',
+      dotColor='#ddd',
       activeDotColor= ['primary', 'white'].includes(props.color) ? colorMapping[props.color] : props.color,
-      dotSize='3px',
-      activeDotSize='13px',
-      dotBorderRadius='1px',
-      activeDotBorderRadius='1px',
-      dotSpacing='3px'
+      dotSize='6px',
+      activeDotSize='6px',
+      dotBorderRadius='3px',
+      activeDotBorderRadius='3px',
+      dotSpacing='8px'
     } = props
 
     const isHorizontal = direction === 'horizontal';
@@ -71,5 +70,29 @@ export class PageIndicator extends Component {
     >
       {dots}
     </div>
+  }
+
+  css = () => {
+    return `
+      .adm-page-indicator {
+        display: flex;
+        width: fit-content;
+      }
+      .adm-page-indicator-dot {
+        display: block;
+      }
+      .adm-page-indicator-dot:last-child {
+        margin-right: 0;
+      }
+      .adm-page-indicator-color-white .adm-page-indicator-dot-active {
+        background: #fff;
+      }
+      .adm-page-indicator-horizontal {
+        flex-direction: row;
+      }
+      .adm-page-indicator-vertical {
+        flex-direction: column;
+      }
+    `
   }
 }

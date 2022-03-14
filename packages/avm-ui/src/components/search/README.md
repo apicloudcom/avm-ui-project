@@ -20,6 +20,7 @@
 | onClear          | 点击清除按钮后触发                           | `() => void`                                              | -        |
 | onCancel         | 点击取消按钮时触发                           | `() => void`                                              | -        |
 | background        | 背景色           | -      | `#f5f5f5`               |
-| borderRadius     | 圆角               | -    | `6px`                   |
+| borderRadius     | 圆角               | -    | `4px`                   |
 | placeholderColor | `placeholder` 文字颜色  | - | `var(--adm-color-weak)` |
+|  cancelTextColor  |  取消按钮文案字体颜色  |   `string`   |   `#333`   |
 

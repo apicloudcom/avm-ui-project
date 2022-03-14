@@ -1,5 +1,4 @@
-import classNames from 'classnames'
-import { mergeProps } from '../../utils/with-default-props'
+import classNames from '../../utils/classnames'
 
 import {Step} from './step'
 
@@ -16,7 +15,7 @@ export class Steps extends Component {
   }
 
   render = props => {
-    props = mergeProps(defaultProps, props)
+    props = Object.assign({}, defaultProps, props)
 
     const {direction, current} = props
 
@@ -53,5 +52,21 @@ export class Steps extends Component {
         {stemItem}
       </div>
     )
+  }
+  css = () => {
+    return `
+      .adm-steps {
+        width: 100%;
+      }
+      .adm-steps-horizontal {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 8px 0;
+      }
+      .adm-steps-vertical {
+        padding: 8px 16px;
+      }
+    `
   }
 }

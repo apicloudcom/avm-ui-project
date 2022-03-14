@@ -1,15 +1,9 @@
-@import url('../../global/theme.less');
 @class-prefix-step: ~'adm-step';
 @class-prefix-steps: ~'adm-steps';
 
-@errorColor: #ff3141;
-@primaryColor: #1677ff;
-@iconBgColor: #e8e8e8;
-
-:root {
-  --line-to-next-color: #e5e5e5;
-  --icon-color: #e5e5e5;
-}
+@errorColor: #e02020;
+@primaryColor: #9ac200;
+@iconBgColor: #ddd; 
 
 .@{class-prefix-steps} {
   width: 100%;
@@ -38,20 +32,25 @@
     color: #333;
     width: 100%;
     white-space: wrap;
+    font-size: 14px;
+    line-height: 20px;
 
-    &-error {
-      color: @errorColor;
-    }
-    &-finish {
-      color: @primaryColor;
-    }
-    &-wait {
-      color: #333;
-    }
+    // &-error {
+    //   color: @errorColor;
+    // }
+    // &-finish {
+    //   color: @primaryColor;
+    // }
+    // &-wait {
+    //   color: #333;
+    // }
   }
   &-description {
     width: 100%;
     white-space: wrap;
+    font-size: 12px;
+    color: #999;
+    line-height: 16px;
   }
   &-horizontal {
     flex: 1;
@@ -70,13 +69,8 @@
 
     &-content {
       padding-top: 2px;
-      &-title {
-        font-size: 12px;
-      }
       &-description {
-        font-size: 12px;
         margin-top: 2px;
-        color: var(--adm-color-weak);
       }
     }
   }
@@ -88,7 +82,6 @@
       height: 100%;
       margin-right: 8px;
       flex-direction: column;
-      margin-top: 7px;
     }
     &-line {
       flex: 1;
@@ -99,25 +92,20 @@
     &-content {
       flex: auto;
       margin: 0 0 15px 0;
-      &-title {
-        font-size: 17px;
-      }
       &-description {
         padding-top: 2px;
-        font-size: 15px;
-        color: var(--adm-color-weak);
       }
     }
   }
   &-line {
     &-wait {
-      background: #e8e8e8;
+      background: @iconBgColor;
     }
     &-finish {
-      background: #1677ff;
+      background: @primaryColor;
     }
     &-error {
-      background: #ff3141;
+      background: @errorColor;
     }
   }
   &-dot {
@@ -125,18 +113,40 @@
     height: 8px;
     border-radius: 4px;
     z-index: 6;
-    background-color: #e5e5e5;
+    background-color: @iconBgColor;
     &-wait {
-      background-color: #e5e5e5;
+      background-color: @iconBgColor;
     }
     &-process {
-      background-color: #1677ff;
+      background-color: @primaryColor;
     }
     &-finish {
-      background-color: #1677f1;
+      background-color: @primaryColor;
     }
     &-error {
-      background-color: #ff3141;
+      background-color: @errorColor;
+    }
+  }
+  &-dottext {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    line-height: 18px;
+    &-wait {
+      background: @iconBgColor;
+      color: #fff;
+    }
+    &-error {
+      background: @errorColor;
+    }
+    &-process {
+      background: @primaryColor;
+    }
+    &-finish {
+      background: @primaryColor;
     }
   }
 }

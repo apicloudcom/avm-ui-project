@@ -1,44 +1,44 @@
 <template>
 	<safe-area class="page">
-		<NavBar onBack={this.back}>Stepper</NavBar>
+		<avm-nav-bar onBack={this.back}>Stepper</avm-nav-bar>
 		<scroll-view>
 			<DemoBlock title='基础用法(非受控)'>
-				<Stepper
+				<avm-stepper
 					defaultValue={1}
 					onChange={this.handleChange}
 				/>
 			</DemoBlock>
 			<DemoBlock title='受控组件'>
-				<Stepper
+				<avm-stepper
 					value={this.data.num}
 					onChange={this.numChange}
 				/>
 			</DemoBlock>
 			<DemoBlock title='步长设置'>
-				<Stepper step={10} defaultValue={10} />
+				<avm-stepper step={10} defaultValue={10} />
 			</DemoBlock>
 			<DemoBlock title='设置输入范围'>
-				<Stepper min={-5} max={5} />
+				<avm-stepper min={-5} max={5} />
 			</DemoBlock>
 			<DemoBlock title='格式化到整数'>
-				<Stepper digits={0} />
+				<avm-stepper digits={0} />
 			</DemoBlock>
 			<DemoBlock title='格式化到一位小数'>
-				<Stepper digits={1} />
+				<avm-stepper digits={1} />
 			</DemoBlock>
 			<DemoBlock title='禁用状态'>
-				<Stepper disabled />
+				<avm-stepper disabled />
 			</DemoBlock>
 			<DemoBlock title='获得/失去焦点'>
-				<Stepper
+				<avm-stepper
 					onFocus={this.handleFocus}
 					onBlur={this.handleBlur}
 				/>
 			</DemoBlock>
 			<DemoBlock title='自定义css变量'>
-				<Stepper
+				<avm-stepper
 					borderInner="none"
-					btnBgColor="#f00"
+					btnBgColor="#9AC200"
 					height="30px"
 					inputWidth="60px"
 					activeBorder="1px solid #1677ff"
@@ -50,8 +50,9 @@
 	</safe-area>
 </template>
 <script>
-import { Stepper, NavBar, DemoBlock } from '../../components/avm-ui/avm-ui';
-
+import '../../components/avm-ui/stepper'
+import '../../components/avm-ui/nav-bar'
+import {DemoBlock} from '../../components/avm-ui/demos'
 export default {
 	name: 'demo-stepper',
 	data() {
@@ -87,7 +88,7 @@ export default {
 	}
 }
 </script>
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/demos/index.css"/>
 <style>
 .page {
 	height: 100%;

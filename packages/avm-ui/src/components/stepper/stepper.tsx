@@ -1,5 +1,4 @@
-import classNames from 'classnames'
-import { mergeProps } from '../../utils/with-default-props'
+import classNames from '../../utils/classnames'
 import { bound } from '../../utils/bound'
 import Button from '../button'
 
@@ -84,27 +83,27 @@ export class Stepper extends Component {
   }
 
   render = props => {
-    this.props = mergeProps(defaultProps, props)
+    this.props = Object.assign({}, defaultProps, props)
 
     if (this.data.isInit) {
       this.data.value = this.props.value || this.props.defaultValue
       this.data.inputValue = this.props.value !== undefined ? toStringVal(this.props.value) : toStringVal(this.props.defaultValue)
     }
-    const borderStyle = '1px solid #e5e5e5'
+    const borderStyle = '1px solid transparent'
     const {
       disabled,
-      height='30px',
-      inputWidth='60px',
-      inputFontSize='13px',
+      height='28px',
+      inputWidth='32px',
+      inputFontSize='14px',
       inputFontColor='#333',
-      borderRaduis='2px',
+      borderRaduis='4px',
       border=borderStyle,
       activeBorder=borderStyle,
       borderInner=borderStyle,
-      btnFontSize='10px',
-      btnBgColor='transparent',
-      btnWidth='30px',
-      btnTextColor='#1677ff'
+      btnFontSize='12px',
+      btnBgColor='#f0f0f0',
+      btnWidth='28px',
+      btnTextColor='#666'
     } = this.props;
 
     const btnWidthStyle = {}
@@ -179,5 +178,37 @@ export class Stepper extends Component {
           }}>+</Button>
       </div>
     )
+  }
+  css = () => {
+    return `
+      .adm-stepper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+      }
+      .adm-stepper-disabled {
+        opacity: 0.6;
+      }
+      .adm-stepper-disabled-btn {
+        background: #f8f8f8;
+      }
+      .adm-stepper-input {
+        text-align: center;
+        background: #f0f0f0;
+      }
+      .adm-stepper-minus {
+        border: none;
+        padding: 0;
+        margin-right: 2px;
+      }
+      .adm-stepper-plus {
+        border: none;
+        padding: 0;
+        margin-left: 2px;
+      }
+    `
   }
 }

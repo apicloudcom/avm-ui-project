@@ -17,3 +17,4 @@
 | description | 步骤的详情描述，可选                                                 | `ReactNode`                                  | -        |
 | icon        | 步骤图标的类型                                                      | `ReactNode`                                  | -        |
 | status      | 指定状态。当不配置该属性时，会使用 `Steps` 的 `current` 来自动指定状态；如果该属性与 `current` 指定的状态不匹配会覆盖自动匹配的状态。 | `wait` `process` `finish` `error` | `wait` |
+| isDot      | 是否圆点显示 | `boolean` | `false` |
