@@ -44,5 +44,22 @@ export class DesenseText extends Component {
       </div>
     )
   }
+  css=()=>{
+    return `
+    .adm-desense-text {
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      align-items: center;
+    }
+    .adm-desense-text-icon-wrap {
+      margin-left: 5px;
+      padding: 0 0.1em;
+      color: var(--adm-color-weak);
+      width: 20px;
+      height: 20px;
+      background-color: #9ac200;
+    }`
+  }
 }
 
