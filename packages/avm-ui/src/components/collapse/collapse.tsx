@@ -27,7 +27,7 @@ class CollapsePanelContent extends Component {
       <div
         className={`${classPrefix}-panel-content`}
         style={{height: visible ? 'auto' : 0}}>
-         <ListItem>{visible && formatLabel(props.children, '', {color: '#999'})}</ListItem>
+         <ListItem>{visible && formatLabel(props.children, `${classPrefix}-panel-content-text`, {})}</ListItem>
       </div>
     )
   }
@@ -84,9 +84,7 @@ export class Collapse extends Component {
                     className={`${classPrefix}-panel-header`}
                     disabled={panel.disabled}
                     onClick={panel.disabled ? undefined : handleClick}
-                    arrow={panel.arrow ??
-                     (<DownOutline/>)
-                    }>
+                    arrow={panel.arrow || <DownOutline/>}>
                     {formatLabel(panel.title)}
                 </ListItem>
                 <CollapsePanelContent visible={active}>
@@ -114,6 +112,11 @@ export class Collapse extends Component {
         font-size: 16px;
         color: #999;
         overflow: hidden;
+      }
+      .adm-collapse-panel-content-text {
+        color: #666;
+        font-size: 16px;
+        line-height: 22px;
       }
     `
   }

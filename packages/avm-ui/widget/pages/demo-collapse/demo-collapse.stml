@@ -58,17 +58,20 @@
 						key='1'
 						title='第一项'
 						content="你可以通过 avm-collapse-panel 的 arrow 属性来自定义单个面板的箭头"
-						arrow={<img src="../../image/cf.png"/>}/>
+						arrow={<text>自定义图标</text>}
+					/>
 					<avm-collapse-panel
 						key='2'
 						title='第二项'
 						content="你可以通过 avm-collapse-panel 的 arrow 属性来自定义单个面板的箭头"
-						arrow={<img src="../../image/cf.png"/>}/>
+						arrow={<text>自定义图标</text>}
+					/>
 					<avm-collapse-panel
 						key='3'
 						title='第三项'
 						content="你可以通过 avm-collapse-panel 的 arrow 属性来自定义单个面板的箭头"
-						arrow={<img src="../../image/cf.png"/>}/>
+						arrow={<text>自定义图标</text>}
+					/>
 				</avm-collapse>
 			</DemoBlock>
 			<!-- <DemoBlock title='动态内容' padding='0' border='none'>
