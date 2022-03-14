@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>45@2x</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="45">
+            <g id="编组"></g>
+            <g id="编组-26" transform="translate(4.000000, 4.000000)" stroke="#333333" stroke-linecap="round">
+                <path d="M26.8913796,33.6542501 C24.2685122,35.1472103 21.233846,36 18,36 C8.0588745,36 0,27.9411255 0,18 C0,8.0588745 8.0588745,0 18,0 C27.9411255,0 36,8.0588745 36,18 C36,21.86779 34.7800864,25.450654 32.7040346,28.3848166" id="形状结合" stroke-width="3"></path>
+                <path d="M25,22.550961 C24.8010578,22.9716058 24.5498769,23.3701398 24.2531636,23.740944 C22.8971831,25.4355199 20.5902606,26.550961 17.9724597,26.550961 C15.3305641,26.550961 13.005296,25.414892 11.6545559,23.6940056 C11.4004101,23.3702156 11.180764,23.0257221 11,22.664197" id="Stroke-1" stroke-width="3" transform="translate(18.000000, 24.550961) scale(1, -1) translate(-18.000000, -24.550961) "></path>
+                <path d="M22.5245838,13 L22.5245838,15.4627695 M13,13 L13,15.4627695" id="形状结合" stroke-width="4" stroke-linejoin="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

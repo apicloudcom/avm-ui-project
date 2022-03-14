@@ -1,0 +1,17 @@
+<template>
+  <view>
+    <avm-icon fontSize={12} />
+  </view>
+</template>
+
+<script>
+import '../../components/avm-ui/icon'
+
+export default {
+  name: "demo-icon"
+}
+</script>
+
+<style scoped>
+
+</style>

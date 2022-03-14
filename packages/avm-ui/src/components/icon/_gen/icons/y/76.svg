@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>76@2x</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="76">
+            <g id="编组"></g>
+            <g id="编组-10" transform="translate(7.000000, 5.000000)" stroke="#333333" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                <path d="M30,26 L30,15.3604344 C30,14.6524963 29.9532318,13.955744 29.8626867,13.2732407 M28.5664453,8.79886252 C26.163322,3.59777325 20.9919546,0 15,0 C6.71572875,0 0,6.87710072 0,15.3604344 L0,26" id="形状"></path>
+                <path d="M27,17 L30,17 L30,17 L30,26 L27,26 C25.3431458,26 24,24.6568542 24,23 L24,20 C24,18.3431458 25.3431458,17 27,17 Z" id="矩形"></path>
+                <path d="M0,17 L3,17 C4.65685425,17 6,18.3431458 6,20 L6,23 C6,24.6568542 4.65685425,26 3,26 L0,26 L0,26 L0,17 Z" id="矩形备份"></path>
+                <line x1="26.8" y1="30.4" x2="18.6" y2="30.6" id="路径"></line>
+            </g>
+        </g>
+    </g>
+</svg>

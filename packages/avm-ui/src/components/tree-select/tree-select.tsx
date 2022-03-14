@@ -1,7 +1,7 @@
 import classNames from '../../utils/classnames'
 import { NativeProps } from '../../utils/native-props'
 import { getTreeDeep } from '../../utils/tree'
-import {UiwCheck} from '../icon/icon'
+import {CheckOutline} from '../icon/icon'
 
 const classPrefix = `adm-tree-select`
 
@@ -100,7 +100,7 @@ export class TreeSelect extends Component {
             <text className={classNames(isActive ? `${classPrefix}-item-text-active` : `${classPrefix}-item-text-noactive`)}>{item[labelName]}</text>
             {
               isActive && deep===2 && index+1===deep ?( <div className="adm-tree-select-checked">
-              <UiwCheck fontSize="18" color="#9AC200"/>
+              <CheckOutline fontSize="18" color="#9AC200"/>
             </div>):null
             }
            

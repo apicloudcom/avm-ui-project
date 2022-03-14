@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>63@2x</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="63">
+            <g id="编组"></g>
+            <path d="M40,26.7353034 L40,27 C40,29.209139 38.209139,31 36,31 L9,31 C6.790861,31 5,29.209139 5,27 L5,10 C5,7.790861 6.790861,6 9,6 L36,6 C38.209139,6 40,7.790861 40,10 L40,21.3909321 L40,21.3909321" id="路径" stroke="#333333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+            <line x1="12" y1="38.5" x2="32" y2="38.5" id="路径-21备份" stroke="#333333" stroke-width="3" stroke-linecap="round"></line>
+            <line x1="22.5" y1="32" x2="22.5" y2="37.1842455" id="路径-22" stroke="#333333" stroke-width="3" stroke-linecap="round"></line>
+        </g>
+    </g>
+</svg>
