@@ -21,7 +21,7 @@
         },
         {
             "name": "closeable",
-            "type": "string",
+            "type": "boolean",
             "enum": [
                 "true",
                 "false"
