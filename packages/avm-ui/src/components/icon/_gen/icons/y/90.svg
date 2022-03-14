@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>90@2x</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="90">
+            <g id="编组"></g>
+            <g id="编组-2" transform="translate(5.000000, 8.000000)" stroke="#333333" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                <g id="编组">
+                    <path d="M34,23.3232576 L34,24.3333333 C34,26.5424723 32.209139,28.3333333 30,28.3333333 L17,28.3333333 L17,8.5 C17,3.80557963 20.8055796,0 25.5,0 L30,0 C32.209139,0 34,1.790861 34,4 L34,16.7381022" id="路径"></path>
+                    <path d="M8.5,0 L13,0 C15.209139,-4.05812251e-16 17,1.790861 17,4 L17,24.3333333 C17,26.5424723 15.209139,28.3333333 13,28.3333333 L0,28.3333333 L0,28.3333333 L0,8.5 C-5.74900688e-16,3.80557963 3.80557963,8.62351033e-16 8.5,0 Z" id="矩形" transform="translate(8.500000, 14.166667) scale(-1, 1) translate(-8.500000, -14.166667) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

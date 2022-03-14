@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>77@2x</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="77">
+            <g id="编组"></g>
+            <circle id="椭圆形" fill="#333333" cx="22.5" cy="29.5" r="1.5"></circle>
+            <path d="M17,17.4986873 C17.2923535,15.119218 19.230015,13.1907335 21.6396374,13.0130927 C24.2721301,12.8197198 26.7643456,14.7888454 26.4936236,17.5629264 C26.3815329,18.7179195 25.6473716,19.6933052 24.8804352,20.5153037 C23.7136431,21.7666555 22.2440095,22.9963757 21.9542779,24.7826164" id="Stroke-1" stroke="#333333" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="translate(21.756919, 18.891308) rotate(-5.000000) translate(-21.756919, -18.891308) "></path>
+            <g id="编组备份" transform="translate(22.000000, 22.000000) scale(-1, -1) translate(-22.000000, -22.000000) translate(6.000000, 6.000000)"></g>
+            <path d="M30.8913796,37.6542501 C28.2685122,39.1472103 25.233846,40 22,40 C12.0588745,40 4,31.9411255 4,22 C4,12.0588745 12.0588745,4 22,4 C31.9411255,4 40,12.0588745 40,22 C40,25.86779 38.7800864,29.450654 36.7040346,32.3848166" id="形状结合" stroke="#333333" stroke-width="3" stroke-linecap="round"></path>
+        </g>
+    </g>
+</svg>

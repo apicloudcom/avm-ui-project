@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>73@2x</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="73">
+            <g id="编组"></g>
+            <g id="图标-/-工具-/-@-/-@备份-157" transform="translate(2.342431, 2.347457)" stroke="#333333" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.2">
+                <g id="编组-3" transform="translate(19.905056, 19.905056) rotate(45.000000) translate(-19.905056, -19.905056) translate(9.905056, 1.755056)">
+                    <g id="编组-2">
+                        <path d="M4.54747351e-13,14.3 L4.54747351e-13,10 C4.54070997e-13,4.4771525 4.4771525,1.01453063e-15 10,0 C15.5228475,-1.01453063e-15 20,4.4771525 20,10 L20,14.3 L20,14.3" id="路径"></path>
+                        <path d="M-4.54747351e-13,36.3 L-4.54747351e-13,32 C-4.55423705e-13,26.4771525 4.4771525,22 10,22 C15.5228475,22 20,26.4771525 20,32 L20,36.3 L20,36.3" id="路径备份" transform="translate(10.000000, 29.150000) scale(1, -1) translate(-10.000000, -29.150000) "></path>
+                    </g>
+                    <line x1="10" y1="24.2" x2="10" y2="13.2" id="Stroke-3"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

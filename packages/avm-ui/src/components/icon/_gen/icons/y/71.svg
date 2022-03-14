@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>71@2x</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="71">
+            <g id="编组"></g>
+            <g id="编组-4" transform="translate(4.000000, 4.000000)">
+                <path d="M26.8913796,33.6542501 C24.2685122,35.1472103 21.233846,36 18,36 C8.0588745,36 0,27.9411255 0,18 C0,8.0588745 8.0588745,0 18,0 C27.9411255,0 36,8.0588745 36,18 C36,21.86779 34.7800864,25.450654 32.7040346,28.3848166" id="形状结合" stroke="#333333" stroke-width="3" stroke-linecap="round"></path>
+                <g id="编组-2" transform="translate(8.000000, 8.000000)">
+                    <path d="M2.04761224,5.85685084 C2.06594558,5.85685084 2.08427891,5.85410084 2.10261224,5.85410084 C7.24144558,5.85410084 11.4058622,10.0194342 11.4058622,15.1573508" id="Stroke-1" stroke="#333333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(6.726737, 10.505726) rotate(45.000000) translate(-6.726737, -10.505726) "></path>
+                    <path d="M17.6117989,17.75125 C17.6117989,9.76983333 11.1419656,3.3 3.16054894,3.3" id="Stroke-3" stroke="#333333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(10.386174, 10.525625) rotate(45.000000) translate(-10.386174, -10.525625) "></path>
+                    <path d="M1.2,7.83542615 L1.2,12.2272595 C1.2,12.7795442 1.64771525,13.2272595 2.2,13.2272595 L6.579,13.2272595 L6.579,13.2272595 C6.579,13.2043428 6.58266667,13.1823428 6.58266667,13.1603428 C6.58266667,10.2178428 4.1975,7.83267615 1.255,7.83267615 C1.23666667,7.83267615 1.21833333,7.83542615 1.2,7.83542615 Z" id="Fill-5" fill="#333333" transform="translate(3.891333, 10.529968) rotate(45.000000) translate(-3.891333, -10.529968) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

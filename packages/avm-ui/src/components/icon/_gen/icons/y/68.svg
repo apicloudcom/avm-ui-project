@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>68@2x</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="68">
+            <g id="编组"></g>
+            <path d="M28.6404045,36 L9,36 C6.790861,36 5,34.209139 5,32 L5,11 C5,8.790861 6.790861,7 9,7 L16.8605485,7 C18.3155928,7 19.6558734,7.79012265 20.3603948,9.06323052 L21.8077644,11.678705 C22.5122857,12.9518128 23.8525663,13.7419355 25.3076107,13.7419355 L35,13.7419355 C37.209139,13.7419355 39,15.5327965 39,17.7419355 L39,32 C39,34.209139 37.209139,36 35,36 L34.8887232,36 L34.8887232,36" id="路径" stroke="#333333" stroke-width="3" stroke-linecap="round"></path>
+            <path d="M20.5674337,9 L34,9 C35.1045695,9 36,9.8954305 36,11 L36,13.08165" id="路径" stroke="#333333" stroke-width="3" stroke-linecap="round"></path>
+            <line x1="9" y1="28" x2="21.8051528" y2="28" id="路径-5" stroke="#333333" stroke-width="3" stroke-linecap="round"></line>
+        </g>
+    </g>
+</svg>
