@@ -2,8 +2,8 @@
 	<safe-area>
 		<NavBar onBack={this.back}>Badge</NavBar>
 		<scroll-view>
-			<DemoBlock title='基本用法'>
-				<Space>
+			<DemoBlock title='基础样式'>
+				<Space gap="30px">
 					<Badge color='#108ee9' content='5'>
 						<div className="box"/>
 					</Badge>
@@ -18,40 +18,32 @@
 					</Badge>
 				</Space>
 			</DemoBlock>
-			<DemoBlock title='自定义颜色和偏移量'>
-				<Space gap="24px">
+			<DemoBlock title='自定义样式'>
+				<Space gap="35px">
 					<Badge
-						color='#108ee9'
+						color='#9AC200'
 						content={Badge.dot}
 						right='100%'
 						top='100%'>
 						<div className="box"/>
 					</Badge>
 					<Badge
-						color='#87d068'
+						color='#FA6400'
 						content={Badge.dot}
 						right="100%"
 						>
 						<div className="box"/>
 					</Badge>
-					<Badge content={Badge.dot}>
+					<Badge content={Badge.dot} color="#F7B500">
 						<div className="box"/>
 					</Badge>
-					<Badge color='orange' content={Badge.dot} top="100%">
+					<Badge content="8" top="100%">
 						<div className="box"/>
 					</Badge>
 				</Space>
 			</DemoBlock>
-			<DemoBlock title='自定义徽标内容'>
-				<Space>
-					<Badge content={<img src={'../../image/money.png'}/>} color="#0ff"/>
-					<Badge content={'自定义'}>
-						<div className="box"/>
-					</Badge>
-				</Space>
-				</DemoBlock>
-				<DemoBlock title='独立展示'>
-				<Space>
+			<DemoBlock title='独立展示'>
+				<Space gap="30px">
 					<Badge content='99+'/>
 					<Badge content='新消息!'/>
 				</Space>
@@ -62,10 +54,11 @@
 	</safe-area>
 </template>
 
-<style src="../../components/avm-ui/avm-ui.css"/>
-
 <script>
-import { Badge, DemoBlock, Space, NavBar } from '../../components/avm-ui/avm-ui';
+import Badge from '../../components/avm-ui/badge'
+import Space from '../../components/avm-ui/space'
+import NavBar from '../../components/avm-ui/nav-bar'
+import {DemoBlock} from '../../components/avm-ui/demos'
 
 export default {
 	name: 'demo-badge',
@@ -76,12 +69,13 @@ export default {
 	}
 }
 </script>
+<style src="../../components/avm-ui/nav-bar/index.css"/>
+<style src="../../components/avm-ui/demos/index.css"/>
 <style>
 .box {
-	background: #eee;
-	width: 40px;
-	height: 40px;
+	background: #f2f2f2;
+	width: 22px;
+	height: 22px;
 	display: block;
-	border-radius: 8px;
 }
 </style>

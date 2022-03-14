@@ -1,7 +1,7 @@
-import classNames from 'classnames'
+import classNames from '../../utils/classnames'
 import { NativeProps } from '../../utils/native-props'
 import { getTreeDeep } from '../../utils/tree'
-import { mergeProps } from '../../utils/with-default-props'
+import {UiwCheck} from '../icon/icon'
 
 const classPrefix = `adm-tree-select`
 
@@ -34,7 +34,7 @@ export class TreeSelect extends Component {
   }
 
   render = props => {
-    props = mergeProps(defaultProps, props)
+    props = Object.assign({},defaultProps, props)
     this.data.defaultValue = props.defaultValue
     const labelName = props.fieldNames.label || 'label'
     const valueName = props.fieldNames.value || 'value'
@@ -86,16 +86,24 @@ export class TreeSelect extends Component {
         return (
           <div
             key={item[valueName]}
-            className={classNames(`${classPrefix}-item`, {
-              [`${classPrefix}-item-active`]: isActive,
-            })}
+            className={classNames(isActive ?`${classPrefix}-item-active`:`${classPrefix}-item-normal` ,`${classPrefix}-item`)}
             onClick={() => {
               if (!isActive) {
                 onItemSelect(item)
               }
             }}
           >
-            <text className={classNames(`${classPrefix}-item-text`,isActive ? `${classPrefix}-item-active` : `${classPrefix}-item-noactive`)}>{item[labelName]}</text>
+            {index===0 && isActive?(
+              // <div className={classNames(index===0 && isActive?`${classPrefix}-item-line-active`:'${classPrefix}-item-line-none')}></div>
+              <div className={`${classPrefix}-item-line-active`}></div>
+            ):null}
+            <text className={classNames(isActive ? `${classPrefix}-item-text-active` : `${classPrefix}-item-text-noactive`)}>{item[labelName]}</text>
+            {
+              isActive && deep===2 && index+1===deep ?( <div className="adm-tree-select-checked">
+              <UiwCheck fontSize="18" color="#9AC200"/>
+            </div>):null
+            }
+           
           </div>
         )
       })
@@ -116,7 +124,7 @@ export class TreeSelect extends Component {
         const column = (
           <div
             key={i}
-            className={classNames(`${classPrefix}-column`)}
+            className={classNames(`adm-tree-select-column${i}`,`adm-tree-select-column`)}
             style={{ width }}
           >
             {renderItems(
@@ -135,5 +143,69 @@ export class TreeSelect extends Component {
     return (
       <div className={classPrefix}>{renderColumns()}</div>
     )
+  }
+
+  css = () => {
+    return `
+    .adm-tree-select {
+      height: 100%;
+      background-color: #ffffff;
+      flex-direction: row;
+    }
+    .adm-tree-select-column {
+      overflow-y: auto;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+    }
+    .adm-tree-select-column0 {
+      background-color: #f5f5f5;
+    }
+    .adm-tree-select-column1 {
+      background-color: #fafafa;
+    }
+  
+    .adm-tree-select-item {
+      padding: 15px 0 15px 20px;
+      justify-content: center;
+    }
+    .adm-tree-select-item-active {
+      font-weight: bold;
+      background-color: white;
+    }
+    .adm-tree-select-item-normal {
+      font-weight: bold;
+      background-color: rgba(0,0,0,0);
+      position:relative
+    }
+    .adm-tree-select-item-text-active {
+      font-size: 16px;
+      color: #9AC200;
+      font-weight: bold;
+      background-color: none;
+    }
+    .adm-tree-select-item-text-noactive {
+      font-size: 16px;
+      color: #333;
+      font-weight: bold;
+      background-color: none;
+    }
+    .adm-tree-select-item-line-active {
+      height:16px;
+      width: 3px;
+      background: #9AC200;
+      position:absolute;
+      left:0; 
+      top: 50%;
+    }
+    .adm-tree-select-item-line-none {
+      display:none;
+    }
+    .adm-tree-select-checked {
+      position:absolute;
+      right: 15px;
+      top:50%;
+    }
+    
+    `
   }
 }

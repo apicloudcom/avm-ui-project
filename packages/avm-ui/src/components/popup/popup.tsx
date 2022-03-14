@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import classNames from '../../utils/classnames'
 import { mergeProps } from '../../utils/with-default-props'
 import Mask from '../mask'
 import {GetContainer} from '../../utils/render-to-container'
@@ -107,5 +107,41 @@ export class Popup extends Component {
         </div>
       </div>
     )
+  }
+
+  css = () => {
+    return `
+      .adm-popup {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .adm-popup-body {
+        position: absolute;
+        background-color: #fff;
+      }
+      .adm-popup-body-position-bottom {
+        width: 100%;
+        bottom: 0;
+        left: 0;
+      }
+      .adm-popup-body-position-top {
+        width: 100%;
+        top: 0;
+        left: 0;
+      }
+      .adm-popup-body-position-left {
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+      .adm-popup-body-position-right {
+        height: 100%;
+        top: 0;
+        right: 0;
+      }
+    `
   }
 }

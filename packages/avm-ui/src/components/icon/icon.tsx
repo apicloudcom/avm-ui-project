@@ -1,5 +1,6 @@
 // @ts-ignore
 import {fontName} from './icon.config.json';
+import {tag} from "../../utils/tag";
 
 export type IconProps = {
   color?: '',
@@ -7,20 +8,23 @@ export type IconProps = {
 }
 const classPrefix = `adm-icon`;
 
+@tag('avm-icon')
 export class Icon extends Component {
   code = 59913;
 
-  css() {
+  css = () => {
     return `@font-face {font-family: "${fontName}"; src: url('../../components/avm-ui/${fontName}.ttf') format('truetype');}
         .${classPrefix} {font-family: ${fontName};}`;
   }
 
 
   render = props => {
-    return <text _code={this.code} _name={this.constructor.name}
-                 style={{...props}}
+    const code = props.code || this.code;
+    const name = props.name || this.constructor.name;
+
+    return <text _code={code} _name={name} style={{...props}}
                  class={`${classPrefix} ${classPrefix}-font-icon-text`}>
-      {String.fromCharCode(this.code)}
+      {String.fromCharCode(code)}
     </text>
   }
 }
@@ -178,217 +182,4 @@ export class UserContactOutline extends Icon {code = 60053;}
 export class UserOutline extends Icon {code = 60054;}
 export class UserSetOutline extends Icon {code = 60055;}
 export class VideoOutline extends Icon {code = 60056;}
-export class UiwAdobe extends Icon {code = 60057;}
-export class UiwAlipay extends Icon {code = 60058;}
-export class UiwAliwangwang extends Icon {code = 60059;}
-export class UiwAndroidO extends Icon {code = 60060;}
-export class UiwAndroid extends Icon {code = 60061;}
-export class UiwApple extends Icon {code = 60062;}
-export class UiwAppstoreO extends Icon {code = 60063;}
-export class UiwAppstore extends Icon {code = 60064;}
-export class UiwAreaChart extends Icon {code = 60065;}
-export class UiwArrowDown extends Icon {code = 60066;}
-export class UiwArrowLeft extends Icon {code = 60067;}
-export class UiwArrowRight extends Icon {code = 60068;}
-export class UiwArrowUp extends Icon {code = 60069;}
-export class UiwArrowsAlt extends Icon {code = 60070;}
-export class UiwAsterisk extends Icon {code = 60071;}
-export class UiwBackward extends Icon {code = 60072;}
-export class UiwBaidu extends Icon {code = 60073;}
-export class UiwBarChart extends Icon {code = 60074;}
-export class UiwBarcode extends Icon {code = 60075;}
-export class UiwBell extends Icon {code = 60076;}
-export class UiwCameraO extends Icon {code = 60077;}
-export class UiwCaretDown extends Icon {code = 60078;}
-export class UiwCaretLeft extends Icon {code = 60079;}
-export class UiwCaretRight extends Icon {code = 60080;}
-export class UiwCaretUp extends Icon {code = 60081;}
-export class UiwCheckSquareO extends Icon {code = 60082;}
-export class UiwCheckSquare extends Icon {code = 60083;}
-export class UiwCheck extends Icon {code = 60084;}
-export class UiwChrome extends Icon {code = 60085;}
-export class UiwCircleCheckO extends Icon {code = 60086;}
-export class UiwCircleCheck extends Icon {code = 60087;}
-export class UiwCircleCloseO extends Icon {code = 60088;}
-export class UiwCircleClose extends Icon {code = 60089;}
-export class UiwCircleO extends Icon {code = 60090;}
-export class UiwCloseSquareO extends Icon {code = 60091;}
-export class UiwCloseSquare extends Icon {code = 60092;}
-export class UiwClose extends Icon {code = 60093;}
-export class UiwCloudDownloadO extends Icon {code = 60094;}
-export class UiwCloudDownload extends Icon {code = 60095;}
-export class UiwCloudUploadO extends Icon {code = 60096;}
-export class UiwCloudUpload extends Icon {code = 60097;}
-export class UiwCoffee extends Icon {code = 60098;}
-export class UiwComponent extends Icon {code = 60099;}
-export class UiwCopy extends Icon {code = 60100;}
-export class UiwCopyright extends Icon {code = 60101;}
-export class UiwCss3 extends Icon {code = 60102;}
-export class UiwCut extends Icon {code = 60103;}
-export class UiwDArrowLeft extends Icon {code = 60104;}
-export class UiwDArrowRight extends Icon {code = 60105;}
-export class UiwDCaret extends Icon {code = 60106;}
-export class UiwDashboard extends Icon {code = 60107;}
-export class UiwDate extends Icon {code = 60108;}
-export class UiwDelete extends Icon {code = 60109;}
-export class UiwDingding extends Icon {code = 60110;}
-export class UiwDislikeO extends Icon {code = 60111;}
-export class UiwDocument extends Icon {code = 60112;}
-export class UiwDotChart extends Icon {code = 60113;}
-export class UiwDownCircleO extends Icon {code = 60114;}
-export class UiwDownCircle extends Icon {code = 60115;}
-export class UiwDownSquareO extends Icon {code = 60116;}
-export class UiwDownSquare extends Icon {code = 60117;}
-export class UiwDown extends Icon {code = 60118;}
-export class UiwDownload extends Icon {code = 60119;}
-export class UiwEdit extends Icon {code = 60120;}
-export class UiwEnter extends Icon {code = 60121;}
-export class UiwEnvironmentO extends Icon {code = 60122;}
-export class UiwEnvironment extends Icon {code = 60123;}
-export class UiwEyeO extends Icon {code = 60124;}
-export class UiwEye extends Icon {code = 60125;}
-export class UiwFacebook extends Icon {code = 60126;}
-export class UiwFileAdd extends Icon {code = 60127;}
-export class UiwFileExcel extends Icon {code = 60128;}
-export class UiwFileJpg extends Icon {code = 60129;}
-export class UiwFilePdf extends Icon {code = 60130;}
-export class UiwFileText extends Icon {code = 60131;}
-export class UiwFileUnknown extends Icon {code = 60132;}
-export class UiwFilter extends Icon {code = 60133;}
-export class UiwFirefox extends Icon {code = 60134;}
-export class UiwFolderAdd extends Icon {code = 60135;}
-export class UiwFolderOpen extends Icon {code = 60136;}
-export class UiwFolder extends Icon {code = 60137;}
-export class UiwForward extends Icon {code = 60138;}
-export class UiwFoursquare extends Icon {code = 60139;}
-export class UiwFrownO extends Icon {code = 60140;}
-export class UiwFrown extends Icon {code = 60141;}
-export class UiwGithubO extends Icon {code = 60142;}
-export class UiwGithub extends Icon {code = 60143;}
-export class UiwGlobal extends Icon {code = 60144;}
-export class UiwHeartOff extends Icon {code = 60145;}
-export class UiwHeartOn extends Icon {code = 60146;}
-export class UiwHome extends Icon {code = 60147;}
-export class UiwHtml5 extends Icon {code = 60148;}
-export class UiwIe extends Icon {code = 60149;}
-export class UiwInbox extends Icon {code = 60150;}
-export class UiwInformationO extends Icon {code = 60151;}
-export class UiwInformation extends Icon {code = 60152;}
-export class UiwLaptop extends Icon {code = 60153;}
-export class UiwLeftCircleO extends Icon {code = 60154;}
-export class UiwLeftCircle extends Icon {code = 60155;}
-export class UiwLeftSquareO extends Icon {code = 60156;}
-export class UiwLeftSquare extends Icon {code = 60157;}
-export class UiwLeft extends Icon {code = 60158;}
-export class UiwLikeO extends Icon {code = 60159;}
-export class UiwLink extends Icon {code = 60160;}
-export class UiwLinkedin extends Icon {code = 60161;}
-export class UiwLinux extends Icon {code = 60162;}
-export class UiwLoading extends Icon {code = 60163;}
-export class UiwLock extends Icon {code = 60164;}
-export class UiwLogin extends Icon {code = 60165;}
-export class UiwLogout extends Icon {code = 60166;}
-export class UiwMailO extends Icon {code = 60167;}
-export class UiwMail extends Icon {code = 60168;}
-export class UiwMan extends Icon {code = 60169;}
-export class UiwMap extends Icon {code = 60170;}
-export class UiwMehO extends Icon {code = 60171;}
-export class UiwMeh extends Icon {code = 60172;}
-export class UiwMenuFold extends Icon {code = 60173;}
-export class UiwMenuUnfold extends Icon {code = 60174;}
-export class UiwMenu extends Icon {code = 60175;}
-export class UiwMessage extends Icon {code = 60176;}
-export class UiwMinusCircleO extends Icon {code = 60177;}
-export class UiwMinusCircle extends Icon {code = 60178;}
-export class UiwMinusSquareO extends Icon {code = 60179;}
-export class UiwMinusSquare extends Icon {code = 60180;}
-export class UiwMinus extends Icon {code = 60181;}
-export class UiwMobile extends Icon {code = 60182;}
-export class UiwMore extends Icon {code = 60183;}
-export class UiwNotification extends Icon {code = 60184;}
-export class UiwOpera extends Icon {code = 60185;}
-export class UiwPaperClip extends Icon {code = 60186;}
-export class UiwPauseCircleO extends Icon {code = 60187;}
-export class UiwPauseCircle extends Icon {code = 60188;}
-export class UiwPause extends Icon {code = 60189;}
-export class UiwPayCircleO extends Icon {code = 60190;}
-export class UiwPay extends Icon {code = 60191;}
-export class UiwPicasa extends Icon {code = 60192;}
-export class UiwPicture extends Icon {code = 60193;}
-export class UiwPieChart extends Icon {code = 60194;}
-export class UiwPinterest extends Icon {code = 60195;}
-export class UiwPlayCircleO extends Icon {code = 60196;}
-export class UiwPlayCircle extends Icon {code = 60197;}
-export class UiwPlusCircleO extends Icon {code = 60198;}
-export class UiwPlusCircle extends Icon {code = 60199;}
-export class UiwPlusSquareO extends Icon {code = 60200;}
-export class UiwPlusSquare extends Icon {code = 60201;}
-export class UiwPlus extends Icon {code = 60202;}
-export class UiwPoweroff extends Icon {code = 60203;}
-export class UiwPrinter extends Icon {code = 60204;}
-export class UiwQq extends Icon {code = 60205;}
-export class UiwQrcode extends Icon {code = 60206;}
-export class UiwQuestionCircleO extends Icon {code = 60207;}
-export class UiwQuestionCircle extends Icon {code = 60208;}
-export class UiwReddit extends Icon {code = 60209;}
-export class UiwReload extends Icon {code = 60210;}
-export class UiwRightCircleO extends Icon {code = 60211;}
-export class UiwRightCircle extends Icon {code = 60212;}
-export class UiwRightSquareO extends Icon {code = 60213;}
-export class UiwRightSquare extends Icon {code = 60214;}
-export class UiwRight extends Icon {code = 60215;}
-export class UiwRollback extends Icon {code = 60216;}
-export class UiwSafari extends Icon {code = 60217;}
-export class UiwSafety extends Icon {code = 60218;}
-export class UiwSave extends Icon {code = 60219;}
-export class UiwSearch extends Icon {code = 60220;}
-export class UiwSettingO extends Icon {code = 60221;}
-export class UiwSetting extends Icon {code = 60222;}
-export class UiwShare extends Icon {code = 60223;}
-export class UiwShoppingCart extends Icon {code = 60224;}
-export class UiwShrink extends Icon {code = 60225;}
-export class UiwSmileO extends Icon {code = 60226;}
-export class UiwSmile extends Icon {code = 60227;}
-export class UiwSquareO extends Icon {code = 60228;}
-export class UiwStarOff extends Icon {code = 60229;}
-export class UiwStarOn extends Icon {code = 60230;}
-export class UiwStopO extends Icon {code = 60231;}
-export class UiwStop extends Icon {code = 60232;}
-export class UiwSwapLeft extends Icon {code = 60233;}
-export class UiwSwapRight extends Icon {code = 60234;}
-export class UiwSwap extends Icon {code = 60235;}
-export class UiwTable extends Icon {code = 60236;}
-export class UiwTagO extends Icon {code = 60237;}
-export class UiwTag extends Icon {code = 60238;}
-export class UiwTagsO extends Icon {code = 60239;}
-export class UiwTags extends Icon {code = 60240;}
-export class UiwTaobao extends Icon {code = 60241;}
-export class UiwTimeO extends Icon {code = 60242;}
-export class UiwTime extends Icon {code = 60243;}
-export class UiwTwitter extends Icon {code = 60244;}
-export class UiwUiw extends Icon {code = 60245;}
-export class UiwUnlock extends Icon {code = 60246;}
-export class UiwUpCircleO extends Icon {code = 60247;}
-export class UiwUpCircle extends Icon {code = 60248;}
-export class UiwUpSquareO extends Icon {code = 60249;}
-export class UiwUpSquare extends Icon {code = 60250;}
-export class UiwUp extends Icon {code = 60251;}
-export class UiwUpload extends Icon {code = 60252;}
-export class UiwUserAdd extends Icon {code = 60253;}
-export class UiwUserDelete extends Icon {code = 60254;}
-export class UiwUser extends Icon {code = 60255;}
-export class UiwUsergroupAdd extends Icon {code = 60256;}
-export class UiwUsergroupDelete extends Icon {code = 60257;}
-export class UiwVerification extends Icon {code = 60258;}
-export class UiwVerticleLeft extends Icon {code = 60259;}
-export class UiwVerticleRight extends Icon {code = 60260;}
-export class UiwVideoCamera extends Icon {code = 60261;}
-export class UiwWarningO extends Icon {code = 60262;}
-export class UiwWarning extends Icon {code = 60263;}
-export class UiwWeibo extends Icon {code = 60264;}
-export class UiwWeixin extends Icon {code = 60265;}
-export class UiwWifi extends Icon {code = 60266;}
-export class UiwWindows extends Icon {code = 60267;}
-export class UiwWoman extends Icon {code = 60268;}
-export class UiwZoomIn extends Icon {code = 60269;}
-export class UiwZoomOut extends Icon {code = 60270;}
+export class UiwInbox extends Icon {code = 60057;}

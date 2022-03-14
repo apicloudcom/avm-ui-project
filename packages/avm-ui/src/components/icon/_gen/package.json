@@ -1,5 +1,5 @@
 {
-  "name": "avm-ui-icon_gen",
+  "name": "avm-icon_gen",
   "type": "module",
   "dependencies": {
     "colors-cli": "^1.0.28",

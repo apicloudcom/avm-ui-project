@@ -1,6 +1,5 @@
-import classNames from 'classnames'
+// import classNames from '../../utils/classnames'
 import {UiwInbox} from '../icon/icon'
-import { mergeProps } from '../../utils/with-default-props'
 
 
 const classPrefix = `adm-empty`
@@ -21,11 +20,10 @@ export class Empty extends Component {
   }
 
   render = props => {
-    props = mergeProps(defaultProps, props)
+    props = Object.assign({},defaultProps, props)
     const { children, imageStyle, fontSize, color} = props
     const imageWidth = (imageStyle && imageStyle.width) ?? fontSize
     const imageColor = (imageStyle && imageStyle.color) ?? color
-    console.log(imageWidth,'imagewidth')
     const imageNode = () => {
       if(children && Boolean(children.length)) {
         return (
@@ -43,12 +41,37 @@ export class Empty extends Component {
       <div className={classPrefix}>
         <div className={`${classPrefix}-image-container`}>{imageNode()}</div>
         {props.description && (
-          <text className={classNames(`${classPrefix}-description`)}>
+          // <span className={`adm-empty-description`}>
+          <span style="color:#ccc;font-size:14px;margin-top:8px">
             {props.description}
-          </text>
+          </span>
         )}
       </div>
     )
+  }
+
+  css = () => {
+    return `
+    .adm-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 0;
+    }
+    .adm-empty-image-container {
+      display: flex;
+      justify-content: center;
+    }
+    .adm-empty-image-container-image {
+      width: 64px;
+    }
+    .adm-empty-description {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #cccccc;
+    }
+    `
   }
 }
 

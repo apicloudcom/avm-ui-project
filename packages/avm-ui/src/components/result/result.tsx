@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import classNames from '../../utils/classnames'
 import { CheckCircleFill, CloseCircleFill, InformationCircleOutline, ClockCircleOutline, ExclamationCircleFill } from '../icon/icon'
 import './result.less'
 const classPrefix = `adm-result`
@@ -57,4 +57,59 @@ export class Result extends Component {
       </div>
     )
   }
+  css = () => {
+    return `
+    .adm-result {
+      --bg-color: #ffffff;
+      --color: #333333;
+      --adm-color-weak: #999999;
+      padding: 32px 12px;
+      background-color: #ffffff;
+    }
+    .adm-result-icon {
+      box-sizing: border-box;
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 20px auto;
+      padding: 6px;
+      text-align: center;
+    }
+  
+    .adm-result-title {
+      color: #333333;
+      font-size: 18px;
+      line-height: 1.4;
+      text-align: center;
+    }
+  
+    .adm-result-description {
+      margin-top: 8px;
+      color: #999999;
+      font-size: 13px;
+      line-height: 1.4;
+      text-align: center;
+    }
+    
+    .adm-result-success .antd-mobile-icon .adm-result-icon{
+      color: #9AC200;
+    }
+    
+    .adm-result-error .adm-result-icon .antd-mobile-icon {
+      color: #FA6400;
+    }
+    
+    .adm-result-info .adm-result-icon .antd-mobile-icon {
+      color: #9AC200;
+    }
+    
+    .adm-result-waiting .adm-result-icon .antd-mobile-icon {
+      color: #7FA000;
+    }
+    
+    .adm-result-warning .adm-result-icon .antd-mobile-icon {
+      color: #FFA600;
+    }
+    `
+  }
 }
+

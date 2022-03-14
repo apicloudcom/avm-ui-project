@@ -1,4 +1,3 @@
-import '../empty.less'
 import { Empty } from '../empty'
 import { DemoBlock } from '../../../demos'
 import {UiwCloseSquare} from '../../icon/icon'

@@ -1,6 +1,5 @@
-import classNames from 'classnames'
+import classNames from '../../utils/classnames'
 import { LeftOutline } from '../icon/icon'
-import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-nav-bar`
 
@@ -20,7 +19,7 @@ export class NavBar extends Component {
     console.log('NavBar')
   }
   render = props => {
-    props = mergeProps(defaultProps, props)
+    props = Object.assign({},defaultProps, props)
     const { back, backArrow, right, style } = props
     const rightNode = right && right.children.map(item => {
       return item
@@ -50,6 +49,61 @@ export class NavBar extends Component {
     )
   }
 
-
+  css = () => {
+    return `
+    .adm-nav-bar {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      height: 45px;
+      border-bottom: none;
+      padding: 0 12px;
+      white-space: nowrap;
+    
+      
+    }
+    .adm-nav-bar-left{
+      flex: 1;
+      flex-direction: row;
+    }
+    .adm-nav-bar-right {
+      flex: 1;
+      flex-direction: row;
+      text-align: right;
+      justify-content: flex-end;
+    }
+    
+  
+    .adm-nav-bar-back {
+      display: flex;
+      margin-right: 12px;
+      flex-direction: row;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    .adm-nav-bar-back-arrow {
+      margin-top: 2px;
+      font-size: 18px;
+      margin-right: 6px;
+      flex-direction: row;
+    }
+  
+    .adm-nav-bar-left-text {
+      padding: 6px 0;
+    }
+    .adm-nav-bar-title {
+      flex: auto;
+      text-align: center;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 18px;
+      max-width: 60%;
+      text-overflow: ellipsis;
+      justify-content: center;
+      padding: 0 12px;
+    }
+    
+    `
+  }
 
 }

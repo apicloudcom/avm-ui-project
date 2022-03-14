@@ -3,65 +3,66 @@
 		<NavBar onBack={this.back}>List</NavBar>
 		<scroll-view>
 			<DemoBlock title='基础用法' padding='0' border='none'>
-				<List>
-					<List.Item>1</List.Item>
-					<List.Item>2</List.Item>
-					<List.Item>3</List.Item>
-				</List>
+				<avm-list>
+					<avm-list-item>1</avm-list-item>
+					<avm-list-item>2</avm-list-item>
+					<avm-list-item>3</avm-list-item>
+				</avm-list>
 			</DemoBlock>
 			<DemoBlock title='可点击的功能列表' padding='0' border='none'>
-				<List>
-					<List.Item prefix={<span>icon</span>} onClick={this.clickBtn}>账单</List.Item>
-					<List.Item prefix={<span>icon</span>} onClick={this.clickBtn}>总资产</List.Item>
-					<List.Item prefix={<span>icon</span>} onClick={this.clickBtn}>设置</List.Item>
-				</List>
+				<avm-list>
+					<avm-list-item prefix={<span>icon</span>} onClick={this.clickBtn}>账单</avm-list-item>
+					<avm-list-item prefix={<span>icon</span>} onClick={this.clickBtn}>总资产</avm-list-item>
+					<avm-list-item prefix={<span>icon</span>} onClick={this.clickBtn}>设置</avm-list-item>
+				</avm-list>
 			</DemoBlock>
 			<DemoBlock title='列表项禁用' padding='0' border='none'>
-				<List>
-					<List.Item disabled clickable prefix={<text>Prefix占位</text>}>账单</List.Item>
-					<List.Item disabled clickable prefix={<text>Prefix占位</text>}>总资产</List.Item>
-				</List>
+				<avm-list>
+					<avm-list-item disabled clickable prefix={<text>Prefix占位</text>}>账单</avm-list-item>
+					<avm-list-item disabled clickable prefix={<text>Prefix占位</text>}>总资产</avm-list-item>
+				</avm-list>
 			</DemoBlock>
 			<DemoBlock title='复杂布局' padding='0' border='none'>
-				<List>
-					<List.Item
+				<avm-list>
+					<avm-list-item
 						extra='次要信息'
 						title='这里是标题'
 						description='这里是描述信息'
-						clickable>这里是主信息</List.Item>
-					<List.Item title='这里是标题' clickable>这里是主信息</List.Item>
-					<List.Item title='这里是标题'>这里是主信息</List.Item>
-				</List>
+						clickable>这里是主信息</avm-list-item>
+					<avm-list-item title='这里是标题' clickable>这里是主信息</avm-list-item>
+					<avm-list-item title='这里是标题'>这里是主信息</avm-list-item>
+				</avm-list>
 			</DemoBlock>
 			<DemoBlock title='用户列表' padding='0' border='none'>
-				<List>
+				<avm-list>
 					{users.map(user => (
-						<List.Item
+						<avm-list-item
 							key={user.name}
 							prefix={<img src={user.avatar} :style="{borderRadius: 20}" fit='cover' width={40} height={40}/>}
 							arrow={<img src={user.avatar} width={40} height={40}/>}
 							description={user.description}>
 							{user.name}
-						</List.Item>
+						</avm-list-item>
 					))}
-				</List>
+				</avm-list>
 			</DemoBlock>
 			<DemoBlock title='卡片模式' padding='0' border='none'>
 				<div :style="{background: '#eee', padding: '8px 0'}">
-				<List mode='card'>
-					<List.Item title='这里是标题' arrow={<text>arrow占位</text>}>这里是主信息</List.Item>
-					<List.Item title='这里是标题'>这里是主信息</List.Item>
-				</List>
+				<avm-list mode='card'>
+					<avm-list-item title='这里是标题' arrow={<text>arrow占位</text>}>这里是主信息</avm-list-item>
+					<avm-list-item title='这里是标题'>这里是主信息</avm-list-item>
+				</avm-list>
 				</div>
 			</DemoBlock>
 		</scroll-view>
 	</safe-area>
 </template>
 
-<style src="../../components/avm-ui/avm-ui.css"/>
-
 <script>
-import { List, DemoBlock, NavBar } from '../../components/avm-ui/avm-ui';
+import '../../components/avm-ui/list'
+import NavBar from '../../components/avm-ui/nav-bar'
+import {DemoBlock} from '../../components/avm-ui/demos'
+
 const users = [
   {
     avatar: 'https://images.unsplash.com/photo-1548532928-b34e3be62fc6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ',
@@ -98,6 +99,8 @@ export default {
 	}
 }
 </script>
+<style src="../../components/avm-ui/demos/index.css"/>
+<style src="../../components/avm-ui/nav-bar/index.css"/>
 <style>
 .page {
 	width: 100%;

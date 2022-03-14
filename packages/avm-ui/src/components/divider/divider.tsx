@@ -1,5 +1,4 @@
-import classNames from 'classnames'
-import { mergeProps } from '../../utils/with-default-props'
+import classNames from '../../utils/classnames'
 const classPrefix = `adm-divider`
 
 export type DividerProps = {
@@ -20,7 +19,8 @@ export class Divider extends Component {
     console.log('Empty!')
   }
   render = props => {debugger
-    props = mergeProps(defaultProps, props)
+    // props = mergeProps(defaultProps, props)
+    props = Object.assign({},defaultProps, props)
     const { color, borderStyle, borderColor, borderTopWidth,contentPosition,children} = props
     const fontContentSty = {
       color: color,
@@ -52,6 +52,21 @@ export class Divider extends Component {
         <div style={dividerRightSty}></div>
       </div>
     )
+  }
+  css = () => {
+    return `
+    .adm-divider {
+      align-items: center;
+      margin: 16px 0;
+      font-size: 14px;
+      flex-direction: row;
+      width: 100%;
+    }
+    .adm-divider-content {
+      flex: none;
+      padding: 0 16px;
+    }
+    `
   }
 }
 

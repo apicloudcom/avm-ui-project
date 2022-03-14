@@ -1,4 +1,3 @@
-@import url('../../global/theme.less');
 @class-prefix-collapse: ~'adm-collapse';
 
 .@{class-prefix-collapse} {
@@ -6,11 +5,16 @@
   &-panel-content {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: baseline;
-    font-size: var(--adm-font-size-main);
-    color: var(--adm-color-weak);
+    font-size: 16px;
+    color: #999;
     overflow: hidden;
+    &-text {
+      color: #666;
+      font-size: 16px;
+      line-height: 22px;
+    }
   }
 }
