@@ -25,9 +25,9 @@ export function onJSON() {
 
   // console.log(jsonMap)
   try {
-    const savePath = resolve(uiDir, '../../', 'avm-ui.json');
+    const savePath = resolve(uiDir, '../../', 'avm-component.json');
 
-    fse.writeJsonSync(savePath, jsonMap);
+    fse.writeJSONSync(savePath, jsonMap, {spaces: 2});
     console.log(`文件输出在${savePath}，文件大小：${fse.statSync(savePath).size / 1000} KB`)
 
   } catch (e) {
