@@ -1,7 +1,7 @@
 <template>
 
 	<safe-area>
-		<NavBar onBack={this.back}>CheckList</NavBar>
+		<avm-nav-bar onBack={this.back}>CheckList</avm-nav-bar>
 		<scroll-view>
 			<DemoBlock title='基础用法' padding='0' border='none'>
 				<avm-check-list defaultValue={['B']} list={list1} onChange={val => this.onChange(val)}/>
@@ -24,7 +24,7 @@
 
 <script>
 import '../../components/avm-ui/check-list'
-import NavBar from '../../components/avm-ui/nav-bar'
+import '../../components/avm-ui/nav-bar'
 import {DemoBlock} from '../../components/avm-ui/demos'
 
 const list1 = [

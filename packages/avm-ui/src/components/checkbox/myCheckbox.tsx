@@ -1,10 +1,6 @@
 
-import classNames from 'classnames'
+import classNames from '../../utils/classnames'
 import { formatLabel } from '../../utils/format-label'
-
-import selectedIcon from './img/selected.png'
-import unselectedIcon from './img/unselected.png'
-import indeterminateIcon from './img/indeterminate.png'
 
 const classPrefix = `adm-checkbox`
 
@@ -23,17 +19,15 @@ export class MyCheckbox extends Component {
 
   render = props => {
     const {
-        iconSize='22px',
-        fontSize="17px",
+        iconSize='17px',
+        fontSize="16px",
         gap="8px",
         disabled=false,
         id,
-        block=false
+        block=false,
+        isLastEle,
+        isGroup
     } = this.props
-    
-
-    const selectedIcons = props.indeterminate ? indeterminateIcon : (props.selectedIcon ?? selectedIcon)
-    const unSelectedIcons = props.indeterminate ? indeterminateIcon : (props.icon ?? unselectedIcon)
 
     // 外层class
     const boxCls = classNames(classPrefix, {
@@ -44,25 +38,46 @@ export class MyCheckbox extends Component {
   
     const iconStyle = {
         width: iconSize,
-        height: iconSize
+        height: iconSize,
+        lineHeight: iconSize
     }
   
     const childStyles = {
-    fontSize,
-    paddingLeft: gap
+      fontSize,
+      paddingLeft: gap
     }
+
+    const defaultEleIcons = (
+      <text
+        style={iconStyle}
+        className={classNames(`${classPrefix}-icon`, {
+          [`${classPrefix}-icon-checked`]: this.data.checked && !disabled,
+          [`${classPrefix}-icon-indeterminate`]: props.indeterminate,
+          [`${classPrefix}-icon-disabled`]: disabled,
+          [`${classPrefix}-icon-disabled-checked`]: disabled && this.data.checked
+        })}>{this.data.checked ? '√' : (props.indeterminate ? '-' : '')}</text>
+    );
+
+    const iconEles = props.icon && props.selectedIcon
+      ? (this.data.checked ? props.selectedIcon : props.icon)
+      : (defaultEleIcons)
+    
+    const textCls = classNames(`${classPrefix}-text`, {
+      [`${classPrefix}-text-has-bottomborder`]: isGroup && !isLastEle
+    })
   
     return (
         <label
             className={boxCls}
-            style={{...props.style, marginBottom: gap}}
+            style={{...props.style}}
             onClick={() => {
               !disabled && this.setChecked()
             }}
             id={id}>
-            <img src={this.data.checked ? selectedIcons : unSelectedIcons} alt="check" style={iconStyle}/>
-            {props.children && formatLabel(props.children, '', childStyles)}
+            {iconEles}
+            {props.children && formatLabel(props.children, textCls, childStyles)}
         </label>
     )
   }
 }
+ 
