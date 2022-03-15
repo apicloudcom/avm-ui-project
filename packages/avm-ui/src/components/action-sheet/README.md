@@ -16,7 +16,7 @@
 | closeOnAction    | 点击选项后是否关闭                                                          | `boolean`                                  | `false`         |
 | closeOnMaskClick | 点击遮罩层后是否关闭                                                        | `boolean`                                  | `true`          |
 
-### Action
+### actions选项列表属性
 
 | 属性        | 说明           | 类型               | 默认值  |
 | ----------- | -------------- | ------------------ | ------- |
