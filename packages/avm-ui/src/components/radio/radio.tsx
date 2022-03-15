@@ -1,4 +1,3 @@
-import { mergeProps } from '../../utils/with-default-props'
 import { MyRadio } from './myRadio'
 
 const defaultProps = {
@@ -20,7 +19,7 @@ export class Radio extends Component {
   }
 
   render = props => {
-    this.props = mergeProps(defaultProps, props)
+    this.props = Object.assign({}, defaultProps, props)
 
     const {
       RadioGroupContext,
@@ -65,5 +64,50 @@ export class Radio extends Component {
         gap={gap}
       >{props.children}</MyRadio>
     )
+  }
+  css = () => {
+    return `
+      .adm-radio {
+        display: inline-flex;
+        vertical-align: text-bottom;
+        justify-content: flex-start;
+        align-items: center;
+        cursor: pointer;
+      }
+      .adm-radio-content {
+        flex: none;
+      }
+      .adm-radio-block {
+        display: flex;
+      }
+      .adm-radio-icon {
+        border-radius: 50%;
+        border: 1px solid #ddd;
+        align-items: center;
+        justify-content: center;
+      }
+      .adm-radio-icon-inner {
+        width: 70%;
+        height: 70%;
+        border-radius: 50%;
+        background: #9AC200;
+      }
+      .adm-radio-icon-inner-disabled {
+        background: #ddd;
+      }
+      .adm-radio-icon-checked {
+        border-color: #9AC200;
+      }
+      .adm-radio-icon-disabled {
+        background: #f2f2f2;
+        border-color: #ddd;
+      }
+      .adm-radio-labeltext {
+        color: #333;
+      }
+      .adm-radio-labeltext-disabled {
+        color: #bbb;
+      }
+    `
   }
 }

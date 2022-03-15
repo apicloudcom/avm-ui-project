@@ -1,7 +1,7 @@
 <template>
 
 	<safe-area>
-		<NavBar onBack={this.back}>Collapse</NavBar>
+		<avm-nav-bar onBack={this.back}>Collapse</avm-nav-bar>
 		<scroll-view>
 			<DemoBlock title='基础用法' padding='0' border='none'>
 				<avm-collapse defaultActiveKey={['1']}>
@@ -91,7 +91,7 @@
 <script>
 // import {DynamicContent} from './dynamicContent.js'
 import '../../components/avm-ui/collapse'
-import NavBar from '../../components/avm-ui/nav-bar'
+import '../../components/avm-ui/nav-bar'
 import {DemoBlock} from '../../components/avm-ui/demos'
 
 export default {
