@@ -24,6 +24,7 @@
 		<avm-action-sheet
 			extra='请选择你要进行的操作'
 			cancelText="取消"
+			extraDesc="请选择哦~~"
 			:visible="visibleTwo"
 			actions={actions}
 			onClose={() => this.setVisible('visibleTwo', false)}

@@ -92,7 +92,12 @@ export class ActionSheet extends Component {
         className={`${classPrefix}-popup`}
         getContainer={props.getContainer}>
         <div className={classPrefix}>
-          {props.extra && formatLabel(props.extra, `${classPrefix}-extra`)}
+          {
+            (props.extra || props.extraDesc) && <div className={`${classPrefix}-header`}>
+              {props.extra && formatLabel(props.extra, `${classPrefix}-extra`)}
+              {props.extraDesc && formatLabel(props.extraDesc, `${classPrefix}-extra-desc`)}
+            </div>
+          }
           <div className={`${classPrefix}-button-list`}>
             {btnListEle}
           </div>
@@ -115,54 +120,61 @@ export class ActionSheet extends Component {
 
   css = () => {
     return `
-      .adm-action-sheet-extra {
-        width: 100%;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #333;
-        font-size: 16px;
-        padding: 18px 16px;
-        border-bottom: 1px solid #eee;
-      }
-      .adm-action-sheet-button-item-wrapper {
-        background-color: #ffffff;
-        border-top: 1px solid #eee;
-      }
-      .adm-action-sheet-button-item {
-        padding: 14px;
-        text-align: center;
-        border-radius: 0;
-        border: none;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .adm-action-sheet-button-item-name {
-        color: #333;
-        font-size: 16px;
-      }
-      .adm-action-sheet-button-item-cancel {
-        color: #646566;
-      }
-      .adm-action-sheet-button-item-description {
-        font-size: 14px;
-        color: #999;
-        padding-top: 4px;
-      }
-      .adm-action-sheet-button-item-danger-name {
-        color: #FA6400;
-      }
-      .adm-action-sheet-button-item-disabled {
-        cursor: not-allowed;
-        pointer-events: none;
-        opacity: 0.4;
-      }
-      .adm-action-sheet-cancel {
-        background-color: #f2f2f2;
-        padding-top: 8px;
-      }
+    .adm-action-sheet-header {
+      padding: 18px 16px;
+      border-bottom: 1px solid #eee;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+    .adm-action-sheet-extra {
+      display: flex;
+      color: #333;
+      font-size: 16px;
+    }
+    .adm-action-sheet-extra-desc {
+      font-size: 14px;
+      color: #999;
+      line-height: 20px;
+      padding-top: 8px;
+    }
+    .adm-action-sheet-button-item-wrapper {
+      background-color: #ffffff;
+      border-top: 1px solid #eee;
+    }
+    .adm-action-sheet-button-item {
+      padding: 14px;
+      text-align: center;
+      border-radius: 0;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .adm-action-sheet-button-item-name {
+      color: #333;
+      font-size: 16px;
+    }
+    .adm-action-sheet-button-item-cancel {
+      color: #646566;
+    }
+    .adm-action-sheet-button-item-description {
+      font-size: 14px;
+      color: #999;
+      padding-top: 4px;
+    }
+    .adm-action-sheet-button-item-danger-name {
+      color: #FA6400;
+    }
+    .adm-action-sheet-button-item-disabled {
+      cursor: not-allowed;
+      pointer-events: none;
+      opacity: 0.4;
+    }
+    .adm-action-sheet-cancel {
+      background-color: #f2f2f2;
+      padding-top: 8px;
+    }
     `
   }
 }

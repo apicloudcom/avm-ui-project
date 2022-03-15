@@ -27,6 +27,11 @@
             "type": "string"
         },
         {
+            "name": "extraDesc",
+            "tip": "顶部的额外区域描述信息",
+            "type": "string"
+        },
+        {
             "name": "cancelText",
             "tip": "取消按钮文字，如果设置为空则不显示取消按钮",
             "type": "string",

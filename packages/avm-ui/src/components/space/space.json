@@ -8,22 +8,19 @@
             "name": "justify",
             "tip": "主轴对齐方式",
             "type": "string",
-            "enum": ["start", "end", "center", "between", "around", "evenly", "stretch"],
-            "default": "start"
+            "enum": ["start", "end", "center", "between", "around", "evenly", "stretch"]
         },
         {
             "name": "align",
             "tip": "交叉轴对齐方式",
             "enum": ["start", "end", "center", "baseline"],
-            "type": "string",
-            "default": "start"
+            "type": "string"
         },
         {
             "name": "direction",
             "tip": "间距方向",
             "type": "string",
-            "enum": ["vertical", "horizontal"],
-            "default": "horizontal"
+            "enum": ["horizontal", "vertical"]
         },
         {
             "name": "wrap",

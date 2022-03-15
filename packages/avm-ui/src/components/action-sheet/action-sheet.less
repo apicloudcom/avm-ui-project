@@ -1,16 +1,23 @@
 @class-prefix-action-sheet: ~'adm-action-sheet';
 
 .@{class-prefix-action-sheet} {
-  &-extra {
-    width: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #333;
-    font-size: 16px;
+  &-header {
     padding: 18px 16px;
     border-bottom: 1px solid #eee;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  &-extra {
+    display: flex;
+    color: #333;
+    font-size: 16px;
+  }
+  &-extra-desc {
+    font-size: 14px;
+    color: #999;
+    line-height: 20px;
+    padding-top: 8px;
   }
   &-button-item-wrapper {
     background-color: #ffffff;

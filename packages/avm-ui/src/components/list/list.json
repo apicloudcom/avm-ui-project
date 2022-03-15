@@ -8,8 +8,7 @@
             "name": "mode",
             "tip": "支持默认和卡片两种模式",
             "enum": ["default", "card"],
-            "type": "string",
-            "default": "default"
+            "type": "string"
         }
     ]
 }

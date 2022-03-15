@@ -29,8 +29,7 @@
             "name": "direction",
             "tip": "方向，默认是水平方向",
             "type": "string",
-            "enum": ["horizontal", "vertical"],
-            "default": "horizontal"
+            "enum": ["horizontal", "vertical"]
         },
         {
             "name": "indicatorProps",

@@ -17,8 +17,7 @@
             "name": "position",
             "tip": "指定弹出的位置",
             "type": "string",
-            "enum": ["bottom", "top", "left", "right"],
-            "default": "bottom"
+            "enum": ["bottom", "top", "left", "right"]
         },
         {
             "name": "className",
