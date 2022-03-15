@@ -6,6 +6,7 @@ import fse from "fs-extra";
 export function onJSON() {
   const jsons = glob.sync(`${resolve(uiDir)}/src/components/*/*.json`,);
   const jsonMap = {};
+  const IDEPrefix = 'Ant';
 
   jsons.forEach(json => {
     const name = json.replace('.json', '').split('/').pop();
@@ -13,7 +14,9 @@ export function onJSON() {
       if (/[A-Z]/.test(name)) {
         console.log(`${name} 组件名称不符合规范，包含了大写字母`)
       } else {
-        jsonMap[`avm-${name}`] = JSON.parse(fse.readFileSync(json).toString());
+        const jsonContent = JSON.parse(fse.readFileSync(json).toString());
+        jsonContent.component = IDEPrefix + jsonContent.component;
+        jsonMap[`avm-${name}`] = jsonContent;
       }
     } catch (e) {
       console.log(`出错了`, name)
