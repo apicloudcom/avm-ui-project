@@ -1,7 +1,7 @@
 <template>
 	<view class="page">
 		<safe-area>
-			<NavBar onBack={this.back}>ActionSheet</NavBar>
+			<avm-nav-bar onBack={this.back}>ActionSheet</avm-nav-bar>
 			
 		</safe-area>
 		<DemoBlock title='基础用法'>
@@ -50,7 +50,7 @@
 import '../../components/avm-ui/action-sheet'
 import '../../components/avm-ui/space'
 import '../../components/avm-ui/button'
-import NavBar from '../../components/avm-ui/nav-bar'
+import '../../components/avm-ui/nav-bar'
 import {DemoBlock} from '../../components/avm-ui/demos'
 
 const actions = [
