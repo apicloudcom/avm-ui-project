@@ -4,3 +4,5 @@ import { WaterMark } from './water-mark'
 export type { WaterMarkProps } from './water-mark'
 
 export default WaterMark
+
+avm.define('avm-water-mark', WaterMark)

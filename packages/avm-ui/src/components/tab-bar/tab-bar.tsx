@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import classNames from '../../utils/classnames'
 import { formatLabel } from '../../utils/format-label'
 import Badge from '../badge'
 
@@ -47,7 +47,7 @@ export class TabBar extends Component {
               if (iconEle) {
                 return (
                   <div className={'tabbar-align-item-center'}>
-                    <Badge content={item.badge} className='adm-tab-bar-icon-badge' top="-3px">{iconEle}</Badge>
+                    <Badge content={item.badge} className='adm-tab-bar-icon-badge' top="2px">{iconEle}</Badge>
                     {titleEle}
                   </div>
                 )
@@ -80,5 +80,51 @@ export class TabBar extends Component {
         }
       </div>
     )
+  }
+  css = () => {
+    return `
+      .adm-tab-bar {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        min-height: 50px;
+      }
+      .adm-tab-bar-item {
+        flex: 1;
+        white-space: nowrap;
+        padding: 4px 8px;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .adm-tab-bar-item-icon {
+        font-size: 20px;
+        height: auto;
+        line-height: 1;
+        margin: 4px 0 1px;
+        color: #999;
+      }
+      .adm-tab-bar-item-icon-active {
+        color: #9AC200;
+        font-weight: 500;
+      }
+      .adm-tab-bar-item-title {
+        font-size: 14px;
+        line-height: 14px;
+        color: #999;
+      }
+      .adm-tab-bar-item-title-active {
+        color: #9AC200;
+      }
+      .tabbar-align-item-center {
+        align-items: center;
+      }
+    `
   }
 }

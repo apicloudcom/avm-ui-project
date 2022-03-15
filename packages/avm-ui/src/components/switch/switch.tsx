@@ -1,7 +1,8 @@
-import classNames from 'classnames'
-import { mergeProps } from '../../utils/with-default-props'
+import classNames from '../../utils/classnames'
 import { formatLabel } from '../../utils/format-label'
-import SpinIcon from './spin.png'
+// import SpinIcon from './spin.png'
+
+import {UndoOutline} from '../icon/icon'
 
 const classPrefix = `adm-switch`
 
@@ -11,16 +12,16 @@ const formatPx = (str) => {
 
 const defaultProps = {
   defaultChecked: false,
-  checkedColor: '#1677ff',
-  width: '50px',
-  height: '30px',
+  checkedColor: '#9AC200',
+  width: '44px',
+  height: '26px',
   borderWidth: '2px'
 }
 
 export class Switch extends Component {
   install = () => {
     console.log('Switch!');
-    this.props = mergeProps(defaultProps, this.props)
+    this.props = Object.assign({}, defaultProps, this.props)
   }
 
   data = {
@@ -38,7 +39,7 @@ export class Switch extends Component {
   }
 
   render = props => {
-    props = mergeProps(defaultProps, props)
+    props = Object.assign({}, defaultProps, props)
 
     const {checkedColor, width, height, borderWidth} = props
 
@@ -72,7 +73,7 @@ export class Switch extends Component {
       width,
       height,
       lineHeight: height,
-      background: this.data.checked ? checkedColor : '#e5e5e5'
+      background: this.data.checked ? checkedColor : '#e8e8e8'
     }
 
     const handleSize = `${formatPx(props.height)-(formatPx(borderWidth) * 2)}px`
@@ -114,16 +115,78 @@ export class Switch extends Component {
             })}
             style={handleStyle}>
             {(props.loading || this.data.changing) && (
-              <img
-                src={SpinIcon}
-                className={`${classPrefix}-icon`}
-                alt='switch-handle'
-              />
+              // <img
+              //   src={SpinIcon}
+              //   className={`${classPrefix}-icon`}
+              //   alt='switch-handle'
+              // />
+              <UndoOutline className={`${classPrefix}-icon`} color="#9AC200"/>
             )}
           </div>
           {formatLabel(this.data.checked ? props.checkedText : props.uncheckedText, innerCls, innerStyle)}
         </div>
       </div>
     )
+  }
+  css = () => {
+    return `
+    @keyframes loading-rotate {
+      100% {
+        transform: translateX(10);
+      }
+    }
+    .adm-switch {
+      display: inline-block;
+      vertical-align: middle;
+      box-sizing: border-box;
+      position: relative;
+      align-self: center;
+      cursor: pointer;
+      opacity: 1;
+    }
+    .adm-switch input {
+      display: none;
+    }
+    .adm-switch-checkbox {
+      min-width: 45px;
+      box-sizing: border-box;
+      border-radius: 31px;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .adm-switch-handle {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      position: absolute;
+      z-index: 0;
+      box-shadow:
+        0 0 2px 0 rgba(0, 0, 0, 0.2),
+        0 2px 11.5px 0 rgba(0, 0, 0, 0.08),
+        -1px 2px 2px 0 rgba(0, 0, 0, 0.1);
+      transition: left 200ms;
+    }
+    .adm-switch-inner {
+      position: relative;
+      z-index: 1;
+      color: #999;
+      transition: margin 200ms;
+    }
+    .adm-switch-checked-inner {
+      color: #FFF;
+    }
+    .adm-switch-disabled {
+      cursor: not-allowed;
+      opacity: 0.4;
+    }
+    .adm-switch-icon {
+      width: 14px;
+      height: 14px;
+      transition: loading-rotate 1s linear infinite;
+    }
+    `
   }
 }

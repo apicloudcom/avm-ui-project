@@ -18,7 +18,6 @@
 | height           | 高度                                                                           | -                                                                          | `120px`        |
 | width            | 宽度                                                                           | -                                                                          | `100%`         |
 | borderRadius     | 整体组件的圆角                                                                  | -                                                                         | `0`             |
-| trackPadding     | 轨道区域的 `padding`                                                            | -                                                                         | `0`             |
 
 ## Swiper.Item
 

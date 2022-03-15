@@ -1,7 +1,6 @@
 import {SwiperItem} from './swiper-item'
 import {PageIndicator} from '../page-indicator/page-indicator'
-import { mergeProps } from '../../utils/with-default-props'
-import classNames from 'classnames'
+import classNames from '../../utils/classnames'
 const classPrefix = `adm-swiper`
 
 const defaultProps = {
@@ -22,12 +21,12 @@ export class Swiper extends Component {
     timer: null
   }
   render = props => {
-    this.props = mergeProps(defaultProps, props);
+    this.props = Object.assign({}, defaultProps, props);
     const {
       height='120px',
       width='100%',
       borderRadius='0',
-      trackPadding,
+      // trackPadding,
       autoplay,
       autoplayInterval,
       loop,
@@ -40,14 +39,14 @@ export class Swiper extends Component {
       height,
       width,
       borderRadius,
-      padding: trackPadding || 0
     }
 
     // const pageindicatorStyle = direction === 'horizontal' ? {bottom: '12px', left: '50%'} : {right: '12px', top: '50%'}
 
     const pageIndicatorEle = props.indicator === undefined
       ? (
-        <div className={classNames(`${classPrefix}-pageindicator`, `${classPrefix}-pageindicator-${direction}`)}>
+        <div
+          className={classNames(`${classPrefix}-pageindicator`, `${classPrefix}-pageindicator-${direction}`)}>
           <PageIndicator
             {...indicatorProps}
             total={props.children.length}
@@ -81,5 +80,32 @@ export class Swiper extends Component {
         {pageIndicatorEle}
       </div>
     )
+  }
+  css = () => {
+    return `
+      .adm-swiper-wrapper {
+        position: relative;
+      }
+      .adm-swiper-item {
+        align-items: center;
+        justify-content: center;
+      }
+      .adm-swiper-item-child {
+        width: 100%;
+        height: 100%;
+      }
+      .adm-swiper-pageindicator {
+        position: absolute;
+      }
+      .adm-swiper-pageindicator-horizontal {
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .adm-swiper-pageindicator-vertical {
+        right: 12px;
+        top: 50%;
+      }
+    `
   }
 }

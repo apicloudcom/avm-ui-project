@@ -1,11 +1,10 @@
-import { mergeProps } from '../../utils/with-default-props'
-import classNames from 'classnames'
+import classNames from '../../utils/classnames'
 
 const classPrefix = `adm-tag`
 
 const colorRecord: Record<string, string> = {
   default: '#666666',
-  primary: '#1677ff',
+  primary: '#9AC200',
   success: '#00b578',
   warning: '#ff8f1f',
   danger: '#ff3141',
@@ -36,7 +35,7 @@ export class Tag extends Component {
   }
 
   render = props => {
-    props = mergeProps(defaultProps, props)
+    props = Object.assign({}, defaultProps, props)
 
     const color = colorRecord[props.color] ?? props.color
 
@@ -65,5 +64,20 @@ export class Tag extends Component {
         {props.children}
       </span>
     )
+  }
+  css = () => {
+    return `
+      .adm-tag {
+        padding: 2px 4px;
+        font-size: 10px;
+        font-weight: normal;
+        display: block;
+        white-space: nowrap;
+        box-sizing: border-box;
+      }
+      .adm-tag-round {
+        border-radius: 100px;
+      }
+    `
   }
 }

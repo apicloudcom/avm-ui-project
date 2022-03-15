@@ -1,49 +1,51 @@
 <template>
 	<safe-area class="page">
-		<NavBar onBack={this.back}>Switch</NavBar>
+		<avm-nav-bar onBack={this.back}>Switch</avm-nav-bar>
 		<scroll-view>
 			<DemoBlock title='基础用法'>
-				<Switch />
+				<avm-switch />
 			</DemoBlock>
 			<DemoBlock title='受控组件'>
-				<Switch
+				<avm-switch
 					checked={this.data.checked}
 					onChange={this.toggleChecked}
 				/>
 			</DemoBlock>
 			<DemoBlock title='有默认值'>
-				<Switch defaultChecked />
+				<avm-switch defaultChecked />
 			</DemoBlock>
 			<DemoBlock title='文字和图标'>
-				<Space wrap>
-					<Switch uncheckedText='关' checkedText='开' width="60px"/>
-					<Switch uncheckedText={<img src="../../image/cf.png"/>} checkedText={"开启"} width="100px"/>
-					<Switch uncheckedText='0' checkedText='1' />
-				</Space>
+				<avm-space wrap>
+					<avm-switch uncheckedText='关' checkedText='开' width="60px"/>
+					<avm-switch uncheckedText={<img src="../../image/cf.png"/>} checkedText={"开启"} width="100px"/>
+					<avm-switch uncheckedText='0' checkedText='1' />
+				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='自定义样式'>
-				<Switch defaultChecked checkedColor="#00b578" height="36px" width="100px"/>
+				<avm-switch defaultChecked checkedColor="#00b578" height="36px" width="100px"/>
 			</DemoBlock>
 			<DemoBlock title='禁用状态'>
-				<Space>
-					<Switch disabled />
-					<Switch disabled defaultChecked />
-				</Space>
+				<avm-space>
+					<avm-switch disabled />
+					<avm-switch disabled defaultChecked />
+				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='加载状态'>
-				<Switch loading />
+				<avm-switch loading />
 			</DemoBlock>
 			<DemoBlock title='异步'>
-				<Space wrap>
-					<Switch defaultChecked beforeChange={this.beforeChange} />
-				</Space>
+				<avm-space wrap>
+					<avm-switch defaultChecked beforeChange={this.beforeChange} />
+				</avm-space>
 			</DemoBlock>
 		</scroll-view>
 	</safe-area>
 </template>
 <script>
-import { Switch, NavBar, DemoBlock, Space } from '../../components/avm-ui/avm-ui';
-
+import '../../components/avm-ui/switch'
+import '../../components/avm-ui/space'
+import '../../components/avm-ui/nav-bar'
+import {DemoBlock} from '../../components/avm-ui/demos'
 export default {
 	name: 'demo-switch',
 	data() {
@@ -71,7 +73,7 @@ export default {
 	}
 }
 </script>
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/demos/index.css"/>
 <style>
 .page {
 	height: 100%;

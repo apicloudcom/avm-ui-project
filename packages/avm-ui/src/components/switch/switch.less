@@ -1,8 +1,7 @@
-@import url('../../global/theme.less');
 @class-prefix-switch: ~'adm-switch';
 
-@switch-width: 51px;
-@switch-height: 31px;
+@switch-width: 45px;
+@switch-height: 27px;
 @switch-border: 2px;
 @keyframes loading-rotate {
   100% {
@@ -48,14 +47,14 @@
   &-inner {
     position: relative;
     z-index: 1;
-    color: var(--adm-color-weak);
+    color: #999;
     transition: margin 200ms;
   }
 
   /* 选中状态 */
   &-checked {
     &-inner {
-      color: var(--adm-color-white);
+      color: #FFF;
     }
   }
 

@@ -1,156 +1,162 @@
 <template>
 <safe-area class="main">
+    <avm-nav-bar onBack={this.back}>Swiper</avm-nav-bar>
     <scroll-view>
         <DemoBlock title='基础用法'>
-            <Swiper>
+            <avm-swiper indicatorProps={indicatorProps}>
                 {{
                     colors.map((color, index) => {
                         const styles = {
                             background: color
                         }
                         return (
-                            <Swiper.Item key={index}>
+                            <avm-swiper-item key={index}>
                                 <span
                                     className='contents'
                                     style={styles}
                                     onClick={() => api.toast({msg: `你点击了卡片 ${index + 1}`})}>{index + 1}</span>
-                            </Swiper.Item>
+                            </avm-swiper-item>
                         )
                     })
                 }}
-            </Swiper>
+            </avm-swiper>
         </DemoBlock>
         <DemoBlock title='自动播放'>
-            <Swiper autoplay>
+            <avm-swiper autoplay indicatorProps={indicatorProps}>
                 {{
                     colors.map((color, index) => {
                         const styles = {
                             background: color
                         }
                         return (
-                            <Swiper.Item key={index}>
+                            <avm-swiper-item key={index}>
                                 <span className='contents' style={styles}>{index + 1}</span>
-                            </Swiper.Item>
+                            </avm-swiper-item>
                         )
                     })
                 }}
-            </Swiper>
+            </avm-swiper>
         </DemoBlock>
         <DemoBlock title='自定义圆角样式'>
-            <Space direction='vertical' block>
-                <Swiper borderRadius="10px" defaultIndex={2}>
+            <avm-space direction='vertical' block>
+                <avm-swiper borderRadius="10px" defaultIndex={2} indicatorProps={indicatorProps}>
                     {{
                         colors.map((color, index) => {
                             const styles = {
                                 background: color
                             }
                             return (
-                                <Swiper.Item key={index}>
+                                <avm-swiper-item key={index}>
                                     <span className='contents' style={styles}>{index + 1}</span>
-                                </Swiper.Item>
+                                </avm-swiper-item>
                             )
                         })
                     }}
-                </Swiper>
-            </Space>
+                </avm-swiper>
+            </avm-space>
         </DemoBlock>
         <DemoBlock title='指示器颜色'>
-            <Space direction='vertical' block>
-                <Swiper indicatorProps={indicatorProps} defaultIndex={1}>
+            <avm-space direction='vertical' block>
+                <avm-swiper :indicatorProps="{color: '#f0f'}" defaultIndex={1}>
                     {{
                         colors.map((color, index) => {
                             const styles = {
                                 background: color
                             }
                             return (
-                                <Swiper.Item key={index}>
+                                <avm-swiper-item key={index}>
                                     <span className='contents' style={styles}>{index + 1}</span>
-                                </Swiper.Item>
+                                </avm-swiper-item>
                             )
                         })
                     }}
-                </Swiper>
+                </avm-swiper>
                 <DemoDescription content='通过indicatorProps可以控制指示器的外观' />
-            </Space>
+            </avm-space>
         </DemoBlock>
-        <DemoBlock title='指示器在滑块外面'>
-            <Space direction='vertical' block>
-            <Swiper trackPadding="16px auto">
+        <!-- <DemoBlock title='指示器在滑块外面'>
+            <avm-space direction='vertical' block>
+            <avm-swiper trackPadding="16px auto" indicatorProps={indicatorProps}>
                 {{
                     colors.map((color, index) => {
                         const styles = {
                             background: color
                         }
                         return (
-                            <Swiper.Item key={index}>
+                            <avm-swiper-item key={index}>
                                 <span className='contents' style={styles}>{index + 1}</span>
-                            </Swiper.Item>
+                            </avm-swiper-item>
                         )
                     })
                 }}
-            </Swiper>
+            </avm-swiper>
             <DemoDescription content='通过 trackPadding 可以控制滑动轨道区域的 padding，从而实现指示器和滑块"分离"的效果' />
-            </Space>
-        </DemoBlock>
+            </avm-space>
+        </DemoBlock> -->
         <DemoBlock title='自定义指示器'>
-            <Space direction='vertical' block>
-                <Swiper indicator={data => (<span className='customIndicator'>{{`${data.current + 1} / ${data.total}`}}</span>)}>
+            <avm-space direction='vertical' block>
+                <avm-swiper indicator={data => (<span className='customIndicator'>{{`${data.current + 1} / ${data.total}`}}</span>)}>
                     {{
                         colors.map((color, index) => {
                             const styles = {
                                 background: color
                             }
                             return (
-                                <Swiper.Item key={index}>
+                                <avm-swiper-item key={index}>
                                     <span className='contents' style={styles}>{index + 1}</span>
-                                </Swiper.Item>
+                                </avm-swiper-item>
                             )
                         })
                     }}
-                </Swiper>
+                </avm-swiper>
                 <DemoDescription content='你可以完全自定义指示器的渲染，甚至改变指示器的位置' />
-            </Space>
+            </avm-space>
         </DemoBlock>
         <DemoBlock title='无指示器'>
-            <Swiper indicator={() => null}>
+            <avm-swiper indicator={() => null}>
                 {{
                     colors.map((color, index) => {
                         const styles = {
                             background: color
                         }
                         return (
-                            <Swiper.Item key={index}>
+                            <avm-swiper-item key={index}>
                                 <span className='contents' style={styles}>{index + 1}</span>
-                            </Swiper.Item>
+                            </avm-swiper-item>
                         )
                     })
                 }}
-            </Swiper>
+            </avm-swiper>
         </DemoBlock>
         <DemoBlock title="全屏引导">
-            <Button onClick={() => this.setVisible(true)}>显示弹出层</Button>
+            <avm-button onClick={() => this.setVisible(true)}>显示弹出层</avm-button>
             <DemoDescription content='配合 Popup 组件可以实现全屏引导'/>
         </DemoBlock>
     </scroll-view>
-    <Popup position='bottom' visible={this.data.visiable} bodyStyle={popupBodyStyle}>
-        <Swiper loop={false} height="100%">
-            <Swiper.Item>
+    <avm-popup position='bottom' visible={this.data.visiable} bodyStyle={popupBodyStyle}>
+        <avm-swiper loop={false} height="100%">
+            <avm-swiper-item>
                 <span className='contentFull' :style="{background: '#ace0ff'}">1</span>
-            </Swiper.Item>
-            <Swiper.Item>
+            </avm-swiper-item>
+            <avm-swiper-item>
                 <span className='contentFull' :style="{background: '#bcffbd'}">2</span>
-            </Swiper.Item>
-            <Swiper.Item>
+            </avm-swiper-item>
+            <avm-swiper-item>
                 <div className='contentFull' :style="{background: '#fff'}">
-                    <Button onClick={() => this.setVisible(false)}>开始使用</Button>
+                    <avm-button onClick={() => this.setVisible(false)}>开始使用</avm-button>
                 </div>
-            </Swiper.Item>
-        </Swiper>
-    </Popup>
+            </avm-swiper-item>
+        </avm-swiper>
+    </avm-popup>
 </safe-area>
 </template>
 <script>
-import {Swiper, DemoBlock, Space, Button, DemoDescription, Popup} from '../../components/avm-ui/avm-ui'
+import '../../components/avm-ui/swiper'
+import '../../components/avm-ui/space'
+import '../../components/avm-ui/button'
+import '../../components/avm-ui/nav-bar'
+import '../../components/avm-ui/popup'
+import {DemoBlock, DemoDescription} from '../../components/avm-ui/demos'
 const colors = ['#ace0ff', '#bcffbd', '#e4fabd', '#ffcfac']
 export default {
     data() {
@@ -164,6 +170,9 @@ export default {
         }
     },
     methods: {
+        back() {
+			api.closeWin();
+		},
         onchange(v){
             api.toast({
                 msg: v
@@ -176,7 +185,7 @@ export default {
     }
 }
 </script>
-<style src="../../components/avm-ui/avm-ui.css"></style>
+<style src="../../components/avm-ui/demos/index.css"></style>
 <style>
 .main {
     width: 100%;
@@ -196,10 +205,11 @@ export default {
     top: 6px;
     right: 6px;
     background: rgba(0, 0, 0, 0.3);
-    padding: 4px 8px;
+    padding: 3px 6px;
     color: #ffffff;
-    border-radius: 4px;
+    border-radius: 50%;
     user-select: none;
+    font-size: 12px;
 }
 .contentFull {
     width: 100%;

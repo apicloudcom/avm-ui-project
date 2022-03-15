@@ -59,12 +59,6 @@
             "tip": "整体组件的圆角",
             "type": "number",
             "default": 0
-        },
-        {
-            "name": "trackPadding",
-            "tip": "轨道区域的padding",
-            "type": "number",
-            "default": 0
         }
     ]
 }
