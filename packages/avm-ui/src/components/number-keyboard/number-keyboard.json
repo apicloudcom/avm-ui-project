@@ -7,7 +7,8 @@
         "onDelete",
         "onClose",
         "onConfirm",
-        "afterClose"
+        "afterClose",
+        "onclearAll"
     ],
     "props": [
         {
@@ -50,8 +51,8 @@
             "default": true
         },
         {
-            "name": "safeArea",
-            "tip": "是否开启安全区适配",
+            "name": "isShowClearBtn",
+            "tip": "是否显示清空按钮",
             "type": "boolean",
             "default": true
         }
