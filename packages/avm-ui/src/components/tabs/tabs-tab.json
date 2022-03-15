@@ -6,7 +6,7 @@
     {
       "name": "key",
       "tip": "面板的 key",
-      "type": "string",
+      "type": "string"
     },
     {
       "name": "title",
