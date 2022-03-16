@@ -1,5 +1,5 @@
 {
-        "component": "Dropdown.Item",
+        "component": "DropdownItem",
         "desc": "Dropdown.Item 下来菜单中item",
         "type": 2,
         "props": [
