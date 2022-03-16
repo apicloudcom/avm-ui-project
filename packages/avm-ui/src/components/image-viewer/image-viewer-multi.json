@@ -1,5 +1,5 @@
 {
-  "component": "ImageViewer.Multi",
+  "component": "ImageViewerMulti",
   "desc": "多张图片查看器",
   "type": 3,
   "event": [
