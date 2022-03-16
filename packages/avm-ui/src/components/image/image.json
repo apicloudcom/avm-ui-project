@@ -44,6 +44,18 @@
             "name": "fallback",
             "type": "string",
             "tip": "加载失败的占位"
+        },
+        {
+            "name": "isRound",
+            "type": "boolean",
+            "tip": "是否显示圆形图片, 如果设置为true, width/height将不生效",
+            "default": false
+        },
+        {
+            "name": "isSquare",
+            "type": "boolean",
+            "tip": "是否显示方形图片，如果设置为true, width/height将不生效 ",
+            "default": false
         }
     ],
     "event": [

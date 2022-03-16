@@ -1,8 +1,5 @@
 import {toCSSLength} from '../../utils/to-css-length'
 import { formatLabel } from '../../utils/format-label'
-
-// import outlineUrl from './img/loading.png'
-// import warnUrl from './img/warn.png'
 import {PictureOutline, PictureWrongOutline} from '../icon/icon'
 
 const classPrefix = `adm-image`
@@ -10,14 +7,12 @@ const classPrefix = `adm-image`
 const defaultProps = {
   fit: 'fill',
   placeholder: (
-    <div className={`${classPrefix}-tip`}>
-      {/* <img src={outlineUrl} className={`${classPrefix}-tip-icon`}/> */}
+    <div className={`${classPrefix}-tip`}>=
       <PictureOutline className={`${classPrefix}-tip-icon`}/>
     </div>
   ),
   fallback: (
     <div className={`${classPrefix}-tip`}>
-      {/* <img src={warnUrl} className={`${classPrefix}-tip-icon`}/> */}
       <PictureWrongOutline className={`${classPrefix}-tip-icon`}/>
     </div>
   )
@@ -43,17 +38,17 @@ export class Image extends Component {
 
   render = props => {
     props = Object.assign({}, defaultProps, props)
+    const {width='238px', height='165px', src, srcSet, isRound=false, isSquare=false} = props;
 
     const style = {};
-    if (props.width) {
-      style['width'] = toCSSLength(props.width)
+    style['width'] = toCSSLength(width)
+    style['height'] = toCSSLength(height)
+    isRound && (style['borderRadius'] = '50%')
+    if (isSquare) {
+      style['borderRadius'] = '4px'
+      style['width'] = '120px'
+      style['height'] = '120px'
     }
-    if (props.height) {
-      style['height'] = toCSSLength(props.height)
-    }
-
-    let src = props.src
-    let srcSet = props.srcSet
 
     const renderInner = () => {
       if (this.data.failed) {
@@ -74,8 +69,8 @@ export class Image extends Component {
           }}
           style={{
             objectFit: props.fit,
-            ...style,
-            ...props.style
+            ...props.style,
+            ...style
           }}
           crossOrigin={props.crossOrigin}
           decoding={props.decoding}

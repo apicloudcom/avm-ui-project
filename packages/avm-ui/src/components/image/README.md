@@ -16,6 +16,8 @@
 | fallback    | 加载失败的占位                      | `ReactNode`                                                      | 默认占位 |
 | onError     | 加载失败时触发                      | `(event: React.SyntheticEvent<HTMLImageElement, Event>) => void` | -        |
 | onClick     | 图片点击事件                        | `(event: React.MouseEvent<HTMLImageElement, Event>) => void`     | -        |
+| isRound     | 是否显示圆形图片, 如果设置为true, width/height将不生效                        | `boolean`     | `false`        |
+| isSquare     | 是否显示方形图片，如果设置为true, width/height将不生效                        | `boolean`     | `false`        |
 
 此外，还支持以下 HTML 原生属性：`crossOrigin`、`decoding`、`loading`、`referrerPolicy`、`sizes`、`srcSet`、`useMap`
 
