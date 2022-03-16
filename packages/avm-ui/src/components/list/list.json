@@ -1,15 +1,7 @@
 {
     "component": "List",
     "desc": "列表",
-    "type": 2,
+    "type": 1,
     "event": [],
-    "props": [
-        {
-            "name": "mode",
-            "tip": "支持默认和卡片两种模式",
-            "enum": ["default", "card"],
-            "type": "string",
-            "default": "default"
-        }
-    ]
+    "props": []
 }

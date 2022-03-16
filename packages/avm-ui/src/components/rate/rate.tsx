@@ -1,13 +1,15 @@
 import classNames from 'classnames'
-import { mergeProps } from '../../utils/with-default-props'
+// import { mergeProps } from '../../utils/with-default-props'
 import { formatLabel } from '../../utils/format-label'
+
+import {StarOutline} from '../icon/icon'
 
 const classPrefix = `adm-rate`
 
 const defaultProps = {
   count: 5,
   allowHalf: false,
-  character: '★',
+  // character: '★',
   defaultValue: 0,
   readOnly: false,
   allowClear: true,
@@ -28,12 +30,12 @@ export class Rate extends Component {
   }
 
   render = props => {
-    props = mergeProps(defaultProps, props)
+    props = Object.assign({}, defaultProps, props)
     const starList = Array(props.count).fill(null)
 
     let styles = {};
-    const {starSize="24px", activeColor='#ffd21e'} = props;
-    styles['padding'] = `${Number(starSize.replace('px', ''))/8}px`;
+    const {starSize="18px", activeColor=' #faab0c'} = props;
+    styles['padding'] = '4px';
     styles['line-height'] = starSize;
     styles['font-size'] = starSize;
     
@@ -45,7 +47,7 @@ export class Rate extends Component {
             [`${classPrefix}-star-half`]: half,
             [`${classPrefix}-star-readonly`]: props.readOnly,
           })}
-          style={{...styles, color: this.data.value >= v ? activeColor : '#ccc'}}
+          style={{...styles, color: this.data.value >= v ? activeColor : '#ddd'}}
           onClick={() => {
             if (props.readOnly) return
             if (props.allowClear && this.data.value === v) {
@@ -55,7 +57,10 @@ export class Rate extends Component {
             }
           }}
         >
-          {formatLabel(props.character, '', {color: this.data.value >= v ? activeColor : '#ccc', fontSize: starSize})}
+          {
+            props.character
+              ? (formatLabel(props.character, '', {color: this.data.value >= v ? activeColor : '#ddd', fontSize: starSize}))
+              : (<StarOutline {...{color: this.data.value >= v ? activeColor : '#ddd', fontSize: starSize}}/>)}
         </div>
       )
     }
@@ -69,5 +74,33 @@ export class Rate extends Component {
         ))}
       </div>
     )
+  }
+  css = () => {
+    return `
+      .adm-rate {
+        display: flex;
+        flex-direction: row;
+      }
+      .adm-rate-box {
+        position: relative;
+      }
+      .adm-rate-star {
+        color: #ccc;
+        text-align: center;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .adm-rate-star-half {
+        z-index: 666;
+        padding-right: 0;
+        width: 50%;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .adm-rate-star-readonly {
+        cursor: unset;
+      }
+    `
   }
 }

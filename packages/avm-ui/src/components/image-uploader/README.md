@@ -22,5 +22,6 @@
 | beforeUpload  | 文件读取前的回调函数，返回 `false` 可终止文件读取，支持返回 `Promise`         | `(file: File[]) => Promise<File[]> \| File[]`             | -         |
 | onDelete      | 删除已上传成功的图片时触发，如果返回 `false` 表示阻止删除，支持返回 `Promise` | `(file: FileItem) => boolean \| Promise<boolean> \| void` | -         |
 | uploadIcon      | 自定义上传icon                                                                | `ReactNode`                                         | -         |
-| gap           | 每张图片间距                                                                    | -                                                    | `12px`   | 
+| gap           | 每张图片间距                                                                    | -                                                    | `8px`   | 
 | cellSize      | 图片和上传按钮的大小                                                             | -                                                    | `80px` |
+| tipDesc      | 提示文本                                                             | -                                                    | `-` |

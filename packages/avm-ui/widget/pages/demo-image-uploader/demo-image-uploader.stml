@@ -1,23 +1,23 @@
 <template>
 <safe-area class="page">
-	<NavBar onBack={this.back}>Image</NavBar>
+	<avm-nav-bar onBack={this.back}>Image</avm-nav-bar>
 	<scroll-view>
 		<DemoBlock title='基础用法'>
-			<ImageUploader :defaultValue="fileList1" onChange={imgs => this.setFileList('fileList1', imgs)}/>
+			<avm-image-uploader :defaultValue="fileList1" tipDesc="建议尺寸900*900，最多六张，单个图片不超过20M" onChange={imgs => this.setFileList('fileList1', imgs)}/>
 		</DemoBlock>
 		<DemoBlock title='上传状态'>
-			<ImageUploader :value="fileList2" onChange={imgs => this.setFileList('fileList1', imgs)}/>
+			<avm-image-uploader :value="fileList2" onChange={imgs => this.setFileList('fileList1', imgs)}/>
 			<DemoDescription content='当用户选择的文件超过 1M 时，跳过上传并提示用户'/>
 		</DemoBlock>
 		<DemoBlock title='限制上传大小'>
-			<Space direction='vertical'>
-				<ImageUploader :value="fileList3" onChange={imgs => this.setFileList('fileList1', imgs)}/>
+			<avm-space direction='vertical'>
+				<avm-image-uploader :value="fileList3" onChange={imgs => this.setFileList('fileList1', imgs)}/>
 				<DemoDescription content='当用户选择的文件超过 1M 时，跳过上传并提示用户'/>
-			</Space>
+			</avm-space>
 		</DemoBlock>
 		<DemoBlock title='限制图片数量'>
-			<Space direction='vertical'>
-				<ImageUploader
+			<avm-space direction='vertical'>
+				<avm-image-uploader
                     disableUpload={true}
 					:value="fileList4"
 					:maxCount={3}
@@ -25,31 +25,34 @@
 					@countExceed="toastExceed($event)"
 					onChange={imgs => this.setFileList('fileList1', imgs)}/>
 				<DemoDescription content='限制用户最多上传 3 张图片，当达到最大数量时隐藏掉上传按钮' />
-			</Space>
+			</avm-space>
 		</DemoBlock>
 		<DemoBlock title='删除图片确认'>
-			<Space direction='vertical'>
-				<ImageUploader
+			<avm-space direction='vertical'>
+				<avm-image-uploader
 					:value="fileList5"
 					@delete="handleDelete"
 					onChange={imgs => this.setFileList('fileList1', imgs)}/>
 				<DemoDescription content='当用户删除图片时，进行确认，确认后可删除图片' />
-			</Space>
+			</avm-space>
 		</DemoBlock>
 		<DemoBlock title='自定义大小'>
-			<ImageUploader
+			<avm-image-uploader
 				cellSize="90px"
 				:value="fileList6"
 				onChange={imgs => this.setFileList('fileList1', imgs)}/>
 		</DemoBlock>
 		<DemoBlock title='自定义上传按钮'>
-			<ImageUploader :value="fileList7" uploadIcon={<view style={myStyle}><img src='../../image/cf.png' alt="自定义"/></view>}/>
+			<avm-image-uploader :value="fileList7" uploadIcon={<view style={myStyle}><img src='../../image/cf.png' alt="自定义"/></view>}/>
 		</DemoBlock>
 	</scroll-view>
 </safe-area>
 </template>
 <script>
-import { ImageUploader, DemoBlock, DemoDescription, NavBar, Space } from '../../components/avm-ui/avm-ui';
+import '../../components/avm-ui/image-uploader'
+import '../../components/avm-ui/nav-bar'
+import '../../components/avm-ui/space'
+import {DemoBlock, DemoDescription} from '../../components/avm-ui/demos'
 const defaultList = [
 	{url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'},
 ]
@@ -102,7 +105,7 @@ export default {
 	}
 }
 </script>
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/demos/index.css"/>
 <style>
 .page {
 	width: 100%;

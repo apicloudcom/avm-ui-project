@@ -1,8 +1,8 @@
-import classNames from 'classnames'
-import { mergeProps } from '../../utils/with-default-props'
-import searchIcon from './search.png'
-import closeIcon from './img/close.png'
+import classNames from '../../utils/classnames'
+// import searchIcon from './search.png'
+// import closeIcon from './img/close.png'
 
+import {SearchOutline, CloseCircleFill} from '../icon/icon'
 
 const classPrefix = `adm-search`
 
@@ -12,8 +12,9 @@ const defaultProps = {
   defaultValue: '',
   clearOnCancel: true,
   cancelText: '取消',
+  cancelTextColor: '#333',
   bgColor: '#f5f5f5',
-  borderRadius: '6px',
+  borderRadius: '4px',
   maxLength: 500,
   minLength: 0
 }
@@ -38,10 +39,10 @@ export class Search extends Component {
   }
 
   render = props => {
-    this.props = mergeProps(defaultProps,  props)
+    this.props = Object.assign({}, defaultProps,  props)
 
     const {
-      showCancelButton, clearOnCancel, clearable, bgColor, borderRadius, placeholderColor='#ccc', 
+      showCancelButton, clearOnCancel, clearable, bgColor, borderRadius, placeholderColor='#ccc', cancelTextColor,
       onClear, onCancel, onFocus, onBlur, onSearch, onEnterPress, onKeyDown,
       maxLength, placeholder="请输入", cancelText
     } = this.props
@@ -65,6 +66,7 @@ export class Search extends Component {
         isShowCancel && (
           <span
             className={`${classPrefix}-suffix`}
+            style={{color: cancelTextColor}}
             onClick={() => {
               if (clearOnCancel) {
                 this.setSearchValue('');
@@ -95,7 +97,8 @@ export class Search extends Component {
       >
         <div className={boxCls} style={boxStyles}>
           <div className={`${classPrefix}-input-box-icon`}>
-            <img src={searchIcon} alt="search"/>
+            {/* <img src={searchIcon} alt="search"/> */}
+            <SearchOutline color="#ccc"/>
           </div>
           <input
             className={(`${classPrefix}-input`)}
@@ -127,12 +130,63 @@ export class Search extends Component {
                 this.setSearchValue('')
                 onClear?.()
               }}>
-              <img src={closeIcon} alt="close" className={`${classPrefix}-clear-icon`}/>
+              {/* <img src={closeIcon} alt="close" className={`${classPrefix}-clear-icon`}/> */}
+              <CloseCircleFill color="#bababa" className={`${classPrefix}-clear-icon`}/>
             </div>
           )}
         </div>
         {renderCancelButton()}
       </div>
     )
+  }
+  css = () => {
+    return `
+      .adm-search {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+      .adm-search-input-box {
+        width: 100%;
+        flex: 1;
+        border: solid 1px transparent;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .adm-search-input-box-icon {
+        flex: none;
+        padding-left: 8px;
+        font-size: 16px;
+      }
+      .adm-search-input {
+        padding-left: 8px;
+        flex: 1;
+        line-height: 1.5;
+        background: transparent;
+        border: 0;
+        outline: none;
+        appearance: none;
+        min-height: 1.5em;
+        font-size: 14px;
+        color: #333;
+      }
+      .adm-search-suffix {
+        flex: none;
+        margin-left: 8px;
+        font-size: 16px;
+      }
+      .adm-search-clear {
+        flex: none;
+        margin: 0 8px;
+        padding: 3px;
+        cursor: pointer;
+      }
+      .adm-search-clear-icon {
+        width: 16px;
+        height: 16px;
+      }
+    `
   }
 }

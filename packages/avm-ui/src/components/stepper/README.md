@@ -17,16 +17,16 @@
 | disabled     | 是否禁用步进器                                        | `boolean`                                         | `false` |
 | onFocus      | 输入框获得焦点时触发                                  | `(e: React.FocusEvent<HTMLInputElement>) => void` | -       |
 | onBlur       | 输入框失去焦点时触发                                  | `(e: React.FocusEvent<HTMLInputElement>) => void` | -       |
-| height                  | 组件整体高度              | -        | `30px`                      |
-| inputWidth             | 仅输入框的宽度          | -             | `60px`                      |
-| inputFontSize         | 输入框文字大小            | -           | `13px` |
-| borderRadius           | 组件整体的圆角           | -            | `2px`                       |
+| height                  | 组件整体高度              | -        | `28px`                      |
+| inputWidth             | 仅输入框的宽度          | -             | `32px`                      |
+| inputFontSize         | 输入框文字大小            | -           | `14px` |
+| borderRadius           | 组件整体的圆角           | -            | `4px`                       |
 | border                  | 组件四周边框的样式        | -           | `1px solid #e5e5e5`         |
 | borderInner            | 组件内部边框的样式         | -          | `1px solid #e5e5e5`             |
 | activeBorder           | 输入框 Focus 状态下，四周边框样式  | -  | `1px solid #e5e5e5`             |
-| btnFontSize        | 左右两侧按钮文字大小         | -        | `10px`                      |
-| btnBgColor | 左右两侧按钮背景颜色           | -      | `transparent`               |
-| btnWidth            | 左右两侧按钮的宽度     | -              | `30px`                      |
+| btnFontSize        | 左右两侧按钮文字大小         | -        | `16px`                      |
+| btnBgColor | 左右两侧按钮背景颜色           | -      | `#f0f0f0`               |
+| btnWidth            | 左右两侧按钮的宽度     | -              | `28px`                      |
 | inputFontColor        | 输入框文字颜色        | -               | `#333`     |
-| btnTextColor      | 左右两侧按钮文字颜色       | -          | `#1677ff`  |
+| btnTextColor      | 左右两侧按钮文字颜色       | -          | `#333`  |
 

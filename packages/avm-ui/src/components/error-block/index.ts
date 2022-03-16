@@ -4,3 +4,5 @@ import { ErrorBlock } from './error-block'
 export type { ErrorBlockProps } from './error-block'
 
 export default ErrorBlock
+
+avm.define('avm-error-block', ErrorBlock)

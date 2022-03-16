@@ -1,4 +1,3 @@
-import './image-viewer.less'
 import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 import {
   ImageViewer,
@@ -18,3 +17,5 @@ export default attachPropertiesToComponent(ImageViewer, {
   show: showImageViewer,
 })
 // export default ImageViewer
+avm.define('avm-image-viewer', ImageViewer)
+avm.define('avm-image-viewer-multi', MultiImageViewer)

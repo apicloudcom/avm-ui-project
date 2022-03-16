@@ -1,12 +1,12 @@
-
-@import url('../../global/theme.less');
 @class-prefix-number-keyboard: ~'adm-number-keyboard';
 
 @keyboard-bg-color: #f5f5f5;
-@active-bg-color: #eee;
+@active-bg-color: #f2f2f2;
 @border-style: 1px solid #f5f5f5;
 
 .@{class-prefix-number-keyboard} {
+  padding: 0 0 8px 8px;
+  background: #f2f3f5;
   width: 100%;
   &-main {
     display: flex;
@@ -17,7 +17,7 @@
 
   &-confirmed-style {
     width: 75%;
-    background-color: var(--adm-color-white);
+    // background-color: #f2f3f5;
   }
 
   &-popup {
@@ -41,8 +41,8 @@
     justify-content: center;
     align-items: center;
     padding: 0 12px;
-    color: var(--adm-color-weak);
-    background-color: var(--adm-color-white);
+    color: #999;
+    background-color: #fff;
     &-close-button {
       padding: 0 12px;
       height: 34px;
@@ -58,7 +58,8 @@
   }
 
   &-title {
-    color: var(--adm-color-weak);
+    color: #999;
+    font-size: 14px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -68,10 +69,12 @@
     width: 25%;
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
 
   &-key {
-    width: 33.33%;
+    width: 31.5%;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,11 +83,16 @@
     border-top: @border-style;
     border-right: @border-style;
     background: @keyboard-bg-color;
+    margin-top: 8px;
     &-text {
       font-size: 22px;
     }
     &-mid {
-      flex-basis: 66.67%;
+      width: 63%;
+    }
+
+    &-sign {
+      background: #fff;
     }
   
     &-sign:active {
@@ -92,32 +100,52 @@
     }
   
     &-extra {
-      background-color: var(--adm-color-white);
+      background-color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
+      border-radius: 8px;
+      margin-top: 8px;
+      margin-left: 8px;
+      margin-right: 8px;
     }
   
     &-number {
-      background-color: var(--adm-color-white);
+      background-color: #fff;
       &:active {
         background-color: @active-bg-color;
       }
     }
   
     &-ok {
-      background-color: var(--adm-color-primary);
-      color: var(--adm-color-white);
-      font-size: 16px;
-      height: 144px;
-      line-height: 144px;
+      display: inline-block;
+      background-color: #9AC200;
       text-align: center;
+      margin-top: 8px;
+      align-items: center;
+      justify-content: center;
+      height: 104px;
+      &-text {
+        color: #fff;
+        font-size: 16px;
+      }
     }
   
     &-bs {
-      height: 48px;
       border-top: @border-style;
       border-bottom: @border-style;
+      height: 104px;
+      &-hasclear {
+        height: 48px;
+      }
+    }
+
+    &-clear {
+      height: 48px;
+      &-text {
+        color: #333;
+        font-size: 16px;
+      }
     }
   }
 }

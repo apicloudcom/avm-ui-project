@@ -17,7 +17,7 @@
 | onChange       | 变化时回调函数   | `(val: boolean) => void`          | -       |
 | checkedText    | 选中时的内容     | `ReactNode`                       | -       |
 | uncheckedText  | 非选中时的内容   | `ReactNode`                       | -       |
-| checkedColor | 填充颜色           |  -                | `var(--adm-color-primary)` |
-| width | 宽度           |  -                                          | `50px` |
-| height | 高度           |  -                                         | `30px` |
+| checkedColor | 填充颜色           |  -                | `#9AC200` |
+| width | 宽度           |  -                                          | `44px` |
+| height | 高度           |  -                                         | `26px` |
 | borderWidth | 边框宽度           |  -                                 | `2px` |

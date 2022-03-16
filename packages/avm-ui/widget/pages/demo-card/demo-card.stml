@@ -1,30 +1,28 @@
 <template>
   <safe-area class="page">
     <DemoBlock title='基本用法' background='gray'>
-      <Card title='卡片标题' onClick={()=>this.onClick()}>
+      <avm-card title='卡片标题' onClick={()=>this.onClick()}>
         卡片内容
-      </Card>
+      </avm-card>
     </DemoBlock>
     <DemoBlock title='没有卡片内容' background='gray'>
-      <Card title='卡片标题' onClick={()=>this.onClick()}></Card>
+      <avm-card title='卡片标题' onClick={()=>this.onClick()}></avm-card>
     </DemoBlock>
     <DemoBlock title='没有卡片标题' background='gray'>
-      <Card onClick={()=>this.onClick()}>卡片内容</Card>
+      <avm-card onClick={()=>this.onClick()}>卡片内容</avm-card>
     </DemoBlock>
     <DemoBlock title='自定义卡片样式' background='gray'>
-      <Card
+      <avm-card
         bodyClassName={'customBody'}
         title='卡片标题'
       >
         <text>卡片内容</text>
-      </Card>
+      </avm-card>
     </DemoBlock>
   </safe-area>
 </template>
-<style src="../../components/avm-ui/card/index.css"/>
-<style src="../../components/avm-ui/demos/index.css"/>
 <script>
-import Card from '../../components/avm-ui/card';
+import '../../components/avm-ui/card';
 import {DemoBlock} from '../../components/avm-ui/demos';
 export default {
   name: 'test',

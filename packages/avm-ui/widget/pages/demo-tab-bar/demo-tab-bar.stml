@@ -1,97 +1,100 @@
 <template>
 	<safe-area class="page">
-		<NavBar onBack={this.back}>TabBar</NavBar>
+		<avm-nav-bar onBack={this.back}>TabBar</avm-nav-bar>
 		<scroll-view>
 			<DemoBlock title='基本用法' padding='0'>
-				<TabBar>
-					<TabBar.Item
+				<avm-tabbar>
+					<avm-tabbar-item
 						key="home"
 						title="首页"
-						icon={<img src="../../image/money.png" className={'icon-style'}/>}/>
-					<TabBar.Item
+						icon={<text className={'icon-style'}>icon占位</text>}/>
+					<avm-tabbar-item
 						key="todo"
 						title="我的待办"
-						icon={<img src="../../image/cf.png" className={'icon-style'}/>}/>
-					<TabBar.Item
+						icon={<text className={'icon-style'}>icon占位</text>}/>
+					<avm-tabbar-item
 						key="message"
 						title="我的消息"
-						icon={<img src="../../image/unSelect.png" className={'icon-style'}/>}/>
-					<TabBar.Item
+						icon={<text className={'icon-style'}>icon占位</text>}/>
+					<avm-tabbar-item
 						key="personalCenter"
 						title="个人中心"
-						icon={<img src="../../image/cf.png" className={'icon-style'}/>}/>
-				</TabBar>
+						icon={<text className={'icon-style'}>icon占位</text>}/>
+				</avm-tabbar>
 			</DemoBlock>
 			<DemoBlock title='徽标' padding='0'>
-				<TabBar>
-					<TabBar.Item
+				<avm-tabbar>
+					<avm-tabbar-item
 						key="home"
 						title="首页"
-						icon={<img src="../../image/money.png" className={'icon-style'}/>}/>
-					<TabBar.Item
+						icon={<text className={'icon-style'}>icon占位</text>}/>
+					<avm-tabbar-item
 						key="todo"
 						title="我的待办"
 						badge={'5'}
-						icon={<img src="../../image/cf.png" className={'icon-style'}/>}/>
-					<TabBar.Item
+						icon={<text className={'icon-style'}>icon占位</text>}/>
+					<avm-tabbar-item
 						key="message"
 						title="我的消息"
 						badge={'99+'}
-						icon={<img src="../../image/unSelect.png" className={'icon-style'}/>}/>
-					<TabBar.Item
+						icon={<text className={'icon-style'}>icon占位</text>}/>
+					<avm-tabbar-item
 						key="personalCenter"
 						title="个人中心"
-						icon={<img src="../../image/cf.png" className={'icon-style'}/>}/>
-				</TabBar>
+						icon={<text className={'icon-style'}>icon占位</text>}/>
+				</avm-tabbar>
 			</DemoBlock>
 			<DemoBlock title='仅图标' padding='0'>
-				<TabBar>
-					<TabBar.Item key="home" icon={<img src="../../image/money.png" className={'icon-style'}/>}/>
-					<TabBar.Item key="todo" icon={<img src="../../image/cf.png" className={'icon-style'}/>}/>
-					<TabBar.Item key="message" icon={<img src="../../image/money.png" className={'icon-style'}/>}/>
-					<TabBar.Item key="personalCenter" icon={<img src="../../image/cf.png" className={'icon-style'}/>}/>
-				</TabBar>
+				<avm-tabbar>
+					<avm-tabbar-item key="home" icon={<text className={'icon-style'}>icon占位</text>}/>
+					<avm-tabbar-item key="todo" icon={<text className={'icon-style'}>icon占位</text>}/>
+					<avm-tabbar-item key="message" icon={<text className={'icon-style'}>icon占位</text>}/>
+					<avm-tabbar-item key="personalCenter" icon={<text className={'icon-style'}>icon占位</text>}/>
+				</avm-tabbar>
 			</DemoBlock>
 			<DemoBlock title='仅标题' padding='0'>
-				<TabBar>
+				<avm-tabbar>
 					{{
 						tabs.map(item => {
 							return (
-								<TabBar.Item
+								<avm-tabbar-item
 									key={item.key}
 									title={item.title}
 									badge={item.badge}/>
 							)
 						})
 					}}
-				</TabBar>
+				</avm-tabbar>
 			</DemoBlock>
 			<DemoBlock title='受控组件' padding='0'>
-				<TabBar activeKey={activeKey} onChange={this.setActiveKey}>
-					<TabBar.Item
+				<avm-tabbar activeKey={activeKey} onChange={this.setActiveKey}>
+					<avm-tabbar-item
 						key="home"
 						title="首页"
 						className={'icon-style'}
-						icon={<img src={this.getIcon('home')} className={'icon-style'}/>}/>
-					<TabBar.Item
+						icon={<text className={'icon-style'}>icon占位</text>}/>
+					<avm-tabbar-item
 						key="todo"
 						title="我的待办"
-						icon={<img src={this.getIcon('todo')} className={'icon-style'}/>}/>
-					<TabBar.Item
+						icon={<text className={'icon-style'}>icon占位</text>}/>
+					<avm-tabbar-item
 						key="message"
 						title="我的消息"
-						icon={<img src={this.getIcon('message')} className={'icon-style'}/>}/>
-					<TabBar.Item
+						icon={<text className={'icon-style'}>icon占位</text>}/>
+					<avm-tabbar-item
 						key="personalCenter"
 						title="个人中心"
-						icon={<img src={this.getIcon('personalCenter')} className={'icon-style'}/>}/>
-				</TabBar>
+						icon={<text className={'icon-style'}>icon占位</text>}/>
+				</avm-tabbar>
 			</DemoBlock>
 		</scroll-view>
 	</safe-area>
 </template>
 <script>
-import { TabBar, NavBar, DemoBlock, Badge } from '../../components/avm-ui/avm-ui';
+import '../../components/avm-ui/tab-bar'
+import '../../components/avm-ui/nav-bar'
+import Badge from '../../components/avm-ui/badge'
+import {DemoBlock} from '../../components/avm-ui/demos'
 
 const tabs = [
 	{
@@ -139,14 +142,16 @@ export default {
 	}
 }
 </script>
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/demos/index.css"/>
 <style>
 .page {
 	height: 100%;
 	width: 100%;
 }
 .icon-style {
-	width: 20px;
+	width: auto;
 	height: 20px;
+	font-size: 10px;
+	color: #999;
 }
 </style>

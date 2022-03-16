@@ -31,3 +31,4 @@ _widget
 _widget/.*
 /out.js
 /avm-ui.json
+/avm-component.json

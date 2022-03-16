@@ -10,15 +10,13 @@
             "name": "color",
             "tip": "标签色",
             "enum": ["default", "primary", "success", "warning", "danger", "string"],
-            "type": "string",
-            "default": "default"
+            "type": "string"
         },
         {
             "name": "fill",
             "tip": "填充模式",
             "type": "string",
-            "enum": ["solid", "outline"],
-            "default": "solid"
+            "enum": ["solid", "outline"]
         },
         {
             "name": "round",

@@ -1,5 +1,4 @@
 import classNames from '../../utils/classnames'
-import { mergeProps } from '../../utils/with-default-props'
 import Mask from '../mask'
 import {GetContainer} from '../../utils/render-to-container'
 import { useShouldRender } from '../../utils/use-should-render'
@@ -46,7 +45,7 @@ export class Popup extends Component {
     this.data.visible = visible
   }
   render = props => {
-    this.props = mergeProps(defaultProps, props)
+    this.props = Object.assign({}, defaultProps, props)
     this.data.visible = props.visible
 
     let {

@@ -1,5 +1,4 @@
-import classNames from 'classnames'
-import { mergeProps } from '../../utils/with-default-props'
+import classNames from '../../utils/classnames'
 
 const classPrefix = `adm-water-mark`
 
@@ -40,7 +39,7 @@ export class WaterMark extends Component {
   }
 
   render = props => {
-    props = mergeProps(defaultProps, props)
+    props = Object.assign({}, defaultProps, props)
     const {
       zIndex = 2000,
       gapX = 24,
@@ -124,5 +123,21 @@ export class WaterMark extends Component {
         }}
       />
     )
+  }
+  css = () => {
+    return `
+      .adm-water-mark {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        pointer-events: none;
+        background-repeat: repeat;
+      }
+      .adm-water-mark-full-page {
+        position: fixed;
+      }
+    `
   }
 }

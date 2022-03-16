@@ -3,24 +3,23 @@
 		<NavBar onBack={this.back}>PageIndicator</NavBar>
 		<scroll-view>
 			<DemoBlock title='基础用法'>
-				<PageIndicator total={4} current={0} />
+				<avm-page-indicator total={6} current={1} />
 			</DemoBlock>
-			<DemoBlock title='白色' background='rgb(212 212 212)'>
-				<PageIndicator total={4} current={0} color='white' />
+			<DemoBlock title='白色' background='#9AC200'>
+				<avm-page-indicator total={5} current={2} color='white'/>
 			</DemoBlock>
 			<DemoBlock title='竖直方向'>
-				<PageIndicator total={4} current={0} direction='vertical'/>
+				<avm-page-indicator total={6} current={3} direction='vertical'/>
 			</DemoBlock>
 			<DemoBlock title='自定义颜色和大小'>
-				<PageIndicator
-				total={4}
-				current={0}
-				dotColor={"rgba(0, 0, 0, 0.4)"}
-				activeDotColor={"#ffc0cb"}
-				dotSize={"10px"}
-				activeDotSize={"30px"}
+				<avm-page-indicator
+				total={5}
+				current={2}
+				activeDotColor={"#FFA600"}
+				dotSize={"6px"}
+				activeDotSize={"18px"}
 				dotBorderRadius={"50%"}
-				activeDotBorderRadius={"15px"}
+				activeDotBorderRadius={"9px"}
 				dotSpacing={"8px"}
 				/>
 			</DemoBlock>
@@ -28,8 +27,9 @@
 	</safe-area>
 </template>
 <script>
-import { PageIndicator, NavBar, DemoBlock } from '../../components/avm-ui/avm-ui';
-
+import '../../components/avm-ui/page-indicator'
+import NavBar from '../../components/avm-ui/nav-bar'
+import {DemoBlock} from '../../components/avm-ui/demos'
 export default {
 	name: 'demo-pageindicator',
 	methods: {
@@ -39,7 +39,7 @@ export default {
 	}
 }
 </script>
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/demos/index.css"/>
 <style>
 .page {
 	height: 100%;

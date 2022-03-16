@@ -1,5 +1,3 @@
-@import "../../global/theme";
-
 @class-prefix-page-indicator: ~'adm-page-indicator';
 
 .@{class-prefix-page-indicator} {
@@ -8,17 +6,9 @@
 
   &-dot {
     display: block;
-    // width: var(--dot-size);
-    // height: var(--dot-size);
-    // border-radius: var(--dot-border-radius);
-    // background: var(--dot-color);
 
     &:last-child {
       margin-right: 0;
-    }
-    &-active {
-      // border-radius: var(--active-dot-border-radius);
-      // background: var(--active-dot-color);
     }
   }
   &-color-white {
@@ -28,20 +18,8 @@
   }
   &-horizontal {
     flex-direction: row;
-    // .adm-page-indicator-dot {
-    //   margin-right: var(--dot-spacing);
-    //   &-active {
-    //     width: var(--active-dot-size);
-    //   }
-    // }
   }
   &-vertical {
     flex-direction: column;
-    // .adm-page-indicator-dot {
-    //   margin-bottom: var(--dot-spacing);
-    //   &-active {
-    //     height: var(--active-dot-size);
-    //   }
-    // }
   }
 }

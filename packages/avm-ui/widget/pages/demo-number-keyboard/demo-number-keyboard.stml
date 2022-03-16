@@ -1,25 +1,25 @@
 <template>
 	<safe-area class="page">
-		<NavBar onBack={this.back}>NumberKeyboard</NavBar>
+		<avm-nav-bar onBack={this.back}>avm-number-keyboard</avm-nav-bar>
 		<scroll-view>
-			<List>
-				<List.Item onClick={() => this.openKeyboard('demo1')}>默认键盘</List.Item>
-				<List.Item onClick={() => this.openKeyboard('demo2')}>带标题键盘</List.Item>
-				<List.Item onClick={() => this.openKeyboard('demo3')}>带确认键盘</List.Item>
-				<List.Item onClick={() => this.openKeyboard('demo4')}>带自定义键盘</List.Item>
-				<List.Item onClick={() => this.openKeyboard('demo5')}>乱序键盘</List.Item>
-				<List.Item onClick={() => this.openKeyboard('demo7')} arrow={false}>
+			<avm-list>
+				<avm-list-item onClick={() => this.openKeyboard('demo1')}>默认键盘</avm-list-item>
+				<avm-list-item onClick={() => this.openKeyboard('demo2')}>带标题键盘</avm-list-item>
+				<avm-list-item onClick={() => this.openKeyboard('demo3')}>带确认键盘</avm-list-item>
+				<avm-list-item onClick={() => this.openKeyboard('demo4')}>带自定义键盘</avm-list-item>
+				<avm-list-item onClick={() => this.openKeyboard('demo5')}>乱序键盘</avm-list-item>
+				<avm-list-item onClick={() => this.openKeyboard('demo7')} arrow={false}>
 					<text :class="`${!value || value == null || value == '' ? 'placeholder-class' : 'text-class'}`">{{value || '请输入内容'}}</text>
-				</List.Item>
-			</List>
+				</avm-list-item>
+			</avm-list>
 		</scroll-view>
-		<NumberKeyboard
+		<avm-number-keyboard
 			visible={this.data.visible === 'demo1'}
 			onClose={this.data.actions.onClose}
 			onInput={this.data.actions.onInput}
 			onDelete={this.data.actions.onDelete}
 		/>
-		<NumberKeyboard
+		<avm-number-keyboard
 			visible={this.data.visible === 'demo2'}
 			onClose={this.data.actions.onClose}
 			onInput={this.data.actions.onInput}
@@ -27,15 +27,17 @@
 			title='数字键盘'
 			customKey='-'
 		/>
-		<NumberKeyboard
+		<avm-number-keyboard
 			visible={this.data.visible === 'demo3'}
 			onClose={this.data.actions.onClose}
 			onInput={this.data.actions.onInput}
 			onDelete={this.data.actions.onDelete}
+			onClearAll={this.data.actions.onClearAll}
 			showCloseButton={false}
 			confirmText='确定'
+			customKey='-'
 		/>
-		<NumberKeyboard
+		<avm-number-keyboard
 			visible={this.data.visible === 'demo4'}
 			onClose={this.data.actions.onClose}
 			onInput={this.data.actions.onInput}
@@ -43,8 +45,9 @@
 			customKey='.'
 			showCloseButton={false}
 			confirmText='确定'
+			:isShowClearBtn="false"
 		/>
-		<NumberKeyboard
+		<avm-number-keyboard
 			visible={this.data.visible === 'demo5'}
 			onClose={this.data.actions.onClose}
 			onInput={this.data.actions.onInput}
@@ -53,7 +56,7 @@
 			customKey='X'
 			confirmText='确定'
 		/>
-		<NumberKeyboard
+		<avm-number-keyboard
 			visible={this.data.visible === 'demo7'}
 			onClose={this.data.actions.onClose}
 			onInput={this.onInput}
@@ -63,8 +66,9 @@
 	</safe-area>
 </template>
 <script>
-import { NumberKeyboard, List, NavBar } from '../../components/avm-ui/avm-ui';
-
+import '../../components/avm-ui/number-keyboard'
+import '../../components/avm-ui/nav-bar'
+import '../../components/avm-ui/list'
 export default {
 	name: 'demo-numberkeyboard',
 	data() {
@@ -89,6 +93,11 @@ export default {
 						msg: 'delete'
 					})
 				},
+				onClearAll: () => {
+					api.toast({
+						msg:'点击清空按钮啦~~'
+					})
+				}
 			}
 		}
 	},
@@ -120,7 +129,7 @@ export default {
 	}
 }
 </script>
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/number-keyboard/index.css"/>
 <style>
 .page {
 	height: 100%;

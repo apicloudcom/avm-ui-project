@@ -6,11 +6,11 @@
     <DemoBlock title='多张图片预览'>
       <button onclick={ this.openVisible1 }>打开ImageViewer</button>
     </DemoBlock>
-    <ImageViewer
+    <avm-image-viewer
       image={demoImages[0]}
       visible={this.data.visible}
       onClose={ () => { this.data.visible = false} }/>
-    <ImageViewer.Multi
+    <avm-image-viewer-multi
       images={ demoImages }
       visible={ this.data.visible1 }
       onClose={ this.closeVisible1 }
@@ -18,9 +18,8 @@
   </safe-area>
 </template>
 
-<style src="../../components/avm-ui/image-viewer/index.css"/>
 <script>
-import ImageViewer from '../../components/avm-ui/image-viewer';
+import '../../components/avm-ui/image-viewer';
 import {DemoBlock} from '../../components/avm-ui/demos';
 export default {
   name: 'test',

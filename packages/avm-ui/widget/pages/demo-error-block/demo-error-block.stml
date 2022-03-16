@@ -1,36 +1,38 @@
 <template>
-
 	<safe-area>
-		<NavBar onBack={this.back}>ErrorBlock</NavBar>
+		<avm-nav-bar onBack={this.back}>ErrorBlock</avm-nav-bar>
 		<scroll-view>
 			<DemoBlock title='四种状态' padding='0' border='none'>
-				<Space block direction='vertical' gap="16px">
-					<ErrorBlock status='default' imageHeight="150px"/>
-					<ErrorBlock status='disconnected' />
-					<ErrorBlock status='empty' />
-					<ErrorBlock status='busy' />
-				</Space>
+				<avm-space block direction='vertical' gap="16px">
+					<avm-error-block status='default' imageHeight="150px"/>
+					<avm-error-block status='disconnected' />
+					<avm-error-block status='empty' />
+					<avm-error-block status='busy' />
+				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='全屏' padding='0' border='none'>
-				<ErrorBlock fullPage/>
+				<avm-error-block fullPage/>
 			</DemoBlock>
 			<DemoBlock title='自定义' padding='0' border='none'>
-				<ErrorBlock
+				<avm-error-block
 					image='../../image/cf.png'
 					imgHeight="150px"
 					description={<text>Customize Description</text>}>
-					<Button color='primary'>Create Now</Button>
-				</ErrorBlock>
+					<avm-button color='primary'>Create Now</avm-button>
+				</avm-error-block>
 			</DemoBlock>
 		</scroll-view>
 	</safe-area>
 </template>
 
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/demos/index.css"/>
 
 <script>
-import { ErrorBlock, DemoBlock, Space, NavBar, Button } from '../../components/avm-ui/avm-ui';
-
+import '../../components/avm-ui/error-block'
+import '../../components/avm-ui/nav-bar'
+import '../../components/avm-ui/space'
+import '../../components/avm-ui/button'
+import {DemoBlock} from '../../components/avm-ui/demos'
 export default {
 	name: 'demo-errorblock',
 	methods: {

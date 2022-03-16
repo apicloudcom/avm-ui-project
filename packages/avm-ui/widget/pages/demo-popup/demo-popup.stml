@@ -1,53 +1,53 @@
 <template>
 	<view class="page">
 		<safe-area>
-			<NavBar onBack={this.back}>Popup</NavBar>
+			<avm-nav-bar onBack={this.back}>Popup</avm-nav-bar>
 			<DemoBlock title='不同位置'>
-				<Space direction='vertical'>
-					<Button @Click="setVisible('visible1', true)">底部弹出</Button>
-					<Button onClick={() => this.setVisible('visible2', true)}>顶部弹出</Button>
-					<Button onClick={() => this.setVisible('visible3', true)}>左侧弹出</Button>
-					<Button onClick={() => this.setVisible('visible4', true)}>右侧弹出</Button>
-				</Space>
+				<avm-space direction='vertical'>
+					<avm-button @Click="setVisible('visible1', true)">底部弹出</avm-button>
+					<avm-button onClick={() => this.setVisible('visible2', true)}>顶部弹出</avm-button>
+					<avm-button onClick={() => this.setVisible('visible3', true)}>左侧弹出</avm-button>
+					<avm-button onClick={() => this.setVisible('visible4', true)}>右侧弹出</avm-button>
+				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='自定义样式'>
-				<Space direction='vertical'>
-					<Button onClick={() => this.setVisible('visible5', true)}>圆角的弹出层</Button>
-					<Button onClick={() => this.setVisible('visible6', true)}>内容超长滚动</Button>
-				</Space>
+				<avm-space direction='vertical'>
+					<avm-button onClick={() => this.setVisible('visible5', true)}>圆角的弹出层</avm-button>
+					<avm-button onClick={() => this.setVisible('visible6', true)}>内容超长滚动</avm-button>
+				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='多层堆叠'>
-				<Button onClick={() => this.setVisible('visible7', true)}>展开弹出层1</Button>
+				<avm-button onClick={() => this.setVisible('visible7', true)}>展开弹出层1</avm-button>
 			</DemoBlock>
 		</safe-area>
-		<Popup
+		<avm-popup
 			:visible="visible1"
 			bodyStyle={bodyStyle1}
-			onMaskClick={() => this.setVisible('visible1', false)}>Hello</Popup>
-		<Popup
+			onMaskClick={() => this.setVisible('visible1', false)}>Hello</avm-popup>
+		<avm-popup
 			:visible="visible2"
 			position='top'
 			bodyStyle={bodyStyle3}
-			onMaskClick={() => this.setVisible('visible2', false)}>Hello</Popup>
+			onMaskClick={() => this.setVisible('visible2', false)}>Hello</avm-popup>
 
-		<Popup
+		<avm-popup
 			:visible="visible3"
 			position='left'
 			bodyStyle={bodyStyle2}
-			onMaskClick={() => this.setVisible('visible3', false)}>Hello</Popup>
+			onMaskClick={() => this.setVisible('visible3', false)}>Hello</avm-popup>
 
-		<Popup
+		<avm-popup
 			:visible="visible4"
 			position='right'
 			bodyStyle={bodyStyle2}
-			onMaskClick={() => this.setVisible('visible4', false)}>Hello</Popup>
+			onMaskClick={() => this.setVisible('visible4', false)}>Hello</avm-popup>
 
-		<Popup
+		<avm-popup
 			:visible="visible5"
 			:bodyStyle="borderRadiusStyle"
-			onMaskClick={() => this.setVisible('visible5', false)}>Hello</Popup>
+			onMaskClick={() => this.setVisible('visible5', false)}>Hello</avm-popup>
 
-		<Popup
+		<avm-popup
 			:visible="visible6"
 			@afterShow="afterShow"
 			:bodyStyle="{height: '500px'}"
@@ -68,28 +68,32 @@
 				<text class="long-scroll-item">Hello</text>
 				<text class="long-scroll-item">Hello</text>
 			</scroll-view>
-		</Popup>
-		<Popup
+		</avm-popup>
+		<avm-popup
 			visible={this.data.visible7}
 			bodyStyle={bodyStyle1}
 			onMaskClick={() => this.setVisible('visible7', false)}>
 			<div :style="{padding: '24px'}">
 				<text>这是弹出层1</text>
-				<Button onClick={() => this.setVisible('visible8', true)}>展开弹出层2</Button>
+				<avm-button onClick={() => this.setVisible('visible8', true)}>展开弹出层2</avm-button>
 			</div>
-		</Popup>
-		<Popup
+		</avm-popup>
+		<avm-popup
 			visible={this.data.visible8}
 			bodyStyle={bodyStyle4}
 			onMaskClick={() => this.setVisible('visible8', false)}>
 			<div :style="{padding: '24px'}">
 			<text>这是弹出层2</text>
 			</div>
-		</Popup>
+		</avm-popup>
 	</view>
 </template>
 <script>
-import { Popup, NavBar, DemoBlock, Space, Button } from '../../components/avm-ui/avm-ui';
+import '../../components/avm-ui/popup'
+import '../../components/avm-ui/nav-bar'
+import '../../components/avm-ui/space'
+import '../../components/avm-ui/button'
+import {DemoBlock} from '../../components/avm-ui/demos'
 const bodyStyle1 = {
 	minHeight: '300px',
 	padding: '16px'
@@ -147,7 +151,7 @@ export default {
 	}
 }
 </script>
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/demos/index.css"/>
 <style>
 .page {
 	height: 100%;

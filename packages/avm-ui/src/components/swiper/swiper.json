@@ -29,8 +29,7 @@
             "name": "direction",
             "tip": "方向，默认是水平方向",
             "type": "string",
-            "enum": ["horizontal", "vertical"],
-            "default": "horizontal"
+            "enum": ["horizontal", "vertical"]
         },
         {
             "name": "indicatorProps",
@@ -57,12 +56,6 @@
         {
             "name": "borderRadius",
             "tip": "整体组件的圆角",
-            "type": "number",
-            "default": 0
-        },
-        {
-            "name": "trackPadding",
-            "tip": "轨道区域的padding",
             "type": "number",
             "default": 0
         }

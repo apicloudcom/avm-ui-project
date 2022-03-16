@@ -6,3 +6,6 @@ import {Step} from './step'
 export default attachPropertiesToComponent(Steps, {
     Step,
   })
+
+  avm.define('avm-steps', Steps)
+  avm.define('avm-step', Step)

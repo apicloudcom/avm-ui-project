@@ -110,7 +110,7 @@ export class Input extends Component {
               onClear?.()
             }}>
             {/* <img src={closeIcon} alt="close" className={`${classPrefix}-clear-icon`}/> */}
-            <CloseCircleOutline {...{fontSize: '16px'}}/>
+            <CloseCircleOutline fontSize="16px"/>
           </div>
         )}
       </div>

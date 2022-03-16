@@ -54,6 +54,80 @@ export class ImageViewer extends Component {
     )
     return renderToContainer(props.getContainer, node)
   }
+  
+  css = () => {
+    return `.adm-image-viewer-container {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+    }
+    .adm-image-viewer-content {
+      width: 100%;
+      height: 100%;
+      max-height: -webkit-fill-available;
+      touch-action: none;
+      user-select: none;
+    }
+    .adm-image-viewer-slides {
+      height: 100%;
+      position: relative;
+      z-index: 1;
+      cursor: grab;
+    }
+    .adm-image-viewer-slides-inner {
+      height: 100%;
+      white-space: nowrap;
+    }
+    .adm-image-viewer-slide {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+    }
+    .adm-image-viewer-control {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      cursor: grab;
+    }
+    .adm-image-viewer-image-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .adm-image-viewer-image-wrapper img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .adm-image-viewer-indicator {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      top: 12px;
+      transform: translateX(-50%);
+      color: #e6e6e6;
+      font-size: 14px;
+    }
+    .adm-image-viewer-swiper {
+      display: flex !important;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+    .adm-image-viewer-swiper-item {
+      display: flex !important;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+    }`
+  }
 }
 
 export type MultiImageViewerProps = Omit<ImageViewerProps, 'image'> & {
@@ -91,6 +165,80 @@ export class MultiImageViewer extends Component {
       </Mask>
     )
     return renderToContainer(props.getContainer, node)
+  }
+  
+  css = () => {
+    return `.adm-image-viewer-container {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+    }
+    .adm-image-viewer-content {
+      width: 100%;
+      height: 100%;
+      max-height: -webkit-fill-available;
+      touch-action: none;
+      user-select: none;
+    }
+    .adm-image-viewer-slides {
+      height: 100%;
+      position: relative;
+      z-index: 1;
+      cursor: grab;
+    }
+    .adm-image-viewer-slides-inner {
+      height: 100%;
+      white-space: nowrap;
+    }
+    .adm-image-viewer-slide {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+    }
+    .adm-image-viewer-control {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      cursor: grab;
+    }
+    .adm-image-viewer-image-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .adm-image-viewer-image-wrapper img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .adm-image-viewer-indicator {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      top: 12px;
+      transform: translateX(-50%);
+      color: #e6e6e6;
+      font-size: 14px;
+    }
+    .adm-image-viewer-swiper {
+      display: flex !important;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+    .adm-image-viewer-swiper-item {
+      display: flex !important;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+    }`
   }
 }
 

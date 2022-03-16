@@ -1,8 +1,5 @@
-import classNames from 'classnames'
+import classNames from '../../utils/classnames'
 import {formatLabel} from '../../utils/format-label'
-
-import defaultSelectIcon from './img/selected.png'
-import defaultUnSelectIcon from './img/unselected.png'
 
 const classPrefix = `adm-radio`
 
@@ -21,9 +18,9 @@ export class MyRadio extends Component {
 
   render = props => {
     const {
-      fontSize='17px',
+      fontSize='16px',
       gap='8px',
-      iconSize='22px',
+      iconSize='18px',
       disabled=false,
       block=false,
       icon,
@@ -36,9 +33,6 @@ export class MyRadio extends Component {
         [`${classPrefix}-block`]: block,
     })
 
-    const selectIcons = selectedIcon ?? defaultSelectIcon
-    const unSelectIcons = icon ?? defaultUnSelectIcon
-
     const iconStyles = {
         width: iconSize,
         height: iconSize
@@ -49,6 +43,25 @@ export class MyRadio extends Component {
         paddingLeft: gap
     }
 
+    const labelTextCls = classNames(`${classPrefix}-labeltext`, {
+      [`${classPrefix}-labeltext-disabled`]: disabled
+    })
+
+    const defaultIconsEle = (
+      <view className={classNames(`${classPrefix}-icon`, {
+        [`${classPrefix}-icon-checked`]: this.data.checked,
+        [`${classPrefix}-icon-disabled`]: disabled,
+      })} style={iconStyles}>
+        {this.data.checked && <text className={classNames(`${classPrefix}-icon-inner`, {
+          [`${classPrefix}-icon-inner-disabled`]: disabled
+        })}></text>}
+      </view>
+    )
+
+    const iconEles = icon && selectedIcon
+      ? (this.data.checked ? selectedIcon : icon)
+      : (defaultIconsEle)
+
     return (
       <label
         className={boxCls}
@@ -56,8 +69,8 @@ export class MyRadio extends Component {
         onClick={() => {
             !disabled && this.setChecked()
         }}>
-        <img src={this.data.checked ?  selectIcons : unSelectIcons} alt="radio-icon" style={iconStyles}/>
-        {props.children && formatLabel(props.children, '', childStyles)}
+        {iconEles}
+        {props.children && formatLabel(props.children, labelTextCls, childStyles)}
       </label>
     )
   }

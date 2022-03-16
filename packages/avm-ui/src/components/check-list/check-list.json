@@ -34,7 +34,22 @@
             "name": "list",
             "tip": "选项列表, 格式为[{value: 选项值, label: 选项text值, readonly: 是否只读, disabled: 是否禁用}]",
             "type": "array",
-            "default": []
+            "default": [{
+                "value": "one",
+                "label": "选项1",
+                "readonly": false,
+                "disabled": false
+            },{
+                "value": "two",
+                "label": "选项2",
+                "readonly": false,
+                "disabled": false
+            },{
+                "value": "three",
+                "label": "选项3",
+                "readonly": false,
+                "disabled": false
+            }]
         },
         {
             "name": "activeIcon",

@@ -30,12 +30,6 @@
             "type": "string"
         },
         {
-            "name": "block",
-            "tip": "是否渲染为块级元素",
-            "type": "boolean",
-            "default": false
-        },
-        {
             "name": "icon",
             "tip": "自定义 `icon` 图标",
             "type": "string"

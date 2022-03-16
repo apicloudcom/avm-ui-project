@@ -46,13 +46,17 @@ export class Checkbox extends Component {
       iconSize,
       fontSize,
       gap,
-      indeterminate
+      indeterminate,
+      isLastEle=false,
+      isGroup=false
     } = props
     
 
     return (
       <MyCheckbox
-      indeterminate={indeterminate}
+        indeterminate={indeterminate}
+        isLastEle={isLastEle}
+        isGroup={isGroup}
         icon={icon}
         selectedIcon={selectedIcon}
         checked={this.data.checked}
@@ -66,5 +70,53 @@ export class Checkbox extends Component {
         block={block}
       >{props.children}</MyCheckbox>
     )
+  }
+  css = () => {
+    return `
+    .adm-checkbox {
+      display: inline-flex;
+      vertical-align: text-bottom;
+      justify-content: flex-start;
+      align-items: center;
+      cursor: pointer;
+    }
+    .adm-checkbox-icon {
+      border-radius: 2px;
+      border: 1px solid #ddd;
+      color: #fff;
+      font-size: 12px;
+      background: #fff;
+      text-align: center;
+    }
+    .adm-checkbox-icon-checked {
+      background: #9AC200;
+      border-color: #9AC200;
+    }
+    .adm-checkbox-icon-disabled {
+      background: #f2f2f2;
+    }
+    .adm-checkbox-icon-disabled-checked {
+      background: #ddd;
+      color: #fefefe;
+    }
+    .adm-checkbox-icon-indeterminate {
+      border-color: #9AC200;
+      color: #9AC200;
+    }
+    .adm-checkbox-block {
+      display: flex;
+    }
+    .adm-checkbox-content {
+      flex: none;
+    }
+    .adm-checkbox-text {
+      flex: 1;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    .adm-checkbox-text-has-bottomborder {
+      border-bottom: 1px solid #e8e8e8;
+    }
+    `
   }
 }

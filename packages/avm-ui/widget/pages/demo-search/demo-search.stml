@@ -1,19 +1,19 @@
 <template>
 	<safe-area class="page">
-		<NavBar onBack={this.back}>Search</NavBar>
+		<avm-nav-bar onBack={this.back}>Search</avm-nav-bar>
 		<scroll-view>
 			<DemoBlock title='基础用法'>
-				<Search placeholder='请输入内容' value="123"/>
+				<avm-search placeholder='请输入内容' value="123"/>
 			</DemoBlock>
 			<DemoBlock title='带取消按钮的搜索框'>
-				<Search placeholder='请输入内容' showCancelButton  onChange={val => this.onChange(val)}/>
+				<avm-search placeholder='请输入内容' showCancelButton  onChange={val => this.onChange(val)}/>
 			</DemoBlock>
 			<DemoBlock title='取消按钮长显'>
-				<Search placeholder='请输入内容' showCancelButton={() => true} onChange={val => this.onChange(val)}/>
+				<avm-search placeholder='请输入' cancelText="取消" cancelTextColor='#9AC200' showCancelButton={() => true} onChange={val => this.onChange(val)}/>
 			</DemoBlock>
 			<DemoBlock title='事件监听和 Ref'>
-				<Space block direction='vertical'>
-				<Search
+				<avm-space block direction='vertical'>
+				<avm-search
 					placeholder='请输入内容'
 					showCancelButton
 					onFocus={() => this.onFocus()}
@@ -21,10 +21,10 @@
 					onClear={() => this.onClear()}
 					onCancel={() => this.onCancel()}
 					/>
-				</Space>
+				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='自定义样式'>
-				<Search
+				<avm-search
 				placeholder='请输入内容'
 				showCancelButton
 				borderRadius="100px"
@@ -36,8 +36,11 @@
 	</safe-area>
 </template>
 <script>
-import { Search, NavBar, DemoBlock, Button, Space } from '../../components/avm-ui/avm-ui';
-
+import '../../components/avm-ui/search'
+import '../../components/avm-ui/nav-bar'
+import '../../components/avm-ui/button'
+import '../../components/avm-ui/space'
+import {DemoBlock} from '../../components/avm-ui/demos'
 export default {
 	name: 'demo-search',
 	data() {
@@ -81,7 +84,7 @@ export default {
 	}
 }
 </script>
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/demos/index.css"/>
 <style>
 .page {
 	height: 100%;

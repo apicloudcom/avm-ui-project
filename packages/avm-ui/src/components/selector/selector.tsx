@@ -1,16 +1,16 @@
-import classNames from 'classnames'
-import { mergeProps } from '../../utils/with-default-props'
+import classNames from '../../utils/classnames'
 import Space from '../space'
 import Grid from '../grid'
-import checkIcon from './checked.png'
+// import checkIcon from './checked.png'
+// import {CheckOutline} from '../icon/icon'
 
 const classPrefix = `adm-selector`
 
 const defaultProps = {
   multiple: false,
   defaultValue: [],
-  color: '#333',
-  checkedColor: '#e7f1ff'
+  checkedColor: '#9AC200',
+  checkedBgColor: '#fff'
 }
 
 export class Selector extends Component {
@@ -29,12 +29,12 @@ export class Selector extends Component {
   }
 
   render = props => {
-    props = mergeProps(defaultProps, props)
+    props = Object.assign({}, defaultProps, props)
 
     // 选中状态自定义样式
     const activeStyles = {}
-    activeStyles['color'] = props.color
-    activeStyles['background'] = props.checkedColor
+    activeStyles['color'] = props.checkedColor
+    activeStyles['background'] = props.checkedBgColor
 
     const items = props.options.map(option => {
       const active = (this.data.value || []).includes(option.value)
@@ -49,7 +49,7 @@ export class Selector extends Component {
         <div
           key={option.value}
           className={itemCls}
-          style={active ? activeStyles : {background: '#f5f5f5'}}
+          style={active ? activeStyles : {background: '#fff'}}
           onClick={() => {
             if (disabled) {
               return
@@ -65,10 +65,12 @@ export class Selector extends Component {
             }
           }}
         >
-          <span className={`${classPrefix}-label`} style={{color: active ? props.color : '#333'}}>{option.label}</span>
-          {active && props.multiple && (
+          <span className={`${classPrefix}-label`} style={{color: active ? props.checkedColor : '#666'}}>{option.label}</span>
+          {active && (
             <div className={`${classPrefix}-check-mark-wrapper`}>
-              <img src={checkIcon} className={`${classPrefix}-check-mark-wrapper-img`}/>
+              {/* <img src={checkIcon} className={`${classPrefix}-check-mark-wrapper-img`}/> */}
+              <span className={`${classPrefix}-check-mark-wrapper-img`}>✔</span>
+              {/* <CheckOutline {...{color: '#fff', width: '6px', height: '6px'}} className={`${classPrefix}-check-mark-wrapper-img`}/> */}
             </div>
           )}
         </div>
@@ -85,5 +87,48 @@ export class Selector extends Component {
         )}
       </div>
     )
+  }
+  css = () => {
+    return `
+      .adm-selector-item {
+        padding: 0 20px;
+        width: auto;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        opacity: 1;
+        cursor: pointer;
+        text-align: center;
+        box-shadow: 0 0 0.3 #000;
+      }
+      .adm-selector-item-disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+      .adm-selector-label {
+        font-size: 16px;
+      }
+      .adm-selector-check-mark-wrapper {
+        align-self: flex-end;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-top: solid 8px transparent;
+        border-bottom: solid 8px #9AC200;
+        border-left: solid 10px transparent;
+        border-right: solid 10px #9AC200;
+      }
+      .adm-selector-check-mark-wrapper-img {
+        position: absolute;
+        left: 0px;
+        top: -3px;
+        font-size: 8px;
+        color: #fff;
+      }
+    `
   }
 }

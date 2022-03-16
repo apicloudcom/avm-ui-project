@@ -20,7 +20,8 @@ export type SpaceProps = {
 
 const defaultProps = {
   direction: 'horizontal',
-  gap: '8px'
+  gap: '8px',
+  style: {}
 }
 export class Space extends Component {
   render = props => {
@@ -81,6 +82,9 @@ export class Space extends Component {
     }
     .adm-space {
       display: inline-flex;
+    }
+    .adm-space-wrap {
+      flex-wrap: wrap;
     }
     .adm-space-vertical {
       flex-direction: column;

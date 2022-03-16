@@ -7,7 +7,8 @@
         "onDelete",
         "onClose",
         "onConfirm",
-        "afterClose"
+        "afterClose",
+        "onclearAll"
     ],
     "props": [
         {
@@ -15,11 +16,6 @@
             "tip": "是否展示",
             "type": "boolean",
             "default": false
-        },
-        {
-            "name": "title",
-            "tip": "键盘标题",
-            "type": "string"
         },
         {
             "name": "confirmText",
@@ -50,8 +46,8 @@
             "default": true
         },
         {
-            "name": "safeArea",
-            "tip": "是否开启安全区适配",
+            "name": "isShowClearBtn",
+            "tip": "是否显示清空按钮",
             "type": "boolean",
             "default": true
         }

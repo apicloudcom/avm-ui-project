@@ -1,5 +1,5 @@
 {
-    "component": "InfiniteScroll ",
+    "component": "InfiniteScroll",
     "desc": "无限滚动",
     "type": 2,
     "props": [
@@ -11,10 +11,6 @@
         {
             "name": "hasMore",
             "type": "boolean",
-            "enum": [
-                "true",
-                "false"
-            ],
             "tip": "是否还有更多内容"
         },
         {

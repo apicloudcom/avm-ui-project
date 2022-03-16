@@ -1,4 +1,3 @@
-import { mergeProps } from '../../utils/with-default-props'
 import {Radio} from './radio'
 
 const defaultProps = {
@@ -21,7 +20,7 @@ export class Group extends Component {
   }
 
   render = props => {
-    props = mergeProps(defaultProps, props)
+    props = Object.assign({}, defaultProps, props)
 
     const RadioGroupContext = {
       value: this.data.value === null ? [] : [this.data.value],

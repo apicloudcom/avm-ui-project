@@ -1,20 +1,20 @@
 <template>
 <safe-area class="page">
-	<NavBar onBack={this.back}>InfiniteScroll</NavBar>
-	<InfiniteScroll
+	<avm-nav-bar onBack={this.back}>avm-infinite-scroll</avm-nav-bar>
+	<avm-infinite-scroll
 		loadMore={this.loadMore}
 		hasMore={this.data.hasMore}
-		hasMoreText="loading"
 		notHasMoreText="---我是有底线的---">
-		<List>
-			{{this.data.dataList && this.data.dataList.map((item, index) => (<List.Item key={index}>{item}</List.Item>))}}
-		</List>
-	</InfiniteScroll>
+		<avm-list>
+			{{this.data.dataList && this.data.dataList.map((item, index) => (<avm-list-item key={index}>{item}</avm-list-item>))}}
+		</avm-list>
+	</avm-infinite-scroll>
 </safe-area>
 </template>
 <script>
-import {List, InfiniteScroll, NavBar} from '../../components/avm-ui/avm-ui'
-
+import '../../components/avm-ui/infinite-scroll'
+import '../../components/avm-ui/nav-bar'
+import '../../components/avm-ui/list'
 export default {
 	name: 'demo-infinitescroll',
 	apiready(){//like created
@@ -76,7 +76,7 @@ export default {
 	}
 }
 </script>
-<style src="../../components/avm-ui/avm-ui.css"/>
+<style src="../../components/avm-ui/demos/index.css"/>
 <style>
 .page {
 	height: 100%;

@@ -1,4 +1,3 @@
-@import "../../global/theme";
 @class-prefix-checkbox: ~'adm-checkbox';
 
 .@{class-prefix-checkbox} {
@@ -7,15 +6,41 @@
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
+  &-icon {
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    color: #fff;
+    font-size: 12px;
+    background: #fff;
+    text-align: center;
+    &-checked {
+      background: #9AC200;
+      border-color: #9AC200;
+    }
+    &-disabled {
+      background: #f2f2f2;
+      &-checked {
+        background: #ddd;
+        color: #fefefe;
+      }
+    }
+    &-indeterminate {
+      border-color: #9AC200;
+      color: #9AC200;
+    }
+  }
   &-block {
     display: flex;
   }
-  // 不可选
-  &-disabled {
-    cursor: not-allowed;
-    opacity: 0.3;
-  }
   &-content {
     flex: none;
+  }
+  &-text {
+    flex: 1;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    &-has-bottomborder {
+      border-bottom: 1px solid #e8e8e8;
+    }
   }
 }

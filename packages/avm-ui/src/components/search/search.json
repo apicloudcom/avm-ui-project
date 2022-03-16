@@ -67,6 +67,12 @@
             "tip": "文字颜色",
             "type": "string",
             "default": "#ccc"
+        },
+        {
+            "name": "cancelTextColor",
+            "tip": "取消按钮文字颜色",
+            "type": "string",
+            "default": "#333"
         }
     ]
 }
