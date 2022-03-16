@@ -69,6 +69,11 @@
             "tip": "图片和上传按钮的大小",
             "type": "string",
             "default": "80px"
+        },
+        {
+            "name": "tipDesc",
+            "tip": "提示文本",
+            "type": "string"
         }
     ]
 }

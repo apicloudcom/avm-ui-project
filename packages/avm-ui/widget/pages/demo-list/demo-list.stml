@@ -26,10 +26,9 @@
 				<avm-list>
 					<avm-list-item
 						extra='次要信息'
-						title='这里是标题'
 						description='这里是描述信息'
 						clickable>这里是主信息</avm-list-item>
-					<avm-list-item title='这里是标题' clickable>这里是主信息</avm-list-item>
+					<avm-list-item clickable>这里是主信息</avm-list-item>
 					<avm-list-item title='这里是标题'>这里是主信息</avm-list-item>
 				</avm-list>
 			</DemoBlock>

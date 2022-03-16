@@ -81,6 +81,7 @@ export class Collapse extends Component {
             return (
               <div key={panel.key}>
                 <ListItem
+                    {...panel}
                     className={`${classPrefix}-panel-header`}
                     disabled={panel.disabled}
                     onClick={panel.disabled ? undefined : handleClick}

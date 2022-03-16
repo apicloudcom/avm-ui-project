@@ -21,6 +21,16 @@
             "tip": "是否为禁用状态",
             "type": "boolean",
             "default": false
+        },
+        {
+            "name": "extra",
+            "tip": "右侧icon左侧内容",
+            "type": "string"
+        },
+        {
+            "name": "arrow",
+            "tip": "右侧icon自定义，默认下箭头",
+            "type": "string"
         }
     ]
 }

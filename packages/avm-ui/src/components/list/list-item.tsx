@@ -2,8 +2,6 @@ import classNames from '../../utils/classnames'
 import {formatLabel} from '../../utils/format-label'
 
 const classPrefix = `adm-list-item`
-
-// import rightArrowIcon from './img/rightArrow.png'
 import {RightOutline} from '../icon/icon'
 export class ListItem extends Component {
   install = () => {
@@ -20,7 +18,9 @@ export class ListItem extends Component {
 
     const disabledClass = props.disabled && 'list-disabled'
 
-    const childCls = `${classPrefix}-children`;
+    const childCls = classNames(`${classPrefix}-children`, {
+      [`${classPrefix}-children-active`]: active
+    });
     const prefixCls = classNames(`${classPrefix}-content-prefix`, disabledClass);
     const prefixStyles = {width: prefixWidth}
 
@@ -50,8 +50,7 @@ export class ListItem extends Component {
         {props.extra && extraEles}
         {arrow && (
           <div className={classNames(`${classPrefix}-content-arrow`, disabledClass)}>
-            {/* {arrow === true ? <img src={rightArrowIcon} alt="rightArrow"/> : arrow} */}
-            {arrow === true ? <RightOutline {...{color: (active ? '#9AC200' : '#666')}}/> : arrow}
+            {arrow === true ? <RightOutline color={`${active ? '#9AC200' : '#666'}`}/> : arrow}
           </div>
         )}
       </div>

@@ -1,4 +1,4 @@
-<template>
+ <template>
 	<safe-area>
 		<avm-nav-bar onBack={this.back}>Checkbox</avm-nav-bar>
 		<scroll-view>

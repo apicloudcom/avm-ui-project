@@ -13,54 +13,70 @@
             "name": "visible",
             "tip": "显示隐藏",
             "type": "boolean",
-            "default": "false"
+            "default": false
         },
         {
             "name": "actions",
             "tip": "面板选项列表",
             "type": "array",
-            "default": "[]"
+            "props": [
+                {
+                    "name": "key",
+                    "tip": "唯一标记",
+                    "type": "string/number"
+                },
+                {
+                    "name": "text",
+                    "tip": "标题",
+                    "type": "string"
+                },
+                {
+                    "name": "disabled",
+                    "tip": "是否为禁用状态",
+                    "type": "boolean"
+                },
+                {
+                    "name": "danger",
+                    "tip": "是否为危险状态",
+                    "type": "boolean"
+                },
+                {
+                    "name": "description",
+                    "tip": "描述",
+                    "type": "string"
+                }
+            ],
+            "default": [{
+                "text": "选项一",
+                "key": "one",
+                "disabled": false,
+                "danger": false,
+                "description": "描述信息"
+            },{
+                "text": "选项二",
+                "key": "two"
+            },{
+                "text": "选项三",
+                "key": "three"
+            }]
         },
         {
             "name": "extra",
             "tip": "顶部的额外区域",
-            "type": "string"
+            "type": "string",
+            "default": "这是一段描述信息"
         },
         {
             "name": "extraDesc",
             "tip": "顶部的额外区域描述信息",
-            "type": "string"
+            "type": "string",
+            "default": "这是一段描述信息"
         },
         {
             "name": "cancelText",
             "tip": "取消按钮文字，如果设置为空则不显示取消按钮",
             "type": "string",
-            "default": ""
-        },
-        {
-            "name": "key",
-            "tip": "唯一标记",
-            "type": "string/number"
-        },
-        {
-            "name": "text",
-            "tip": "标题",
-            "type": "string"
-        },
-        {
-            "name": "disabled",
-            "tip": "是否为禁用状态",
-            "type": "boolean"
-        },
-        {
-            "name": "danger",
-            "tip": "是否为危险状态",
-            "type": "boolean"
-        },
-        {
-            "name": "description",
-            "tip": "描述",
-            "type": "string"
+            "default": "取消"
         }
     ]
 }

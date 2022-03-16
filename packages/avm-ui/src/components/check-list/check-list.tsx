@@ -70,7 +70,6 @@ export class CheckList extends Component {
       .adm-check-list-item-readonly {
         cursor: unset;
       }
-    
       .adm-check-list-item-active {
         color: #9AC200;
       }

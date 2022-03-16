@@ -5,7 +5,7 @@
 		<scroll-view>
 			<DemoBlock title='基础用法' padding='0' border='none'>
 				<avm-collapse defaultActiveKey={['1']}>
-					<avm-collapse-panel key='1' title='第一项'>
+					<avm-collapse-panel key='1' title='第一项' extra="内容1" arrow={<text style="font-size: 12px">箭头</text>}>
 						这里是第一项的内容
 						这里是第一项的内容
 						这里是第一项的内容
@@ -13,10 +13,10 @@
 						这里是第一项的内容
 						这里是第一项的内容
 					</avm-collapse-panel>
-					<avm-collapse-panel key='2' title='第二项'>
+					<avm-collapse-panel key='2' title='第二项' extra="内容2">
 						这里是第二项的内容
 					</avm-collapse-panel>
-					<avm-collapse-panel key='3' title='第三项'>
+					<avm-collapse-panel key='3' title='第三项' extra="内容3">
 						这里是第三项的内容
 					</avm-collapse-panel>
 				</avm-collapse>

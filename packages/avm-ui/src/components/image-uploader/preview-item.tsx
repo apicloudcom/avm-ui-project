@@ -1,8 +1,6 @@
-import classNames from 'classnames'
+import classNames from '../../utils/classnames'
 import Image from '../image'
 import Loading from '../loading'
-
-import deleteIcon from './img/delete.png'
 
 const classPrefix = `adm-image-uploader`
 
@@ -27,9 +25,7 @@ export class PreviewItem extends Component {
       return (
         deletable && (
           <div className={`${classPrefix}-cell-delete-wrap`} onClick={onDelete}>
-            <div className={`${classPrefix}-cell-delete`}>
-              <img src={deleteIcon} alt="delete" className={`${classPrefix}-cell-delete-img`}/>
-            </div>
+            <text className={`${classPrefix}-cell-delete-wrap-inner`}>✕</text>
           </div>
         )
       )

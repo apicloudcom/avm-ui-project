@@ -26,8 +26,8 @@
             "name": "direction",
             "type": "string",
             "enum": [
-                "primary",
-                "white"
+                "horizontal",
+                "vertical"
             ],
             "tip": "方向，默认是水平方向"
         },

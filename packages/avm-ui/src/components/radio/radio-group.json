@@ -1,5 +1,5 @@
 {
-    "component": "Group",
+    "component": "RadioGroup",
     "desc": "单选框-Group",
     "type": 2,
     "event": [

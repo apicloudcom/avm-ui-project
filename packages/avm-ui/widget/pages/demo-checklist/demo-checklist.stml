@@ -10,7 +10,7 @@
 				<avm-check-list multiple defaultValue={['B', 'C']} list={list2} onChange={(val) => this.onChange(val)}/>
 			</DemoBlock>
 			<DemoBlock title='自定义选中图标' padding='0' border='none'>
-				<avm-check-list defaultValue={['B']} list={list2} activeIcon={<img src="../../image/cf.png"/>}/>
+				<avm-check-list defaultValue={['B']} list={list2} activeIcon={<text style="color: #9ac200">选中</text>}/>
 			</DemoBlock>
 			<DemoBlock title='整组只读' padding='0' border='none'>
 				<avm-check-list defaultValue={['B']} readOnly list={list3}/>

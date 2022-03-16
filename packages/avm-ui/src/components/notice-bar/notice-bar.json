@@ -22,10 +22,7 @@
         {
             "name": "closeable",
             "type": "boolean",
-            "enum": [
-                "true",
-                "false"
-            ],
+            "default": false,
             "tip": "是否可关闭"
         },
         {

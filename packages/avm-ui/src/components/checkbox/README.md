@@ -8,7 +8,6 @@
 
 | 参数         | 说明           | 类型                               | 默认值  |
 | ------------ | -------------- | ---------------------------------- | ------- |
-| list         | 选项列表        | `CheckboxValue[]`                  | `[]`    |
 | defaultValue | 默认选中的选项 | `CheckboxValue[]`                  | `[]`    |
 | disabled     | 整组失效       | `boolean`                          | `false` |
 | value        | 指定选中的选项 | `CheckboxValue[]`                  | `[]`    |

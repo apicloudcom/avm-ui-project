@@ -43,15 +43,24 @@ export class List extends Component {
         padding-left: 12px;
       }
       .adm-list-item-title {
-        font-size: 16px;
+        font-size: 14px;
         color: #333;
+        padding-bottom: 8px;
+      }
+      .adm-list-item-title-active {
+        color: #9AC200;
       }
       .adm-list-item-description {
         color: #999;
         font-size: 12px;
+        padding-top: 8px;
       }
       .adm-list-item-children {
         font-size: 16px;
+        color: #333;
+      }
+      .adm-list-item-children-active {
+        color: #9AC200;
       }
       .adm-list-item-content {
         width: 100%;
@@ -72,6 +81,8 @@ export class List extends Component {
       }
       .adm-list-item-content-extra {
         padding-left: 12px;
+        color: #999;
+        font-size: 16px;
       }
       .adm-list-item-content-arrow {
         display: flex;

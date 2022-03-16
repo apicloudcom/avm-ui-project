@@ -1,5 +1,5 @@
 {
-    "component": "Step",
+    "component": "Stepper",
     "desc": "步进器",
     "type": 2,
     "event": [

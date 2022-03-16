@@ -1,11 +1,10 @@
-import { mergeProps } from '../../utils/with-default-props'
 import ImageViewer from '../image-viewer'
 import {PreviewItem} from './preview-item'
 import {cloneDeep} from 'lodash'
 import Space from '../space'
+import classNames from '../../utils/classnames'
 
-import addIcon from './img/add.png'
-import classNames from 'classnames'
+import {CameraOutline} from '../icon/icon'
 
 export interface FileItem {
   url: string
@@ -92,11 +91,11 @@ export class ImageUploader extends Component {
   }
 
   render = props => {
-    props = mergeProps(defaultProps, props)
+    props = Object.assign({}, defaultProps, props)
 
     this.data.previewUrls = this.data.imgList.map(fileItem => fileItem.url)
 
-    const {maxCount, onPreview, cellSize='80px'} = props
+    const {maxCount, onPreview, cellSize='109px'} = props
 
     const cellSizeStyle = {
       width: cellSize,
@@ -113,7 +112,7 @@ export class ImageUploader extends Component {
     const showUpload = props.showUpload && (!maxCount || (maxCount && this.data.imgList.length < maxCount))
     return (
       <div className={classPrefix}>
-        <Space className={`${classPrefix}-space`} wrap gap={props.gap}>
+        <Space className={`${classPrefix}-space`} direction="horizontal" style={cellSizeStyle} wrap gap={props.gap || '8px'}>
           {this.data.imgList.map((fileItem, index) => (
             <PreviewItem
               cellSizeStyle={cellSizeStyle}
@@ -136,7 +135,7 @@ export class ImageUploader extends Component {
               onClick={() => {
                 !props.disableUpload && this.selectPicture()
               }}>
-              {props.uploadIcon ?? <img src={addIcon} alt="add" className={`${classPrefix}-btn-wrap-img`}/>}
+              {props.uploadIcon ?? <CameraOutline color="#ddd" width="22px" height="22px"/>}
           </div>
           )}
         </Space>
@@ -145,7 +144,76 @@ export class ImageUploader extends Component {
           visible={this.data.imageViewvisible}
           onClose={ () => (this.data.imageViewvisible = false)}
         />
+        <text className={`${classPrefix}-tip-desc`}>{props.tipDesc}</text>
       </div>
     )
+  }
+  css = () => {
+    return `
+    .adm-image-uploader-cell {
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .adm-image-uploader-cell-fail {
+      border: 1px solid #f00;
+      box-sizing: border-box;
+    }
+    .adm-image-uploader-cell-delete-wrap {
+      width: 14.5px;
+      height: 14.5px;
+      position: absolute;
+      top: 4.8px;
+      right: 4.8px;
+      z-index: 7;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+    }
+    .adm-image-uploader-cell-delete-wrap-inner {
+      font-size: 8px;
+      color: #fff;
+    }
+    .adm-image-uploader-cell-mask {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      color: #fff;
+      background-color: rgba(50, 50, 51, 0.88);
+    }
+    .adm-image-uploader-cell-loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-size: 16px;
+    }
+    .adm-image-uploader-cell-mask-message {
+      display: inline-block;
+      padding: 6px 4px;
+      font-size: 12px;
+    }
+    .adm-image-uploader-btn-wrap {
+      background-color: #f6f6f6;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+    }
+    .adm-image-uploader-btn-wrap-img {
+      width: 32px;
+      height: 32px;
+    }
+    .adm-image-uploader-btn-wrap-disabled {
+      opacity: 0.6;
+    }
+    .adm-image-uploader-tip-desc {
+      font-size: 12px;
+      color: #999;
+      padding-top: 16px;
+    }
+    `
   }
 }

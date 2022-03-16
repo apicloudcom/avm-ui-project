@@ -11,16 +11,19 @@
         {
             "name": "color",
             "type": "string",
-            "tip": "徽标背景色，等效于设置 --color CSS 变量"
+            "tip": "徽标背景色"
         },
         {
-            "name": "bordered",
-            "type": "boolean",
-            "enum": [
-                "false",
-                "true"
-            ],
-            "tip": "是否增加描边"
+            "name": "right",
+            "type": "number",
+            "tip": "相对于最右边，向左的偏移量",
+            "default": 0
+        },
+        {
+            "name": "top",
+            "type": "number",
+            "tip": "相对于最上边，向下的偏移量",
+            "default": 0
         }
     ]
 }

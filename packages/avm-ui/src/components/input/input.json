@@ -21,28 +21,19 @@
         {
             "name": "disabled",
             "type": "boolean",
-            "enum": [
-                "true",
-                "false"
-            ],
+            "default": false,
             "tip": "是否禁用"
         },
         {
             "name": "readOnly",
             "type": "boolean",
-            "enum": [
-                "true",
-                "false"
-            ],
+            "default": false,
             "tip": "是否只读"
         },
         {
             "name": "clearable",
             "type": "boolean",
-            "enum": [
-                "true",
-                "false"
-            ],
+            "default": false,
             "tip": "是否启用清除图标，点击清除图标后会清空输入框"
         }
     ],

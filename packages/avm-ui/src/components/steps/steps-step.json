@@ -1,5 +1,5 @@
 {
-    "component": "Steps.Step",
+    "component": "StepsStep",
     "desc": "步骤条中的item",
     "type": 2,
     "props": [

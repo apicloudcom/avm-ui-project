@@ -18,11 +18,6 @@
             "default": false
         },
         {
-            "name": "title",
-            "tip": "键盘标题",
-            "type": "string"
-        },
-        {
             "name": "confirmText",
             "tip": "完成按钮文案，`null` 不展示",
             "type": "string"
