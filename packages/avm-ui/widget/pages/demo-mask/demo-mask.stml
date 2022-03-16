@@ -21,29 +21,29 @@
 <!--      </DemoBlock>-->
     </view>
     <!--    基础用法-->
-    <Mask visible={this.data.visible} onMaskClick={()=> this.toggle()}></Mask>
+    <avm-mask visible={this.data.visible} onMaskClick={()=> this.toggle()}></avm-mask>
     <!--    自定义内容-->
-    <Mask visible={this.data.visible1} onMaskClick={()=> this.toggle1()}>
+    <avm-mask visible={this.data.visible1} onMaskClick={()=> this.toggle1()}>
       <view class='overlayContent'><text>内容</text></view>
-    </Mask>
+    </avm-mask>
     <!--    遮罩层深色-->
-    <Mask
+    <avm-mask
       visible={this.data.visible2}
       onMaskClick={()=> this.toggle2()}
       opacity='thick'>
-    </Mask>
+    </avm-mask>
     <!--    遮罩层浅色-->
-    <Mask
+    <avm-mask
       visible={this.data.visible3}
       onMaskClick={()=> this.toggle3()}
       opacity='thin'>
-    </Mask>
+    </avm-mask>
     <!--    遮罩层自定义透明度-->
-    <Mask
+    <avm-mask
       visible={this.data.visible4}
       onMaskClick={()=> this.toggle4()}
       opacity={0.5}>
-    </Mask>
+    </avm-mask>
     <!--    白色的遮罩层-->
 <!--    <Mask-->
 <!--      visible={this.data.visible5}-->
@@ -54,10 +54,8 @@
   </view>
 </template>
 
-<style src="../../components/avm-ui/mask/index.css"/>
-<style src="../../components/avm-ui/demos/index.css"/>
 <script>
-import Mask from '../../components/avm-ui/mask';
+import '../../components/avm-ui/mask';
 import {DemoBlock} from '../../components/avm-ui/demos';
 export default {
   name: 'test',

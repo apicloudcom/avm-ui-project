@@ -82,4 +82,72 @@ export class FloatingPanel extends Component {
       </div>
     )
   }
+  
+  css = () => {
+    return `:root {
+      --adm-color-primary: #9AC200;
+      --adm-color-success: #7FA000;
+      --adm-color-warning: #FFA600;
+      --adm-color-danger: #FA6400;
+      --adm-color-white: #ffffff;
+      --adm-color-weak: #999999;
+      --adm-color-light: #cccccc;
+      --adm-border-color: #eeeeee;
+      --adm-font-size-main: 13px;
+      --adm-color-text: #333333;
+      --adm-font-family:
+        -apple-system,
+        blinkmacsystemfont,
+        "Helvetica Neue",
+        helvetica,
+        segoe ui,
+        arial,
+        roboto,
+        "PingFang SC",
+        "miui",
+        "Hiragino Sans GB",
+        "Microsoft Yahei",
+        sans-serif;
+    }
+    .adm-floating-panel {
+      box-shadow: -10px 0 10px 0 #f9f9f9;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      position: absolute;
+      z-index: 900;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .adm-floating-panel-mask {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: -100%;
+      background: transparent;
+    }
+    .adm-floating-panel-header {
+      flex: none;
+      height: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: grab;
+      user-select: none;
+    }
+    .adm-floating-panel-bar {
+      height: 3px;
+      width: 20px;
+      border-radius: 10px;
+      background: var(--adm-color-light);
+    }
+    .adm-floating-panel-content {
+      flex: 1;
+      overflow-y: scroll;
+    }`
+  }
 }

@@ -64,4 +64,57 @@ export class Card extends Component {
       </div>
     )
   }
+  
+  css = () => {
+    return `:root {
+      --adm-color-primary: #9AC200;
+      --adm-color-success: #7FA000;
+      --adm-color-warning: #FFA600;
+      --adm-color-danger: #FA6400;
+      --adm-color-white: #ffffff;
+      --adm-color-weak: #999999;
+      --adm-color-light: #cccccc;
+      --adm-border-color: #eeeeee;
+      --adm-font-size-main: 13px;
+      --adm-color-text: #333333;
+      --adm-font-family:
+        -apple-system,
+        blinkmacsystemfont,
+        "Helvetica Neue",
+        helvetica,
+        segoe ui,
+        arial,
+        roboto,
+        "PingFang SC",
+        "miui",
+        "Hiragino Sans GB",
+        "Microsoft Yahei",
+        sans-serif;
+    }
+    .adm-card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 0 12px;
+    }
+    .adm-card-header {
+      position: relative;
+      display: flex;
+      flex-direction: initial;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 12px 0;
+    }
+    .adm-card-header:not(:last-child) {
+      border-bottom: solid 0.5px var(--adm-border-color);
+    }
+    .adm-card-header-title {
+      font-size: 15px;
+      line-height: 1.4;
+      font-weight: bold;
+    }
+    .adm-card-body {
+      padding: 12px 0;
+    }`
+  }
 }

@@ -75,4 +75,56 @@ export class Mask extends Component {
       </div>
     </div>
   }
+  
+  css = () => {
+    return `:root {
+      --adm-color-primary: #9AC200;
+      --adm-color-success: #7FA000;
+      --adm-color-warning: #FFA600;
+      --adm-color-danger: #FA6400;
+      --adm-color-white: #ffffff;
+      --adm-color-weak: #999999;
+      --adm-color-light: #cccccc;
+      --adm-border-color: #eeeeee;
+      --adm-font-size-main: 13px;
+      --adm-color-text: #333333;
+      --adm-font-family:
+        -apple-system,
+        blinkmacsystemfont,
+        "Helvetica Neue",
+        helvetica,
+        segoe ui,
+        arial,
+        roboto,
+        "PingFang SC",
+        "miui",
+        "Hiragino Sans GB",
+        "Microsoft Yahei",
+        sans-serif;
+    }
+    .adm-mask {
+      --z-index: var(--adm-mask-z-index, 1000);
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: var(--z-index);
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .adm-mask-aria-button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .adm-mask-content {
+      height: 100%;
+      z-index: 1;
+    }`
+  }
 }
