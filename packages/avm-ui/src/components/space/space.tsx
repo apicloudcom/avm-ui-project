@@ -36,7 +36,7 @@ export class Space extends Component {
     const wrapStyles = {}
     if (props.wrap && direction === 'horizontal') {
       const vGap = gapVertical || gap;
-      wrapStyles['marginBottom'] = `-${vGap}`
+      // wrapStyles['marginBottom'] = `-${vGap}`
 
       itemStyles['paddingBottom'] = vGap;
     }

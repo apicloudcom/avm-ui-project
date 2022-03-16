@@ -1,7 +1,5 @@
 import ImageViewer from '../image-viewer'
 import {PreviewItem} from './preview-item'
-import {cloneDeep} from 'lodash'
-import Space from '../space'
 import classNames from '../../utils/classnames'
 
 import {CameraOutline} from '../icon/icon'
@@ -27,11 +25,12 @@ export class ImageUploader extends Component {
     imgList: this.props.value || this.props.defaultValue || [],
     previewUrls: null,
     defaultPreviewIndex: 0,
-    imageViewvisible: false
+    imageViewvisible: false,
+    uploadError: false
   }
 
   setValue = v => {
-    this.data.imgList = cloneDeep(v)
+    this.data.imgList = [].concat(v)
     this.props.onChange?.(this.data.imgList)
   }
 
@@ -70,10 +69,12 @@ export class ImageUploader extends Component {
                 }
               }).then(res => {
                 if (res) {
+                  this.data.uploadError = false;
                   ret.data && ret.data !== '' && this.saveImg(ret.data)
                 }
               })
             } else {
+              this.data.uploadError = false;
               ret.data && ret.data !== '' && this.saveImg(ret.data)
             }
             
@@ -81,12 +82,15 @@ export class ImageUploader extends Component {
               api.toast({
                 msg: '上传失败'+err
               });
+              this.data.uploadError = true;
+
           }
       });
     } catch(err) {
       api.toast({
         msg: JSON.stringify(err)
       })
+      this.data.uploadError = true;
     }
   }
 
@@ -95,11 +99,13 @@ export class ImageUploader extends Component {
 
     this.data.previewUrls = this.data.imgList.map(fileItem => fileItem.url)
 
-    const {maxCount, onPreview, cellSize='109px'} = props
+    const {maxCount, onPreview, cellSize='109px', gap="8px"} = props
 
     const cellSizeStyle = {
       width: cellSize,
-      height: cellSize
+      height: cellSize,
+      marginRight: gap,
+      marginBottom: gap
     }
 
     // 预览
@@ -110,9 +116,10 @@ export class ImageUploader extends Component {
     }
 
     const showUpload = props.showUpload && (!maxCount || (maxCount && this.data.imgList.length < maxCount))
+
     return (
       <div className={classPrefix}>
-        <Space className={`${classPrefix}-space`} direction="horizontal" style={cellSizeStyle} wrap gap={props.gap || '8px'}>
+        <div className={`${classPrefix}-wrapper`}>
           {this.data.imgList.map((fileItem, index) => (
             <PreviewItem
               cellSizeStyle={cellSizeStyle}
@@ -129,16 +136,23 @@ export class ImageUploader extends Component {
           {showUpload && (
             <div
               className={classNames(`${classPrefix}-cell ${classPrefix}-btn-wrap`, {
-                [`${classPrefix}-btn-wrap-disabled`]: props.disableUpload
+                [`${classPrefix}-btn-wrap-disabled`]: props.disableUpload,
+                [`${classPrefix}-btn-wrap-upload-error`]: this.data.uploadError
               })}
               style={cellSizeStyle}
               onClick={() => {
                 !props.disableUpload && this.selectPicture()
               }}>
-              {props.uploadIcon ?? <CameraOutline color="#ddd" width="22px" height="22px"/>}
+              {!this.data.uploadError ? (props.uploadIcon ?? <view className={`${classPrefix}-btn-wrap-img`} style={{width: cellSizeStyle.width, height: cellSizeStyle.height}}><CameraOutline color="#ddd" width="22px" height="22px"/></view>) : (
+                <div className={`${classPrefix}-error-wrapper`} style={{width: cellSizeStyle.width, height: cellSizeStyle.height}}>
+                  <span className={`${classPrefix}-error-wrapper-close`}>✕</span>
+                  <span className={`${classPrefix}-error-wrapper-text`}>上传失败</span>
+                  <span className={`${classPrefix}-error-wrapper-text`}>重新上传</span>
+                </div>
+              )}
           </div>
           )}
-        </Space>
+        </div>
         <ImageViewer.Multi
           images={this.data.previewUrls}
           visible={this.data.imageViewvisible}
@@ -150,9 +164,18 @@ export class ImageUploader extends Component {
   }
   css = () => {
     return `
+    .adm-image-uploader-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      width: auto;
+      height: auto;
+    }
     .adm-image-uploader-cell {
       border-radius: 4px;
       overflow: hidden;
+      width: auto;
+      height: auto;
     }
     .adm-image-uploader-cell-fail {
       border: 1px solid #f00;
@@ -203,16 +226,38 @@ export class ImageUploader extends Component {
       justify-content: center;
     }
     .adm-image-uploader-btn-wrap-img {
-      width: 32px;
-      height: 32px;
+      align-items: center;
+      justify-content: center;
     }
     .adm-image-uploader-btn-wrap-disabled {
       opacity: 0.6;
+    }
+    .adm-image-uploader-btn-wrap-upload-error {
+      background: rgba(0, 0, 0, 0.3);
     }
     .adm-image-uploader-tip-desc {
       font-size: 12px;
       color: #999;
       padding-top: 16px;
+    }
+    .adm-image-uploader-error-wrapper {
+      align-items: center;
+      justify-content: center;
+    }
+    .adm-image-uploader-error-wrapper-close {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      color: #fff;
+      border: 1px solid #fff;
+      text-align: center;
+      line-height: 14px;
+      font-size: 6px;
+    }
+    .adm-image-uploader-error-wrapper-text {
+      font-size: 12px;
+      color: #fff;
+      padding-top: 8px;
     }
     `
   }

@@ -62,13 +62,13 @@
             "name": "gap",
             "tip": "每张图片间距",
             "type": "string",
-            "default": "12px"
+            "default": "8px"
         },
         {
             "name": "cellSize",
             "tip": "图片和上传按钮的大小",
             "type": "string",
-            "default": "80px"
+            "default": "109px"
         },
         {
             "name": "tipDesc",

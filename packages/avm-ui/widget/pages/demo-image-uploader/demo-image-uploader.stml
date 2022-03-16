@@ -3,7 +3,9 @@
 	<avm-nav-bar onBack={this.back}>Image</avm-nav-bar>
 	<scroll-view>
 		<DemoBlock title='基础用法'>
-			<avm-image-uploader :defaultValue="fileList1" tipDesc="建议尺寸900*900，最多六张，单个图片不超过20M" onChange={imgs => this.setFileList('fileList1', imgs)}/>
+			<avm-image-uploader
+				:defaultValue="fileList1"
+				onChange={imgs => this.setFileList('fileList1', imgs)}/>
 		</DemoBlock>
 		<DemoBlock title='上传状态'>
 			<avm-image-uploader :value="fileList2" onChange={imgs => this.setFileList('fileList1', imgs)}/>
@@ -18,8 +20,9 @@
 		<DemoBlock title='限制图片数量'>
 			<avm-space direction='vertical'>
 				<avm-image-uploader
-                    disableUpload={true}
+                    disableUpload={false}
 					:value="fileList4"
+					tipDesc="限制上传三张图片"
 					:maxCount={3}
 					:showUpload="fileList4.length < 3"
 					@countExceed="toastExceed($event)"
@@ -84,13 +87,13 @@ export default {
 	},
 	methods: {
 		setFileList(key, val) {
-            api.alert({
+            api.toast({
                 msg: `key=${key}---val=${JSON.stringify(val)}`
             })
 			this.data[key] = val;
 		},
 		toastExceed() {
-			api.alert({
+			api.toast({
 				msg: `最多选择 ${this.data.maxCount} 张图片，你多选了 ${exceed} 张`
 			})
 		},
