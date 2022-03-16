@@ -1,7 +1,7 @@
 {
   "component": "Tabs",
   "desc": "标签页容器",
-  "type": 2,
+  "type": 1,
   "event": [
     "onChange"
   ],
