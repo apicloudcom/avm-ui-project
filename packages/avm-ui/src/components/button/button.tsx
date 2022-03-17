@@ -65,17 +65,17 @@ export class Button extends Component {
   render = props => {
     props = mergeProps(defaultProps, props)
     const disabled = props.disabled || props.loading
-    const {textColor, color, bgColor, borderRadius, shape, borderWidth, borderStyle, borderColor} = props
+    const {textColor, color, bgColor, borderRadius, shape, borderWidth, borderStyle, borderColor, fill} = props
     const btnStyles = {
       height: 'auto',
       lineHeight: 1.4,
       opacity: disabled ? 0.4 : 1,
-      color: textColor || colorAttr[color].textColor,
-      backgroundColor: bgColor || colorAttr[color].bgColor,
+      color: textColor || (fill === 'solid' ? colorAttr[color].textColor : colorAttr[color].bgColor),
+      backgroundColor: bgColor || (fill === 'solid' ? colorAttr[color].bgColor : colorAttr[color].textColor),
       borderRadius: borderRadius || shapeAttr[shape],
       borderWidth,
-      borderStyle,
-      borderColor: borderColor || colorAttr[color].borderColor
+      borderStyle: fill === 'none' ? 'none' : borderStyle,
+      borderColor: borderColor || (colorAttr[color].borderColor)
     };
 
     const btnCls = classNames(
@@ -85,8 +85,8 @@ export class Button extends Component {
       {
         [`${classPrefix}-block`]: props.block,
         [`${classPrefix}-disabled`]: disabled,
-        [`${classPrefix}-${props.color}-fill-outline`]: props.fill === 'outline',
-        [`${classPrefix}-${props.color}-fill-none`]: props.fill === 'none',
+        [`${classPrefix}-${props.color}-fill-outline`]: fill === 'outline',
+        [`${classPrefix}-${props.color}-fill-none`]: fill === 'none',
         [`${classPrefix}-mini`]: props.size === 'mini',
         [`${classPrefix}-mini-shape-${props.shape}`]: props.size === 'mini',
         [`${classPrefix}-small`]: props.size === 'small',
