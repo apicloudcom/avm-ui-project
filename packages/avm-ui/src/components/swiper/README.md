@@ -18,7 +18,7 @@
 | height           | 高度                                                                           | -                                                                          | `120px`        |
 | width            | 宽度                                                                           | -                                                                          | `100%`         |
 | borderRadius     | 整体组件的圆角                                                                  | -                                                                         | `0`             |
-
+| title     | 标题文本设置                                                                  | -                                                                         | `string`             |
 ## Swiper.Item
 
 | 属性    | 说明           | 类型                                                        | 默认值 |

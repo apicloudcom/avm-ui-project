@@ -19,14 +19,19 @@
             "tip": "步骤图标的类型"
         },
         {
+            "name": "isDot",
+            "type": "boolean",
+            "tip": "是否圆点显示节点",
+            "default": false
+        },
+        {
             "name": "status",
             "type": "string",
             "enum": [
                 "wait",
                 "process",
                 "finish",
-                "error",
-                "wait"
+                "error"
             ],
             "tip": "指定状态。当不配置该属性时，会使用 `Steps` 的 `current` 来自动指定状态；如果该属性与 `current` 指定的状态不匹配会覆盖自动匹配的状态"
         }

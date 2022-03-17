@@ -20,7 +20,7 @@
                 "primary",
                 "white"
             ],
-            "tip": "颜色"
+            "tip": "颜色,也可以直接设置color值"
         },
         {
             "name": "direction",

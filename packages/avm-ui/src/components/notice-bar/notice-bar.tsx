@@ -98,7 +98,8 @@ export class NoticeBar extends Component {
     const contentInnerCls = classNames(`${classPrefix}-content-inner`, `${classPrefix}-content-inner-${props.color}`)
 
     const textStyle = {
-      color: textColor
+      color: textColor,
+      paddingRight: '4px'
     }
 
     const boxStyle = {
@@ -161,11 +162,13 @@ export class NoticeBar extends Component {
         align-items: center;
       }
       .adm-notice-bar-content-inner {
-        width: fit-content;
+        width: 100%;
         transition-timing-function: linear;
         position: absolute;
         padding: 0 4px;
         white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
       .adm-notice-bar-right {
         flex-shrink: 0;

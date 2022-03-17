@@ -57,6 +57,13 @@ export class Swiper extends Component {
       : props.indicator({total: props.children.length, current: this.data.current})
     return (
       <div className={`${classPrefix}-wrapper`}>
+        {props.title && (<view className={`${classPrefix}-title`}>
+          <text className={`${classPrefix}-title-text`}>{props.title}</text>
+          <view className={`${classPrefix}-title-pageindicator`}>
+            <text className={`${classPrefix}-title-pageindicator-current`}>{this.data.current}</text>
+            <text className={`${classPrefix}-title-pageindicator-total`}>/ {props.children.length}</text>
+          </view>
+        </view>)}
         <swiper
           className={classPrefix}
           autoplay={autoplay}
@@ -77,35 +84,62 @@ export class Swiper extends Component {
             })
           }
         </swiper>
-        {pageIndicatorEle}
+        {!!!props.title && pageIndicatorEle}
       </div>
     )
   }
   css = () => {
     return `
-      .adm-swiper-wrapper {
-        position: relative;
-      }
-      .adm-swiper-item {
-        align-items: center;
-        justify-content: center;
-      }
-      .adm-swiper-item-child {
-        width: 100%;
-        height: 100%;
-      }
-      .adm-swiper-pageindicator {
-        position: absolute;
-      }
-      .adm-swiper-pageindicator-horizontal {
-        bottom: 12px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .adm-swiper-pageindicator-vertical {
-        right: 12px;
-        top: 50%;
-      }
+    .adm-swiper-wrapper {
+      position: relative;
+    }
+    .adm-swiper-title {
+      padding-bottom: 12px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .adm-swiper-title-text {
+      font-size: 16px;
+      color: #333;
+      font-weight: 500;
+    }
+    .adm-swiper-title-pageindicator {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .adm-swiper-title-pageindicator-current {
+      font-size: 16px;
+      color: #333;
+      font-weight: 500;
+      padding-right: 4px;
+    }
+    .adm-swiper-title-pageindicator-total {
+      font-size: 14px;
+      color: #999;
+    }
+    .adm-swiper-item {
+      align-items: center;
+      justify-content: center;
+    }
+    .adm-swiper-item-child {
+      width: 100%;
+      height: 100%;
+    }
+    .adm-swiper-pageindicator {
+      position: absolute;
+    }
+    .adm-swiper-pageindicator-horizontal {
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .adm-swiper-pageindicator-vertical {
+      right: 12px;
+      top: 50%;
+    }
     `
   }
 }

@@ -27,6 +27,31 @@ const defaultProps = {
   color: 'default',
   fill: 'solid',
   round: false,
+  size: 'middle',
+  borderRadius: '2px',
+  isDelete: false,
+  isDisabled: false
+}
+// 不同类型size对应样式映射
+const sizeMappings = {
+  small: {
+    padding: '0 4px',
+    heights: '18px',
+    fontSize: '12px',
+    maxWidth: '104px'
+  },
+  middle: {
+    padding: '0 6px',
+    heights: '20px',
+    fontSize: '12px',
+    maxWidth: '108px'
+  },
+  large: {
+    padding: '0 8px',
+    heights: '24px',
+    fontSize: '14px',
+    maxWidth: '128px'
+  }
 }
 
 export class Tag extends Component {
@@ -34,49 +59,74 @@ export class Tag extends Component {
     console.log('Tag!')
   }
 
+  data = {
+    isShowTag: true
+  }
+
   render = props => {
     props = Object.assign({}, defaultProps, props)
 
     const color = colorRecord[props.color] ?? props.color
 
-    const styles = {}
-    styles['border'] = `1px solid ${props.borderColor ?? color}`
+    const wrapperStyles = {}
+    wrapperStyles['border'] = `1px solid ${props.borderColor ?? color}`
+    wrapperStyles['height'] = sizeMappings[props.size].heights
 
     if (props.fill === 'outline') {
-      styles['color'] = props.textColor ?? color
+      sizeMappings[props.size]['color'] = props.textColor ?? color
     } else {
-      styles['background'] = props.bgColor ?? color
-      styles['color'] = props.textColor ?? '#fff'
+      wrapperStyles['background'] = props.bgColor ?? color
+      sizeMappings[props.size]['color'] = props.textColor ?? '#fff'
     }
 
     if (props.borderRadius && !props.round) {
-      styles['borderRadius'] = props.borderRadius
+      wrapperStyles['borderRadius'] = props.borderRadius
     }
 
     return (
-      <span
-        style={styles}
-        onClick={props.onClick}
-        className={classNames(classPrefix, {
-          [`${classPrefix}-round`]: props.round
-        })}
-      >
-        {props.children}
-      </span>
+      <view className={classNames(`${classPrefix}-wrapper`, {
+        [`${classPrefix}-wrapper-disabled`]: props.isDisabled,
+        [`${classPrefix}-round`]: props.round
+      })} style={{...wrapperStyles, display: (this.data.isShowTag ? 'flex' : 'none')}}>
+        <span
+          style={{...sizeMappings[props.size]}}
+          onClick={props.onClick}
+          className={classPrefix}
+        >
+          {props.children}
+        </span>
+        {props.isDelete  && <span className={`${classPrefix}-close`} onClick={() => {
+          !props.isDisabled && (this.data.isShowTag = false)
+        }}>✕</span>}
+      </view>
     )
   }
   css = () => {
     return `
+      .adm-tag-wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .adm-tag-wrapper-disabled {
+        opacity: 0.3;
+      }
       .adm-tag {
-        padding: 2px 4px;
-        font-size: 10px;
         font-weight: normal;
         display: block;
         white-space: nowrap;
         box-sizing: border-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .adm-tag-round {
         border-radius: 100px;
+      }
+      .adm-tag-close {
+        font-size: 10px;
+        color: #cfcfcf;
+        padding-right: 8px;
       }
     `
   }

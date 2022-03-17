@@ -8,15 +8,15 @@
 				border='none'
 				background='transparent'>
 				<avm-space block direction='vertical'>
-					<avm-notice-bar content='默认' color='default'/>
-					<avm-notice-bar content='警告' color='alert'/>
-					<avm-notice-bar content='错误' color='error' />
-					<avm-notice-bar content='信息' color='info' />
-					<avm-notice-bar content='自定义颜色' color='自定义颜色' bgColor="#f0f" textColor="#ff0" borderColor="#0f0"/>
+					<avm-notice-bar content='默认: 正文内容尽量不超过一行， 多余的部分请省略省略省略省略省略省略省略省略省略省略省略省略省略省略省略省略' color='default'/>
+					<avm-notice-bar content='警告: 正文内容尽量不超过一行， 多余的部分请省略省略省略省略省略省略省略省略省略省略省略省略省略省略省略省略' color='alert'/>
+					<avm-notice-bar content='错误: 正文内容尽量不超过一行， 多余的部分请省略省略省略省略省略省略省略省略省略省略省略省略省略省略省略省略' color='error' />
+					<avm-notice-bar content='信息: 正文内容尽量不超过一行， 多余的部分请省略省略省略省略省略省略省略省略省略省略省略省略省略省略省略省略' color='info' />
+					<avm-notice-bar content='自定义颜色: 正文内容尽量不超过一行， 多余的部分请省略省略省略省略省略省略省略省略省略省略省略省略省略省略省略省略' color='自定义颜色' bgColor="#f0f" textColor="#ff0" borderColor="#0f0"/>
 				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='可关闭' padding='0' border='none'>
-				<avm-notice-bar content='这条通知可以关闭' color='alert' closeable />
+				<avm-notice-bar content='这条通知可以关闭: 正文内容尽量不超过一行， 多余的部分请省略省略省略省略省略省略省略省略省略省略省略省略省略省略省略省略' color='alert' closeable />
 			</DemoBlock>
 			<DemoBlock
 				title='自定义'
@@ -27,7 +27,7 @@
 					<avm-notice-bar
 						icon={<text>自定义icon</text>}
 						extra={<text>自定义extra</text>}
-						content={'自定义图标'}
+						content={'自定义图标: 正文内容尽量不超过一行， 多余的部分请省略省略省略省略省略省略省略省略省略省略省略省略省略省略省略省略'}
 						closeable/>
 				<avm-notice-bar
 					extra={<text className={'text-style'}>查看详情</text>}

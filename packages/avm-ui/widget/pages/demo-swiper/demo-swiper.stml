@@ -3,7 +3,7 @@
     <avm-nav-bar onBack={this.back}>Swiper</avm-nav-bar>
     <scroll-view>
         <DemoBlock title='基础用法'>
-            <avm-swiper indicatorProps={indicatorProps}>
+            <avm-swiper indicatorProps={indicatorProps} title="标题文本">
                 {{
                     colors.map((color, index) => {
                         const styles = {

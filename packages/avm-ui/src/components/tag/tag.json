@@ -45,6 +45,24 @@
             "tip": "round=false时的圆角大小",
             "default": "2px"
 
+        },
+        {
+            "name": "size",
+            "tip": "尺寸",
+            "enum": ["middle", "small", "large"],
+            "type": "string"
+        },
+        {
+            "name": "isDelete",
+            "tip": "是否可删除",
+            "default": false,
+            "type": "boolean"
+        },
+        {
+            "name": "isDisabled",
+            "tip": "是否禁用",
+            "default": false,
+            "type": "boolean"
         }
     ]
 }

@@ -1,52 +1,52 @@
 <template>
 	<safe-area>
-		<NavBar onBack={this.back}>Badge</NavBar>
+		<avm-nav-bar onBack={this.back}>Badge</avm-nav-bar>
 		<scroll-view>
 			<DemoBlock title='基础样式'>
-				<Space gap="30px">
-					<Badge color='#108ee9' content='5'>
+				<avm-space gap="30px">
+					<avm-badge color='#108ee9' content='5'>
 						<div className="box"/>
-					</Badge>
-					<Badge content='新'>
+					</avm-badge>
+					<avm-badge content='新'>
 						<div className="box"/>
-					</Badge>
-					<Badge content='更新'>
+					</avm-badge>
+					<avm-badge content='更新'>
 						<div className="box"/>
-					</Badge>
-					<Badge>
+					</avm-badge>
+					<avm-badge>
 						<div className="box"/>
-					</Badge>
-				</Space>
+					</avm-badge>
+				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='自定义样式'>
-				<Space gap="35px">
-					<Badge
+				<avm-space gap="35px">
+					<avm-badge
 						color='#9AC200'
 						content={Badge.dot}
 						right='100%'
 						top='100%'>
 						<div className="box"/>
-					</Badge>
-					<Badge
+					</avm-badge>
+					<avm-badge
 						color='#FA6400'
 						content={Badge.dot}
 						right="100%"
 						>
 						<div className="box"/>
-					</Badge>
-					<Badge content={Badge.dot} color="#F7B500">
+					</avm-badge>
+					<avm-badge content={Badge.dot} color="#F7B500">
 						<div className="box"/>
-					</Badge>
-					<Badge content="8" top="100%">
+					</avm-badge>
+					<avm-badge content="8" top="100%">
 						<div className="box"/>
-					</Badge>
-				</Space>
+					</avm-badge>
+				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='独立展示'>
-				<Space gap="30px">
-					<Badge content='99+'/>
-					<Badge content='新消息!'/>
-				</Space>
+				<avm-space gap="30px">
+					<avm-badge content='99+'/>
+					<avm-badge content='新消息!'/>
+				</avm-space>
 			</DemoBlock>
 		</scroll-view>
 
@@ -56,8 +56,8 @@
 
 <script>
 import Badge from '../../components/avm-ui/badge'
-import Space from '../../components/avm-ui/space'
-import NavBar from '../../components/avm-ui/nav-bar'
+import '../../components/avm-ui/space'
+import '../../components/avm-ui/nav-bar'
 import {DemoBlock} from '../../components/avm-ui/demos'
 
 export default {
@@ -69,7 +69,6 @@ export default {
 	}
 }
 </script>
-<style src="../../components/avm-ui/nav-bar/index.css"/>
 <style src="../../components/avm-ui/demos/index.css"/>
 <style>
 .box {

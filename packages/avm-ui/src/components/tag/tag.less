@@ -1,13 +1,27 @@
 @class-prefix-tag: ~'adm-tag';
 
 .@{class-prefix-tag} {
-  padding: 2px 4px;
-  font-size: 10px;
+  &-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    &-disabled {
+      opacity: 0.3;
+    }
+  }
   font-weight: normal;
   display: block;
   white-space: nowrap;
   box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
   &-round {
     border-radius: 100px;
+  }
+  &-close {
+    font-size: 10px;
+    color: #cfcfcf;
+    padding-right: 8px;
   }
 }

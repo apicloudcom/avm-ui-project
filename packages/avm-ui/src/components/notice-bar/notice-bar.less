@@ -27,11 +27,13 @@
   align-items: center;
 
   &-inner {
-    width: fit-content;
+    width: 100%;
     transition-timing-function: linear;
     position: absolute;
     padding: 0 4px;
     white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 }
 .@{class-prefix-notice-bar}-right {

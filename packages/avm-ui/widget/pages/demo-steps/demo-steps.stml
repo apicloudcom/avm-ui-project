@@ -4,17 +4,17 @@
 		<scroll-view>
 			<DemoBlock title='横向'>
 				<avm-steps current={1}>
-					<avm-step title="标题1" description="描述1"/>
-					<avm-step title="标题2" description="描述2"/>
-					<avm-step title="标题3" description="描述3"/>
+					<avm-step title="标题文字"/>
+					<avm-step title="标题文字"/>
+					<avm-step title="标题文字"/>
 				</avm-steps>
 			</DemoBlock>
 
 			<DemoBlock title='横向（失败状态）'>
 				<avm-steps current={2}>
-					<avm-step title="第一步"/>
-					<avm-step title="第二步"/>
-					<avm-step title="第三步" status="error"/>
+					<avm-step title="标题文字" description="小正文"/>
+					<avm-step title="标题文字" status="error" description="小正文"/>
+					<avm-step title="标题文字" status="wait" description="小正文"/>
 				</avm-steps>
 
 			</DemoBlock>
