@@ -35,6 +35,11 @@
             "name": "selectedIcon",
             "type": "string",
             "tip": "选中图标"
+        },
+        {
+            "name": "description",
+            "type": "string",
+            "tip": "辅助说明描述"
         }
     ],
     "event": [

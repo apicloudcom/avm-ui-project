@@ -77,9 +77,9 @@ export class Swiper extends Component {
             onIndexChange?.(this.data.current)
           }}>
           {
-            props.children.map(item => {
+            props.children.map((item, index) => {
               return (
-                <SwiperItem {...item.attributes}>{item.children}</SwiperItem>
+                <SwiperItem {...item.attributes} index={index}>{item.children}</SwiperItem>
               )
             })
           }

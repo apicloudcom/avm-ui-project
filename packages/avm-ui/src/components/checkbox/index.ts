@@ -1,3 +1,4 @@
+import './checkbox.less'
 import { attachPropertiesToComponent } from '../../utils/attach-properties-to-component'
 import { CheckboxGroup } from './checkboxGroup'
 import { Checkbox } from './checkbox'

@@ -26,7 +26,9 @@ export class MyCheckbox extends Component {
         id,
         block=false,
         isLastEle,
-        isGroup
+        isGroup,
+        descIsOneLineShow,
+        // isTwoHeadArrange
     } = this.props
 
     // 外层class
@@ -49,7 +51,7 @@ export class MyCheckbox extends Component {
 
     const defaultEleIcons = (
       <text
-        style={iconStyle}
+        style={{...iconStyle, fontSize: `${Number(iconSize.replace('px', ''))-5}px`}}
         className={classNames(`${classPrefix}-icon`, {
           [`${classPrefix}-icon-checked`]: this.data.checked && !disabled,
           [`${classPrefix}-icon-indeterminate`]: props.indeterminate,
@@ -63,8 +65,16 @@ export class MyCheckbox extends Component {
       : (defaultEleIcons)
     
     const textCls = classNames(`${classPrefix}-text`, {
-      [`${classPrefix}-text-has-bottomborder`]: isGroup && !isLastEle
+      [`${classPrefix}-text-has-bottomborder`]: isGroup && !isLastEle,
+      [`${classPrefix}-desc-onelineshow`]: descIsOneLineShow
     })
+
+    const labelContent = (
+      <view className={textCls}>
+        {formatLabel(props.children, `${classPrefix}-text-content`, childStyles)}
+        {props.description && <span className={`${classPrefix}-text-description`} style={{paddingLeft: gap}}>{props.description}</span>}
+      </view>
+    )
   
     return (
         <label
@@ -75,7 +85,7 @@ export class MyCheckbox extends Component {
             }}
             id={id}>
             {iconEles}
-            {props.children && formatLabel(props.children, textCls, childStyles)}
+            {props.children && labelContent}
         </label>
     )
   }

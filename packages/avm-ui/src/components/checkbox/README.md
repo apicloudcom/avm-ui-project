@@ -29,4 +29,6 @@
 | block          | 是否渲染为块级元素                           | `boolean`                | `false` |
 | icon           | 未选中图标                                  | `ReactNode`                | - |
 | selectedIcon   | 选中图标                                    | `ReactNode`                | - |
+| description    | 辅助说明描述                                    | `string`                | - |
+
 

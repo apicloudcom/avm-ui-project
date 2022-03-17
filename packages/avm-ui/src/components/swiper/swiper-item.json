@@ -1,0 +1,9 @@
+{
+    "component": "SwiperItem",
+    "desc": "走马灯",
+    "type": 2,
+    "event": [
+        "onClick"
+    ],
+    "props": []
+}

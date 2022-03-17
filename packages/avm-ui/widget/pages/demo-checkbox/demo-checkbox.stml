@@ -5,7 +5,7 @@
 			<DemoBlock title='基础用法'>
 				<avm-checkbox/>
 				<avm-checkbox onChange={val => this.onChange(val)}>有描述的勾选框</avm-checkbox>
-				<avm-checkbox defaultChecked>默认选中</avm-checkbox>
+				<avm-checkbox defaultChecked description="辅助说明辅助说明辅助说明">默认选中</avm-checkbox>
 				<avm-checkbox defaultChecked disabled>禁用状态</avm-checkbox>
 				<avm-checkbox indeterminate={true}>半选</avm-checkbox>
 			</DemoBlock>
@@ -13,20 +13,20 @@
 				<avm-checkbox-group
 					value={this.data.value}
 					onChange={val => this.onChange(val)}>
-					<avm-checkbox value="A" label="A"/>
-					<avm-checkbox value="B" label="B"/>
-					<avm-checkbox value="C" label="C" disabled checked/>
-					<avm-checkbox value="D" label="D"/>
+					<avm-checkbox value="A" label="选项" description="辅助说明辅助说明辅助说明"/>
+					<avm-checkbox value="B" label="选项" description="辅助说明辅助说明辅助说明"/>
+					<avm-checkbox value="C" label="选项" disabled checked description="辅助说明辅助说明辅助说明"/>
+					<avm-checkbox value="D" label="选项" description="辅助说明辅助说明辅助说明"/>
 				</avm-checkbox-group>
 			</DemoBlock>
 			<DemoBlock title='整组禁用'>
 				<avm-checkbox-group
 					defaultValue={['B', 'C']}
 					disabled>
-					<avm-checkbox value="A" label="A"/>
-					<avm-checkbox value="B" label="B"/>
-					<avm-checkbox value="C" label="C"/>
-					<avm-checkbox value="D" label="D"/>
+					<avm-checkbox value="A" label="选项"/>
+					<avm-checkbox value="B" label="选项"/>
+					<avm-checkbox value="C" label="选项"/>
+					<avm-checkbox value="D" label="选项"/>
 				</avm-checkbox-group>
 			</DemoBlock>
 			<DemoBlock title='占满整行宽度'>

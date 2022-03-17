@@ -64,7 +64,7 @@
                                 background: color
                             }
                             return (
-                                <avm-swiper-item key={index}>
+                                <avm-swiper-item key={index} onClick={(index) => this.handleClick(index)}>
                                     <span className='contents' style={styles}>{index + 1}</span>
                                 </avm-swiper-item>
                             )
@@ -181,6 +181,11 @@ export default {
         },
         setVisible(v) {
             this.data.visiable = v
+        },
+        handleClick(index) {
+            api.toast({
+                msg:'点击了'+index
+            })
         }
     }
 }

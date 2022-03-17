@@ -48,12 +48,18 @@ export class Checkbox extends Component {
       gap,
       indeterminate,
       isLastEle=false,
-      isGroup=false
+      isGroup=false,
+      description,
+      descIsOneLineShow=false, // 描述信息是否一行展示
+      isTwoHeadArrange=false // 是否两头分布
     } = props
     
 
     return (
       <MyCheckbox
+        descIsOneLineShow={descIsOneLineShow}
+        isTwoHeadArrange={isTwoHeadArrange}
+        description={description}
         indeterminate={indeterminate}
         isLastEle={isLastEle}
         isGroup={isGroup}
@@ -84,7 +90,6 @@ export class Checkbox extends Component {
       border-radius: 2px;
       border: 1px solid #ddd;
       color: #fff;
-      font-size: 12px;
       background: #fff;
       text-align: center;
     }
@@ -113,9 +118,25 @@ export class Checkbox extends Component {
       flex: 1;
       padding-top: 15px;
       padding-bottom: 15px;
+      display: flex;
+      flex-direction: column;
     }
     .adm-checkbox-text-has-bottomborder {
       border-bottom: 1px solid #e8e8e8;
+    }
+    .adm-checkbox-text-content {
+      flex: 1;
+      flex-wrap: wrap;
+    }
+    .adm-checkbox-text-description {
+      flex: 1;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: #999;
+      padding-top: 8px;
+    }
+    .adm-checkbox-desc-onelineshow {
+      flex-direction: row;
     }
     `
   }
