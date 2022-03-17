@@ -71,8 +71,12 @@ export class MyCheckbox extends Component {
 
     const labelContent = (
       <view className={textCls}>
-        {formatLabel(props.children, `${classPrefix}-text-content`, childStyles)}
-        {props.description && <span className={`${classPrefix}-text-description`} style={{paddingLeft: gap}}>{props.description}</span>}
+        {formatLabel(props.children, classNames(`${classPrefix}-text-content`, {
+          [`${classPrefix}-desc-onelineshow-content`]: descIsOneLineShow
+        }), childStyles)}
+        {props.description && <span className={classNames(`${classPrefix}-text-description`, {
+          [`${classPrefix}-desc-onelineshow-desc`]: descIsOneLineShow
+        })} style={{paddingLeft: gap}}>{props.description}</span>}
       </view>
     )
   

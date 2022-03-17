@@ -13,7 +13,7 @@
 				<avm-checkbox-group
 					value={this.data.value}
 					onChange={val => this.onChange(val)}>
-					<avm-checkbox value="A" label="选项" description="辅助说明辅助说明辅助说明"/>
+					<avm-checkbox value="A" label="选项" description="辅助说明辅助说明辅助说明" descIsOneLineShow/>
 					<avm-checkbox value="B" label="选项" description="辅助说明辅助说明辅助说明"/>
 					<avm-checkbox value="C" label="选项" disabled checked description="辅助说明辅助说明辅助说明"/>
 					<avm-checkbox value="D" label="选项" description="辅助说明辅助说明辅助说明"/>

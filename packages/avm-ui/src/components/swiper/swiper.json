@@ -1,7 +1,7 @@
 {
     "component": "Swiper",
     "desc": "走马灯",
-    "type": 2,
+    "type": 1,
     "event": [
         "onIndexChange"
     ],
