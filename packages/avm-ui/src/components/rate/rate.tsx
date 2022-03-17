@@ -13,6 +13,7 @@ const defaultProps = {
   defaultValue: 0,
   readOnly: false,
   allowClear: true,
+  disabled: false
 }
 
 export class Rate extends Component {
@@ -34,10 +35,12 @@ export class Rate extends Component {
     const starList = Array(props.count).fill(null)
 
     let styles = {};
-    const {starSize="18px", activeColor=' #faab0c'} = props;
+    let {starSize="18px", activeColor='#faab0c'} = props;
     styles['padding'] = '4px';
     styles['line-height'] = starSize;
     styles['font-size'] = starSize;
+
+    props.disabled && (activeColor = '#7d7e80')
     
     const renderStar = (v: number, half: boolean) => {
       return (
@@ -45,11 +48,11 @@ export class Rate extends Component {
           className={classNames(`${classPrefix}-star`, {
             [`${classPrefix}-star-active`]: this.data.value >= v,
             [`${classPrefix}-star-half`]: half,
-            [`${classPrefix}-star-readonly`]: props.readOnly,
+            [`${classPrefix}-star-readonly`]: props.readOnly
           })}
           style={{...styles, color: this.data.value >= v ? activeColor : '#ddd'}}
           onClick={() => {
-            if (props.readOnly) return
+            if (props.readOnly || props.disabled) return
             if (props.allowClear && this.data.value === v) {
               this.setValue(0, props)
             } else {

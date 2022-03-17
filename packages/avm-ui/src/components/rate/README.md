@@ -16,3 +16,4 @@
 | onChange     | 选择时的回调           | `(value: number) => void` | -                |
 | starSize    | star 大小              |          -                |    `24px`        |
 | activeColor | 填充色                 |     -                      |`#ffd21e`         |
+| disabled | 是否禁用                 |     `boolean`                     |`false`         |

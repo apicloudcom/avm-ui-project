@@ -28,6 +28,7 @@
 					<avm-rate allowHalf defaultValue={2} character={"棒"} />
 					<avm-rate allowHalf defaultValue={1.5} character={'♤'} />
 					<avm-rate
+						disabled
 						allowHalf
 						defaultValue={3.5}
 						character={'♡'}

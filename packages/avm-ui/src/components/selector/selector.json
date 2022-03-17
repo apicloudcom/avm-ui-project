@@ -27,7 +27,21 @@
             "name": "options",
             "tip": "可选项",
             "type": "array",
-            "default": []
+            "default": [
+                {
+                  "label": "按钮1",
+                  "value": "1"
+                },
+                {
+                  "label": "按钮2",
+                  "value": "2",
+                  "disabled": true
+                },
+                {
+                  "label": "按钮3",
+                  "value": "3"
+                }
+              ]
         },
         {
             "name": "multiple",

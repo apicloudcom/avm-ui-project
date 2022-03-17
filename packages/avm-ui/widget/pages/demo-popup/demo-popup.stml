@@ -23,7 +23,9 @@
 		<avm-popup
 			:visible="visible1"
 			bodyStyle={bodyStyle1}
-			onMaskClick={() => this.setVisible('visible1', false)}>Hello</avm-popup>
+			onMaskClick={() => this.setVisible('visible1', false)}>
+			<button>123</button>
+		</avm-popup>
 		<avm-popup
 			:visible="visible2"
 			position='top'

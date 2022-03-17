@@ -57,6 +57,12 @@
             "tip": "填充色",
             "type": "string",
             "default": "#ffd21e"
+        },
+        {
+            "name": "disabled",
+            "tip": "是否禁用",
+            "type": "boolean",
+            "default": false
         }
     ]
 }

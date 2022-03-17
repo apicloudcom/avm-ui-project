@@ -1,7 +1,7 @@
 import {List} from '../list/list'
 import {ListItem} from '../list/list-item'
 import { formatLabel } from '../../utils/format-label'
-import {DownOutline} from '../icon/icon'
+import {DownOutline, UpOutline} from '../icon/icon'
 
 const classPrefix = `adm-collapse`
 
@@ -78,14 +78,16 @@ export class Collapse extends Component {
               panel.onClick?.()
             }
 
+            const {title: collapseTitle, ...restProps} = panel;
+
             return (
               <div key={panel.key}>
                 <ListItem
-                    {...panel}
+                    {...restProps}
                     className={`${classPrefix}-panel-header`}
                     disabled={panel.disabled}
                     onClick={panel.disabled ? undefined : handleClick}
-                    arrow={panel.arrow || <DownOutline/>}>
+                    arrow={panel.arrow || (active ? <UpOutline color="#bbb"/> : <DownOutline color="#bbb"/>)}>
                     {formatLabel(panel.title)}
                 </ListItem>
                 <CollapsePanelContent visible={active}>

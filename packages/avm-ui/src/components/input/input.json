@@ -29,12 +29,6 @@
             "type": "boolean",
             "default": false,
             "tip": "是否只读"
-        },
-        {
-            "name": "clearable",
-            "type": "boolean",
-            "default": false,
-            "tip": "是否启用清除图标，点击清除图标后会清空输入框"
         }
     ],
     "event": [

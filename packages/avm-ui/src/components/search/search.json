@@ -24,7 +24,8 @@
         {
             "name": "maxLength",
             "tip": "输入的最大字符数",
-            "type": "number"
+            "type": "number",
+            "default": 500
         },
         {
             "name": "clearable",
