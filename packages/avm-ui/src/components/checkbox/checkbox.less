@@ -6,6 +6,9 @@
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
+  &-two-headarrange {
+    justify-content: space-between;
+  }
   &-icon {
     border-radius: 2px;
     border: 1px solid #ddd;
@@ -57,11 +60,17 @@
   }
   &-desc-onelineshow {
     flex-direction: row;
-    // &-content {
-    //   width: 75%;
-    // }
-    // &-desc {
-    //   width: 20%;
-    // }
+    align-items: center;
+    justify-content: space-between;
+    &-content {
+      flex: 1;
+    }
+    &-desc {
+      flex: none;
+      padding-top: 0;
+      font-size: 14px;
+      max-width: 100px;
+      text-align: right;
+    }
   }
 }

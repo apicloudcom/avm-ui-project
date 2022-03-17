@@ -28,14 +28,16 @@ export class MyCheckbox extends Component {
         isLastEle,
         isGroup,
         descIsOneLineShow,
-        // isTwoHeadArrange
+        isTwoHeadArrange
     } = this.props
 
     // 外层class
     const boxCls = classNames(classPrefix, {
         [`${classPrefix}-checked`]: this.data.checked && !disabled,
         [`${classPrefix}-disabled`]: disabled,
-        [`${classPrefix}-block`]: block
+        [`${classPrefix}-block`]: block,
+        [`${classPrefix}-two-headarrange`]: isTwoHeadArrange,
+        [`${classPrefix}-text-has-bottomborder`]: isTwoHeadArrange,
     })
   
     const iconStyle = {
@@ -46,12 +48,12 @@ export class MyCheckbox extends Component {
   
     const childStyles = {
       fontSize,
-      paddingLeft: gap
+      paddingLeft: isTwoHeadArrange ? 0 : gap,
     }
 
     const defaultEleIcons = (
       <text
-        style={{...iconStyle, fontSize: `${Number(iconSize.replace('px', ''))-5}px`}}
+        style={{...iconStyle, fontSize: `${Number(iconSize.replace('px', ''))-5}px`, marginLeft: (isTwoHeadArrange && descIsOneLineShow ? '8px' : 0)}}
         className={classNames(`${classPrefix}-icon`, {
           [`${classPrefix}-icon-checked`]: this.data.checked && !disabled,
           [`${classPrefix}-icon-indeterminate`]: props.indeterminate,
@@ -65,7 +67,7 @@ export class MyCheckbox extends Component {
       : (defaultEleIcons)
     
     const textCls = classNames(`${classPrefix}-text`, {
-      [`${classPrefix}-text-has-bottomborder`]: isGroup && !isLastEle,
+      [`${classPrefix}-text-has-bottomborder`]: !isTwoHeadArrange && isGroup && !isLastEle,
       [`${classPrefix}-desc-onelineshow`]: descIsOneLineShow
     })
 
@@ -76,7 +78,7 @@ export class MyCheckbox extends Component {
         }), childStyles)}
         {props.description && <span className={classNames(`${classPrefix}-text-description`, {
           [`${classPrefix}-desc-onelineshow-desc`]: descIsOneLineShow
-        })} style={{paddingLeft: gap}}>{props.description}</span>}
+        })} style={{paddingLeft: isTwoHeadArrange ? 0 : gap}}>{props.description}</span>}
       </view>
     )
   
@@ -88,8 +90,9 @@ export class MyCheckbox extends Component {
               !disabled && this.setChecked()
             }}
             id={id}>
-            {iconEles}
+            {!isTwoHeadArrange && iconEles}
             {props.children && labelContent}
+            {isTwoHeadArrange && iconEles}
         </label>
     )
   }

@@ -30,5 +30,5 @@
 | icon           | 未选中图标                                  | `ReactNode`                | - |
 | selectedIcon   | 选中图标                                    | `ReactNode`                | - |
 | description    | 辅助说明描述                                    | `string`                | - |
-
-
+| descIsOneLineShow    | 辅助说明描述是否跟label文本在一行            | `boolean`                | `false` |
+| isTwoHeadArrange    | 复选icon是否跟文本分布两头展示                | `boolean`                | `false` |

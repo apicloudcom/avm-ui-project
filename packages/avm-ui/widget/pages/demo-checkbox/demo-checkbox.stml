@@ -5,7 +5,7 @@
 			<DemoBlock title='基础用法'>
 				<avm-checkbox/>
 				<avm-checkbox onChange={val => this.onChange(val)}>有描述的勾选框</avm-checkbox>
-				<avm-checkbox defaultChecked description="辅助说明辅助说明辅助说明">默认选中</avm-checkbox>
+				<avm-checkbox defaultChecked>默认选中</avm-checkbox>
 				<avm-checkbox defaultChecked disabled>禁用状态</avm-checkbox>
 				<avm-checkbox indeterminate={true}>半选</avm-checkbox>
 			</DemoBlock>
@@ -13,10 +13,10 @@
 				<avm-checkbox-group
 					value={this.data.value}
 					onChange={val => this.onChange(val)}>
-					<avm-checkbox value="A" label="选项" description="辅助说明辅助说明辅助说明" descIsOneLineShow/>
-					<avm-checkbox value="B" label="选项" description="辅助说明辅助说明辅助说明"/>
-					<avm-checkbox value="C" label="选项" disabled checked description="辅助说明辅助说明辅助说明"/>
-					<avm-checkbox value="D" label="选项" description="辅助说明辅助说明辅助说明"/>
+					<avm-checkbox value="A" label="选项"/>
+					<avm-checkbox value="B" label="选项"/>
+					<avm-checkbox value="C" label="选项"/>
+					<avm-checkbox value="D" label="选项"/>
 				</avm-checkbox-group>
 			</DemoBlock>
 			<DemoBlock title='整组禁用'>
@@ -29,11 +29,33 @@
 					<avm-checkbox value="D" label="选项"/>
 				</avm-checkbox-group>
 			</DemoBlock>
-			<DemoBlock title='占满整行宽度'>
-				<avm-space direction='vertical' block>
-					<avm-checkbox block>块级元素</avm-checkbox>
-					<avm-checkbox>非块级元素</avm-checkbox>
-				</avm-space>
+			<DemoBlock title='添加辅助说明默认样式'>
+				<avm-checkbox-group
+					value={this.data.value}
+					onChange={val => this.onChange(val)}>
+					<avm-checkbox value="A" label="选项" description="辅助说明辅助说明辅助说明"/>
+					<avm-checkbox value="B" label="选项" description="辅助说明辅助说明辅助说明"/>
+					<avm-checkbox value="C" label="选项" description="辅助说明辅助说明辅助说明"/>
+					<avm-checkbox value="D" label="选项" description="辅助说明辅助说明辅助说明"/>
+				</avm-checkbox-group>
+			</DemoBlock>
+			<DemoBlock title='添加辅助说明跟复选框文本一行展示'>
+				<avm-checkbox-group
+					value={this.data.value}
+					onChange={val => this.onChange(val)}>
+					<avm-checkbox value="A" label="选项" description="辅助说明" descIsOneLineShow/>
+					<avm-checkbox value="B" label="选项" description="辅助说明" descIsOneLineShow/>
+					<avm-checkbox value="C" label="选项" description="辅助说明" descIsOneLineShow/>
+				</avm-checkbox-group>
+			</DemoBlock>
+			<DemoBlock title='复选icon和复选框文本两头分布展示'>
+				<avm-checkbox-group
+					value={this.data.value}
+					onChange={val => this.onChange(val)}>
+					<avm-checkbox value="A" label="选项" description="辅助说明" isTwoHeadArrange/>
+					<avm-checkbox value="B" label="选项" description="辅助说明" isTwoHeadArrange/>
+					<avm-checkbox value="C" label="选项" description="辅助说明" isTwoHeadArrange/>
+				</avm-checkbox-group>
 			</DemoBlock>
 			<DemoBlock title='自定义icon'>
 				<avm-checkbox-group
@@ -93,7 +115,7 @@ export default {
 </script>
 <style>
 .icon-style {
-	width: 50px;
+	width: 30px;
 	font-size: 12px;
 	color: #666;
 }
