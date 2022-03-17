@@ -24,9 +24,26 @@
 					<avm-radio value='banana'>香蕉</avm-radio>
 				</avm-radio-group>
 			</DemoBlock>
-			<DemoBlock title='占满整行宽度'>
-				<avm-radio block>块级元素</avm-radio>
-				<avm-radio>非块级元素</avm-radio>
+			<DemoBlock title='添加辅助描述信息默认展示状态'>
+				<avm-radio-group defaultValue='orange' @change="handleChange">
+					<avm-radio value='apple' description="辅助信息辅助信息辅助信息">苹果</avm-radio>
+					<avm-radio value='orange' description="辅助信息辅助信息辅助信息">橘子</avm-radio>
+					<avm-radio value='banana' description="辅助信息辅助信息辅助信息">香蕉</avm-radio>
+				</avm-radio-group>
+			</DemoBlock>
+			<DemoBlock title='添加辅助描述信息跟label信息展示在一行'>
+				<avm-radio-group defaultValue='orange' @change="handleChange">
+					<avm-radio value='apple' description="辅助信息" descIsOneLineShow>苹果</avm-radio>
+					<avm-radio value='orange' description="辅助信息" descIsOneLineShow>橘子</avm-radio>
+					<avm-radio value='banana' description="辅助信息" descIsOneLineShow>香蕉</avm-radio>
+				</avm-radio-group>
+			</DemoBlock>
+			<DemoBlock title='单选icon和label文本分布两头展示'>
+				<avm-radio-group defaultValue='orange' @change="handleChange">
+					<avm-radio value='apple' description="辅助信息" isTwoHeadArrange>苹果</avm-radio>
+					<avm-radio value='orange' description="辅助信息" isTwoHeadArrange>橘子</avm-radio>
+					<avm-radio value='banana' description="辅助信息" isTwoHeadArrange>香蕉</avm-radio>
+				</avm-radio-group>
 			</DemoBlock>
 			<DemoBlock title='自定义 icon'>
 				<avm-radio-group

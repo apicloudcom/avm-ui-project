@@ -31,8 +31,12 @@ export class Group extends Component {
       disabled: props.disabled
     }
 
-    const eles = props.children.map(ele => (
-      <Radio {...ele.attributes} RadioGroupContext={RadioGroupContext}>{ele.children}</Radio>
+    const eles = props.children.map((ele, index) => (
+      <Radio
+        {...ele.attributes}
+        RadioGroupContext={RadioGroupContext}
+        isGroup={true}
+        isLastEle={index === (props.children.length - 1)}>{ele.children}</Radio>
     ))
 
     return (

@@ -31,7 +31,12 @@ export class Radio extends Component {
       value,
       onChange,
       icon,
-      selectedIcon
+      selectedIcon,
+      description,
+      isGroup,
+      isLastEle,
+      descIsOneLineShow=false, // 描述信息是否一行展示
+      isTwoHeadArrange=false // 是否两头分布
     } = this.props;
 
     const groupContext = RadioGroupContext
@@ -51,6 +56,11 @@ export class Radio extends Component {
 
     return (
       <MyRadio
+        isGroup={isGroup}
+        isLastEle={isLastEle}
+        descIsOneLineShow={descIsOneLineShow}
+        isTwoHeadArrange={isTwoHeadArrange}
+        description={description}
         style={style}
         checked={this.data.checked}
         icon={icon}
@@ -74,11 +84,8 @@ export class Radio extends Component {
         align-items: center;
         cursor: pointer;
       }
-      .adm-radio-content {
-        flex: none;
-      }
-      .adm-radio-block {
-        display: flex;
+      .adm-radio-two-headarrange {
+        justify-content: space-between;
       }
       .adm-radio-icon {
         border-radius: 50%;
@@ -102,11 +109,50 @@ export class Radio extends Component {
         background: #f2f2f2;
         border-color: #ddd;
       }
-      .adm-radio-labeltext {
-        color: #333;
+      .adm-radio-block {
+        display: flex;
       }
-      .adm-radio-labeltext-disabled {
+      .adm-radio-content {
+        flex: none;
+      }
+      .adm-radio-text {
+        flex: 1;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+      }
+      .adm-radio-text-has-bottomborder {
+        border-bottom: 1px solid #e8e8e8;
+      }
+      .adm-radio-text-content {
+        flex: 1;
+        flex-wrap: wrap;
+      }
+      .adm-radio-text-description {
+        flex: 1;
+        flex-wrap: wrap;
+        font-size: 12px;
+        color: #999;
+        padding-top: 8px;
+      }
+      .adm-radio-text-disabled {
         color: #bbb;
+      }
+      .adm-radio-desc-onelineshow {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .adm-radio-desc-onelineshow-content {
+        flex: 1;
+      }
+      .adm-radio-desc-onelineshow-desc {
+        flex: none;
+        padding-top: 0;
+        font-size: 14px;
+        max-width: 100px;
+        text-align: right;
       }
     `
   }

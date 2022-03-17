@@ -24,13 +24,19 @@ export class MyRadio extends Component {
       disabled=false,
       block=false,
       icon,
-      selectedIcon
+      selectedIcon,
+      isGroup,
+      isLastEle,
+      descIsOneLineShow,
+      isTwoHeadArrange
     } = this.props;
 
     const boxCls = classNames(classPrefix, props.className, {
         [`${classPrefix}-checked`]: this.data.checked,
         [`${classPrefix}-disabled`]: disabled,
         [`${classPrefix}-block`]: block,
+        [`${classPrefix}-two-headarrange`]: isTwoHeadArrange,
+        [`${classPrefix}-text-has-bottomborder`]: isTwoHeadArrange,
     })
 
     const iconStyles = {
@@ -40,14 +46,10 @@ export class MyRadio extends Component {
 
     const childStyles = {
         fontSize,
-        paddingLeft: gap
+        paddingLeft: isTwoHeadArrange ? 0 : gap
     }
 
-    const labelTextCls = classNames(`${classPrefix}-labeltext`, {
-      [`${classPrefix}-labeltext-disabled`]: disabled
-    })
-
-    const defaultIconsEle = (
+    const defaultEleIcons = (
       <view className={classNames(`${classPrefix}-icon`, {
         [`${classPrefix}-icon-checked`]: this.data.checked,
         [`${classPrefix}-icon-disabled`]: disabled,
@@ -60,17 +62,37 @@ export class MyRadio extends Component {
 
     const iconEles = icon && selectedIcon
       ? (this.data.checked ? selectedIcon : icon)
-      : (defaultIconsEle)
+      : (defaultEleIcons)
+
+    const textCls = classNames(`${classPrefix}-text`, {
+      [`${classPrefix}-text-disabled`]: disabled,
+      [`${classPrefix}-text-has-bottomborder`]: !isTwoHeadArrange && isGroup && !isLastEle,
+      [`${classPrefix}-desc-onelineshow`]: descIsOneLineShow
+    })
+
+    const labelContent = (
+      <view className={textCls}>
+        {formatLabel(props.children, classNames(`${classPrefix}-text-content`, {
+          [`${classPrefix}-desc-onelineshow-content`]: descIsOneLineShow
+        }), childStyles)}
+        {props.description && <span className={classNames(`${classPrefix}-text-description`, {
+          [`${classPrefix}-desc-onelineshow-desc`]: descIsOneLineShow
+        })} style={{paddingLeft: isTwoHeadArrange ? 0 : gap}}>{props.description}</span>}
+      </view>
+    )
+
+    
 
     return (
       <label
         className={boxCls}
-        style={{...props.style, marginBottom: gap}}
+        style={{...props.style}}
         onClick={() => {
             !disabled && this.setChecked()
         }}>
-        {iconEles}
-        {props.children && formatLabel(props.children, labelTextCls, childStyles)}
+        {!isTwoHeadArrange && iconEles}
+        {props.children && labelContent}
+        {isTwoHeadArrange && iconEles}
       </label>
     )
   }
