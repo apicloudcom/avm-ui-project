@@ -44,6 +44,18 @@
             "name": "textColor",
             "type": "string",
             "tip": "文字颜色"
+        },
+        {
+            "name": "size",
+            "type": "string",
+            "tip": "通告栏size",
+            "enum": ["default", "small"]
+        },
+        {
+            "name": "isShowLeftIcon",
+            "type": "boolean",
+            "tip": "是否显示左侧提示icon, 为false时,icon属性设置则无效",
+            "default": false
         }
     ],
     "event": [

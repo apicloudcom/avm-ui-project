@@ -29,6 +29,8 @@ const defaultProps = {
   color: 'default',
   delay: 2000,
   speed: 50,
+  size: 'default',
+  isShowLeftIcon: false
 }
 
 const colorsObj = {
@@ -78,7 +80,7 @@ export class NoticeBar extends Component {
     const textColor = props.textColor || curTheme.textColor
     const borderColor = props.borderColor || curTheme.borderColor
 
-    const leftCls = classNames(`${classPrefix}-left`, `${classPrefix}-left-${props.color}`)
+    const leftCls = classNames(`${classPrefix}-left`, `${classPrefix}-left-${props.color}`, `${classPrefix}-left-${props.size}`)
 
     const leftIcon = {
       default: '#9AC200',
@@ -95,7 +97,7 @@ export class NoticeBar extends Component {
       ? props.icon
       : (<SoundOutline {...{color: leftIcon[props.color]}}/>)
 
-    const contentInnerCls = classNames(`${classPrefix}-content-inner`, `${classPrefix}-content-inner-${props.color}`)
+    const contentInnerCls = classNames(`${classPrefix}-content-inner`, `${classPrefix}-content-inner-${props.size}`, `${classPrefix}-content-inner-${props.color}`)
 
     const textStyle = {
       color: textColor,
@@ -108,9 +110,9 @@ export class NoticeBar extends Component {
     }
 
     return (
-      <div className={classNames(classPrefix, `${classPrefix}-${props.color}`)} style={boxStyle}>
+      <div className={classNames(classPrefix, `${classPrefix}-${props.color}`, `${classPrefix}-${props.size}`)} style={boxStyle}>
         {/* left */}
-        {formatLabel(leftEle, leftCls, textStyle)}
+        {props.isShowLeftIcon && formatLabel(leftEle, leftCls, textStyle)}
 
         {/* content */}
         <view className={`${classPrefix}-content`}>
@@ -120,7 +122,7 @@ export class NoticeBar extends Component {
         {/* right */}
         {(props.closeable || props.extra) && (
           <view className={`${classPrefix}-right`}>
-            {props.extra && formatLabel(props.extra, `${classPrefix}-right-${props.color}`, textStyle)}
+            {props.extra && formatLabel(props.extra, `${classPrefix}-right-${props.color} ${classPrefix}-right-${props.size}`, textStyle)}
             {props.closeable && (
               <view onClick={() => {
                 this.setVisible(false)
@@ -136,47 +138,71 @@ export class NoticeBar extends Component {
 
   css = () => {
     return `
-      .adm-notice-bar {
-        width: 100%;
-        height: 30px;
-        font-size: 14px;
-        line-height: 30px;
-        padding: 0 12px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        border-top: solid 1px transparent;
-        border-bottom: solid 1px transparent;
-      }
-      .adm-notice-bar-left {
-        flex-shrink: 0;
-        margin-right: 8px;
-      }
-      .adm-notice-bar-content {
-        flex: 1;
-        overflow: hidden;
-        position: relative;
-        height: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-      }
-      .adm-notice-bar-content-inner {
-        width: 100%;
-        transition-timing-function: linear;
-        position: absolute;
-        padding: 0 4px;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-      }
-      .adm-notice-bar-right {
-        flex-shrink: 0;
-        margin-left: 12px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-      }
+    .adm-notice-bar {
+      width: 100%;
+      height: 30px;
+      line-height: 30px;
+      padding: 0 12px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border: none;
+    }
+    .adm-notice-bar-default {
+      height: 40px;
+      line-height: 40px;
+    }
+    .adm-notice-bar-small {
+      height: 32px;
+      line-height: 32px;
+    }
+    .adm-notice-bar-left {
+      flex-shrink: 0;
+      margin-right: 8px;
+    }
+    .adm-notice-bar-left-default {
+      font-size: 14px;
+    }
+    .adm-notice-bar-left-small {
+      font-size: 13px;
+    }
+    .adm-notice-bar-content {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .adm-notice-bar-content-inner {
+      width: 100%;
+      transition-timing-function: linear;
+      position: absolute;
+      padding: 0 4px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .adm-notice-bar-content-inner-default {
+      font-size: 14px;
+    }
+    .adm-notice-bar-content-inner-small {
+      font-size: 13px;
+    }
+    .adm-notice-bar-right {
+      flex-shrink: 0;
+      margin-left: 12px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .adm-notice-bar-right-default {
+      font-size: 14px;
+    }
+    .adm-notice-bar-right-small {
+      font-size: 13px;
+    }
     `
   }
 }
