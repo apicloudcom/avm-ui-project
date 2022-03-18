@@ -17,6 +17,7 @@ const defaultProps = {
   borderRadius: '4px',
   maxLength: 500,
   minLength: 0
+  // selectorList: null
 }
 
 export class Search extends Component {
@@ -27,6 +28,7 @@ export class Search extends Component {
   data = {
     searchVal: this.props.value,
     hasFocus: false
+    // isShowSelector: false
   }
 
   setSearchValue = val => {
@@ -38,6 +40,11 @@ export class Search extends Component {
     this.data.hasFocus = focus
   }
 
+  // handleSelectorChange = item => {
+  //   this.props.selecterChange?.(item)
+  //   this.data.isShowSelector = false
+  // }
+
   render = props => {
     this.props = Object.assign({}, defaultProps,  props)
 
@@ -45,6 +52,7 @@ export class Search extends Component {
       showCancelButton, clearOnCancel, clearable, bgColor, borderRadius, placeholderColor='#ccc', cancelTextColor,
       onClear, onCancel, onFocus, onBlur, onSearch, onEnterPress, onKeyDown,
       maxLength, placeholder="请输入", cancelText
+      // selectorList
     } = this.props
 
     const handleKeydown = (e: any) => {
@@ -80,6 +88,24 @@ export class Search extends Component {
       )
     }
 
+    // const handleSelectorEles = (selectorList && selectorList.length > 0 &&
+    //   (<div className={`${classPrefix}-selector`}>
+    //     <div className={`${classPrefix}-selector-selected`} onClick={() => {this.data.isShowSelector = !this.data.isShowSelector}}>
+    //       <span className={`${classPrefix}-selector-selected-text`}>{selectorList[0].value}</span>
+    //       <DownOutline color="#333"/>
+    //     </div>
+    //     {
+    //       this.data.isShowSelector && (<div className={`${classPrefix}-selector-list`}>
+    //         {selectorList.map(item => {
+    //           return (
+    //             <span className={`${classPrefix}-selector-list-text`} onClick={() => this.handleSelectorChange(item)}>{item.label}</span>
+    //           )
+    //         })}
+    //       </div>)
+    //     }
+    //   </div>)
+    // )
+
     const boxStyles = {
       background: bgColor,
       borderRadius: borderRadius
@@ -95,6 +121,7 @@ export class Search extends Component {
           [`${classPrefix}-active`]: this.data.hasFocus,
         })}
       >
+        {/* {handleSelectorEles} */}
         <div className={boxCls} style={boxStyles}>
           <div className={`${classPrefix}-input-box-icon`}>
             {/* <img src={searchIcon} alt="search"/> */}
@@ -141,52 +168,52 @@ export class Search extends Component {
   }
   css = () => {
     return `
-      .adm-search {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-      }
-      .adm-search-input-box {
-        width: 100%;
-        flex: 1;
-        border: solid 1px transparent;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-      }
-      .adm-search-input-box-icon {
-        flex: none;
-        padding-left: 8px;
-        font-size: 16px;
-      }
-      .adm-search-input {
-        padding-left: 8px;
-        flex: 1;
-        line-height: 1.5;
-        background: transparent;
-        border: 0;
-        outline: none;
-        appearance: none;
-        min-height: 1.5em;
-        font-size: 14px;
-        color: #333;
-      }
-      .adm-search-suffix {
-        flex: none;
-        margin-left: 8px;
-        font-size: 16px;
-      }
-      .adm-search-clear {
-        flex: none;
-        margin: 0 8px;
-        padding: 3px;
-        cursor: pointer;
-      }
-      .adm-search-clear-icon {
-        width: 16px;
-        height: 16px;
-      }
+    .adm-search {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+    .adm-search-input-box {
+      width: 100%;
+      flex: 1;
+      border: solid 1px transparent;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .adm-search-input-box-icon {
+      flex: none;
+      padding-left: 8px;
+      font-size: 16px;
+    }
+    .adm-search-input {
+      padding-left: 8px;
+      flex: 1;
+      line-height: 1.5;
+      background: transparent;
+      border: 0;
+      outline: none;
+      appearance: none;
+      min-height: 1.5em;
+      font-size: 14px;
+      color: #333;
+    }
+    .adm-search-suffix {
+      flex: none;
+      margin-left: 8px;
+      font-size: 16px;
+    }
+    .adm-search-clear {
+      flex: none;
+      margin: 0 8px;
+      padding: 3px;
+      cursor: pointer;
+    }
+    .adm-search-clear-icon {
+      width: 16px;
+      height: 16px;
+    }
     `
   }
 }
