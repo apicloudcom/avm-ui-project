@@ -16,6 +16,9 @@ export function onJSON() {
       } else {
         const jsonContent = JSON.parse(fse.readFileSync(json).toString());
         jsonContent.component = IDEPrefix + jsonContent.component;
+        if (jsonContent.parent) {
+          jsonContent.parent = IDEPrefix + jsonContent.parent;
+        }
         jsonMap[`avm-${name}`] = jsonContent;
       }
     } catch (e) {
