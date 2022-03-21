@@ -1,5 +1,6 @@
 <template>
   <safe-area class="page">
+    <avm-nav-bar onBack={this.back}>Tabs</avm-nav-bar>
     <DemoBlock title='基本用法' padding='0'>
       <Tabs onChange={this.change}>
         <Tabs.Tab title='水果' key='fruits'>
@@ -81,6 +82,7 @@
 <style src="../../components/avm-ui/tabs/index.css"/>
 <script>
 import Tabs from '../../components/avm-ui/tabs';
+import '../../components/avm-ui/nav-bar';
 import {DemoBlock} from '../../components/avm-ui/demos';
 export default {
   name: 'test',
@@ -110,7 +112,10 @@ export default {
   methods: {
     change(key) {
       console.log(key)
-    }
+    },
+    back() {
+      api.closeWin();
+    },
   }
 }
 </script>

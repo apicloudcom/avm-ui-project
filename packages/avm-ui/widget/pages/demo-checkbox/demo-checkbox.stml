@@ -7,7 +7,7 @@
 				<avm-checkbox onChange={val => this.onChange(val)}>有描述的勾选框</avm-checkbox>
 				<avm-checkbox defaultChecked>默认选中</avm-checkbox>
 				<avm-checkbox defaultChecked disabled>禁用状态</avm-checkbox>
-				<avm-checkbox indeterminate={true}>半选</avm-checkbox>
+				<!-- <avm-checkbox indeterminate={true}>半选</avm-checkbox> -->
 			</DemoBlock>
 			<DemoBlock title='选项组'>
 				<avm-checkbox-group

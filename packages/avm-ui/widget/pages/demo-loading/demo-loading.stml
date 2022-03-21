@@ -1,5 +1,6 @@
 <template>
   <safe-area class="page">
+    <avm-nav-bar onBack={this.back}>Loading</avm-nav-bar>
     <DemoBlock title='默认'>
       <Loading />
     </DemoBlock>
@@ -31,11 +32,15 @@
 <style src="../../components/avm-ui/demos/index.css"/>
 <script>
 import Loading from '../../components/avm-ui/loading';
+import '../../components/avm-ui/nav-bar';
 import {DemoBlock} from '../../components/avm-ui/demos';
 export default {
   name: 'test',
   data() {
     return {}
+  },
+  back() {
+    api.closeWin();
   }
 }
 </script>

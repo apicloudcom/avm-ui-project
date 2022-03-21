@@ -1,5 +1,6 @@
 <template>
   <safe-area class="page">
+    <avm-nav-bar onBack={this.back}>ImageViewer</avm-nav-bar>
     <DemoBlock title='单张图片预览'>
       <button onclick={ this.openVisible }>打开ImageViewer</button>
     </DemoBlock>
@@ -20,6 +21,7 @@
 
 <script>
 import '../../components/avm-ui/image-viewer';
+import '../../components/avm-ui/nav-bar';
 import {DemoBlock} from '../../components/avm-ui/demos';
 export default {
   name: 'test',
@@ -35,6 +37,9 @@ export default {
     }
   },
   methods: {
+    back() {
+			api.closeWin();
+		},
     change(key) {
       api.toast({
         msg: key

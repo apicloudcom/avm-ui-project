@@ -1,6 +1,6 @@
 <template>
   <view>
-    <avm-icon fontSize={12} />
+    <avm-icon fontSize={12}/>
   </view>
 </template>
 

@@ -61,7 +61,7 @@ export default {
 				const append = this.mockRequest()
 				this.setList([...this.data.dataList, ...append])
 				this.setHasMore(append.length > 0)
-			}, 3000)
+			}, 1000)
 			
 		},
 		setList(list) {

@@ -1,5 +1,6 @@
 <template>
-  <view class="page">
+  <safe-area class="page">
+    <avm-nav-bar onBack={this.back}>Mask</avm-nav-bar>
     <view style="margin-top: 20px">
       <DemoBlock title='基础用法'>
         <button onClick={()=> this.toggle()}>显示遮罩层</button>
@@ -51,11 +52,12 @@
 <!--      afterShow={() => this.afterShow()}-->
 <!--      color='white'>-->
 <!--    </Mask>-->
-  </view>
+  </safe-area>
 </template>
 
 <script>
 import '../../components/avm-ui/mask';
+import '../../components/avm-ui/nav-bar';
 import {DemoBlock} from '../../components/avm-ui/demos';
 export default {
   name: 'test',
@@ -70,6 +72,9 @@ export default {
     }
   },
   methods: {
+    back() {
+      api.closeWin();
+    },
     toggle() {
       this.data.visible = !this.data.visible
     },

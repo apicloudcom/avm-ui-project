@@ -1,5 +1,6 @@
 <template>
   <safe-area class="page">
+    <avm-nav-bar onBack={this.back}>Card</avm-nav-bar>
     <DemoBlock title='基本用法' background='gray'>
       <avm-card title='卡片标题' onClick={()=>this.onClick()}>
         卡片内容
@@ -23,6 +24,7 @@
 </template>
 <script>
 import '../../components/avm-ui/card';
+import '../../components/avm-ui/nav-bar';
 import {DemoBlock} from '../../components/avm-ui/demos';
 export default {
   name: 'test',
@@ -50,6 +52,9 @@ export default {
     }
   },
   methods: {
+    back() {
+			api.closeWin();
+		},
     onClick () {
       api.alert({
         msg: '点击了卡片'

@@ -25,7 +25,7 @@
 					onChange={arr => console.log(arr)}
 				/>
 			</DemoBlock>
-			<DemoBlock title='固定两列' background="#f2f2f2">
+			<!-- <DemoBlock title='固定两列' background="#f2f2f2">
 				<avm-selector
 					columns={2}
 					options={ItemList}
@@ -42,11 +42,11 @@
 					multiple={true}
 					onChange={arr => console.log(arr)}
 				/>
-			</DemoBlock>
+			</DemoBlock> -->
 			<DemoBlock title='自定义样式'>
 				<avm-selector
 					color="#f00"
-					checkedColor="#ffe2e5"
+					checkedColor="#f00"
 					options={ItemList}
 					defaultValue={['1', '2']}
 					multiple={true}
