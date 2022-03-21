@@ -32,3 +32,4 @@ _widget/.*
 /out.js
 /avm-ui.json
 /avm-component.json
+/packages/avm-ui/src/components/icon/icon.tsx
