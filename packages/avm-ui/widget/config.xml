@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="A6183702447528" version="0.0.1">
-  <content src="pages/main/main.stml"/>
+  <content src="entry.json"/>
   <name>AVM-UI</name>
   <description>Example For APICloud.</description>
   <author email="developer@apicloud.com" href="http://www.apicloud.com">Developer</author>

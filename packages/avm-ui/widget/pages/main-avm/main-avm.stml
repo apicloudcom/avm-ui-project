@@ -1,0 +1,19 @@
+<template>
+<safe-area>
+  <view class="top">
+    <text class="title">AVM PLAY</text>
+    <text class="sub-title">Application-View-Model</text>
+    <text class="desc">AVM是用友APICloud发布的一款专注移动端的高性能多端JavaScript框架，提供简洁的代码书写模式，编码一次可同时生成Android&iOS原生App、小程序和WebApp。</text>
+  </view>
+</safe-area>
+</template>
+
+<script>
+export default {
+  name: "main-avm"
+}
+</script>
+
+<style scoped>
+
+</style>

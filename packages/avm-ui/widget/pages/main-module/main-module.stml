@@ -1,0 +1,22 @@
+<template>
+	<view class="page">
+    <text>Main-Module</text>
+	</view>
+</template>
+<script>
+export default {
+	name: 'main-module',
+	apiready() {//like created
+
+	},
+	data() {
+		return {}
+	},
+	methods: {}
+}
+</script>
+<style>
+.page {
+	height: 100%;
+}
+</style>
