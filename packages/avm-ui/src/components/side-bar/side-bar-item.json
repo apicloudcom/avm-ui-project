@@ -1,5 +1,6 @@
 {
     "component": "SideBarItem",
+    "parent": "SideBar",
     "desc": "SideBar.item 侧边导航item",
     "type": 2,
     "props": [

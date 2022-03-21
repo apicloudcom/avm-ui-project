@@ -1,5 +1,6 @@
 {
     "component": "CollapsePanel",
+    "parent": "Collapse",
     "desc": "折叠面板-子元素",
     "type": 2,
     "event": [
