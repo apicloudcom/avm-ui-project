@@ -1,6 +1,6 @@
 {
     "component": "StepsStep",
-    "parent": "Steps",
+    "parent": "steps",
     "desc": "步骤条中的item",
     "type": 2,
     "props": [

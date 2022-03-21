@@ -1,6 +1,6 @@
 {
     "component": "SwiperItem",
-    "parent": "Swiper",
+    "parent": "swiper",
     "desc": "走马灯",
     "type": 2,
     "event": [

@@ -7,6 +7,7 @@ export function onJSON() {
   const jsons = glob.sync(`${resolve(uiDir)}/src/components/*/*.json`,);
   const jsonMap = {};
   const IDEPrefix = 'Ant';
+  const ComponentPrefix = 'avm';
 
   jsons.forEach(json => {
     const name = json.replace('.json', '').split('/').pop();
@@ -17,9 +18,9 @@ export function onJSON() {
         const jsonContent = JSON.parse(fse.readFileSync(json).toString());
         jsonContent.component = IDEPrefix + jsonContent.component;
         if (jsonContent.parent) {
-          jsonContent.parent = IDEPrefix + jsonContent.parent;
+          jsonContent.parent = ComponentPrefix + '-' + jsonContent.parent;
         }
-        jsonMap[`avm-${name}`] = jsonContent;
+        jsonMap[`${ComponentPrefix}-${name}`] = jsonContent;
       }
     } catch (e) {
       console.log(`出错了`, name)

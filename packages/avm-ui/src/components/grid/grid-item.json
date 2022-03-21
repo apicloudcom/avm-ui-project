@@ -1,6 +1,6 @@
 {
     "component": "GridItem",
-    "parent": "Grid",
+    "parent": "grid",
     "desc": "栅格子元素",
     "type": 2,
     "event": [

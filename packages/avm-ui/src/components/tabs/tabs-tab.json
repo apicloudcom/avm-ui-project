@@ -1,6 +1,6 @@
 {
   "component": "TabsTab",
-  "parent": "Tabs",
+  "parent": "tabs",
   "desc": "标签页面板",
   "type": 2,
   "props": [
