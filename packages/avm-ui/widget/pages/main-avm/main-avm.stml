@@ -37,7 +37,7 @@ export default {
   data() {
     return {
       startY: 0,
-      top: 240,
+      top: api.systemType === 'ios' ? 260 : 240,
       isShowIndex: false,
       curTab: null,
       curChildTab: null
@@ -51,7 +51,7 @@ export default {
       if (e.detail.y - this.data.startY < 0) { // 向上滑动
         this.data.top > 60 ? (this.data.top = this.data.top - 10) : (this.enterAvmList())
       } else { // 向下滑动
-        this.data.top < 240 && (this.data.top = this.data.top + 10)
+        this.data.top < (api.systemType === 'ios' ? 260 : 240) && (this.data.top = this.data.top + 10)
       }
     },
     itemClick(item) {
@@ -79,7 +79,7 @@ export default {
     },
     handleHideIndexList() {
       this.data.isShowIndex = false
-      this.data.top = 240
+      this.data.top = api.systemType === 'ios' ? 260 : 240
       this.data.curTab = null
       this.data.curChildTab = null
     }
@@ -90,6 +90,8 @@ export default {
 <style>
 .main-avm-container {
   background: #f6f6f6;
+  width: 100%;
+  height: 100%;
 }
 .main-avm-top {
   width: 100%;
@@ -119,6 +121,7 @@ export default {
   line-height: 24px;
 }
 .main-avm-box {
+  flex: 1;
   z-index: 999;
   position: absolute;
   left: 0;
