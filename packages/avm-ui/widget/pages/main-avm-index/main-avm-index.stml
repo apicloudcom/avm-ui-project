@@ -3,7 +3,7 @@
         class="main-avm-list"
         @touchstart="handleTouchstart"
         @touchmove="handleTouchMove">
-        <view class="main-avm-list-tabs">
+        <view :class="`main-avm-list-tabs ${isShowShadow ? 'main-avm-list-tabs-shadow' : ''}`">
             <view
                 v-for="item in tabList"
                 class="main-avm-list-tab-item"
@@ -11,9 +11,8 @@
                 <text :class="curTab === item.value ? 'main-avm-list-tab-active' : 'main-avm-list-tab'">{item.label}</text>
                 <text class="main-avm-list-tab-line" v-if="item.value === this.data.curTab"></text>
             </view>
-
         </view>
-        <scroll-view scroll-y :show-scrollbar="false" class="main-avm-list-content">
+        <scroll-view scroll-y :show-scrollbar="false" class="main-avm-list-content" @scroll="handleScroll">
             <view class="main-avm-list-desc">
                 <image
                     src="../../image/avm_left_comma.png"
@@ -68,6 +67,7 @@ export default {
     },
     data() {
         return {
+            isShowShadow: false,
             startY: 0,
             tabList: [{
                 label: '基础组件',
@@ -114,6 +114,13 @@ export default {
                     msg: '正在开发中...'
                 })
             }
+        },
+        handleScroll(e) {
+            if ( e.detail.scrollTop > 0) {
+                this.data.isShowShadow = true
+            } else {
+                this.data.isShowShadow = false
+            }
         }
     }
 };
@@ -129,8 +136,12 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 23px;
-    margin-bottom: 27px;
+    padding-top: 23px;
+    padding-bottom: 27px;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);;
+}
+.main-avm-list-tabs-shadow {
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.06);
 }
 .main-avm-list-tab-item {
     width: auto;
