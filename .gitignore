@@ -33,3 +33,5 @@ _widget/.*
 /avm-ui.json
 /avm-component.json
 
+/widget/components/avm-ui/
+/widget/.bin/

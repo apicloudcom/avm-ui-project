@@ -9,8 +9,7 @@ import {onJSON} from "./commands/json.js";
 
 
 export const uiDir = `packages/avm-ui`;
-// export const dist = './_widget';
-export const dist = uiDir + '/widget';
+export const dist = 'widget';
 
 // 创建命令对象
 const program = new Command()
