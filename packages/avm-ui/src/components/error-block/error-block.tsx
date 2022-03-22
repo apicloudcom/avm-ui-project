@@ -1,7 +1,7 @@
 import classNames from '../../utils/classnames'
 // import { iconRecord } from './error'
 import { formatLabel } from '../../utils/format-label'
-import {FrownOutline} from '../icon/icon'
+import {Icon} from "../icon"; 
 const classPrefix = `adm-error-block`
 
 const ErrorBlockText = {
@@ -57,7 +57,7 @@ export class ErrorBlock extends Component {
     const errTitle = 'title' in props ? title : contentPack.title
 
     // let imageNode = <img src={icon} className={`${classPrefix}-image-img`}/>
-    let imageNode = <FrownOutline width="100px" height="100px" className={`${classPrefix}-image-img`}/>
+    let imageNode = <Icon code={59976} width="100px" height="100px" className={`${classPrefix}-image-img`}/>
     if (image) {
       if (typeof image === 'string') {
         imageNode = <img src={image} className={`${classPrefix}-image-img`}/>

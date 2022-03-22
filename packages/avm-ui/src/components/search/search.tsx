@@ -2,7 +2,7 @@ import classNames from '../../utils/classnames'
 // import searchIcon from './search.png'
 // import closeIcon from './img/close.png'
 
-import {SearchOutline, CloseCircleFill} from '../icon/icon'
+import Icon from '../icon'
 
 const classPrefix = `adm-search`
 
@@ -125,7 +125,7 @@ export class Search extends Component {
         <div className={boxCls} style={boxStyles}>
           <div className={`${classPrefix}-input-box-icon`}>
             {/* <img src={searchIcon} alt="search"/> */}
-            <SearchOutline color="#ccc"/>
+            <Icon code={60023} color="#ccc"/>
           </div>
           <input
             className={(`${classPrefix}-input`)}
@@ -158,7 +158,7 @@ export class Search extends Component {
                 onClear?.()
               }}>
               {/* <img src={closeIcon} alt="close" className={`${classPrefix}-clear-icon`}/> */}
-              <CloseCircleFill color="#bababa" className={`${classPrefix}-clear-icon`}/>
+              <Icon code={59938} color="#bababa" className={`${classPrefix}-clear-icon`}/>
             </div>
           )}
         </div>

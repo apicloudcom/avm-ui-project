@@ -6,7 +6,9 @@ import { formatLabel } from '../../utils/format-label'
 // import alertIcon from './img/alert.png'
 // import infoIcon from './img/info.png'
 
-import {SoundOutline, CloseOutline} from '../icon/icon'
+// import {SoundOutline, CloseOutline} from '../icon/icon'
+
+import Icon from '../icon';
 
 const classPrefix = `adm-notice-bar`
 
@@ -95,7 +97,7 @@ export class NoticeBar extends Component {
 
     const leftEle = 'icon' in props
       ? props.icon
-      : (<SoundOutline {...{color: leftIcon[props.color]}}/>)
+      : (<Icon code={60032} {...{color: leftIcon[props.color]}}/>)
 
     const contentInnerCls = classNames(`${classPrefix}-content-inner`, `${classPrefix}-content-inner-${props.size}`, `${classPrefix}-content-inner-${props.color}`)
 
@@ -128,7 +130,7 @@ export class NoticeBar extends Component {
                 this.setVisible(false)
                 props.onClose?.()
               }}
-              style={textStyle}><CloseOutline/></view>
+              style={textStyle}><Icon code={59940}/></view>
             )}
           </view>
         )}

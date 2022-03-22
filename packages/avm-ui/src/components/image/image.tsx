@@ -1,6 +1,6 @@
 import {toCSSLength} from '../../utils/to-css-length'
 import { formatLabel } from '../../utils/format-label'
-import {PictureOutline, PictureWrongOutline} from '../icon/icon'
+import Icon from '../icon'
 
 const classPrefix = `adm-image`
 
@@ -8,12 +8,12 @@ const defaultProps = {
   fit: 'fill',
   placeholder: (
     <div className={`${classPrefix}-tip`}>
-      <PictureOutline color="#ddd"/>
+      <Icon code={60009} color="#ddd"/>
     </div>
   ),
   fallback: (
     <div className={`${classPrefix}-tip`}>
-      <PictureWrongOutline color="#ddd"/>
+      <Icon code={60010} color="#ddd"/>
     </div>
   )
 }

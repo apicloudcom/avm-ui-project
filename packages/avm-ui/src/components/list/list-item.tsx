@@ -2,7 +2,8 @@ import classNames from '../../utils/classnames'
 import {formatLabel} from '../../utils/format-label'
 
 const classPrefix = `adm-list-item`
-import {RightOutline} from '../icon/icon'
+import {Icon} from "../icon";
+
 export class ListItem extends Component {
   install = () => {
     console.log('ListItem!');
@@ -50,12 +51,12 @@ export class ListItem extends Component {
         {props.extra && extraEles}
         {arrow && (
           <div className={classNames(`${classPrefix}-content-arrow`, disabledClass)}>
-            {arrow === true ? <RightOutline color={`${active ? '#9AC200' : '#666'}`}/> : arrow}
+            {arrow === true ? <Icon code={60019} color={`${active ? '#9AC200' : '#666'}`}/> : arrow}
           </div>
         )}
       </div>
     )
-    
+
     const listItemCls = classNames(
       `${classPrefix}`,
       clickable ? ['adm-plain-anchor'] : [],

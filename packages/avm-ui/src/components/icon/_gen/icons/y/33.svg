@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>33@2x</title>
-    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="33">
-            <g id="编组"></g>
-            <g id="fanhui-hong" transform="translate(12.000000, 7.000000)" stroke="#333333" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
-                <polyline id="路径-12" transform="translate(14.986838, 14.500000) rotate(-315.000000) translate(-14.986838, -14.500000) " points="4.98683849 4.5 4.98683849 24.5 24.9868385 24.5"></polyline>
+    <g id="相关图标说明" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="线型图标（单色）" transform="translate(-1302.000000, -5040.000000)">
+            <g id="编组-5" transform="translate(131.000000, 4940.000000)">
+                <g id="33" transform="translate(1171.000000, 100.000000)">
+                    <g id="编组"></g>
+                    <g id="fanhui-hong" transform="translate(10.723383, 5.236544)" fill="#333333" fill-rule="nonzero">
+                        <path d="M6.26345597,4.76345597 C7.04315208,4.76345597 7.68390465,5.35834405 7.75658939,6.11899596 L7.76345597,6.26345597 L7.76332034,24.7633203 L26.263456,24.763456 C27.0431521,24.763456 27.6839046,25.3583441 27.7565894,26.118996 L27.763456,26.263456 C27.763456,27.0431521 27.1685679,27.6839046 26.407916,27.7565894 L26.263456,27.763456 L6.26345597,27.763456 C5.48375985,27.763456 4.84300729,27.1685679 4.77032255,26.407916 L4.76345597,26.263456 L4.76345597,6.26345597 C4.76345597,5.43502884 5.43502884,4.76345597 6.26345597,4.76345597 Z" id="路径-12" transform="translate(16.263456, 16.263456) rotate(-315.000000) translate(-16.263456, -16.263456) "></path>
+                    </g>
+                </g>
             </g>
         </g>
     </g>

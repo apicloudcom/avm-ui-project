@@ -4,7 +4,7 @@ import { DropdownItem } from './item'
 import classNames from '../../utils/classnames'
 import { Popup } from '../popup/popup'
 import '../popup/popup.less'
-import { DownFill } from '../icon/icon'
+import { Icon } from '../icon/icon'
 
 
 const classPrefix = `adm-dropdown`
@@ -26,7 +26,7 @@ const defaultProps = {
   closeOnMaskClick: true,
   closeOnClickAway: true,
   activeKey: '',
-  arrow:<DownFill />
+  arrow:<Icon code={59948} />
 }
 
 

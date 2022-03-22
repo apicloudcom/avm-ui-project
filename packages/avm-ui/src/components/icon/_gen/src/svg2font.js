@@ -13,7 +13,7 @@ import color from 'colors-cli';
 import camelcase from "camelcase";
 
 
-function svg2font(svgPath, fontPath, fontName) {
+async function svg2font(svgPath, fontPath, fontName) {
 
   svgtofont({
     src: svgPath, // svg path
@@ -132,7 +132,7 @@ async function svgtofont(options) {
       `);
     });
 
-    await createComponentCode(componentList);
+    // await createComponentCode(componentList);
 
     const ttf = await createTTF(options);
     await createEOT(options, ttf);

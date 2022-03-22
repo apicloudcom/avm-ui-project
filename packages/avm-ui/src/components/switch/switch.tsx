@@ -1,8 +1,8 @@
 import classNames from '../../utils/classnames'
-import { formatLabel } from '../../utils/format-label'
+import {formatLabel} from '../../utils/format-label'
 // import SpinIcon from './spin.png'
 
-import {UndoOutline} from '../icon/icon'
+import Icon from "../icon";
 
 const classPrefix = `adm-switch`
 
@@ -76,16 +76,16 @@ export class Switch extends Component {
       background: this.data.checked ? checkedColor : '#e8e8e8'
     }
 
-    const handleSize = `${formatPx(props.height)-(formatPx(borderWidth) * 2)}px`
+    const handleSize = `${formatPx(props.height) - (formatPx(borderWidth) * 2)}px`
     const handleStyle = {
       width: handleSize,
       height: handleSize,
       borderRadius: handleSize,
       top: borderWidth,
-      left: this.data.checked ? `${formatPx(width)-formatPx(handleSize)}px` : borderWidth
+      left: this.data.checked ? `${formatPx(width) - formatPx(handleSize)}px` : borderWidth
     }
 
-    const marginSize =`${formatPx(height) - formatPx(borderWidth) + 5}px`
+    const marginSize = `${formatPx(height) - formatPx(borderWidth) + 5}px`
     const innerStyle = {
       lineHeight: height,
       margin: this.data.checked ? `0 ${marginSize} 0 10px` : `0 10px 0 ${marginSize}`
@@ -120,7 +120,7 @@ export class Switch extends Component {
               //   className={`${classPrefix}-icon`}
               //   alt='switch-handle'
               // />
-              <UndoOutline className={`${classPrefix}-icon`} color="#9AC200"/>
+              <Icon code={60045} className={`${classPrefix}-icon`} color="#9AC200"/>
             )}
           </div>
           {formatLabel(this.data.checked ? props.checkedText : props.uncheckedText, innerCls, innerStyle)}

@@ -1,5 +1,5 @@
 import classNames from '../../utils/classnames'
-import { LeftOutline } from '../icon/icon'
+import Icon  from '../icon'
 
 const classPrefix = `adm-nav-bar`
 
@@ -31,7 +31,7 @@ export class NavBar extends Component {
             <div className={`${classPrefix}-back`} onClick={props.onBack}>
               {backArrow && (
                 <div className={`${classPrefix}-back-arrow`}>
-                  {backArrow === true ? <LeftOutline fontSize="18" /> : backArrow}
+                  {backArrow === true ? <Icon code={59988} fontSize="18" /> : backArrow}
                 </div>
               )}
               <text aria-hidden='true'>{back}</text>

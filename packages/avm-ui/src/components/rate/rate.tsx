@@ -2,7 +2,7 @@ import classNames from 'classnames'
 // import { mergeProps } from '../../utils/with-default-props'
 import { formatLabel } from '../../utils/format-label'
 
-import {StarOutline} from '../icon/icon'
+import {Icon} from '../icon'
 
 const classPrefix = `adm-rate`
 
@@ -63,7 +63,7 @@ export class Rate extends Component {
           {
             props.character
               ? (formatLabel(props.character, '', {color: this.data.value >= v ? activeColor : '#ddd', fontSize: starSize}))
-              : (<StarOutline {...{color: this.data.value >= v ? activeColor : '#ddd', fontSize: starSize}}/>)}
+              : (<Icon code={60034} {...{color: this.data.value >= v ? activeColor : '#ddd', fontSize: starSize}}/>)}
         </div>
       )
     }

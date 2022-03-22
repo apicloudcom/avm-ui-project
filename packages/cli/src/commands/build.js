@@ -3,7 +3,9 @@ import glob from "glob";
 import {resolve} from "path";
 import {dist, uiDir} from "../index.js";
 import stylePlugin from "esbuild-style-plugin";
+import fse from "fs-extra";
 
+const outdir = (name = '') => resolve(`${dist}/components/avm-ui`, name);
 
 const assetPlugin = options => {
   return {
@@ -21,31 +23,34 @@ const assetPlugin = options => {
   }
 }
 
+async function copyFontToWidget() {
+  fse.copyFileSync(resolve(uiDir, 'src/components/icon/_gen/dist/fonts/avm-icon.ttf'), outdir('icon/avm-icon.ttf'));
+}
 
 export async function onBuild(cmd = {}) {
-
-
   const base = {
     bundle: true,
     plugins: [stylePlugin(), assetPlugin()],
     format: 'esm',
     splitting: false,
     minify: false,
-    legalComments:'none',
-    jsx:'preserve'
+    legalComments: 'none',
+    jsx: 'preserve'
   }
 
 
   await build({
     entryPoints: glob.sync("src/components/*/index.ts", {cwd: resolve(uiDir)}).map(com => resolve(uiDir, com)),
-    outdir: `${dist}/components/avm-ui`, ...base,
-    assetNames:'[name]'
+    outdir: outdir(),
+    ...base,
+    assetNames: '[name]'
   })
 
   await build({
     entryPoints: [resolve(uiDir, 'src/demos/index.ts')],
-    outdir: `${dist}/components/avm-ui/demos`, ...base
+    outdir: outdir('demos'), ...base
   })
-
+  
+  await copyFontToWidget();
 
 }

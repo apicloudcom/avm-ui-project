@@ -2,7 +2,7 @@ import classNames from '../../utils/classnames'
 
 // import closeIcon from './img/close.png'
 
-import {CloseCircleOutline} from '../icon/icon'
+import Icon from '../icon'
 
 const classPrefix = `adm-input`
 
@@ -110,7 +110,7 @@ export class Input extends Component {
               onClear?.()
             }}>
             {/* <img src={closeIcon} alt="close" className={`${classPrefix}-clear-icon`}/> */}
-            <CloseCircleOutline fontSize="16px"/>
+            <Icon code={59939} fontSize="16px"/>
           </div>
         )}
       </div>

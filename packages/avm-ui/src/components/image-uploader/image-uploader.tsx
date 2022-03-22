@@ -2,7 +2,7 @@ import ImageViewer from '../image-viewer'
 import {PreviewItem} from './preview-item'
 import classNames from '../../utils/classnames'
 
-import {CameraOutline} from '../icon/icon'
+import {Icon} from "../icon";
 
 export interface FileItem {
   url: string
@@ -143,7 +143,7 @@ export class ImageUploader extends Component {
               onClick={() => {
                 !props.disableUpload && this.selectPicture()
               }}>
-              {!this.data.uploadError ? (props.uploadIcon ?? <view className={`${classPrefix}-btn-wrap-img`} style={{width: cellSizeStyle.width, height: cellSizeStyle.height}}><CameraOutline color="#ddd" width="22px" height="22px"/></view>) : (
+              {!this.data.uploadError ? (props.uploadIcon ?? <view className={`${classPrefix}-btn-wrap-img`} style={{width: cellSizeStyle.width, height: cellSizeStyle.height}}><Icon code={59927} color="#ddd" width="22px" height="22px"/></view>) : (
                 <div className={`${classPrefix}-error-wrapper`} style={{width: cellSizeStyle.width, height: cellSizeStyle.height}}>
                   <span className={`${classPrefix}-error-wrapper-close`}>✕</span>
                   <span className={`${classPrefix}-error-wrapper-text`}>上传失败</span>

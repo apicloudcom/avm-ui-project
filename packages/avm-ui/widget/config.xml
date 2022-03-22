@@ -18,7 +18,7 @@
   <preference name="smartUpdate" value="true"/>
   <preference name="debug" value="true"/>
   <preference name="statusBarAppearance" value="true"/>
-  <preference name="font" family="avm-ui-icon" value="widget/components/avm-ui/avm-ui-icon.ttf"/>
+  <preference name="font" family="avm-icon" value="widget/components/avm-ui/icon/avm-icon.ttf"/>
   <permission name="readPhoneState"/>
   <permission name="camera"/>
   <permission name="record"/>

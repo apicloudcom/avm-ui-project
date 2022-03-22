@@ -1,5 +1,6 @@
 import classNames from 'classnames'
-import { CheckOutline, CloseOutline } from '../icon/icon'
+// import { CheckOutline, CloseOutline } from '../icon/icon'
+import {Icon} from "../icon";
 import Loading from '../loading'
 import Mask from '../mask'
 import { mergeProps } from '../../utils/with-default-props'
@@ -23,8 +24,8 @@ export interface ToastProps {
 }
 
 const iconsArr = {
-  success: <CheckOutline/>, 
-  fail: <CloseOutline/>, 
+  success: <Icon code={59933}/>, 
+  fail: <Icon code={59940}/>, 
   loading: <Loading color='white' className={`${classPrefix}-loading`} />, 
 }
 

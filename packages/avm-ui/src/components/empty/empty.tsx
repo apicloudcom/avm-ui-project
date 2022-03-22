@@ -1,5 +1,5 @@
 // import classNames from '../../utils/classnames'
-import {UiwInbox} from '../icon/icon'
+import Icon from '../icon'
 
 
 const classPrefix = `adm-empty`
@@ -31,7 +31,7 @@ export class Empty extends Component {
         )
       }else {
         return (
-        <UiwInbox
+        <Icon code={60057}
           fontSize={imageWidth}
           color={imageColor}
         />)

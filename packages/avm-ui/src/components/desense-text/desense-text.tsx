@@ -1,6 +1,6 @@
 import { NativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-import { EyeInvisibleOutline, EyeOutline } from '../icon/icon'
+import Icon from '../icon'
 
 const classPrefix = 'adm-desense-text'
 
@@ -39,7 +39,7 @@ export class DesenseText extends Component {
           }}
           className={`${classPrefix}-icon-wrap`}
         >
-          {this.data.desense ? < EyeInvisibleOutline /> : < EyeOutline />}
+          {this.data.desense ? < Icon code={59963} /> : < Icon code={59964} />}
         </div>
       </div>
     )

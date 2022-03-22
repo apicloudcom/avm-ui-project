@@ -1,6 +1,8 @@
 import classNames from '../../utils/classnames'
-import { CheckCircleFill, CloseCircleFill, InformationCircleOutline, ClockCircleOutline, ExclamationCircleFill } from '../icon/icon'
-import './result.less'
+// import { CheckCircleFill, CloseCircleFill, InformationCircleOutline, ClockCircleOutline, ExclamationCircleFill } from '../icon/icon'
+import {Icon} from "../icon";
+
+
 const classPrefix = `adm-result`
 
 const iconDefalutProps = {
@@ -27,11 +29,11 @@ const iconDefalutProps = {
 }
 
 const iconRecord = {
-  'success': <CheckCircleFill {...iconDefalutProps['success']} />,
-  'error': <CloseCircleFill {...iconDefalutProps['error']} />,
-  'info': <InformationCircleOutline {...iconDefalutProps['info']} />,
-  'waiting': <ClockCircleOutline {...iconDefalutProps['waiting']} />,
-  'warning': <ExclamationCircleFill {...iconDefalutProps['warning']} />,
+  'success': <Icon code={59931} {...iconDefalutProps['success']} />,
+  'error': <Icon code={59938} {...iconDefalutProps['error']} />,
+  'info': <Icon code={59984} {...iconDefalutProps['info']} />,
+  'waiting': <Icon code={59937} {...iconDefalutProps['waiting']} />,
+  'warning': <Icon code={59955} {...iconDefalutProps['warning']} />,
 }
 
 

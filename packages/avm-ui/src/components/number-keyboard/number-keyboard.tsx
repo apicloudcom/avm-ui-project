@@ -5,7 +5,7 @@ import { GetContainer } from '../../utils/render-to-container'
 // import DownOutlineSrc from './img/downoutline.png'
 // import TextDeletionOutlineSrc from './img/textDeletionOutline.png'
 
-import {DownOutline, TextDeletionOutline} from '../icon/icon'
+import Icon from '../icon'
 
 const classPrefix = 'adm-number-keyboard'
 
@@ -112,7 +112,7 @@ export class NumberKeyboard extends Component {
               role='button'
               title='CLOSE'>
               {/* <img src={DownOutlineSrc} alt="downoutline"/> */}
-              <DownOutline color="#666"/>
+              <Icon code={59949} color="#666"/>
             </div>
           )}
         </div>
@@ -138,7 +138,7 @@ export class NumberKeyboard extends Component {
           style={{marginRight: (index+1)%3 !== 0 ? '8px' : 0}}>
           {
             key === 'BACKSPACE'
-              ? <TextDeletionOutline color="#333"/>
+              ? <Icon code={60040} color="#333"/>
               : <span className={`${classPrefix}-key-text`}>{key}</span>
           }
         </div>
@@ -180,7 +180,7 @@ export class NumberKeyboard extends Component {
                   title='BACKSPACE'
                   role='button'>
                   {/* <img src={TextDeletionOutlineSrc} alt="textDeletionOutline"/> */}
-                  <TextDeletionOutline color="#333"/>
+                  <Icon code={60040} color="#333"/>
                 </div>
                 <div
                   className={classNames(`${classPrefix}-key-extra`, `${classPrefix}-key-ok`, {
