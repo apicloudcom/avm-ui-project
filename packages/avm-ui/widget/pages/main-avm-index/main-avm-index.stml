@@ -36,7 +36,7 @@
                     </view>
                     <!--子内容-->
                     <view class="main-avm-list-item-child-container" v-show="curChildTab === item.tab">
-                        <view class="main-avm-list-item-child" v-for="childItem in item.children" :key="childItem.component" @click="enterChildDetail(item, childItem)">
+                        <view class="main-avm-list-item-child" v-for="childItem in item.children" :key="childItem.component" @click="enterChildDetail(childItem)">
                             <text class="main-avm-list-item-child-text">{childItem.text}</text>
                             <img src="../../image/right_arrow.png" :alt="item.icon" class="main-avm-list-item-child-icon"/>
                         </view>
@@ -64,6 +64,10 @@ export default {
         contentList() {
             return avmContentList.filter(item => (item.type === this.data.curTab));
         },
+        // 当前运行平台 app/web/mp
+        platform() {
+            return api.platform;
+        }
     },
     data() {
         return {
@@ -103,16 +107,15 @@ export default {
                 this.data.curChildTab = item.tab;
             }
         },
-        enterChildDetail(item, childItem) {
-            if (item.type === 'avm') {
-                api.openWin({
+        enterChildDetail(childItem) {
+            const url = `../${childItem.component}/${childItem.component}.stml`;
+            if (this.platform === 'app') { // app端
+               api.openWin({
                     name: childItem.component,
-                    url: `../${childItem.component}/${childItem.component}.stml`
+                    url
                 })
-            } else {
-                api.toast({
-                    msg: '正在开发中...'
-                })
+            } else if (this.platform === 'mp') { // 小程序端
+                wx.redirectTo({url})
             }
         },
         handleScroll(e) {

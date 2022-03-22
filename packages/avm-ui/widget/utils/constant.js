@@ -10,9 +10,6 @@ export const avmContentList = [{
       text: 'swiper',
       component: 'avm-base-swiper'
     }, {
-      text: 'swiper-item',
-      component: 'avm-base-swiper-item'
-    }, {
       text: 'scroll-view',
       component: 'avm-base-scroll-view'
     }, {
@@ -21,15 +18,6 @@ export const avmContentList = [{
     }, {
       text: 'grid-view',
       component: 'avm-base-grid-view'
-    }, {
-      text: 'list-header',
-      component: 'avm-base-list-header'
-    }, {
-      text: 'list-footer',
-      component: 'avm-base-list-footer'
-    }, {
-      text: 'cell',
-      component: 'avm-base-cell'
     }, {
       text: 'refresh',
       component: 'avm-base-refresh'
@@ -72,9 +60,6 @@ export const avmContentList = [{
     }, {
       text: 'radio-group',
       component: 'avm-base-radio-group'
-    }, {
-      text: 'label',
-      component: 'avm-base-label'
     }, {
       text: 'form',
       component: 'avm-base-form'

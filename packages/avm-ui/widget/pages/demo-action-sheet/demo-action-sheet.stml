@@ -2,7 +2,6 @@
 	<view class="page">
 		<safe-area>
 			<avm-nav-bar onBack={this.back}>ActionSheet</avm-nav-bar>
-			
 		</safe-area>
 		<DemoBlock title='基础用法'>
 			<avm-space wrap>
@@ -42,10 +41,6 @@
 			onAction={(action, index) => this.onAction(action, index)}/>
 	</view>
 </template>
-
-<style src="../../components/avm-ui/nav-bar/index.css"/>
-<style src="../../components/avm-ui/demos/index.css"/>
-
 <script>
 import '../../components/avm-ui/action-sheet'
 import '../../components/avm-ui/space'
