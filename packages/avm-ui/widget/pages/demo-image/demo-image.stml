@@ -1,6 +1,6 @@
 <template>
 
-	<safe-area>
+	<safe-area style="background: #f2f2f2;">
 		<NavBar onBack={this.back}>Image</NavBar>
 		<scroll-view>
 			<DemoBlock title='基础用法'>
@@ -8,11 +8,15 @@
 					<avm-image src={demoSrc}/>
 				</avm-space>
 			</DemoBlock>
-			<DemoBlock title='方形/圆形图片展示'>
+			<DemoBlock title='方形图片'>
 				<avm-space wrap>
-					<avm-image src={demoSrc} isRound fit='fill'/>
 					<avm-image src={demoSrc} isSquare fit='contain'/>
 					<avm-image src={demoSrc} isSquare fit='cover'/>
+				</avm-space>
+			</DemoBlock>
+			<DemoBlock title='圆形图片'>
+				<avm-space wrap>
+					<avm-image src={demoSrc} isRound fit='fill'/>
 					<avm-image src={demoSrc} isRound fit='scale-down'/>
 					<avm-image src={demoSrc} isRound fit='none'/>
 				</avm-space>

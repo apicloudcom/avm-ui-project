@@ -2,7 +2,7 @@
 	<safe-area class="page">
 		<avm-nav-bar onBack={this.back}>Steps</avm-nav-bar>
 		<scroll-view>
-			<DemoBlock title='横向'>
+			<DemoBlock title='基础样式'>
 				<avm-steps current={1}>
 					<avm-step title="标题文字"/>
 					<avm-step title="标题文字"/>
@@ -10,7 +10,7 @@
 				</avm-steps>
 			</DemoBlock>
 
-			<DemoBlock title='横向（失败状态）'>
+			<DemoBlock title='异常状态'>
 				<avm-steps current={2}>
 					<avm-step title="标题文字" description="小正文"/>
 					<avm-step title="标题文字" status="error" description="小正文"/>

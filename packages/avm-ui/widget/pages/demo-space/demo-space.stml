@@ -2,68 +2,65 @@
 	<safe-area class="page">
 		<avm-nav-bar onBack={this.back}>Space</avm-nav-bar>
 		<scroll-view>
-			<DemoBlock title='水平方向的间距'>
+			<DemoBlock title='水平方向'>
 				<avm-space>
-					<avm-button>按钮1</avm-button>
-					<avm-button>按钮2</avm-button>
-					<avm-button>按钮3</avm-button>
+					<avm-button color='primary'>按钮1</avm-button>
+					<avm-button color='primary'>按钮2</avm-button>
+					<avm-button color='primary'>按钮3</avm-button>
 				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='换行'>
 				<avm-space wrap>
-					<avm-button>按钮1</avm-button>
-					<avm-button>按钮2</avm-button>
-					<avm-button>按钮3</avm-button>
-					<avm-button>按钮4</avm-button>
-					<avm-button>按钮5</avm-button>
-					<avm-button>按钮6</avm-button>
-					<avm-button>按钮7</avm-button>
-					<avm-button>按钮8</avm-button>
-					<avm-button>按钮9</avm-button>
-					<avm-button>按钮10</avm-button>
-					<avm-button>按钮11</avm-button>
+					<avm-button color='primary'>按钮1</avm-button>
+					<avm-button color='primary'>按钮2</avm-button>
+					<avm-button color='primary'>按钮3</avm-button>
+					<avm-button color='primary'>按钮4</avm-button>
+					<avm-button color='primary'>按钮5</avm-button>
+					<avm-button color='primary'>按钮6</avm-button>
+					<avm-button color='primary'>按钮7</avm-button>
+					<avm-button color='primary'>按钮8</avm-button>
+					<avm-button color='primary'>按钮9</avm-button>
 				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='垂直方向的间距'>
 				<avm-space direction='vertical'>
-					<avm-button>按钮1</avm-button>
-					<avm-button>按钮2</avm-button>
-					<avm-button>按钮3</avm-button>
+					<avm-button color='primary'>按钮1</avm-button>
+					<avm-button color='primary'>按钮2</avm-button>
+					<avm-button color='primary'>按钮3</avm-button>
 				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='自定义间距大小'>
 				<avm-space gap="30px">
-					<avm-button>按钮1</avm-button>
-					<avm-button>按钮2</avm-button>
-					<avm-button>按钮3</avm-button>
+					<avm-button color='primary'>按钮1</avm-button>
+					<avm-button color='primary'>按钮2</avm-button>
+					<avm-button color='primary'>按钮3</avm-button>
 				</avm-space>
 			</DemoBlock>
-
 			<DemoBlock title='渲染为块级元素'>
 				<avm-space direction='vertical' block>
-					<avm-button>按钮1</avm-button>
-					<avm-button>按钮2</avm-button>
-					<avm-button>按钮3</avm-button>
+					<avm-button color='primary'>按钮1</avm-button>
+					<avm-button color='primary'>按钮2</avm-button>
+					<avm-button color='primary'>按钮3</avm-button>
 				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='主轴对齐方式'>
 				<avm-space justify='center' block>
-					<avm-button>1</avm-button>
-					<avm-button>
+					<avm-button color='primary'>1</avm-button>
+					<avm-button color='primary'>
 						2 2
 					</avm-button>
-					<avm-button>
+					<avm-button color='primary'>
 						3 3 3
 					</avm-button>
 				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='交叉轴对齐方式'>
 				<avm-space align='end'>
-					<avm-button>1</avm-button>
-					<avm-button>
+					<avm-button color='primary'>1</avm-button>
+					<avm-button color='primary'>
 						2 2
 					</avm-button>
-					<avm-button>
+					<avm-button color='primary'>
 						3 3 3
 					</avm-button>
 				</avm-space>

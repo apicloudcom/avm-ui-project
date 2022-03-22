@@ -4,13 +4,13 @@
 		<scroll-view>
 			<DemoBlock title='基础样式'>
 				<avm-space gap="30px">
-					<avm-badge color='#108ee9' content='5'>
+					<avm-badge color='#108ee9' content='8'>
 						<div className="box"/>
 					</avm-badge>
-					<avm-badge content='新'>
+					<avm-badge content='28'>
 						<div className="box"/>
 					</avm-badge>
-					<avm-badge content='更新'>
+					<avm-badge content='99+'>
 						<div className="box"/>
 					</avm-badge>
 					<avm-badge>
@@ -22,22 +22,20 @@
 				<avm-space gap="35px">
 					<avm-badge
 						color='#9AC200'
-						content={Badge.dot}
-						right='100%'
-						top='100%'>
+						content="8">
 						<div className="box"/>
 					</avm-badge>
 					<avm-badge
 						color='#FA6400'
-						content={Badge.dot}
+						content="8"
 						right="100%"
-						>
+						top="100%">
 						<div className="box"/>
 					</avm-badge>
-					<avm-badge content={Badge.dot} color="#F7B500">
+					<avm-badge content="8" color="#F7B500" right="100%">
 						<div className="box"/>
 					</avm-badge>
-					<avm-badge content="8" top="100%">
+					<avm-badge content="8" top="100%" top="100%">
 						<div className="box"/>
 					</avm-badge>
 				</avm-space>
@@ -49,8 +47,6 @@
 				</avm-space>
 			</DemoBlock>
 		</scroll-view>
-
-
 	</safe-area>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
 	<safe-area class="page">
 		<avm-nav-bar onBack={this.back}>Radio</avm-nav-bar>
-		<scroll-view>
+		<scroll-view :show-scrollbar="false">
 			<DemoBlock title='基础用法'>
 				<avm-radio/>
 				<avm-radio>有描述的勾选框</avm-radio>
@@ -100,6 +100,8 @@ export default {
 .page {
 	height: 100%;
 	width: 100%;
+	background: #f2f2f2;
+	padding: 0 16px;
 }
 .icon-style {
 	width: 50px;

@@ -3,7 +3,10 @@
 		<avm-nav-bar onBack={this.back}>Switch</avm-nav-bar>
 		<scroll-view>
 			<DemoBlock title='基础用法'>
-				<avm-switch />
+				<avm-space>
+					<avm-switch defaultChecked/>
+					<avm-switch />
+				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='受控组件'>
 				<avm-switch
@@ -11,14 +14,11 @@
 					onChange={this.toggleChecked}
 				/>
 			</DemoBlock>
-			<DemoBlock title='有默认值'>
-				<avm-switch defaultChecked />
-			</DemoBlock>
 			<DemoBlock title='文字和图标'>
 				<avm-space wrap>
 					<avm-switch uncheckedText='关' checkedText='开' width="60px"/>
-					<avm-switch uncheckedText={<img src="../../image/cf.png"/>} checkedText={"开启"} width="100px"/>
-					<avm-switch uncheckedText='0' checkedText='1' />
+					<avm-switch uncheckedText={"关闭"} checkedText={"开启"} width="100px"/>
+					<avm-switch uncheckedText='0' checkedText='1' width="60px"/>
 				</avm-space>
 			</DemoBlock>
 			<DemoBlock title='自定义样式'>
@@ -30,9 +30,9 @@
 					<avm-switch disabled defaultChecked />
 				</avm-space>
 			</DemoBlock>
-			<DemoBlock title='加载状态'>
+			<!-- <DemoBlock title='加载状态'>
 				<avm-switch loading />
-			</DemoBlock>
+			</DemoBlock> -->
 			<DemoBlock title='异步'>
 				<avm-space wrap>
 					<avm-switch defaultChecked beforeChange={this.beforeChange} />
@@ -78,5 +78,6 @@ export default {
 .page {
 	height: 100%;
 	width: 100%;
+	background: #f2f2f2;
 }
 </style>

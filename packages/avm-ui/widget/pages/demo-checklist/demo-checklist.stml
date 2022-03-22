@@ -1,8 +1,8 @@
 <template>
 
-	<safe-area>
+	<safe-area class="page">
 		<avm-nav-bar onBack={this.back}>CheckList</avm-nav-bar>
-		<scroll-view>
+		<scroll-view :show-scrollbar="false">
 			<DemoBlock title='基础用法' padding='0' border='none'>
 				<avm-check-list defaultValue={['B']} list={list1} onChange={val => this.onChange(val)}/>
 			</DemoBlock>
@@ -28,19 +28,19 @@ import '../../components/avm-ui/nav-bar'
 import {DemoBlock} from '../../components/avm-ui/demos'
 
 const list1 = [
-  {value: 'A', label: 'A', onClick: () => {api.toast({msg: '点击了A!'})}},
-  {value: 'B', label: 'B'},
-  {value: 'C', label: 'C', disabled: true},
-  {value: 'D', label: 'D', readOnly: true}
+  {value: 'A', label: '选项', onClick: () => {api.toast({msg: '点击了A!'})}},
+  {value: 'B', label: '选项'},
+  {value: 'C', label: '选项', disabled: true},
+  {value: 'D', label: '选项', readOnly: true}
 ]
 const list2 = [
-  {value: 'A', label: 'A'},
-  {value: 'B', label: 'B'},
-  {value: 'C', label: 'C'}
+  {value: 'A', label: '选项'},
+  {value: 'B', label: '选项'},
+  {value: 'C', label: '选项'}
 ]
 const list3 = [
-  {value: 'A', label: 'A'},
-  {value: 'B', label: 'B'}
+  {value: 'A', label: '选项'},
+  {value: 'B', label: '选项'}
 ]
 export default {
 	name: 'demo-checklist',
@@ -57,3 +57,9 @@ export default {
 }
 </script>
 <style src="../../components/avm-ui/demos/index.css"></style>
+<style>
+.page {
+	background: #f2f2f2;
+	padding: 0 16px;
+}
+</style>
