@@ -5,7 +5,8 @@ import { GetContainer } from '../../utils/render-to-container'
 // import DownOutlineSrc from './img/downoutline.png'
 // import TextDeletionOutlineSrc from './img/textDeletionOutline.png'
 
-import Icon from '../icon'
+// import {DownOutline, TextDeletionOutline} from '../icon/icon'
+import {Icon} from "../icon";
 
 const classPrefix = 'adm-number-keyboard'
 
@@ -23,16 +24,18 @@ export type NumberKeyboardProps = {
   onConfirm?: () => void
   afterShow?: () => void
   afterClose?: () => void
-  closeOnConfirm?: boolean
+  closeOnConfirm?: boolean,
+  type: 'default' | 'ID' | 'custom'
 }
 
 const defaultProps = {
   defaultVisible: false,
   randomOrder: false,
   showCloseButton: true,
-  confirmText: null,
+  // confirmText: null,
   closeOnConfirm: true,
-  isShowClearBtn: true
+  isShowClearBtn: true,
+  type: 'default'
 }
 
 export class NumberKeyboard extends Component {
@@ -43,30 +46,47 @@ export class NumberKeyboard extends Component {
   }
   render = props => {
     props = Object.assign({}, defaultProps, props)
-    const {
+    let {
       visible,
       title,
       getContainer,
-      confirmText,
-      customKey,
+      // confirmText,
+      // customKey,
       randomOrder,
       showCloseButton,
       onInput,
       onDelete,
-      isShowClearBtn
+      isShowClearBtn,
+      type
     } = props
+    let confirmText;
 
 
     const keys = () => {
       const defaultKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
       const keyList = randomOrder ? shuffle(defaultKeys) : defaultKeys
       keyList.push('0')
-      if (confirmText) {
-        keyList.push(customKey || '')
-      } else {
-        keyList.splice(9, 0, customKey || '')
+      if (type === 'default') {
+        keyList.splice(9, 0, 'CLOSE_KEYBOARD')
         keyList.push('BACKSPACE')
+      } else if (type === 'ID') {
+        keyList.splice(9, 0, 'X')
+        keyList.push('BACKSPACE')
+      } else if (type === 'custom') {
+        if (showCloseButton) {
+          keyList.push('CLOSE_KEYBOARD')
+        } else {
+          keyList.push('.')
+        }
+        
+        confirmText = '完成'
       }
+      // if (confirmText) {
+      //   keyList.push(customKey || '')
+      // } else {
+      //   keyList.splice(9, 0, customKey || '')
+      //   keyList.push('BACKSPACE')
+      // }
       return keyList
     }
 
@@ -92,32 +112,32 @@ export class NumberKeyboard extends Component {
     }
 
     // 渲染 title 和 close button
-    const renderHeader = () => {
-      if (!showCloseButton && !title) return null
-      return (
-        <div
-          className={classNames(`${classPrefix}-header`, {
-            [`${classPrefix}-header-with-title`]: !!title,
-          })}
-        >
-          {title && <span className={`${classPrefix}-title`}>{title}</span>}
-          {showCloseButton && (
-            <div
-              className={classNames(`${classPrefix}-header-close-button`, {
-                [`${classPrefix}-header-with-title-close-button`]: !!title
-              })}
-              onClick={() => {
-                props.onClose?.()
-              }}
-              role='button'
-              title='CLOSE'>
-              {/* <img src={DownOutlineSrc} alt="downoutline"/> */}
-              <Icon code={59949} color="#666"/>
-            </div>
-          )}
-        </div>
-      )
-    }
+    // const renderHeader = () => {
+    //   if (!showCloseButton && !title) return null
+    //   return (
+    //     <div
+    //       className={classNames(`${classPrefix}-header`, {
+    //         [`${classPrefix}-header-with-title`]: !!title,
+    //       })}
+    //     >
+    //       {title && <span className={`${classPrefix}-title`}>{title}</span>}
+    //       {showCloseButton && (
+    //         <div
+    //           className={classNames(`${classPrefix}-header-close-button`, {
+    //             [`${classPrefix}-header-with-title-close-button`]: !!title
+    //           })}
+    //           onClick={() => {
+    //             props.onClose?.()
+    //           }}
+    //           role='button'
+    //           title='CLOSE'>
+    //           {/* <DownOutline color="#666"/> */}
+    //           <Icon code={59931}/>
+    //         </div>
+    //       )}
+    //     </div>
+    //   )
+    // }
 
     // 渲染基础键盘按键
     const renderKey = (key: string, index: number) => {
@@ -138,8 +158,9 @@ export class NumberKeyboard extends Component {
           style={{marginRight: (index+1)%3 !== 0 ? '8px' : 0}}>
           {
             key === 'BACKSPACE'
-              ? <Icon code={60040} color="#333"/>
-              : <span className={`${classPrefix}-key-text`}>{key}</span>
+              // ? <TextDeletionOutline color="#333"/>
+              ? <Icon code={59931}/>
+              : (key === 'CLOSE_KEYBOARD' ? <view className={`${classPrefix}-key-text`} onClick={() => {props.onClose?.()}}><Icon code={59931}/></view> : <span className={`${classPrefix}-key-text`}>{key}</span>)
           }
         </div>
       )
@@ -155,7 +176,7 @@ export class NumberKeyboard extends Component {
         className={`${classPrefix}-popup`}
         bodyStyle={this.data.popupBodyStyle}>
         <div className={classPrefix}>
-          {renderHeader()}
+          {/* {renderHeader()} */}
           <div className={`${classPrefix}-wrapper`}>
             <div
               className={classNames(`${classPrefix}-main`, {
@@ -180,7 +201,8 @@ export class NumberKeyboard extends Component {
                   title='BACKSPACE'
                   role='button'>
                   {/* <img src={TextDeletionOutlineSrc} alt="textDeletionOutline"/> */}
-                  <Icon code={60040} color="#333"/>
+                  {/* <TextDeletionOutline color="#333"/> */}
+                  <Icon code={59931}/>
                 </div>
                 <div
                   className={classNames(`${classPrefix}-key-extra`, `${classPrefix}-key-ok`, {
@@ -275,12 +297,16 @@ export class NumberKeyboard extends Component {
       }
       .adm-number-keyboard-key-text {
         font-size: 22px;
+        align-items: center;
+        justify-content: center;
       }
       .adm-number-keyboard-key-mid {
         width: 63%;
       }
       .adm-number-keyboard-key-sign {
         background: #fff;
+        align-items: center;
+        justify-content: center;
       }
       .adm-number-keyboard-key-sign:active {
         background-color: #f2f2f2;

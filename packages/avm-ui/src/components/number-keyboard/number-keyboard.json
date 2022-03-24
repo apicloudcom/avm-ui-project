@@ -12,20 +12,16 @@
     ],
     "props": [
         {
+            "name": "type",
+            "tip": "键盘类型（default:默认、ID:身份证号、custom: 自定义）",
+            "type": "string",
+            "enum": ["default", "ID", "custom"]
+        },
+        {
             "name": "visible",
             "tip": "是否展示",
             "type": "boolean",
             "default": false
-        },
-        {
-            "name": "confirmText",
-            "tip": "完成按钮文案，`null` 不展示",
-            "type": "string"
-        },
-        {
-            "name": "customKey",
-            "tip": "自定义按钮",
-            "type": "string"
         },
         {
             "name": "randomOrder",
@@ -35,7 +31,7 @@
         },
         {
             "name": "showCloseButton",
-            "tip": "是否展示收起键盘箭头",
+            "tip": "自定义样式状态是否显示收起键盘按钮",
             "type": "boolean",
             "default": true
         },
