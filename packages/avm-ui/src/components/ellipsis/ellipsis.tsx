@@ -18,142 +18,142 @@ const defaultProps = {
 export class Ellipsis extends Component {
   install = () => {
     this.props = mergeProps(defaultProps, this.props)
-  }
-  // 初始化显示内容
-  installed = () => {
-    const actionText = this.data.expanded ?
-      <span style={{ "color": "blue" }}>{this.props.collapseText}</span> :
-      <span style={{ "color": "blue" }}>{this.props.expandText}</span>
-    const leading = this.props.content.slice(0, 12) + '...';
-    const tailing = '...' + this.props.content.slice(-12);
-
-    if (this.props.rows) {
-      this.data.content = this.props.content.slice(0, this.props.rows * 28) + "..."
-    } else if (this.props.direction === 'start') {
-      this.data.content =
-        <span>
-          {actionText}
-          <span>{"..." + this.props.content.slice(-26)}</span>
-        </span>
-    } else if (this.props.direction === 'middle') {
-      this.data.content =
-        <span>
-          <span>{leading}</span>
-          {actionText}
-          <span>{tailing}</span>
-        </span>
-    } else {
-      this.data.content =
-        <span>
-          <span>{this.props.content.slice(0, 26) + "..."}</span>
-          {actionText}
-        </span>
+    this.data.btnText = this.props.expandText
+    if (this.props.content.length <= this.data.oneLineLength) {
+      this.data.content = this.props.content
+    }
+    if (this.props.content.length > this.data.oneLineLength) {
+      // 头部省略
+      if (this.props.direction == 'start') {
+        this.data.content = "..." + this.props.content.slice(-this.data.oneLineLength*Number(this.props.rows))
+      }
+      // 中间省略
+      if (this.props.direction == 'middle') {
+        this.data.leading = this.props.content.slice(0,this.data.helfLineLength*Number(this.props.rows)) + '...'
+        this.data.tailing = '...' + this.props.content.slice(-this.data.helfLineLength*Number(this.props.rows))
+      }
+      // 尾部省略
+      if (this.props.direction == 'end') {
+        this.data.content = this.props.content.slice(0, this.data.oneLineLength*Number(this.props.rows)) + '...'
+      }
     }
   }
 
+
   data = {
-    expanded: false,
-    content: " "
+    content: '',
+    leading: '',
+    tailing: '',
+    btnText: '',
+    oneLineLength: 30,//一行的字数
+    helfLineLength: 15,
   }
 
-  setExpanded = (trueOrFalse) => {
-    this.data.expanded = trueOrFalse
-  }
 
   render = props => {
     props = mergeProps(defaultProps, props)
     const that = this
-    const actionText = !this.data.expanded ?
-      <span style={{ "color": "blue" }}>{this.props.collapseText}</span> :
-      <span style={{ "color": "blue" }}>{this.props.expandText}</span>
+    const actionText = <span style={'color:blue'} onClick={openAndCloseClick}>{this.data.btnText}</span>
 
-    const expandActionElement =
-      <a style="border: 1px solid white"
-        onClick={() => {
-          this.setExpanded(true)
-          if (props.direction === 'start') {
-            that.data.content =
-              <span>
-                <span>{props.content}</span>
-                {actionText}
-              </span>
-          } else if (props.direction === 'middle') {
-            that.data.content =
-              <span>
-                <span>{props.content}</span>
-                {actionText}
-              </span>
-          } else {
-            that.data.content =
-              <span>
-                <span>{props.content}</span>
-                {actionText}
-              </span>
-          }
-        }}
-      >
-        {" "}
-      </a>
 
-    const collapseActionElement =
-      <a style="border: 1px solid white"
-        onClick={() => {
-          this.setExpanded(false)
-          const leading = props.content.slice(0, 12) + '...';
-          const tailing = '...' + props.content.slice(-12);
+    function openAndCloseClick() {
+      console.log(that.props.rows)
+      const openText = props.expandText
+      const closeText = props.collapseText
+      const long = props.content.length
+      //end
+      const endToOpen = () => {
+        that.data.content = props.content
+        that.data.btnText = closeText
+      }
+      const openToEnd = () => {
+        that.data.content = that.props.content.slice(0, that.data.oneLineLength*Number(props.rows)) + '...'
+        that.data.btnText = openText
+      }
+      //start
+      const startToOpen = () => {
+        that.data.content = props.content
+        that.data.btnText = closeText
+      }
+      const openToStart = () => {
+        that.data.content = "..." + that.props.content.slice(-that.data.oneLineLength*Number(props.rows))
+        that.data.btnText = openText
+      }
+      //middle
+      const middleToOpen = () => {
+        that.data.leading = props.content.slice(0, long / 2 + 1)
+        that.data.tailing = props.content.slice(-long / 2)
+        that.data.btnText = closeText
+      }
+      const openToMiddle = () => {
+        that.data.leading = props.content.slice(0, that.data.helfLineLength*Number(props.rows)) + '...'
+        that.data.tailing = '...' + props.content.slice(-that.data.helfLineLength*Number(props.rows))
+        that.data.btnText = openText
+      }
 
-          if (this.props.direction === 'start') {
-            this.data.content =
-              <span>
-                {actionText}
-                <span>{"..." + this.props.content.slice(-26)}</span>
-              </span>
-          } else if (this.props.direction === 'middle') {
-            this.data.content =
-              <span>
-                <span>{leading}</span>
-                {actionText}
-                <span>{tailing}</span>
-              </span>
-          } else {
-            this.data.content =
-              <span>
-                <span>{this.props.content.slice(0, 26) + "..."}</span>
-                {actionText}
-              </span>
-          }
-        }}
-      >
-        {" "}
-      </a>
+
+      if (props.direction == 'end') {
+        that.data.btnText == openText ? endToOpen() : openToEnd()
+      }
+      if (props.direction == 'start') {
+        that.data.btnText == openText ? startToOpen() : openToStart()
+      }
+      if (props.direction == 'middle') {
+        that.data.btnText == openText ? middleToOpen() : openToMiddle()
+      }
+    }
+
 
     const renderContent = () => {
-      if (props.content.length <= 28) {
-        return props.content
+      if (props.content.length <= this.data.oneLineLength) {
+        return (
+          <>
+            {props.content}
+          </>
+        )
       }
-      if (this.data.expanded) {
-        return (
-          <>
-            {this.data.content}
-            {collapseActionElement}
-          </>
-        )
-      } else {
-        return (
-          <>
-            {this.data.content}
-            {expandActionElement}
-          </>
-        )
+
+      if (props.content.length > this.data.oneLineLength) {
+        // 头部省略
+        if (props.direction == 'start') {
+          return (
+            <a>
+              {actionText}
+              {this.data.content}
+            </a>
+          )
+        }
+        // 中间省略
+        if (props.direction == 'middle') {
+          return (
+            <a>
+              {this.data.leading}
+              {actionText}
+              {this.data.tailing}
+            </a>
+          )
+        }
+        // 尾部省略
+        if (props.direction == 'end') {
+          return (
+            <a>
+              {this.data.content}
+              {actionText}
+            </a>
+          )
+        }
       }
     }
 
     return (
-      <ellipsis>
+      <ellipsis style={props.style}>
         {renderContent()}
       </ellipsis >
     )
   }
 }
+
+
+
 
 
