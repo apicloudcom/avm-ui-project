@@ -65,21 +65,21 @@ export class NumberKeyboard extends Component {
     const keys = () => {
       const defaultKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
       const keyList = randomOrder ? shuffle(defaultKeys) : defaultKeys
-      keyList.push('0')
       if (type === 'default') {
+        keyList.push('0')
         keyList.splice(9, 0, 'CLOSE_KEYBOARD')
         keyList.push('BACKSPACE')
       } else if (type === 'ID') {
+        keyList.push('0')
         keyList.splice(9, 0, 'X')
         keyList.push('BACKSPACE')
       } else if (type === 'custom') {
-        if (showCloseButton) {
-          keyList.push('CLOSE_KEYBOARD')
-        } else {
-          keyList.push('.')
-        }
-        
         confirmText = '完成'
+        // if (showCloseButton) {
+        //   keyList.push('CLOSE_KEYBOARD')
+        // } else {
+        //   keyList.push('.')
+        // }
       }
       // if (confirmText) {
       //   keyList.push(customKey || '')
@@ -183,6 +183,18 @@ export class NumberKeyboard extends Component {
                 [`${classPrefix}-confirmed-style`]: !!confirmText,
               })}>
               {keys().map((key, index) => renderKey(key, index))}
+
+              {/* 自定义状态下底部key显示 */}
+              {
+                type === 'custom' && <div className={`${classPrefix}-custom-keys`}>
+                <span
+                  onClick={() => onKeyPress('0')}
+                  className={`${classPrefix}-key-text-span2`}>0</span>
+                {showCloseButton
+                  ? <view className={`${classPrefix}-key-text-span1`} onClick={() => {props.onClose?.()}}><Icon code={59931}/></view>
+                  : <span className={`${classPrefix}-key-text-span1`} onClick={() => onKeyPress('.')}>.</span>}
+              </div>
+              }
             </div>
             {!!confirmText && (
               <div className={`${classPrefix}-confirm`}>
@@ -354,6 +366,39 @@ export class NumberKeyboard extends Component {
       .adm-number-keyboard-key-clear-text {
         color: #333;
         font-size: 16px;
+      }
+      .adm-number-keyboard-custom-keys {
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+      }
+      .adm-number-keyboard-key-text-span2 {
+        flex: 2;
+        border-radius: 8px;
+        height: 48px;
+        background: #fff;
+        margin-top: 8px;
+        text-align: center;
+        line-height: 48px;
+        color: #333;
+        font-size: 16px;
+        margin-right: 8px;
+      }
+      .adm-number-keyboard-key-text-span1 {
+        flex: 1;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 48px;
+        background: #fff;
+        margin-top: 8px;
+        line-height: 48px;
+        text-align: center;
+        color: #333;
+        font-size: 16px;
+        margin-right: 5px;
+        margin-left: 1px;
       }
     `
   }
