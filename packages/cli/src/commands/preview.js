@@ -7,7 +7,7 @@ import stmlPlugin from '../../esbuild-stml/index.js'
 export function onPreview(cmd) {
   if (process.argv[3]) {
     const name = process.argv[3];
-    const srcPath = resolve(uiDir, `widget/pages/demo-${name}/demo-${name}.stml`);
+    const srcPath = resolve( `widget/pages/demo-${name}/demo-${name}.stml`);
     if (fse.existsSync(srcPath)) {
       
       const toPath = resolve(dist, 'pages/main/','main.stml');

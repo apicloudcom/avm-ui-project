@@ -30,7 +30,7 @@ export function onJSON() {
   // console.log(jsonMap)
   try {
     const savePath = resolve(uiDir, '../../', 'avm-component.json');
-
+    // const savePath = resolve('/Users/YangYongAn/Work/svn/low-code/src/avm-components/avm-component.json');
     fse.writeJSONSync(savePath, jsonMap, {spaces: 2});
     console.log(`文件输出在${savePath}，文件大小：${fse.statSync(savePath).size / 1000} KB`)
 
