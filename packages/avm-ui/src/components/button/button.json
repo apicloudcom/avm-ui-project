@@ -17,7 +17,7 @@
         "warning",
         "danger"
       ],
-      "default": "default"
+      "default": "primary"
     },
     {
       "name": "fill",
