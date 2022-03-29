@@ -1,6 +1,6 @@
 import { Result } from '../result'
 import { DemoBlock } from '../../../demos/demo-block'
-import { SmileOutline } from '../../icon/icon'
+import { Icon } from '../../icon/icon'
 
 import './index.less'
 
@@ -51,7 +51,7 @@ const template =
           status='success'
           title='Well done'
           description='内容详情可折行，建议不超过两行建议不超过两行建议不超过两行'
-        ><SmileOutline fontSize={52} color="#1677ff"/></Result>
+        ><Icon name="SmileOutline" fontSize={52} color="#1677ff"/></Result>
       </DemoBlock>
     </>
 avm.render(template,"body")

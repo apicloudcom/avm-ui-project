@@ -1,7 +1,7 @@
 import { DemoBlock } from '../../../demos'
 import { Rate } from '../rate'
 import {Space} from '../../space/space'
-import { SmileOutline } from '../../icon/icon'
+import { Icon } from '../../icon'
 
 import '../rate.less'
 
@@ -30,7 +30,7 @@ const template =
   </DemoBlock>
   <DemoBlock title='自定义字符和样式'>
     <Space direction='vertical'>
-      <Rate allowHalf defaultValue={2} character={<SmileOutline />} />
+      <Rate allowHalf defaultValue={2} character={<Icon name="SmileOutline" />} />
       <Rate allowHalf defaultValue={1.5} character={'A'} />
       <Rate
         allowHalf

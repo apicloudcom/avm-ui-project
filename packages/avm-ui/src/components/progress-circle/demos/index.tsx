@@ -1,6 +1,6 @@
 import { ProgressCircle, Space } from '../../../index'
 import { DemoBlock } from '../../../demos'
-import { CloseOutline } from '../../../index'
+import { Icon } from '../../../index'
 
 import './index.less'
 
@@ -47,7 +47,7 @@ const template = (
             '--fill-color': '#FF3141',
           }}
         >
-          <CloseOutline style={{ color: '#FF3141', fontSize: '18px' }} />
+          <Icon name="CloseOutline" style={{ color: '#FF3141', fontSize: '18px' }} />
         </ProgressCircle>
         <ProgressCircle percent={100} style={{ '--fill-color': '#00B578' }}>
           <span className="success">Done</span>

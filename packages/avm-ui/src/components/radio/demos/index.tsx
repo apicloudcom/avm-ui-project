@@ -2,7 +2,7 @@ import { DemoBlock } from '../../../demos'
 import { Radio } from '../radio'
 import {Group as RadioGroup} from '../group'
 import { Space } from '../../space/space'
-import { SmileOutline, SmileFill } from '../../icon/icon'
+import { Icon } from '../../icon/icon'
 
 import '../radio.less'
 
@@ -69,9 +69,9 @@ class RadioDemo extends Component {
                 value='radio1'
                 icon={checked =>
                   checked ? (
-                    <SmileFill style={{ color: 'var(--adm-color-primary)' }} />
+                    <Icon name="SmileFill" style={{ color: 'var(--adm-color-primary)' }} />
                   ) : (
-                    <SmileOutline style={{ color: 'var(--adm-color-weak)' }} />
+                    <Icon name="SmileOutline" style={{ color: 'var(--adm-color-weak)' }} />
                   )
                 }>
                 单选框一
@@ -80,9 +80,9 @@ class RadioDemo extends Component {
                 value='radio2'
                 icon={checked =>
                   checked ? (
-                    <SmileFill style={{ color: 'var(--adm-color-primary)' }} />
+                    <Icon name="SmileFill" style={{ color: 'var(--adm-color-primary)' }} />
                   ) : (
-                    <SmileOutline style={{ color: 'var(--adm-color-weak)' }} />
+                    <Icon name="SmileOutline" style={{ color: 'var(--adm-color-weak)' }} />
                   )
                 }>
                 单选框二

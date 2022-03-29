@@ -8,11 +8,11 @@ export default defineConfig(({mode, command}) => {
   const config = {
     build: {
       target: 'chrome99',
-      lib: {
-        entry: resolve(__dirname, 'src/index.ts'),
-        formats: ['es'],
-        fileName: format => `${name}.js`
-      },
+      // lib: {
+      //   entry: resolve(__dirname, 'src/index.ts'),
+      //   formats: ['es'],
+      //   fileName: format => `${name}.js`
+      // },
       rollupOptions: {
         // 确保外部化处理那些你不想打包进库的依赖
         external: ['avm'],

@@ -1,6 +1,6 @@
 import {Space} from '../../space/space'
 import { Switch } from '../switch'
-import { CloseOutline, CheckOutline } from '../../icon/icon'
+import { Icon } from '../../icon'
 import { DemoBlock } from '../../../demos'
 
 import '../switch.less'
@@ -36,8 +36,8 @@ class Demo1 extends Component {
           <Space wrap>
             <Switch uncheckedText='关' checkedText='开' width="60px"/>
             <Switch
-              checkedText={<CheckOutline />}
-              uncheckedText={<CloseOutline />}
+              checkedText={<Icon name="CheckOutline" />}
+              uncheckedText={<Icon name="CloseOutline" />}
             />
             <Switch uncheckedText='0' checkedText='1' />
           </Space>

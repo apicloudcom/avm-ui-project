@@ -1,5 +1,5 @@
 import {  List, SwipeAction } from '../../../index'
-import { DemoBlock, lorem } from '../../../demos'
+import { DemoBlock } from '../../../demos'
 import { Action } from '../swipe-action'
 // 配合列表使用
 const WithList = () => {
@@ -58,7 +58,7 @@ const CustomContent = () => {
         },
       ]}
     >
-      <div style={{ padding: 12 }}>{lorem.generateParagraphs(1)}</div>
+      <div style={{ padding: 12 }}>{'lorem.generateParagraphs(1)'}</div>
     </SwipeAction>
   )
 }

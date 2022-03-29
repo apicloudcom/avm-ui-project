@@ -2,7 +2,7 @@ import Toast from '../index'
 import {Space} from '../../space/space'
 import {Button} from '../../button/button'
 import { DemoBlock } from '../../../demos'
-import { UploadOutline } from '../../icon/icon'
+import { Icon } from '../../icon/icon'
 
 import '../../space/space.less'
 import '../../button/button.less'
@@ -83,7 +83,7 @@ const template =
         onClick={() => {
           Toast.show({
             content: '上传中',
-            icon: <UploadOutline />,
+            icon: <Icon name="UploadOutline" />,
           })
         }}
       >

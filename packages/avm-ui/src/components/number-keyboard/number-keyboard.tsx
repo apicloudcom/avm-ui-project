@@ -48,7 +48,7 @@ export class NumberKeyboard extends Component {
     props = Object.assign({}, defaultProps, props)
     let {
       visible,
-      title,
+      // title,
       getContainer,
       // confirmText,
       // customKey,

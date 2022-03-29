@@ -4,7 +4,7 @@ import { DemoBlock } from '../../../demos/demo-block'
 import { Radio } from '../../radio/radio'
 import '../dropdown.less'
 
-import { ClockCircleOutline } from '../../icon/icon'
+import {Icon} from '../../icon'
 class Demo extends Component {
   data = {
     activeKey: '2'
@@ -17,7 +17,7 @@ class Demo extends Component {
     return (
       <>
         <DemoBlock title='一列' padding={'0'}>
-          <Dropdown arrow={<ClockCircleOutline />} onChange={key => {
+          <Dropdown arrow={<Icon name="ClockCircleOutline" />} onChange={key => {
             this.setActiveKey(key)
           }}>
             <DropdownItem key='a' title='水果'>

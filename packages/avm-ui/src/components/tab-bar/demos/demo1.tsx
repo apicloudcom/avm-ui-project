@@ -1,12 +1,7 @@
 import { DemoBlock } from '../../../demos'
 import { TabBar } from '../tab-bar'
-import {
-  AppOutline,
-  MessageOutline,
-  MessageFill,
-  UnorderedListOutline,
-  UserOutline,
-} from '../../icon/icon'
+
+import {Icon} from '../../icon'
 
 import '../tab-bar.less'
 import '../../badge/badge.less'
@@ -17,26 +12,26 @@ class Demo extends Component {
       {
         key: 'home',
         title: '首页',
-        icon: <AppOutline />,
+        icon: <Icon name="AppOutline" />,
         badge: 123,
       },
       {
         key: 'todo',
         title: '我的待办',
-        icon: <UnorderedListOutline />,
+        icon: <Icon name="UnorderedListOutline" />,
         badge: '5',
       },
       {
         key: 'message',
         title: '我的消息',
         icon: (active: boolean) =>
-          active ? <MessageFill /> : <MessageOutline />,
+          active ? <Icon name="MessageFill" /> : <Icon icon="MessageOutline" />,
         badge: '99+',
       },
       {
         key: 'personalCenter',
         title: '个人中心',
-        icon: <UserOutline />,
+        icon: <Icon name="UserOutline" />,
       },
     ],
     activeKey: 'todo'

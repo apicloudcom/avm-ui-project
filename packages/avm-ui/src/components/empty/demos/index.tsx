@@ -1,6 +1,6 @@
 import { Empty } from '../empty'
 import { DemoBlock } from '../../../demos'
-import {UiwCloseSquare} from '../../icon/icon'
+import {Icon} from '../../icon'
 
 const template =
   <>
@@ -23,7 +23,7 @@ const template =
       <Empty
         style={{ padding: '64px 0' }}
         description='暂无数据'
-      ><UiwCloseSquare/></Empty>
+      ><Icon name="UiwCloseSquare"/></Empty>
     </DemoBlock>
   </>
 avm.render(template, "body");

@@ -1,6 +1,6 @@
 import {NavBar} from '../../nav-bar/nav-bar'
 import {TabBar} from '../tab-bar'
-import {AppOutline, MessageOutline, UnorderedListOutline, UserOutline,} from '../../icon/icon'
+import {Icon} from '../../icon'
 
 import '../../nav-bar/nav-bar.less'
 import '../tab-bar.less'
@@ -34,22 +34,22 @@ class Demo  extends Component{
       {
         key: 'home',
         title: '首页',
-        icon: <AppOutline />,
+        icon: <Icon name="AppOutline" />,
       },
       {
         key: 'todo',
         title: '我的待办',
-        icon: <UnorderedListOutline />,
+        icon: <Icon name="UnorderedListOutline" />,
       },
       {
         key: 'message',
         title: '我的消息',
-        icon: <MessageOutline />,
+        icon: <Icon name="UnorderedListOutline" />,
       },
       {
         key: 'me',
         title: '个人中心',
-        icon: <UserOutline />,
+        icon: <Icon name="UserOutline" />,
       },
     ]
   }
