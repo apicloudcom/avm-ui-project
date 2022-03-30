@@ -1,5 +1,5 @@
 import classNames from '../../utils/classnames'
-
+// import './list.less'
 const classPrefix = `adm-list`
 
 const defaultProps = {
@@ -7,25 +7,30 @@ const defaultProps = {
 }
 
 export class List extends Component {
-  install = () => {
-    console.log('List!')
-  }
 
   render = props => {
     props = Object.assign({}, defaultProps, props);
-    return <div className={classNames(classPrefix, `${classPrefix}--${props.mode}`)}>
-      <div className={`${classPrefix}--inner`}>{props.children}</div>
+    return <div className={`${classPrefix} ${classPrefix}--${props.mode}`}>
+      {props.header&&<text  className={`${classPrefix}-header`}>{props.header}</text>}
+      <div className={classNames(classPrefix+'--inner', `${classPrefix}--inner__${props.mode}`)}>{props.children}</div>
     </div>
   }
 
   css = () => {
     return `
       .adm-list {
-        background-color: #ffffff;
         overflow: hidden;
         font-size: 17px;
       }
+      
+      .adm-list-header {
+        color: #999;
+        font-size: 15px;
+        padding: 8px 12px;
+      }
+      
       .adm-list--inner {
+        background-color: #ffffff;
         margin-bottom: -1px;
       }
       .adm-list--default {
@@ -35,6 +40,8 @@ export class List extends Component {
       }
       .adm-list--card {
         margin: 12px;
+      }
+      .adm-list--inner__card {
         border-radius: 8px;
       }
       .adm-list-item {
