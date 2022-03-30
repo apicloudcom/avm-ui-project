@@ -3,5 +3,18 @@
     "desc": "列表",
     "type": 1,
     "event": [],
-    "props": []
+    "props": [
+      {
+        "name": "mode",
+        "tip": "支持默认和卡片两种模式",
+        "type": "string",
+        "enum": ["default","card"],
+        "default": "default"
+      },
+      {
+        "name": "header",
+        "tip": "列表标题",
+        "type": "string"
+      }
+    ]
 }
