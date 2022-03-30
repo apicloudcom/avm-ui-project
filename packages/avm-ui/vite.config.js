@@ -53,8 +53,8 @@ export default defineConfig(({mode, command}) => {
     config.plugins = [(() => ({
       configureServer(server) {
         server.middlewares.use((req, res, next) => {
-          if (req.url === '/components/avm-ui/avm-ui-icon.ttf') {
-            return res.end(readFileSync('./src/components/icon/_gen/dist/fonts/avm-ui-icon.ttf'));
+          if (req.url === '/components/avm-ui/icon/avm-icon.ttf') {
+            return res.end(readFileSync('./src/components/icon/_gen/dist/fonts/avm-icon.ttf'));
           }
           next();
         })

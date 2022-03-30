@@ -4,6 +4,7 @@ import {DemoBlock} from "../../../demos";
 import CFImg from  './img/cf.svg'
 import BackIcon from './img/back.svg'
 import '../list.less';
+import {Icon} from "../../icon";
 
 const users = [
   {
@@ -43,13 +44,13 @@ const template =
   </DemoBlock>
   <DemoBlock title='可点击的功能列表' padding='0' border='none'>
     <List>
-      <ListItem prefix={<span>icon</span>} onClick={clickBtn}>
+      <ListItem prefix={<Icon code={60047}/>} onClick={clickBtn}>
         账单
       </ListItem>
-      <ListItem prefix={<span>icon</span>} onClick={clickBtn}>
+      <ListItem prefix={<Icon code={60005}/>} onClick={clickBtn}>
         总资产
       </ListItem>
-      <ListItem prefix={<span>icon</span>} onClick={clickBtn}>
+      <ListItem prefix={<Icon code={60025}/>} onClick={clickBtn}>
         设置
       </ListItem>
     </List>
