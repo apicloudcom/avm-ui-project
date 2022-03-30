@@ -34,16 +34,16 @@ const clickBtn = () => {
 }
 
 const template = 
-<>
-  <DemoBlock title='基础用法' padding='0' border='none'>
-    <List>
+<view style="background:#f5f7fa;">
+  <DemoBlock padding='0' border='none' background="-">
+    <List header="基础用法">
       <ListItem>1</ListItem>
       <ListItem>2</ListItem>
       <ListItem>3</ListItem>
     </List>
   </DemoBlock>
-  <DemoBlock title='可点击的功能列表' padding='0' border='none'>
-    <List>
+  <DemoBlock padding='0' border='none' background="-">
+    <List header='可点击的功能列表' >
       <ListItem prefix={<Icon code={60047}/>} onClick={clickBtn}>
         账单
       </ListItem>
@@ -55,18 +55,18 @@ const template =
       </ListItem>
     </List>
   </DemoBlock>
-  <DemoBlock title='列表项禁用' padding='0' border='none'>
-    <List>
-      <ListItem disabled clickable prefix={<img src={CFImg}></img>}>
+  <DemoBlock padding='0' border='none' background="-">
+    <List header='列表项禁用' >
+      <ListItem disabled clickable prefix={<img src={CFImg}/>}>
         账单
       </ListItem>
-      <ListItem disabled prefix={<img src={CFImg}></img>}>
+      <ListItem disabled prefix={<img src={CFImg}/>}>
         总资产
       </ListItem>
     </List>
   </DemoBlock>
-  <DemoBlock title='复杂布局' padding='0' border='none'>
-    <List>
+  <DemoBlock padding='0' border='none' background="-">
+    <List header='复杂布局'>
       <ListItem
         extra='次要信息'
         title='这里是标题'
@@ -81,8 +81,8 @@ const template =
       <ListItem title='这里是标题'>这里是主信息</ListItem>
     </List>
   </DemoBlock>
-  <DemoBlock title='用户列表' padding='0' border='none'>
-    <List>
+  <DemoBlock padding='0' border='none' background="-">
+    <List header='用户列表'>
       {users.map(user => (
         <ListItem
           key={user.name}
@@ -102,14 +102,12 @@ const template =
       ))}
     </List>
   </DemoBlock>
-  <DemoBlock title='卡片模式' padding='0' border='none'>
-    <div style={{ background: '#eee', padding: '8px 0' }}>
-      <List mode='card'>
+  <DemoBlock padding='0' border='none' background="-">
+      <List mode='card' header={'卡片模式'}>
         <ListItem title='这里是标题' arrow={<img src={BackIcon}/>}>这里是主信息</ListItem>
         <ListItem title='这里是标题'>这里是主信息</ListItem>
       </List>
-    </div>
   </DemoBlock>
-</>
+</view>
 
 avm.render(template, "body");
