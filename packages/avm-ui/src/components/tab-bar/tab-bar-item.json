@@ -1,0 +1,30 @@
+{
+    "component": "TabBarItem",
+    "desc": "标签栏-子标签",
+    "type": 2,
+    "event": [
+        "onChange"
+    ],
+    "props": [
+        {
+            "name": "key",
+            "tip": "对应activeKey",
+            "type": "string"
+        },
+        {
+            "name": "title",
+            "tip": "标题",
+            "type": "string"
+        },
+        {
+            "name": "icon",
+            "tip": "图标",
+            "type": "string"
+        },
+        {
+            "name": "badge",
+            "tip": "徽标，同 [Badge](./badge) 的 `content` 属性",
+            "type": "string"
+        }
+    ]
+}
