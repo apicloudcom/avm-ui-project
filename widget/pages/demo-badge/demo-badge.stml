@@ -4,7 +4,7 @@
 		<scroll-view>
 			<DemoBlock title='基础样式'>
 				<avm-space gap="30px">
-					<avm-badge color='#108ee9' content='8'>
+					<avm-badge color='#108ee9' content='8' isDot>
 						<div className="box"/>
 					</avm-badge>
 					<avm-badge content='28'>

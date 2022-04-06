@@ -3,10 +3,11 @@ import {formatLabel} from '../../utils/format-label'
 
 const classPrefix = `adm-badge`
 
-export const dot = Symbol()
+// export const dot = Symbol()
 
 const defaultProps = {
-  color: '#E02020'
+  color: '#E02020',
+  isDot: false
 }
 export class Badge extends Component {
   install = () => {
@@ -15,8 +16,8 @@ export class Badge extends Component {
 
   render = (props) => {
     props = Object.assign({}, defaultProps, props)
-    const {content, color, children, right, top} = props
-    const isDot = content === dot
+    const {content, color, children, right, top, isDot} = props
+    // const isDot = content === dot
 
     const hasChild = children && children.length
     const badgeCls = classNames(classPrefix, {
@@ -61,9 +62,9 @@ export class Badge extends Component {
         transform: translate(50%, -50%);
       }
       .adm-badge--dot {
-        min-width: 10px;
-        width: 10px;
-        height: 10px;
+        min-width: 8px;
+        width: 8px;
+        height: 8px;
         border-radius: 5px;
       }
     `
