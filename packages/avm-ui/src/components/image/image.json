@@ -33,7 +33,8 @@
                 "none",
                 "scale-down"
             ],
-            "tip": "图片填充模式"
+            "tip": "图片填充模式",
+            "default": "contain"
         },
         {
             "name": "placeholder",

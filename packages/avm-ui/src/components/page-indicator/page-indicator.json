@@ -20,7 +20,8 @@
                 "primary",
                 "white"
             ],
-            "tip": "颜色,也可以直接设置color值"
+            "tip": "颜色,也可以直接设置color值",
+            "default": "primary"
         },
         {
             "name": "direction",
@@ -29,7 +30,8 @@
                 "horizontal",
                 "vertical"
             ],
-            "tip": "方向，默认是水平方向"
+            "tip": "方向，默认是水平方向",
+            "default": "horizontal"
         },
         {
             "name": "dotColor",

@@ -12,7 +12,8 @@
                 "error",
                 "info"
             ],
-            "tip": "通告栏的类型，也可以直接设置color颜色"
+            "tip": "通告栏的类型，也可以直接设置color颜色",
+            "default": "default"
         },
         {
             "name": "content",
@@ -49,7 +50,8 @@
             "name": "size",
             "type": "string",
             "tip": "通告栏size",
-            "enum": ["default", "small"]
+            "enum": ["default", "small"],
+            "default": "default"
         },
         {
             "name": "isShowLeftIcon",
