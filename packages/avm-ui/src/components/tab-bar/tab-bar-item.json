@@ -1,6 +1,7 @@
 {
     "component": "TabBarItem",
     "desc": "标签栏-子标签",
+    "parent": "tab-bar",
     "type": 2,
     "event": [
         "onChange"
@@ -22,9 +23,14 @@
             "type": "string"
         },
         {
-            "name": "badge",
-            "tip": "徽标，同 [Badge](./badge) 的 `content` 属性",
+            "name": "badgeContent",
+            "tip": "徽标内容，同 [Badge](./badge) 的 `content` 属性，不传则不显示徽标",
             "type": "string"
+        },
+        {
+            "name": "isDot",
+            "tip": "徽标是否显示小红点，如果设置为true,则显示小红点，并且badgeContent则不生效",
+            "type": "boolean"
         }
     ]
 }

@@ -47,7 +47,7 @@ export class TabBar extends Component {
               if (iconEle) {
                 return (
                   <div className={'tabbar-align-item-center'}>
-                    <Badge content={item.badge} className='adm-tab-bar-icon-badge' top="2px">{iconEle}</Badge>
+                    <Badge content={item.badgeContent} isDot={item.isDot} className='adm-tab-bar-icon-badge' top="2px">{iconEle}</Badge>
                     {titleEle}
                   </div>
                 )
@@ -55,7 +55,7 @@ export class TabBar extends Component {
               if (titleEle) {
                 return (
                   <div className={'tabbar-align-item-center'}>
-                    <Badge content={item.badge} className='adm-tab-bar-title-badge' top="-3px" right="-3px">{titleEle}</Badge>
+                    <Badge content={item.badgeContent} isDot={item.isDot} className='adm-tab-bar-title-badge' top="-3px" right="-3px">{titleEle}</Badge>
                   </div>
                 )
               }

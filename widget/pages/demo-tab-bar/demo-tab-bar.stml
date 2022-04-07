@@ -27,20 +27,22 @@
 					<avm-tabbar-item
 						key="home"
 						title="首页"
+						isDot
 						icon={<text className={'icon-style'}>icon占位</text>}/>
 					<avm-tabbar-item
 						key="todo"
 						title="我的待办"
-						badge={'5'}
+						badgeContent={'5'}
 						icon={<text className={'icon-style'}>icon占位</text>}/>
 					<avm-tabbar-item
 						key="message"
 						title="我的消息"
-						badge={'99+'}
+						badgeContent={'99+'}
 						icon={<text className={'icon-style'}>icon占位</text>}/>
 					<avm-tabbar-item
 						key="personalCenter"
 						title="个人中心"
+						isDot
 						icon={<text className={'icon-style'}>icon占位</text>}/>
 				</avm-tabbar>
 			</DemoBlock>
@@ -58,9 +60,10 @@
 						tabs.map(item => {
 							return (
 								<avm-tabbar-item
+									isDot={item.isDot}
 									key={item.key}
 									title={item.title}
-									badge={item.badge}/>
+									badgeContent={item.badge}/>
 							)
 						})
 					}}
@@ -100,7 +103,7 @@ const tabs = [
 	{
 		key: 'home',
 		title: '首页',
-		badge: Badge.dot
+		isDot: true
 	},
 	{
 		key: 'todo',
@@ -115,7 +118,7 @@ const tabs = [
 	{
 		key: 'personalCenter',
 		title: '个人中心',
-		badge: Badge.dot
+		isDot: true
 	},
 ]
 

@@ -19,33 +19,6 @@
             "name": "actions",
             "tip": "面板选项列表",
             "type": "array",
-            "props": [
-                {
-                    "name": "key",
-                    "tip": "唯一标记",
-                    "type": "string/number"
-                },
-                {
-                    "name": "text",
-                    "tip": "标题",
-                    "type": "string"
-                },
-                {
-                    "name": "disabled",
-                    "tip": "是否为禁用状态",
-                    "type": "boolean"
-                },
-                {
-                    "name": "danger",
-                    "tip": "是否为危险状态",
-                    "type": "boolean"
-                },
-                {
-                    "name": "description",
-                    "tip": "描述",
-                    "type": "string"
-                }
-            ],
             "default": [{
                 "text": "选项一",
                 "key": "one",
