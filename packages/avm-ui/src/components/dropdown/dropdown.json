@@ -5,31 +5,25 @@
     "props": [
         {
             "name": "activeKey",
-            "type": "string | null",
+            "type": "string",
             "tip": "激活的 Item key"
         },
         {
             "name": "defaultActiveKey",
-            "type": "string | null",
+            "type": "string",
             "tip": "默认激活的 Item key"
         },
         {
             "name": "closeOnMaskClick",
             "type": "boolean",
             "tip": "是否在点击遮罩后自动隐藏",
-            "enum": [
-                "false",
-                "true"
-            ]
+           "default":true
         },
         {
             "name": "closeOnClickAway",
             "type": "boolean",
             "tip": "是否在点击外部区域后自动隐藏",
-            "enum": [
-                "false",
-                "true"
-            ]
+            "default":true
         },
         {
             "name": "arrow",

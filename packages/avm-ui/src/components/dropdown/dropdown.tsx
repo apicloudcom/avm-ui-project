@@ -105,6 +105,7 @@ export class Dropdown extends Component {
           }
         </div>
         <Popup
+        isTitle={false}
           className={'pop'}
           visible={this.data.visible}
           position="top"
