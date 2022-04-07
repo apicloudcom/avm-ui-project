@@ -11,7 +11,9 @@
 | activeKey        | 当前激活 `item` 的 `key`                             | `string \| null`        | -                      |
 | defaultActiveKey | 初始化选中 `item` 的 `key`，如果没有设置 `activeKey` | `string \| null`        | 第一个 `item` 的 `key` |
 | onChange         | 切换面板的回调                                       | `(key: string) => void` | -                      |
-
+| content | 徽标内容：如果传 `null` `undefined` `''` 或不传，则不显示徽标 | `React.ReactNode` |        
+-
+| isDot   | 是否显示小红点，如果为true，则content值无效 |  `boolean` | `false`    |
 ### SideBar.Item
 
 | 属性     | 说明             | 类型        | 默认值  |

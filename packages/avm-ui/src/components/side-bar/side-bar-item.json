@@ -17,10 +17,7 @@
         {
             "name": "disabled",
             "type": "boolean",
-            "enum": [
-                "false",
-                "true"
-            ],
+            "default":"false",
             "tip": "是否禁用"
         },
         {

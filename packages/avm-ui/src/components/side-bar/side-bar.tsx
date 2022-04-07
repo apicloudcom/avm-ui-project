@@ -64,7 +64,7 @@ export class SideBar extends Component {
                 [`${classPrefix}-item-active`]: this.data.activeKey == item.attributes.key,
                 [`${classPrefix}-item-disabled`]: item.attributes.disabled,
               })}>
-                <Badge content={item.attributes.badge}>
+                <Badge content={item.attributes.badgeContent} isDot={item.attributes.isDot}>
                   <span style={this.data.activeKey == item.attributes.key ? fontWeight : fontWeightNormal} className={classNames(`${classPrefix}-item-active-none`, {
                     [`${classPrefix}-item-text`]: this.data.activeKey == item.attributes.key,
                     [`${classPrefix}-item-disabled`]: item.attributes.disabled,

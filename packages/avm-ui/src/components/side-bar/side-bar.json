@@ -5,12 +5,12 @@
     "props": [
         {
             "name": "activeKey",
-            "type": "string | null",
+            "type": "string",
             "tip": "当前激活 item 的 key"
         },
         {
             "name": "defaultActiveKey",
-            "type": "string | null",
+            "type": "string",
             "tip": "初始化选中 item 的 key，如果没有设置 activeKey"
         }
     ],

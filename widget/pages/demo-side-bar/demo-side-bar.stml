@@ -1,7 +1,7 @@
 <template>
 	<scroll-view>
 		<safe-area>
-		    <NavBar onBack={this.back}>avm-side-bar</NavBar>
+			<NavBar onBack={this.back}>avm-side-bar</NavBar>
 			<DemoBlock title='基本用法' padding='0'>
 				<avm-side-bar>
 					{this.data.tabs.map(item => (
@@ -12,7 +12,8 @@
 			<DemoBlock title='配合 Badge 使用' padding='0'>
 				<avm-side-bar>
 					{this.data.tabs.map(item => (
-					<avm-side-bar-item key={item.key} title={item.title} badge={item.badge} />
+					<avm-side-bar-item key={item.key} title={item.title} badgeContent={item.badgeContent}
+						isDot={item.isDot} />
 					))}
 				</avm-side-bar>
 			</DemoBlock>
@@ -71,10 +72,10 @@
 }
 </style>
 <script>
-import { DemoBlock }from '../../components/avm-ui/demos'
-import  '../../components/avm-ui/side-bar'
-import Badge from '../../components/avm-ui/badge'
-import NavBar from '../../components/avm-ui/nav-bar'
+import { DemoBlock } from '../../components/avm-ui/demos'
+import '../../components/avm-ui/side-bar'
+import Badge from '../../components/avm-ui/badge'
+import NavBar from '../../components/avm-ui/nav-bar'
 export default {
 
 	name: 'demo-side-bar',
@@ -84,7 +85,8 @@ export default {
 			tabs: [{
 				key: 'key1',
 				title: '选项一',
-				badge: Badge.dot
+				badgeContent: '1111',
+				isDot:false
 			},
 			{
 				key: 'key2',
