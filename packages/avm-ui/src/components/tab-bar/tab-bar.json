@@ -9,14 +9,12 @@
         {
             "name": "activeKey",
             "tip": "当前激活item的key",
-            "type": "string",
-            "default": "null"
+            "type": "string"
         },
         {
             "name": "defaultActiveKey",
             "tip": "初始化选中item的key，如果没有设置为activeKey",
-            "type": "string/null",
-            "default": "第一个Tab的key"
+            "type": "string"
         }
     ]
 }
