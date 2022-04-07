@@ -4,7 +4,10 @@
     "type": 3,
     "event": [
         "onMaskClick",
-        "onClick"
+        "onClick",
+        "onClose",
+        "onBack",
+        "footBtnClick"
     ],
     "props": [
         {
@@ -17,17 +20,13 @@
             "name": "position",
             "tip": "指定弹出的位置",
             "type": "string",
-            "enum": ["bottom", "top", "left", "right"]
+            "enum": ["bottom", "top", "left", "right"],
+            "default": "bottom"
         },
         {
             "name": "className",
             "tip": "容器类名",
             "type": "string"
-        },
-        {
-            "name": "style",
-            "tip": "容器样式",
-            "type": "object"
         },
         {
             "name": "bodyClassName",
@@ -54,6 +53,30 @@
             "tip": "元素的 `z-index`",
             "type": "number",
             "default": 1000
+        },
+        {
+            "name": "isTitle",
+            "tip": "是否显示头部标题",
+            "type": "boolean",
+            "default": true
+        },
+        {
+            "name": "titleText",
+            "tip": "头部标题文本",
+            "type": "string",
+            "default": "标题"
+        },
+        {
+            "name": "isBack",
+            "tip": "是否显示左边返回按钮 (当isTitle设为true时生效)",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "isFooterBtn",
+            "tip": "是否显示底部确定按钮",
+            "type": "boolean",
+            "default": false
         }
     ]
 }

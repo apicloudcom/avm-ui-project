@@ -5,6 +5,8 @@ import { useShouldRender } from '../../utils/use-should-render'
 import {PropagationEvent} from '../../utils/with-stop-propagation'
 import { formatLabel } from '../../utils/format-label'
 
+import Icon  from '../icon'
+
 const classPrefix = `adm-popup`
 
 export type PopupProps = {
@@ -31,7 +33,9 @@ const defaultProps = {
   getContainer: () => document.body,
   mask: true,
   stopPropagation: ['click'],
-  bodyStyle: {}
+  bodyStyle: {},
+  isTitle: true,
+  titleText: '标题'
 }
 
 export class Popup extends Component {
@@ -62,8 +66,16 @@ export class Popup extends Component {
       maskStyle,
       bodyStyle,
       children,
+      isTitle,
+      titleText,
+      isBack,
+      onClose,
+      onBack,
+      tipText,
+      isFooterBtn,
+      footBtnClick
     } = this.props; 
-
+    
 
     const bodyCls = classNames(
       `${classPrefix}-body`,
@@ -102,7 +114,22 @@ export class Popup extends Component {
             ...bodyStyle,
             zIndex: zIndex + 10
           }}>
+          {isTitle && (
+          <div className={`${classPrefix}-title`}>
+            {isBack && <div className={`${classPrefix}-title-back`} onClick={() => {onBack && onBack()}}><Icon code={59988} fontSize="18" color="#bbb"/><span className={`${classPrefix}-title-back-text`}>返回</span></div>}
+            <div className={`${classPrefix}-title-con`}>
+              <span className={`${classPrefix}-title-text`}>{titleText}</span>
+              {tipText && <div title={tipText}><Icon code={59940} fontSize="18" color="#bbb"/></div>}
+            </div>
+            <div onClick={() => {onClose && onClose()}}>
+              <Icon code={59940} fontSize="18" color="#bbb"/>
+            </div>
+          </div>
+          )}
           {shouldRender && formatLabel(children)}
+          {isFooterBtn && <div className={`${classPrefix}-footer`}>
+              <button onClick={() => {footBtnClick && footBtnClick()}} className={`${classPrefix}-footer-btn`}>确定</button>
+          </div>}
         </div>
       </div>
     )
@@ -125,21 +152,75 @@ export class Popup extends Component {
         width: 100%;
         bottom: 0;
         left: 0;
+        height: 375px;
+        border-radius: 12px 12px 0 0;
       }
       .adm-popup-body-position-top {
         width: 100%;
         top: 0;
         left: 0;
+        height: 375px;
+        border-radius: 0 0 12px 12px;
       }
       .adm-popup-body-position-left {
         height: 100%;
         top: 0;
         left: 0;
+        width: 311px;
       }
       .adm-popup-body-position-right {
         height: 100%;
         top: 0;
         right: 0;
+        width: 311px;
+      }
+      .adm-popup-title {
+        display: flex;
+        flex-direction: row;
+        height: 50px;
+        align-items: center;
+        padding: 0 16px;
+      }
+      .adm-popup-title-con {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+      .adm-popup-title-text {
+        text-align: center;
+        font-size: 16px;
+        color: #333330;
+        font-weight: 500;
+        margin-right: 6px;
+      }
+      .adm-popup-title-back {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .adm-popup-title-back-text {
+        font-size: 15px;
+        color: #BBBBBB;
+        padding-left: 8px;
+      }
+      .adm-popup-footer {
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .adm-popup-footer-btn {
+        width: 95%;
+        height: 44px;
+        background: #9AC200;
+        border-radius: 4px;
+        color: #fff;
+        border: none;
       }
     `
   }
