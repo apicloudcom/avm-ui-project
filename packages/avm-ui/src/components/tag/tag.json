@@ -10,13 +10,15 @@
             "name": "color",
             "tip": "标签色",
             "enum": ["default", "primary", "success", "warning", "danger", "string"],
-            "type": "string"
+            "type": "string",
+            "default": "default"
         },
         {
             "name": "fill",
             "tip": "填充模式",
             "type": "string",
-            "enum": ["solid", "outline"]
+            "enum": ["solid", "outline"],
+            "default": "solid"
         },
         {
             "name": "round",
@@ -50,7 +52,8 @@
             "name": "size",
             "tip": "尺寸",
             "enum": ["middle", "small", "large"],
-            "type": "string"
+            "type": "string",
+            "default": "middle"
         },
         {
             "name": "isDelete",

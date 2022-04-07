@@ -15,7 +15,8 @@
             "name": "type",
             "tip": "键盘类型（default:默认、ID:身份证号、custom: 自定义）",
             "type": "string",
-            "enum": ["default", "ID", "custom"]
+            "enum": ["default", "ID", "custom"],
+            "default": "default"
         },
         {
             "name": "visible",

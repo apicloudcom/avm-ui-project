@@ -22,7 +22,8 @@
             "name": "accept",
             "tip": "文件类型",
             "enum": ["jpg", "png"],
-            "type": "string"
+            "type": "string",
+            "default": "jpg"
         },
         {
             "name": "maxCount",
@@ -51,7 +52,8 @@
             "name": "capture",
             "tip": "图片选取模式，可选值为library（图片库）camera（直接调起摄像头）album（相册）",
             "enum": ["library", "camera", "album"],
-            "type": "string"
+            "type": "string",
+            "default": "library"
         },
         {
             "name": "uploadIcon",

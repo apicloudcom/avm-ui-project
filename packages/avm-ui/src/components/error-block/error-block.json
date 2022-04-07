@@ -8,7 +8,8 @@
             "name": "status",
             "tip": "默认错误类型",
             "enum": ["default", "disconnected", "empty", "busy"],
-            "type": "string"
+            "type": "string",
+            "default": "default"
         },
         {
             "name": "title",

@@ -15,7 +15,8 @@
                 "horizontal",
                 "vertical"
             ],
-            "tip": "指定步骤条方向。目前支持水平（horizontal）和竖直（vertical）两种方向"
+            "tip": "指定步骤条方向。目前支持水平（horizontal）和竖直（vertical）两种方向",
+            "default": "horizontal"
         }
     ]
 }
