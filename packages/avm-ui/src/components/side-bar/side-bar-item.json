@@ -21,9 +21,15 @@
             "tip": "是否禁用"
         },
         {
-            "name": "badge",
+            "name": "badgeContent",
             "type": "string",
-            "tip": "徽标"
+            "tip": "徽标内容"
+        },
+        {
+            "name": "isDot",
+            "type": "boolean",
+            "tip": "是否显示徽标",
+            "default":false
         }
     ]
 }
