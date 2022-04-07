@@ -1,6 +1,6 @@
 <widget id="A6183702447528" version="0.0.1">
 
-	<content src="pages/demo-side-bar/demo-side-bar"/>
+	<content src="pages/demo-dropdown/demo-dropdown"/>
 
 	<name>AVM-UI</name>
 
