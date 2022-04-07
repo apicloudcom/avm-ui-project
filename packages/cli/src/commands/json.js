@@ -4,7 +4,7 @@ import {uiDir} from "../index.js";
 import fse from "fs-extra";
 
 export function onJSON() {
-  const jsons = glob.sync(`${resolve(uiDir)}/src/components/*/*.json`,);
+  const jsons = glob.sync(`${resolve(uiDir)}/src/components/!(icon)/**.json`);
   const jsonMap = {};
   const IDEPrefix = 'Ant';
   const ComponentPrefix = 'avm';
