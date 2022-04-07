@@ -23,12 +23,12 @@
         {
             "name": "badgeContent",
             "type": "string",
-            "tip": "徽标内容"
+            "tip": "徽标内容，同 [Badge](./badge) 的 `content` 属性，不传则不显示徽标"
         },
         {
             "name": "isDot",
             "type": "boolean",
-            "tip": "是否显示徽标",
+            "tip": "徽标是否显示小红点，如果设置为true,则显示小红点，并且badgeContent则不生效",
             "default":false
         }
     ]
