@@ -11,12 +11,12 @@
     {
       "name": "title",
       "tip": "header 左边区域",
-      "type": "Node/string"
+      "type": "Node"
     },
     {
       "name": "extra",
       "tip": "header 右边区域",
-      "type": "Node/string"
+      "type": "Node"
     },
     {
       "name": "headerStyle",
