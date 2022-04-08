@@ -10,7 +10,8 @@
         {
             "name": "key",
             "tip": "对应activeKey",
-            "type": "string"
+            "type": "string",
+            "default": "1"
         },
         {
             "name": "title",
