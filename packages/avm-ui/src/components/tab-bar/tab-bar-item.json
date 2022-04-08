@@ -15,7 +15,8 @@
         {
             "name": "title",
             "tip": "标题",
-            "type": "string"
+            "type": "string",
+            "default": "选项"
         },
         {
             "name": "icon",

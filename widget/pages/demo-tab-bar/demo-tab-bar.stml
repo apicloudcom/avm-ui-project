@@ -60,7 +60,6 @@
 						tabs.map(item => {
 							return (
 								<avm-tabbar-item
-									isDot={item.isDot}
 									key={item.key}
 									title={item.title}
 									badgeContent={item.badge}/>
@@ -102,23 +101,19 @@ import {DemoBlock} from '../../components/avm-ui/demos'
 const tabs = [
 	{
 		key: 'home',
-		title: '首页',
-		isDot: true
+		title: '首页'
 	},
 	{
 		key: 'todo',
-		title: '我的待办',
-		badge: '5'
+		title: '我的待办'
 	},
 	{
 		key: 'message',
-		title: '我的消息',
-		badge: '99+'
+		title: '我的消息'
 	},
 	{
 		key: 'personalCenter',
-		title: '个人中心',
-		isDot: true
+		title: '个人中心'
 	},
 ]
 
