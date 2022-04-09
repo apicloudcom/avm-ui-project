@@ -1,6 +1,7 @@
 // @ts-ignore
 import {fontName} from './icon.config.json';
 import {tag} from "../../utils/tag";
+import {icons} from './icons.json';
 
 export type IconProps = {
   code: number,
@@ -17,7 +18,7 @@ export class Icon extends Component {
   }
 
   render = props => {
-    const char = String.fromCharCode(props.code) || props.children;
+    const char = props.code ? String.fromCharCode(props.code) || props.children : icons[props.name || props.type];
     return <text style={{...props}} class={`${classPrefix} ${classPrefix}-font-icon-text`}>{char}</text>
   }
 }
