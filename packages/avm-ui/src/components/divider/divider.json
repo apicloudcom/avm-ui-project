@@ -5,10 +5,20 @@
   "event": [],
   "props": [
     {
+      "name": "children",
+      "tip": "分割文案",
+      "type": "string",
+      "default": "分割线"
+    },
+    {
       "name": "contentPosition",
       "tip": "内容位置",
       "type": "string",
-      "enum": ["center", "left", "right"],
+      "enum": [
+        "center",
+        "left",
+        "right"
+      ],
       "default": "center"
     },
     {
@@ -33,7 +43,10 @@
       "name": "borderStyle",
       "tip": "边框样式",
       "type": "string",
-      "enum": ["solid", "dashed"],
+      "enum": [
+        "solid",
+        "dashed"
+      ],
       "default": "solid"
     }
   ]

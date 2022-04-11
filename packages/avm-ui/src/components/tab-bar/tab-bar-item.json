@@ -10,12 +10,14 @@
         {
             "name": "key",
             "tip": "对应activeKey",
-            "type": "string"
+            "type": "string",
+            "default": "1"
         },
         {
             "name": "title",
             "tip": "标题",
-            "type": "string"
+            "type": "string",
+            "default": "选项"
         },
         {
             "name": "icon",

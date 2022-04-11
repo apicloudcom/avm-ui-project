@@ -1,6 +1,6 @@
 <widget id="A6183702447528" version="0.0.1">
 
-	<content src="./entry.json"/>
+	<content src="pages/demo-dropdown/demo-dropdown"/>
 
 	<name>AVM-UI</name>
 
@@ -11,6 +11,8 @@
 	<access origin="*"/>
 
 	<preference name="avm" value="true"/>
+
+	<preference name="android_abi" value="arm64-v8a"/>
 
 	<preference name="pageBounce" value="false"/>
 

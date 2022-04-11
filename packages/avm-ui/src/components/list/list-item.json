@@ -1,44 +1,49 @@
 {
-    "component": "ListItem",
-    "parent": "List",
-    "desc": "列表选项",
-    "type": 1,
-    "event": [
-        "onClick"
-    ],
-    "props": [
-        {
-            "name": "children",
-            "tip": "列表项中间的主内容区域",
-            "type": "string"
-        },
-        {
-            "name": "description",
-            "tip": "列表项中间下部的描述区域",
-            "type": "string"
-        },
-        {
-            "name": "extra",
-            "tip": "列表项右侧区域",
-            "type": "string"
-        },
-        {
-            "name": "clickable",
-            "tip": "是否可以点击",
-            "type": "boolean",
-            "default": false
-        },
-        {
-            "name": "arrow",
-            "tip": "右侧是否显示箭头图标",
-            "type": "boolean",
-            "default": false
-        },
-        {
-            "name": "disabled",
-            "tip": "是否禁用",
-            "type": "boolean",
-            "default": false
-        }
-    ]
+  "component": "ListItem",
+  "parent": "List",
+  "desc": "列表选项",
+  "type": 1,
+  "event": [
+    "onClick"
+  ],
+  "props": [
+    {
+      "name": "children",
+      "tip": "列表项中间的主内容区域",
+      "type": "string"
+    },
+    {
+      "name": "description",
+      "tip": "列表项中间下部的描述区域",
+      "type": "string"
+    },
+    {
+      "name": "prefix",
+      "tip": "列表项左侧区域",
+      "type": "string"
+    },
+    {
+      "name": "extra",
+      "tip": "列表项右侧区域",
+      "type": "string"
+    },
+    {
+      "name": "clickable",
+      "tip": "是否可以点击",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "arrow",
+      "tip": "右侧是否显示箭头图标",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "disabled",
+      "tip": "是否禁用",
+      "type": "boolean",
+      "default": false
+    }
+  ]
 }

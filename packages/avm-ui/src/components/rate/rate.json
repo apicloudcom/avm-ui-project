@@ -50,13 +50,13 @@
             "name": "starSize",
             "tip": "star大小",
             "type": "string",
-            "default": "24px"
+            "default": "18px"
         },
         {
             "name": "activeColor",
             "tip": "填充色",
             "type": "string",
-            "default": "#ffd21e"
+            "default": "#faab0c"
         },
         {
             "name": "disabled",

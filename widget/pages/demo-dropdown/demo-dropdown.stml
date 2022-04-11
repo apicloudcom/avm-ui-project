@@ -42,8 +42,8 @@
 			</avm-dropdown>
 		</DemoBlock>
 		<DemoBlock title='自定义arrow' padding={'0'}>
-			<avm-dropdown  arrow={<avm-icon name='AlipayCircleFill' fontSize={12}/>}>
-				<avm-dropdown-item key='sorter' title='排序'>
+			<avm-dropdown  arrow={<avm-icon name='StarFill' fontSize={12}/>}>
+				<avm-dropdown-item key='sorter' title='排序' >
 					<div style="padding: 12px">
 						<span>排序内容</span>
 						<span>排序内容</span>

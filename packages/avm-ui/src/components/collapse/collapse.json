@@ -9,12 +9,18 @@
         {
             "name": "defaultActiveKey",
             "tip": "默认展开面板的key, 手风琴模式：string | null, 非手风琴模式：string[]",
-            "type": "string/array"
+            "type": "array"
         },
         {
             "name": "activeKey",
             "tip": "当前展开面板的key, 手风琴模式：string | null, 非手风琴模式：string[]",
-            "type": "string/array"
+            "type": "array"
+        },
+        {
+            "name": "accordion",
+            "tip": "是否开启手风琴模式",
+            "type": "boolean",
+            "default": false
         }
     ]
 }

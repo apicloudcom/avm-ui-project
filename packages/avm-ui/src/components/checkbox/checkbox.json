@@ -24,7 +24,14 @@
         {
             "name": "value",
             "type": "string",
-            "tip": "携带的标识值，用于 `Group` 模式"
+            "tip": "携带的标识值，用于 `Group` 模式",
+            "default": "1"
+        },
+        {
+            "name": "label",
+            "type": "string",
+            "tip": "展示文本",
+            "default": "选项"
         },
         {
             "name": "icon",

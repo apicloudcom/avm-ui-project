@@ -37,7 +37,8 @@ export class TabBar extends Component {
             })
 
             const titleCls = classNames('adm-tab-bar-item-title', {
-              ['adm-tab-bar-item-title-active']: active
+              ['adm-tab-bar-item-title-active']: active,
+              ['adm-tab-bar-item-title-only']: !item.icon && !item.badgeContent && !item.isDot
             })
 
             const renderContent = () => {
@@ -115,12 +116,16 @@ export class TabBar extends Component {
         font-weight: 500;
       }
       .adm-tab-bar-item-title {
-        font-size: 14px;
-        line-height: 14px;
+        font-size: 10px;
+        line-height: 12px;
         color: #999;
       }
       .adm-tab-bar-item-title-active {
         color: #9AC200;
+      }
+      .adm-tab-bar-item-title-only {
+        font-size: 14px;
+        line-height: 14px;
       }
       .tabbar-align-item-center {
         align-items: center;

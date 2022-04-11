@@ -93,6 +93,8 @@ async function svgtofont(options) {
       await fs.ensureDir(options.dist);
     }
     const unicodeObject = await createSVG(options);
+    
+    fs.writeJsonSync('../icons.json', {icons:unicodeObject})
 
     let cssString = [];
     let cssToVars = [];
