@@ -15,10 +15,8 @@ const defaultProps = {
 
 
 export class Divider extends Component {
-  install = () => {
-    console.log('Empty!')
-  }
-  render = props => {debugger
+
+  render = props => {
     // props = mergeProps(defaultProps, props)
     props = Object.assign({},defaultProps, props)
     const { color, borderStyle, borderColor, borderTopWidth,contentPosition,children} = props
