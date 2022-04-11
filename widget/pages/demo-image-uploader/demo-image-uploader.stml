@@ -1,6 +1,6 @@
 <template>
 <safe-area class="page">
-	<avm-nav-bar onBack={this.back}>Image</avm-nav-bar>
+	<avm-nav-bar onBack={this.back}>ImageUploader</avm-nav-bar>
 	<scroll-view>
 		<DemoBlock title='基础用法'>
 			<avm-image-uploader

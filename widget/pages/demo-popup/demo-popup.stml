@@ -4,8 +4,8 @@
 			<avm-nav-bar onBack={this.back}>Popup</avm-nav-bar>
 			<DemoBlock title='不同位置'>
 				<avm-space direction='vertical'>
-					<avm-button @Click="setVisible('visible1', true)">底部弹出</avm-button>
-					<avm-button onClick={() => this.setVisible('visible2', true)}>顶部弹出</avm-button>
+					<avm-button @Click="setVisible('visible1', true)">底部弹出-带标题</avm-button>
+					<avm-button onClick={() => this.setVisible('visible2', true)}>顶部弹出-带标题</avm-button>
 					<avm-button onClick={() => this.setVisible('visible3', true)}>左侧弹出</avm-button>
 					<avm-button onClick={() => this.setVisible('visible4', true)}>右侧弹出</avm-button>
 				</avm-space>
@@ -23,11 +23,13 @@
 		</safe-area>
 		<avm-popup
 			:visible="visible1"
+			isTitle
 			onClose={() => this.setVisible('visible1', false)}
 			onBack={() => this.setVisible('visible1', false)}
 			onMaskClick={() => this.setVisible('visible1', false)}>
 		</avm-popup>
 		<avm-popup
+			isTitle
 			isBack
 			:visible="visible2"
 			position='top'
@@ -39,7 +41,6 @@
 			isFooterBtn
 			:visible="visible3"
 			position='left'
-			:isTitle="false"
 			onClose={() => this.setVisible('visible3', false)}
 			onBack={() => this.setVisible('visible3', false)}
 			onMaskClick={() => this.setVisible('visible3', false)}></avm-popup>
@@ -48,11 +49,11 @@
 			:visible="visible4"
 			isFooterBtn
 			position='right'
-			:isTitle="false"
 			onClose={() => this.setVisible('visible4', false)}
 			onBack={() => this.setVisible('visible4', false)}
 			onMaskClick={() => this.setVisible('visible4', false)}></avm-popup>
 		<avm-popup
+			isTitle
 			isFooterBtn
 			:visible="visible5"
 			footBtnClick={() => this.setVisible('visible5', false)}
@@ -60,6 +61,7 @@
 			onBack={() => this.setVisible('visible5', false)}
 			onMaskClick={() => this.setVisible('visible5', false)}></avm-popup>
 		<avm-popup
+			isTitle
 			:visible="visible6"
 			isBack
 			onClose={() => this.setVisible('visible6', false)}

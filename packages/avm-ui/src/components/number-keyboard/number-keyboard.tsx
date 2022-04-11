@@ -171,6 +171,7 @@ export class NumberKeyboard extends Component {
         visible={visible}
         getContainer={getContainer}
         mask={false}
+        bodyHeight={"auto"}
         afterClose={props.afterClose}
         afterShow={props.afterShow}
         className={`${classPrefix}-popup`}

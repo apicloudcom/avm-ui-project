@@ -57,7 +57,7 @@ export class ErrorBlock extends Component {
     const errTitle = 'title' in props ? title : contentPack.title
 
     // let imageNode = <img src={icon} className={`${classPrefix}-image-img`}/>
-    let imageNode = <Icon code={59976} width="100px" height="100px" className={`${classPrefix}-image-img`}/>
+    let imageNode = <Icon code={59976} width="100px" height="100px" line-height="100px" text-align="center" className={`${classPrefix}-image-img`}/>
     if (image) {
       if (typeof image === 'string') {
         imageNode = <img src={image} className={`${classPrefix}-image-img`}/>
@@ -104,6 +104,8 @@ export class ErrorBlock extends Component {
       }
       .adm-error-block-image {
         max-width: 100%;
+        align-items: center;
+        justify-content: center;
       }
       .adm-error-block-image-img {
         height: 100%;

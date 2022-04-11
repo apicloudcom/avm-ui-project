@@ -81,6 +81,7 @@ export class ActionSheet extends Component {
     return (
       <Popup
         bodyStyle={this.data.borderRadiusStyle}
+        bodyHeight={'auto'}
         visible={props.visible}
         onMaskClick={() => {
           props.onMaskClick?.()

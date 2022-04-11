@@ -34,7 +34,7 @@ const defaultProps = {
   mask: true,
   stopPropagation: ['click'],
   bodyStyle: {},
-  isTitle: true,
+  isTitle: false,
   titleText: '标题'
 }
 
@@ -73,9 +73,19 @@ export class Popup extends Component {
       onBack,
       tipText,
       isFooterBtn,
-      footBtnClick
-    } = this.props; 
-    
+      footBtnClick,
+      bodyHeight,
+      bodyWidth
+    } = this.props;
+    if (['top', 'bottom'].includes(position)) {
+      !bodyHeight && (bodyHeight = '375px')
+      bodyStyle = {...bodyStyle, height: bodyHeight}
+    }
+
+    if (['left', 'right'].includes(position)) {
+      !bodyWidth && (bodyWidth = '311px')
+      bodyStyle = {...bodyStyle, width: bodyWidth}
+    }
 
     const bodyCls = classNames(
       `${classPrefix}-body`,
@@ -152,27 +162,23 @@ export class Popup extends Component {
         width: 100%;
         bottom: 0;
         left: 0;
-        height: 375px;
         border-radius: 12px 12px 0 0;
       }
       .adm-popup-body-position-top {
         width: 100%;
         top: 0;
         left: 0;
-        height: 375px;
         border-radius: 0 0 12px 12px;
       }
       .adm-popup-body-position-left {
         height: 100%;
         top: 0;
         left: 0;
-        width: 311px;
       }
       .adm-popup-body-position-right {
         height: 100%;
         top: 0;
         right: 0;
-        width: 311px;
       }
       .adm-popup-title {
         display: flex;

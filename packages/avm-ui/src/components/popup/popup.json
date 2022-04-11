@@ -58,7 +58,7 @@
             "name": "isTitle",
             "tip": "是否显示头部标题",
             "type": "boolean",
-            "default": true
+            "default": false
         },
         {
             "name": "titleText",
