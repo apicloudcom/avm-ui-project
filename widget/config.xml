@@ -12,6 +12,8 @@
 
 	<preference name="avm" value="true"/>
 
+  <preference name="android_abi" value="arm64-v8a"/>
+
 	<preference name="pageBounce" value="false"/>
 
 	<preference name="appBackground" value="#FFF"/>
