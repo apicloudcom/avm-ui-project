@@ -1,6 +1,5 @@
 import classNames from '../../utils/classnames'
 import { bound } from '../../utils/bound'
-import Button from '../button'
 
 const classPrefix = `adm-stepper`
 
@@ -103,7 +102,7 @@ export class Stepper extends Component {
       btnFontSize='12px',
       btnBgColor='#f0f0f0',
       btnWidth='28px',
-      btnTextColor='#666'
+      btnTextColor='#333'
     } = this.props;
 
     const btnWidthStyle = {}
@@ -119,7 +118,7 @@ export class Stepper extends Component {
     const btnStyle = {
       ...btnWidthStyle,
       height: height,
-      lineHeight: height,
+      lineHeight: `${Number(height.replace('px', ''))-1}px`,
       backgroundColor: btnBgColor,
       fontSize: `${Number(btnFontSize.replace('px', '')) + 5}px`,
       opacity: 1
@@ -132,8 +131,7 @@ export class Stepper extends Component {
       color: disabled ? '#999' : inputFontColor,
       border: 'none',
       borderLeft: borderInner,
-      borderRight: borderInner,
-      background: 'transparent'
+      borderRight: borderInner
     }
 
     return (
@@ -143,7 +141,7 @@ export class Stepper extends Component {
           [`${classPrefix}-active`]: this.data.hasFocus,
         })}
         style={boxStyle}>
-        <Button
+        <span
           className={`${classPrefix}-minus`}
           onClick={this.handleMinus}
           disabled={this.minusDisabled()}
@@ -152,7 +150,7 @@ export class Stepper extends Component {
             ...btnStyle,
             color: !this.minusDisabled() ? btnTextColor : '#999',
             borderRadius: `${borderRaduis} 0 0 ${borderRaduis}`
-          }}>-</Button>
+          }}>-</span>
         <input
           className={`${classPrefix}-input`}
           style={inputStyle}
@@ -166,7 +164,7 @@ export class Stepper extends Component {
             this.setHasFocus(false)
             this.props.onBlur?.(e)
           }}/>
-        <Button
+        <span
           className={`${classPrefix}-plus`}
           onClick={this.handlePlus}
           disabled={this.plusDisabled()}
@@ -175,7 +173,7 @@ export class Stepper extends Component {
             ...btnStyle,
             color: !this.plusDisabled() ? btnTextColor : '#999',
             borderRadius: `0 ${borderRaduis} ${borderRaduis} 0`
-          }}>+</Button>
+          }}>+</span>
       </div>
     )
   }
@@ -198,16 +196,19 @@ export class Stepper extends Component {
       .adm-stepper-input {
         text-align: center;
         background: #f0f0f0;
+        padding: 0;
       }
       .adm-stepper-minus {
-        border: none;
         padding: 0;
         margin-right: 2px;
+        text-align: center;
+        display: inline-block;
       }
       .adm-stepper-plus {
-        border: none;
         padding: 0;
         margin-left: 2px;
+        text-align: center;
+        display: inline-block;
       }
     `
   }
