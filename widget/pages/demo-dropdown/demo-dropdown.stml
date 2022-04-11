@@ -42,7 +42,7 @@
 			</avm-dropdown>
 		</DemoBlock>
 		<DemoBlock title='自定义arrow' padding={'0'}>
-			<avm-dropdown arrow={'xx'}>
+			<avm-dropdown  arrow={<avm-icon name='AlipayCircleFill' fontSize={12}/>}>
 				<avm-dropdown-item key='sorter' title='排序'>
 					<div style="padding: 12px">
 						<span>排序内容</span>
@@ -50,7 +50,7 @@
 						<span>排序内容</span>
 					</div>
 				</avm-dropdown-item>
-				<avm-dropdown-item key='bizop' title='商机筛选' arrow={'xx'}>
+				<avm-dropdown-item key='bizop' title='商机筛选' >
 					<div style="padding: 12px">
 						<span>商机筛选内容</span>
 						<span>商机筛选内容</span>
@@ -81,6 +81,7 @@ import '../../components/avm-ui/dropdown'
 import Radio from '../../components/avm-ui/radio'
 import NavBar from '../../components/avm-ui/nav-bar'
 import Space from '../../components/avm-ui/space'
+import '../../components/avm-ui/icon'
 
 export default {
 	name: 'demo-divider',
