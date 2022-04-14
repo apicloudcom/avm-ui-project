@@ -1,7 +1,7 @@
 {
   "component": "Card",
   "desc": "卡片",
-  "type": 2,
+  "type": 1,
   "event": [
     "onClick",
     "onHeaderClick",
