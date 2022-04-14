@@ -1,7 +1,7 @@
 {
     "component": "Steps",
     "desc": "Steps定义一个步骤条的视图容器",
-    "type": 2,
+    "type": 1,
     "props": [
         {
             "name": "current",
