@@ -33,7 +33,7 @@ export class Search extends Component {
 
   setSearchValue = val => {
     this.data.searchVal = val
-    this.props.onChange && this.props.onChange(this.data.searchVal)
+    this.props.handleChange && this.props.handleChange(this.data.searchVal)
   }
 
   setHasFocus = focus => {
@@ -50,14 +50,14 @@ export class Search extends Component {
 
     const {
       showCancelButton, clearOnCancel, clearable, bgColor, borderRadius, placeholderColor='#ccc', cancelTextColor,
-      onClear, onCancel, onFocus, onBlur, onSearch, onEnterPress, onKeyDown,
+      inputClear, handleCancel, inputFocus, inputBlur, handleSearch, onEnterPress, onKeyDown,
       maxLength, placeholder="请输入", cancelText
       // selectorList
     } = this.props
 
     const handleKeydown = (e: any) => {
       if (onEnterPress && (e.code === 'Enter' || e.keyCode === 13)) {
-        onSearch && onSearch(this.data.searchVal)
+        handleSearch && handleSearch(this.data.searchVal)
       }
       onKeyDown && onKeyDown(e)
     }
@@ -78,9 +78,9 @@ export class Search extends Component {
             onClick={() => {
               if (clearOnCancel) {
                 this.setSearchValue('');
-                onClear?.()
+                inputClear?.()
               }
-              onCancel?.()
+              handleCancel?.()
             }}>
             {cancelText}
           </span>
@@ -139,15 +139,15 @@ export class Search extends Component {
             clearable={clearable}
             onFocus={e => {
               this.setHasFocus(true)
-              onFocus?.(e)
+              inputFocus?.(e)
             }}
             onBlur={e => {
               setTimeout(() => {
                 this.setHasFocus(false)
               }, 300)
-              onBlur?.(e)
+              inputBlur?.(e)
             }}
-            onClear={onClear}
+            onClear={inputClear}
             onKeyDown={handleKeydown}
           />
           {!!this.data.searchVal && this.data.hasFocus && (
@@ -155,7 +155,7 @@ export class Search extends Component {
               className={`${classPrefix}-clear`}
               onClick={() => {
                 this.setSearchValue('')
-                onClear?.()
+                inputClear?.()
               }}>
               {/* <img src={closeIcon} alt="close" className={`${classPrefix}-clear-icon`}/> */}
               <Icon code={59938} color="#bababa" className={`${classPrefix}-clear-icon`}/>

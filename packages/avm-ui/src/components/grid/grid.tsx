@@ -70,7 +70,9 @@ export class GridItem extends Component {
       <div
         // className={`${classPrefix}-item`}
         style={itemStyle}
-        onClick={props.onClick}>
+        onClick={() => {
+          props.handleClick && props.handleClick()
+        }}>
         {props.children}
       </div>
     )

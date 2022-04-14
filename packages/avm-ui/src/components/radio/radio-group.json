@@ -3,7 +3,7 @@
     "desc": "单选框-Group",
     "type": 2,
     "event": [
-        "onChange"
+        "groupChange"
     ],
     "props": [
         {

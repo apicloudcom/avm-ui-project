@@ -11,7 +11,7 @@ export type Action = {
   disabled?: boolean
   description?: string
   danger?: boolean
-  onClick?: () => void
+  handleClick?: () => void
 }
 
 export type ActionSheetProps = {
@@ -19,10 +19,10 @@ export type ActionSheetProps = {
   actions: Action[]
   extra?: Element
   cancelText?: Element
-  onAction?: (action: Action, index: number) => void
-  onClose?: () => void
+  handleAction?: (action: Action, index: number) => void
+  handleClose?: () => void
   afterClose?: () => void
-  onMaskClick?: () => void
+  maskClick?: () => void
   closeOnAction?: boolean
   closeOnMaskClick?: boolean
   getContainer?: GetContainer
@@ -56,10 +56,10 @@ export class ActionSheet extends Component {
           <div
             onClick={() => {
               if (disabled !== true) {
-                action.onClick && action.onClick()
-                props.onAction && props.onAction(action, index)
+                action.handleClick && action.handleClick()
+                props.handleAction && props.handleAction(action, index)
                 if (props.closeOnAction) {
-                  props.onClose()
+                  props.handleClose && props.handleClose()
                 }
               }
             }}
@@ -83,10 +83,10 @@ export class ActionSheet extends Component {
         bodyStyle={this.data.borderRadiusStyle}
         bodyHeight={'auto'}
         visible={props.visible}
-        onMaskClick={() => {
-          props.onMaskClick?.()
+        maskClick={() => {
+          props.maskClick?.()
           if (props.closeOnMaskClick) {
-            props.onClose?.()
+            props.handleClose?.()
           }
         }}
         afterClose={props.afterClose}
@@ -109,7 +109,7 @@ export class ActionSheet extends Component {
                 <div
                   className={`${classPrefix}-button-item`}
                   onClick={() => {
-                    props.onClose && props.onClose()
+                    props.handleClose && props.handleClose()
                   }}>{formatLabel(props.cancelText, `${classPrefix}-button-item-cancel`)}</div>
               </div>
             </div>

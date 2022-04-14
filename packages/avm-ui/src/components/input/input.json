@@ -38,8 +38,8 @@
     }
   ],
   "event": [
-    "onChange",
-    "onClear",
-    "onEnterPress"
+    "handleChange",
+    "handleClear",
+    "enterPress"
   ]
 }

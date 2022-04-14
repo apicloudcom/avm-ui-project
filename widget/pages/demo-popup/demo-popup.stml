@@ -24,49 +24,49 @@
 		<avm-popup
 			:visible="visible1"
 			isTitle
-			onClose={() => this.setVisible('visible1', false)}
-			onBack={() => this.setVisible('visible1', false)}
-			onMaskClick={() => this.setVisible('visible1', false)}>
+			handleClose={() => this.setVisible('visible1', false)}
+			handleBack={() => this.setVisible('visible1', false)}
+			maskClick={() => this.setVisible('visible1', false)}>
 		</avm-popup>
 		<avm-popup
 			isTitle
 			isBack
 			:visible="visible2"
 			position='top'
-			onClose={() => this.setVisible('visible2', false)}
-			onBack={() => this.setVisible('visible2', false)}
-			onMaskClick={() => this.setVisible('visible2', false)}></avm-popup>
+			handleClose={() => this.setVisible('visible2', false)}
+			handleBack={() => this.setVisible('visible2', false)}
+			maskClick={() => this.setVisible('visible2', false)}></avm-popup>
 
 		<avm-popup
 			isFooterBtn
 			:visible="visible3"
 			position='left'
-			onClose={() => this.setVisible('visible3', false)}
-			onBack={() => this.setVisible('visible3', false)}
-			onMaskClick={() => this.setVisible('visible3', false)}></avm-popup>
+			handleClose={() => this.setVisible('visible3', false)}
+			handleBack={() => this.setVisible('visible3', false)}
+			maskClick={() => this.setVisible('visible3', false)}></avm-popup>
 
 		<avm-popup
 			:visible="visible4"
 			isFooterBtn
 			position='right'
-			onClose={() => this.setVisible('visible4', false)}
-			onBack={() => this.setVisible('visible4', false)}
-			onMaskClick={() => this.setVisible('visible4', false)}></avm-popup>
+			handleClose={() => this.setVisible('visible4', false)}
+			handleBack={() => this.setVisible('visible4', false)}
+			maskClick={() => this.setVisible('visible4', false)}></avm-popup>
 		<avm-popup
 			isTitle
 			isFooterBtn
 			:visible="visible5"
 			footBtnClick={() => this.setVisible('visible5', false)}
-			onClose={() => this.setVisible('visible5', false)}
-			onBack={() => this.setVisible('visible5', false)}
-			onMaskClick={() => this.setVisible('visible5', false)}></avm-popup>
+			handleClose={() => this.setVisible('visible5', false)}
+			handleBack={() => this.setVisible('visible5', false)}
+			maskClick={() => this.setVisible('visible5', false)}></avm-popup>
 		<avm-popup
 			isTitle
 			:visible="visible6"
 			isBack
-			onClose={() => this.setVisible('visible6', false)}
-			onBack={() => this.setVisible('visible6', false)}
-			onMaskClick={() => this.setVisible('visible6', false)}></avm-popup>
+			handleClose={() => this.setVisible('visible6', false)}
+			handleBack={() => this.setVisible('visible6', false)}
+			maskClick={() => this.setVisible('visible6', false)}></avm-popup>
 	</view>
 </template>
 <script>

@@ -35,7 +35,7 @@ export class Switch extends Component {
 
   setChecked = check => {
     this.data.checked = check
-    this.props.onChange && this.props.onChange(this.data.checked)
+    this.props.handleChange && this.props.handleChange(this.data.checked)
   }
 
   render = props => {

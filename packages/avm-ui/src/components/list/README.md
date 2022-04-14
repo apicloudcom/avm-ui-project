@@ -23,5 +23,5 @@
 | clickable   | 是否可以点击                                                    | `boolean`                       | 当 `onClick` 属性存在时，默认为 `true`，否则默认为 `false` |
 | arrow       | 右侧是否显示箭头图标       | `boolean`          | 默认和 `clickable` 的值保持一致                            |
 | disabled    | 是否禁用                                                        | `boolean`                       | `false`                                                    |
-| onClick     | 列表项的点击事件，当设置了 `onClick` 属性时，列表项会有点击效果 | `(e: React.MouseEvent) => void` | -                                                          |
+| handleClick     | 列表项的点击事件，当设置了 `onClick` 属性时，列表项会有点击效果 | `(e: React.MouseEvent) => void` | -                                                          |
 | prefixWidth            | prefix 部分的宽度 | `-` | `auto`                    |

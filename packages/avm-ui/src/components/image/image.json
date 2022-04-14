@@ -60,8 +60,7 @@
         }
     ],
     "event": [
-        "onError",
-        "onClick",
-        "onLoad"
+        "handleError",
+        "handleClick"
     ]
 }

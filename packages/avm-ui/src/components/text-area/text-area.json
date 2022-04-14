@@ -3,9 +3,9 @@
     "desc": "文本域",
     "type": 2,
     "event": [
-        "onChange",
-        "onFocus",
-        "onBlur"
+        "handleChange",
+        "inputFocus",
+        "inputBlur"
     ],
     "props": [
         {

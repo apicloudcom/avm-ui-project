@@ -18,27 +18,27 @@
 		<avm-action-sheet
 			:visible="visibleOne"
 			actions={actions}
-			onClose={() => this.setVisible('visibleOne', false)}
-			onAction={(action, index) => this.onAction(action, index)}/>
+			handleClose={() => this.setVisible('visibleOne', false)}
+			handleAction={(action, index) => this.onAction(action, index)}/>
 		<avm-action-sheet
 			extra='请选择你要进行的操作'
 			cancelText="取消"
 			extraDesc="请选择哦~~"
 			:visible="visibleTwo"
 			actions={actions}
-			onClose={() => this.setVisible('visibleTwo', false)}
+			handleClose={() => this.setVisible('visibleTwo', false)}
 		/>
 		<avm-action-sheet
 			:visible="visibleThree"
 			actions={this.data.actions3}
 			cancelText="取消了哦"
-			onClose={() => this.setVisible('visibleThree', false)}
+			handleClose={() => this.setVisible('visibleThree', false)}
 		/>
 		<avm-action-sheet
 			:visible="visibleFour"
 			actions={this.data.actions4}
-			onClose={() => this.setVisible('visibleFour', false)}}
-			onAction={(action, index) => this.onAction(action, index)}/>
+			handleClose={() => this.setVisible('visibleFour', false)}}
+			handleAction={(action, index) => this.onAction(action, index)}/>
 	</view>
 </template>
 <script>
@@ -112,12 +112,16 @@ export default {
 			this.setVisible('visibleOne', false)
 		},
 		onAction(action, index) {
-			if (action.key === 'edit' || action.key === 'copy') {
-				api.toast({
-					msg: `点击了${action.text} + ${index}`,
-					location: 'top'
-				})
-			}
+			api.toast({
+				msg: `点击了${action.text} + ${index}`,
+				location: 'top'
+			})
+			// if (action.key === 'edit' || action.key === 'copy') {
+			// 	api.toast({
+			// 		msg: `点击了${action.text} + ${index}`,
+			// 		location: 'top'
+			// 	})
+			// }
 		},
 		onClose3() {
 			api.alert({

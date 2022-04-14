@@ -3,7 +3,7 @@
     "desc": "标签栏",
     "type": 1,
     "event": [
-        "onChange"
+        "handleChange"
     ],
     "props": [
         {

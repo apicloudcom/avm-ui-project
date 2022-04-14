@@ -17,7 +17,7 @@ export class CheckboxGroup extends Component {
   setCheckList = (val, props) => {
     this.data.checkList = val
     this.data.hasChecked = true
-    props.onChange?.(val)
+    props.handleChange?.(val)
   }
 
   render = props => {

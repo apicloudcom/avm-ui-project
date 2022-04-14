@@ -4,7 +4,7 @@
     "desc": "折叠面板-子元素",
     "type": 2,
     "event": [
-        "onClick"
+        "handleClick"
     ],
     "props": [
         {

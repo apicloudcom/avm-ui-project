@@ -4,7 +4,7 @@
 		<scroll-view>
 			<DemoBlock title='基础用法'>
 				<avm-checkbox/>
-				<avm-checkbox onChange={val => this.onChange(val)}>有描述的勾选框</avm-checkbox>
+				<avm-checkbox handleChange={val => this.onChange(val)}>有描述的勾选框</avm-checkbox>
 				<avm-checkbox defaultChecked>默认选中</avm-checkbox>
 				<avm-checkbox defaultChecked disabled>禁用状态</avm-checkbox>
 				<!-- <avm-checkbox indeterminate={true}>半选</avm-checkbox> -->
@@ -12,7 +12,7 @@
 			<DemoBlock title='选项组'>
 				<avm-checkbox-group
 					value={this.data.value}
-					onChange={val => this.onChange(val)}>
+					handleChange={val => this.onChange(val)}>
 					<avm-checkbox value="A" label="选项"/>
 					<avm-checkbox value="B" label="选项"/>
 					<avm-checkbox value="C" label="选项"/>
@@ -32,7 +32,7 @@
 			<DemoBlock title='添加辅助说明默认样式'>
 				<avm-checkbox-group
 					value={this.data.value}
-					onChange={val => this.onChange(val)}>
+					handleChange={val => this.onChange(val)}>
 					<avm-checkbox value="A" label="选项" description="辅助说明辅助说明辅助说明"/>
 					<avm-checkbox value="B" label="选项" description="辅助说明辅助说明辅助说明"/>
 					<avm-checkbox value="C" label="选项" description="辅助说明辅助说明辅助说明"/>
@@ -42,7 +42,7 @@
 			<DemoBlock title='添加辅助说明跟复选框文本一行展示'>
 				<avm-checkbox-group
 					value={this.data.value}
-					onChange={val => this.onChange(val)}>
+					handleChange={val => this.onChange(val)}>
 					<avm-checkbox value="A" label="选项" description="辅助说明" descIsOneLineShow/>
 					<avm-checkbox value="B" label="选项" description="辅助说明" descIsOneLineShow/>
 					<avm-checkbox value="C" label="选项" description="辅助说明" descIsOneLineShow/>
@@ -51,7 +51,7 @@
 			<DemoBlock title='复选icon和复选框文本两头分布展示'>
 				<avm-checkbox-group
 					value={this.data.value}
-					onChange={val => this.onChange(val)}>
+					handleChange={val => this.onChange(val)}>
 					<avm-checkbox value="A" label="选项" description="辅助说明" isTwoHeadArrange/>
 					<avm-checkbox value="B" label="选项" description="辅助说明" isTwoHeadArrange/>
 					<avm-checkbox value="C" label="选项" description="辅助说明" isTwoHeadArrange/>
@@ -60,7 +60,7 @@
 			<DemoBlock title='自定义icon'>
 				<avm-checkbox-group
 					value={this.data.value1}
-					onChange={val => this.onChange(val)}>
+					handleChange={val => this.onChange(val)}>
 					<avm-checkbox
 						value="A"
 						label="A"

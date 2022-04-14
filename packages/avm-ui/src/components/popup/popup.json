@@ -3,10 +3,10 @@
     "desc": "弹出层",
     "type": 3,
     "event": [
-        "onMaskClick",
-        "onClick",
-        "onClose",
-        "onBack",
+        "maskClick",
+        "handleClick",
+        "handleClose",
+        "handleBack",
         "footBtnClick"
     ],
     "props": [

@@ -14,7 +14,7 @@
 | loading        | 加载状态         | `boolean`                         | `false` |
 | disabled       | 禁用状态         | `boolean`                         | `false` |
 | beforeChange   | 变化前执行       | `(val: boolean) => Promise<void>` | -       |
-| onChange       | 变化时回调函数   | `(val: boolean) => void`          | -       |
+| handleChange       | 变化时回调函数   | `(val: boolean) => void`          | -       |
 | checkedText    | 选中时的内容     | `ReactNode`                       | -       |
 | uncheckedText  | 非选中时的内容   | `ReactNode`                       | -       |
 | checkedColor | 填充颜色           |  -                | `#9AC200` |

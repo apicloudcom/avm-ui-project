@@ -8,7 +8,7 @@
 | ------------ | ----------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | value        | 输入值                                          | `string`                                                         | -       |
 | defaultValue | 默认值                                          | `string`                                                         | -       |
-| onChange     | 文本域内容变化时触发                            | `(value: string) => void`                                        | -       |
+| handleChange     | 文本域内容变化时触发                            | `(value: string) => void`                                        | -       |
 | placeholder  | 提示文本                                        | `string`                                                         | -       |
 | autoSize     | 自适应内容高度                                  | `boolean \| { minRows?: number, maxRows?: number }`              | `false` |
 | rows         | 行数                                            | `number`                                                         | `2`     |

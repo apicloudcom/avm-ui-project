@@ -20,7 +20,7 @@ export type NoticeBarProps = {
   /** 是否可关闭 */
   closeable?: boolean
   /** 关闭时的回调 */
-  onClose?: () => void
+  handleClose?: () => void
   /** 额外操作区域，显示在关闭按钮左侧 */
   extra?: HTMLElement
   /** 左侧广播图标 */
@@ -128,7 +128,7 @@ export class NoticeBar extends Component {
             {props.closeable && (
               <view onClick={() => {
                 this.setVisible(false)
-                props.onClose?.()
+                props.handleClose?.()
               }}
               style={textStyle}><Icon code={59940}/></view>
             )}

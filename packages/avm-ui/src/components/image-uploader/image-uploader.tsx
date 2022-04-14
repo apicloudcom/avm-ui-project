@@ -31,7 +31,7 @@ export class ImageUploader extends Component {
 
   setValue = v => {
     this.data.imgList = [].concat(v)
-    this.props.onChange?.(this.data.imgList)
+    this.props.handleChange?.(this.data.imgList)
   }
 
   saveImg = imgSrc => {
@@ -42,7 +42,7 @@ export class ImageUploader extends Component {
       const newData = [...this.data.imgList, {url: imgSrc}]
       this.setValue(newData)
     } else {
-      this.props.onCountExceed?.()
+      this.props.countExceed?.()
     }
   }
 
@@ -127,7 +127,7 @@ export class ImageUploader extends Component {
               deletable={props.deletable}
               onClick={() => previewImage(index)}
               onDelete={() => {
-                const canDelete = props.onDelete?.(fileItem)
+                const canDelete = props.handleDelete?.(fileItem)
                 if (canDelete === false) return
                 this.setValue(this.data.imgList.filter(x => x.url !== fileItem.url))
               }}

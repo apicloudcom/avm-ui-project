@@ -29,7 +29,7 @@ export class Stepper extends Component {
     this.data.isInit = false
     this.data.value = val
     this.setInputValue(toStringVal(val))
-    this.props.onChange && this.props.onChange(Number(val))
+    this.props.handleChange && this.props.handleChange(Number(val))
   }
   // 赋值输入框
   setInputValue = val => {
@@ -156,13 +156,13 @@ export class Stepper extends Component {
           style={inputStyle}
           onFocus={e => {
             this.setHasFocus(true)
-            this.props.onFocus?.(e)
+            this.props.inputFocus?.(e)
           }}
           value={this.data.inputValue}
           onBlur={e => {
             !disabled && this.handleInputChange(e.detail.value)
             this.setHasFocus(false)
-            this.props.onBlur?.(e)
+            this.props.inputBlur?.(e)
           }}/>
         <span
           className={`${classPrefix}-plus`}

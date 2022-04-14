@@ -15,16 +15,16 @@ H5 数字键盘，可以配合密码输入框组件或自定义的输入框组�
 | customKey       | 自定义按钮                                                                | `'-' \| '.' \| 'X'`                        | -                     |
 | randomOrder     | 是否乱序键盘                                                              | `boolean`                                  | `false`               |
 | showCloseButton | 是否展示收起键盘箭头                                                      | `boolean`                                  | `true`                |
-| onInput         | 输入内容回调                                                              | `(v: string) => void`                      | -                     |
-| onDelete        | 删除内容回调                                                              | `() => void`                               | -                     |
-| onClose         | 点击关闭时触发                                                            | `() => void`                               | -                     |
-| onConfirm       | 点击确定按钮时触发                                                        | `() => void`                               | -                     |
+| handleInput         | 输入内容回调                                                              | `(v: string) => void`                      | -                     |
+| handleDelete        | 删除内容回调                                                              | `() => void`                               | -                     |
+| handleDelete         | 点击关闭时触发                                                            | `() => void`                               | -                     |
+| handleConfirm       | 点击确定按钮时触发                                                        | `() => void`                               | -                     |
 | afterShow       | 键盘完全弹出回调                                                          | `() => void`                               | -                     |
 | afterClose      | 键盘完全收起回调                                                          | `() => void`                               | -                     |
 | closeOnConfirm  | 是否在点击确定按钮时自动关闭                                              | `boolean`                                  | `true`                |
 | safeArea        | 是否开启安全区适配                                                        | `boolean`                                  | `true`                |
 | isShowClearBtn   | 是否显示清空按钮                                                      | `boolean`                                  | `true`                |
-|onclearAll       | 点击清空按钮时触发                                                      | `() => void`                                  | -                |
+| clearAll       | 点击清空按钮时触发                                                      | `() => void`                                  | -                |
 
 此外还支持 [Popup](./popup) 的以下属性: `stopPropagation`
 

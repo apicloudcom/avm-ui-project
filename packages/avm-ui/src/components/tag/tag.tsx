@@ -20,7 +20,7 @@ export type TagProps = {
     | (string & {})
   fill?: 'solid' | 'outline'
   round?: boolean
-  onClick?: (e: any) => void
+  handleClick?: (e: any) => void
 }
 
 const defaultProps = {
@@ -90,7 +90,7 @@ export class Tag extends Component {
       })} style={{...wrapperStyles, display: (this.data.isShowTag ? 'flex' : 'none')}}>
         <span
           style={{...sizeMappings[props.size]}}
-          onClick={props.onClick}
+          onClick={props.handleClick}
           className={classPrefix}
         >
           {props.children}

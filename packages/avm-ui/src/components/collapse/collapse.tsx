@@ -11,7 +11,7 @@ export type CollapsePanelProps = {
   disabled?: boolean
   forceRender?: boolean
   destroyOnClose?: boolean
-  onClick?: (event: any) => void
+  handleClick?: (event: any) => void
 }
 
 export class CollapsePanel extends Component {
@@ -43,7 +43,7 @@ export class Collapse extends Component {
     this.data.isInit = false
     this.data.activeKey = activeKey
 
-    this.props.onChange && this.props.onChange(this.data.activeKey)
+    this.props.handleChange && this.props.handleChange(this.data.activeKey)
   }
 
   render = props => {
@@ -75,7 +75,7 @@ export class Collapse extends Component {
                 const activekey = active ? activeKeyList.filter(v => v !== key) : [...activeKeyList, key]
                 this.setActiveKey(activekey)
               }
-              panel.onClick?.()
+              panel.handleClick?.()
             }
 
             const {title: collapseTitle, ...restProps} = panel;
@@ -86,7 +86,7 @@ export class Collapse extends Component {
                     {...restProps}
                     className={`${classPrefix}-panel-header`}
                     disabled={panel.disabled}
-                    onClick={panel.disabled ? undefined : handleClick}
+                    handleClick={panel.disabled ? undefined : handleClick}
                     arrow={panel.arrow || (active ? <Icon code={60049} color="#bbb"/> : <Icon code={59949} color="#bbb"/>)}>
                     {formatLabel(panel.title)}
                 </ListItem>

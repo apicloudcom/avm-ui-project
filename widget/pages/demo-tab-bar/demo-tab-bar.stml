@@ -69,7 +69,7 @@
 				</avm-tabbar>
 			</DemoBlock>
 			<DemoBlock title='受控组件' padding='0'>
-				<avm-tabbar activeKey={activeKey} onChange={this.setActiveKey}>
+				<avm-tabbar activeKey={activeKey} handleChange={this.setActiveKey}>
 					<avm-tabbar-item
 						key="home"
 						title="首页"

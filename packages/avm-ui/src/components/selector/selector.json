@@ -3,7 +3,7 @@
     "desc": "选择组",
     "type": 2,
     "event": [
-        "onChange"
+        "handleChange"
     ],
     "props": [
         {

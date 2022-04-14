@@ -3,7 +3,7 @@
     "desc": "评分",
     "type": 2,
     "event": [
-        "onChange"
+        "rateChange"
     ],
     "props": [
         {

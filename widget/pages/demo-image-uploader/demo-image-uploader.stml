@@ -5,15 +5,15 @@
 		<DemoBlock title='基础用法'>
 			<avm-image-uploader
 				:defaultValue="fileList1"
-				onChange={imgs => this.setFileList('fileList1', imgs)}/>
+				handleChange={imgs => this.setFileList('fileList1', imgs)}/>
 		</DemoBlock>
 		<DemoBlock title='上传状态'>
-			<avm-image-uploader :value="fileList2" onChange={imgs => this.setFileList('fileList1', imgs)}/>
+			<avm-image-uploader :value="fileList2" handleChange={imgs => this.setFileList('fileList1', imgs)}/>
 			<DemoDescription content='当用户选择的文件超过 1M 时，跳过上传并提示用户'/>
 		</DemoBlock>
 		<DemoBlock title='限制上传大小'>
 			<avm-space direction='vertical'>
-				<avm-image-uploader :value="fileList3" onChange={imgs => this.setFileList('fileList1', imgs)}/>
+				<avm-image-uploader :value="fileList3" handleChange={imgs => this.setFileList('fileList1', imgs)}/>
 				<DemoDescription content='当用户选择的文件超过 1M 时，跳过上传并提示用户'/>
 			</avm-space>
 		</DemoBlock>
@@ -26,7 +26,7 @@
 					:maxCount={3}
 					:showUpload="fileList4.length < 3"
 					@countExceed="toastExceed($event)"
-					onChange={imgs => this.setFileList('fileList1', imgs)}/>
+					handleChange={imgs => this.setFileList('fileList1', imgs)}/>
 				<DemoDescription content='限制用户最多上传 3 张图片，当达到最大数量时隐藏掉上传按钮' />
 			</avm-space>
 		</DemoBlock>
@@ -34,8 +34,8 @@
 			<avm-space direction='vertical'>
 				<avm-image-uploader
 					:value="fileList5"
-					@delete="handleDelete"
-					onChange={imgs => this.setFileList('fileList1', imgs)}/>
+					@handleDelete="handleDelete"
+					handleChange={imgs => this.setFileList('fileList1', imgs)}/>
 				<DemoDescription content='当用户删除图片时，进行确认，确认后可删除图片' />
 			</avm-space>
 		</DemoBlock>
@@ -43,7 +43,7 @@
 			<avm-image-uploader
 				cellSize="90px"
 				:value="fileList6"
-				onChange={imgs => this.setFileList('fileList1', imgs)}/>
+				handleChange={imgs => this.setFileList('fileList1', imgs)}/>
 		</DemoBlock>
 		<DemoBlock title='自定义上传按钮'>
 			<avm-image-uploader :value="fileList7" uploadIcon={<view style={myStyle}><img src='../../image/cf.png' alt="自定义"/></view>}/>

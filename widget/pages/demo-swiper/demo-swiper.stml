@@ -14,7 +14,7 @@
                                 <span
                                     className='contents'
                                     style={styles}
-                                    onClick={() => api.toast({msg: `你点击了卡片 ${index + 1}`})}>{index + 1}</span>
+                                    handleClick={() => api.toast({msg: `你点击了卡片 ${index + 1}`})}>{index + 1}</span>
                             </avm-swiper-item>
                         )
                     })
@@ -64,7 +64,7 @@
                                 background: color
                             }
                             return (
-                                <avm-swiper-item key={index} onClick={(index) => this.handleClick(index)}>
+                                <avm-swiper-item key={index} handleClick={(index) => this.handleClick(index)}>
                                     <span className='contents' style={styles}>{index + 1}</span>
                                 </avm-swiper-item>
                             )
@@ -133,7 +133,7 @@
             <DemoDescription content='配合 Popup 组件可以实现全屏引导'/>
         </DemoBlock>
     </scroll-view>
-    <avm-popup position='bottom' visible={this.data.visiable} bodyStyle={popupBodyStyle}>
+    <avm-popup position='bottom' visible={this.data.visiable} bodyStyle={popupBodyStyle} bodyHeight="100%">
         <avm-swiper loop={false} height="100%">
             <avm-swiper-item>
                 <span className='contentFull' :style="{background: '#ace0ff'}">1</span>

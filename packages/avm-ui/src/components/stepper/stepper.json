@@ -3,9 +3,9 @@
     "desc": "步进器",
     "type": 2,
     "event": [
-        "onChange",
-        "onFocus",
-        "onBlur"
+        "handleChange",
+        "inputFocus",
+        "inputBlur"
     ],
     "props": [
         {

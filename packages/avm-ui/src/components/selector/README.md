@@ -18,7 +18,7 @@ type SelectorValue = string | number
 | options      | 可选项           | `SelectorOption[]`                                                      | -       |
 | multiple     | 是否允许多选     | `boolean`                                                               | `false` |
 | disabled     | 是否全局禁止选中 | `boolean`                                                               | `false` |
-| onChange     | 选项改变时触发   | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | -       |
+| handleChange     | 选项改变时触发   | `(value: SelectorValue[], extend: { items: SelectorOption[] }) => void` | -       |
 | checkedBgColor | 选中填充背景颜色 | - |`#fff` |
 | checkedColor | 选中字体颜色 | - |`#9AC200` |
 

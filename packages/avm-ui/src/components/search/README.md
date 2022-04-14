@@ -13,14 +13,14 @@
 | showCancelButton | 是否在搜索框右侧显示取消按钮                 | `boolean \| ((focus: boolean, value: string) => boolean)` | `false`  |
 | cancelText       | 取消按钮的文案                               | `string`                                                  | `'取消'` |
 | clearOnCancel    | 点击取消按钮后是否清空输入框                 | `boolean`                                                 | `true`   |
-| onSearch         | 输入框回车时触发                             | `(value: string) => void`                                 | -        |
-| onChange         | 输入框内容变化时触发                         | `(value: string) => void`                                 | -        |
-| onFocus          | 输入框获得焦点时触发                         | `(e: React.FocusEvent<HTMLInputElement>) => void`         | -        |
-| onBlur           | 输入框失去焦点时触发                         | `(e: React.FocusEvent<HTMLInputElement>) => void`         | -        |
-| onClear          | 点击清除按钮后触发                           | `() => void`                                              | -        |
-| onCancel         | 点击取消按钮时触发                           | `() => void`                                              | -        |
+| handleSearch         | 输入框回车时触发                             | `(value: string) => void`                                 | -        |
+| handleChange         | 输入框内容变化时触发                         | `(value: string) => void`                                 | -        |
+| inputFocus          | 输入框获得焦点时触发                         | `(e: React.FocusEvent<HTMLInputElement>) => void`         | -        |
+| inputBlur           | 输入框失去焦点时触发                         | `(e: React.FocusEvent<HTMLInputElement>) => void`         | -        |
+| inputClear          | 点击清除按钮后触发                           | `() => void`                                              | -        |
+| handleCancel         | 点击取消按钮时触发                           | `() => void`                                              | -        |
 | background        | 背景色           | -      | `#f5f5f5`               |
 | borderRadius     | 圆角               | -    | `4px`                   |
 | placeholderColor | `placeholder` 文字颜色  | - | `var(--adm-color-weak)` |
-|  cancelTextColor  |  取消按钮文案字体颜色  |   `string`   |   `#333`   |
+| cancelTextColor  |  取消按钮文案字体颜色  |   `string`   |   `#333`   |
 

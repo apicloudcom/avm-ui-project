@@ -3,12 +3,12 @@
     "desc": "数字键盘",
     "type": 3,
     "event": [
-        "onInput",
-        "onDelete",
-        "onClose",
-        "onConfirm",
+        "handleInput",
+        "handleDelete",
+        "handleClose",
+        "handleConfirm",
         "afterClose",
-        "onclearAll"
+        "clearAll"
     ],
     "props": [
         {

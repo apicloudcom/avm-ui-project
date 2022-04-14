@@ -3,10 +3,10 @@
     "desc": "动作面板",
     "type": 3,
     "event": [
-        "onClick",
-        "onAction",
-        "onClose",
-        "onMaskClick"
+        "handleClick",
+        "handleAction",
+        "handleClose",
+        "maskClick"
     ],
     "props": [
         {

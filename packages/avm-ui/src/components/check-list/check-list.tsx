@@ -28,12 +28,12 @@ export class CheckList extends Component {
     } else {
       this.setChecked([val])
     }
-    props.onChange && props.onChange(this.data.checked)
+    props.handleChange && props.handleChange(this.data.checked)
   }
 
   uncheck = (val, props) => {
     this.setChecked(this.data.checked.filter(item => item !== val))
-    props.onChange && props.onChange(this.data.checked)
+    props.handleChange && props.handleChange(this.data.checked)
   }
 
   render = props => {

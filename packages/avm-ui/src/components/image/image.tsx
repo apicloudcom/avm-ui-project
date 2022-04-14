@@ -63,13 +63,15 @@ export class Image extends Component {
           className={`${classPrefix}-img`}
           src={src}
           alt={props.alt}
-          onClick={props.onClick}
+          onClick={() => {
+            props.handleClick && props.handleClick()
+          }}
           onLoad={() => {
             this.setLoaded(true)
           }}
           onError={e => {
             this.setFailed(true)
-            props.onError?.(e)
+            props.handleError?.(e)
           }}
           style={{
             objectFit: props.fit,

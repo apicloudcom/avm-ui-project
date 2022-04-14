@@ -3,9 +3,7 @@
     "desc": "标签栏-子标签",
     "parent": "tab-bar",
     "type": 2,
-    "event": [
-        "onChange"
-    ],
+    "event": [],
     "props": [
         {
             "name": "key",

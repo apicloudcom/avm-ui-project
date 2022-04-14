@@ -7,7 +7,7 @@ export type CheckboxProps = {
   checked?: boolean
   defaultChecked?: boolean
   disabled?: boolean
-  onChange?: (checked: boolean) => void
+  handleChange?: (checked: boolean) => void
   value?: CheckboxValue
   indeterminate?: boolean
   block?: boolean
@@ -31,7 +31,7 @@ export class Checkbox extends Component {
       } else {
         this.props.uncheck?.(this.props.value)
       }
-      this.props.onChange?.(this.data.checked)
+      this.props.handleChange?.(this.data.checked)
     }
   }
 

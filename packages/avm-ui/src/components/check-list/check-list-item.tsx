@@ -28,14 +28,14 @@ export class CheckListItem extends Component {
         active={active}
         description={props.description}
         prefix={props.prefix}
-        onClick={() => {
+        handleClick={() => {
           if (readOnly) return
           if (active) {
             props.uncheck(props.value)
           } else {
             props.check(props.value)
           }
-          props.onClick?.(props.value, active)
+          props.handleClick?.(props.value, active)
         }}
         arrow={false}
         clickable={!readOnly}

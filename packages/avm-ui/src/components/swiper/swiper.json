@@ -3,7 +3,7 @@
     "desc": "走马灯",
     "type": 1,
     "event": [
-        "onIndexChange"
+        "indexChange"
     ],
     "props": [
         {

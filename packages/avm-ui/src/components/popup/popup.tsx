@@ -12,7 +12,7 @@ const classPrefix = `adm-popup`
 export type PopupProps = {
   visible?: boolean
   mask?: boolean
-  onMaskClick?: (event: any) => void
+  maskClick?: (event: any) => void
   destroyOnClose?: boolean
   forceRender?: boolean
   getContainer?: GetContainer
@@ -23,7 +23,7 @@ export type PopupProps = {
   bodyStyle?: any
   maskClassName?: string
   maskStyle?: any
-  onClick?: (event: any) => void
+  handleClick?: (event: any) => void
   stopPropagation?: PropagationEvent[]
 }
 
@@ -59,9 +59,9 @@ export class Popup extends Component {
       forceRender=false,
       destroyOnClose=false,
       stopPropagation,
-      onClick,
+      handleClick,
       mask, 
-      onMaskClick,
+      maskClick,
       maskClassName,
       maskStyle,
       bodyStyle,
@@ -69,8 +69,8 @@ export class Popup extends Component {
       isTitle,
       titleText,
       isBack,
-      onClose,
-      onBack,
+      handleClose,
+      handleBack,
       tipText,
       isFooterBtn,
       footBtnClick,
@@ -102,7 +102,7 @@ export class Popup extends Component {
       <div
         className={classNames(classPrefix, props.className)}
         onClick={() => {
-          onClick && onClick();
+          handleClick && handleClick();
         }}
         style={{display: this.data.visible ? 'flex' : 'none', zIndex}}
       >
@@ -110,7 +110,7 @@ export class Popup extends Component {
           <Mask
             visible={props.visible}
             onMaskClick={() => {
-              onMaskClick && onMaskClick()
+              maskClick && maskClick()
             }}
             className={maskClassName}
             style={maskStyle}
@@ -126,12 +126,12 @@ export class Popup extends Component {
           }}>
           {isTitle && (
           <div className={`${classPrefix}-title`}>
-            {isBack && <div className={`${classPrefix}-title-back`} onClick={() => {onBack && onBack()}}><Icon code={59988} fontSize="18" color="#bbb"/><span className={`${classPrefix}-title-back-text`}>返回</span></div>}
+            {isBack && <div className={`${classPrefix}-title-back`} onClick={() => {handleBack && handleBack()}}><Icon code={59988} fontSize="18" color="#bbb"/><span className={`${classPrefix}-title-back-text`}>返回</span></div>}
             <div className={`${classPrefix}-title-con`}>
               <span className={`${classPrefix}-title-text`}>{titleText}</span>
               {tipText && <div title={tipText}><Icon code={59940} fontSize="18" color="#bbb"/></div>}
             </div>
-            <div onClick={() => {onClose && onClose()}}>
+            <div onClick={() => {handleClose && handleClose()}}>
               <Icon code={59940} fontSize="18" color="#bbb"/>
             </div>
           </div>

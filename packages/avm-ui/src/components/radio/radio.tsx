@@ -15,7 +15,7 @@ export class Radio extends Component {
 
   setChecked = check => {
     this.data.checked = check
-    this.props.onChange?.(this.props.value)
+    this.props.radioChange?.(this.props.value)
   }
 
   render = props => {
@@ -29,7 +29,7 @@ export class Radio extends Component {
       gap,
       iconSize,
       value,
-      onChange,
+      radioChange,
       icon,
       selectedIcon,
       description,
@@ -50,7 +50,7 @@ export class Radio extends Component {
         } else {
           groupContext.uncheck(value)
         }
-        onChange?.(checked)
+        radioChange?.(checked)
       }
     }
 

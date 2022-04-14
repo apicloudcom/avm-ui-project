@@ -91,11 +91,11 @@ export class TextArea extends Component {
             this.setValue(e.detail.value)
           }}
           onFocus={e => {
-            props.onFocus?.(e)
+            props.inputFocus?.(e)
           }}
           onBlur={e => {
-            props.onChange && props.onChange(e.detail.value)
-            props.onBlur?.(e)
+            props.handleChange && props.handleChange(e.detail.value)
+            props.inputBlur?.(e)
           }}
         />
         {count}

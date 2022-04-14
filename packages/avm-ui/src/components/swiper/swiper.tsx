@@ -32,7 +32,7 @@ export class Swiper extends Component {
       loop,
       direction,
       // allowTouchMove,
-      onIndexChange,
+      indexChange,
       indicatorProps
     } = this.props;
     const swiperStyle = {
@@ -74,7 +74,7 @@ export class Swiper extends Component {
           current={this.data.current}
           onChange={e => {
             this.data.current = e.detail.current;
-            onIndexChange?.(this.data.current)
+            indexChange?.(this.data.current)
           }}>
           {
             props.children.map((item, index) => {

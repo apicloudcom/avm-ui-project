@@ -18,10 +18,10 @@ export type NumberKeyboardProps = {
   customKey?: '-' | '.' | 'X'
   randomOrder?: boolean
   showCloseButton?: boolean
-  onInput?: (v: string) => void
-  onDelete?: () => void
-  onClose?: () => void
-  onConfirm?: () => void
+  handleInput?: (v: string) => void
+  handleDelete?: () => void
+  handleClose?: () => void
+  handleConfirm?: () => void
   afterShow?: () => void
   afterClose?: () => void
   closeOnConfirm?: boolean,
@@ -54,8 +54,8 @@ export class NumberKeyboard extends Component {
       // customKey,
       randomOrder,
       showCloseButton,
-      onInput,
-      onDelete,
+      handleInput,
+      handleDelete,
       isShowClearBtn,
       type
     } = props
@@ -94,19 +94,19 @@ export class NumberKeyboard extends Component {
     const onKeyPress = (key: string) => {
       switch (key) {
         case 'BACKSPACE':
-          onDelete?.()
+          handleDelete?.()
           break
         case 'OK':
-          props.onConfirm?.()
+          props.handleConfirm?.()
           if (props.closeOnConfirm) {
-            props.onClose?.()
+            props.handleClose?.()
           }
           break
         case 'CLEAR':
-          props.onClearAll?.() // 清空
+          props.clearAll?.() // 清空
           break
         default:
-          onInput?.(key)
+          handleInput?.(key)
           break
       }
     }
@@ -127,7 +127,7 @@ export class NumberKeyboard extends Component {
     //             [`${classPrefix}-header-with-title-close-button`]: !!title
     //           })}
     //           onClick={() => {
-    //             props.onClose?.()
+    //             props.handleClose?.()
     //           }}
     //           role='button'
     //           title='CLOSE'>
@@ -160,7 +160,7 @@ export class NumberKeyboard extends Component {
             key === 'BACKSPACE'
               // ? <TextDeletionOutline color="#333"/>
               ? <Icon code={59931}/>
-              : (key === 'CLOSE_KEYBOARD' ? <view className={`${classPrefix}-key-text`} onClick={() => {props.onClose?.()}}><Icon code={59931}/></view> : <span className={`${classPrefix}-key-text`}>{key}</span>)
+              : (key === 'CLOSE_KEYBOARD' ? <view className={`${classPrefix}-key-text`} onClick={() => {props.handleClose?.()}}><Icon code={59931}/></view> : <span className={`${classPrefix}-key-text`}>{key}</span>)
           }
         </div>
       )
@@ -192,7 +192,7 @@ export class NumberKeyboard extends Component {
                   onClick={() => onKeyPress('0')}
                   className={`${classPrefix}-key-text-span2`}>0</span>
                 {showCloseButton
-                  ? <view className={`${classPrefix}-key-text-span1`} onClick={() => {props.onClose?.()}}><Icon code={59931}/></view>
+                  ? <view className={`${classPrefix}-key-text-span1`} onClick={() => {props.handleClose?.()}}><Icon code={59931}/></view>
                   : <span className={`${classPrefix}-key-text-span1`} onClick={() => onKeyPress('.')}>.</span>}
               </div>
               }

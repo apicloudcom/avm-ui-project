@@ -62,6 +62,6 @@
         }
     ],
     "event": [
-        "onChange"
+        "handleChange"
     ]
 }

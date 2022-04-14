@@ -27,7 +27,7 @@ export class Rate extends Component {
 
   setValue = (val, props) => {
     this.data.value = val;
-    props.onChange?.(this.data.value);
+    props.rateChange?.(this.data.value);
   }
 
   render = props => {

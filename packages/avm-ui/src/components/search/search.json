@@ -3,12 +3,12 @@
     "desc": "搜索",
     "type": 2,
     "event": [
-        "onChange",
-        "onSearch",
-        "onFocus",
-        "onBlur",
-        "onClear",
-        "onCancel"
+        "handleChange",
+        "handleSearch",
+        "inputFocus",
+        "inputBlur",
+        "inputClear",
+        "handleCancel"
     ],
     "props": [
         {
@@ -46,7 +46,7 @@
             "default": "取消"
         },
         {
-            "name": "clearOnCancel",
+            "name": "clehandle",
             "tip": "点击取消按钮后是否清空输入框",
             "type": "boolean",
             "default": true

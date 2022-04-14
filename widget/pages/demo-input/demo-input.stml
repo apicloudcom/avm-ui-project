@@ -13,7 +13,7 @@
 					placeholder='请输入内容'
 					clearable
 					:placeholderClass="placeholder_class"
-					 onChange={this.onChange}
+					 handleChange={this.onChange}
 				/>
 			</DemoBlock>
 			<DemoBlock title='禁用状态'>

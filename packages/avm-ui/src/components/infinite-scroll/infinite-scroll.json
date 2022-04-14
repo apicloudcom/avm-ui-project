@@ -2,12 +2,10 @@
     "component": "InfiniteScroll",
     "desc": "无限滚动",
     "type": 2,
+    "event": [
+        "loadMore"
+    ],
     "props": [
-        {
-            "name": "loadMore",
-            "type": "string",
-            "tip": "加载更多的回调函数"
-        },
         {
             "name": "hasMore",
             "type": "boolean",

@@ -11,7 +11,7 @@ export class ListItem extends Component {
 
   render = props => {
     const active = props.active || false;
-    const clickable = props.clickable ?? !!props.onClick
+    const clickable = props.clickable ?? !!props.handleClick
 
     const arrow = props.arrow === undefined ? clickable : props.arrow
 
@@ -63,7 +63,7 @@ export class ListItem extends Component {
       props.disabled && `${classPrefix}-disabled`
     )
 
-    const listItemEvent = props.disabled ? undefined : props.onClick
+    const listItemEvent = props.disabled ? undefined : props.handleClick
 
     return (
       <div className={listItemCls} onClick={listItemEvent}>{content}</div>

@@ -4,10 +4,10 @@
 		<avm-nav-bar onBack={this.back}>CheckList</avm-nav-bar>
 		<scroll-view :show-scrollbar="false">
 			<DemoBlock title='基础用法' padding='0' border='none'>
-				<avm-check-list defaultValue={['B']} list={list1} onChange={val => this.onChange(val)}/>
+				<avm-check-list defaultValue={['B']} list={list1} handleChange={val => this.onChange(val)}/>
 			</DemoBlock>
 			<DemoBlock title='多选' padding='0' border='none'>
-				<avm-check-list multiple defaultValue={['B', 'C']} list={list2} onChange={(val) => this.onChange(val)}/>
+				<avm-check-list multiple defaultValue={['B', 'C']} list={list2} handleChange={(val) => this.onChange(val)}/>
 			</DemoBlock>
 			<DemoBlock title='自定义选中图标' padding='0' border='none'>
 				<avm-check-list defaultValue={['B']} list={list2} activeIcon={<text style="color: #9ac200">选中</text>}/>
@@ -49,6 +49,7 @@ export default {
 			api.closeWin();
 		},
 		onChange(val) {
+			console.log(val)
 			api.toast({
 				msg: JSON.stringify(val)
 			})

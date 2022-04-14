@@ -3,7 +3,7 @@
 		<avm-nav-bar onBack={this.back}>Rate</avm-nav-bar>
 		<scroll-view>
 			<DemoBlock title='基础用法'>
-				<avm-rate onChange={val => api.toast({msg: val})} />
+				<avm-rate rateChange={val => api.toast({msg: val})} />
 			</DemoBlock>
 			<DemoBlock title='半星'>
 				<avm-rate allowHalf defaultValue={2.5} />

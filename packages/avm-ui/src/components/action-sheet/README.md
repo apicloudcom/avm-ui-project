@@ -11,9 +11,9 @@
 | extra            | 顶部的额外区域                                                              | `ReactNode`                                | -               |
 | extraDesc         | 顶部的额外区域描述信息                                                    | `string`                         | -               |
 | cancelText       | 取消按钮文字，如果设置为空则不显示取消按钮                                  | `string`                                | -               |
-| onAction         | 点击选项时触发，禁用或加载状态下不会触发                                    | `(action: Action, index: number) => void`  | -               |
-| onClose          | 关闭时触发                                                                  | `() => void`                               | -               |
-| onMaskClick      | 点击遮罩层时触发                                                            | `() => void`                               | -               |
+| handleAction         | 点击选项时触发，禁用或加载状态下不会触发                                    | `(action: Action, index: number) => void`  | -               |
+| handleClose          | 关闭时触发                                                                  | `() => void`                               | -               |
+| maskClick      | 点击遮罩层时触发                                                            | `() => void`                               | -               |
 | closeOnAction    | 点击选项后是否关闭                                                          | `boolean`                                  | `false`         |
 | closeOnMaskClick | 点击遮罩层后是否关闭                                                        | `boolean`                                  | `true`          |
 
@@ -26,4 +26,4 @@
 | disabled    | 是否为禁用状态 | `boolean`          | `false` |
 | danger      | 是否为危险状态 | `boolean`          | `false` |
 | description | 描述           | `string`           | -       |
-| onClick     | 点击时触发     | `() => void`       | -       |
+| handleClick     | 点击时触发     | `() => void`       | -       |

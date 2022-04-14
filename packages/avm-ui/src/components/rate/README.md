@@ -13,7 +13,7 @@
 | defaultValue | 默认值                 | `number`                  | `0`              |
 | readOnly     | 只读，无法进行交互     | `boolean`                 | `false`          |
 | value        | 当前数，受控值         | `number`                  | -                |
-| onChange     | 选择时的回调           | `(value: number) => void` | -                |
+| rateChange     | 选择时的回调           | `(value: number) => void` | -                |
 | starSize    | star 大小              |          -                |    `24px`        |
 | activeColor | 填充色                 |     -                      |`#ffd21e`         |
 | disabled | 是否禁用                 |     `boolean`                     |`false`         |

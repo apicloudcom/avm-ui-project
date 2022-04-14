@@ -10,13 +10,13 @@
 | ------------ | -------------------------------------------- | ---------------------------------------------------- | ------- |
 | value        | 输入值                                       | `string`                                             | -       |
 | defaultValue | 默认值                                       | `string`                                             | -       |
-| onChange     | 输入框内容变化时触发                         | `(value: string) => void`                            | -       |
+| handleChange     | 输入框内容变化时触发                         | `(value: string) => void`                            | -       |
 | placeholder  | 提示文本                                     | `string`                                             | -       |
 | disabled     | 是否禁用                                     | `boolean`                                            | `false` |
 | readOnly     | 是否只读                                     | `boolean`                                            | `false` |
 | clearable    | 是否启用清除图标，点击清除图标后会清空输入框 | `boolean`                                            | `false` |
-| onClear      | 点击清除按钮后触发                           | `() => void`                                         | -       |
-| onEnterPress | 按下回车的回调                               | `(e: React.KeyboardEvent<HTMLInputElement>) => void` | -       |
+| handleClear      | 点击清除按钮后触发                           | `() => void`                                         | -       |
+| enterPress | 按下回车的回调                               | `(e: React.KeyboardEvent<HTMLInputElement>) => void` | -       |
 | fontSize         | 字号              | -     | `17px`                   |
 | color             | 文字颜色             | -  | `#333`  |
 | placeholderColor | `placeholder` 文字颜色 | -| `#ccc` |

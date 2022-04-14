@@ -3,7 +3,7 @@
     "desc": "开关",
     "type": 2,
     "event": [
-        "onChange",
+        "handleChange",
         "beforeChange"
     ],
     "props": [

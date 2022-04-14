@@ -3,7 +3,7 @@
     "desc": "折叠面板",
     "type": 2,
     "event": [
-        "onChange"
+        "handleChange"
     ],
     "props": [
         {

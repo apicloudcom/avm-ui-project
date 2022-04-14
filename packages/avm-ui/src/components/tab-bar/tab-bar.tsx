@@ -5,7 +5,7 @@ import Badge from '../badge'
 export type TabBarProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
-  onChange?: (key: string) => void
+  handleChange?: (key: string) => void
 }
 
 export class TabBarItem extends Component {
@@ -20,7 +20,7 @@ export class TabBar extends Component {
   }
   setActiveKey = key => {
     this.data.activeKey = key
-    this.props.onChange && this.props.onChange(key)
+    this.props.handleChange && this.props.handleChange(key)
   }
 
   render = props => {

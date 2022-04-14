@@ -16,7 +16,7 @@ export class Group extends Component {
 
   setValue = val => {
     this.data.value = val;
-    this.props.onChange && this.props.onChange(val)
+    this.props.groupChange && this.props.groupChange(val)
   }
 
   render = props => {

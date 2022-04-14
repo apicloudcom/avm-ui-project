@@ -12,7 +12,7 @@
 | autoplayInterval | 自动切换的间隔，单位为 `ms`                                                     | `number`                                             | `3000`         |
 | loop             | 是否循环                                                                        | `boolean`                                           | `true` `安卓暂不支持该属性`  |
 | direction        | 方向，默认是水平方向                                                            | `'horizontal' \| 'vertical'`                                               | `'horizontal'` |
-| onIndexChange    | 切换时触发                                                                      | `(index: number) => void`                                                 | -              |
+| indexChange    | 切换时触发                                                                      | `(index: number) => void`                                                 | -              |
 | indicatorProps   | 指示器的相关属性                                                                | 支持 [PageIndicator](./page-indicator) 的 `color` `style` `className` 属性  | -              |
 | indicator        | 自定义指示器                                                                    | `(total: number, current: number) => ReactNode`                            | -              |
 | height           | 高度                                                                           | -                                                                          | `120px`        |
@@ -23,4 +23,4 @@
 
 | 属性    | 说明           | 类型                                                        | 默认值 |
 | ------- | -------------- | ----------------------------------------------------------- | ------ |
-| onClick | 点击滑块时触发  | -                                                           | -      |
+| handleClick | 点击滑块时触发  | -                                                           | -      |

@@ -17,5 +17,5 @@
 | 属性    | 说明     | 类型                                                            | 默认值 |
 | ------- | -------- | --------------------------------------------------------------- | ------ |
 | span    | 跨度     | `number`                                                        | `1`    |
-| onClick | 点击事件 | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | -      |
+| handleClick | 点击事件 | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | -      |
 

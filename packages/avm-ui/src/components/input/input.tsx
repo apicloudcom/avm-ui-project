@@ -30,7 +30,7 @@ export class Input extends Component {
 
   setValue = val => {
     this.data.value = val;
-    this.props.onChange?.(this.data.value)
+    this.props.handleChange?.(this.data.value)
   }
 
   setHasFocus = state => {
@@ -43,12 +43,12 @@ export class Input extends Component {
 
     const {id, color, fontSize, disabledColor, textAlign, placeholderColor, placeholderClass,
       disabled, readOnly,  placeholder, maxLength, minLength, max, min, clearable,
-      onEnterPress, onKeyDown, onFocus, onBlur, onKeyUp, onClear,
+      enterPress, onKeyDown, onFocus, onBlur, onKeyUp, handleClear,
       autoComplete='on', enterKeyHint, pattern, type, autoCapitalize, autoCorrect} = this.props;
 
     const handleKeydown = (e: any) => {
-      if (onEnterPress && (e.code === 'Enter' || e.keyCode === 13)) {
-       onEnterPress(e)
+      if (enterPress && (e.code === 'Enter' || e.keyCode === 13)) {
+        enterPress(e)
       }
       onKeyDown?.(e)
     }
@@ -107,7 +107,7 @@ export class Input extends Component {
             className={`${classPrefix}-clear`}
             onClick={() => {
               this.setValue('')
-              onClear?.()
+              handleClear?.()
             }}>
             {/* <img src={closeIcon} alt="close" className={`${classPrefix}-clear-icon`}/> */}
             <Icon code={59939} fontSize="16px"/>

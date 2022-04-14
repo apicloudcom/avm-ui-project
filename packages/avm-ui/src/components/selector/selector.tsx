@@ -25,7 +25,7 @@ export class Selector extends Component {
   setValue = val => {
     this.data.value = val
     const extend = this.props.options.filter(option => val.includes(option.value))
-    this.props.onChange && this.props.onChange(val, extend)
+    this.props.handleChange && this.props.handleChange(val, extend)
   }
 
   render = props => {
