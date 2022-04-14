@@ -1,16 +1,17 @@
 {
-    "component": "GridItem",
-    "parent": "grid",
-    "desc": "栅格子元素",
-    "type": 2,
-    "event": [
-        "handleClick"
-    ],
-    "props": [
-        {
-            "name": "span",
-            "tip": "跨度",
-            "type": "number"
-        }
-    ]
+  "component": "GridItem",
+  "parent": "grid",
+  "desc": "栅格子元素",
+  "type": 2,
+  "event": [
+    "onClick"
+  ],
+  "props": [
+    {
+      "name": "span",
+      "tip": "跨度",
+      "type": "number",
+      "default": 1
+    }
+  ]
 }
