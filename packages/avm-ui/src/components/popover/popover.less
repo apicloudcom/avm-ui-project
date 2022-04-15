@@ -1,0 +1,25 @@
+@class-prefix-popover: ~'adm-popover';
+.@{class-prefix-popover} {
+    &-popup {
+        width: 128px;
+        position: absolute;
+        padding: 8px 0;
+        background: #f5f5f5;
+        align-items: center;
+        justify-content: center;
+        &-text {
+            color: #333;
+            font-size: 12px;
+            padding: 12px;
+        }
+        &-sharp {
+            position: absolute;
+            // top: -20px;
+            // left: 12px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent;
+            border-bottom-color: #f5f5f5;
+        }
+    }
+}

@@ -1,0 +1,91 @@
+{
+    "component": "Popover",
+    "desc": "气泡弹出框",
+    "type": 3,
+    "event": [
+        "action",
+        "visibleChange"
+    ],
+    "props": [
+        {
+            "name": "children",
+            "tip": "触发 popover 的元素",
+            "type": "string",
+            "default": "气泡弹出框"
+        },
+        {
+            "name": "mode",
+            "tip": "设置亮色模式或者黑色模式",
+            "enum": [
+                "light",
+                "dark"
+            ],
+            "type": "string",
+            "default": "light"
+        },
+        {
+            "name": "isMenu",
+            "tip": "是否是菜单弹出框",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "actions",
+            "tip": "菜单列表，当弹出内容为标准菜单时使用",
+            "type": "array",
+            "default": [{
+                "key": "key1",
+                "text": "选择标题",
+                "icon": null,
+                "disabled": false
+            }, {
+                "key": "key2",
+                "text": "选择标题",
+                "icon": null,
+                "disabled": false
+            }, {
+                "key": "key3",
+                "text": "选择标题",
+                "icon": null,
+                "disabled": false
+            }]
+        },
+        {
+            "name": "placement",
+            "tip": "气泡框位置",
+            "type": "string",
+            "enum": [
+                "top",
+                "top-start",
+                "top-end",
+                "right",
+                "right-start",
+                "right-end",
+                "bottom",
+                "bottom-start",
+                "bottom-end",
+                "left",
+                "left-start",
+                "left-end"
+            ]
+        },
+        {
+            "name": "visible",
+            "tip": "是否展示弹出内容",
+            "type": "boolean",
+            "default": false
+        },
+        {
+            "name": "content",
+            "tip": "弹出内容",
+            "type": "string",
+            "default": "Hello World"
+        },
+        {
+            "name": "zIndex",
+            "tip": "元素的 `z-index`",
+            "type": "number",
+            "default": 1030
+        }
+    ]
+}

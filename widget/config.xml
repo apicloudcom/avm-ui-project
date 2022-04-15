@@ -1,6 +1,6 @@
 <widget id="A6183702447528" version="0.0.1">
 
-	<content src="entry.json"/>
+	<content src="pages/demo-popover/demo-popover.stml"/>
 
 	<name>AVM-UI</name>
 

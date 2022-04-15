@@ -1,0 +1,103 @@
+<template>
+	<scroll-view scroll-y :show-scrollbar="false">
+		<avm-nav-bar onBack={this.back}>Popover</avm-nav-bar>
+		<DemoBlock title='不同方向'>
+			<avm-space wrap>
+				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="top">
+					<avm-button color='primary'>top</avm-button>
+				</avm-popover>
+				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="top-start">
+					<avm-button color='primary'>top-start</avm-button>
+				</avm-popover>
+				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="top-end">
+					<avm-button color='primary'>top-end</avm-button>
+				</avm-popover>
+				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="bottom">
+					<avm-button color='primary'>bottom</avm-button>
+				</avm-popover>
+				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="bottom-start">
+					<avm-button color='primary'>bottom-start</avm-button>
+				</avm-popover>
+				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="bottom-end">
+					<avm-button color='primary'>bottom-end</avm-button>
+				</avm-popover>
+				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="left">
+					<avm-button color='primary'>left</avm-button>
+				</avm-popover>
+				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="left-start">
+					<avm-button color='primary'>left-start</avm-button>
+				</avm-popover>
+				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="left-end">
+					<avm-button color='primary'>left-end</avm-button>
+				</avm-popover>
+				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="right">
+					<avm-button color='primary'>right</avm-button>
+				</avm-popover>
+				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="right-start">
+					<avm-button color='primary'>right-start</avm-button>
+				</avm-popover>
+				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="right-end">
+					<avm-button color='primary'>right-end</avm-button>
+				</avm-popover>
+			</avm-space>
+		</DemoBlock>
+		<DemoBlock title='黑色样式'>
+			<avm-space wrap>
+				<avm-popover>
+					<avm-button color='primary'>点我</avm-button>
+				</avm-popover>
+			</avm-space>
+		</DemoBlock>
+		<DemoBlock title='自定义样式'>
+			<avm-space wrap>
+				<avm-popover>
+					<avm-button>点我</avm-button>
+				</avm-popover>
+			</avm-space>
+		</DemoBlock>
+	</scroll-view>
+</template>
+<script>
+import '../../components/avm-ui/popover'
+import '../../components/avm-ui/nav-bar'
+import '../../components/avm-ui/space'
+import '../../components/avm-ui/button'
+import {DemoBlock} from '../../components/avm-ui/demos'
+
+export default {
+	name: 'demo-popover',
+	data() {
+		return{
+			
+		}
+	},
+	methods: {
+		back() {
+			api.closeWin();
+		}
+	}
+}
+</script>
+<style src="../../components/avm-ui/popover/index.css"/>
+<style src="../../components/avm-ui/demos/index.css"/>
+<style>
+.page {
+	height: 100%;
+	width: 100%;
+	background: #f2f2f2;
+}
+.box {
+	margin: 60px;
+	width: 100px;
+	height: 100px;
+	background: #f00;
+}
+.share {
+	position: absolute;
+	top: -20px;
+	border-width: 10px;
+	border-style: solid;
+	border-color: transparent;
+	border-bottom-color: #ff0;
+}
+</style>
