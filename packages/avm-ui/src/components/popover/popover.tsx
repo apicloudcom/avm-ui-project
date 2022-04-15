@@ -28,7 +28,9 @@ export class Popover extends Component {
       placement,
       visibleChange,
       zIndex,
-      content
+      content,
+      actions,
+      isHorizontalMenu
     } = this.props;
     const boxId = `adm-popover`
     const popupId = `adm-popover-popup`
@@ -107,13 +109,32 @@ export class Popover extends Component {
         <div style={popupStyle} id={popupId} className={classNames(
           `${classPrefix}-popup`,
           `${classPrefix}-popup-${mode}`,
-          `${classPrefix}-popup-${placement}`,
           {
-            [`${classPrefix}-popup-menu`]: isMenu
+            [`${classPrefix}-popup-horizontal`]: isHorizontalMenu
           }
         )}>
-          <div className={`${classPrefix}-popup-sharp`} style={sharpStyle}></div>
-          <span className={`${classPrefix}-popup-text`}>{content}</span>
+          <div className={classNames(`${classPrefix}-popup-sharp`, `${classPrefix}-popup-sharp-${mode}`)} style={sharpStyle}></div>
+          {!isMenu && <span className={classNames(`${classPrefix}-popup-text`, `${classPrefix}-popup-text-${mode}`)}>{content}</span>}
+          {isMenu && actions && <div className={classNames(`${classPrefix}-popup-menu`, {
+            [`${classPrefix}-popup-menu-horizontal`]: isHorizontalMenu
+          })}>
+            {
+              actions.map(item => {
+                const {key, text, icon, disabled} = item;
+                return (
+                  <div className={classNames(`${classPrefix}-popup-menu-item`, {
+                    [`${classPrefix}-popup-menu-item-disabled`]: disabled,
+                    [`${classPrefix}-popup-menu-item-horizontal`]: isHorizontalMenu
+                  })} key={key}>
+                    {icon && <img src={icon} alt="icon" className={classNames(`${classPrefix}-popup-menu-item-img`, {
+                      [`${classPrefix}-popup-menu-item-horizontal-img`]: isHorizontalMenu
+                    })}/>}
+                    <span className={classNames(`${classPrefix}-popup-menu-item-text`, `${classPrefix}-popup-menu-item-text-${mode}`)}>{text}</span>
+                  </div>
+                )
+              })
+            }
+          </div>}
         </div>
       </div>
     )

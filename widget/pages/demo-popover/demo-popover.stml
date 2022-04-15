@@ -43,15 +43,29 @@
 		</DemoBlock>
 		<DemoBlock title='黑色样式'>
 			<avm-space wrap>
-				<avm-popover>
-					<avm-button color='primary'>点我</avm-button>
+				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" mode="dark">
+					<avm-button color='primary'>dark</avm-button>
 				</avm-popover>
 			</avm-space>
 		</DemoBlock>
-		<DemoBlock title='自定义样式'>
+		<DemoBlock title='菜单列表'>
 			<avm-space wrap>
-				<avm-popover>
-					<avm-button>点我</avm-button>
+				<avm-popover isMenu isHorizontalMenu :actions="actionList" placement="top">
+					<avm-button>菜单弹出框</avm-button>
+				</avm-popover>
+			</avm-space>
+		</DemoBlock>
+		<DemoBlock title='菜单列表-带icon'>
+			<avm-space wrap>
+				<avm-popover isMenu :actions="actionList1" placement="top-end">
+					<avm-button>菜单列表-带icon</avm-button>
+				</avm-popover>
+			</avm-space>
+		</DemoBlock>
+		<DemoBlock title='自定义-横向展示菜单'>
+			<avm-space wrap>
+				<avm-popover isMenu isHorizontalMenu :actions="actionList1" placement="top">
+					<avm-button>自定义-横向展示菜单</avm-button>
 				</avm-popover>
 			</avm-space>
 		</DemoBlock>
@@ -68,7 +82,38 @@ export default {
 	name: 'demo-popover',
 	data() {
 		return{
-			
+			actionList: [{
+                "key": "key1",
+                "text": "选择标题",
+                "icon": null,
+                "disabled": false
+            }, {
+                "key": "key2",
+                "text": "选择标题",
+                "icon": null,
+                "disabled": false
+            }, {
+                "key": "key3",
+                "text": "选择标题",
+                "icon": null,
+                "disabled": false
+            }],
+			actionList1: [{
+                "key": "key1",
+                "text": "选择标题",
+                "icon": 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/3dd2bde750a04efd60869b5f9efdb3ca.png',
+                "disabled": false
+            }, {
+                "key": "key2",
+                "text": "选择标题",
+                "icon": 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/3dd2bde750a04efd60869b5f9efdb3ca.png',
+                "disabled": false
+            }, {
+                "key": "key3",
+                "text": "选择标题",
+                "icon": 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/3dd2bde750a04efd60869b5f9efdb3ca.png',
+                "disabled": false
+            }]
 		}
 	},
 	methods: {

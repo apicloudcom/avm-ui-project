@@ -86,6 +86,12 @@
             "tip": "元素的 `z-index`",
             "type": "number",
             "default": 1030
+        },
+        {
+            "name": "isHorizontalMenu",
+            "tip": "是否横向展示菜单",
+            "type": "boolean",
+            "default": false
         }
     ]
 }
