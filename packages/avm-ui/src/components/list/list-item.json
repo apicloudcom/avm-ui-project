@@ -1,6 +1,6 @@
 {
   "component": "ListItem",
-  "parent": "List",
+  "parent": "list",
   "desc": "列表选项",
   "type": 1,
   "event": [
