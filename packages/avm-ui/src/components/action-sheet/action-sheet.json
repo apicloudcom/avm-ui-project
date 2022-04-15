@@ -13,7 +13,7 @@
             "name": "visible",
             "tip": "显示隐藏",
             "type": "boolean",
-            "default": false
+            "default": true
         },
         {
             "name": "actions",
