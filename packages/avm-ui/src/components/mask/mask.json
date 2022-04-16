@@ -15,12 +15,14 @@
     {
       "name": "color",
       "tip": "遮罩层的颜色",
+      "type": "string",
       "enum": ["white", "black"],
       "default": "black"
     },
     {
       "name": "opacity",
       "tip": "透明度",
+      "type": "string",
       "enum": ["default", "thin", "thick", "number"],
       "default": "default"
     }

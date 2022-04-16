@@ -1,6 +1,6 @@
 {
         "component": "DropdownItem",
-        "parent":"Dropdown",
+        "parent":"dropdown",
         "desc": "Dropdown.Item 下来菜单中item",
         "type": 2,
         "props": [
