@@ -16,14 +16,14 @@ export class ProgressBar extends Component {
   render = props => {
     const back = {}
     back['height'] = toCSSLength(props.trackWidth) || '3px'
-    back['borderRadius'] = toCSSLength(props.trackWidth) || '3px'
+    back['borderRadius'] = toCSSLength(props.borderRadius) || '3px'
     back['backgroundColor'] =props.fillColor || '#E5E5E5'  
 
     const styles = {}
     styles['width'] = `${props.percent}%`
     styles['width'] = props.percent ? `${props.percent}%` : '0%'
     styles['background'] = props.trackColor || '#1677ff'
-    styles['borderRadius'] = toCSSLength(props.trackWidth) || '3px'
+    styles['borderRadius'] = toCSSLength(props.borderRadius) || '3px'
 
     return (
       <div className={classPrefix}  >

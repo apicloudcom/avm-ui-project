@@ -1,11 +1,37 @@
 {
-    "component": "ProgressBar",
-    "desc": "progress-bar 组件定义一个进度条",
-    "type": 2,
-    "props": [
-        {"name": "percent", "type": "number", "tip": "百分比"},
-        {"name": "trackWidth", "type": "number",  "tip": "线条宽度"},
-        {"name": "trackColor", "type": "string",  "tip": "线条的颜色"},
-        {"name": "fillColor", "type": "string",  "tip": "填充的颜色"}
-    ]
+  "component": "ProgressBar",
+  "desc": "progress-bar 组件定义一个进度条",
+  "type": 2,
+  "props": [
+    {
+      "name": "percent",
+      "type": "number",
+      "tip": "百分比",
+      "default": 30
+    },
+    {
+      "name": "trackWidth",
+      "type": "number",
+      "tip": "线条宽度",
+      "default": 10
+    },
+    {
+      "name": "borderRadius",
+      "type": "number",
+      "tip": "圆角大小",
+      "default": 3
+    },
+    {
+      "name": "trackColor",
+      "type": "string",
+      "tip": "线条的颜色",
+      "default": "#1677ff"
+    },
+    {
+      "name": "fillColor",
+      "type": "string",
+      "tip": "填充的颜色",
+      "default": "#E5E5E5"
+    }
+  ]
 }
