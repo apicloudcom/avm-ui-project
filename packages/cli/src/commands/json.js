@@ -49,28 +49,39 @@ function processContent(jsonContent) {
     if (prop.type) {
       if (~prop.type.indexOf('[]')) {
         console.warn(`${desc} 的 type 不规范的数组，缺省为 array 。`);
-        prop.type = 'array';// 修改为 string
-      } else if (prop.type === 'CSSProperties') {
-        console.warn(`${desc} 的 type 是 CSSProperties，缺省为 string 。`);
+        prop.type = 'array';// 修改为 array
+      } else if (!['string', 'boolean', 'number', 'array'].includes(prop.type)) {
+        console.warn(`${desc} 的 type 是 ${prop.type}，缺省为 string 。`);
         prop.type = 'string';// 修改为 string
-      } else if (prop.type === 'Node') {
-        console.warn(`${desc} 的 type 是 Node，缺省为 string 。`);
-        prop.type = 'string';// 修改为 string
+      } else if (prop.type === 'boolean') {
+        if (prop.enum) {
+          console.warn(`${desc} 的 type 是 boolean，不需要 enum  。`);
+          delete prop.enum;
+        }
       }
     } else {
       console.warn(`${desc} 的 type 未声明，缺省为 string 。`);
       prop.type = 'string';// 修改为 string
     }
 
+    const newEvent = [];
     if (jsonContent.event) {
-      jsonContent.event = jsonContent.event.map(item => {
+      jsonContent.event.forEach(item => {
         if (item.startsWith('on')) {
           console.warn(`${desc} 的 event ${item} 是以 on 开头的，应该去掉 on 。`);
           item = item.slice(2);
+          item = item[0].toLowerCase() + item.slice(1);
         }
-        return item;
+
+        if (['longpress', 'click', 'touchstart', 'touchmove', 'touchend', 'touchcancel'].includes(item)) {
+          console.warn(`${desc} 的 event 是 通用事件:${item} ，需要去掉 。`);
+        } else {
+          newEvent.push(item)
+        }
+
       })
     }
+    jsonContent.event = newEvent;
 
     return prop;
   })
