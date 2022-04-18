@@ -43,7 +43,7 @@ export class Popover extends Component {
     if (['top', 'top-start', 'top-end'].includes(placement)) {
       popupStyle = {
         ...popupStyle,
-        top: `-${(popupRect?.height || 0) + (boxRect?.height || 0) - 20}px`
+        top: `${-((popupRect?.height || 0) + (boxRect?.height || 0) - 20)}px`
       }
       sharpStyle = {
         transform: 'rotate(180deg)',
@@ -53,7 +53,7 @@ export class Popover extends Component {
     if (['bottom', 'bottom-start', 'bottom-end'].includes(placement)) {
       popupStyle = {
         ...popupStyle,
-        bottom: `-${(popupRect?.height || 0) + (boxRect?.height || 0) - 20}px`
+        bottom: `${-((popupRect?.height || 0) + (boxRect?.height || 0) - 20)}px`
       }
       sharpStyle = {
         transform: 'rotate(0)',
@@ -63,7 +63,7 @@ export class Popover extends Component {
     if (["left", "left-start", "left-end"].includes(placement)) {
       popupStyle = {
         ...popupStyle,
-        left: `-${(popupRect?.width || 0) + 10}px`
+        left: `${-((popupRect?.width || 0) + 10)}px`
       };
       sharpStyle = {
         transform: "rotate(90deg)",
@@ -73,7 +73,7 @@ export class Popover extends Component {
     if (["right", "right-start", "right-end"].includes(placement)) {
       popupStyle = {
         ...popupStyle,
-        right: `-${(popupRect?.width || 0) + 10}px`
+        right: `${-((popupRect?.width || 0) + 10)}px`
       };
       sharpStyle = {
         transform: "rotate(-90deg)",
@@ -82,7 +82,7 @@ export class Popover extends Component {
     }
     if (['top', 'bottom'].includes(placement)) {
       sharpStyle.left = `${((popupRect?.width || 0) - 10) / 2}px`
-      popupStyle.left = `-${((popupRect?.width || 0) - (boxRect?.width || 0)) / 2}px`
+      popupStyle.left = `${-(((popupRect?.width || 0) - (boxRect?.width || 0)) / 2)}px`
     } else if (['top-start', 'bottom-start'].includes(placement)) {
       sharpStyle.left = '20px'
       popupStyle.left = 0
@@ -91,7 +91,7 @@ export class Popover extends Component {
       popupStyle.right = 0
     }
     if (placement === "left" || placement === 'right') {
-      popupStyle.top = `-${((popupRect?.height || 0) - (boxRect?.height || 0)) / 2}px`
+      popupStyle.top = `${-(((popupRect?.height || 0) - (boxRect?.height || 0)) / 2)}px`
       sharpStyle.top = `${((popupRect?.height || 0) - 10) / 2}px`;
     } else if (placement === "left-start" || placement === 'right-start') {
       sharpStyle.top = "0";
@@ -132,7 +132,7 @@ export class Popover extends Component {
                     [`${classPrefix}-popup-menu-horizontal-item`]: isHorizontalMenu,
                     [`${classPrefix}-popup-menu-default-item`]: !isHorizontalMenu
                   })} key={key}
-                    onClick={() => {
+                  onClick={() => {
                       this.props.actionClick?.(item)
                     }}>
                     {icon && <img src={icon} alt="icon" className={classNames(`${classPrefix}-popup-menu-item-img`, {
