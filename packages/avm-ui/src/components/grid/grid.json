@@ -1,7 +1,7 @@
 {
   "component": "Grid",
   "desc": "栅格",
-  "type": 2,
+  "type": 1,
   "event": [],
   "props": [
     {

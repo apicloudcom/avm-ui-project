@@ -2,7 +2,7 @@
   "component": "GridItem",
   "parent": "grid",
   "desc": "栅格子元素",
-  "type": 2,
+  "type": 1,
   "event": [
     "onClick"
   ],
