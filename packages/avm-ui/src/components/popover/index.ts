@@ -1,4 +1,4 @@
-import './popover.less'
+// import './popover.less'
 import { Popover } from './popover'
 
 export default Popover

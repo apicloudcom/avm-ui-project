@@ -3,7 +3,6 @@
     &-popup {
         width: 128px;
         position: absolute;
-        padding: 8px 0;
         align-items: center;
         justify-content: center;
         &-horizontal {
@@ -47,8 +46,11 @@
                 flex-direction: row;
                 align-items: center;
                 width: 100%;
-                padding: 11px 0;
+                padding: 10px 0;
                 border-bottom: 0.5px solid #e8e8e8;
+                &-nobottom-border {
+                    border-bottom: none;
+                }
                 &-text {
                     font-size: 14px;
                     color: #333;
@@ -56,9 +58,12 @@
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;
-                }
-                &-dark {
-                    color: #fff;
+                    &-dark {
+                        color: #fff;
+                    }
+                    &-center {
+                        text-align: center;
+                    }
                 }
                 &-img {
                     flex-shrink: 0;
@@ -76,6 +81,12 @@
                         margin-bottom: 8px;
                     }
                 }
+            }
+            &-light {
+                background: #f5f5f5;
+            }
+            &-dark {
+                background: #333;
             }
             &-horizontal {
                 flex-direction: row;

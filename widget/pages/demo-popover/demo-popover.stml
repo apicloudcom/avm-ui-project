@@ -1,71 +1,78 @@
 <template>
-	<scroll-view scroll-y :show-scrollbar="false">
+	<scroll-view scroll-y :show-scrollbar="false" class="page">
 		<avm-nav-bar onBack={this.back}>Popover</avm-nav-bar>
 		<DemoBlock title='不同方向'>
 			<avm-space wrap>
-				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="top">
-					<avm-button color='primary'>top</avm-button>
+				<avm-popover content="Hello world" placement="top" id="popover-top" popupId="popover-top-popup">
+					<avm-button>top</avm-button>
 				</avm-popover>
-				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="top-start">
-					<avm-button color='primary'>top-start</avm-button>
+				<avm-popover content="Hello world" placement="top-start" id="popover-top-start" popupId="popover-top-start-popup">
+					<avm-button>top-start</avm-button>
 				</avm-popover>
-				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="top-end">
-					<avm-button color='primary'>top-end</avm-button>
+				<avm-popover content="Hello world" placement="top-end" id="popover-top-end" popupId="popover-top-end-popup">
+					<avm-button>top-end</avm-button>
 				</avm-popover>
-				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="bottom">
-					<avm-button color='primary'>bottom</avm-button>
+				<avm-popover content="Hello world" placement="bottom" id="popover-bottom" popupId="popover-bottom-start-popup">
+					<avm-button>bottom</avm-button>
 				</avm-popover>
-				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="bottom-start">
-					<avm-button color='primary'>bottom-start</avm-button>
+				<avm-popover content="Hello world" placement="bottom-start" id="popover-bottom-start" popupId="popover-bottom-start-popup">
+					<avm-button>bottom-start</avm-button>
 				</avm-popover>
-				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="bottom-end">
-					<avm-button color='primary'>bottom-end</avm-button>
+				<avm-popover content="Hello world" placement="bottom-end" id="popover-bottom-end" popupId="popover-bottom-end-popup">
+					<avm-button>bottom-end</avm-button>
 				</avm-popover>
-				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="left">
-					<avm-button color='primary'>left</avm-button>
+				<avm-popover content="Hello world" placement="left" id="popover-left" popupId="popover-left-popup">
+					<avm-button>left</avm-button>
 				</avm-popover>
-				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="left-start">
-					<avm-button color='primary'>left-start</avm-button>
+				<avm-popover content="Hello world" placement="left-start" id="popover-left-start" popupId="popover-left-start-popup">
+					<avm-button>left-start</avm-button>
 				</avm-popover>
-				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="left-end">
-					<avm-button color='primary'>left-end</avm-button>
+				<avm-popover content="Hello world" placement="left-end" id="popover-left-end" popupId="popover-left-end-popup">
+					<avm-button>left-end</avm-button>
 				</avm-popover>
-				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="right">
-					<avm-button color='primary'>right</avm-button>
+				<avm-popover content="Hello world" placement="right" id="popover-right" popupId="popover-right-popup">
+					<avm-button>right</avm-button>
 				</avm-popover>
-				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="right-start">
-					<avm-button color='primary'>right-start</avm-button>
+				<avm-popover content="Hello world" placement="right-start" id="popover-right-start" popupId="popover-right-start-popup">
+					<avm-button>right-start</avm-button>
 				</avm-popover>
-				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" placement="right-end">
-					<avm-button color='primary'>right-end</avm-button>
+				<avm-popover content="Hello world" placement="right-end" id="popover-right-end" popupId="popover-right-end-popup">
+					<avm-button>right-end</avm-button>
 				</avm-popover>
 			</avm-space>
 		</DemoBlock>
 		<DemoBlock title='黑色样式'>
 			<avm-space wrap>
-				<avm-popover content="Hello worldHello worldHello worldHello worldHello worldHello world" mode="dark">
-					<avm-button color='primary'>dark</avm-button>
+				<avm-popover content="Hello world" mode="dark" id="popover-dark" popupId="popover-dark-popup">
+					<avm-button>黑色样式</avm-button>
 				</avm-popover>
 			</avm-space>
 		</DemoBlock>
 		<DemoBlock title='菜单列表'>
 			<avm-space wrap>
-				<avm-popover isMenu isHorizontalMenu :actions="actionList" placement="top">
-					<avm-button>菜单弹出框</avm-button>
+				<avm-popover isMenu :actions="actionList" placement="right" id="popover-right-menu" popupId="popover-right-menu-popup">
+					<avm-button>菜单列表</avm-button>
+				</avm-popover>
+			</avm-space>
+		</DemoBlock>
+		<DemoBlock title='菜单列表-横向展示'>
+			<avm-space wrap>
+				<avm-popover isMenu isHorizontalMenu :actions="actionList1" placement="top-end" id="popover-top-end-menu-row" popupId="popover-top-end-menu-row-popup">
+					<avm-button>菜单列表-横向展示</avm-button>
+				</avm-popover>
+			</avm-space>
+		</DemoBlock>
+		<DemoBlock title='菜单列表-黑色样式'>
+			<avm-space wrap>
+				<avm-popover isMenu :actions="actionList" mode="dark" placement="right" id="popover-right-menu" popupId="popover-right-menu-popup">
+					<avm-button>菜单列表-黑色样式</avm-button>
 				</avm-popover>
 			</avm-space>
 		</DemoBlock>
 		<DemoBlock title='菜单列表-带icon'>
 			<avm-space wrap>
-				<avm-popover isMenu :actions="actionList1" placement="top-end">
+				<avm-popover isMenu :actions="actionList1" placement="right" id="popover-right-menu-icon" popupId="popover-right-menu-icon-popup">
 					<avm-button>菜单列表-带icon</avm-button>
-				</avm-popover>
-			</avm-space>
-		</DemoBlock>
-		<DemoBlock title='自定义-横向展示菜单'>
-			<avm-space wrap>
-				<avm-popover isMenu isHorizontalMenu :actions="actionList1" placement="top">
-					<avm-button>自定义-横向展示菜单</avm-button>
 				</avm-popover>
 			</avm-space>
 		</DemoBlock>
@@ -123,11 +130,10 @@ export default {
 	}
 }
 </script>
-<style src="../../components/avm-ui/popover/index.css"/>
+<!-- <style src="../../components/avm-ui/popover/index.css"/> -->
 <style src="../../components/avm-ui/demos/index.css"/>
 <style>
 .page {
-	height: 100%;
 	width: 100%;
 	background: #f2f2f2;
 }

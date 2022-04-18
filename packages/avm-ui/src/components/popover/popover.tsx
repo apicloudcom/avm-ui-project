@@ -30,11 +30,13 @@ export class Popover extends Component {
       zIndex,
       content,
       actions,
-      isHorizontalMenu
+      isHorizontalMenu,
+      id,
+      popupId
     } = this.props;
-    const boxId = `adm-popover`
-    const popupId = `adm-popover-popup`
-    const boxRect = document.getElementById(boxId)?.getBoundingClientRect()
+    // const boxId = `adm-popover`
+    // const popupId = `adm-popover-popup`
+    const boxRect = document.getElementById(id)?.getBoundingClientRect()
     const popupRect = document.getElementById(popupId)?.getBoundingClientRect()
     let popupStyle: any = {zIndex, visibility: this.data.visible === true ? 'visible': 'hidden'}
     let sharpStyle: any = {}
@@ -100,7 +102,7 @@ export class Popover extends Component {
     }
     return (
       <div className={classPrefix}>
-        <div className={`${classPrefix}-con`} id={boxId} onClick={() => {
+        <div className={`${classPrefix}-con`} id={id} onClick={() => {
           this.data.visible = !this.data.visible
           visibleChange?.()
         }}>
@@ -115,21 +117,24 @@ export class Popover extends Component {
         )}>
           <div className={classNames(`${classPrefix}-popup-sharp`, `${classPrefix}-popup-sharp-${mode}`)} style={sharpStyle}></div>
           {!isMenu && <span className={classNames(`${classPrefix}-popup-text`, `${classPrefix}-popup-text-${mode}`)}>{content}</span>}
-          {isMenu && actions && <div className={classNames(`${classPrefix}-popup-menu`, {
+          {isMenu && actions && <div className={classNames(`${classPrefix}-popup-menu`, `${classPrefix}-popup-menu-${mode}`, {
             [`${classPrefix}-popup-menu-horizontal`]: isHorizontalMenu
           })}>
             {
-              actions.map(item => {
+              actions.map((item, index) => {
                 const {key, text, icon, disabled} = item;
                 return (
                   <div className={classNames(`${classPrefix}-popup-menu-item`, {
                     [`${classPrefix}-popup-menu-item-disabled`]: disabled,
-                    [`${classPrefix}-popup-menu-item-horizontal`]: isHorizontalMenu
+                    [`${classPrefix}-popup-menu-item-horizontal`]: isHorizontalMenu,
+                    [`${classPrefix}-popup-menu-item-nobottom-border`]: index === actions.length - 1
                   })} key={key}>
                     {icon && <img src={icon} alt="icon" className={classNames(`${classPrefix}-popup-menu-item-img`, {
                       [`${classPrefix}-popup-menu-item-horizontal-img`]: isHorizontalMenu
                     })}/>}
-                    <span className={classNames(`${classPrefix}-popup-menu-item-text`, `${classPrefix}-popup-menu-item-text-${mode}`)}>{text}</span>
+                    <span className={classNames(`${classPrefix}-popup-menu-item-text`, `${classPrefix}-popup-menu-item-text-${mode}`, {
+                      [`${classPrefix}-popup-menu-item-text-center`]: !icon
+                    })}>{text}</span>
                   </div>
                 )
               })
@@ -142,7 +147,99 @@ export class Popover extends Component {
 
   css = () => {
     return `
-    
+    .adm-popover-popup {
+      width: 128px;
+      position: absolute;
+      align-items: center;
+      justify-content: center;
+    }
+    .adm-popover-popup-horizontal {
+      width: 288px;
+      padding: 0 8px;
+    }
+    .adm-popover-popup-light {
+      background: #f5f5f5;
+    }
+    .adm-popover-popup-dark {
+      background: #333;
+    }
+    .adm-popover-popup-text {
+      color: #333;
+      font-size: 14px;
+      padding: 12px;
+    }
+    .adm-popover-popup-text-dark {
+      color: #fff;
+    }
+    .adm-popover-popup-sharp {
+      position: absolute;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent;
+      border-bottom-color: #f5f5f5;
+    }
+    .adm-popover-popup-sharp-dark {
+      border-bottom-color: #333;
+    }
+    .adm-popover-popup-menu {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 14px;
+    }
+    .adm-popover-popup-menu-item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      padding: 10px 0;
+      border-bottom: 0.5px solid #e8e8e8;
+    }
+    .adm-popover-popup-menu-item-nobottom-border {
+      border-bottom: none;
+    }
+    .adm-popover-popup-menu-item-text {
+      font-size: 14px;
+      color: #333;
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .adm-popover-popup-menu-item-text-dark {
+      color: #fff;
+    }
+    .adm-popover-popup-menu-item-text-center {
+      text-align: center;
+    }
+    .adm-popover-popup-menu-item-img {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      margin-right: 12px;
+    }
+    .adm-popover-popup-menu-item-horizontal {
+      width: 25%;
+      height: 72px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .adm-popover-popup-menu-item-horizontal-img {
+      margin-bottom: 8px;
+    }
+    .adm-popover-popup-menu-light {
+      background: #f5f5f5;
+    }
+    .adm-popover-popup-menu-dark {
+      background: #333;
+    }
+    .adm-popover-popup-menu-horizontal {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
     `
   }
 }
