@@ -50,14 +50,14 @@
 		</DemoBlock>
 		<DemoBlock title='菜单列表'>
 			<avm-space wrap>
-				<avm-popover isMenu :actions="actionList" placement="right" id="popover-right-menu" popupId="popover-right-menu-popup">
+				<avm-popover isMenu :actions="actionList" placement="right" id="popover-right-menu" popupId="popover-right-menu-popup" @actionClick="actionClick">
 					<avm-button>菜单列表</avm-button>
 				</avm-popover>
 			</avm-space>
 		</DemoBlock>
 		<DemoBlock title='菜单列表-横向展示'>
 			<avm-space wrap>
-				<avm-popover isMenu isHorizontalMenu :actions="actionList1" placement="top-end" id="popover-top-end-menu-row" popupId="popover-top-end-menu-row-popup">
+				<avm-popover isMenu isHorizontalMenu mode="dark" :actions="actionList1" placement="right" id="popover-right-menu-row" popupId="popover-right-menu-row-popup">
 					<avm-button>菜单列表-横向展示</avm-button>
 				</avm-popover>
 			</avm-space>
@@ -120,12 +120,42 @@ export default {
                 "text": "选择标题",
                 "icon": 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/3dd2bde750a04efd60869b5f9efdb3ca.png',
                 "disabled": false
+            }, {
+                "key": "key4",
+                "text": "选择标题",
+                "icon": 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/3dd2bde750a04efd60869b5f9efdb3ca.png',
+                "disabled": false
+            }, {
+                "key": "key5",
+                "text": "选择标题",
+                "icon": 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/3dd2bde750a04efd60869b5f9efdb3ca.png',
+                "disabled": false
+            }, {
+                "key": "key6",
+                "text": "选择标题",
+                "icon": 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/3dd2bde750a04efd60869b5f9efdb3ca.png',
+                "disabled": false
+            }, {
+                "key": "key7",
+                "text": "选择标题",
+                "icon": 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/3dd2bde750a04efd60869b5f9efdb3ca.png',
+                "disabled": false
+            }, {
+                "key": "key8",
+                "text": "选择标题",
+                "icon": 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/3dd2bde750a04efd60869b5f9efdb3ca.png',
+                "disabled": false
             }]
 		}
 	},
 	methods: {
 		back() {
 			api.closeWin();
+		},
+		actionClick(e) {
+			api.toast({
+				msg: '点击了'
+			})
 		}
 	}
 }

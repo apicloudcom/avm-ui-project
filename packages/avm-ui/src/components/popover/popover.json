@@ -3,7 +3,7 @@
     "desc": "气泡弹出框",
     "type": 3,
     "event": [
-        "action",
+        "actionClick",
         "visibleChange"
     ],
     "props": [
@@ -92,6 +92,18 @@
             "tip": "是否横向展示菜单",
             "type": "boolean",
             "default": false
+        },
+        {
+            "name": "id",
+            "tip": "popover容器Id",
+            "type": "string",
+            "default": "popover-box"
+        },
+        {
+            "name": "popupId",
+            "tip": "气泡弹出框Id",
+            "type": "string",
+            "default": "popover-popup-box"
         }
     ]
 }

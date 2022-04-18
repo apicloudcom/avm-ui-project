@@ -20,7 +20,7 @@ export class Popover extends Component {
   }
   render = props => {
     this.props = Object.assign({}, defaultProps, props)
-    
+
     let {
       children,
       mode,
@@ -38,7 +38,7 @@ export class Popover extends Component {
     // const popupId = `adm-popover-popup`
     const boxRect = document.getElementById(id)?.getBoundingClientRect()
     const popupRect = document.getElementById(popupId)?.getBoundingClientRect()
-    let popupStyle: any = {zIndex, visibility: this.data.visible === true ? 'visible': 'hidden'}
+    let popupStyle: any = { zIndex, visibility: this.data.visible === true ? 'visible' : 'hidden' }
     let sharpStyle: any = {}
     if (['top', 'top-start', 'top-end'].includes(placement)) {
       popupStyle = {
@@ -81,7 +81,7 @@ export class Popover extends Component {
       };
     }
     if (['top', 'bottom'].includes(placement)) {
-      sharpStyle.left = `${((popupRect?.width || 0) - 10)/2}px`
+      sharpStyle.left = `${((popupRect?.width || 0) - 10) / 2}px`
       popupStyle.left = `-${((popupRect?.width || 0) - (boxRect?.width || 0)) / 2}px`
     } else if (['top-start', 'bottom-start'].includes(placement)) {
       sharpStyle.left = '20px'
@@ -112,28 +112,35 @@ export class Popover extends Component {
           `${classPrefix}-popup`,
           `${classPrefix}-popup-${mode}`,
           {
+            [`${classPrefix}-popup-default`]: !isHorizontalMenu,
             [`${classPrefix}-popup-horizontal`]: isHorizontalMenu
           }
         )}>
           <div className={classNames(`${classPrefix}-popup-sharp`, `${classPrefix}-popup-sharp-${mode}`)} style={sharpStyle}></div>
           {!isMenu && <span className={classNames(`${classPrefix}-popup-text`, `${classPrefix}-popup-text-${mode}`)}>{content}</span>}
           {isMenu && actions && <div className={classNames(`${classPrefix}-popup-menu`, `${classPrefix}-popup-menu-${mode}`, {
+            [`${classPrefix}-popup-menu-default`]: !isHorizontalMenu,
             [`${classPrefix}-popup-menu-horizontal`]: isHorizontalMenu
           })}>
             {
               actions.map((item, index) => {
-                const {key, text, icon, disabled} = item;
+                const { key, text, icon, disabled } = item;
                 return (
                   <div className={classNames(`${classPrefix}-popup-menu-item`, {
                     [`${classPrefix}-popup-menu-item-disabled`]: disabled,
-                    [`${classPrefix}-popup-menu-item-horizontal`]: isHorizontalMenu,
-                    [`${classPrefix}-popup-menu-item-nobottom-border`]: index === actions.length - 1
-                  })} key={key}>
+                    [`${classPrefix}-popup-menu-item-nobottom-border`]: index === actions.length - 1,
+                    [`${classPrefix}-popup-menu-horizontal-item`]: isHorizontalMenu,
+                    [`${classPrefix}-popup-menu-default-item`]: !isHorizontalMenu
+                  })} key={key}
+                    onClick={() => {
+                      this.props.actionClick?.(item)
+                    }}>
                     {icon && <img src={icon} alt="icon" className={classNames(`${classPrefix}-popup-menu-item-img`, {
-                      [`${classPrefix}-popup-menu-item-horizontal-img`]: isHorizontalMenu
-                    })}/>}
+                      [`${classPrefix}-popup-menu-horizontal-item-img`]: isHorizontalMenu
+                    })} />}
                     <span className={classNames(`${classPrefix}-popup-menu-item-text`, `${classPrefix}-popup-menu-item-text-${mode}`, {
-                      [`${classPrefix}-popup-menu-item-text-center`]: !icon
+                      [`${classPrefix}-popup-menu-item-text-center`]: !icon,
+                      [`${classPrefix}-popup-menu-horizontal-item-text`]: isHorizontalMenu
                     })}>{text}</span>
                   </div>
                 )
@@ -148,14 +155,15 @@ export class Popover extends Component {
   css = () => {
     return `
     .adm-popover-popup {
-      width: 128px;
       position: absolute;
       align-items: center;
       justify-content: center;
     }
+    .adm-popover-popup-default {
+      width: 128px;
+    }
     .adm-popover-popup-horizontal {
       width: 288px;
-      padding: 0 8px;
     }
     .adm-popover-popup-light {
       background: #f5f5f5;
@@ -181,20 +189,20 @@ export class Popover extends Component {
     .adm-popover-popup-sharp-dark {
       border-bottom-color: #333;
     }
-    .adm-popover-popup-menu {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0 14px;
+    .adm-popover-popup-menu-light {
+      background: #f5f5f5;
+    }
+    .adm-popover-popup-menu-dark {
+      background: #333;
     }
     .adm-popover-popup-menu-item {
       display: flex;
-      flex-direction: row;
-      align-items: center;
-      width: 100%;
       padding: 10px 0;
       border-bottom: 0.5px solid #e8e8e8;
+    }
+    .adm-popover-popup-menu-item-disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
     }
     .adm-popover-popup-menu-item-nobottom-border {
       border-bottom: none;
@@ -219,26 +227,44 @@ export class Popover extends Component {
       height: 26px;
       margin-right: 12px;
     }
-    .adm-popover-popup-menu-item-horizontal {
-      width: 25%;
+    .adm-popover-popup-menu-default {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 14px;
+    }
+    .adm-popover-popup-menu-default-item {
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+    }
+    .adm-popover-popup-menu-horizontal {
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      max-width: 288px;
+    }
+    .adm-popover-popup-menu-horizontal-item {
+      padding: 0;
+      width: 72px;
       height: 72px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      border-bottom: none;
     }
-    .adm-popover-popup-menu-item-horizontal-img {
+    .adm-popover-popup-menu-horizontal-item-img {
       margin-bottom: 8px;
+      margin-right: 0;
     }
-    .adm-popover-popup-menu-light {
-      background: #f5f5f5;
-    }
-    .adm-popover-popup-menu-dark {
-      background: #333;
-    }
-    .adm-popover-popup-menu-horizontal {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
+    .adm-popover-popup-menu-horizontal-item-text {
+      flex: none;
+      width: 100%;
+      text-align: center;
     }
     `
   }
