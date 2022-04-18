@@ -7,6 +7,12 @@
   ],
   "props": [
     {
+      "name": "$text",
+      "type": "string",
+      "tip": "按钮标题",
+      "default": "按钮"
+    },
+    {
       "name": "color",
       "tip": "按钮的颜色",
       "type": "string",
