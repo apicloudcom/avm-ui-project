@@ -40,46 +40,26 @@ export class Popover extends Component {
     const popupRect = document.getElementById(popupId)?.getBoundingClientRect()
     let popupStyle: any = { zIndex, visibility: this.data.visible === true ? 'visible' : 'hidden' }
     let sharpStyle: any = {}
+
+    const topVal = `${-((popupRect?.height || 0) + (boxRect?.height || 0) - 20)}px`
+    const leftVal = `${-((popupRect?.width || 0) + 10)}px`
+
     if (['top', 'top-start', 'top-end'].includes(placement)) {
-      popupStyle = {
-        ...popupStyle,
-        top: `${-((popupRect?.height || 0) + (boxRect?.height || 0) - 20)}px`
-      }
-      sharpStyle = {
-        transform: 'rotate(180deg)',
-        bottom: '-20px'
-      }
+      popupStyle.top = topVal
     }
+
     if (['bottom', 'bottom-start', 'bottom-end'].includes(placement)) {
-      popupStyle = {
-        ...popupStyle,
-        bottom: `${-((popupRect?.height || 0) + (boxRect?.height || 0) - 20)}px`
-      }
-      sharpStyle = {
-        transform: 'rotate(0)',
-        top: '-20px'
-      }
+      popupStyle.bottom = topVal
     }
+
     if (["left", "left-start", "left-end"].includes(placement)) {
-      popupStyle = {
-        ...popupStyle,
-        left: `${-((popupRect?.width || 0) + 10)}px`
-      };
-      sharpStyle = {
-        transform: "rotate(90deg)",
-        right: "-20px"
-      };
+      popupStyle.left = leftVal
     }
+
     if (["right", "right-start", "right-end"].includes(placement)) {
-      popupStyle = {
-        ...popupStyle,
-        right: `${-((popupRect?.width || 0) + 10)}px`
-      };
-      sharpStyle = {
-        transform: "rotate(-90deg)",
-        left: "-20px"
-      };
+      popupStyle.right = leftVal
     }
+    
     if (['top', 'bottom'].includes(placement)) {
       sharpStyle.left = `${((popupRect?.width || 0) - 10) / 2}px`
       popupStyle.left = `${-(((popupRect?.width || 0) - (boxRect?.width || 0)) / 2)}px`
@@ -94,10 +74,10 @@ export class Popover extends Component {
       popupStyle.top = `${-(((popupRect?.height || 0) - (boxRect?.height || 0)) / 2)}px`
       sharpStyle.top = `${((popupRect?.height || 0) - 10) / 2}px`;
     } else if (placement === "left-start" || placement === 'right-start') {
-      sharpStyle.top = "0";
+      sharpStyle.top = 0;
       popupStyle.top = 0
     } else if (placement === "left-end" || placement === 'right-end') {
-      sharpStyle.bottom = "0";
+      sharpStyle.bottom = 0;
       popupStyle.bottom = 0
     }
     // 弹出框cls
@@ -112,7 +92,8 @@ export class Popover extends Component {
     // 箭头指示cls
     const sharpCls = classNames(
       `${classPrefix}-popup-sharp`,
-      `${classPrefix}-popup-sharp-${mode}`
+      `${classPrefix}-popup-sharp-${mode}`,
+      `${classPrefix}-popup-sharp-${placement}`
     )
 
     // 非菜单文本cls
@@ -227,6 +208,30 @@ export class Popover extends Component {
     .adm-popover-popup-sharp-dark {
       border-bottom-color: #333;
     }
+    .adm-popover-popup-sharp-top,
+    .adm-popover-popup-sharp-top-start,
+    .adm-popover-popup-sharp-top-end {
+      transform: rotate(180deg);
+      bottom: -20px;
+    }
+    .adm-popover-popup-sharp-bottom,
+    .adm-popover-popup-sharp-bottom-start,
+    .adm-popover-popup-sharp-bottom-end {
+      transform: rotate(0);
+      top: -20px;
+    }
+    .adm-popover-popup-sharp-left,
+    .adm-popover-popup-sharp-left-start,
+    .adm-popover-popup-sharp-left-end {
+      transform: rotate(90deg);
+      right: -20px;
+    }
+    .adm-popover-popup-sharp-right,
+    .adm-popover-popup-sharp-right-start,
+    .adm-popover-popup-sharp-right-end {
+      transform: rotate(-90deg);
+      left: -20px;
+    }
     .adm-popover-popup-menu-light {
       background: #f5f5f5;
     }
@@ -304,6 +309,7 @@ export class Popover extends Component {
       width: 100%;
       text-align: center;
     }
+    
     `
   }
 }

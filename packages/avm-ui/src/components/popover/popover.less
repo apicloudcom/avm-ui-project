@@ -33,6 +33,22 @@
             &-dark {
                 border-bottom-color: #333;
             }
+            &-top, &-top-start, &-top-end {
+                transform: rotate(180deg);
+                bottom: -20px;
+            }
+            &-bottom, &-bottom-start, &-bottom-end {
+                transform: rotate(0);
+                top: -20px;
+            }
+            &-left, &-left-start, &-left-end {
+                transform: rotate(90deg);
+                right: -20px;
+            }
+            &-right, &-right-start, &-right-end {
+                transform: rotate(-90deg);
+                left: -20px;
+            }
         }
         &-menu {
             &-light {
