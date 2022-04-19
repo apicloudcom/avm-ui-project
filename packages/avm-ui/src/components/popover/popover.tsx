@@ -100,6 +100,59 @@ export class Popover extends Component {
       sharpStyle.bottom = "0";
       popupStyle.bottom = 0
     }
+    // 弹出框cls
+    const popupCls = classNames(
+      `${classPrefix}-popup`,
+      `${classPrefix}-popup-${mode}`,
+      {
+        [`${classPrefix}-popup-default`]: !isHorizontalMenu,
+        [`${classPrefix}-popup-horizontal`]: isHorizontalMenu
+      }
+    )
+    // 箭头指示cls
+    const sharpCls = classNames(
+      `${classPrefix}-popup-sharp`,
+      `${classPrefix}-popup-sharp-${mode}`
+    )
+
+    // 非菜单文本cls
+    const popupTextCls = classNames(
+      `${classPrefix}-popup-text`,
+      `${classPrefix}-popup-text-${mode}`
+    )
+
+    // 菜单cls
+    const popupMenuCls = classNames(
+      `${classPrefix}-popup-menu`,
+      `${classPrefix}-popup-menu-${mode}`, {
+        [`${classPrefix}-popup-menu-default`]: !isHorizontalMenu,
+        [`${classPrefix}-popup-menu-horizontal`]: isHorizontalMenu
+      }
+    )
+
+    // 菜单子元素cls
+    const popupMenuItemCls = classNames(
+      `${classPrefix}-popup-menu-item`, {
+        [`${classPrefix}-popup-menu-horizontal-item`]: isHorizontalMenu,
+        [`${classPrefix}-popup-menu-default-item`]: !isHorizontalMenu
+      }
+    )
+
+    // 菜单子元素-img-cls
+    const popupMenuItemImgCls = classNames(
+      `${classPrefix}-popup-menu-item-img`, {
+        [`${classPrefix}-popup-menu-horizontal-item-img`]: isHorizontalMenu
+      }
+    )
+
+    // 菜单子元素-文本-cls
+    const popupMenuItemTextCls = classNames(
+      `${classPrefix}-popup-menu-item-text`,
+      `${classPrefix}-popup-menu-item-text-${mode}`, {
+        [`${classPrefix}-popup-menu-horizontal-item-text`]: isHorizontalMenu
+      }
+    )
+
     return (
       <div className={classPrefix}>
         <div className={`${classPrefix}-con`} id={id} onClick={() => {
@@ -108,39 +161,24 @@ export class Popover extends Component {
         }}>
           {formatLabel(children)}
         </div>
-        <div style={popupStyle} id={popupId} className={classNames(
-          `${classPrefix}-popup`,
-          `${classPrefix}-popup-${mode}`,
-          {
-            [`${classPrefix}-popup-default`]: !isHorizontalMenu,
-            [`${classPrefix}-popup-horizontal`]: isHorizontalMenu
-          }
-        )}>
-          <div className={classNames(`${classPrefix}-popup-sharp`, `${classPrefix}-popup-sharp-${mode}`)} style={sharpStyle}></div>
-          {!isMenu && <span className={classNames(`${classPrefix}-popup-text`, `${classPrefix}-popup-text-${mode}`)}>{content}</span>}
-          {isMenu && actions && <div className={classNames(`${classPrefix}-popup-menu`, `${classPrefix}-popup-menu-${mode}`, {
-            [`${classPrefix}-popup-menu-default`]: !isHorizontalMenu,
-            [`${classPrefix}-popup-menu-horizontal`]: isHorizontalMenu
-          })}>
+        <div style={popupStyle} id={popupId} className={popupCls}>
+          <div className={sharpCls} style={sharpStyle}></div>
+          {!isMenu && <span className={popupTextCls}>{content}</span>}
+          {isMenu && actions && <div className={popupMenuCls}>
             {
               actions.map((item, index) => {
                 const { key, text, icon, disabled } = item;
                 return (
-                  <div className={classNames(`${classPrefix}-popup-menu-item`, {
+                  <div className={classNames(popupMenuItemCls, {
                     [`${classPrefix}-popup-menu-item-disabled`]: disabled,
                     [`${classPrefix}-popup-menu-item-nobottom-border`]: index === actions.length - 1,
-                    [`${classPrefix}-popup-menu-horizontal-item`]: isHorizontalMenu,
-                    [`${classPrefix}-popup-menu-default-item`]: !isHorizontalMenu
                   })} key={key}
                   onClick={() => {
                       this.props.actionClick?.(item)
                     }}>
-                    {icon && <img src={icon} alt="icon" className={classNames(`${classPrefix}-popup-menu-item-img`, {
-                      [`${classPrefix}-popup-menu-horizontal-item-img`]: isHorizontalMenu
-                    })} />}
-                    <span className={classNames(`${classPrefix}-popup-menu-item-text`, `${classPrefix}-popup-menu-item-text-${mode}`, {
-                      [`${classPrefix}-popup-menu-item-text-center`]: !icon,
-                      [`${classPrefix}-popup-menu-horizontal-item-text`]: isHorizontalMenu
+                    {icon && <img src={icon} alt="icon" className={popupMenuItemImgCls}/>}
+                    <span className={classNames(popupMenuItemTextCls, {
+                      [`${classPrefix}-popup-menu-item-text-center`]: !icon
                     })}>{text}</span>
                   </div>
                 )
