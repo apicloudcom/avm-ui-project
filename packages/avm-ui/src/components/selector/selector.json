@@ -10,13 +10,13 @@
             "name": "value",
             "tip": "选中项",
             "type": "array",
-            "default": []
+            "default": ["1"]
         },
         {
             "name": "defaultValue",
             "tip": "默认项",
             "type": "array",
-            "default": []
+            "default": ["1"]
         },
         {
             "name": "columns",
@@ -28,20 +28,24 @@
             "tip": "可选项",
             "type": "array",
             "default": [
-                {
-                  "label": "按钮1",
-                  "value": "1"
-                },
-                {
-                  "label": "按钮2",
-                  "value": "2",
-                  "disabled": true
-                },
-                {
-                  "label": "按钮3",
-                  "value": "3"
-                }
-              ]
+              {
+                "label": "选项一",
+                "value": "1"
+              },
+              {
+                "label": "选项二",
+                "value": "2",
+                "disabled": true
+              },
+              {
+                "label": "选项三",
+                "value": "3"
+              },
+              {
+                "label": "选项四",
+                "value": "4"
+              }
+            ]
         },
         {
             "name": "multiple",
