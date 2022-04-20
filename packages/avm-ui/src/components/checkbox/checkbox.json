@@ -1,7 +1,7 @@
 {
     "component": "Checkbox",
     "desc": "定义一个复选框",
-    "type": 2,
+    "type": 1,
     "props": [
         {
             "name": "checked",

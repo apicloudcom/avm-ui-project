@@ -1,6 +1,7 @@
 
 import classNames from '../../utils/classnames'
 import { formatLabel } from '../../utils/format-label'
+import {Icon} from "../icon";
 
 const classPrefix = `adm-checkbox`
 
@@ -59,7 +60,7 @@ export class MyCheckbox extends Component {
           [`${classPrefix}-icon-indeterminate`]: props.indeterminate,
           [`${classPrefix}-icon-disabled`]: disabled,
           [`${classPrefix}-icon-disabled-checked`]: disabled && this.data.checked
-        })}>{this.data.checked ? '√' : (props.indeterminate ? '-' : '')}</text>
+        })}>{this.data.checked ? <Icon type="CheckOutline" />   : (props.indeterminate ? '-' : '')}</text>
     );
 
     const iconEles = props.icon && props.selectedIcon
