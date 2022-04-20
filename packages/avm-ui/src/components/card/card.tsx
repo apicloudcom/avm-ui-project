@@ -104,6 +104,7 @@ export class Card extends Component {
       align-items: center;
       box-sizing: border-box;
       padding: 12px 0;
+      font-size: 16px;
     }
     .adm-card-header:not(:last-child) {
       border-bottom: solid 0.5px var(--adm-border-color);
