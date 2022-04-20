@@ -1,37 +1,39 @@
 {
-    "component": "CollapsePanel",
-    "parent": "collapse",
-    "desc": "折叠面板-子元素",
-    "type": 2,
-    "event": [
-        "handleClick"
-    ],
-    "props": [
-        {
-            "name": "key",
-            "tip": "唯一标识符",
-            "type": "string"
-        },
-        {
-            "name": "title",
-            "tip": "标题栏左侧内容",
-            "type": "string"
-        },
-        {
-            "name": "disabled",
-            "tip": "是否为禁用状态",
-            "type": "boolean",
-            "default": false
-        },
-        {
-            "name": "extra",
-            "tip": "右侧icon左侧内容",
-            "type": "string"
-        },
-        {
-            "name": "arrow",
-            "tip": "右侧icon自定义，默认下箭头",
-            "type": "string"
-        }
-    ]
+  "component": "CollapsePanel",
+  "parent": "collapse",
+  "desc": "折叠面板-子元素",
+  "type": 1,
+  "event": [
+    "handleClick"
+  ],
+  "props": [
+    {
+      "name": "key",
+      "tip": "唯一标识符",
+      "type": "string",
+      "default": "a"
+    },
+    {
+      "name": "title",
+      "tip": "标题栏左侧内容",
+      "type": "string",
+      "default": "折叠子项"
+    },
+    {
+      "name": "disabled",
+      "tip": "是否为禁用状态",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "extra",
+      "tip": "右侧icon左侧内容",
+      "type": "string"
+    },
+    {
+      "name": "arrow",
+      "tip": "右侧icon自定义，默认下箭头",
+      "type": "string"
+    }
+  ]
 }
