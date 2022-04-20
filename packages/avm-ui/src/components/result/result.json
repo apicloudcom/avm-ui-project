@@ -1,7 +1,7 @@
 {
   "component": "Result",
   "desc": "结果",
-  "type": 2,
+  "type": 1,
   "event": [],
   "props": [
     {
@@ -14,12 +14,14 @@
     {
       "name": "title",
       "tip": "标题",
-      "type": "string"
+      "type": "string",
+      "default": "标题"
     },
     {
       "name": "description",
       "tip": "描述",
-      "type": "string"
+      "type": "string",
+      "default": "结果描述"
     },
     {
       "name": "children",
