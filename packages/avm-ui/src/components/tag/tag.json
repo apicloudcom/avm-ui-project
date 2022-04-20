@@ -45,6 +45,7 @@
     {
       "name": "textColor",
       "tip": "文字颜色",
+      "type": "string",
       "default": "#666"
     },
     {
@@ -55,12 +56,13 @@
     {
       "name": "borderColor",
       "tip": "边框颜色",
-      "type": "boolean",
+      "type": "string",
       "default": "#666"
     },
     {
       "name": "borderRadius",
       "tip": "round=false时的圆角大小",
+      "type": "string",
       "default": "2px"
     },
     {
