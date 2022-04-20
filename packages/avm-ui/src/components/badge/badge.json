@@ -1,35 +1,24 @@
 {
-    "component": "Badge",
-    "desc": "徽标",
-    "type": 2,
-    "props": [
-        {
-            "name": "content",
-            "type": "string",
-            "tip": "徽标内容：如果传 null undefined '' 或不传，则不显示徽标"
-        },
-        {
-            "name": "color",
-            "type": "string",
-            "tip": "徽标背景色"
-        },
-        {
-            "name": "right",
-            "type": "number",
-            "tip": "相对于最右边，向左的偏移量",
-            "default": 0
-        },
-        {
-            "name": "top",
-            "type": "number",
-            "tip": "相对于最上边，向下的偏移量",
-            "default": 0
-        },
-        {
-            "name": "isDot",
-            "type": "boolean",
-            "tip": "是否显示小红点，如果为true，则content值无效",
-            "default": false
-        }
-    ]
+  "component": "Badge",
+  "desc": "徽标",
+  "type": 1,
+  "props": [
+    {
+      "name": "content",
+      "type": "string",
+      "tip": "徽标内容：如果传 null undefined '' 或不传，则不显示徽标",
+      "default": "1"
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "tip": "徽标背景色"
+    },
+    {
+      "name": "isDot",
+      "type": "boolean",
+      "tip": "是否显示小红点，如果为true，则content值无效",
+      "default": false
+    }
+  ]
 }

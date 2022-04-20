@@ -5,14 +5,22 @@
   "event": [],
   "props": [
     {
-      "name": "imageStyle",
-      "tip": "图片样式",
-      "type": "CSSProperties"
+      "name": "fontSize",
+      "tip": "图标尺寸",
+      "type": "number",
+      "default": 64
+    },
+    {
+      "name": "color",
+      "tip": "图标颜色",
+      "type": "string",
+      "default": "#999"
     },
     {
       "name": "description",
       "tip": "图片下方的描述文字",
-      "type": "string"
+      "type": "string",
+      "default": "暂无数据"
     },
     {
       "name": "children",

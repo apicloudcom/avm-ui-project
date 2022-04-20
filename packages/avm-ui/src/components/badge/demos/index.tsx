@@ -1,8 +1,11 @@
-import {Badge, dot} from "../badge";
+import {Badge} from "../badge";
 import './index.less';
 import {DemoBlock} from "../../../demos";
 import Space from "../../space";
 import CFImg from  './img/cf.svg'
+
+const dot = Symbol()
+
 const template =
   <>
     <DemoBlock title='基本用法'>
@@ -48,6 +51,9 @@ const template =
     <DemoBlock title='自定义徽标内容'>
       <Space>
         <Badge content={<img src={CFImg}></img>}>
+          <div className="box"/>
+        </Badge>
+        <Badge isDot>
           <div className="box"/>
         </Badge>
       </Space>

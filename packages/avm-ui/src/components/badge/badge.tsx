@@ -42,6 +42,7 @@ export class Badge extends Component {
       .adm-badge-wrap {
         display: inline-block;
         position: relative;
+        margin:10px;
       }
       .adm-badge {
         display: inline-block;
