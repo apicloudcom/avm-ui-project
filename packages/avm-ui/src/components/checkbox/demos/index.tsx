@@ -1,12 +1,11 @@
-import { DemoBlock } from '../../../demos'
-import { Checkbox } from '../checkbox'
-import { CheckboxGroup } from '../checkboxGroup'
-import { Space } from '../../space/space'
+import {DemoBlock} from '../../../demos'
+import {Checkbox} from '../checkbox'
+import {CheckboxGroup} from '../checkboxGroup'
+import {Space} from '../../space/space'
 
-import selectIcon from '../../../../widget/image/select.png'
-import unSelectIcon from '../../../../widget/image/unSelect.png'
 
 import '../checkbox.less'
+import {Icon} from "../../icon";
 
 class Demo extends Component {
   data = {
@@ -40,7 +39,7 @@ class Demo extends Component {
                 console.log('点击了')
               }}
             >
-              <Checkbox />
+              <Checkbox/>
             </div>
             <Checkbox onChange={this.onChange}>有描述的勾选框</Checkbox>
             <Checkbox defaultChecked>默认选中</Checkbox>
@@ -56,11 +55,11 @@ class Demo extends Component {
             onChange={(val) => {
               console.log(val)
             }}>
-              <Checkbox value="A" label="A"/>
-              <Checkbox value="B" label="B"/>
-              <Checkbox value="C" label="C" disabled/>
-              <Checkbox value="D" label="D" readOnly/>
-            </CheckboxGroup>
+            <Checkbox value="A" label="A"/>
+            <Checkbox value="B" label="B"/>
+            <Checkbox value="C" label="C" disabled/>
+            <Checkbox value="D" label="D" readOnly/>
+          </CheckboxGroup>
         </DemoBlock>
         <DemoBlock title='整组禁用'>
           <CheckboxGroup
@@ -81,8 +80,8 @@ class Demo extends Component {
         <DemoBlock title='自定义图标'>
           <Checkbox
             value='banana'
-            icon={unSelectIcon}
-            selectedIcon={selectIcon}
+            icon={<Icon name={'CheckCircleOutline'}/>}
+            selectedIcon={<Icon name={'CheckCircleFill'}/>}
           >
             自定义图标
           </Checkbox>
@@ -96,5 +95,6 @@ class Demo extends Component {
     )
   }
 }
+
 avm.render(<Demo/>, 'body')
 
