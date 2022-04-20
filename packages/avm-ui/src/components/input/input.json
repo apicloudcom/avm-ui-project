@@ -16,7 +16,8 @@
     {
       "name": "placeholder",
       "type": "string",
-      "tip": "提示文本"
+      "tip": "提示文本",
+      "default": "请输入文本"
     },
     {
       "name": "disabled",

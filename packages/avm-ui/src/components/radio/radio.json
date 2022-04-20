@@ -1,73 +1,79 @@
 {
-    "component": "Radio",
-    "desc": "单选框-radio",
-    "type": 2,
-    "event": [
-        "radioChange"
-    ],
-    "props": [
-        {
-            "name": "checked",
-            "tip": "指定当前是否选中",
-            "type": "boolean",
-            "default": false
-        },
-        {
-            "name": "defaultChecked",
-            "tip": "初始是否选中",
-            "type": "boolean",
-            "default": false
-        },
-        {
-            "name": "disabled",
-            "tip": "失效状态",
-            "type": "boolean",
-            "default": false   
-        },
-        {
-            "name": "value",
-            "tip": "携带的标识值，用于 `Group` 模式 ",
-            "type": "string"
-        },
-        {
-            "name": "icon",
-            "tip": "自定义 `icon` 图标",
-            "type": "string"
-        },
-        {
-            "name": "iconSize",
-            "tip": "勾选图标的大小",
-            "type": "string",
-            "default": "22px"
-        },
-        {
-            "name": "fontSize",
-            "tip": "右侧文字描述的大小",
-            "type": "string",
-            "default": "17px"
-        },
-        {
-            "name": "gap",
-            "tip": "图标和文字描述之间的间距",
-            "type": "string",
-            "default": "8px"
-        },
-        {
-            "name": "description",
-            "type": "string",
-            "tip": "辅助说明描述"
-        },
-        {
-            "name": "descIsOneLineShow",
-            "type": "boolean",
-            "tip": "辅助说明描述是否跟label文本在一行",
-            "default": false
-        },
-        {
-            "name": "isTwoHeadArrange",
-            "type": "boolean",
-            "tip": "复选icon是否跟文本分布两头展示",
-            "default": false
-        }
-    ]
+  "component": "Radio",
+  "desc": "单选框-radio",
+  "type": 1,
+  "event": [
+    "radioChange"
+  ],
+  "props": [
+    {
+      "name": "children",
+      "tip": "选项内容",
+      "type": "string",
+      "default": "单选项"
+    },
+    {
+      "name": "checked",
+      "tip": "指定当前是否选中",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "defaultChecked",
+      "tip": "初始是否选中",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "disabled",
+      "tip": "失效状态",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "value",
+      "tip": "携带的标识值，用于 `Group` 模式 ",
+      "type": "string"
+    },
+    {
+      "name": "icon",
+      "tip": "自定义 `icon` 图标",
+      "type": "string"
+    },
+    {
+      "name": "iconSize",
+      "tip": "勾选图标的大小",
+      "type": "string",
+      "default": "22px"
+    },
+    {
+      "name": "fontSize",
+      "tip": "右侧文字描述的大小",
+      "type": "string",
+      "default": "17px"
+    },
+    {
+      "name": "gap",
+      "tip": "图标和文字描述之间的间距",
+      "type": "string",
+      "default": "8px"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "tip": "辅助说明描述"
+    },
+    {
+      "name": "descIsOneLineShow",
+      "type": "boolean",
+      "tip": "辅助说明描述是否跟label文本在一行",
+      "default": false
+    },
+    {
+      "name": "isTwoHeadArrange",
+      "type": "boolean",
+      "tip": "复选icon是否跟文本分布两头展示",
+      "default": false
+    }
+  ]
 }

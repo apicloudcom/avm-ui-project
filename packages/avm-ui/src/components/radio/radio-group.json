@@ -1,7 +1,7 @@
 {
     "component": "RadioGroup",
     "desc": "单选框-Group",
-    "type": 2,
+    "type": 1,
     "event": [
         "groupChange"
     ],
