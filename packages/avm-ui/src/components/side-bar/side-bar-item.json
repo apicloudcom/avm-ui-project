@@ -2,7 +2,7 @@
     "component": "SideBarItem",
     "parent": "side-bar",
     "desc": "SideBar.item 侧边导航item",
-    "type": 2,
+    "type": 1,
     "props": [
         {
             "name": "key",

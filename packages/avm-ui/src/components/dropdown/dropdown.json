@@ -1,7 +1,7 @@
 {
     "component": "Dropdown",
     "desc": "Dropdown 组件定义下拉菜单",
-    "type": 2,
+    "type": 1,
     "props": [
         {
             "name": "activeKey",
