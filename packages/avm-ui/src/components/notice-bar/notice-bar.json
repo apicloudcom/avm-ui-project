@@ -1,66 +1,70 @@
 {
-    "component": "NoticeBar",
-    "desc": "通告栏",
-    "type": 2,
-    "props": [
-        {
-            "name": "color",
-            "type": "string",
-            "enum": [
-                "default",
-                "alert",
-                "error",
-                "info"
-            ],
-            "tip": "通告栏的类型，也可以直接设置color颜色",
-            "default": "default"
-        },
-        {
-            "name": "content",
-            "type": "string",
-            "tip": "公告内容"
-        },
-        {
-            "name": "closeable",
-            "type": "boolean",
-            "default": false,
-            "tip": "是否可关闭"
-        },
-        {
-            "name": "icon",
-            "type": "string",
-            "tip": "左侧广播图标"
-        },
-        {
-            "name": "bgColor",
-            "type": "string",
-            "tip": "背景颜色"
-        },
-        {
-            "name": "borderColor",
-            "type": "string",
-            "tip": "边框颜色"
-        },
-        {
-            "name": "textColor",
-            "type": "string",
-            "tip": "文字颜色"
-        },
-        {
-            "name": "size",
-            "type": "string",
-            "tip": "通告栏size",
-            "enum": ["default", "small"],
-            "default": "default"
-        },
-        {
-            "name": "isShowLeftIcon",
-            "type": "boolean",
-            "tip": "是否显示左侧提示icon, 为false时,icon属性设置则无效",
-            "default": false
-        }
-    ],
-    "event": [
-        "handleClose"
-    ]
+  "component": "NoticeBar",
+  "desc": "通告栏",
+  "type": 2,
+  "props": [
+    {
+      "name": "color",
+      "type": "string",
+      "enum": [
+        "default",
+        "alert",
+        "error",
+        "info"
+      ],
+      "tip": "通告栏的类型，也可以直接设置color颜色",
+      "default": "default"
+    },
+    {
+      "name": "content",
+      "type": "string",
+      "tip": "通告内容",
+      "default": "通告栏内容"
+    },
+    {
+      "name": "closeable",
+      "type": "boolean",
+      "default": false,
+      "tip": "是否可关闭"
+    },
+    {
+      "name": "icon",
+      "type": "string",
+      "tip": "左侧广播图标"
+    },
+    {
+      "name": "bgColor",
+      "type": "string",
+      "tip": "背景颜色"
+    },
+    {
+      "name": "borderColor",
+      "type": "string",
+      "tip": "边框颜色"
+    },
+    {
+      "name": "textColor",
+      "type": "string",
+      "tip": "文字颜色"
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "tip": "通告栏size",
+      "enum": [
+        "default",
+        "small"
+      ],
+      "default": "default"
+    },
+    {
+      "name": "isShowLeftIcon",
+      "type": "boolean",
+      "tip": "是否显示左侧提示icon, 为false时,icon属性设置则无效",
+      "default": false
+    }
+  ],
+  "event": [
+    "handleClose"
+  ]
 }
