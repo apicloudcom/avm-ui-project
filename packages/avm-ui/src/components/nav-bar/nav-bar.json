@@ -1,11 +1,17 @@
 {
   "component": "NavBar",
   "desc": "导航栏",
-  "type": 2,
+  "type": 1,
   "event": [
     "onBack"
   ],
   "props": [
+    {
+      "name": "children",
+      "tip": "标题",
+      "type": "string",
+      "default": "标题栏"
+    },
     {
       "name": "back",
       "tip": "返回区域的文字，如果为 null 的话，backArrow 也不会渲染",
@@ -21,11 +27,6 @@
     {
       "name": "left",
       "tip": "左侧内容，渲染在返回区域的右侧",
-      "type": "string"
-    },
-    {
-      "name": "children",
-      "tip": "标题",
       "type": "string"
     },
     {
