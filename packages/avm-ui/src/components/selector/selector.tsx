@@ -10,13 +10,11 @@ const defaultProps = {
   multiple: false,
   defaultValue: [],
   checkedColor: '#9AC200',
-  checkedBgColor: '#fff'
+  checkedBgColor: '#e7f1ff'
 }
 
 export class Selector extends Component {
-  install = () => {
-    console.log('Selector!')
-  }
+  
 
   data = {
     value: this.props.value || this.props.defaultValue
@@ -49,7 +47,7 @@ export class Selector extends Component {
         <div
           key={option.value}
           className={itemCls}
-          style={active ? activeStyles : {background: '#fff'}}
+          style={active ? activeStyles : {background: '#f5f5f5'}}
           onClick={() => {
             if (disabled) {
               return
@@ -101,7 +99,8 @@ export class Selector extends Component {
         opacity: 1;
         cursor: pointer;
         text-align: center;
-        box-shadow: 0 0 0.3 #000;
+        position:relative;
+        overflow:hidden;
       }
       .adm-selector-item-disabled {
         cursor: not-allowed;
@@ -125,7 +124,7 @@ export class Selector extends Component {
       .adm-selector-check-mark-wrapper-img {
         position: absolute;
         left: 0px;
-        top: -3px;
+        top: -5px;
         font-size: 8px;
         color: #fff;
       }
