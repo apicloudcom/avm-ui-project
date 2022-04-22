@@ -80,7 +80,7 @@ export class Button extends Component {
 
     const btnCls = classNames(
       classPrefix,
-      props.className,
+      props.class,
       props.color ? `${classPrefix}-${props.color}` : null,
       {
         [`${classPrefix}-block`]: props.block,
@@ -115,8 +115,6 @@ export class Button extends Component {
   position: relative;
   display: inline-block;
   box-sizing: border-box;
-  padding: 7px 16px;
-  margin: 0;
   font-size: 15px;
   text-align: center;
   cursor: pointer;
