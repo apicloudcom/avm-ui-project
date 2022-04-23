@@ -7,8 +7,6 @@ import fse from "fs-extra";
 
 const outdir = (name = '') => resolve(`${dist}/components/avm-ui`, name);
 
-const minify = true;
-
 
 const assetPlugin = options => {
   return {
@@ -31,6 +29,11 @@ async function copyFontToWidget() {
 }
 
 export async function onBuild(cmd = {}) {
+
+
+  const minify = !cmd.dev;
+
+
   const base = {
     bundle: true,
     plugins: [stylePlugin(), assetPlugin()],
