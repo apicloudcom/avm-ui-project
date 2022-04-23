@@ -6,14 +6,14 @@ const template =
   <>
     <DemoBlock title='不同颜色的按钮'>
       <Space wrap>
-        <Button
+        <Button color='default'
           onClick={() => {
             alert('hello.')
           }}
         >
           Default
         </Button>
-        <avm-button color='primary'>Primary</avm-button>
+        <avm-button>Primary</avm-button>
         <Button color='success'>Success</Button>
         <Button color='danger'>Danger</Button>
         <Button color='warning'>Warning</Button>
