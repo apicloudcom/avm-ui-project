@@ -1,5 +1,6 @@
 import {ListItem} from '../list/list-item'
 import classNames from '../../utils/classnames'
+import {Icon} from "../icon";
 // import {RightOutline} from '../icon/icon'
 
 const classPrefix = `adm-check-list-item`
@@ -15,7 +16,7 @@ export class CheckListItem extends Component {
     const activeIcon = props.activeIcon
     const extra = (
       <div className={`${classPrefix}-extra`}>
-        {active ? (activeIcon ?? (<text style={{color: active ? '#9AC200' : '#666'}}>√</text>)) : ''}
+        {active ? (activeIcon ?? (<Icon type={'CheckCircleFill'} color={active ? '#9AC200' : '#666'}/>)) : ''}
       </div>
     )
 
@@ -43,6 +44,6 @@ export class CheckListItem extends Component {
         disabled={props.disabled}>
         {props.label}
       </ListItem>
-    )  
+    )
   }
 }
