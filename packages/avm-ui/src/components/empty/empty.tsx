@@ -11,7 +11,8 @@ export type EmptyProps = {
 }
 const defaultProps = {
   fontSize: 64,
-  color: '#999999'
+  color: '#999999',
+  description:"暂无数据"
 }
 
 export class Empty extends Component {
