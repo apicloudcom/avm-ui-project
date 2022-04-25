@@ -12,28 +12,19 @@ export type EmptyProps = {
 const defaultProps = {
   fontSize: 64,
   color: '#999999',
-  description:"暂无数据"
+  description: "暂无数据"
 }
 
-export class Empty extends Component {
-  install = () => {
-    console.log('Empty!')
-  }
-
+export class Empty extends Component { 
   render = props => {
     props = Object.assign({}, defaultProps, props)
     let {children, imageStyle, fontSize, color} = props
     const imageWidth = (imageStyle && imageStyle.width) ?? fontSize
     const imageColor = (imageStyle && imageStyle.color) ?? color
     const imageNode = () => {
-      if (children) {
-
-        if (Array.isArray(children) && children.length === 1 && typeof children[0] === 'string') {
-          children = children[0];
-        }
-
-        if (typeof children === 'string' && children.includes('.')) {
-          return <img style={`width: ${fontSize}px; height: ${fontSize}px;`} src={children}/>
+      if (children.length === 1) {
+        if (typeof children[0] === 'string' && children[0].includes('.')) {
+          return <img style={`width: ${fontSize}px; height: ${fontSize}px;`} src={children[0]}/>
         } else {
           return children
         }

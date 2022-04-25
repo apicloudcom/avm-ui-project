@@ -23,7 +23,13 @@ const template =
       <Empty
         style={{ padding: '64px 0' }}
         description='暂无数据'
-      ><Icon name="UiwCloseSquare"/></Empty>
+      ><Icon name="FolderOutline" fontSize={64} color={'red'}/></Empty>
+      <Empty
+        style={{ padding: '64px 0' }}
+        description='暂无数据'
+      >https://img.yangyongan.com/8e7zy.png</Empty>
+      
+      <Empty children={'https://img.yangyongan.com/8e7zy.png'}/>
     </DemoBlock>
   </>
 avm.render(template, "body");
