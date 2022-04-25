@@ -117,6 +117,7 @@ export class Button extends Component {
   cursor: pointer;
   transition: opacity ease 0.15s;
   user-select: none;
+  font-weight:500;
 }
 .adm-button-block {
   display: block;
@@ -142,8 +143,8 @@ export class Button extends Component {
 }
 
 .adm-button-middle {
-  padding: 11px 20px;
-  font-size: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
 }
 
 .adm-button-large {
