@@ -13,12 +13,6 @@
       "default": "标题栏"
     },
     {
-      "name": "back",
-      "tip": "返回区域的文字，如果为 null 的话，backArrow 也不会渲染",
-      "type": "string | null",
-      "default": ""
-    },
-    {
       "name": "backArrow",
       "tip": "是否显示返回区域的箭头",
       "type": "boolean",
