@@ -87,10 +87,7 @@ export class Button extends Component {
         [`${classPrefix}-disabled`]: disabled,
         [`${classPrefix}-${props.color}-fill-outline`]: fill === 'outline',
         [`${classPrefix}-${props.color}-fill-none`]: fill === 'none',
-        [`${classPrefix}-mini`]: props.size === 'mini',
-        [`${classPrefix}-mini-shape-${props.shape}`]: props.size === 'mini',
-        [`${classPrefix}-small`]: props.size === 'small',
-        [`${classPrefix}-large`]: props.size === 'large',
+        [`${classPrefix}-${props.size}`]: true,
         [`${classPrefix}-loading`]: props.loading
       },
       `${classPrefix}-shape-${props.shape}`
@@ -132,19 +129,25 @@ export class Button extends Component {
   display: none;
 }
 .adm-button-mini {
-  padding: 3px 7px;
-  font-size: 13px;
+  padding: 2px 7px;
+  font-size: 12px;
 }
 .adm-button-mini-shape-rounded {
   padding-left: 9px;
   padding-right: 9px;
 }
 .adm-button-small {
-  padding: 3px 11px;
+  padding: 6px 11px;
   font-size: 15px;
 }
+
+.adm-button-middle {
+  padding: 11px 20px;
+  font-size: 15px;
+}
+
 .adm-button-large {
-  padding: 11px 22px;
+  padding: 12px 22px;
   font-size: 18px;
 }
 .adm-button-shape-rounded {

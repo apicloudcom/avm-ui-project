@@ -5,12 +5,15 @@
   "event": [
     "onClick"
   ],
+  "defaultStyle": {
+    "margin": "15px 25%"
+  },
   "props": [
     {
       "name": "$text",
       "type": "string",
       "tip": "按钮标题",
-      "default": "按钮"
+      "default": "Button"
     },
     {
       "name": "color",
@@ -23,7 +26,7 @@
         "warning",
         "danger"
       ],
-      "default": "primary"
+      "default": "success"
     },
     {
       "name": "fill",

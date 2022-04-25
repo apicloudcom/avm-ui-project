@@ -1,6 +1,7 @@
 import Button from "../";
 import {DemoBlock} from "../../../demos";
 import Space from "../../space";
+import {Icon} from "../../icon";
 
 const template =
   <>
@@ -72,7 +73,7 @@ const template =
     <DemoBlock title='带图标的按钮'>
       <Button>
         <Space>
-          ♀
+          <Icon type={'SearchOutline'}/>
           <span>搜索</span>
         </Space>
       </Button>
