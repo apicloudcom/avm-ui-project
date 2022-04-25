@@ -1,15 +1,20 @@
 import classNames from '../../utils/classnames'
-import { formatLabel } from '../../utils/format-label'
+import {formatLabel} from '../../utils/format-label'
 
 const classPrefix = `adm-step`
 
 export class Step extends Component {
-  install = () => {
-    console.log('Step')
-  }
-
+  
   render = props => {
-    const { title, description, status = 'wait', direction, curIndex, totalLen, isDot=false } = props
+    const {
+      title = "步骤标题",
+      description = "步骤的详情描述",
+      status = 'wait',
+      direction,
+      curIndex,
+      totalLen,
+      isDot = false
+    } = props
 
     const titleCls = classNames(`${classPrefix}-title`, `${classPrefix}-title-${status}`);
     const descCls = classNames(`${classPrefix}-description`, `${classPrefix}-${direction}-content-description`);

@@ -10,7 +10,7 @@
   "props": [
     {
       "name": "value",
-      "tip": "当前数，受控值",
+      "tip": "当前数",
       "type": "number",
       "default": 0
     },
