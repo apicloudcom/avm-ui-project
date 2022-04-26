@@ -1,5 +1,6 @@
 import classNames from "../../utils/classnames";
 import {mergeProps} from '../../utils/with-default-props'
+import mergeStyle from '../../utils/mergeStyle';
 
 const classPrefix = `adm-button`;
 export type ButtonProps = {
@@ -16,7 +17,7 @@ export type ButtonProps = {
 }
 
 const defaultProps = {
-  color: 'primary',
+  color: 'success',
   fill: 'solid',
   size: 'middle',
   block: false,
@@ -63,6 +64,7 @@ const shapeAttr = {
 
 export class Button extends Component {
   render = props => {
+    console.log({defaultProps, props})
     props = mergeProps(defaultProps, props)
     const disabled = props.disabled || props.loading
     const {textColor, color, bgColor, borderRadius, shape, borderWidth, borderStyle, borderColor, fill} = props
@@ -99,7 +101,7 @@ export class Button extends Component {
         onClick={props.onClick}
         className={btnCls}
         disabled={disabled}
-        style={{...btnStyles, ...props.style}}>
+        style={mergeStyle(btnStyles, props.style)}>
         {props.loading ? (props.loadingText) : (props.children)}
       </button>
     )
