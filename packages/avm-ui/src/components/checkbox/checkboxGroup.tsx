@@ -5,10 +5,7 @@ const defaultProps = {
 }
 
 export class CheckboxGroup extends Component {
-  install = () => {
-    console.log('Group!')
-  }
-
+  
   data = {
     checkList: [],
     hasChecked: false

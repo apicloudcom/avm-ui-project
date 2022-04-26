@@ -1,5 +1,4 @@
-
-import { MyCheckbox } from './myCheckbox'
+import {MyCheckbox} from './myCheckbox'
 
 export type CheckboxValue = string | number
 
@@ -14,10 +13,9 @@ export type CheckboxProps = {
   id?: string
   icon?: any
 }
+
 export class Checkbox extends Component {
-  install = () => {
-    console.log('Checkbox!')
-  }
+
 
   data = {
     checked: !!(this.props.defaultChecked || this.props.checked || (this.props.defaultValue && this.props.defaultValue.includes(this.props.value))),
@@ -37,6 +35,7 @@ export class Checkbox extends Component {
 
   render = props => {
     const {
+      label,
       disabled,
       block,
       icon,
@@ -47,13 +46,13 @@ export class Checkbox extends Component {
       fontSize,
       gap,
       indeterminate,
-      isLastEle=false,
-      isGroup=false,
+      isLastEle = false,
+      isGroup = false,
       description,
-      descIsOneLineShow=false, // 描述信息是否一行展示
-      isTwoHeadArrange=false // 是否两头分布
+      descIsOneLineShow = false, // 描述信息是否一行展示
+      isTwoHeadArrange = false // 是否两头分布
     } = props
-    
+
 
     return (
       <MyCheckbox
@@ -74,7 +73,7 @@ export class Checkbox extends Component {
         fontSize={fontSize}
         gap={gap}
         block={block}
-      >{props.children}</MyCheckbox>
+      >{props.children.length ? props.children : label || '选项'}</MyCheckbox>
     )
   }
   css = () => {
