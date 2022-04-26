@@ -43,6 +43,7 @@ program.command('build')
   .description('生成 avm-ui 组件源码')
   .option('-t --type <type>', `创建类型 默认 single`)
   .option('-p --path <path>', `输出路径`)
+  .option('-d --dev <true>', `是否输出的是 dev 未压缩`)
   .alias('B')
   .action(onBuild)
 
