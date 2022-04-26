@@ -10,7 +10,10 @@
       "name": "defaultValue",
       "tip": "默认选中项",
       "type": "array",
-      "default": ["one"]
+      "default": [
+        "one"
+      ],
+      "generateData": true
     },
     {
       "name": "multiple",
