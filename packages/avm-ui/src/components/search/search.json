@@ -35,7 +35,7 @@
         },
         {
             "name": "showCancelButton",
-            "tip": "是否在搜索框右侧显示取消按钮",
+            "tip": "是否在有输入内容情况下在搜索框右侧显示取消按钮",
             "type": "boolean",
             "default": false
         },
