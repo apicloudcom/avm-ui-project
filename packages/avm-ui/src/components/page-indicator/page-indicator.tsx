@@ -12,29 +12,29 @@ export type PageIndicatorProps = {
 const defaultProps = {
   direction: 'horizontal',
   style: {},
-  color: 'primary'
+  color: 'primary',
+  total: 5,
+  current: 0
 }
 
 const colorMapping = {
   primary: '#9AC200',
   white: '#fff'
 }
-export class PageIndicator extends Component {
-  install = () => {
-    console.log('PageIndicator!')
-  }
 
+export class PageIndicator extends Component {
+  
   render = props => {
     props = Object.assign({}, defaultProps, props)
     const {
       direction,
-      dotColor='#ddd',
-      activeDotColor= ['primary', 'white'].includes(props.color) ? colorMapping[props.color] : props.color,
-      dotSize='6px',
-      activeDotSize='6px',
-      dotBorderRadius='3px',
-      activeDotBorderRadius='3px',
-      dotSpacing='8px'
+      dotColor = '#ddd',
+      activeDotColor = ['primary', 'white'].includes(props.color) ? colorMapping[props.color] : props.color,
+      dotSize = '6px',
+      activeDotSize = '6px',
+      dotBorderRadius = '3px',
+      activeDotBorderRadius = '3px',
+      dotSpacing = '8px'
     } = props
 
     const isHorizontal = direction === 'horizontal';
@@ -77,6 +77,7 @@ export class PageIndicator extends Component {
       .adm-page-indicator {
         display: flex;
         width: fit-content;
+        padding:12px;
       }
       .adm-page-indicator-dot {
         display: block;

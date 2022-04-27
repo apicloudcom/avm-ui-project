@@ -1,72 +1,74 @@
 {
-    "component": "PageIndicator",
-    "desc": "页码指示器",
-    "type": 2,
-    "props": [
-        {
-            "name": "total",
-            "type": "number",
-            "tip": "总页数"
-        },
-        {
-            "name": "current",
-            "type": "number",
-            "tip": "当前页（从 0 开始计数）"
-        },
-        {
-            "name": "color",
-            "type": "string",
-            "enum": [
-                "primary",
-                "white"
-            ],
-            "tip": "颜色,也可以直接设置color值",
-            "default": "primary"
-        },
-        {
-            "name": "direction",
-            "type": "string",
-            "enum": [
-                "horizontal",
-                "vertical"
-            ],
-            "tip": "方向，默认是水平方向",
-            "default": "horizontal"
-        },
-        {
-            "name": "dotColor",
-            "type": "string",
-            "tip": "非当前页的颜色"
-        },
-        {
-            "name": "activeDotColor",
-            "type": "string",
-            "tip": "当前页的颜色"
-        },
-        {
-            "name": "dotSize",
-            "type": "string",
-            "tip": "非当前页的大小"
-        },
-        {
-            "name": "activeDotSize",
-            "type": "string",
-            "tip": "当前页的大小"
-        },
-        {
-            "name": "dotBorderRadius",
-            "type": "string",
-            "tip": "非当前页的圆角大小"
-        },
-        {
-            "name": "activeDotBorderRadius",
-            "type": "string",
-            "tip": "当前页的圆角大小"
-        },
-        {
-            "name": "dotSpacing",
-            "type": "string",
-            "tip": "页码指示器小圆点之间的间距"
-        }
-    ]
+  "component": "PageIndicator",
+  "desc": "页码指示器",
+  "type": 2,
+  "props": [
+    {
+      "name": "total",
+      "type": "number",
+      "tip": "总页数",
+      "default": 5
+    },
+    {
+      "name": "current",
+      "type": "number",
+      "tip": "当前页（从 0 开始计数）",
+      "default": 0
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "enum": [
+        "primary",
+        "white"
+      ],
+      "tip": "颜色,也可以直接设置color值",
+      "default": "primary"
+    },
+    {
+      "name": "direction",
+      "type": "string",
+      "enum": [
+        "horizontal",
+        "vertical"
+      ],
+      "tip": "方向，默认是水平方向",
+      "default": "horizontal"
+    },
+    {
+      "name": "dotColor",
+      "type": "string",
+      "tip": "非当前页的颜色"
+    },
+    {
+      "name": "activeDotColor",
+      "type": "string",
+      "tip": "当前页的颜色"
+    },
+    {
+      "name": "dotSize",
+      "type": "string",
+      "tip": "非当前页的大小"
+    },
+    {
+      "name": "activeDotSize",
+      "type": "string",
+      "tip": "当前页的大小"
+    },
+    {
+      "name": "dotBorderRadius",
+      "type": "string",
+      "tip": "非当前页的圆角大小"
+    },
+    {
+      "name": "activeDotBorderRadius",
+      "type": "string",
+      "tip": "当前页的圆角大小"
+    },
+    {
+      "name": "dotSpacing",
+      "type": "string",
+      "tip": "页码指示器小圆点之间的间距"
+    }
+  ]
 }
