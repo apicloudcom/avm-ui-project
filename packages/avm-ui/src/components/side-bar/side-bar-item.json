@@ -1,35 +1,39 @@
 {
-    "component": "SideBarItem",
-    "parent": "side-bar",
-    "desc": "SideBar.item 侧边导航item",
-    "type": 1,
-    "props": [
-        {
-            "name": "key",
-            "type": "string",
-            "tip": "对应 activeKey"
-        },
-        {
-            "name": "title",
-            "type": "string",
-            "tip": "显示内容"
-        },
-        {
-            "name": "disabled",
-            "type": "boolean",
-            "default":false,
-            "tip": "是否禁用"
-        },
-        {
-            "name": "badgeContent",
-            "type": "string",
-            "tip": "徽标内容，同 [Badge](./badge) 的 `content` 属性，不传则不显示徽标"
-        },
-        {
-            "name": "isDot",
-            "type": "boolean",
-            "tip": "徽标是否显示小红点，如果设置为true,则显示小红点，并且badgeContent则不生效",
-            "default":false
-        }
-    ]
+  "component": "SideBarItem",
+  "parent": "side-bar",
+  "desc": "SideBar.item 侧边导航item",
+  "type": 1,
+  "props": [
+    {
+      "name": "key",
+      "type": "string",
+      "tip": "对应 activeKey",
+      "default": "1",
+      "generateData": true
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "tip": "显示内容",
+      "default": "选项",
+      "generateData": true
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "tip": "是否禁用"
+    },
+    {
+      "name": "badgeContent",
+      "type": "string",
+      "tip": "徽标内容，同 [Badge](./badge) 的 `content` 属性，不传则不显示徽标"
+    },
+    {
+      "name": "isDot",
+      "type": "boolean",
+      "tip": "徽标是否显示小红点，如果设置为true,则显示小红点，并且badgeContent则不生效",
+      "default": false
+    }
+  ]
 }

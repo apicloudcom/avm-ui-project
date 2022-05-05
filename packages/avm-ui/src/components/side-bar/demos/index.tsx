@@ -75,7 +75,7 @@ class Demo extends Component {
           </div>
         </DemoBlock>
         <DemoBlock title='自定义宽度' padding='0'>
-        <SideBar style={{ 'width': '120px' }}>
+        <SideBar style={'width: 120px'}>
           {this.data.tabs.map(item => (
             <SideBarItem key={item.key} title={item.title} />
           ))}

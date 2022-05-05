@@ -52,7 +52,7 @@ export class SideBar extends Component {
       customizeWidth = props.style.split(':')[1]
     }
     const back = {
-      'width': customizeWidth || '96px'
+      'width': customizeWidth || '106px'
     }
 
     return (
@@ -121,10 +121,11 @@ export class SideBar extends Component {
       justify-content: center;
       min-height: 50px;
       padding: 6px 22px;
-      font-size: 15px;
+      font-size: 13px;
       position: relative;
       cursor: pointer;
-      background-color: #f5f5f5;
+      background-color: #f5f5f5;    
+      white-space: nowrap;
     }
     .adm-side-bar-item-active {
       background-color: #fff;

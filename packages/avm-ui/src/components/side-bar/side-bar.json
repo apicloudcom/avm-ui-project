@@ -1,20 +1,20 @@
 {
-    "component": "SideBar",
-    "desc": "side-bar 侧边导航",
-    "type": 1,
-    "props": [
-        {
-            "name": "activeKey",
-            "type": "string",
-            "tip": "当前激活 item 的 key"
-        },
-        {
-            "name": "defaultActiveKey",
-            "type": "string",
-            "tip": "初始化选中 item 的 key，如果没有设置 activeKey"
-        }
-    ],
-    "event": [
-        "onchange"
-    ]
+  "component": "SideBar",
+  "desc": "side-bar 侧边导航",
+  "type": 1,
+  "props": [
+    {
+      "name": "activeKey",
+      "type": "string",
+      "tip": "当前激活 item 的 key"
+    },
+    {
+      "name": "defaultActiveKey",
+      "type": "string",
+      "tip": "初始化选中 item 的 key，如果没有设置 activeKey"
+    }
+  ],
+  "event": [
+    "change"
+  ]
 }
