@@ -5,9 +5,6 @@
   "event": [
     "onClick"
   ],
-  "defaultStyle": {
-    "margin": "15px 25%"
-  },
   "props": [
     {
       "name": "$text",
