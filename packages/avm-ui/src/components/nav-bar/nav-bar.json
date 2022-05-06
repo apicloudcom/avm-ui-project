@@ -10,7 +10,8 @@
       "name": "children",
       "tip": "标题",
       "type": "string",
-      "default": "标题栏"
+      "default": "标题栏",
+      "generateData": true
     },
     {
       "name": "backArrow",
