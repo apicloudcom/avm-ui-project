@@ -5,9 +5,6 @@ const classPrefix = `adm-list-item`
 import {Icon} from "../icon";
 
 export class ListItem extends Component {
-  install = () => {
-    console.log('ListItem!');
-  }
 
   render = props => {
     const active = props.active || false;
@@ -39,7 +36,7 @@ export class ListItem extends Component {
           {props.title && (
             <span className={classNames(`${classPrefix}-title`, {
               [`${classPrefix}-title-active`]: active
-            })}>{props.title}</span>
+            })}>{props.title || '单元格'}</span>
           )}
           {childEles}
           {props.description && (

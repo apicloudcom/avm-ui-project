@@ -10,7 +10,8 @@
     {
       "name": "children",
       "tip": "列表项中间的主内容区域",
-      "type": "string"
+      "type": "string",
+      "default": "单元格"
     },
     {
       "name": "description",
