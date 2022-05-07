@@ -15,9 +15,7 @@ const defaultProps = {
   backArrow: true,
 }
 export class NavBar extends Component {
-  install() {
-    console.log('NavBar')
-  }
+  
   render = props => {
     props = Object.assign({},defaultProps, props)
     const { back, backArrow, right, style } = props
@@ -31,7 +29,7 @@ export class NavBar extends Component {
             <div className={`${classPrefix}-back`} onClick={props.onBack}>
               {backArrow && (
                 <div className={`${classPrefix}-back-arrow`}>
-                  {backArrow === true ? <Icon code={59988} fontSize="18" /> : backArrow}
+                  {backArrow === true||backArrow === 'true' ? <Icon code={59988} fontSize="18" /> : backArrow}
                 </div>
               )}
               <text aria-hidden='true'>{back}</text>
