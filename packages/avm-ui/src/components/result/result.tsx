@@ -7,23 +7,23 @@ const classPrefix = `adm-result`
 
 const iconDefalutProps = {
   success: {
-    fontSize: 52,
+    fontSize: 75,
     color: '#1677ff'
   },
   error: {
-    fontSize: 52,
+    fontSize: 75,
     color: '#ff3141'
   },
   info: {
-    fontSize: 52,
+    fontSize: 75,
     color: '#1677ff'
   },
   waiting: {
-    fontSize: 52,
+    fontSize: 75,
     color: '#00b578'
   },
   warning: {
-    fontSize: 52,
+    fontSize: 75,
     color: '#ff8f1f'
   }
 }
@@ -70,17 +70,14 @@ export class Result extends Component {
     }
     .adm-result-icon {
       box-sizing: border-box;
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 20px auto;
-      padding: 6px;
       text-align: center;
     }
   
     .adm-result-title {
-      color: #333333;
-      font-size: 18px;
-      line-height: 1.4;
+      color: #111;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 28px;
       text-align: center;
     }
   

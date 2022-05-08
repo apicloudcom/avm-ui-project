@@ -22,7 +22,7 @@ export class ProgressBar extends Component {
     const styles = {}
     styles['width'] = `${props.percent}%`
     styles['width'] = props.percent ? `${props.percent}%` : '0%'
-    styles['background'] = props.trackColor || '#1677ff'
+    styles['background'] = props.trackColor || '#7FA000'
     styles['borderRadius'] = toCSSLength(props.borderRadius) || '3px'
 
     return (

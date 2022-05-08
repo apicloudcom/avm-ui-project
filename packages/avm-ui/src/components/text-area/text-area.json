@@ -21,7 +21,8 @@
         {
             "name": "placeholder",
             "tip": "提示文本",
-            "type": "string"
+            "type": "string",
+            "default": "请输入"
         },
         {
             "name": "autoSize",
@@ -56,17 +57,20 @@
         {
             "name": "color",
             "tip": "文字颜色",
-            "default": "#333"
+            "default": "#333",
+            "tyle": "string"
         },
         {
             "name": "placeholderColor",
             "tip": "placeholder颜色",
-            "default": "#ccc"
+            "default": "#ccc",
+            "tyle": "string"
         },
         {
             "name": "disabledColor",
             "tip": "禁用状态下的文字颜色",
-            "default": "#999"
+            "default": "#999",
+            "tyle": "string"
         }
     ]
 }

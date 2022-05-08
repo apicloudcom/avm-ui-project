@@ -56,13 +56,13 @@
       "name": "inputWidth",
       "tip": "仅输入框的宽度",
       "type": "string",
-      "default": "60px"
+      "default": "40px"
     },
     {
       "name": "inputFontSize",
       "tip": "输入框文字大小",
       "type": "string",
-      "default": "13px"
+      "default": "15px"
     },
     {
       "name": "borderRadius",
@@ -116,7 +116,7 @@
       "name": "btnTextColor",
       "tip": "左右两侧按钮文字颜色",
       "type": "string",
-      "default": "#1677ff"
+      "default": "#7FA000"
     }
   ]
 }

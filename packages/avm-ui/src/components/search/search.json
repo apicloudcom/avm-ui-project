@@ -19,7 +19,9 @@
         {
             "name": "placeholder",
             "tip": "提示文本",
-            "type": "string"
+            "type": "string",
+            "default": "请输入",
+            "generateData": true
         },
         {
             "name": "maxLength",
@@ -61,7 +63,7 @@
             "name": "borderRadius",
             "tip": "圆角",
             "type": "string",
-            "default": "6px"
+            "default": "3px"
         },
         {
             "name": "placeholderColor",

@@ -95,14 +95,14 @@ export class Stepper extends Component {
       inputWidth='32px',
       inputFontSize='14px',
       inputFontColor='#333',
-      borderRaduis='4px',
+      borderRaduis='2px',
       border=borderStyle,
       activeBorder=borderStyle,
       borderInner=borderStyle,
       btnFontSize='12px',
       btnBgColor='#f0f0f0',
       btnWidth='28px',
-      btnTextColor='#333'
+      btnTextColor='#7FA000'
     } = this.props;
 
     const btnWidthStyle = {}
@@ -110,7 +110,7 @@ export class Stepper extends Component {
 
     const boxStyle = {
       height: height,
-      width: `${Number(inputWidth.replace('px', '')) + Number(btnWidth.replace('px', '')) * 2}px`,
+      width: `${Number(inputWidth.replace('px', '')) + Number(btnWidth.replace('px', '')) * 2 + 8}px`,
       borderRadius: borderRaduis,
       border: this.data.hasFocus ? activeBorder : border
     }
@@ -126,6 +126,7 @@ export class Stepper extends Component {
 
     const inputStyle = {
       height: height,
+      lineHeight: height,
       width: inputWidth,
       fontSize: inputFontSize,
       color: disabled ? '#999' : inputFontColor,
@@ -197,16 +198,16 @@ export class Stepper extends Component {
         text-align: center;
         background: #f0f0f0;
         padding: 0;
+        outline: none;
+        margin: 0 4px;
       }
       .adm-stepper-minus {
         padding: 0;
-        margin-right: 2px;
         text-align: center;
         display: inline-block;
       }
       .adm-stepper-plus {
         padding: 0;
-        margin-left: 2px;
         text-align: center;
         display: inline-block;
       }

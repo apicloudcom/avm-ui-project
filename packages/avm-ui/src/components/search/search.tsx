@@ -14,7 +14,7 @@ const defaultProps = {
   cancelText: '取消',
   cancelTextColor: '#333',
   bgColor: '#f5f5f5',
-  borderRadius: '4px',
+  borderRadius: '3px',
   maxLength: 500,
   minLength: 0
   // selectorList: null

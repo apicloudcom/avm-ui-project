@@ -50,7 +50,7 @@
             "name": "starSize",
             "tip": "star大小",
             "type": "string",
-            "default": "18px"
+            "default": "22px"
         },
         {
             "name": "activeColor",
