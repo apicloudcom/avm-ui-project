@@ -31,7 +31,7 @@ export class Card extends Component {
         >
           {props.title.children ? props.title :
             <text className={`${classPrefix}-header-title`} style={props.headerStyle}>{props.title}</text>}
-          {props.extra ? props.extra : <text>{props.extra}</text>}
+          {props.extra && <text className={`${classPrefix}-header-extra`}>{props.extra}</text>}
         </div>
       )
     }
@@ -47,7 +47,7 @@ export class Card extends Component {
           children = props.children
         }
       })
-      
+
       return (
         <div
           className={classNames(`${classPrefix}-body`, props.bodyClassName)}
@@ -84,6 +84,7 @@ export class Card extends Component {
       box-sizing: border-box;
       padding: 12px 0;
       font-size: 16px;
+      
     }
     .adm-card-header:not(:last-child) {
       border-bottom: solid 0.5px #eeeeee;
@@ -92,9 +93,21 @@ export class Card extends Component {
       font-size: 15px;
       line-height: 1.4;
       font-weight: bold;
+      color:#333;
+    }
+    .adm-card-header-extra {
+      margin-left: 12px;
+            width: 50px;
+            flex-shrink: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 14px;
+            color: #666;
     }
     .adm-card-body {
       padding: 12px 0;
+      color:#666;
     }`
   }
 }
