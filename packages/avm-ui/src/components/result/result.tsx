@@ -8,7 +8,7 @@ const classPrefix = `adm-result`
 const iconDefalutProps = {
   success: {
     fontSize: 75,
-    color: '#1677ff'
+    color: '#859F30'
   },
   error: {
     fontSize: 75,

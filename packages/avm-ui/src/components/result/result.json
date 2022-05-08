@@ -9,19 +9,22 @@
       "tip": "状态类型",
       "type": "string",
       "enum": ["success","error","info","waiting","warning"],
-      "default": "success"
+      "default": "success",
+      "generateData": true
     },
     {
       "name": "title",
       "tip": "标题",
       "type": "string",
-      "default": "标题"
+      "default": "标题",
+      "generateData": true
     },
     {
       "name": "description",
       "tip": "描述",
       "type": "string",
-      "default": "结果描述"
+      "default": "结果描述",
+      "generateData": true
     },
     {
       "name": "children",
