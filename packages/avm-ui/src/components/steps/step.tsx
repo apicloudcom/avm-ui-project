@@ -4,7 +4,7 @@ import {formatLabel} from '../../utils/format-label'
 const classPrefix = `adm-step`
 
 export class Step extends Component {
-  
+
   render = props => {
     const {
       title = "步骤标题",
@@ -16,13 +16,11 @@ export class Step extends Component {
       isDot = false
     } = props
 
-    const titleCls = classNames(`${classPrefix}-title`, `${classPrefix}-title-${status}`);
-    const descCls = classNames(`${classPrefix}-description`, `${classPrefix}-${direction}-content-description`);
+    const titleCls = classNames(`${classPrefix}-title`, `${classPrefix}-title-${status}`, `${classPrefix}-title-${direction}`);
+    const descCls = classNames(`${classPrefix}-description`, `${classPrefix}-${direction}-content-description`, `${classPrefix}-description-${direction}`);
     const dotCls = classNames(`${classPrefix}-dot`, `${classPrefix}-dot-${status}`);
 
-    const dotEle = <text className={classNames(`${classPrefix}-dottext`, `${classPrefix}-dottext-${status}`)}>
-      {status === 'finish' ? '√' : (status === 'error' ? '!' : (Number(curIndex) + 1))}
-    </text>
+    const dotEle = <view className={classNames(`${classPrefix}-dottext`, `${classPrefix}-dottext-${status}`)}/>
     return (
       <div
         className={classNames(
@@ -30,18 +28,13 @@ export class Step extends Component {
           `${classPrefix}-${direction}`
         )}>
         {/* 指示条 */}
-        <div className={classNames(
-          `${classPrefix}-indicator`,
-          `${classPrefix}-${direction}-indicator`)}>
+        <div className={classNames(`${classPrefix}-indicator`, `${classPrefix}-${direction}-indicator`)}>
           {/* 点 */}
           {props.icon ? props.icon : (isDot ? (<div className={dotCls}></div>) : dotEle)}
           {/* 线 */}
           {curIndex !== totalLen - 1 && (<div
-            className={classNames(
-              `${classPrefix}-line`,
-              `${classPrefix}-${direction}-line`,
-              `${classPrefix}-line-${status}`
-            )}></div>)}
+            className={classNames(`${classPrefix}-line`, `${classPrefix}-${direction}-line`, `${classPrefix}-line-${status}`
+            )}/>)}
         </div>
 
         {/* 步骤条显示文本 */}
@@ -59,16 +52,19 @@ export class Step extends Component {
   css = () => {
     return `
     .adm-step-indicator {
-      display: flex;
       align-items: center;
+      position:relative;
     }
+    .adm-step-line{
+        position:absolute;
+    }
+    
     .adm-step-content {
       width: 95%;
     }
     .adm-step-title {
       color: #333;
       width: 100%;
-      white-space: wrap;
       font-size: 14px;
       line-height: 20px;
     }
@@ -88,11 +84,14 @@ export class Step extends Component {
       width: 100%;
       height: 24px;
       flex-direction: row;
+    justify-content:center;
     }
     .adm-step-horizontal-line {
       flex: 1;
       height: 1px;
       background: #e8e8e8;
+      left:50%;
+        width:100%;
     }
     .adm-step-horizontal-content {
       padding-top: 2px;
@@ -109,11 +108,15 @@ export class Step extends Component {
       height: 100%;
       margin-right: 8px;
       flex-direction: column;
+      padding-top:6px;
     }
+    
+    
     .adm-step-vertical-line {
       flex: 1;
       width: 1px;
       background: #e8e8e8;
+      height:100%;
     }
     .adm-step-vertical-content {
       flex: auto;
@@ -122,6 +125,10 @@ export class Step extends Component {
     .adm-step-vertical-content-description {
       padding-top: 2px;
     }
+    
+ 
+ 
+    
     .adm-step-line-wait {
       background: #ddd;
     }
@@ -151,13 +158,12 @@ export class Step extends Component {
       background-color: #e02020;
     }
     .adm-step-dottext {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      color: #fff;
-      font-size: 12px;
-      text-align: center;
-      line-height: 18px;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+      z-index: 6;
+    
+    
     }
     .adm-step-dottext-wait {
       background: #ddd;
@@ -172,6 +178,11 @@ export class Step extends Component {
     .adm-step-dottext-finish {
       background: #9ac200;
     }
+    
+    .adm-step-title-horizontal,.adm-step-description-horizontal{
+    text-align:center;
+    }
+    
     `
   }
 }

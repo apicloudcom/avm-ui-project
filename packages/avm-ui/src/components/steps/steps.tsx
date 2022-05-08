@@ -10,9 +10,7 @@ const defaultProps = {
 }
 
 export class Steps extends Component {
-  install = () => {
-    console.log('Steps!')
-  }
+  
 
   render = props => {
     props = Object.assign({}, defaultProps, props)
