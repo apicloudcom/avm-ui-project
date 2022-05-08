@@ -2,6 +2,9 @@
   "component": "Input",
   "desc": "输入框",
   "type": 2,
+  "defaultStyle": {
+    "margin": "10px"
+  },
   "props": [
     {
       "name": "value",

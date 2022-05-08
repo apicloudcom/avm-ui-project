@@ -1,4 +1,5 @@
 import classNames from '../../utils/classnames'
+ 
 
 // import closeIcon from './img/close.png'
 
@@ -42,7 +43,7 @@ export class Input extends Component {
     
 
     const {id, color, fontSize, disabledColor, textAlign, placeholderColor, placeholderClass,
-      disabled, readOnly,  placeholder, maxLength, minLength, max, min, clearable,
+      disabled, readOnly,  placeholder="请输入文本", maxLength, minLength, max, min, clearable,
       enterPress, onKeyDown, onFocus, onBlur, onKeyUp, handleClear,
       autoComplete='on', enterKeyHint, pattern, type, autoCapitalize, autoCorrect} = this.props;
 
@@ -60,7 +61,7 @@ export class Input extends Component {
     };
 
     return (
-      <div className={`${classPrefix}-wrapper`}>
+      <div className={`${classPrefix}-wrapper`} {...props}>
         <input
           id={id}
           value={this.data.value}
@@ -124,19 +125,14 @@ export class Input extends Component {
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
-        width: 100%;
-        max-width: 100%;
         max-height: 100%;
+        border-bottom:1px solid #ddd;
       }
       .adm-input {
-        flex: auto;
-        display: inline-block;
+        flex: 1; 
         box-sizing: border-box;
-        width: 100%;
-        max-width: 100%;
         max-height: 100%;
-        padding: 0;
-        margin: 0;
+        margin: 10px 0;
         line-height: 1.5;
         background: transparent;
         border: 0;
