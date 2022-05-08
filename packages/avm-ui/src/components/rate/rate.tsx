@@ -35,7 +35,7 @@ export class Rate extends Component {
     const starList = Array(props.count).fill(null)
 
     let styles = {};
-    let {starSize="18px", activeColor='#faab0c'} = props;
+    let {starSize="22px", activeColor='#faab0c'} = props;
     styles['padding'] = '4px';
     styles['line-height'] = starSize;
     styles['font-size'] = starSize;
