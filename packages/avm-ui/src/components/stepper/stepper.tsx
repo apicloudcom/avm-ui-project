@@ -1,5 +1,6 @@
 import classNames from '../../utils/classnames'
 import { bound } from '../../utils/bound'
+import mergeStyle from '../../utils/mergeStyle';
 
 const classPrefix = `adm-stepper`
 
@@ -14,9 +15,7 @@ const toStringVal = val => {
 }
 
 export class Stepper extends Component {
-  install = () => {
-    console.log('Stepper!')
-  }
+  
 
   data = {
     value: 0,
@@ -141,7 +140,7 @@ export class Stepper extends Component {
           [`${classPrefix}-disabled`]: disabled,
           [`${classPrefix}-active`]: this.data.hasFocus,
         })}
-        style={boxStyle}>
+        style={mergeStyle(boxStyle,props.style)}>
         <span
           className={`${classPrefix}-minus`}
           onClick={this.handleMinus}

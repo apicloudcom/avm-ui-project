@@ -7,6 +7,9 @@
     "inputFocus",
     "inputBlur"
   ],
+  "defaultStyle": {
+    "margin": "15px"
+  },
   "props": [
     {
       "name": "value",
