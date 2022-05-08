@@ -20,7 +20,8 @@
       "name": "content",
       "type": "string",
       "tip": "通告内容",
-      "default": "通告栏内容"
+      "default": "通告栏内容",
+      "generateData": true
     },
     {
       "name": "closeable",
