@@ -14,12 +14,9 @@ const defaultProps = {
 }
 
 export class TextArea extends Component {
-  install = () => {
-    console.log('TextArea!')
-  }
 
   data = {
-    value: this.props.value || this.props.defaultValue
+    value: this.props.value || this.props.defaultValue || ''
   }
 
   setValue = val => {
@@ -39,8 +36,8 @@ export class TextArea extends Component {
       readOnly,
       fontSize,
       color,
-      placeholder,
-      autoComplete='on',
+      placeholder = "请输入",
+      autoComplete = 'on',
       placeholderColor,
       disabledColor,
       maxLength
@@ -110,8 +107,8 @@ export class TextArea extends Component {
         max-width: 100%;
         max-height: 100%;
         border-radius: 4px;
-        border: 1px solid transparent;
-        padding: 5px;
+        border-bottom: 1px solid #ddd;
+        padding: 15px;
       }
       .adm-text-area {
         resize: none;
