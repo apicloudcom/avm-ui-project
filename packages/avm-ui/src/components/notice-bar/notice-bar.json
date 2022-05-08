@@ -13,7 +13,8 @@
         "info"
       ],
       "tip": "通告栏的类型，也可以直接设置color颜色",
-      "default": "default"
+      "default": "alert",
+      "generateData": true
     },
     {
       "name": "content",
@@ -61,7 +62,8 @@
       "name": "isShowLeftIcon",
       "type": "boolean",
       "tip": "是否显示左侧提示icon, 为false时,icon属性设置则无效",
-      "default": false
+      "default": true,
+      "generateData": true
     }
   ],
   "event": [

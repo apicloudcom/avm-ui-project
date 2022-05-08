@@ -10,12 +10,26 @@
       "name": "visible",
       "tip": "是否显示",
       "type": "boolean",
-      "default": false
+      "default": true,
+      "generateData": true
     },
     {
-      "name": "image",
-      "tip": "图片资源的地址",
-      "type": "string"
+      "name": "images",
+      "tip": "图片资源的地址列表",
+      "type": "array",
+      "default": [
+          "https://images.unsplash.com/photo-1620476214170-1d8080f65cdb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80",
+          "https://images.unsplash.com/photo-1567945716310-4745a6b7844b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60"
+      ],
+      "generateData": true
+    },
+    {
+      "name": "curImg",
+      "tip": "当前展示第几张图片",
+      "type": "number",
+      "default": 1,
+      "generateData": true
     }
+
   ]
 }

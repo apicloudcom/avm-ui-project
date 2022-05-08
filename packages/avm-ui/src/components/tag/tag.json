@@ -34,13 +34,15 @@
         "solid",
         "outline"
       ],
-      "default": "solid"
+      "default": "outline",
+      "generateData": true
     },
     {
       "name": "round",
       "tip": "是否圆角",
       "type": "boolean",
-      "default": "false"
+      "default": false,
+      "generateData": true
     },
     {
       "name": "textColor",
@@ -51,7 +53,9 @@
     {
       "name": "bgColor",
       "tip": "背景颜色",
-      "type": "string"
+      "type": "string",
+      "default": "#F2F5E5",
+      "generateData": true
     },
     {
       "name": "borderColor",

@@ -9,7 +9,9 @@
     {
       "name": "hasMore",
       "type": "boolean",
-      "tip": "是否还有更多内容"
+      "tip": "是否还有更多内容",
+      "default": true,
+      "generateData": true
     },
     {
       "name": "threshold",
