@@ -36,7 +36,7 @@ export class ImageViewer extends Component {
       <Mask
         visible={props.visible}
         disableBodyScroll={false}
-        opacity='thick'
+        opacity='1'
       >
         <div className={`${classPrefix}-content`}>
           {props.image && (
