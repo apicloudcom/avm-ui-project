@@ -1,22 +1,23 @@
 {
-    "component": "Steps",
-    "desc": "Steps定义一个步骤条的视图容器",
-    "type": 1,
-    "props": [
-        {
-            "name": "current",
-            "type": "number",
-            "tip": "指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 status 属性覆盖状态"
-        },
-        {
-            "name": "direction",
-            "type": "string",
-            "enum": [
-                "horizontal",
-                "vertical"
-            ],
-            "tip": "指定步骤条方向。目前支持水平（horizontal）和竖直（vertical）两种方向",
-            "default": "horizontal"
-        }
-    ]
+  "component": "Steps",
+  "desc": "Steps定义一个步骤条的视图容器",
+  "type": 1,
+  "props": [
+    {
+      "name": "current",
+      "type": "number",
+      "tip": "指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 status 属性覆盖状态",
+      "default": 0
+    },
+    {
+      "name": "direction",
+      "type": "string",
+      "enum": [
+        "horizontal",
+        "vertical"
+      ],
+      "tip": "指定步骤条方向。目前支持水平（horizontal）和竖直（vertical）两种方向",
+      "default": "horizontal"
+    }
+  ]
 }
