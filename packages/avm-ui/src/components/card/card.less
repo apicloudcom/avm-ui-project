@@ -1,11 +1,10 @@
-@import "../../global/theme";
-
 @class-prefix-card: ~'adm-card';
 
 .@{class-prefix-card} {
   background: #ffffff;
   border-radius: 8px;
   padding: 0 12px;
+  border: solid 0.5px #eeeeee;
   &-header {
     position: relative;
     display: flex;
@@ -17,7 +16,7 @@
     font-size: 15px;
     
     &:not(:last-child) {
-      border-bottom: solid 0.5px var(--adm-border-color);
+      border-bottom: solid 0.5px #eeeeee;
     }
     &-title {
       font-size: 15px;

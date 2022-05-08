@@ -1,5 +1,5 @@
 // import { nodeOrText } from '../../utils/node-or-text'
-import classNames from 'classnames'
+import classNames from "../../utils/classnames";
 
 const classPrefix = `adm-card`
 
@@ -17,6 +17,7 @@ export type CardProps = {
 
 export class Card extends Component {
   render = props => {
+    console.log(props)
     const renderHeader = () => {
       if (!(props.title || props.extra)) {
         return null
@@ -46,7 +47,7 @@ export class Card extends Component {
           children = props.children
         }
       })
-      console.log(children)
+      
       return (
         <div
           className={classNames(`${classPrefix}-body`, props.bodyClassName)}
@@ -58,43 +59,21 @@ export class Card extends Component {
       )
     }
     return (
-      <div className={classPrefix} onClick={props.onClick}>
+      <div className={classPrefix} onClick={props.onClick}
+           style={props.style}>
         {renderHeader()}
         {renderBody()}
       </div>
     )
   }
-  
+
   css = () => {
-    return `:root {
-      --adm-color-primary: #9AC200;
-      --adm-color-success: #7FA000;
-      --adm-color-warning: #FFA600;
-      --adm-color-danger: #FA6400;
-      --adm-color-white: #ffffff;
-      --adm-color-weak: #999999;
-      --adm-color-light: #cccccc;
-      --adm-border-color: #eeeeee;
-      --adm-font-size-main: 13px;
-      --adm-color-text: #333333;
-      --adm-font-family:
-        -apple-system,
-        blinkmacsystemfont,
-        "Helvetica Neue",
-        helvetica,
-        segoe ui,
-        arial,
-        roboto,
-        "PingFang SC",
-        "miui",
-        "Hiragino Sans GB",
-        "Microsoft Yahei",
-        sans-serif;
-    }
+    return `
     .adm-card {
       background: #ffffff;
       border-radius: 8px;
       padding: 0 12px;
+      border: solid 0.5px #eeeeee;
     }
     .adm-card-header {
       position: relative;
@@ -107,7 +86,7 @@ export class Card extends Component {
       font-size: 16px;
     }
     .adm-card-header:not(:last-child) {
-      border-bottom: solid 0.5px var(--adm-border-color);
+      border-bottom: solid 0.5px #eeeeee;
     }
     .adm-card-header-title {
       font-size: 15px;
