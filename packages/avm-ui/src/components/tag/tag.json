@@ -10,7 +10,8 @@
       "name": "children",
       "tip": "标签文本",
       "type": "string",
-      "default": "标签"
+      "default": "标签",
+      "generateData": true
     },
     {
       "name": "color",
@@ -24,7 +25,8 @@
         "string"
       ],
       "type": "string",
-      "default": "default"
+      "default": "primary",
+      "generateData": true
     },
     {
       "name": "fill",
@@ -34,15 +36,13 @@
         "solid",
         "outline"
       ],
-      "default": "outline",
-      "generateData": true
+      "default": "solid"
     },
     {
       "name": "round",
       "tip": "是否圆角",
       "type": "boolean",
-      "default": false,
-      "generateData": true
+      "default": false
     },
     {
       "name": "textColor",
@@ -53,15 +53,12 @@
     {
       "name": "bgColor",
       "tip": "背景颜色",
-      "type": "string",
-      "default": "#F2F5E5",
-      "generateData": true
+      "type": "string"
     },
     {
       "name": "borderColor",
       "tip": "边框颜色",
-      "type": "string",
-      "default": "#666"
+      "type": "string"
     },
     {
       "name": "borderRadius",

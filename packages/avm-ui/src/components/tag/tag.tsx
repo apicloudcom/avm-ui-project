@@ -38,26 +38,26 @@ const sizeMappings = {
     padding: '0 4px',
     heights: '18px',
     fontSize: '12px',
-    maxWidth: '104px'
+    maxWidth: '104px',
+    minWidth: '50px'
   },
   middle: {
     padding: '0 6px',
     heights: '20px',
     fontSize: '12px',
-    maxWidth: '108px'
+    maxWidth: '108px',
+    minWidth: '60px'
   },
   large: {
     padding: '0 8px',
     heights: '24px',
     fontSize: '14px',
-    maxWidth: '128px'
+    maxWidth: '128px',
+    minWidth: '70px'
   }
 }
 
 export class Tag extends Component {
-  install = () => {
-    console.log('Tag!')
-  }
 
   data = {
     isShowTag: true
@@ -84,10 +84,12 @@ export class Tag extends Component {
     }
 
     return (
-      <view className={classNames(`${classPrefix}-wrapper`, {
-        [`${classPrefix}-wrapper-disabled`]: props.isDisabled,
-        [`${classPrefix}-round`]: props.round
-      })} style={{...wrapperStyles, display: (this.data.isShowTag ? 'flex' : 'none')}}>
+
+      <view className={`${classPrefix}-row`}>
+        <view className={classNames(`${classPrefix}-wrapper`, {
+          [`${classPrefix}-wrapper-disabled`]: props.isDisabled,
+          [`${classPrefix}-round`]: props.round
+        })} style={{...wrapperStyles, display: (this.data.isShowTag ? 'flex' : 'none')}}>
         <span
           style={{...sizeMappings[props.size]}}
           onClick={props.handleClick}
@@ -95,14 +97,20 @@ export class Tag extends Component {
         >
           {props.children}
         </span>
-        {props.isDelete  && <span className={`${classPrefix}-close`} onClick={() => {
-          !props.isDisabled && (this.data.isShowTag = false)
-        }}>✕</span>}
+          {props.isDelete && <span className={`${classPrefix}-close`}
+                                   style={{color:sizeMappings[props.size].color}} onClick={() => {
+            !props.isDisabled && (this.data.isShowTag = false)
+          }}>✕</span>}
+        </view>
       </view>
     )
   }
   css = () => {
     return `
+    .adm-tag-row{
+    flex-flow:row;
+    margin:1px;
+    }
       .adm-tag-wrapper {
         display: flex;
         align-items: center;
@@ -119,13 +127,13 @@ export class Tag extends Component {
         box-sizing: border-box;
         overflow: hidden;
         text-overflow: ellipsis;
+        text-align:center;
       }
       .adm-tag-round {
         border-radius: 100px;
       }
       .adm-tag-close {
         font-size: 10px;
-        color: #cfcfcf;
         padding-right: 8px;
       }
     `
