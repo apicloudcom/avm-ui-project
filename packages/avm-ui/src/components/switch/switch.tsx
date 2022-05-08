@@ -20,7 +20,6 @@ const defaultProps = {
 
 export class Switch extends Component {
   install = () => {
-    console.log('Switch!');
     this.props = Object.assign({}, defaultProps, this.props)
   }
 
@@ -96,6 +95,8 @@ export class Switch extends Component {
     })
 
     return (
+
+      <div className={`${classPrefix}-row`}>
       <div
         onClick={onClick}
         className={classNames(classPrefix, {
@@ -125,18 +126,20 @@ export class Switch extends Component {
           </div>
           {formatLabel(this.data.checked ? props.checkedText : props.uncheckedText, innerCls, innerStyle)}
         </div>
-      </div>
+      </div></div>
     )
   }
   css = () => {
     return `
-    @keyframes loading-rotate {
-      100% {
-        transform: translateX(10);
-      }
+ 
+@keyframes loading-rotate {
+    100% {
+        transform: rotate(1turn);
     }
+}
+
+    .adm-switch-row{flex-flow:row;}
     .adm-switch {
-      display: inline-block;
       vertical-align: middle;
       box-sizing: border-box;
       position: relative;
@@ -174,6 +177,7 @@ export class Switch extends Component {
       z-index: 1;
       color: #999;
       transition: margin 200ms;
+      font-size:12px;
     }
     .adm-switch-checked-inner {
       color: #FFF;
