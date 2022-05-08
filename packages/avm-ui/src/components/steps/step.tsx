@@ -59,9 +59,7 @@ export class Step extends Component {
         position:absolute;
     }
     
-    .adm-step-content {
-      width: 95%;
-    }
+    
     .adm-step-title {
       color: #333;
       width: 100%;
