@@ -187,9 +187,11 @@ export class Switch extends Component {
       opacity: 0.4;
     }
     .adm-switch-icon {
-      width: 14px;
-      height: 14px;
-      transition: loading-rotate 1s linear infinite;
+      width: 16px;
+      height: 16px;
+      font-size:16px;
+      line-height:16px;
+      animation: loading-rotate 1s linear infinite;
     }
     `
   }
