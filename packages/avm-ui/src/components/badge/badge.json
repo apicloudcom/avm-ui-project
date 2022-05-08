@@ -7,12 +7,15 @@
       "name": "content",
       "type": "string",
       "tip": "徽标内容：如果传 null undefined '' 或不传，则不显示徽标",
-      "default": "1"
+      "default": "1",
+      "generateData": true
     },
     {
       "name": "color",
       "type": "string",
-      "tip": "徽标背景色"
+      "tip": "徽标背景色",
+      "default": "red",
+      "generateData": true
     },
     {
       "name": "isDot",
