@@ -1,6 +1,7 @@
 import classNames from '../../utils/classnames'
 import Space from '../space'
 import Grid from '../grid'
+import {Icon} from "../icon";
 // import checkIcon from './checked.png'
 // import {CheckOutline} from '../icon/icon'
 
@@ -14,7 +15,7 @@ const defaultProps = {
 }
 
 export class Selector extends Component {
-  
+
 
   data = {
     value: this.props.value || this.props.defaultValue
@@ -63,11 +64,12 @@ export class Selector extends Component {
             }
           }}
         >
-          <span className={`${classPrefix}-label`} style={{color: active ? props.checkedColor : '#666'}}>{option.label}</span>
+          <span className={`${classPrefix}-label`}
+                style={{color: active ? props.checkedColor : '#666'}}>{option.label}</span>
           {active && (
             <div className={`${classPrefix}-check-mark-wrapper`}>
               {/* <img src={checkIcon} className={`${classPrefix}-check-mark-wrapper-img`}/> */}
-              <span className={`${classPrefix}-check-mark-wrapper-img`}>✔</span>
+              <Icon name="CheckOutline" fontSize={8} className={`${classPrefix}-check-mark-wrapper-img`}/>
               {/* <CheckOutline {...{color: '#fff', width: '6px', height: '6px'}} className={`${classPrefix}-check-mark-wrapper-img`}/> */}
             </div>
           )}
@@ -77,7 +79,7 @@ export class Selector extends Component {
 
     return (
       <div className={classPrefix}>
-        {!props.columns && <Space wrap>{items}</Space>}
+        {!props.columns && <Space wrap style="padding:8px 8px 0;">{items}</Space>}
         {props.columns && (
           <Grid columns={props.columns} gap={8}>
             {items}
@@ -122,11 +124,11 @@ export class Selector extends Component {
         border-right: solid 10px #9AC200;
       }
       .adm-selector-check-mark-wrapper-img {
-        position: absolute;
-        left: 0px;
-        top: -5px;
-        font-size: 8px;
-        color: #fff;
+       position: absolute;
+    left: -2px;
+    top: -3px;
+    font-size: 8px;
+    color: #fff;
       }
     `
   }

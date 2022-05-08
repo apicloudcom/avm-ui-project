@@ -1,5 +1,5 @@
 import classNames from '../../utils/classnames'
-import { mergeProps } from '../../utils/with-default-props'
+import {mergeProps} from '../../utils/with-default-props'
 
 const classPrefix = `adm-space`
 
@@ -23,6 +23,7 @@ const defaultProps = {
   gap: '8px',
   style: {}
 }
+
 export class Space extends Component {
   render = props => {
     props = mergeProps(defaultProps, props)
@@ -33,12 +34,9 @@ export class Space extends Component {
 
     itemStyles[direction === 'horizontal' ? 'marginRight' : 'marginBottom'] = gaps
 
-    const wrapStyles = {}
-    if (props.wrap && direction === 'horizontal') {
-      const vGap = gapVertical || gap;
-      // wrapStyles['marginBottom'] = `-${vGap}`
 
-      itemStyles['paddingBottom'] = vGap;
+    if (props.wrap && direction === 'horizontal') {
+      itemStyles['paddingBottom'] = gapVertical || gap;
     }
 
     return <div
@@ -50,7 +48,7 @@ export class Space extends Component {
         [`${classPrefix}-align-${props.align}`]: !!props.align,
         [`${classPrefix}-justify-${props.justify}`]: !!props.justify,
       })}
-      style={wrapStyles}
+      {...props}
     >
       {props.children.map((child, index) => {
         return (

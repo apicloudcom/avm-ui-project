@@ -19,7 +19,7 @@ export class Icon extends Component {
 
   render = props => {
     const char = props.code ? String.fromCharCode(props.code) || props.children : icons[props.name || props.type];
-    return <text style={{...props}} class={`${classPrefix} ${classPrefix}-font-icon-text`}>{char}</text>
+    return <text style={{...props}} class={`${classPrefix} ${classPrefix}-font-icon-text ${props.class||props.className||''}`}>{char}</text>
   }
 }
   
