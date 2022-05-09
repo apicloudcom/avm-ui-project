@@ -5,7 +5,7 @@ import {Icon} from "../icon";
 
 const classPrefix = `adm-result`
 
-const iconDefalutProps = {
+const iconDefaultProps = {
   success: {
     fontSize: 75,
     color: '#859F30'
@@ -29,11 +29,11 @@ const iconDefalutProps = {
 }
 
 const iconRecord = {
-  'success': <Icon code={59931} {...iconDefalutProps['success']} />,
-  'error': <Icon code={59938} {...iconDefalutProps['error']} />,
-  'info': <Icon code={59984} {...iconDefalutProps['info']} />,
-  'waiting': <Icon code={59937} {...iconDefalutProps['waiting']} />,
-  'warning': <Icon code={59955} {...iconDefalutProps['warning']} />,
+  'success': <Icon code={59931} {...iconDefaultProps['success']} />,
+  'error': <Icon code={59938} {...iconDefaultProps['error']} />,
+  'info': <Icon code={59984} {...iconDefaultProps['info']} />,
+  'waiting': <Icon code={59937} {...iconDefaultProps['waiting']} />,
+  'warning': <Icon code={59955} {...iconDefaultProps['warning']} />,
 }
 
 
@@ -46,9 +46,20 @@ export type ResultProps = {
 
 export class Result extends Component {
   render = props => {
-    const { status, title, description, children } = props
+    const {status, title, description, children} = props
     if (!status) return null
-    const resultIcon = children && Boolean(children.length) ? children : iconRecord[status]
+    let resultIcon = iconRecord[status];
+
+    if (children) {
+      if (typeof children[0] === 'string' && children[0].includes('.')) {
+        const {fontSize} = iconDefaultProps[status];
+        resultIcon = <img style={`width: ${fontSize}px; height: ${fontSize}px;`} src={children[0]}/>
+      } else {
+        resultIcon = children
+      }
+    }
+
+
     return (
       <div className={classNames(classPrefix, `${classPrefix}-${status}`)}>
         <div className={`${classPrefix}-icon`}>{resultIcon}</div>
@@ -70,7 +81,7 @@ export class Result extends Component {
     }
     .adm-result-icon {
       box-sizing: border-box;
-      text-align: center;
+      text-align: center;align-self: center;
     }
   
     .adm-result-title {
