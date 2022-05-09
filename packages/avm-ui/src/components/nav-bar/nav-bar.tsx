@@ -1,5 +1,5 @@
 import classNames from '../../utils/classnames'
-import Icon  from '../icon'
+import Icon from '../icon'
 
 const classPrefix = `adm-nav-bar`
 
@@ -9,19 +9,28 @@ export type NavBarProps = {
   left?: string
   right?: string
   onBack?: () => void
-} 
+}
 const defaultProps = {
   back: '',
   backArrow: true,
 }
+
 export class NavBar extends Component {
-  
+
   render = props => {
-    props = Object.assign({},defaultProps, props)
-    const { back, backArrow, right, style } = props
-    const rightNode = right && right.children.map(item => {
-      return item
-    })
+    props = Object.assign({}, defaultProps, props)
+    const {back, backArrow, right, style} = props
+    let rightNode;
+
+    if (right) {
+      if (typeof right === 'string') {
+        rightNode = right;
+      } else if (right.children) {
+        rightNode = right.children;
+      }
+    }
+
+
     return (
       <div className={classNames(classPrefix)} style={style}>
         <div className={`${classPrefix}-left`} role='button'>
@@ -29,7 +38,7 @@ export class NavBar extends Component {
             <div className={`${classPrefix}-back`} onClick={props.onBack}>
               {backArrow && (
                 <div className={`${classPrefix}-back-arrow`}>
-                  {backArrow === true||backArrow === 'true' ? <Icon code={59988} fontSize="18" /> : backArrow}
+                  {backArrow === true || backArrow === 'true' ? <Icon code={59988} fontSize="18"/> : backArrow}
                 </div>
               )}
               <text aria-hidden='true'>{back}</text>
@@ -38,9 +47,9 @@ export class NavBar extends Component {
           <text className={`${classPrefix}-left-text`}>{props.left}</text>
         </div>
         {
-          props.children && Boolean(props.children) && typeof(props.children[0])==='string' ?
-          (<text className={`${classPrefix}-title`}>{props.children}</text>):
-          (<div className={`${classPrefix}-title`}>{props.children}</div>)
+          props.children && Boolean(props.children) && typeof (props.children[0]) === 'string' ?
+            (<text className={`${classPrefix}-title`}>{props.children}</text>) :
+            (<div className={`${classPrefix}-title`}>{props.children}</div>)
         }
         <div className={`${classPrefix}-right`}>{rightNode}</div>
       </div>
