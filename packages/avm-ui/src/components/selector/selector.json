@@ -1,75 +1,80 @@
 {
-    "component": "Selector",
-    "desc": "选择组",
-    "type": 2,
-    "event": [
-        "handleChange"
-    ],
-    "props": [
+  "component": "Selector",
+  "desc": "选择组",
+  "type": 2,
+  "event": [
+    "handleChange"
+  ],
+  "props": [
+    {
+      "name": "value",
+      "tip": "选中项",
+      "type": "array",
+      "default": [
+        "1"
+      ]
+    },
+    {
+      "name": "defaultValue",
+      "tip": "默认项",
+      "type": "array",
+      "default": [
+        "1"
+      ],
+      "generateData": true
+    },
+    {
+      "name": "columns",
+      "tip": "行展示数",
+      "type": "number"
+    },
+    {
+      "name": "options",
+      "tip": "可选项",
+      "type": "array",
+      "default": [
         {
-            "name": "value",
-            "tip": "选中项",
-            "type": "array",
-            "default": ["1"]
+          "label": "选项一",
+          "value": "1"
         },
         {
-            "name": "defaultValue",
-            "tip": "默认项",
-            "type": "array",
-            "default": ["1"]
+          "label": "选项二",
+          "value": "2",
+          "disabled": true
         },
         {
-            "name": "columns",
-            "tip": "行展示数",
-            "type": "number"
+          "label": "选项三",
+          "value": "3"
         },
         {
-            "name": "options",
-            "tip": "可选项",
-            "type": "array",
-            "default": [
-              {
-                "label": "选项一",
-                "value": "1"
-              },
-              {
-                "label": "选项二",
-                "value": "2",
-                "disabled": true
-              },
-              {
-                "label": "选项三",
-                "value": "3"
-              },
-              {
-                "label": "选项四",
-                "value": "4"
-              }
-            ]
-        },
-        {
-            "name": "multiple",
-            "tip": "是否允许多选",
-            "type": "boolean",
-            "default": false
-        },
-        {
-            "name": "disabled",
-            "tip": "是否全局禁止选中",
-            "type": "boolean",
-            "default": false
-        },
-        {
-            "name": "checkedColor",
-            "tip": "选中填充背景颜色",
-            "type": "string",
-            "default": "#e7f1ff"
-        },
-        {
-            "name": "color",
-            "tip": "选中字体颜色",
-            "type": "string",
-            "default": "#333"
+          "label": "选项四",
+          "value": "4"
         }
-    ]
+      ]
+    },
+    {
+      "name": "multiple",
+      "tip": "是否允许多选",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "disabled",
+      "tip": "是否全局禁止选中",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "checkedBgColor",
+      "tip": "选中填充背景颜色",
+      "type": "string",
+      "default": "#e7f1ff"
+    },
+    {
+      "name": "checkedColor",
+      "tip": "选中字体颜色",
+      "type": "string",
+      "default": "#333"
+    }
+  ]
 }

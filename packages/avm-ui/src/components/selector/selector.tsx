@@ -69,7 +69,7 @@ export class Selector extends Component {
           {active && (
             <div className={`${classPrefix}-check-mark-wrapper`}>
               {/* <img src={checkIcon} className={`${classPrefix}-check-mark-wrapper-img`}/> */}
-              <Icon name="CheckOutline" fontSize={8} className={`${classPrefix}-check-mark-wrapper-img`}/>
+              <Icon name="CheckOutline" fontSize={9} className={`${classPrefix}-check-mark-wrapper-img`}/>
               {/* <CheckOutline {...{color: '#fff', width: '6px', height: '6px'}} className={`${classPrefix}-check-mark-wrapper-img`}/> */}
             </div>
           )}
@@ -125,9 +125,8 @@ export class Selector extends Component {
       }
       .adm-selector-check-mark-wrapper-img {
        position: absolute;
-    left: -2px;
-    top: -3px;
-    font-size: 8px;
+    left: 0;
+    top: -2px;
     color: #fff;
       }
     `
