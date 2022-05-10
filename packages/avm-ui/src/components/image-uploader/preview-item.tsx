@@ -37,7 +37,7 @@ export class PreviewItem extends Component {
           [`${classPrefix}-cell-fail`]: props.status === 'fail'
         })}
         style={cellSizeStyle}>
-        <Image
+        <Image mode={'aspectFill'}
           width={cellSizeStyle.width}
           height={cellSizeStyle.height}
           className={`${classPrefix}-cell-image`}

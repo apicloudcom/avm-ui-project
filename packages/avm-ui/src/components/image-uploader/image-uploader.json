@@ -13,7 +13,9 @@
       "tip": "已上传的文件列表",
       "type": "array",
       "default": [
-        "https://www.apicloud.com/img/console/newuser/new2-1.png"
+        {
+          "url": "https://img.yangyongan.com/rviwd.jpg"
+        }
       ],
       "generateData": true
     },
