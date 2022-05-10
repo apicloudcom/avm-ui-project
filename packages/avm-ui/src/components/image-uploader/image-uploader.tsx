@@ -143,7 +143,7 @@ export class ImageUploader extends Component {
               onClick={() => {
                 !props.disableUpload && this.selectPicture()
               }}>
-              {!this.data.uploadError ? (props.uploadIcon ?? <view className={`${classPrefix}-btn-wrap-img`} style={{width: cellSizeStyle.width, height: cellSizeStyle.height}}><Icon code={59927} color="#ddd" width="22px" height="22px"/></view>) : (
+              {!this.data.uploadError ? (props.uploadIcon ?? <view className={`${classPrefix}-btn-wrap-img`} style={{width: cellSizeStyle.width, height: cellSizeStyle.height}}><Icon code={59908} color="#ddd" size={32} fontSize={'32px'} width="32px" height="32px"/></view>) : (
                 <div className={`${classPrefix}-error-wrapper`} style={{width: cellSizeStyle.width, height: cellSizeStyle.height}}>
                   <span className={`${classPrefix}-error-wrapper-close`}>✕</span>
                   <span className={`${classPrefix}-error-wrapper-text`}>上传失败</span>
