@@ -1,5 +1,5 @@
 import fs from 'fs-extra';
-import path from "path";
+import path from "path"; 
 
 /**
  * 合并自定义图标库
@@ -11,7 +11,7 @@ export function mergeCustomIcons(svgPath, prefix = true) {
   const svgFiles = walk(path.resolve('./icons'));
   svgFiles.forEach(svg => {
     const [svgFile, fileName, dir] = svg;
-    fs.copySync(svgFile, svgPath + (prefix ? dir + '_' : '') + fileName)
+    fs.copySync(svgFile, svgPath + toPascalCase(prefix ? dir + '_' : '') + fileName)
   })
 
 }
@@ -36,4 +36,10 @@ const walk = function (dir) {
     }
   })
   return results
+}
+
+function toPascalCase(str) {
+  return str.match(/[A-Z]{2,}(?=[A-Z][a-z]+\d*|\b)|[A-Z]?[a-z]+\d*|[A-Z]|\d+/g)
+    .map(x => x.charAt(0).toUpperCase() + x.slice(1).toLowerCase())
+    .join('');
 }

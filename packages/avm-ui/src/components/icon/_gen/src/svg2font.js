@@ -32,7 +32,7 @@ async function svg2font(svgPath, fontPath, fontName) {
     website: {
       title: "AVM-UI ICON",
       // Must be a .svg format image.
-      logo: path.resolve(svgPath, "apicloud_logo.svg"),
+      logo: path.resolve(svgPath, "ApiCloudlogo.svg"),
       version: '0.1',
       meta: {
         description: "Converts SVG fonts to TTF/EOT/WOFF/WOFF2/SVG format.",
