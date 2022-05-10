@@ -9,6 +9,7 @@ const defaultProps = {
   color: '#E02020',
   isDot: false
 }
+
 export class Badge extends Component {
   install = () => {
     console.log('Badge!')
@@ -28,24 +29,31 @@ export class Badge extends Component {
     const styleRight = !!right && hasChild ? right : 0;
     const styleTop = !!top && hasChild ? top : 0;
 
-    const contentEle = formatLabel(!isDot ? content : null, badgeCls, {backgroundColor: color, right: styleRight, top: styleTop})
+    const contentEle = formatLabel(!isDot ? content : null, badgeCls, {
+      backgroundColor: color,
+      right: styleRight,
+      top: styleTop
+    })
     return (
-      <div className={`${classPrefix}-wrap`}>
-        {children}
-        {contentEle}
+      <div className={`${classPrefix}-row`}>
+        <div className={`${classPrefix}-wrap`}>
+          {children}
+          {contentEle}
+        </div>
       </div>
-    ) 
+    )
   }
-  
-  css = ()=>{
+
+  css = () => {
     return `
+    
+    .adm-badge-row{flex-flow:row;}
+    
       .adm-badge-wrap {
-        display: inline-block;
         position: relative;
         margin:10px;
       }
       .adm-badge {
-        display: inline-block;
         color: #fff;
         font-weight: normal;
         text-align: center;
@@ -54,8 +62,9 @@ export class Badge extends Component {
         min-width: 16px;
         border-radius: 100px;
         padding: 0 4px;
-        font-size: 9px;
-        line-height: 1.2;
+        font-size: 10px;
+    line-height: 16px;
+  height: 16px;
         white-space: nowrap;
       }
       .adm-badge--fixed {
