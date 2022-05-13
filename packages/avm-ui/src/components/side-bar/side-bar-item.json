@@ -32,7 +32,7 @@
     {
       "name": "isDot",
       "type": "boolean",
-      "tip": "徽标是否显示小红点，如果设置为true,则显示小红点，并且badgeContent则不生效",
+      "tip": "徽标是否显示小红点，如果设置为true,则显示小红点",
       "default": false
     }
   ]
