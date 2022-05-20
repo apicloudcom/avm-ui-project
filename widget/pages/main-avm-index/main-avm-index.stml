@@ -132,7 +132,7 @@ export default {
 .main-avm-list {
     width: 100%;
     height: 100%;
-    background: #ffffff;
+    background: #fff;
     z-index: 666;
 }
 .main-avm-list-tabs {

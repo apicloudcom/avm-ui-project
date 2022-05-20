@@ -1,5 +1,5 @@
 <template>
-<safe-area class="main-avm-container">
+<view class="main-avm-container">
   <view class="main-avm-top" v-if="!isShowIndex">
     <text class="main-avm-top-title">AVM PLAY</text>
     <text class="main-avm-top-sub-title">Application-View-Model</text>
@@ -20,7 +20,7 @@
     </scroll-view>
   </view>
   <main-avm-index v-if="isShowIndex" @handleHideIndexList="handleHideIndexList" :curTab="curTab" :curChildTab="curChildTab"/>
-</safe-area>
+</view>
 </template>
 
 <script>
@@ -111,6 +111,7 @@ export default {
   color: #333;
   font-weight: 500;
   line-height: 25px;
+  padding-top: 35px;
 }
 .main-avm-top-sub-title {
   font-size: 14px;
