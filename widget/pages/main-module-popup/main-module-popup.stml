@@ -66,6 +66,10 @@ export default {
 				list = ios;
 			} else if (mdPlatform === 2) {
 				list = [].concat(android, ios)
+			} else if (mdPlatform === 10) {
+				list = [].concat(android, ios, applet)
+			} else if (mdPlatform === 11) {
+				list = [].concat(android, ios, h5)
 			} else if (mdPlatform === 14) {
 				list = [].concat(android, ios, applet, h5)
 			}

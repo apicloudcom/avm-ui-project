@@ -13,6 +13,9 @@
 				</view>
 			</view>
 		</scroll-view>
+		<view class="loading-con" v-if="isLoading">
+			<img class="loading-icon" src="../../image/loading_more.gif" alt="loading"/>
+		</view>
 	</safe-area>
 </template>
 <script>
@@ -24,7 +27,8 @@ export default {
 	data() {
 		return {
 			isShowShadow: false,
-			moduleList: []
+			moduleList: [],
+			isLoading: false
 		}
 	},
 	methods: {
@@ -53,10 +57,12 @@ export default {
 		},
 		// 获取模块列表
 		getModuleList(startNum, size) {
+			this.isLoading = true;
 			api.ajax({
 				url:`http://www.apicloud.com/getAllMdStore?startNum=${startNum}&size=${size}&platform=-1&type=13&subclass=2&order=1&searchByName=false&searchName=&isfree=-1&provider=-1&green_diamond=-1&green_vip=-1&_=1653015055350`
 			}, (ret, err) => {
 				this.data.moduleList = ret && ret.body ? ret.body : []
+				this.isLoading = false;
 			})
 		}
 	}
@@ -75,7 +81,6 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-bottom: 0.5px solid #e8e8e8;
 }
 .main-module-title-inner {
 	font-size: 17px;
@@ -127,5 +132,16 @@ export default {
 	color: #999;
 	font-weight: 400;
 	line-height: 17px;
+}
+.loading-con {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.loading-icon {
+	width: 30px;
+	height: 30px;
 }
 </style>
