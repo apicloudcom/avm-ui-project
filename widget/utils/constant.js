@@ -140,9 +140,6 @@ export const avmContentList = [{
     }, {
       text: 'Tag 标签',
       component: 'demo-tag'
-    }, {
-      text: 'Popover 气泡弹出框',
-      component: 'demo-popover'
     }]
   }, {
     type: 'avm',

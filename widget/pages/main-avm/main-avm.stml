@@ -28,6 +28,12 @@ import '../main-avm-index/main-avm-index.stml'
 import {avmContentList} from '../../utils/constant'
 export default {
   name: "main-avm",
+  apiready() {
+		api.setStatusBarStyle && api.setStatusBarStyle({
+			style: 'dark',
+      color: '#fff'
+		});
+	},
   computed: {
     // 当前运行平台 app/web/mp
     platform() {
