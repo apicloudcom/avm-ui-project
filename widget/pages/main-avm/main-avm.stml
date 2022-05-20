@@ -30,8 +30,7 @@ export default {
   name: "main-avm",
   apiready() {
 		api.setStatusBarStyle && api.setStatusBarStyle({
-			style: 'dark',
-      color: '#fff'
+			style: 'dark'
 		});
 	},
   computed: {
