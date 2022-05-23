@@ -64,7 +64,6 @@ const shapeAttr = {
 
 export class Button extends Component {
   render = props => {
-    console.log({defaultProps, props})
     props = mergeProps(defaultProps, props)
     const disabled = props.disabled || props.loading
     const {textColor, color, bgColor, borderRadius, shape, borderWidth, borderStyle, borderColor, fill} = props
@@ -95,13 +94,16 @@ export class Button extends Component {
       `${classPrefix}-shape-${props.shape}`
     )
 
+    const {style, ...restProps} = props;
+
     return (
       <button
         type={props.type}
-        onClick={props.onClick}
         className={btnCls}
         disabled={disabled}
-        style={mergeStyle(btnStyles, props.style)}>
+        style={mergeStyle(btnStyles, style)}
+        {...restProps}
+      >
         {props.loading ? (props.loadingText) : (props.children)}
       </button>
     )
