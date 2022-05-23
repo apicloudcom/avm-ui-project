@@ -1,18 +1,20 @@
 {
-        "component": "DropdownItem",
-        "parent":"dropdown",
-        "desc": "Dropdown.Item 下来菜单中item",
-        "type": 1,
-        "props": [
-                {
-                        "name": "key",
-                        "type": "string",
-                        "tip": "唯一值"
-                },
-                {
-                        "name": "title",
-                        "type": "string",
-                        "tip": "标题"
-                }
-        ]
+  "component": "DropdownItem",
+  "parent": "dropdown",
+  "desc": "Dropdown.Item 下来菜单中item",
+  "type": 1,
+  "props": [
+    {
+      "name": "key",
+      "type": "string",
+      "tip": "唯一值"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "tip": "标题",
+      "default": "选项",
+      "generateData": true
+    }
+  ]
 }
