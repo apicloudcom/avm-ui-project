@@ -286,19 +286,10 @@ export const apiList = [{
   }, {
     name: 'systemType',
     desc: ['系统类型，字符串类型'],
-    enum: [{
-      name: 'ios',
-      desc: 'iOS系统',
-    }, {
-      name: 'android',
-      desc: 'Android系统',
-    }, {
-      name: 'win',
-      desc: 'Windows系统',
-    }, {
-      name: 'wp',
-      desc: 'Windows Phone系统',
-    }],
+    enum: `ios          //iOS系统
+android        //Android系统
+win            //Windows系统
+wp             //Windows Phone系统`,
     sampleCode: ['var systemType = api.systemType; // 比如： ios'],
     usability: ['iOS系统，Android系统', '可提供的1.1.0及更高版本']
   }, {
@@ -339,34 +330,20 @@ export const apiList = [{
   }, {
     name: 'uiMode',
     desc: ['设备类型，字符串类型'],
-    enum: [{
-      name: 'pad'
-    }, {
-      name: 'phone'
-    }, {
-      name: 'tv'
-    }, {
-      name: 'car'
-    }, {
-      name: 'desk'
-    }, {
-      name: 'watch'
-    }],
+    enum: `pad
+phone
+tv
+car
+desk
+watch`,
     sampleCode: ['var uiMode = api.uiMode;  // 比如：phone'],
     usability: ['iOS系统，Android系统', '可提供的1.2.10及更高版本']
   }, {
     name: 'platform',
     desc: ['当前运行平台，字符串类型'],
-    enum: [{
-      name: 'app',
-      desc: '表示当前运行环境为 App 端'
-    }, {
-      name: 'web',
-      desc: '表示当前运行环境为 Web 端'
-    }, {
-      name: 'mp',
-      desc: '表示当前运行环境为小程序端'
-    }],
+    enum: `app       // 表示当前运行环境为 App 端
+web       // 表示当前运行环境为 Web 端
+mp        // 表示当前运行环境为小程序端`,
     sampleCode: ['var platform = api.platform;  // 比如：app'],
     usability: ['iOS系统，Android系统', '可提供的1.3.68及更高版本']
   }, {
@@ -377,28 +354,13 @@ export const apiList = [{
   }, {
     name: 'connectionType',
     desc: ['当前网络连接类型，如 2g、3g、4g、wifi 等，字符串类型'],
-    enum: [{
-      name: 'unknown',
-      desc: '未知'
-    }, {
-      name: 'ethernet',
-      desc: '以太网'
-    }, {
-      name: 'wifi',
-      desc: 'wifi'
-    }, {
-      name: '2g',
-      desc: '2G网络'
-    }, {
-      name: '3g',
-      desc: '3G网络'
-    }, {
-      name: '4g',
-      desc: '4G网络'
-    }, {
-      name: 'none',
-      desc: '无网络'
-    }],
+    enum: `unknown            //未知
+ethernet        //以太网
+wifi            //wifi
+2g                //2G网络
+3g                //3G网络
+4g                //4G网络
+none            //无网络`,
     sampleCode: 'var connectionType = api.connectionType;  //比如： wifi',
     usability: ['iOS系统，Android系统', '可提供的1.1.0及更高版本']
   }, {
@@ -449,19 +411,12 @@ export const apiList = [{
   }, {
     name: 'safeArea',
     desc: ['页面不被其它内容（如状态栏）遮住的区域，JSON对象', '通过safeArea能够知道当前页面哪些地方被遮住，从而做出相应的调整，保证页面重要元素不被遮挡住。'],
-    enum: [{
-      name: 'top',
-      desc: '安全区域上边缘，对于沉浸式下window中该值通常为状态栏高度，全屏或非沉浸式下为0（iPhone X竖屏时全屏状态下也为44）'
-    }, {
-      name: 'left',
-      desc: '安全区域左边缘，通常为0（iPhone X横屏时为44）'
-    }, {
-      name: 'bottom',
-      desc: '安全区域下边缘，通常为0（iPhone X竖屏时为34，横屏时为21）'
-    }, {
-      name: 'right',
-      desc: '安全区域右边缘，通常为0（iPhone X横屏时为44）'
-    }],
+    enum: `{
+  top:            // 安全区域上边缘，对于沉浸式下window中该值通常为状态栏高度，全屏或非沉浸式下为0（iPhone X竖屏时全屏状态下也为44）
+  left:            // 安全区域左边缘，通常为0（iPhone X横屏时为44）
+  bottom:            // 安全区域下边缘，通常为0（iPhone X竖屏时为34，横屏时为21）
+  right:            // 安全区域右边缘，通常为0（iPhone X横屏时为44）
+}`,
     sampleCode: 'var safeArea = api.safeArea;        // JSON对象，如{top:20, left:0, bottom:0, right:0}',
     usability: ['iOS系统，Android系统', '可提供的1.2.33及更高版本']
   }, {

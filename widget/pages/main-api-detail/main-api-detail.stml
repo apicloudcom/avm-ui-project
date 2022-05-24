@@ -6,9 +6,9 @@
 			<view v-if="detailInfo.desc && detailInfo.desc.length">
 				<text class="detail-text detail-desc" v-for="item in detailInfo.desc">{{item}}</text>
 			</view>
-			<view v-if="detailInfo.enum && detailInfo.enum.length">
+			<view v-if="detailInfo.enum">
 				<text class="detail-title">取值范围：</text>
-				<text class="detail-text" v-for="item in detailInfo.enum">{item.name}：{item.desc}</text>
+				<text class="detail-params-fields">{detailInfo.enum}</text>
 			</view>
 			<view v-if="detailInfo.params && detailInfo.params.length">
 				<text class="detail-title">params</text>
@@ -18,7 +18,7 @@
 						<text class="detail-text">类型：{{item.desc[0].type}}</text>
 						<text class="detail-text">默认值：{{item.desc[0].default}}</text>
 						<text class="detail-text">描述：{{item.desc[0].desc}}</text>
-						<text class="detail-text">取值范围：</text>
+						<text class="detail-text" v-if="item.desc[0].fields">取值范围：</text>
 						<text class="detail-params-fields" v-if="item.desc[0].fields">{{item.desc[0].fields}}</text>
 					</view>
 				</view>
@@ -97,8 +97,8 @@ export default {
 	font-size: 14px;
 	color: #808080;
 	font-weight: 400;
-	line-height: 28px;
+	line-height: 24px;
 	border-radius: 4px;
-	padding: 0 12px;
+	padding: 12px;
 }
 </style>
