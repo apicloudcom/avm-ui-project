@@ -18,9 +18,7 @@ const defaultProps = {
 }
 
 export class ProgressCircle extends Component {
-  install = () => {
-    console.log('progress-circle')
-  }
+
 
   render = props => {debugger
     props = mergeProps(defaultProps, props)

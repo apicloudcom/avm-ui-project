@@ -17,9 +17,7 @@ class InfiniteScrollContent extends Component {
 }
 
 export class InfiniteScroll extends Component {
-  install = () => {
-    console.log('InfiniteScroll!')
-  }
+
 
   render = props => {
     props = Object.assign({}, { threshold: 250 }, props)

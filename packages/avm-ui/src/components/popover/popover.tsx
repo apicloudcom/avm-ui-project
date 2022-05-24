@@ -1,4 +1,4 @@
-import classNames from '../../utils/classnames'
+
 import { formatLabel } from '../../utils/format-label'
 
 const classPrefix = `adm-popover`

@@ -1,4 +1,4 @@
-import classNames from '../../utils/classnames'
+
 import { NativeProps } from '../../utils/native-props'
 import { Badge } from '../badge/badge'
 

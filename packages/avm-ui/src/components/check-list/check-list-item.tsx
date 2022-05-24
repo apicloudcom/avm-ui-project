@@ -1,14 +1,11 @@
 import {ListItem} from '../list/list-item'
-import classNames from '../../utils/classnames'
+
 import {Icon} from "../icon";
 // import {RightOutline} from '../icon/icon'
 
 const classPrefix = `adm-check-list-item`
 
 export class CheckListItem extends Component {
-  install = () => {
-    console.log('CheckListItem!')
-  }
 
   render = props => {
     const active = props.checked ? props.checked.includes(props.value) : false

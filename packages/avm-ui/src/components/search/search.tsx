@@ -1,6 +1,3 @@
-import classNames from '../../utils/classnames'
-// import searchIcon from './search.png'
-// import closeIcon from './img/close.png'
 
 import Icon from '../icon'
 
@@ -21,10 +18,7 @@ const defaultProps = {
 }
 
 export class Search extends Component {
-  install = () => {
-    console.log('Search!')
-  }
-
+  
   data = {
     searchVal: this.props.value,
     hasFocus: false

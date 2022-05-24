@@ -1,4 +1,4 @@
-import classNames from '../../utils/classnames'
+
 // import './list.less'
 const classPrefix = `adm-list`
 

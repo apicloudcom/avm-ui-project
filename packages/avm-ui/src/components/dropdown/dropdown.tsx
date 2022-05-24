@@ -1,7 +1,7 @@
 import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps } from '../../utils/native-props'
 import { DropdownItem } from './item'
-import classNames from '../../utils/classnames'
+
 import { Popup } from '../popup/popup'
 import '../popup/popup.less'
 import { Icon } from '../icon/icon'

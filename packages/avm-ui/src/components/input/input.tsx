@@ -1,4 +1,4 @@
-import classNames from '../../utils/classnames'
+
  
 
 // import closeIcon from './img/close.png'
@@ -20,9 +20,7 @@ const defaultProps = {
 }
 
 export class Input extends Component {
-  install = () => {
-    console.log('Input!')
-  }
+  
 
   data = {
     value: this.props.value || this.props.defaultValue,

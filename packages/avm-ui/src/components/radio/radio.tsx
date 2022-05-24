@@ -5,9 +5,7 @@ const defaultProps = {
 }
 
 export class Radio extends Component {
-  install = () => {
-    console.log('Radio!')
-  }
+ 
 
   data = {
     checked: this.props.checked || this.props.defaultChecked || false

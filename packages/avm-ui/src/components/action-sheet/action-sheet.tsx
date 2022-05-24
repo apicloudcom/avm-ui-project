@@ -1,4 +1,4 @@
-import classNames from '../../utils/classnames'
+
 import Popup from '../popup'
 import { GetContainer } from '../../utils/render-to-container'
 import { formatLabel } from '../../utils/format-label'

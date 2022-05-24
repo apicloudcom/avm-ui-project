@@ -1,4 +1,4 @@
-import classNames from '../../utils/classnames'
+
 import { NativeProps } from '../../utils/native-props'
 import { formatLabel } from '../../utils/format-label'
 
@@ -59,9 +59,7 @@ const colorsObj = {
 }
 
 export class NoticeBar extends Component {
-  install = () => {
-    console.log('notice-bar!')
-  }
+ 
 
   data = {
     visible: true

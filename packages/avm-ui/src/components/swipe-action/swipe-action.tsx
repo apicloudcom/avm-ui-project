@@ -40,9 +40,6 @@ const defaultProps = {
 }
 
 export class SwipeAction extends Component {
-  install = () => {
-    console.log('Swipe-action')
-  }
   data = {
     leftActionWidth: 72, //左侧按钮总宽度
     rightActionWidth: 260, //右侧按钮总宽度

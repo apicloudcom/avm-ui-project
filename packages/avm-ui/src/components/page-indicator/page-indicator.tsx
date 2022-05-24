@@ -1,4 +1,4 @@
-import classNames from '../../utils/classnames'
+
 
 const classPrefix = `adm-page-indicator`
 

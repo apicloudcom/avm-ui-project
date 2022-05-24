@@ -1,4 +1,4 @@
-import classNames from '../../utils/classnames'
+
 import {mergeProps} from '../../utils/with-default-props'
 
 const classPrefix = `adm-space`

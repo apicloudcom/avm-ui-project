@@ -7,9 +7,7 @@ import '../input.less'
 import '../../list/list.less'
 
 class Demo extends Component {
-  install = () => {
-    console.log('Input-Demo');
-  }
+ 
 
   css = () => {
     return `

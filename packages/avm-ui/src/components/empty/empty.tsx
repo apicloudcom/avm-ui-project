@@ -1,4 +1,3 @@
-// import classNames from '../../utils/classnames'
 import Icon from '../icon'
 
 
@@ -15,7 +14,7 @@ const defaultProps = {
   description: "暂无数据"
 }
 
-export class Empty extends Component { 
+export class Empty extends Component {
   render = props => {
     props = Object.assign({}, defaultProps, props)
     let {children, imageStyle, fontSize, color} = props

@@ -1,4 +1,4 @@
-import classNames from '../../utils/classnames'
+
 import { NativeProps } from '../../utils/native-props'
 import { getTreeDeep } from '../../utils/tree'
 import Icon from '../icon'

@@ -1,4 +1,4 @@
-import classNames from '../../utils/classnames'
+
 // import { iconRecord } from './error'
 import { formatLabel } from '../../utils/format-label'
 import {Icon} from "../icon"; 
@@ -40,9 +40,7 @@ const defaultProps = {
 }
 
 export class ErrorBlock extends Component {
-  install = () => {
-    console.log('ErrorBlock!')
-  }
+ 
 
   render = props => {
     this.props = Object.assign({}, defaultProps, props)

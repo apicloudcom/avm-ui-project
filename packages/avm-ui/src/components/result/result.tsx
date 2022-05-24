@@ -1,4 +1,4 @@
-import classNames from '../../utils/classnames'
+
 // import { CheckCircleFill, CloseCircleFill, InformationCircleOutline, ClockCircleOutline, ExclamationCircleFill } from '../icon/icon'
 import {Icon} from "../icon";
 

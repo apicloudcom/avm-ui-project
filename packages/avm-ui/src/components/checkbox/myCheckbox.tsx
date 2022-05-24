@@ -1,5 +1,5 @@
 
-import classNames from '../../utils/classnames'
+
 import { formatLabel } from '../../utils/format-label'
 import {Icon} from "../icon";
 

@@ -6,9 +6,7 @@ const defaultProps = {
 }
 
 export class Group extends Component {
-  install = () => {
-    console.log('RadioGroup!')
-  }
+ 
 
   data = {
     value: this.props.value || this.props.defaultValue

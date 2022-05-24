@@ -1,4 +1,4 @@
-import classNames from '../../utils/classnames'
+
 
 const classPrefix = `adm-water-mark`
 
@@ -26,9 +26,6 @@ const defaultProps = {
 }
 
 export class WaterMark extends Component {
-  install = () => {
-    console.log('WaterMark!')
-  }
 
   data = {
     base64Url: ''

@@ -1,5 +1,3 @@
-import classNames from "../../utils/classnames";
-import {mergeProps} from '../../utils/with-default-props'
 import mergeStyle from '../../utils/mergeStyle';
 
 const classPrefix = `adm-button`;
@@ -64,7 +62,7 @@ const shapeAttr = {
 
 export class Button extends Component {
   render = props => {
-    props = mergeProps(defaultProps, props)
+    props = Object.assign({}, defaultProps, props)
     const disabled = props.disabled || props.loading
     const {textColor, color, bgColor, borderRadius, shape, borderWidth, borderStyle, borderColor, fill} = props
     const btnStyles = {

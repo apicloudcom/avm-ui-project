@@ -1,4 +1,4 @@
-import classNames from '../../utils/classnames'
+
 import { shuffle } from '../../utils/shuffle'
 import Popup from '../popup'
 import { GetContainer } from '../../utils/render-to-container'

@@ -19,9 +19,7 @@ const defaultProps = {
 }
 
 export class Image extends Component {
-  install = () => {
-    console.log('Image!');
-  }
+ 
 
   data = {
     loaded: false,

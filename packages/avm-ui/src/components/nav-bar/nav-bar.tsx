@@ -1,4 +1,4 @@
-import classNames from '../../utils/classnames'
+
 import Icon from '../icon'
 
 const classPrefix = `adm-nav-bar`

@@ -9,9 +9,6 @@ export type ProgressBarProps = {
 
 export class ProgressBar extends Component {
 
-  install = () => {
-    console.log('progress-bar!')
-  }
 
   render = props => {
     const back = {}

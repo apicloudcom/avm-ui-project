@@ -1,6 +1,6 @@
 import {SwiperItem} from './swiper-item'
 import {PageIndicator} from '../page-indicator/page-indicator'
-import classNames from '../../utils/classnames'
+
 const classPrefix = `adm-swiper`
 
 const defaultProps = {

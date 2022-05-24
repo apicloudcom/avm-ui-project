@@ -1,4 +1,4 @@
-import classNames from '../../utils/classnames'
+
 import Image from '../image'
 import Loading from '../loading'
 

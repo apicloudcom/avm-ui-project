@@ -1,4 +1,4 @@
-import classNames from '../../utils/classnames'
+
 import {formatLabel} from '../../utils/format-label'
 
 const classPrefix = `adm-badge`
@@ -11,9 +11,6 @@ const defaultProps = {
 }
 
 export class Badge extends Component {
-  install = () => {
-    console.log('Badge!')
-  }
 
   render = (props) => {
     props = Object.assign({}, defaultProps, props)

@@ -17,9 +17,7 @@ const defaultProps = {
 }
 
 export class DesenseText extends Component {
-  install = () => {
-    console.log('DesenseText!')
-  }
+ 
   data = {
     desense: this.props.desence || this.props.defaultDesense
   }

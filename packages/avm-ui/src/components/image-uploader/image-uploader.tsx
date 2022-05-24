@@ -1,6 +1,6 @@
 import ImageViewer from '../image-viewer'
 import {PreviewItem} from './preview-item'
-import classNames from '../../utils/classnames'
+
 
 import {Icon} from "../icon";
 

@@ -17,9 +17,7 @@ const defaultProps = {
 }
 
 export class Rate extends Component {
-  install = () => {
-    console.log('Rate!')
-  }
+
 
   data = {
     value: this.props.value || this.props.defaultValue || 0

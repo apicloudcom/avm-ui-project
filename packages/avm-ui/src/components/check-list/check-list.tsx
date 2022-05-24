@@ -10,9 +10,7 @@ const defaultProps = {
 }
 
 export class CheckList extends Component {
-  install = () => {
-    console.log('CheckList!')
-  }
+ 
 
   data = {
     checked: this.props.defaultValue || []
