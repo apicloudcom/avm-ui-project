@@ -517,8 +517,7 @@ export const apiList = [{
   }, {
     name: 'jailbreak',
     desc: ['设备是否越狱，布尔类型'],
-    sampleCode: ['var jailbreak = api.jailbreak; //如：false'],
-    usability: []
+    sampleCode: ['var jailbreak = api.jailbreak; //如：false']
   }, {
     name: 'isRecoveryMode',
     desc: ['使用WKWebView加载页面时，若配置了WKWebView渲染进程崩溃后刷新当前页面，则刷新后该属性值为true。只支持iOS，布尔类型'],
@@ -528,7 +527,8 @@ export const apiList = [{
 }, {
   name: '窗口系统',
   icon: 'api_win_icon',
-  children: [{
+  children: [
+    {
     name: 'openWin',
     desc: ['打开window, 窗口操作', '若window已存在，则会把该window显示到最前面，同时若url有变化或者reload参数为true时，页面会重新加载。', 'openWin({params})'],
     params: [{
@@ -616,7 +616,7 @@ export const apiList = [{
         desc: '若在 config.xml 里面配置了pageBounce，则默认值为配置的值，否则为 false 描述：（可选项）页面是否弹动。注意如果页面使用了上拉、下拉刷新等功能，该属性可能会被刷新组件重新设置。'
       }]
     }, {
-      tip: 'bgColor：',
+      tip: 'bgColor',
       desc: [{
         type: '字符串',
         default: '若在 config.xml 里面配置了 windowBackground，则默认值为配置的值，否则透明',
@@ -690,14 +690,46 @@ export const apiList = [{
       desc: [{
         type: 'JSON 对象',
         default: '无',
-        desc: '（可选项）动画参数，不传时使用默认动画'
+        desc: '（可选项）动画参数，不传时使用默认动画',
+        fields: `{
+  type:"none",         //动画类型（详见动画类型常量）
+  subType:"from_right",//动画子类型（详见动画子类型常量）
+  duration:300         //动画过渡时间，默认300毫秒
+}
+
+type 取值范围：
+none     //无动画效果
+push     //新视图将旧视图推开
+movein   //新视图移到旧视图上面
+fade     //交叉淡化过渡（不支持过渡方向）
+flip     //翻转效果
+reveal   //将旧视图移开,显示下面的新视图
+ripple   //滴水效果（不支持过渡方向）
+curl     //向上翻一页
+un_curl  //向下翻一页
+suck     //收缩效果（不支持过渡方向）
+cube     //立方体翻滚效果
+
+subType 取值范围：
+from_right      //从右边开始动画
+from_left       //从左边开始动画
+from_top        //从顶部开始动画
+from_bottom     //从底部开始动画
+（Android系统flip，ripple，curl，un_curl，suck，cube 类型不支持）`
       }]
     }, {
       tip: 'progress',
       desc: [{
         type: 'JSON 对象',
         default: '无',
-        desc: '（可选项）页面加载进度配置信息，若不传则无加载进度效果'
+        desc: '（可选项）页面加载进度配置信息，若不传则无加载进度效果',
+        fields: `{
+  type:    //加载进度效果类型，默认值为 default，取值范围为 default|page，为 page 时，进度效果为仿浏览器类型，固定在页面的顶部
+  title:   //type 为 default 时显示的加载框标题，字符串类型
+  text:    //type 为 default 时显示的加载框内容，字符串类型
+  color:   //type 为 page 时进度条的颜色，默认值为 #45C01A，支持#FFF，#FFFFFF，rgb(255,255,255)，rgba(255,255,255,1.0)等格式
+  height:  //type 为 page 时进度条高度，默认值为3，数字类型
+}`
       }]
     }, {
       tip: 'delay',
@@ -725,14 +757,20 @@ export const apiList = [{
       desc: [{
         type: '字符串',
         default: 'auto',
-        desc: '（可选项）当键盘弹出时，输入框被盖住时，当前页面的调整方式，只iOS有效，Android请在 config.xml 里面配置并云编译使用'
+        desc: '（可选项）当键盘弹出时，输入框被盖住时，当前页面的调整方式，只iOS有效，Android请在 config.xml 里面配置并云编译使用',
+        fields: `resize    //若键盘盖住输入框，页面会自动上移
+pan        //若键盘盖住输入框，页面不会自动上移
+auto       //默认值，由系统决定如何处理，iOS平台该字段等同于resize`
       }]
     }, {
       tip: 'softInputDismissMode',
       desc: [{
         type: '字符串数组',
         default: "['tap']",
-        desc: '（可选项）收起键盘的方式，只iOS有效。'
+        desc: '（可选项）收起键盘的方式，只iOS有效。',
+        fields: `tap       //点击页面收起键盘，可以和drag或interactive同时使用
+drag         //拖拽页面时收起键盘，可以和tap同时使用
+interactive  //在键盘和页面交界处上下滑动收起键盘，可以和tap同时使用`
       }]
     }, {
       tip: 'softInputBarEnabled',
@@ -746,7 +784,10 @@ export const apiList = [{
       desc: [{
         type: '字符串',
         default: 'never',
-        desc: '（可选项）设置页面滚动到头部或尾部时，显示回弹阴影效果的模式，仅Android有效。'
+        desc: '（可选项）设置页面滚动到头部或尾部时，显示回弹阴影效果的模式，仅Android有效。',
+        fields: `never            //永远不显示
+always           //总是显示
+scrolls          //只有当页面内容超出设备屏幕大小，发生滚动行为时显示，建议设置为该模式。`
       }]
     }, {
       tip: 'dragAndDrop',
@@ -807,7 +848,33 @@ export const apiList = [{
       desc: [{
         type: 'JSON 对象',
         default: '无',
-        desc: '（可选项）动画参数，不传时使用默认动画'
+        desc: '（可选项）动画参数，不传时使用默认动画',
+        fields: `{
+  type:"none",                //动画类型（详见动画类型常量）
+  subType:"from_right",       //动画子类型（详见动画子类型常量）
+  duration:300                //动画过渡时间，默认300毫秒
+}
+
+type 取值范围：
+
+none            //无动画效果
+push            //新视图将旧视图推开
+movein          //新视图移到旧视图上面
+fade            //交叉淡化过渡（不支持过渡方向）
+flip            //翻转效果
+reveal          //将旧视图移开,显示下面的新视图
+ripple          //滴水效果（不支持过渡方向）
+curl            //向上翻一页
+un_curl         //向下翻一页
+suck            //收缩效果（不支持过渡方向）
+cube            //立方体翻滚效果
+
+subType 取值范围：
+
+from_right      //从右边开始动画
+from_left       //从左边开始动画
+from_top        //从顶部开始动画
+from_bottom     //从底部开始动画`
       }]
     }],
     sampleCode: [`//关闭当前window，使用默认动画
@@ -833,7 +900,34 @@ export const apiList = [{
       desc: [{
         type: 'JSON 对象',
         default: '无',
-        desc: '（可选项）动画参数，不传时使用默认动画'
+        desc: '（可选项）动画参数，不传时使用默认动画',
+        fields: `{
+  type:"none",                //动画类型（详见动画类型常量）
+  subType:"from_right",       //动画子类型（详见动画子类型常量）
+  duration:300                //动画过渡时间，默认300毫秒
+}
+
+type 取值范围：
+
+none            //无动画效果
+push            //新视图将旧视图推开
+movein          //新视图移到旧视图上面
+fade            //交叉淡化过渡（不支持过渡方向）
+flip            //翻转效果
+reveal          //将旧视图移开,显示下面的新视图
+ripple          //滴水效果（不支持过渡方向）
+curl            //向上翻一页
+un_curl         //向下翻一页
+suck            //收缩效果（不支持过渡方向）
+cube            //立方体翻滚效果
+
+subType 取值范围：
+
+
+from_right      //从右边开始动画
+from_left       //从左边开始动画
+from_top        //从顶部开始动画
+from_bottom     //从底部开始动画`
       }]
     }],
     sampleCode: ["api.closeToWin({ name: 'root' });"],
@@ -921,7 +1015,10 @@ export const apiList = [{
       desc: [{
         type: '字符串',
         default: '无',
-        desc: '（可选项）当键盘弹出时，输入框被盖住时，当前页面的调整方式；只iOS有效，Android请在 config.xml 里面配置并云编译使用'
+        desc: '（可选项）当键盘弹出时，输入框被盖住时，当前页面的调整方式；只iOS有效，Android请在 config.xml 里面配置并云编译使用',
+        fields: `resize            //若键盘盖住输入框，页面会自动上移
+pan               //若键盘盖住输入框，页面不会自动上移
+auto              //默认值，由系统决定如何处理，iOS平台该字段等同于resize`
       }]
     }],
     sampleCode: ['api.setWinAttr({ bounces: true });'],
@@ -1007,7 +1104,7 @@ export const apiList = [{
         desc: '若在 config.xml 里面配置了pageBounce，则默认值为配置的值，否则为 false 描述：（可选项）页面是否弹动。注意如果页面使用了上拉、下拉刷新等功能，该属性可能会被刷新组件重新设置。'
       }]
     }, {
-      tip: 'bgColor：',
+      tip: 'bgColor',
       desc: [{
         type: '字符串',
         default: '若在 config.xml 里面配置了 windowBackground，则默认值为配置的值，否则透明',
@@ -1060,14 +1157,32 @@ export const apiList = [{
       desc: [{
         type: 'JSON 对象',
         default: '充满整个父页面',
-        desc: '（可选项）设置页面的位置和大小。如果要固定宽高则使用x、y、w、h等参数；如果要自适应状态栏高度变化、横竖屏切换等，则需要使用margin相关参数，不能使用w、h固定宽高。推荐使用margin相关参数来布局。'
+        desc: '（可选项）设置页面的位置和大小。如果要固定宽高则使用x、y、w、h等参数；如果要自适应状态栏高度变化、横竖屏切换等，则需要使用margin相关参数，不能使用w、h固定宽高。推荐使用margin相关参数来布局。',
+        fields: `{
+x:,             //左上角x坐标，数字类型
+y:,             //左上角y坐标，数字类型
+w:,             //宽度，若传'auto'，页面从x位置开始自动充满父页面宽度，数字或固定值'auto'
+h:,             //高度，若传'auto'，页面从y位置开始自动充满父页面高度，数字或固定值'auto'
+
+marginLeft:,    //相对父页面左外边距的距离，数字类型
+marginTop:,     //相对父页面上外边距的距离，数字类型
+marginBottom:,  //相对父页面下外边距的距离，数字类型
+marginRight:    //相对父页面右外边距的距离，数字类型
+        }`
       }]
     }, {
       tip: 'progress',
       desc: [{
         type: 'JSON 对象',
         default: '无',
-        desc: '（可选项）页面加载进度配置信息，若不传则无加载进度效果'
+        desc: '（可选项）页面加载进度配置信息，若不传则无加载进度效果',
+        fields: `{
+  type:            //加载进度效果类型，默认值为 default，取值范围为 default|page，为 page 时，进度效果为仿浏览器类型，固定在页面的顶部
+  title:           //type 为 default 时显示的加载框标题，字符串类型
+  text:            //type 为 default 时显示的加载框内容，字符串类型
+  color:           //type 为 page 时进度条的颜色，默认值为 #45C01A，支持#FFF，#FFFFFF，rgb(255,255,255)，rgba(255,255,255,1.0)等格式
+  height:          //type 为 page 时进度条高度，默认值为3，数字类型
+}`
       }]
     }, {
       tip: 'reload',
@@ -1102,7 +1217,10 @@ export const apiList = [{
       desc: [{
         type: '字符串数组',
         default: "['tap']",
-        desc: '（可选项）收起键盘的方式，只iOS有效。'
+        desc: '（可选项）收起键盘的方式，只iOS有效。',
+        fields: `tap              //点击页面收起键盘，可以和drag或interactive同时使用
+drag             //拖拽页面时收起键盘，可以和tap同时使用
+interactive      //在键盘和页面交界处上下滑动收起键盘，可以和tap同时使用`
       }]
     }, {
       tip: 'softInputBarEnabled',
@@ -1116,7 +1234,10 @@ export const apiList = [{
       desc: [{
         type: '字符串',
         default: 'never',
-        desc: '（可选项）设置页面滚动到头部或尾部时，显示回弹阴影效果的模式，仅Android有效。'
+        desc: '（可选项）设置页面滚动到头部或尾部时，显示回弹阴影效果的模式，仅Android有效。',
+        fields: `never            //永远不显示
+always           //总是显示
+scrolls          //只有当页面内容超出设备屏幕大小，发生滚动行为时显示，建议设置为该模式。`
       }]
     }, {
       tip: 'dragAndDrop',
@@ -1130,7 +1251,33 @@ export const apiList = [{
       desc: [{
         type: 'JSON 对象',
         default: '无',
-        desc: '（可选项）动画参数，不传时无动画'
+        desc: '（可选项）动画参数，不传时无动画',
+        fields: `{
+  type:"none",                //动画类型（详见动画类型常量）
+  subType:"from_right",       //动画子类型（详见动画子类型常量）
+  duration:300                //动画过渡时间，默认300毫秒
+}
+
+type 取值范围：
+
+none            //无动画效果
+push            //新视图将旧视图推开
+movein          //新视图移到旧视图上面
+fade            //交叉淡化过渡（不支持过渡方向）
+flip            //翻转效果
+reveal          //将旧视图移开,显示下面的新视图
+ripple          //滴水效果（不支持过渡方向）
+curl            //向上翻一页
+un_curl         //向下翻一页
+suck            //收缩效果（不支持过渡方向）
+cube            //立方体翻滚效果
+
+subType 取值范围：
+
+from_right      //从右边开始动画
+from_left       //从左边开始动画
+from_top        //从顶部开始动画
+from_bottom     //从底部开始动画`
       }]
     }, {
       tip: 'defaultRefreshHeader',
@@ -1148,18 +1295,18 @@ export const apiList = [{
       }]
     }],
     sampleCode: [`api.openFrame({
-      name: 'page2',
-      url: './page2.html',
-      rect: {
-          x: 0,
-          y: 0,
-          w: 'auto',
-          h: 'auto'
-      },
-      pageParam: {
-          name: 'test'
-      }
-    });`],
+  name: 'page2',
+  url: './page2.html',
+  rect: {
+      x: 0,
+      y: 0,
+      w: 'auto',
+      h: 'auto'
+  },
+  pageParam: {
+      name: 'test'
+  }
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
     name: 'closeFrame',
@@ -1259,11 +1406,21 @@ export const apiList = [{
         default: '无',
         desc: '（可选项）窗口区域 x：左上角x坐标； y：左上角y坐标； w：宽度，若传auto，页面从x位置开始自动充满父页面宽度； h：高度，若传auto，页面从y位置开始自动充满父页面高度'
       }]
+    }, {
+      tip: 'softInputMode',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）当键盘弹出时，输入框被盖住时，当前页面的调整方式,只iOS有效，Android请在 config.xml 里面配置并云编译使用',
+        fields: `resize            //若键盘盖住输入框，页面会自动上移
+pan               //若键盘盖住输入框，页面不会自动上移
+auto              //默认值，由系统决定如何处理，iOS平台该字段等同于resize`
+      }]
     }],
     sampleCode: [`api.setFrameAttr({
-      name: 'page2',
-      bounces: true
-    });`],
+  name: 'page2',
+  bounces: true
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
     name: 'bringFrameToFront',
@@ -1317,23 +1474,23 @@ export const apiList = [{
       }]
     }],
     sampleCode: [`api.setFrameClient({
-      frameName: 'webpage'
-    }, function(ret, err) {
-        switch (ret.state) {
-            case 0:
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            default:
-                break;
-        }
-    });`],
+  frameName: 'webpage'
+}, function(ret, err) {
+    switch (ret.state) {
+        case 0:
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        default:
+            break;
+    }
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.2.0及更高版本']
   }, {
     name: 'animation',
@@ -1364,7 +1521,11 @@ export const apiList = [{
       desc: [{
         type: '字符串',
         default: 'ease_in_out',
-        desc: '（可选项）动画曲线类型，指定动画开始和结束时的快慢'
+        desc: '（可选项）动画曲线类型，指定动画开始和结束时的快慢',
+        fields: `ease_in_out     //开始和结束时慢
+ease_in         //开始时慢
+ease_out        //结束时慢
+linear          //整个动画过程速率一样`
       }]
     }, {
       tip: 'repeatCount',
@@ -1392,52 +1553,68 @@ export const apiList = [{
       desc: [{
         type: 'JSON',
         default: '无',
-        desc: '（可选项）位置平移参数'
+        desc: '（可选项）位置平移参数',
+        fields: `{
+  x: 0,         //x轴方向上的平移距离，默认为0
+  y: 0,         //y轴方向上的平移距离，默认为0
+  z: 0          //z轴方向上的平移距离，默认为0，Android不支持
+}`
       }]
     }, {
       tip: 'scale',
       desc: [{
         type: 'JSON',
         default: '无',
-        desc: '（可选项）页面缩放参数，Android 不支持'
+        desc: '（可选项）页面缩放参数，Android 不支持',
+        fields: `{
+  x: 1,         //x轴方向上的放大倍率，默认为1
+  y: 1,         //y轴方向上的放大倍率，默认为1
+  z: 1          //z轴方向上的放大倍率，默认为1
+}`
       }]
     }, {
       tip: 'rotation',
       desc: [{
         type: 'JSON',
         default: '无',
-        desc: '（可选项）页面旋转参数，Android 不支持'
+        desc: '（可选项）页面旋转参数，Android 不支持',
+        fields: `{
+  degree:0,     //旋转角度，默认0
+  x: 0,         //绕x轴旋转，默认为0
+  y: 0,         //绕y轴旋转，默认为0
+  z: 1          //绕z轴旋转，默认为1
+}`
       }]
     }],
     sampleCode: [`api.animation({
-        name: 'page1',
-        delay: 1000,
-        duration: 3000,
-        curve: 'ease_in',
-        repeatCount: 2,
-        autoreverse: true,
-        alpha: 0.6,
-        translation: {
-            x: 0,
-            y: 100,
-            z: 0
-        },
-        scale: {
-            x: 1.2,
-            y: 1,
-            z: 1
-        },
-        rotation: {
-            degree: 45,
-            x: 0,
-            y: 0,
-            z: 1
-        }
-    }, function(ret, err) {
-        api.alert({
-            msg:'动画结束'
-        });
-    });`],
+    name: 'page1',
+    delay: 1000,
+    duration: 3000,
+    curve: 'ease_in',
+    repeatCount: 2,
+    autoreverse: true,
+    alpha: 0.6,
+    translation: {
+        x: 0,
+        y: 100,
+        z: 0
+    },
+    scale: {
+        x: 1.2,
+        y: 1,
+        z: 1
+    },
+    rotation: {
+        degree: 45,
+        x: 0,
+        y: 0,
+        z: 1
+    }
+}, function(ret, err) {
+    api.alert({
+        msg:'动画结束'
+    });
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
     name: 'openFrameGroup',
@@ -1468,21 +1645,62 @@ export const apiList = [{
       desc: [{
         type: '数组',
         default: '无',
-        desc: 'frame 数组'
+        desc: 'frame 数组',
+        fields: `[{
+    name:'',                                //frame名字，字符串类型，不能为空字符串
+    url:'',                                 //页面地址，可以为本地文件路径，支持相对路径和绝对路径，以及 widget://、fs://等协议路径，也可以为远程地址。 当data参数不为空时，url将做为baseUrl，data中的html引用的资源文件根路径以该url为基础。字符串类型
+    data:'',                                //（可选项）页面加载的数据内容，可以为html片段或者整张html文件的数据
+    headers:{},                             //（可选项）请求头
+    avm:false,                              //（可选项）是否使用原生引擎来加载页面，页面必须是使用avm框架语法生成。
+    useWKWebView:false,                     //（可选项）是否使用WKWebView来加载页面。参考[WKWebView介绍](https://community.apicloud.com/bbs/thread-151904-1-1.html)。
+    allowAccessFromFile:false,              //（可选项）设置是否可以在本地页面中访问本地或远程资源，为保证代码安全，在开启全局加密情况下默认禁止访问。只在useWKWebView参数为true时有效。
+    historyGestureEnabled:false,            //（可选项）是否可以通过手势来进行历史记录前进后退，只在useWKWebView参数为true时有效。
+    pageParam:{},                           //（可选项）页面参数，页面中可以通过api.pageParam获取，JSON对象
+    bounces:true,                           //（可选项）是否弹动，布尔型，默认值：若在 config.xml 里面配置了pageBounce，则默认值为配置的值，否则为true。注意如果页面使用了上拉、下拉刷新等功能，该属性可能会被刷新组件重新设置。
+    bgColor:'#fff',                         //（可选项）背景色，支持图片和颜色，格式为#fff、#ffffff、rgba(r,g,b,a)等，图片路径支持fs://、widget://等APICloud自定义文件路径协议，同时支持相对路径
+    scrollToTop:true                        //（可选项）当点击状态栏，页面是否滚动到顶部。若当前屏幕上不止一个页面的scrollToTop属性为true，则所有的都不会起作用。默认值：true。只iOS有效
+    scrollEnabled:true                      //（可选项）页面内容超出后是否可以滚动，默认为true，只支持iOS
+    vScrollBarEnabled:true,                 //（可选项）是否显示垂直滚动条，布尔型，默认值：true
+    hScrollBarEnabled:false,                //（可选项）是否显示水平滚动条，布尔型，默认值：false
+    scaleEnabled:true,                      //（可选项）页面是否可以缩放，布尔型，默认值：false
+    allowEdit:false,                        //（可选项）是否允许长按页面时弹出选择菜单
+    softInputMode:'auto'                    //（可选项）当键盘弹出时，输入框被盖住时，当前页面的调整方式，只iOS有效。
+                                            //取值范围：
+                                            //resize    //若键盘盖住输入框，页面会自动上移
+                                            //pan       //若键盘盖住输入框，页面不会自动上移
+                                            //auto      //默认值，由系统决定如何处理，iOS平台该字段等同于resize
+    softInputBarEnabled:false,              //（可选项）是否显示键盘上方的工具条，布尔型，默认值：true，只iOS有效
+    overScrollMode,                         //（可选项）设置页面滚动到头部或尾部时，显示回弹阴影效果的模式，仅Android有效。取值范围：never，always，scrolls
+    defaultRefreshHeader:''                 //（可选项）设置使用默认下拉刷新类型，取值范围：pull、swipe
+    customRefreshHeader:''                  //（可选项）设置使用自定义下拉刷新模块的名称，设置后可以使用api.setCustomRefreshHeaderInfo方法来使用自定义下拉刷新组件
+}]`
       }]
     }, {
       tip: 'fixedOn',
       desc: [{
         type: '字符串',
         default: '若当前在tabLayout组件中为ui_layout，否则为ui_window',
-        desc: '（可选项）frameGroup所要添加到的目标页面。'
+        desc: '（可选项）frameGroup所要添加到的目标页面。',
+        fields: `ui_window    //页面添加到当前window中。若当前在tabLayout组件中，页面只能添加到navigationBar和tabBar之间的区域，无法覆盖在navigationBar、tabBar之上。
+ui_layout    //页面添加到当前tabLayout中。此时页面能够添加到tabLayout中任意位置，能够覆盖在navigationBar、tabBar之上，只在tabLayout组件中有效。`
       }]
     }, {
       tip: 'rect',
       desc: [{
         type: 'JSON 对象',
         default: '充满整个父页面',
-        desc: '（可选项）设置frameGroup的位置和大小。如果要固定宽高则使用x、y、w、h等参数；如果要自适应状态栏高度变化、横竖屏切换等，则需要使用margin相关参数，不能使用w、h固定宽高。推荐使用margin相关参数来布局。'
+        desc: '（可选项）设置frameGroup的位置和大小。如果要固定宽高则使用x、y、w、h等参数；如果要自适应状态栏高度变化、横竖屏切换等，则需要使用margin相关参数，不能使用w、h固定宽高。推荐使用margin相关参数来布局。',
+        fields: `{
+  x:,             //左上角x坐标，数字类型
+  y:,             //左上角y坐标，数字类型
+  w:,             //宽度，若传'auto'，页面从x位置开始自动充满父页面宽度，数字或固定值'auto'
+  h:,             //高度，若传'auto'，页面从y位置开始自动充满父页面高度，数字或固定值'auto'
+
+  marginLeft:,    //相对父页面左外边距的距离，数字类型
+  marginTop:,     //相对父页面上外边距的距离，数字类型
+  marginBottom:,  //相对父页面下外边距的距离，数字类型
+  marginRight:    //相对父页面右外边距的距离，数字类型
+}`
       }]
     }, {
       tip: 'index',
@@ -1500,25 +1718,25 @@ export const apiList = [{
       }]
     }],
     sampleCode: [`api.openFrameGroup({
-      name: 'group1',
-      rect: {
-          x: 0,
-          y: 0,
-          w: 'auto',
-          h: 'auto'
-      },
-      frames: [{
-          name: 'frame1',
-          url: 'frame1.html',
-          bgColor: '#fff'
-      }, {
-          name: 'frame2',
-          url: 'frame2.html',
-          bgColor: '#fff'
-      }]
-  }, function(ret, err) {
-      var index = ret.index;
-  });`],
+  name: 'group1',
+  rect: {
+      x: 0,
+      y: 0,
+      w: 'auto',
+      h: 'auto'
+  },
+  frames: [{
+      name: 'frame1',
+      url: 'frame1.html',
+      bgColor: '#fff'
+  }, {
+      name: 'frame2',
+      url: 'frame2.html',
+      bgColor: '#fff'
+  }]
+}, function(ret, err) {
+  var index = ret.index;
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
     name: 'closeFrameGroup',
@@ -1532,8 +1750,8 @@ export const apiList = [{
       }]
     }],
     sampleCode: [`api.closeFrameGroup({
-        name: 'group1'
-    });`],
+  name: 'group1'
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
     name: 'setFrameGroupAttr',
@@ -1557,7 +1775,13 @@ export const apiList = [{
       desc: [{
         type: 'JSON 对象',
         default: '无',
-        desc: '（可选项）frame 组区域'
+        desc: '（可选项）frame 组区域',
+        fields: `{
+  x:0,             //左上角x坐标
+  y:0,             //左上角y坐标
+  w:320,           //宽度，若传'auto'，frame组从x位置开始自动充满父页面宽度
+  h:240            //高度，若传'auto'，frame组从y位置开始自动充满父页面高度
+}`
       }]
     }, {
       tip: 'scrollEnabled',
@@ -1568,9 +1792,9 @@ export const apiList = [{
       }]
     }],
     sampleCode: [`api.setFrameGroupAttr({
-      name: 'group1',
-      hidden: true
-    });`],
+  name: 'group1',
+  hidden: true
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
     name: 'setFrameGroupIndex',
@@ -1605,9 +1829,9 @@ export const apiList = [{
       }]
     }],
     sampleCode: [`api.setFrameGroupIndex({
-      name: 'group1',
-      index: 2
-    });`],
+  name: 'group1',
+  index: 2
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
     name: 'openPopoverWin',
@@ -1617,7 +1841,9 @@ export const apiList = [{
       desc: [{
         type: '字符串',
         default: 'default',
-        desc: '（可选项）弹出窗口展示类型 default：弹出层从底部往上弹出，显示在屏幕中间一片指定区域，周围为黑色半透明； popover：弹出层带指示箭头，可设置箭头方向和位置'
+        desc: '（可选项）弹出窗口展示类型 default：弹出层从底部往上弹出，显示在屏幕中间一片指定区域，周围为黑色半透明； popover：弹出层带指示箭头，可设置箭头方向和位置',
+        fields: `default         // 弹出层从底部往上弹出，显示在屏幕中间一片指定区域，周围为黑色半透明
+popover         // 弹出层带指示箭头，可设置箭头方向和位置`
       }]
     }, {
       tip: 'width',
@@ -1638,22 +1864,33 @@ export const apiList = [{
       desc: [{
         type: 'JSON 对象',
         default: '无',
-        desc: '（可选项）当style为popover时，箭头指向的位置'
+        desc: '（可选项）当style为popover时，箭头指向的位置',
+        fields: `{
+    x:0,                  //左上角x坐标，数字类型
+    y:0,                  //左上角y坐标，数字类型
+    w:0,                  //宽度，数字类型
+    h:0,                  //高度，数字类型
+}`
       }]
     }, {
       tip: 'arrowDirection',
       desc: [{
         type: '字符串',
         default: 'any',
-        desc: '（可选项）当style为popover时，箭头指向的方向'
+        desc: '（可选项）当style为popover时，箭头指向的方向',
+        fields: `left          // 指向左边
+right         // 指向右边
+up            // 指向上边
+down          // 指向下边
+any           // 系统根据页面情况选择合适的方向`
       }]
     }],
     sampleCode: [`api.openPopoverWin({
-      width: 480,
-      height: 400,
-      name: 'page1',
-      url: './page1.html'
-    });`],
+  width: 480,
+  height: 400,
+  name: 'page1',
+  url: './page1.html'
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
     name: 'closePopoverWin',
@@ -1689,36 +1926,101 @@ export const apiList = [{
       desc: [{
         type: 'JSON 对象',
         default: '无',
-        desc: '侧滑层 window 样式 leftEdge：可选项）左侧滑时，侧滑window停留时露出的宽度，默认60，数字类型；rightEdge：可选项）右侧滑时，侧滑window停留时露出的宽度，默认60，数字类型；leftScale：可选项）左侧滑时，侧滑window移动时能缩放的最小倍数，0-1.0，默认1.0，数字类型，只支持iOS；rightScale：可选项）右侧滑时，侧滑window移动时能缩放的最小倍数，0-1.0，默认1.0，数字类型，只支持iOS；'
+        desc: '侧滑层 window 样式',
+        fields: `{
+  leftEdge:           //（可选项）左侧滑时，侧滑window停留时露出的宽度，默认60，数字类型
+  rightEdge:          //（可选项）右侧滑时，侧滑window停留时露出的宽度，默认60，数字类型
+  leftScale:          //（可选项）左侧滑时，侧滑window移动时能缩放的最小倍数，0-1.0，默认1.0，数字类型，只支持iOS
+  rightScale:         //（可选项）右侧滑时，侧滑window移动时能缩放的最小倍数，0-1.0，默认1.0，数字类型，只支持iOS
+}`
+      }]
+    }, {
+      tip: 'fixedPaneStyle',
+      desc: [{
+        type: 'JSON 对象',
+        default: '无',
+        desc: '底部固定层 window 样式',
+        fields: `{
+  leftEdge:           //（可选项）左侧滑时，固定window能向左移动的最大宽度，默认0，数字类型，只支持iOS
+  rightEdge:          //（可选项）右侧滑时，固定window能向右移动的最大宽度，默认0，数字类型，只支持iOS
+  leftScale:          //（可选项）左侧滑时，固定window向左移动时能缩放的最小倍数，0-1.0，默认1.0，数字类型，只支持iOS
+  rightScale:         //（可选项）右侧滑时，固定window向右移动时能缩放的最小倍数，0-1.0，默认1.0，数字类型，只支持iOS
+  leftMaskBg:         //（可选项）左侧滑时，固定window上面的遮罩层背景，支持颜色和图片，默认rgba(0,0,0,0)，字符串类型，只支持iOS
+  rightMaskBg:        //（可选项）右侧滑时，固定window上面的遮罩层背景，支持颜色和图片，默认rgba(0,0,0,0)，字符串类型，只支持iOS
+  leftBg:             //（可选项）左侧滑时，固定window后面的背景，缩放过程中后面的背景将会显示出来，支持颜色和图片，默认rgba(0,0,0,0)，字符串类型，只支持iOS
+  rightBg:            //（可选项）右侧滑时，固定window后面的背景，缩放过程中后面的背景将会显示出来，支持颜色和图片，默认rgba(0,0,0,0)，字符串类型，只支持iOS
+}`
       }]
     }, {
       tip: 'fixedPane',
       desc: [{
         type: 'JSON 对象',
         default: '无',
-        desc: '底部固定层 window'
+        desc: '底部固定层 window',
+        fields: `{
+  name:'',                            // window名字（字符串类型）
+  url:'',                             // 页面地址，可以为本地文件路径，支持相对路径和绝对路径，以及widget://、fs://等协议路径，也可以为远程地址
+  pageParam:{},                       //（可选项）页面参数，页面中可以通过api.pageParam获取，JSON对象
+  bgColor:'',                         //（可选项）背景色，支持图片和颜色，格式为#fff、#ffffff、rgba(r,g,b,a)等，图片路径支持fs://、widget://等APICloud自定义文件路径协议，同时支持相对路径
+  bounces:false,                      //（可选项）是否弹动，默认值：若在 config.xml 里面配置了pageBounce，则默认值为配置的值，否则为false
+  scrollToTop:false                   //（可选项）当点击状态栏，页面是否滚动到顶部。若当前屏幕上不止一个页面的scrollToTop属性为true，则所有的都不会起作用。默认值：true。只iOS有效
+  scrollEnabled:true                  //（可选项）页面内容超出后是否可以滚动，默认为true，只支持iOS
+  vScrollBarEnabled:true,             //（可选项）是否显示垂直滚动条，默认true 
+  hScrollBarEnabled:true,             //（可选项）是否显示水平滚动条，默认true
+  scaleEnabled:true,                  //（可选项）页面是否可以缩放，布尔型，默认值：false
+  allowEdit:false,                    //（可选项）是否允许长按页面时弹出选择菜单
+  softInputMode:'auto'                //（可选项）当键盘弹出时，输入框被盖住时，当前页面的调整方式，只iOS有效
+                                      //取值范围：
+                                      //resize      //若键盘盖住输入框，页面会自动上移
+                                      //pan         //若键盘盖住输入框，页面不会自动上移
+                                      //auto        //默认值，由系统决定如何处理，iOS平台该字段等同于resize
+  softInputBarEnabled:false,          //（可选项）是否显示键盘上方的工具条，布尔型，默认值：true，只iOS有效
+  defaultRefreshHeader:''             //（可选项）设置使用默认下拉刷新类型，取值范围：pull、swipe
+  customRefreshHeader:''              //（可选项）设置使用自定义下拉刷新模块的名称，设置后可以使用api.setCustomRefreshHeaderInfo方法来使用自定义下拉刷新组件
+}`
       }]
     }, {
       tip: 'slidPane',
       desc: [{
         type: 'JSON 对象',
         default: '无',
-        desc: '侧滑层window'
+        desc: '侧滑层window',
+        fields: `{
+  name:'',                            // window名字（字符串类型）
+  url:'',                             // 页面地址，可以为本地文件路径，支持相对路径和绝对路径，以及widget://、fs://等协议路径，也可以为远程地址
+  pageParam:{},                       //（可选项）页面参数，页面中可以通过api.pageParam获取，JSON对象
+  bgColor:'',                         //（可选项）背景色，支持图片和颜色，格式为#fff、#ffffff、rgba(r,g,b,a)等，图片路径支持fs://、widget://等APICloud自定义文件路径协议，同时支持相对路径
+  bounces:false,                      //（可选项）是否弹动，默认值：若在 config.xml 里面配置了pageBounce，则默认值为配置的值，否则为false
+  scrollToTop:false                   //（可选项）当点击状态栏，页面是否滚动到顶部。若当前屏幕上不止一个页面的scrollToTop属性为true，则所有的都不会起作用。默认值：true。只iOS有效
+  scrollEnabled:true                  //（可选项）页面内容超出后是否可以滚动，默认为true，只支持iOS
+  vScrollBarEnabled:true,             //（可选项）是否显示垂直滚动条，默认true 
+  hScrollBarEnabled:true,             //（可选项）是否显示水平滚动条，默认true
+  scaleEnabled:true,                  //（可选项）页面是否可以缩放，布尔型，默认值：false
+  allowEdit:false,                    //（可选项）是否允许长按页面时弹出选择菜单
+  softInputMode:'auto'                //（可选项）当键盘弹出时，输入框被盖住时，当前页面的调整方式，只iOS有效
+                                      //取值范围：
+                                      //resize       //若键盘盖住输入框，页面会自动上移
+                                      //pan          //若键盘盖住输入框，页面不会自动上移
+                                      //auto         //默认值，由系统决定如何处理，iOS平台该字段等同于resize
+  softInputBarEnabled:false,          //（可选项）是否显示键盘上方的工具条，布尔型，默认值：true，只iOS有效
+  defaultRefreshHeader:''             //（可选项）设置使用默认下拉刷新类型，取值范围：pull、swipe
+  customRefreshHeader:''              //（可选项）设置使用自定义下拉刷新模块的名称，设置后可以使用api.setCustomRefreshHeaderInfo方法来使用自定义下拉刷新组件
+}`
       }]
     }],
     sampleCode: [`api.openSlidLayout({
-      type: 'left',
-      fixedPane: {
-          name: 'win1',
-          url: 'win1.html'
-      },
-      slidPane: {
-          name: 'win2',
-          url: 'win2.html'
-      }
-    }, function(ret, err) {
-    
-    });`],
+  type: 'left',
+  fixedPane: {
+      name: 'win1',
+      url: 'win1.html'
+  },
+  slidPane: {
+      name: 'win2',
+      url: 'win2.html'
+  }
+}, function(ret, err) {
+
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
     name: 'openSlidPane',
@@ -1732,8 +2034,8 @@ export const apiList = [{
       }]
     }],
     sampleCode: [`api.openSlidPane({
-      type: 'left'
-    });`],
+  type: 'left'
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
     name: 'closeSlidPane',
@@ -1758,14 +2060,58 @@ export const apiList = [{
       desc: [{
         type: 'JSON 对象',
         default: '无',
-        desc: '左边侧滑 window'
+        desc: '左边侧滑 window',
+        fields: `{
+  edge:60,                            // 左边侧滑打开后，漏出的半透明区域宽度，默认值为60。此时左边侧滑window的宽度为屏幕宽度减去edge
+  name:'',                            // window名字（字符串类型）
+  url:'',                             // 页面地址，可以为本地文件路径，支持相对路径和绝对路径，以及widget://、fs://等协议路径，也可以为远程地址
+  pageParam:{},                       //（可选项）页面参数，页面中可以通过api.pageParam获取，JSON对象
+  bgColor:'',                         //（可选项）背景色，支持图片和颜色，格式为#fff、#ffffff、rgba(r,g,b,a)等，图片路径支持fs://、widget://等APICloud自定义文件路径协议，同时支持相对路径
+  bounces:false,                      //（可选项）是否弹动，默认值：若在 config.xml 里面配置了pageBounce，则默认值为配置的值，否则为false
+  scrollToTop:false,                  //（可选项）当点击状态栏，页面是否滚动到顶部。若当前屏幕上不止一个页面的scrollToTop属性为true，则所有的都不会起作用。默认值：true。只iOS有效
+  scrollEnabled:true                  //（可选项）页面内容超出后是否可以滚动，默认为true，只支持iOS
+  vScrollBarEnabled:true,             //（可选项）是否显示垂直滚动条，默认true 
+  hScrollBarEnabled:true,             //（可选项）是否显示水平滚动条，默认true
+  scaleEnabled:true,                  //（可选项）页面是否可以缩放，布尔型，默认值：false
+  allowEdit:false,                    //（可选项）是否允许长按页面时弹出选择菜单
+  softInputMode:'auto',               //（可选项）当键盘弹出时，输入框被盖住时，当前页面的调整方式，只iOS有效
+                                      //取值范围：
+                                      //resize      //若键盘盖住输入框，页面会自动上移
+                                      //pan         //若键盘盖住输入框，页面不会自动上移
+                                      //auto        //默认值，由系统决定如何处理，iOS平台该字段等同于resize
+  softInputBarEnabled:false,          //（可选项）是否显示键盘上方的工具条，布尔型，默认值：true，只iOS有效
+  defaultRefreshHeader:''             //（可选项）设置使用默认下拉刷新类型，取值范围：pull、swipe
+  customRefreshHeader:''              //（可选项）设置使用自定义下拉刷新模块的名称，设置后可以使用api.setCustomRefreshHeaderInfo方法来使用自定义下拉刷新组件
+}`
       }]
     }, {
       tip: 'rightPane',
       desc: [{
         type: 'JSON 对象',
         default: '无',
-        desc: '右边侧滑 window'
+        desc: '右边侧滑 window',
+        fields: `{
+  edge:60,                            // 右边侧滑打开后，漏出的半透明区域宽度，默认值为60。此时右边侧滑window的宽度为屏幕宽度减去edge
+  name:'',                            // window名字（字符串类型）
+  url:'',                             // 页面地址，可以为本地文件路径，支持相对路径和绝对路径，以及widget://、fs://等协议路径，也可以为远程地址
+  pageParam:{},                       //（可选项）页面参数，页面中可以通过api.pageParam获取，JSON对象
+  bgColor:'',                         //（可选项）背景色，支持图片和颜色，格式为#fff、#ffffff、rgba(r,g,b,a)等，图片路径支持fs://、widget://等APICloud自定义文件路径协议，同时支持相对路径
+  bounces:false,                      //（可选项）是否弹动，默认值：若在 config.xml 里面配置了pageBounce，则默认值为配置的值，否则为false
+  scrollToTop:false                   //（可选项）当点击状态栏，页面是否滚动到顶部。若当前屏幕上不止一个页面的scrollToTop属性为true，则所有的都不会起作用。默认值：true。只iOS有效
+  scrollEnabled:true                  //（可选项）页面内容超出后是否可以滚动，默认为true，只支持iOS
+  vScrollBarEnabled:true,             //（可选项）是否显示垂直滚动条，默认true 
+  hScrollBarEnabled:true,             //（可选项）是否显示水平滚动条，默认true
+  scaleEnabled:true,                  //（可选项）页面是否可以缩放，布尔型，默认值：false
+  allowEdit:false,                    //（可选项）是否允许长按页面时弹出选择菜单
+  softInputMode:'auto'                //（可选项）当键盘弹出时，输入框被盖住时，当前页面的调整方式，只iOS有效
+                                      //取值范围：
+                                      //resize       //若键盘盖住输入框，页面会自动上移
+                                      //pan          //若键盘盖住输入框，页面不会自动上移
+                                      //auto         //默认值，由系统决定如何处理，iOS平台该字段等同于resize
+  softInputBarEnabled:false,          //（可选项）是否显示键盘上方的工具条，布尔型，默认值：true，只iOS有效
+  defaultRefreshHeader:''             //（可选项）设置使用默认下拉刷新类型，取值范围：pull、swipe
+  customRefreshHeader:''              //（可选项）设置使用自定义下拉刷新模块的名称，设置后可以使用api.setCustomRefreshHeaderInfo方法来使用自定义下拉刷新组件
+}`
       }]
     }, {
       tip: 'slidToOpenPane',
@@ -1790,16 +2136,16 @@ export const apiList = [{
       }]
     }],
     sampleCode: [`api.openDrawerLayout({
-      name: 'main',
-      url: './main.html',
-      animation: {
-          type: 'none'
-      },
-      leftPane: {
-          name: 'leftPane',
-          url: 'leftPane.html'
-      }
-    });`],
+  name: 'main',
+  url: './main.html',
+  animation: {
+      type: 'none'
+  },
+  leftPane: {
+      name: 'leftPane',
+      url: 'leftPane.html'
+  }
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.2.0及更高版本']
   }, {
     name: 'openDrawerPane',
@@ -1813,8 +2159,8 @@ export const apiList = [{
       }]
     }],
     sampleCode: [`api.openDrawerPane({
-      type: 'left'
-    });`],
+  type: 'left'
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.2.0及更高版本']
   }, {
     name: 'closeDrawerPane',
@@ -1854,32 +2200,32 @@ export const apiList = [{
       }]
     }],
     sampleCode: [`//在当前window中加载HTML数据
-    var data = 'hello world';
-    api.loadData({
-        data: data
-    });
+var data = 'hello world';
+api.loadData({
+    data: data
+});
 
-    //在当前window中找到名为frmName的frame，并在该frame中加载HTML数据
-    var data = 'hello world';
-    api.loadData({
-        frameName: 'frmName',
-        data: data
-    });
+//在当前window中找到名为frmName的frame，并在该frame中加载HTML数据
+var data = 'hello world';
+api.loadData({
+    frameName: 'frmName',
+    data: data
+});
 
-    //在名为winName的window中加载HTML数据
-    var data = 'hello world';
-    api.loadData({
-        name: 'winName',
-        data: data
-    });
+//在名为winName的window中加载HTML数据
+var data = 'hello world';
+api.loadData({
+    name: 'winName',
+    data: data
+});
 
-    //在名为winName的window中找到名为frmName的frame，并在该frame中加载HTML数据
-    var data = 'hello world';
-    api.loadData({
-        name: 'winName',
-        frameName: 'frmName',
-        data: data
-    });`],
+//在名为winName的window中找到名为frmName的frame，并在该frame中加载HTML数据
+var data = 'hello world';
+api.loadData({
+    name: 'winName',
+    frameName: 'frmName',
+    data: data
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.2.9及更高版本']
   }, {
     name: 'execScript',
@@ -1907,32 +2253,32 @@ export const apiList = [{
       }]
     }],
     sampleCode: [`//在当前window中执行jsfun脚本
-    var jsfun = 'funcGoto();';
-    api.execScript({
-        script: jsfun
-    });
+var jsfun = 'funcGoto();';
+api.execScript({
+    script: jsfun
+});
 
-    //在当前window中找到名为frmName的frame，并在该frame中执行jsfun脚本
-    var jsfun = 'funcGoto();';
-    api.execScript({
-        frameName: 'frmName',
-        script: jsfun
-    });
+//在当前window中找到名为frmName的frame，并在该frame中执行jsfun脚本
+var jsfun = 'funcGoto();';
+api.execScript({
+    frameName: 'frmName',
+    script: jsfun
+});
 
-    //在名为winName的window中执行jsfun脚本
-    var jsfun = 'funcGoto();';
-    api.execScript({
-        name: 'winName',
-        script: jsfun
-    });
+//在名为winName的window中执行jsfun脚本
+var jsfun = 'funcGoto();';
+api.execScript({
+    name: 'winName',
+    script: jsfun
+});
 
-    //在名为winName的window中找到名为frmName的frame，并在该frame中执行jsfun脚本
-    var jsfun = 'funcGoto();';
-    api.execScript({
-        name: 'winName',
-        frameName: 'frmName',
-        script: jsfun
-    });`],
+//在名为winName的window中找到名为frmName的frame，并在该frame中执行jsfun脚本
+var jsfun = 'funcGoto();';
+api.execScript({
+    name: 'winName',
+    frameName: 'frmName',
+    script: jsfun
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
     name: 'setBlurEffect',
@@ -1942,7 +2288,13 @@ export const apiList = [{
       desc: [{
         type: '字符串',
         default: '无',
-        desc: '模糊效果风格样式，传none时表示移除模糊效果'
+        desc: '模糊效果风格样式，传none时表示移除模糊效果',
+        fields: `none            //移除模糊效果
+extra_light     //模糊区域比底层视图的颜色更淡
+light           //模糊区域与底层视图的色调近似
+dark            //模糊区域比底层视图的颜色更深
+regular         //适应界面风格的常规模糊样式，只支持iOS 10及以上系统
+prominent       //适应界面风格，使内容更加突出，只支持iOS 10及以上系统`
       }]
     }, {
       tip: 'global',
@@ -1970,34 +2322,52 @@ export const apiList = [{
       desc: [{
         type: 'JSON 对象',
         default: '无',
-        desc: '（可选项）动画参数，设置模糊渐变效果，只支持iOS 9及以上系统'
+        desc: '（可选项）动画参数，设置模糊渐变效果，只支持iOS 9及以上系统',
+        fields: `{
+  delay:               //动画延迟执行时间，单位毫秒，默认值0，数字类型
+  duration:            //动画执行时间，单位毫秒，默认值0，数字类型
+  curve:               //动画曲线类型，默认值ease_in_out，字符串类型
+}
+
+curve 取值范围：
+
+ease_in_out     //开始和结束时慢
+ease_in         //开始时慢
+ease_out        //结束时慢
+linear          //整个动画过程速率一样`
       }]
     }, {
       tip: 'rect',
       desc: [{
         type: 'JSON 对象',
         default: '页面区域',
-        desc: '（可选项）模糊区域'
+        desc: '（可选项）模糊区域',
+        fields: `{
+  x:,                  //左上角x坐标，数字类型
+  y:,                  //左上角y坐标，数字类型
+  w:,                  //宽度，数字类型
+  h:,                  //高度，数字类型
+}`
       }]
     }],
     sampleCode: [`// 设置应用模糊效果：
-    api.addEventListener({
-      name: 'pause'
-    }, function(){
-      api.setBlurEffect({
-          style: 'light',
-          global: true
-      });
-    });
+api.addEventListener({
+  name: 'pause'
+}, function(){
+  api.setBlurEffect({
+      style: 'light',
+      global: true
+  });
+});
 
-    api.addEventListener({
-      name: 'resume'
-    }, function(){
-      api.setBlurEffect({
-          style: 'none',
-          global: true
-      });
-    });`],
+api.addEventListener({
+  name: 'resume'
+}, function(){
+  api.setBlurEffect({
+      style: 'none',
+      global: true
+  });
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.2.61及更高版本']
   }, {
     name: 'removeLaunchView',
@@ -2007,15 +2377,42 @@ export const apiList = [{
       desc: [{
         type: 'JSON 对象',
         default: '无',
-        desc: '（可选项）动画参数，不传时不使用动画'
+        desc: '（可选项）动画参数，不传时不使用动画',
+        fields: `{
+  type:"fade",                //动画类型（详见动画类型常量）
+  subType:"from_right",       //动画子类型（详见动画子类型常量）
+  duration:300                //动画过渡时间，默认300毫秒
+}
+
+type 取值范围：
+
+none            //无动画效果
+push            //新视图将旧视图推开
+movein          //新视图移到旧视图上面
+fade            //交叉淡化过渡（不支持过渡方向）
+flip            //翻转效果
+reveal          //将旧视图移开,显示下面的新视图
+ripple          //滴水效果（不支持过渡方向）
+curl            //向上翻一页
+un_curl         //向下翻一页
+suck            //收缩效果（不支持过渡方向）
+cube            //立方体翻滚效果
+
+subType 取值范围：
+
+
+from_right      //从右边开始动画
+from_left       //从左边开始动画
+from_top        //从顶部开始动画
+from_bottom     //从底部开始动画`
       }]
     }],
     sampleCode: [`api.removeLaunchView({
-      animation: {
-          type: 'fade',
-          duration: 500
-      }
-    });`],
+  animation: {
+      type: 'fade',
+      duration: 500
+  }
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
     name: 'showLaunchView',
@@ -2068,12 +2465,12 @@ export const apiList = [{
       }]
     }],
     sampleCode: [`api.historyBack({
-      frameName: 'detail'
-    }, function(ret, err) {
-        if (!ret.status) {
-            api.closeWin();
-        }
-    });`],
+  frameName: 'detail'
+}, function(ret, err) {
+    if (!ret.status) {
+        api.closeWin();
+    }
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
     name: 'historyForward',
@@ -2094,12 +2491,12 @@ export const apiList = [{
       }]
     }],
     sampleCode: [`api.historyForward({
-      frameName: 'detail'
-    }, function(ret, err) {
-        if (!ret.status) {
-    
-        }
-    });`],
+  frameName: 'detail'
+}, function(ret, err) {
+    if (!ret.status) {
+
+    }
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }]
 }, {
@@ -2117,10 +2514,10 @@ export const apiList = [{
       }]
     }],
     sampleCode: [`api.pageUp(function(ret, err) {
-      if (!ret.scrolled) {
-          //已经滚动到顶部
-      }
-    });`],
+  if (!ret.scrolled) {
+      //已经滚动到顶部
+  }
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.1.0及更高版本']
   }, {
     name: 'pageDown',
@@ -2134,10 +2531,10 @@ export const apiList = [{
       }]
     }],
     sampleCode: [`api.pageDown(function(ret, err) {
-      if (!ret.scrolled) {
-          //已经滚动到底部
-      }
-    });`],
+  if (!ret.scrolled) {
+      //已经滚动到底部
+  }
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.1.0及更高版本']
   }]
 }]
