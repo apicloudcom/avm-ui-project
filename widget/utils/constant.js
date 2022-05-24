@@ -826,12 +826,12 @@ scrolls          //只有当页面内容超出设备屏幕大小，发生滚动�
       }]
     }],
     sampleCode: [`api.openWin({
-      name: 'page1',
-      url: './page1.html',
-      pageParam: {
-          name: 'test'
-      }
-    });`],
+  name: 'page1',
+  url: './page1.html',
+  pageParam: {
+      name: 'test'
+  }
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
     name: 'closeWin',
@@ -878,12 +878,12 @@ from_bottom     //从底部开始动画`
       }]
     }],
     sampleCode: [`//关闭当前window，使用默认动画
-      api.closeWin();
+  api.closeWin();
 
-      //关闭指定window，若待关闭的window不在最上面，则无动画
-      api.closeWin({
-        name: 'page1'
-    });`],
+  //关闭指定window，若待关闭的window不在最上面，则无动画
+  api.closeWin({
+    name: 'page1'
+});`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
     name: 'closeToWin',
