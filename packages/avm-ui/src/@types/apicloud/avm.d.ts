@@ -6,15 +6,16 @@ declare class Component {
 
 declare namespace avm {
   function render(Component, dom);
-  function define(name:string,Component);
+
+  function define(name: string, Component);
 }
 
-interface clientRectProps  {
-  width:number,
-  left:number
-} 
+interface clientRectProps {
+  width: number,
+  left: number
+}
 
-declare class AVMElement{
+declare class AVMElement {
   public getBoundingClientRect?: () => clientRectProps
   scrollWidth: number;
 }
@@ -22,7 +23,10 @@ declare class AVMElement{
 interface nodeName {
   name: string
 }
-declare class AVMChild{
+
+declare class AVMChild {
   public nodeName: nodeName
   public key: string
 }
+
+declare function classNames(...p: (string | {} | null)[]): string;
