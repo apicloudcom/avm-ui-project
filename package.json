@@ -10,5 +10,9 @@
   "packageManager": "yarn@3.1.1",
   "publishConfig": {
     "registry": "http://localhost:4873/"
+  },
+  "scripts": {
+    "B": "avm-ui B",
+    "B d0": "avm-ui B -d0"
   }
 }

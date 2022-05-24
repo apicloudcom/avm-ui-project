@@ -2,10 +2,15 @@ import {build} from "esbuild";
 import glob from "glob";
 import {resolve} from "path";
 import {dist, uiDir} from "../index.js";
-import stylePlugin from "esbuild-style-plugin";
 import fse from "fs-extra";
+import less from 'less';
+import * as path from "path";
 
-const outdir = (name = '') => resolve(`${dist}/components/avm-ui`, name);
+const outdir = (name = '') => resolve(
+  `${dist}/components/avm-ui`
+  // `/Applications/APICloud Studio 3.app/Contents/Resources/app/out/vs/code/electron-main/lowcode/avm-ui`
+  // `/Users/YangYongAn/Work/mp-web-test/components/avm-ui`
+  , name);
 
 
 const assetPlugin = options => {
@@ -15,7 +20,6 @@ const assetPlugin = options => {
       build.onResolve({
         filter: /.png/
       }, args => {
-        // console.log(args)
         return {
           external: true
         }
@@ -23,6 +27,26 @@ const assetPlugin = options => {
     }
   }
 }
+
+const lessPlugin = options => {
+  return {
+    name: 'less-plugin',
+    setup(build) {
+      build.onLoad({
+        filter: /.less$/
+      }, async args => {
+        
+        const source = fse.readFileSync(args.path).toString();
+        const fileInfo = path.parse(args.path);
+        return {
+          contents: (await less.render(source, {paths: [...(options?.paths || []), fileInfo.dir]})).css,
+          loader: 'text'
+        }
+      })
+    }
+  }
+}
+
 
 async function copyFontToWidget() {
   fse.copyFileSync(resolve(uiDir, 'src/components/icon/_gen/dist/fonts/avm-icon.ttf'), outdir('icon/avm-icon.ttf'));
@@ -36,7 +60,7 @@ export async function onBuild(cmd = {}) {
 
   const base = {
     bundle: true,
-    plugins: [stylePlugin(), assetPlugin()],
+    plugins: [lessPlugin(), assetPlugin()],
     format: 'esm',
     splitting: false,
     minify,

@@ -1,4 +1,5 @@
 import mergeStyle from '../../utils/mergeStyle';
+import css from './button.less';
 
 const classPrefix = `adm-button`;
 export type ButtonProps = {
@@ -106,67 +107,5 @@ export class Button extends Component {
       </button>
     )
   }
-
-  css = () => {
-    return `
-.adm-button {
-  border: 1px solid #eee;
-  position: relative;
-  display: inline-block;
-  box-sizing: border-box;
-  font-size: 15px;
-  text-align: center;
-  cursor: pointer;
-  transition: opacity ease 0.15s;
-  user-select: none;
-  font-weight:500;
-}
-.adm-button-block {
-  display: block;
-  width: 100%;
-}
-.adm-button-disabled {
-  cursor: not-allowed;
-}
-.adm-button-disabled:active::before {
-  display: none;
-}
-.adm-button-mini {
-  padding: 2px 7px;
-  font-size: 12px;
-}
-.adm-button-mini-shape-rounded {
-  padding-left: 9px;
-  padding-right: 9px;
-}
-.adm-button-small {
-  padding: 6px 11px;
-  font-size: 15px;
-}
-
-.adm-button-middle {
-  padding: 10px 20px;
-  font-size: 16px;
-}
-
-.adm-button-large {
-  padding: 12px 22px;
-  font-size: 18px;
-}
-.adm-button-shape-rounded {
-  border-radius: 1000px;
-}
-.adm-button-shape-rectangular {
-  border-radius: 0;
-}
-.adm-button-loading {
-  vertical-align: bottom;
-  background-image: url(./loading.png);
-  background-position: left center;
-  background-repeat: no-repeat;
-  background-size: 22px 22px;
-  padding-left: 24px;
-}
-   `
-  }
+  css = () => css
 }
