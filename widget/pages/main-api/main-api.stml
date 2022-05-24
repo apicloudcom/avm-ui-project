@@ -13,10 +13,27 @@
                     alt="avm_right_comma"
                     class="main-api-desc-icon main-api-desc-icon-right"/>
             </view>
+            <view class="api-list">
+                <view class="api-list-item" v-for="item in apiList" :key="item.name">
+                    <!--标题-->
+                    <view class="api-list-item-title" @click="itemClick(item)">
+                        <text class="api-list-item-name">{{item.name}}</text>
+                        <img class="api-list-item-icon" :src="`../../image/${item.icon}.png`" :alt="item.icon"/>
+                    </view>
+                    <!--字内容列表-->
+                    <view class="api-list-child" v-if="item.name === curTab && item.children">
+                        <view v-for="cItem in item.children" :key="cItem.name" class="api-list-child-item" @click="openProDetail(cItem)">
+                            <text class="api-list-child-item-name">{{cItem.name}}</text>
+                            <img class="api-list-child-item-icon" src="../../image/right_arrow.png" alt="right_arrow"/>
+                        </view>
+                    </view>
+                </view>
+            </view>
 		</scroll-view>
 	</safe-area>
 </template>
 <script>
+import {apiList} from '../../utils/constant'
 export default {
 	name: 'main-api',
 	apiready() {//like created
@@ -24,11 +41,22 @@ export default {
 	},
 	data() {
 		return {
-
+            curTab: null
 		}
 	},
 	methods: {
-
+        itemClick(item) {
+            item.name === this.data.curTab ? (this.data.curTab = null) : (this.data.curTab = item.name)
+        },
+        openProDetail(item) {
+            api.openWin({
+                name: 'apiDetail',
+                url:'../main-api-detail/main-api-detail.stml',
+                pageParam: {
+                    detailInfo: item
+                }
+            })
+        }
 	}
 }
 </script>
@@ -72,5 +100,52 @@ export default {
     font-weight: 400;
     line-height: 24px;
     text-indent: 22px;
+}
+.api-list {
+    padding-top: 10px;
+}
+.api-list-item {
+    background: #fff;
+}
+.api-list-item-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+    border-bottom: 0.5px solid #eee;
+    margin: 0 16px;
+}
+.api-list-item-name {
+    font-size: 16px;
+    color: #333;
+    font-weight: 400;
+    line-height: 22px;
+}
+.api-list-item-icon {
+    width: 22px;
+    height: 22px;
+}
+.api-list-child {
+    background: #f6f6f6;
+    padding: 0 16px;
+}
+.api-list-child-item {
+    border-bottom: 0.5px solid #eee;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+}
+.api-list-child-item-name {
+    font-size: 15px;
+    color: #333;
+    font-weight: 400;
+    line-height: 21px;
+}
+.api-list-child-item-icon {
+    width: 10px;
+    height: 10px;
 }
 </style>

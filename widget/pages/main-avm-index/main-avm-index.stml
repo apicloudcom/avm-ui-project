@@ -38,7 +38,7 @@
                     <view class="main-avm-list-item-child-container" v-show="curChildTab === item.tab">
                         <view class="main-avm-list-item-child" v-for="childItem in item.children" :key="childItem.component" @click="enterChildDetail(childItem)">
                             <text class="main-avm-list-item-child-text">{childItem.text}</text>
-                            <img src="../../image/right_arrow.png" :alt="item.icon" class="main-avm-list-item-child-icon"/>
+                            <img src="../../image/right_arrow.png" alt="right_arrow" class="main-avm-list-item-child-icon"/>
                         </view>
                     </view>
                 </view>
