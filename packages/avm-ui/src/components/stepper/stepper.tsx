@@ -1,5 +1,6 @@
 import {bound} from '../../utils/bound'
 import {superProps} from "../../utils/superProps";
+import css from './stepper.less';
 
 const classPrefix = `adm-stepper`
 
@@ -176,39 +177,5 @@ export class Stepper extends Component {
     )
   }
 
-  css = () => {
-    return `
-      .adm-stepper {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        box-sizing: border-box;
-        position: relative;
-        overflow: hidden;
-      }
-      .adm-stepper-disabled {
-        opacity: 0.6;
-      }
-      .adm-stepper-disabled-btn {
-        background: #f8f8f8;
-      }
-      .adm-stepper-input {
-        text-align: center;
-        background: #f0f0f0;
-        padding: 0;
-        outline: none;
-        margin: 0 4px;
-      }
-      .adm-stepper-minus {
-        padding: 0;
-        text-align: center;
-        display: inline-block;
-      }
-      .adm-stepper-plus {
-        padding: 0;
-        text-align: center;
-        display: inline-block;
-      }
-    `
-  }
+  css = () => css;
 }

@@ -15,7 +15,7 @@ class Demo1 extends Component {
   render = () => {
     return (
       <>
-        <DemoBlock title='基础用法(非受控)s'>
+        <DemoBlock title='基础用法(非受控)'>
           <Stepper
             defaultValue={1}
             onHandleChange={value => {
