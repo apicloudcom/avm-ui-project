@@ -23,7 +23,8 @@
         "warning",
         "danger"
       ],
-      "default": "success"
+      "default": "success",
+      "generateData": true
     },
     {
       "name": "fill",

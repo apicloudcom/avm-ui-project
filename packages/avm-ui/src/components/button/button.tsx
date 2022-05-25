@@ -16,7 +16,7 @@ export type ButtonProps = {
 }
 
 const defaultProps = {
-  color: 'success',
+  color: 'default',
   fill: 'solid',
   size: 'middle',
   block: false,
