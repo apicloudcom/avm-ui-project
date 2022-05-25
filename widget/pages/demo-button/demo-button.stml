@@ -91,11 +91,6 @@
   </safe-area>
 </template>
 
-<style src="../../components/avm-ui/button/index.css"/>
-<style src="../../components/avm-ui/nav-bar/index.css"/>
-<style src="../../components/avm-ui/space/index.css"/>
-<style src="../../components/avm-ui/demos/index.css"/>
-
 <script>
 import Button from '../../components/avm-ui/button';
 import Space from '../../components/avm-ui/space';

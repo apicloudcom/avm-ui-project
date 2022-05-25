@@ -23,61 +23,17 @@ const defaultProps = {
   disabled: false,
   loading: false,
   type: 'button',
-  shape: 'default',
-  style: {}
+  shape: 'default'
 }
 
-const colorAttr = {
-  default: {
-    textColor: '#333',
-    bgColor: '#fff',
-    borderColor: '#eee'
-  },
-  primary: {
-    textColor: '#fff',
-    bgColor: '#9AC200',
-    borderColor: '#9AC200'
-  },
-  success: {
-    textColor: '#fff',
-    bgColor: '#7FA000',
-    borderColor: '#7FA000'
-  },
-  warning: {
-    textColor: '#fff',
-    bgColor: '#FFA600',
-    borderColor: '#FFA600'
-  },
-  danger: {
-    textColor: '#fff',
-    bgColor: '#FA6400',
-    borderColor: '#FA6400'
-  }
-}
-
-const shapeAttr = {
-  default: '4px',
-  rounded: '1000px',
-  rectangular: 0
-}
 
 export class Button extends Component {
   @superProps
   render(props) {
     props = Object.assign({}, defaultProps, props)
     const disabled = props.disabled || props.loading
-    const {textColor, color, bgColor, borderRadius, shape, borderWidth, borderStyle, borderColor, fill} = props
-    const btnStyles = {
-      height: 'auto',
-      lineHeight: 1.4,
-      opacity: disabled ? 0.4 : 1,
-      color: textColor || (fill === 'solid' ? colorAttr[color].textColor : colorAttr[color].bgColor),
-      backgroundColor: bgColor || (fill === 'solid' ? colorAttr[color].bgColor : colorAttr[color].textColor),
-      borderRadius: borderRadius || shapeAttr[shape],
-      borderWidth,
-      borderStyle: fill === 'none' ? 'none' : borderStyle,
-      borderColor: borderColor || (colorAttr[color].borderColor)
-    };
+    const {shape, fill} = props;
+
 
     const btnCls = classNames(
       classPrefix,
@@ -90,14 +46,13 @@ export class Button extends Component {
         [`${classPrefix}-${props.size}`]: true,
         [`${classPrefix}-loading`]: props.loading
       },
-      `${classPrefix}-shape-${props.shape}`
+      `${classPrefix}-shape-${shape}`
     )
     return (
       <button
         type={props.type}
         className={btnCls}
         disabled={disabled}
-        style={btnStyles}
       >
         {props.loading ? (props.loadingText) : (props.children)}
       </button>

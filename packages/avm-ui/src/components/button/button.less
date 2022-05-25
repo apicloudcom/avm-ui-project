@@ -12,9 +12,10 @@
   font-size: 15px;
   text-align: center;
   cursor: pointer;
-  transition: opacity ease 0.15s;
+  //transition: opacity ease 0.15s;
   user-select: none;
-  
+  opacity: 1;
+
   &-block {
     display: block;
     width: 100%;
@@ -22,8 +23,8 @@
 
   &-disabled {
     cursor: not-allowed;
-
-
+    opacity: .5;
+    
     &:active::before {
       display: none;
     }
@@ -32,6 +33,7 @@
   &-mini {
     padding: 2px 7px;
     font-size: 12px;
+
     &-shape-rounded {
       padding-left: 9px;
       padding-right: 9px;
@@ -42,20 +44,21 @@
     padding: 6px 11px;
     font-size: 15px;
   }
-  
-  &-middle{
+
+  &-middle {
     padding: 11px 20px;
-    font-size: 15px;
+    font-size: 16px;
   }
 
   &-large {
-    padding: 12px 22px;
+    padding: 15px 22px;
     font-size: 18px;
   }
 
   &-shape-rounded {
     border-radius: 1000px;
   }
+
   &-shape-rectangular {
     border-radius: 0;
   }
@@ -68,4 +71,46 @@
     background-size: 22px 22px;
     padding-left: 24px;
   }
+
+
+  &-default {
+    color: var(--adm-color-text);
+  }
+
+  &-primary {
+    background: var(--adm-color-primary);
+    color: var(--adm-color-white);
+    border-color: var(--adm-color-primary);
+
+    &-fill-outline {
+      color: var(--adm-color-primary);
+      background: var(--adm-color-white);
+    }
+    
+    &-fill-none {
+      color: var(--adm-color-primary);
+      background: var(--adm-color-white);
+      border-color: transparent;
+    }
+  }
+
+  &-success {
+    background: var(--adm-color-success);
+    color: var(--adm-color-white);
+    border-color: var(--adm-color-success);
+  }
+
+  &-warning {
+    background: var(--adm-color-warning);
+    color: var(--adm-color-white);
+    border-color: var(--adm-color-warning);
+  }
+
+  &-danger {
+    background: var(--adm-color-danger);
+    color: var(--adm-color-white);
+    border-color: var(--adm-color-danger);
+  }
+
+
 }

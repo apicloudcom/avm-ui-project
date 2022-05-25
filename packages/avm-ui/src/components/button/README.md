@@ -17,11 +17,6 @@
 | onClick     | 点击事件                         | `(event) => void`                                                  | -           |
 | type        | 原生 `button` 元素的 `type` 属性 | `'submit' \| 'reset' \| 'button'`                                  | `'button'`  |
 | shape       | 按钮的形状                       | `'default' \| 'rounded' \| 'rectangular'`                          | `'default'` |
-| textcolor       | 文字颜色 | -|`#333`   | 
-| backgroundColor | 背景颜色 |-| #fff`  | 
-| borderRadius    | 圆角大小 |-| `4px`                     | 
-| borderWidth     | 边框宽度 |-| `1px`                     | 
-| borderStyle     | 边框样式 |-| `solid`                   | 
-| borderColor     | 边框颜色 | -|`#eee` | 
+
 
 
