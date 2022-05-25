@@ -1,5 +1,6 @@
 <template>
 	<view class="main-module-popup">
+		<view class="mask-layout" @click="closeFrame"></view>
 		<view class="main-module-popup-con">
 			<view class="module-popup-top">
 				<img class="module-popup-top-left" :src="info.icon_path" alt="info.mdId"/>
@@ -8,7 +9,7 @@
 					<view class="module-popup-desc">
 						<text class="module-popup-desc-text">V{{info.mdVer}}</text>
 						<img src="../../image/module-people-icon.png" alt="people" class="module-popup-icon"/>
-						<text class="module-popup-desc-text">{{info.tbUser}}</text>
+						<text class="module-popup-desc-text">{{info.userName}}提供</text>
 					</view>
 				</view>
 			</view>
@@ -87,9 +88,17 @@ export default {
 </script>
 <style>
 .main-module-popup {
-	background: rgba(0, 0, 0, 0.5);
 	width: 100%;
 	height: 100%;
+}
+.mask-layout {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 1;
 }
 .main-module-popup-con {
 	z-index: 999;
