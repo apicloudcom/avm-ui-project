@@ -12,7 +12,8 @@
     "registry": "http://localhost:4873/"
   },
   "scripts": {
-    "B": "avm-ui B",
-    "B d0": "avm-ui B -d0"
+    "构建压缩版本": "avm-ui B",
+    "构建未压缩版本": "avm-ui B -d0",
+    "为可视化工具生成 JSON": "avm-ui J"
   }
 }
