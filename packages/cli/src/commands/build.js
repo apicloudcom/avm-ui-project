@@ -5,6 +5,8 @@ import {dist, uiDir} from "../index.js";
 import fse from "fs-extra";
 import less from 'less';
 import * as path from "path";
+import cssVariables from 'postcss-css-variables'
+import postcss from "postcss";
 
 const outdir = (name = '') => resolve(
   `${dist}/components/avm-ui`
@@ -35,11 +37,15 @@ const lessPlugin = options => {
       build.onLoad({
         filter: /.less$/
       }, async args => {
-        
+        // 处理 less
         const source = fse.readFileSync(args.path).toString();
         const fileInfo = path.parse(args.path);
+        const lessRes = await less.render(source, {paths: [...(options?.paths || []), fileInfo.dir]});
+        
+        // 处理 var
+        const postCssRes = await postcss([cssVariables()]).process(lessRes.css);
         return {
-          contents: (await less.render(source, {paths: [...(options?.paths || []), fileInfo.dir]})).css,
+          contents: postCssRes.css,
           loader: 'text'
         }
       })
