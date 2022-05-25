@@ -781,11 +781,11 @@ scrolls          //只有当页面内容超出设备屏幕大小，发生滚动�
       }]
     }],
     sampleCode: [`api.openWin({
-  name: 'page1',
-  url: './page1.html',
-  pageParam: {
-      name: 'test'
-  }
+    name: 'page1',
+    url: './page1.html',
+    pageParam: {
+        name: 'test'
+    }
 });`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
@@ -833,10 +833,10 @@ from_bottom     //从底部开始动画`
       }]
     }],
     sampleCode: [`//关闭当前window，使用默认动画
-  api.closeWin();
+api.closeWin();
 
-  //关闭指定window，若待关闭的window不在最上面，则无动画
-  api.closeWin({
+//关闭指定window，若待关闭的window不在最上面，则无动画
+api.closeWin({
     name: 'page1'
 });`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
@@ -1250,17 +1250,17 @@ from_bottom     //从底部开始动画`
       }]
     }],
     sampleCode: [`api.openFrame({
-  name: 'page2',
-  url: './page2.html',
-  rect: {
-      x: 0,
-      y: 0,
-      w: 'auto',
-      h: 'auto'
-  },
-  pageParam: {
-      name: 'test'
-  }
+    name: 'page2',
+    url: './page2.html',
+    rect: {
+        x: 0,
+        y: 0,
+        w: 'auto',
+        h: 'auto'
+    },
+    pageParam: {
+        name: 'test'
+    }
 });`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
@@ -1373,8 +1373,8 @@ auto              //默认值，由系统决定如何处理，iOS平台该字段
       }]
     }],
     sampleCode: [`api.setFrameAttr({
-  name: 'page2',
-  bounces: true
+    name: 'page2',
+    bounces: true
 });`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
@@ -1429,21 +1429,21 @@ auto              //默认值，由系统决定如何处理，iOS平台该字段
       }]
     }],
     sampleCode: [`api.setFrameClient({
-  frameName: 'webpage'
-}, function(ret, err) {
-    switch (ret.state) {
-        case 0:
-            break;
-        case 1:
-            break;
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        default:
-            break;
+    frameName: 'webpage'
+},  function(ret, err) {
+      switch (ret.state) {
+          case 0:
+              break;
+          case 1:
+              break;
+          case 2:
+              break;
+          case 3:
+              break;
+          case 4:
+              break;
+          default:
+              break;
     }
 });`],
     usability: ['iOS系统，Android系统', '可提供的1.2.0及更高版本']
@@ -1673,25 +1673,25 @@ ui_layout    //页面添加到当前tabLayout中。此时页面能够添加到ta
       }]
     }],
     sampleCode: [`api.openFrameGroup({
-  name: 'group1',
-  rect: {
-      x: 0,
-      y: 0,
-      w: 'auto',
-      h: 'auto'
-  },
-  frames: [{
-      name: 'frame1',
-      url: 'frame1.html',
-      bgColor: '#fff'
-  }, {
-      name: 'frame2',
-      url: 'frame2.html',
-      bgColor: '#fff'
-  }]
-}, function(ret, err) {
-  var index = ret.index;
-});`],
+    name: 'group1',
+    rect: {
+        x: 0,
+        y: 0,
+        w: 'auto',
+        h: 'auto'
+    },
+    frames: [{
+        name: 'frame1',
+        url: 'frame1.html',
+        bgColor: '#fff'
+    }, {
+        name: 'frame2',
+        url: 'frame2.html',
+        bgColor: '#fff'
+    }]
+  }, function(ret, err) {
+      var index = ret.index;
+  });`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
     name: 'closeFrameGroup',
@@ -1705,7 +1705,7 @@ ui_layout    //页面添加到当前tabLayout中。此时页面能够添加到ta
       }]
     }],
     sampleCode: [`api.closeFrameGroup({
-  name: 'group1'
+    name: 'group1'
 });`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
@@ -1747,8 +1747,8 @@ ui_layout    //页面添加到当前tabLayout中。此时页面能够添加到ta
       }]
     }],
     sampleCode: [`api.setFrameGroupAttr({
-  name: 'group1',
-  hidden: true
+    name: 'group1',
+    hidden: true
 });`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
@@ -1784,8 +1784,8 @@ ui_layout    //页面添加到当前tabLayout中。此时页面能够添加到ta
       }]
     }],
     sampleCode: [`api.setFrameGroupIndex({
-  name: 'group1',
-  index: 2
+    name: 'group1',
+    index: 2
 });`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
@@ -1841,10 +1841,10 @@ any           // 系统根据页面情况选择合适的方向`
       }]
     }],
     sampleCode: [`api.openPopoverWin({
-  width: 480,
-  height: 400,
-  name: 'page1',
-  url: './page1.html'
+    width: 480,
+    height: 400,
+    name: 'page1',
+    url: './page1.html'
 });`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
@@ -1964,16 +1964,16 @@ any           // 系统根据页面情况选择合适的方向`
       }]
     }],
     sampleCode: [`api.openSlidLayout({
-  type: 'left',
-  fixedPane: {
-      name: 'win1',
-      url: 'win1.html'
-  },
-  slidPane: {
-      name: 'win2',
-      url: 'win2.html'
-  }
-}, function(ret, err) {
+    type: 'left',
+    fixedPane: {
+        name: 'win1',
+        url: 'win1.html'
+    },
+    slidPane: {
+        name: 'win2',
+        url: 'win2.html'
+    }
+  }, function(ret, err) {
 
 });`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
@@ -1989,7 +1989,7 @@ any           // 系统根据页面情况选择合适的方向`
       }]
     }],
     sampleCode: [`api.openSlidPane({
-  type: 'left'
+    type: 'left'
 });`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
@@ -2091,15 +2091,15 @@ any           // 系统根据页面情况选择合适的方向`
       }]
     }],
     sampleCode: [`api.openDrawerLayout({
-  name: 'main',
-  url: './main.html',
-  animation: {
-      type: 'none'
-  },
-  leftPane: {
-      name: 'leftPane',
-      url: 'leftPane.html'
-  }
+    name: 'main',
+    url: './main.html',
+    animation: {
+        type: 'none'
+    },
+    leftPane: {
+        name: 'leftPane',
+        url: 'leftPane.html'
+    }
 });`],
     usability: ['iOS系统，Android系统', '可提供的1.2.0及更高版本']
   }, {
@@ -2114,7 +2114,7 @@ any           // 系统根据页面情况选择合适的方向`
       }]
     }],
     sampleCode: [`api.openDrawerPane({
-  type: 'left'
+    type: 'left'
 });`],
     usability: ['iOS系统，Android系统', '可提供的1.2.0及更高版本']
   }, {
@@ -2307,21 +2307,21 @@ linear          //整个动画过程速率一样`
     }],
     sampleCode: [`// 设置应用模糊效果：
 api.addEventListener({
-  name: 'pause'
+    name: 'pause'
 }, function(){
-  api.setBlurEffect({
-      style: 'light',
-      global: true
-  });
+    api.setBlurEffect({
+        style: 'light',
+        global: true
+    });
 });
 
 api.addEventListener({
-  name: 'resume'
+    name: 'resume'
 }, function(){
-  api.setBlurEffect({
-      style: 'none',
-      global: true
-  });
+    api.setBlurEffect({
+        style: 'none',
+        global: true
+    });
 });`],
     usability: ['iOS系统，Android系统', '可提供的1.2.61及更高版本']
   }, {
@@ -2363,10 +2363,10 @@ from_bottom     //从底部开始动画`
       }]
     }],
     sampleCode: [`api.removeLaunchView({
-  animation: {
-      type: 'fade',
-      duration: 500
-  }
+    animation: {
+        type: 'fade',
+        duration: 500
+    }
 });`],
     usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
   }, {
@@ -2382,22 +2382,1781 @@ from_bottom     //从底部开始动画`
   }]
 }, {
   name: '高级窗口',
-  icon: 'api_advance_win_icon'
+  icon: 'api_advance_win_icon',
+  children: [{
+    name: 'openTabLayout',
+    desc: ['打开tabLayout布局', '本方法继承了openWin方法的所有参数，同时在此基础上增加了navigationBar、tabBar等参数，来设置和使用原生的顶部导航栏和底部标签栏，可以通过closeWin方法来关闭页面。为帮助您更好的了解和使用tabLayout，可以参考论坛的示例说明。', 'openTabLayout({params})'],
+    params: [{
+      tip: 'title',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）显示在顶部navigationBar上面的标题'
+      }]
+    }, {
+      tip: 'hideNavigationBar',
+      desc: [{
+        type: '布尔',
+        default: 'false',
+        desc: '（可选项）是否隐藏顶部navigationBar导航栏，只在传了navigationBar参数时有效'
+      }]
+    }, {
+      tip: 'hideTabBar',
+      desc: [{
+        type: '布尔',
+        default: 'false',
+        desc: '（可选项）是否隐藏底部tabBar标签栏，只在传了tabBar参数时有效'
+      }]
+    }, {
+      tip: 'navigationBar',
+      desc: [{
+        type: 'JSON对象',
+        default: '无',
+        desc: '（可选项）顶部navigationBar导航栏配置信息',
+        fields: `{
+  height:                   //（可选项）导航栏高度。默认值45。数字类型
+  background:               //（可选项）导航栏背景。支持颜色值和图片，默认值#fff，字符串类型
+  shadow:                   //（可选项）导航栏底部阴影线颜色。默认值#ddd，字符串类型
+  color:                    //（可选项）导航栏标题文字颜色。默认值#000，字符串类型
+  fontSize:                 //（可选项）导航栏标题字体大小。默认值17，数字类型
+  fontWeight:               //（可选项）导航栏标题字体粗细。字符串类型。Android及iOS8.2以下系统只支持normal、bold，iOS8.2及以上系统支持normal、bold、bolder、lighter、100~900。
+  fontFamily:               //（可选项）导航栏标题字体。只支持iOS，字符串类型
+  hideBackButton:           //（可选项）是否隐藏默认返回按钮。如果传了leftButtons，hideBackButton参数失效。返回按钮由箭头图标和前一个页面的标题组成，若前一个页面未设置标题，则按钮文字为“返回”。可以通过监听navbackbtn或keyback事件来处理返回按钮的点击事件。布尔类型
+  leftButtons:              //（可选项）导航栏左边按钮组。左边按钮会替换掉默认的返回按钮，按钮按照数组顺序从左至右显示，按钮建议最多2个，可以通过监听navitembtn事件来处理按钮点击事件，JSON对象数组类型
+  [{
+    text:                 //（可选项）按钮标题文字，可以和icon同时存在，字符串类型
+    color:                //（可选项）按钮标题文字颜色，默认值#000，字符串类型
+    fontSize:             //（可选项）按钮标题字体大小。默认值17，数字类型
+    fontWeight:           //（可选项）按钮标题字体粗细，默认值normal。字符串类型。Android及iOS8.2以下系统只支持normal、bold，iOS8.2及以上系统支持normal、bold、bolder、lighter、100~900。
+    fontFamily:           //（可选项）按钮标题字体。只支持iOS，字符串类型
+    iconPath:             //（可选项）按钮 icon 图标路径，可以和 text 同时存在，图片显示大小由图片尺寸和 scale 参数决定，字符串类型
+    scale:                //（可选项）图片的缩放倍数，默认为 4，数字类型。显示规则：当 scale 值为 3 时，若设备上面期望显示的图标尺寸为 30*25，则图片实际尺寸需要为 90*75。
+  }],
+  rightButtons:             //（可选项）导航栏右边按钮组。按钮按照数组顺序从右至左显示，按钮建议最多2个，可以通过监听navitembtn事件来处理按钮点击事件，JSON对象数组类型
+  [{
+    text:                 //（可选项）按钮标题文字，可以和icon同时存在，字符串类型
+    color:                //（可选项）按钮标题文字颜色，默认值#000，字符串类型
+    fontSize:             //（可选项）按钮标题字体大小。默认值17，数字类型
+    fontWeight:           //（可选项）按钮标题字体粗细，默认值normal。字符串类型。Android及iOS8.2以下系统只支持normal、bold，iOS8.2及以上系统支持normal、bold、bolder、lighter、100~900。
+    fontFamily:           //（可选项）按钮标题字体。只支持iOS，字符串类型
+    iconPath:             //（可选项）按钮 icon 图标路径，可以和 text 同时存在，图片显示大小由图片尺寸和 scale 参数决定，字符串类型
+    scale:                //（可选项）图片的缩放倍数，默认为 4，数字类型。显示规则：当 scale 值为 3 时，若设备上面期望显示的图标尺寸为 30*25，则图片实际尺寸需要为 90*75。
+  }]
+}`
+      }]
+    }, {
+      tip: 'tabBar',
+      desc: [{
+        type: 'JSON对象',
+        default: '无',
+        desc: '（可选项）底部tabBar标签栏配置信息，可以通过监听tabitembtn事件来处理标签栏每项的点击事件',
+        fields: `{
+  height:                    //（可选项）标签栏高度。默认值54。数字类型
+  background:                //（可选项）标签栏背景。支持颜色值和图片，默认值#fff，字符串类型
+  shadow:                    //（可选项）标签栏顶部阴影线颜色。默认值#ddd，字符串类型
+  color:                     //（可选项）标签栏各项的文字颜色。默认值#000，字符串类型
+  selectedColor:             //（可选项）标签栏各项选中状态的文字颜色。默认值#000，字符串类型
+  fontSize:                  //（可选项）标签栏各项文字字体大小。默认值10，数字类型
+  fontWeight:                //（可选项）标签栏各项文字字体粗细，默认值normal。字符串类型。Android及iOS8.2以下系统只支持normal、bold，iOS8.2及以上系统支持normal、bold、bolder、lighter、100~900。
+  fontFamily:                //（可选项）标签栏各项文字字体。只支持iOS，字符串类型
+  textOffset:                //（可选项）标签栏各项文字距离底部的距离。默认值2，数字类型
+  animated:                  //（可选项）选中标签栏每项时，切换对应的页面是否带有动画效果，默认值false。布尔类型
+  scrollEnabled:             //（可选项）标签栏每项对应的页面间是否能够左右滚动切换，默认值true。布尔类型
+  index:                     //（可选项）默认选中项的索引。默认值0。数字类型
+  preload:                   //（可选项）预加载的页面个数。默认值0。数字类型
+  list:                      // 标签栏各项配置信息，JSON对象数组类型
+  [{
+      text:                  //（可选项）标题文字，可以和icon同时存在，字符串类型
+      iconPath:              //（可选项）默认状态下 icon 图标路径，可以和 text 同时存在，图片显示大小由图片尺寸和 scale 参数决定，字符串类型
+      selectedIconPath:      //（可选项）选中状态下 icon 图标路径，可以和 text 同时存在，图片显示大小由图片尺寸和 scale 参数决定，字符串类型
+      scale:                 //（可选项）图片的缩放倍数，默认为 4，数字类型。显示规则：当 scale 值为 3 时，若设备上面期望显示的图标尺寸为 30*25，则图片实际尺寸需要为 90*75。
+  }],
+  frames:                    // 标签栏各项对应的页面的信息，JSON对象数组类型
+  [{
+      title:                 //（可选项）标签栏切换时对应顶部导航栏的标题文字，字符串类型
+      ...                    // 同openFrameGroup方法中frames参数里面的参数
+  }]
+}`
+      }]
+    }],
+    sampleCode: `// 打开只有navigationBar的页面：
+api.openTabLayout({
+    name: 'help',
+    url: 'widget://html/help.html',
+    title: '帮助',
+    hideNavigationBar: false,
+    navigationBar: {
+        background: '#5082c2',
+        color: '#fff',
+        leftButtons: [{
+            iconPath: 'widget://image/back.png'
+        }]
+    }
+});
+
+// 打开只有tabBar的页面：
+api.openTabLayout({
+    name: 'tabLayout',
+    url: 'widget://html/tabLayout.html',
+    hideTabBar: false,
+    tabBar: {
+        selectedColor: '#45C01A',
+        list: [{
+            text: '页面一',
+            iconPath: 'widget://image/tab_1.png',
+            selectedIconPath: 'widget://image/tab_1_hov.png'
+        }, {
+            text: '页面二',
+            iconPath: 'widget://image/tab_2.png',
+            selectedIconPath: 'widget://image/tab_2_hov.png'
+        }, {
+            text: '页面三',
+            iconPath: 'widget://image/tab_3.png',
+            selectedIconPath: 'widget://image/tab_3_hov.png'
+        }],
+        frames: [{
+            name: 'page1',
+            url: 'widget://html/page1.html'
+        }, {
+            name: 'page2',
+            url: 'widget://html/page2.html'
+        }, {
+            name: 'page3',
+            url: 'widget://html/page3.html'
+        }]
+    }
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.2.99及更高版本']
+  }, {
+    name: 'setTabLayoutAttr',
+    desc: ['设置tabLayout属性', 'setTabLayoutAttr({params})'],
+    params: [{
+      tip: 'title',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）显示在顶部navigationBar上面的标题'
+      }]
+    }, {
+      tip: 'hideNavigationBar',
+      desc: [{
+        type: '布尔',
+        default: '无',
+        desc: '（可选项）是否隐藏顶部navigationBar导航栏'
+      }]
+    }, {
+      tip: 'hideTabBar',
+      desc: [{
+        type: '布尔',
+        default: '无',
+        desc: '（可选项）是否隐藏底部tabBar标签栏'
+      }]
+    }, {
+      tip: 'animated',
+      desc: [{
+        type: '布尔',
+        default: 'true',
+        desc: '（可选项）显示隐藏navigationBar、tabBar时是否有动画效果。'
+      }]
+    }],
+    sampleCode: `api.setTabLayoutAttr({
+    title: '首页'
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.2.99及更高版本']
+  }, {
+    name: 'setNavBarAttr',
+    desc: ['设置导航栏属性', 'setNavBarAttr({params})'],
+    params: [{
+      tip: 'background',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）导航栏背景。支持颜色值和图片'
+      }]
+    }, {
+      tip: 'shadow',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）导航栏底部阴影线颜色'
+      }]
+    }, {
+      tip: 'color',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）导航栏标题文字颜色'
+      }]
+    }, {
+      tip: 'fontSize',
+      desc: [{
+        type: '数字',
+        default: '无',
+        desc: '（可选项）导航栏标题字体大小'
+      }]
+    }, {
+      tip: 'fontWeight',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）导航栏标题文字粗细'
+      }]
+    }, {
+      tip: 'fontFamily',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）导航栏标题文字字体。只支持iOS。'
+      }]
+    }, {
+      tip: 'hideBackButton',
+      desc: [{
+        type: '布尔',
+        default: '无',
+        desc: '（可选项）是否隐藏默认返回按钮。可以通过监听 navbackbtn 或 keyback 事件来处理返回按钮的点击事件。'
+      }]
+    }, {
+      tip: 'leftButtons',
+      desc: [{
+        type: 'JSON对象数组',
+        default: '无',
+        desc: '（可选项）导航栏左边按钮组，左边按钮会替换掉默认的返回按钮，按钮按照数组顺序从左至右显示，按钮建议最多2个，可以通过监听 navitembtn 事件来处理按钮点击事件。',
+        fields: `[{
+  text:                 //（可选项）按钮标题文字，可以和icon同时存在，字符串类型
+  color:                //（可选项）按钮标题文字颜色，默认值#000，字符串类型
+  fontSize:             //（可选项）按钮标题字体大小。默认值17，数字类型
+  fontWeight:           //（可选项）按钮标题字体粗细，默认值normal。字符串类型。Android及iOS8.2以下系统只支持normal、bold，iOS8.2及以上系统支持normal、bold、bolder、lighter、100~900。
+  fontFamily:           //（可选项）按钮标题字体。只支持iOS，字符串类型
+  iconPath:             //（可选项）按钮 icon 图标路径，可以和 text 同时存在，图片显示大小由图片尺寸和 scale 参数决定，字符串类型
+  scale:                //（可选项）图片的缩放倍数，默认为 4，数字类型。显示规则：当 scale 值为 3 时，若设备上面期望显示的图标尺寸为 30*25，则图片实际尺寸需要为 90*75。
+}]`
+      }]
+    }, {
+      tip: 'rightButtons',
+      desc: [{
+        type: 'JSON对象数组',
+        default: '无',
+        desc: '（可选项）导航栏右边按钮组。按钮按照数组顺序从右至左显示，按钮建议最多2个，可以通过监听navitembtn事件来处理按钮点击事件。',
+        fields: `[{
+  text:                 //（可选项）按钮标题文字，可以和icon同时存在，字符串类型
+  color:                //（可选项）按钮标题文字颜色，默认值#000，字符串类型
+  fontSize:             //（可选项）按钮标题字体大小。默认值17，数字类型
+  fontWeight:           //（可选项）按钮标题字体粗细，默认值normal。字符串类型。Android及iOS8.2以下系统只支持normal、bold，iOS8.2及以上系统支持normal、bold、bolder、lighter、100~900。
+  fontFamily:           //（可选项）按钮标题字体。只支持iOS，字符串类型
+  iconPath:             //（可选项）按钮 icon 图标路径，可以和 text 同时存在，图片显示大小由图片尺寸和 scale 参数决定，字符串类型
+  scale:                //（可选项）图片的缩放倍数，默认为 4，数字类型。显示规则：当 scale 值为 3 时，若设备上面期望显示的图标尺寸为 30*25，则图片实际尺寸需要为 90*75。
+}]`
+      }]
+    }],
+    sampleCode: `api.setNavBarAttr({
+    rightButtons: [{
+        text: '完成'
+    }]
+});`,
+    usability: ['iOS 系统，Android 系统', '可提供的 1.3.2 及更高版本']
+  }, {
+    name: 'getNavBarAttr',
+    desc: ['获取导航栏属性。该方法为同步方法。', 'getNavBarAttr()'],
+    sampleCode: `var res = api.getNavBarAttr();
+api.alert({
+    msg:JSON.stringify(res)
+});`,
+    usability: ['iOS 系统，Android 系统', '可提供的 3.0.31 及更高版本']
+  }, {
+    name: 'setTabBarAttr',
+    desc: ['设置tabBar属性', 'setTabBarAttr({params})'],
+    params: [{
+      tip: 'index',
+      desc: [{
+        type: '数字',
+        default: '无',
+        desc: '（可选项）设置选中标签栏指定项'
+      }]
+    }, {
+      tip: 'background',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）标签栏背景。支持颜色值和图片'
+      }]
+    }, {
+      tip: 'shadow',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）标签栏顶部阴影线颜色'
+      }]
+    }, {
+      tip: 'color',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）标签栏各项的文字颜色'
+      }]
+    }, {
+      tip: 'selectedColor',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）标签栏各项选中状态下的文字颜色'
+      }]
+    }, {
+      tip: 'fontSize',
+      desc: [{
+        type: '数字',
+        default: '无',
+        desc: '（可选项）标签栏各项文字字体大小'
+      }]
+    }, {
+      tip: 'fontWeight',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）标签栏各项文字粗细'
+      }]
+    }, {
+      tip: 'fontFamily',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）标签栏各项文字字体。只支持iOS。'
+      }]
+    }, {
+      tip: 'textOffset',
+      desc: [{
+        type: '数字',
+        default: '无',
+        desc: '（可选项）标签栏各项文字距离底部的距离'
+      }]
+    }],
+    sampleCode: `api.setTabBarAttr({
+    index: 1
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.2.99及更高版本']
+  }, {
+    name: 'setTabBarItemAttr',
+    desc: ['设置tabBar指定项的属性', 'setTabBarItemAttr({params})'],
+    params: [{
+      tip: 'index',
+      desc: [{
+        type: '数字',
+        default: '无',
+        desc: '要设置的指定项的索引'
+      }]
+    }, {
+      tip: 'text',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）该项的标题文字'
+      }]
+    }, {
+      tip: 'iconPath',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）该项默认状态下 icon 图标路径'
+      }]
+    }, {
+      tip: 'selectedIconPath',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）该项选中状态下 icon 图标路径'
+      }]
+    }, {
+      tip: 'scale',
+      desc: [{
+        type: '数字',
+        default: '4',
+        desc: '（可选项）图片的缩放倍数。显示规则：当 scale 值为 3 时，若设备上面期望显示的图标尺寸为 3025，则图片实际尺寸需要为 9075。'
+      }]
+    }, {
+      tip: 'badge',
+      desc: [{
+        type: 'JSON对象',
+        default: '无',
+        desc: '（可选项）该项的角标信息',
+        fields: `{
+  text：              //角标内容。传0时表示隐藏角标，其余任意值表示显示角标，可以为空字符串，字符串类型
+  background：        //角标的背景，支持颜色和图片，默认值#f00，字符串类型
+  color：             //角标文字颜色，默认值#fff，字符串类型
+  fontSize：          //角标文字字体大小，默认值12，数字类型
+  radius：            //角标的半径，默认值10，高度固定，宽度根据内容自动增长，数字类型
+  x：                 //角标左边相对于所在项顶部中间的位置，默认值5，数字类型
+  y：                 //角标顶部相对于所在项顶部的位置，默认值5，数字类型
+}`
+      }]
+    }],
+    sampleCode: `api.setTabBarItemAttr({
+  index: 4,
+  badge: {
+      text: 1
+  }
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.2.99及更高版本']
+  }]
 }, {
   name: '数据存储',
-  icon: 'api_storage_icon'
+  icon: 'api_storage_icon',
+  children: [{
+    name: 'readFile',
+    desc: ['读取文本文件内容，只支持utf-8编码文本类型文件', 'readFile({params}, callback(ret, err))'],
+    params: [{
+      tip: 'sync',
+      desc: [{
+        type: '布尔',
+        default: 'false',
+        desc: '执行结果的返回方式。为false时通过callback返回，为true时直接返回。'
+      }]
+    }, {
+      tip: 'path',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '文件路径，支持绝对路径和文件路径协议如fs://、widget://等'
+      }]
+    }],
+    sampleCode: `//异步返回结果：
+api.readFile({
+    path: 'fs://a.txt'
+}, function(ret, err) {
+    if (ret.status) {
+        var data = ret.data;
+    } else {
+        api.alert({
+            msg:JSON.stringify(err)
+        });
+    }
+});
+
+//同步返回结果：
+var data = api.readFile({
+    sync: true,
+    path: 'fs://a.txt'
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'writeFile',
+    desc: ['写入内容到文本文件', 'writeFile({params}, callback(ret, err))'],
+    params: [{
+      tip: 'path',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '文件路径，支持绝对路径和文件路径协议如fs://、cache://等，不支持widget://目录，该目录只读'
+      }]
+    }, {
+      tip: 'data',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '文件内容'
+      }]
+    }, {
+      tip: 'append',
+      desc: [{
+        type: '布尔',
+        default: 'false',
+        desc: '是否以追加方式写入数据，默认会清除之前文件内容'
+      }]
+    }],
+    sampleCode: `api.writeFile({
+    path: 'fs://a.txt',
+    data: 'writeFile测试内容'
+  }, function(ret, err) {
+    if (ret.status) {
+        //成功
+    } else {
+
+    }
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'setPrefs',
+    desc: ['设置偏好数据，数据会存储到本地文件系统。', 'setPrefs({params})'],
+    params: [{
+      tip: 'key',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '键'
+      }]
+    }, {
+      tip: 'value',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '值'
+      }]
+    }],
+    sampleCode: `api.setPrefs({
+    key: 'userName',
+    value: 'api'
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'getPrefs',
+    desc: ['获取偏好设置值', 'getPrefs({params}, callback(ret, err))'],
+    params: [{
+      tip: 'sync',
+      desc: [{
+        type: '布尔',
+        default: 'false',
+        desc: '执行结果的返回方式。为false时通过callback返回，为true时直接返回。'
+      }]
+    }, {
+      tip: 'key',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '键'
+      }]
+    }],
+    sampleCode: `//异步返回结果：
+api.getPrefs({
+    key: 'userName'
+}, function(ret, err) {
+    var userName = ret.value;
+});
+
+//同步返回结果：
+var userName = api.getPrefs({
+    sync: true,
+    key: 'userName'
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'removePrefs',
+    desc: ['删除偏好设置值', 'removePrefs({params})'],
+    params: [{
+      tip: 'key',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '键'
+      }]
+    }],
+    sampleCode: `api.removePrefs({
+    key: 'userName'
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'setGlobalData',
+    desc: ['设置全局数据，数据只存储在内存中，不会存储到本地文件系统。', 'setGlobalData({params})'],
+    params: [{
+      tip: 'key',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '键'
+      }]
+    }, {
+      tip: 'value',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '值'
+      }]
+    }],
+    sampleCode: `api.setGlobalData({
+    key: 'userName',
+    value: 'api'
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.2.87及更高版本']
+  }, {
+    name: 'getGlobalData',
+    desc: ['获取全局数据', 'getGlobalData({params})'],
+    params: [{
+      tip: 'key',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '键'
+      }]
+    }],
+    sampleCode: `var userName = api.getGlobalData({
+    key: 'userName'
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.2.87及更高版本']
+  }, {
+    name: 'clearCache',
+    desc: ['清除缓存，包括cache://目录下的文件、拍照临时文件、网页缓存文件等，清除时可能需要消耗一定时间。', 'clearCache({params}, callback(ret, err))'],
+    params: [{
+      tip: 'timeThreshold',
+      desc: [{
+        type: '数字',
+        default: '0',
+        desc: '（可选项）清除多少天前的缓存'
+      }]
+    }],
+    sampleCode: `api.clearCache(function() {
+    api.toast({
+        msg: '清除完成'
+    });
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'getCacheSize',
+    desc: ['获取缓存占用空间大小，缓存包括cache://目录下的文件、拍照临时文件以及网页缓存文件等，计算可能需要花费一些时间', 'getCacheSize({params}, callback(ret, err))'],
+    params: [{
+      tip: 'sync',
+      desc: [{
+        type: '布尔',
+        default: 'false',
+        desc: '执行结果的返回方式。为false时通过callback返回，为true时直接返回。'
+      }]
+    }],
+    sampleCode: `//异步返回结果：
+api.getCacheSize(function(ret) {
+    var size = ret.size;
+});
+
+//同步返回结果：
+var size = api.getCacheSize({
+    sync: true
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'getTotalSpace',
+    desc: ['获取总存储空间大小', 'getTotalSpace({params},callback(ret, err))'],
+    params: [{
+      tip: 'sync',
+      desc: [{
+        type: '布尔',
+        default: 'false',
+        desc: '执行结果的返回方式。为false时通过callback返回，为true时直接返回。'
+      }]
+    }],
+    sampleCode: `//异步返回结果：
+api.getTotalSpace(function(ret, err) {
+    var size = ret.size;
+});
+
+//同步返回结果：
+var size = api.getTotalSpace({
+    sync: true
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.2.7及更高版本']
+  }, {
+    name: 'getFreeDiskSpace',
+    desc: ['获取剩余存储空间大小', 'getFreeDiskSpace({params},callback(ret, err))'],
+    params: [{
+      tip: 'sync',
+      desc: [{
+        type: '布尔',
+        default: 'false',
+        desc: '执行结果的返回方式。为false时通过callback返回，为true时直接返回。'
+      }]
+    }],
+    sampleCode: `//异步返回结果：
+api.getFreeDiskSpace(function(ret, err) {
+    var size = ret.size;
+});
+
+//同步返回结果：
+var size = api.getFreeDiskSpace({
+    sync: true
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'loadSecureValue',
+    desc: [
+      '从加密的key.xml文件中读取指定数据，key.xml文件放置于网页包里面的res目录，配置方式：',
+`<security>
+  <item name="appKey" value="1111111"/>
+</security>`,
+      'loadSecureValue({params}, callback(ret, err))'
+    ],
+    params: [{
+      tip: 'sync',
+      desc: [{
+        type: '布尔',
+        default: 'false',
+        desc: '执行结果的返回方式。为false时通过callback返回，为true时直接返回。'
+      }]
+    }, {
+      tip: 'key',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '键'
+      }]
+    }],
+    sampleCode: `//异步返回结果：
+api.loadSecureValue({
+    key: 'appKey'
+}, function(ret, err) {
+    var appKey = ret.value;
+});
+
+//同步返回结果：
+var appKey = api.loadSecureValue({
+    sync: true,
+    key: 'appKey'
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }]
 }, {
   name: '消息事件',
-  icon: 'api_event_icon'
+  icon: 'api_event_icon',
+  children: [{
+    name: 'addEventListener',
+    desc: ['监听事件，支持系统事件和自定义事件', 'addEventListener({params}, callback(ret, err))'],
+    params: [{
+      tip: 'name',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '自定义事件或系统事件名称, 详见 https://docs.apicloud.com/Client-API/api#2'
+      }]
+    }, {
+      tip: 'extra',
+      desc: [{
+        type: 'JSON 对象',
+        default: '无',
+        desc: '（可选项）附加字段。一些特定事件可能需要提供额外的参数。',
+        fields: `{
+  threshold:           //当事件为scrolltobottom时，设置距离底部多少距离时触发事件，默认值为0，数字类型
+  timeout:             //当事件为appidle时，设置经过多长时间不操作屏幕时触发，单位秒，数字类型
+}`
+      }]
+    }],
+    sampleCode: `//如监听网络连接事件
+api.addEventListener({
+    name: 'online'
+}, function(ret, err) {
+        api.alert({
+            msg:'已连接网络'
+        });
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'removeEventListener',
+    desc: ['移除事件监听', 'removeEventListener({params})'],
+    params: [{
+      tip: 'name',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '自定义事件或系统事件名称, 详见 https://docs.apicloud.com/Client-API/api#2'
+      }]
+    }],
+    sampleCode: `api.removeEventListener({
+    name: 'online'
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'sendEvent',
+    desc: ['将任意一个自定义事件广播出去，该事件可在任意页面通过 addEventListener 监听收到。', 'sendEvent({params})'],
+    params: [{
+      tip: 'name',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '任意自定义事件的名称，比如：apprunning、appover等'
+      }]
+    }, {
+      tip: 'extra',
+      desc: [{
+        type: '字符串或 JSON 对象',
+        default: '无',
+        desc: '（可选项）附带的参数。在监听页面的回调里面通过 ret.value 获取。'
+      }]
+    }],
+    sampleCode: `api.sendEvent({
+    name: 'myEvent',
+    extra: {
+      key1: 'value1',
+      key2: 'value2'
+    }
+});
+
+//html页面a：
+api.addEventListener({
+    name: 'myEvent'
+}, function(ret, err) {
+    api.alert({
+        msg:JSON.stringify(ret.value)
+    });
+});
+
+//html页面b：
+api.addEventListener({
+    name: 'myEvent'
+}, function(ret, err) {
+    api.alert({
+        msg:JSON.stringify(ret.value)
+    });
+});
+
+//a、b页面都将收到 myEvent 事件`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'accessNative',
+    desc: ['使用 SuperWebView 时，js 向原生发送消息。此方法只在使用 SuperWebView 时有效。', 'accessNative({params}, callback(ret, err))'],
+    params: [{
+      tip: 'name',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '消息名称。'
+      }]
+    }, {
+      tip: 'extra',
+      desc: [{
+        type: 'JSON 对象',
+        default: '无',
+        desc: '（可选项）附带的参数。'
+      }]
+    }],
+    sampleCode: `api.accessNative({
+    name: 'showMenu',
+    extra: {
+        key: 'value'
+    }
+  }, function(ret, err) {
+    if (ret) {
+        api.alert({
+            msg:JSON.stringify(ret)
+        });
+    } else {
+        api.alert({
+            msg:JSON.stringify(err)
+        });
+    }
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.2.0及更高版本']
+  }, {
+    name: 'notification',
+    desc: ['向用户发出震动、声音提示、灯光闪烁、手机状态栏通知等提示行为，支持闹钟功能。如果是状态栏通知，当用户点击该通知，页面可以通过监听 noticeclicked 事件获取该通知相关内容。', '注：当应用在前台弹出通知提示时，iOS平台的通知将在显示几秒后消失，不会在通知栏保留。', 'notification({params}, callback(ret, err))'],
+    params: [{
+      tip: 'vibrate',
+      desc: [{
+        type: '数组',
+        default: '[100, 500, 100, 500]',
+        desc: '（可选项）伴随节奏的震动，时间数组，单位：毫秒。iOS平台震动时间为固定值；Android平台节奏为【等待-震动-等待-震动..】，例如[100, 500, 100, 500]表现效果为：等待100毫秒-震动500毫秒-等待100毫秒-震动500毫秒'
+      }]
+    }, {
+      tip: 'sound',
+      desc: [{
+        type: '字符串',
+        default: 'default',
+        desc: '（可选项）提示音，默认为系统设置的提示音。Android支持传入widget协议音频文件，例如：widget://res/horse.mp3；当实现闹钟功能时，iOS只支持widget://路径协议'
+      }]
+    }, {
+      tip: 'light',
+      desc: [{
+        type: '布尔型',
+        default: 'false',
+        desc: '（可选项）设备提示灯是否闪烁'
+      }]
+    }, {
+      tip: 'notify',
+      desc: [{
+        type: 'JSON 对象',
+        default: '无',
+        desc: '（可选项）弹出通知到状态栏。弹出时是否震动或响铃，可通过设置vibrate，sound等字段配合实现。',
+        fields: `{
+  title:''                //标题，Android中默认值为应用名称，支持Android和iOS 8.2以上系统
+  content:''              //内容，默认值为'有新消息'
+  extra:''                //附加信息，页面可以监听noticeclicked事件得到点击的通知的附加信息
+  updateCurrent: false    //是否覆盖更新已有的通知，取值范围true|false。只Android有效
+}`
+      }]
+    }, {
+      tip: 'alarm',
+      desc: [{
+        type: 'JSON 对象',
+        default: '无',
+        desc: '（可选项）设置闹铃。与notify配合使用，即如果设置了闹铃，那么对应的notify将在设定的闹铃时间触发',
+        fields: `{
+  hour:           //小时，数字类型，取值范围（0-23），默认值为当前系统时
+  minutes:        //分钟，数字类型，取值范围（0-59），默认值为当前系统分
+  daysOfWeek:     //通知循环时间，以周为单位，数组类型，取值范围[1,2,3,4,5,6,7]，表示周日、周一、周二、周三、周四、周五、周六。若不传则不循环，只在当天或隔天的指定时间通知一次
+  time:           //闹铃目标时间，数字类型，1970年至今的毫秒数，只在设定的时间执行一次，若设置了time，那么hour、minutes、daysOfWeek将被忽略
+  openApp:        //当闹铃触发时是否打开当前应用，如果打开，则不弹出状态栏通知，bool类型，默认值为false。仅支持Android平台。
+}`
+      }]
+    }],
+    sampleCode: `//仅震动
+api.notification({
+    vibrate:[100, 500, 200, 500, 300, 500, 400, 500]
+});
+
+//仅提示音
+api.notification({
+    sound:'default'
+});
+
+//提示音+震动
+api.notification();
+
+//弹出状态栏通知
+api.notification({
+    notify: {
+    title: '通知标题',
+        content: '通知内容'
+    }
+});
+
+//闹铃
+api.notification({
+    notify: {
+        content: '闹钟'
+    },
+    //每周一、二、三、四、五的7点30分闹铃
+    alarm: {
+        hour: 7,
+        minutes: 30,
+        daysOfWeek: [2, 3, 4, 5, 6]
+    }
+}, function(ret, err) {
+    var id = ret.id;
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'cancelNotification',
+    desc: ['取消本应用弹出到状态栏的某个或所有通知，也可以清除设定的闹铃', 'cancelNotification({params})'],
+    params: [{
+      tip: 'id',
+      desc: [{
+        type: '字符串',
+        default: '0。如果传入-1，则取消本应用弹到状态栏的所有通知，iOS只支持清除所有弹到状态栏的通知；传入-1并不清除闹铃。',
+        desc: '（可选项）调用 notification 方法时返回的 id'
+      }]
+    }],
+    sampleCode: `api.cancelNotification({
+    id: 1
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }]
 }, {
   name: 'UI组件',
-  icon: 'api_ui_icon'
+  icon: 'api_ui_icon',
+  children: [{
+    name: 'alert',
+    desc: ['弹出带一个按钮的对话框，更多按钮的对话框请使用confirm方法', 'alert({params}, callback(ret, err))'],
+    params: [{
+      tip: 'title',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）标题'
+      }]
+    }, {
+      tip: 'msg',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）内容'
+      }]
+    }, {
+      tip: 'buttons',
+      desc: [{
+        type: '字符串数组',
+        default: '["确定"]',
+        desc: '（可选项）按钮'
+      }]
+    }],
+    sampleCode: `api.alert({
+    title: 'testtitle',
+    msg: 'testmsg',
+}, function(ret, err) {
+
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'confirm',
+    desc: ['弹出带两个或三个按钮的confirm对话框', 'confirm({params}, callback(ret, err))'],
+    params: [{
+      tip: 'title',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）标题'
+      }]
+    }, {
+      tip: 'msg',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）内容'
+      }]
+    }, {
+      tip: 'buttons',
+      desc: [{
+        type: '字符串数组',
+        default: '["取消","确定"]',
+        desc: '（可选项）按钮标题，若小于两个按钮，会补齐两个按钮；若大于三个按钮，则使用前三个按钮'
+      }]
+    }],
+    sampleCode: `api.confirm({
+    title: 'testtitle',
+    msg: 'testmsg',
+    buttons: ['确定', '取消']
+}, function(ret, err) {
+    var index = ret.buttonIndex;
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'prompt',
+    desc: ['弹出带两个或三个按钮和输入框的对话框', 'prompt({params}, callback(ret, err))'],
+    params: [{
+      tip: 'title',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）标题'
+      }]
+    }, {
+      tip: 'msg',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）内容'
+      }]
+    }, {
+      tip: 'text',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）输入框里面的默认内容'
+      }]
+    }, {
+      tip: 'type',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）输入类型，不同输入类型弹出键盘类型不同，取值范围（text、password、number、email、url）'
+      }]
+    }, {
+      tip: 'buttons',
+      desc: [{
+        type: '字符串数组',
+        default: '["取消","确定"]',
+        desc: '（可选项）按钮标题，若小于两个按钮，会补齐两个按钮；若大于三个按钮，则使用前三个按钮'
+      }]
+    }],
+    sampleCode: `api.prompt({
+    buttons: ['确定', '取消']
+}, function(ret, err) {
+    var index = ret.buttonIndex;
+    var text = ret.text;
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'actionSheet',
+    desc: ['底部弹出框', 'actionSheet({params}, callback(ret, err))'],
+    params: [{
+      tip: 'title',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）标题'
+      }]
+    }, {
+      tip: 'cancelTitle',
+      desc: [{
+        type: '字符串',
+        default: '取消',
+        desc: '（可选项）取消按钮标题'
+      }]
+    }, {
+      tip: 'destructiveTitle',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）红色警示按钮标题，一般用于做一些删除之类操作'
+      }]
+    }, {
+      tip: 'buttons',
+      desc: [{
+        type: '字符串数组',
+        default: '无',
+        desc: '（可选项）其它按钮'
+      }]
+    }, {
+      tip: 'style',
+      desc: [{
+        type: 'JSON 对象',
+        default: '无',
+        desc: '（可选项）样式设置，不传时使用默认样式',
+        fields: `{
+  layerColor:'',         //遮蔽层颜色，仅支持rgba颜色，默认值：rgba(0, 0, 0, 0.4)，Android平台仅支持设置alpha即透明度生效
+  itemNormalColor:'',    //选项按钮正常状态背景颜色，支持#000、#000000、rgb、rgba，默认值：#F1F1F1
+  itemPressColor:'',     //选项按钮按下时背景颜色，支持#000、#000000、rgb、rgba，默认值：#E6E6E6
+  fontNormalColor:'',    //选项按钮正常状态文字颜色，支持#000、#000000、rgb、rgba，默认值：#007AFF
+  fontPressColor:'',     //选项按钮按下时文字颜色，支持#000、#000000、rgb、rgba，默认值：#0060F0
+  titleFontColor:''      //标题文字颜色，支持#000、#000000、rgb、rgba，默认值：#8F8F8F
+}`
+      }]
+    }],
+    sampleCode: `api.actionSheet({
+    title: '底部弹出框测试',
+    cancelTitle: '这里是取消按钮',
+    destructiveTitle: '红色警告按钮',
+    buttons: ['1', '2', '3']
+}, function(ret, err) {
+    var index = ret.buttonIndex;
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'showProgress',
+    desc: ['显示进度提示框', 'showProgress({params})'],
+    params: [{
+      tip: 'style',
+      desc: [{
+        type: '字符串',
+        default: 'default',
+        desc: '（可选项）进度提示框风格',
+        fields: `default    //默认`
+      }]
+    }, {
+      tip: 'animationType',
+      desc: [{
+        type: '字符串',
+        default: 'fade',
+        desc: '（可选项）进度提示框动画类型',
+        fields: `fade        //渐隐渐现
+zoom        //缩放`
+      }]
+    }, {
+      tip: 'title',
+      desc: [{
+        type: '字符串',
+        default: '加载中',
+        desc: '（可选项）标题'
+      }]
+    }, {
+      tip: 'text',
+      desc: [{
+        type: '字符串',
+        default: '请稍候...',
+        desc: '（可选项）内容'
+      }]
+    }, {
+      tip: 'modal',
+      desc: [{
+        type: '布尔',
+        default: 'true',
+        desc: '（可选项）是否模态，模态时整个页面将不可交互'
+      }]
+    }],
+    sampleCode: `api.showProgress({
+    title: '努力加载中...',
+    text: '先喝杯茶...',
+    modal: false
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'hideProgress',
+    desc: ['隐藏进度提示框', 'hideProgress()'],
+    sampleCode: `api.hideProgress();`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'toast',
+    desc: ['弹出一个定时自动关闭的提示框', 'toast({params})'],
+    params: [{
+      tip: 'msg',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '提示消息'
+      }]
+    }, {
+      tip: 'duration',
+      desc: [{
+        type: '数字',
+        default: '2000',
+        desc: '（可选项）持续时长，单位：毫秒'
+      }]
+    }, {
+      tip: 'location',
+      desc: [{
+        type: '字符串',
+        default: 'bottom',
+        desc: '（可选项）弹出位置，顶部、中间或底部',
+        fields: `top         //顶部
+middle      //中间
+bottom      //底部`
+      }]
+    }, {
+      tip: 'global',
+      desc: [{
+        type: '布尔',
+        default: 'false',
+        desc: '（可选项）是否是全局的toast。若为false，toast将只在当前window范围可见；若为true，安卓手机上面弹出的位置将会固定在底部区域。'
+      }]
+    }],
+    sampleCode: `api.toast({
+    msg: '网络错误',
+    duration: 2000,
+    location: 'bottom'
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'openPicker',
+    desc: ['打开时间选择器', 'openPicker({params}, callback(ret, err))'],
+    params: [{
+      tip: 'type',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '拾取器类型',
+        fields: `date           //日期
+time           //时间
+date_time      //日期和时间，Android不支持`
+      }]
+    }, {
+      tip: 'date',
+      desc: [{
+        type: '字符串',
+        default: '当前时间',
+        desc: '（可选项）时间格式化字符串，格式yyyy-MM-dd HH:mm'
+      }]
+    }, {
+      tip: 'minDate',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）能够选择的最小时间，格式yyyy-MM-dd HH:mm，只iOS有效'
+      }]
+    }, {
+      tip: 'maxDate',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）能够选择的最大时间，格式yyyy-MM-dd HH:mm，只iOS有效'
+      }]
+    }, {
+      tip: 'title',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）显示在拾取器上面的标题'
+      }]
+    }, {
+      tip: 'arrowRect',
+      desc: [{
+        type: 'JSON 对象',
+        default: '无',
+        desc: '（可选项）iPad中显示时，箭头指向的位置，只iPad有效',
+        fields: `{
+  x:0,                  //左上角x坐标，数字类型
+  y:0,                  //左上角y坐标，数字类型
+  w:0,                  //宽度，数字类型
+  h:0,                  //高度，数字类型
+}`
+      }]
+    }, {
+      tip: 'arrowDirection',
+      desc: [{
+        type: '字符串',
+        default: 'any',
+        desc: '（可选项）iPad中显示时，箭头指向的方向，只iPad有效',
+        fields: `left         // 指向左边
+right        // 指向右边
+up           // 指向上边
+down         // 指向下边
+any          // 系统根据页面情况选择合适的方向`
+      }]
+    }],
+    sampleCode: `api.openPicker({
+    type: 'date_time',
+    date: '2014-05-01 12:30',
+    title: '选择时间'
+}, function(ret, err) {
+    if (ret) {
+      api.alert({
+          msg:JSON.stringify(ret)
+      });
+    } else {
+      api.alert({
+          msg:JSON.stringify(err)
+      });
+    }
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'setRefreshHeaderInfo',
+    desc: ['显示默认下拉刷新组件，使用默认下拉刷新组件时会自动重新设置页面的弹动属性。', 'setRefreshHeaderInfo({params}, callback(ret, err))'],
+    params: [{
+      tip: 'visible',
+      desc: [{
+        type: '布尔',
+        default: 'true',
+        desc: '（可选项）是否可见'
+      }]
+    }, {
+      tip: 'bgColor',
+      desc: [{
+        type: '字符串',
+        default: '当defaultRefreshHeader为pull时为rgba(187, 236, 153, 1.0)，为swipe时为#fff',
+        desc: '（可选项）背景颜色'
+      }]
+    }, {
+      tip: 'pathColor',
+      desc: [{
+        type: '字符串',
+        default: '#0F9D58',
+        desc: '（可选项）进度条的颜色，defaultRefreshHeader为swipe时生效。'
+      }]
+    }, {
+      tip: 'loadingImg',
+      desc: [{
+        type: '字符串',
+        default: '旋转箭头图片',
+        desc: '（可选项）上拉下拉时的图片地址，defaultRefreshHeader为pull时生效。'
+      }]
+    }, {
+      tip: 'textColor',
+      desc: [{
+        type: '字符串',
+        default: 'rgba(109, 128, 153, 1.0)',
+        desc: '（可选项）文本颜色，defaultRefreshHeader为pull时生效。'
+      }]
+    }, {
+      tip: 'textDown',
+      desc: [{
+        type: '字符串',
+        default: '下拉可以刷新...',
+        desc: '（可选项）下拉文字描述，defaultRefreshHeader为pull时生效。'
+      }]
+    }, {
+      tip: 'textUp',
+      desc: [{
+        type: '字符串',
+        default: '松开可以刷新...',
+        desc: '（可选项）松开时文字描述，defaultRefreshHeader为pull时生效。'
+      }]
+    }, {
+      tip: 'textLoading',
+      desc: [{
+        type: '字符串',
+        default: '加载中...',
+        desc: '（可选项）加载状态文字描述，defaultRefreshHeader为pull时生效。'
+      }]
+    }, {
+      tip: 'textTime',
+      desc: [{
+        type: '字符串',
+        default: '最后更新加日期时间',
+        desc: '（可选项）更新时间文字描述，defaultRefreshHeader为pull时生效。'
+      }]
+    }, {
+      tip: 'showTime',
+      desc: [{
+        type: '布尔',
+        default: 'true',
+        desc: '（可选项）是否显示更新时间，defaultRefreshHeader为pull时生效。'
+      }]
+    }],
+    sampleCode: `api.setRefreshHeaderInfo({
+    loadingImg: 'widget://image/refresh.png',
+    bgColor: '#ccc',
+    textColor: '#fff',
+    textDown: '下拉刷新...',
+    textUp: '松开刷新...'
+}, function(ret, err) {
+    //在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'setCustomRefreshHeaderInfo',
+    desc: ['显示自定义下拉刷新组件。', '使用自定义下拉刷新组件之前，需要在config.xml里面配置要使用的自定义下拉刷新模块名称,如：', '<preference name="customRefreshHeader" value="UIPullRefresh"/>', '或者在使用openWin、openFrame等方法打开页面时传入customRefreshHeader参数来指定。', 'setCustomRefreshHeaderInfo({params}, callback(ret, err))'],
+    params: [{
+      tip: '由对应的自定义下拉刷新模块提供'
+    }],
+    sampleCode: `api.setCustomRefreshHeaderInfo({
+    bgColor: '#C0C0C0',
+    images: {
+      pull: 'widget://image/refresh/pulling.png',
+      transform: [
+          'widget://image/refresh/transform0.png',
+          'widget://image/refresh/transform1.png',
+          'widget://image/refresh/transform2.png',
+          'widget://image/refresh/transform3.png',
+          'widget://image/refresh/transform4.png',
+          'widget://image/refresh/transform5.png',
+          'widget://image/refresh/transform6.png'
+      ],
+      load: [
+          'widget://image/refresh/loading0.png',
+          'widget://image/refresh/loading1.png',
+          'widget://image/refresh/loading2.png',
+          'widget://image/refresh/loading3.png',
+          'widget://image/refresh/loading4.png',
+      ]
+    }
+}, function(ret, err) {
+    //在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.2.0及更高版本']
+  }, {
+    name: 'refreshHeaderLoading',
+    desc: ['设置下拉刷新组件为刷新中状态', 'refreshHeaderLoading()'],
+    sampleCode: `api.refreshHeaderLoading();`,
+    usability: ['iOS系统，Android系统', '可提供的1.1.0及更高版本']
+  }, {
+    name: 'refreshHeaderLoadDone',
+    desc: ['通知下拉刷新数据加载完毕，组件会恢复到默认状态', 'refreshHeaderLoadDone()'],
+    sampleCode: `api.refreshHeaderLoadDone();`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'showFloatBox',
+    desc: ['展示一个悬浮框，浮动在屏幕上。', 'showFloatBox({params}, callback)'],
+    params: [{
+      tip: 'preventDefault',
+      desc: [{
+        type: '布尔',
+        default: 'false',
+        desc: '（可选项）是否阻止默认行为，若传true，可以在回调方法里面处理悬浮框点击操作。默认的行为：1、在主widget调用该方法无效 2、点击后会弹出退出应用提示'
+      }]
+    }, {
+      tip: 'iconPath',
+      desc: [{
+        type: '字符串',
+        default: '应用图标',
+        desc: '（可选项）展示在悬浮框中的图片地址'
+      }]
+    }, {
+      tip: 'duration',
+      desc: [{
+        type: '字符串',
+        default: '5000毫秒',
+        desc: '（可选项）自动消隐时长。在该时长内不发生触摸悬浮框行为，悬浮框自动消隐至半透状态'
+      }]
+    }],
+    sampleCode: `api.showFloatBox({
+    iconPath: 'widget://image/icon.png',
+    duration: 3000
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'setMenuItems',
+    desc: ['设置选择文字弹出菜单。', 'setMenuItems({params}, callback)'],
+    params: [{
+      tip: 'customItems',
+      desc: [{
+        type: '字符串数组',
+        default: '无',
+        desc: '自定义菜单项。自定义菜单项会添加到系统默认菜单项的后面。'
+      }]
+    }, {
+      tip: 'systemItems',
+      desc: [{
+        type: '字符串数组',
+        default: '无',
+        desc: '（可选项）系统菜单项。如果不传该参数，则会显示系统菜单项，自定义菜单项会添加到系统菜单项后面；如果传空数组，则不显示系统菜单项；如果传了非空数组，则显示传入的系统菜单。注意：不同系统版本的系统默认菜单项可能会有所不同，会存在无法屏蔽某些系统菜单的情况。',
+        fields: `copy                // 复制
+selectAll           // 全选
+_lookup             // 查询
+_addShortcut        // 添加...
+_share              // 共享...`
+      }]
+    }],
+    sampleCode: `api.setMenuItems({
+    customItems: ['菜单1', '菜单2']
+    systemItems: []
+}, function(ret, err){
+    var index = ret.index;
+});`,
+    usability: ['iOS系统', '可提供的1.2.98及更高版本']
+  }]
 }, {
   name: '多媒体',
-  icon: 'api_media_icon'
+  icon: 'api_media_icon',
+  children: [{
+    name: 'getPicture',
+    desc: ['通过调用系统默认相机或者图库应用，获取图片以及视频媒体文件。', 'getPicture({params}, callback(ret, err))'],
+    params: [{
+      tip: 'sourceType',
+      desc: [{
+        type: '字符串',
+        default: 'library',
+        desc: '（可选项）图片源类型，从相册、图片库或相机获取图片',
+        fields: `library         //图片库
+camera          //相机
+album           //相册`
+      }]
+    }, {
+      tip: 'encodingType',
+      desc: [{
+        type: '字符串',
+        default: 'png',
+        desc: '（可选项）返回图片类型，jpg或png',
+        fields: `jpg      //指定图片格式为jpg
+png      //指定图片格式为png`
+      }]
+    }, {
+      tip: 'mediaValue',
+      desc: [{
+        type: '字符串',
+        default: 'pic',
+        desc: '（可选项）媒体类型，图片或视频',
+        fields: `pic        //图片
+video      //视频
+all        //图片和视频，Android不支持`
+      }]
+    }, {
+      tip: 'destinationType',
+      desc: [{
+        type: '字符串',
+        default: 'url',
+        desc: '（可选项）返回数据类型，指定返回图片地址或图片经过base64编码后的字符串',
+        fields: `base64      //指定返回数据为base64编码后内容
+url         //指定返回数据为选取的图片地址`
+      }]
+    }, {
+      tip: 'direction',
+      desc: [{
+        type: '字符串',
+        default: 'rear',
+        desc: '（可选项）选择前置或后置摄像头，取值范围（front、rear），只支持iOS'
+      }]
+    }, {
+      tip: 'allowEdit',
+      desc: [{
+        type: '布尔',
+        default: 'false',
+        desc: '（可选项）是否可以选择图片后进行编辑，支持iOS及部分安卓手机'
+      }]
+    }, {
+      tip: 'preview',
+      desc: [{
+        type: '布尔',
+        default: 'false',
+        desc: '（可选项）是否选择图片后进行预览，只支持iOS。'
+      }]
+    }, {
+      tip: 'quality',
+      desc: [{
+        type: '数字',
+        default: '50',
+        desc: '（可选项）图片质量，只针对jpg格式图片（0-100整数）'
+      }]
+    }, {
+      tip: 'videoQuality',
+      desc: [{
+        type: '字符串',
+        default: 'medium',
+        desc: '（可选项）视频质量，调用相机录制视频时该参数生效。取值范围(low、medium、high)，质量越高，录制的视频文件占用存储空间越大。'
+      }]
+    }, {
+      tip: 'targetWidth',
+      desc: [{
+        type: '数字',
+        default: '原图宽度',
+        desc: '（可选项）压缩后的图片宽度，图片会按比例适配此宽度'
+      }]
+    }, {
+      tip: 'targetHeight',
+      desc: [{
+        type: '数字',
+        default: '原图高度',
+        desc: '（可选项）压缩后的图片高度，图片会按比例适配此高度'
+      }]
+    }, {
+      tip: 'saveToPhotoAlbum',
+      desc: [{
+        type: '布尔',
+        default: 'false',
+        desc: '（可选项）拍照或录制视频后是否保存到系统相册目录。注意此处仅是文件系统层面的操作，使用诸如“图库”App仍然有可能查看到。'
+      }]
+    }, {
+      tip: 'groupName',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）保存图片到自定义分组相册目录，相册不存在则会进行创建。可用性：可提供的1.2.74及更高版本'
+      }]
+    }],
+    sampleCode: `api.getPicture({
+    sourceType: 'camera',
+    encodingType: 'jpg',
+    mediaValue: 'pic',
+    destinationType: 'url',
+    allowEdit: true,
+    quality: 50,
+    targetWidth: 100,
+    targetHeight: 100,
+    saveToPhotoAlbum: false
+}, function(ret, err) {
+    if (ret) {
+        api.alert({
+            msg:JSON.stringify(ret)
+        });
+    } else {
+        api.alert({
+            msg:JSON.stringify(err)
+        });
+    }
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'saveMediaToAlbum',
+    desc: ['保存图片和视频到系统相册', 'saveMediaToAlbum({params}, callback(ret, err))'],
+    params: [{
+      tip: 'path',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '文件路径，支持网络链接地址、fs://、widget://等扩展文件路径协议，本地文件路径必须带有扩展名'
+      }]
+    }, {
+      tip: 'groupName',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）保存图片到自定义分组相册目录，相册不存在则会进行创建。可用性：可提供的1.2.74及更高版本'
+      }]
+    }],
+    sampleCode: `api.saveMediaToAlbum({
+    path: 'fs://1.png'
+}, function(ret, err) {
+    if (ret && ret.status) {
+        api.alert({
+            msg:'保存成功'
+        });
+
+    } else {
+        api.alert({
+            msg:'保存失败'
+        });
+    }
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.1.0及更高版本']
+  }, {
+    name: 'screenCapture',
+    desc: ['屏幕截取，可截取整个屏幕、当前页面、avm 页面指定元素等。', 'screenCapture({params}, callback(ret, err))'],
+    params: [{
+      tip: 'region',
+      desc: [{
+        type: '字符串',
+        default: '当前页面区域',
+        desc: '要截取的屏幕区域范围，默认为当前页面区域。',
+        fields: `screen            // 整个屏幕，包含状态栏、虚拟按键栏区域
+window            // 整个 window，包含导航栏、底部标签栏区域
+#elementId        // avm 页面的指定元素区域，elementId 为元素的 id`
+      }]
+    }, {
+      tip: 'destinationType',
+      desc: [{
+        type: '字符串',
+        default: 'url',
+        desc: '数据返回类型。',
+        fields: `url            // 以文件路径返回
+base64         // 以 base64 数据返回`
+      }]
+    }],
+    sampleCode: `// 截取当前页面
+api.screenCapture(function(ret, err) {
+    console.log(ret.savePath);
+});
+
+// 截取 avm 页面中指定元素区域
+api.screenCapture({
+    region: '#user'
+}, function(ret, err) {
+    console.log(ret.savePath);
+});`,
+    usability: ['iOS系统，Android系统', '可提供的3.0.12及更高版本']
+  }, {
+    name: 'startRecord',
+    desc: ['录制音频', 'startRecord({params})'],
+    params: [{
+      tip: 'path',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '（可选项）文件路径，不传时自动创建路径'
+      }]
+    }, {
+      tip: 'format',
+      desc: [{
+        type: '字符串',
+        default: 'amr',
+        desc: '（可选项）音频格式',
+        fields: `amr         // amr 格式
+wav         // wav 格式`
+      }]
+    }],
+    sampleCode: `api.startRecord({
+    path: 'fs://a.amr'
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'stopRecord',
+    desc: ['停止录音', 'stopRecord(callback(ret, err))'],
+    sampleCode: `api.stopRecord(function(ret, err) {
+    if (ret) {
+      var path = ret.path;
+      var duration = ret.duration;
+    }
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'startPlay',
+    desc: ['播放本地音频，支持 amr 格式。', '当调用 pausePlay 方法暂停播放后，再次调用本方法时，若文件路径不变则继续播放，否则播放新的音频。', 'startPlay({params}, callback(ret, err))'],
+    params: [{
+      tip: 'path',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '文件路径，支持fs://、widget://等文件路径协议'
+      }]
+    }],
+    sampleCode: `api.startPlay({
+    path: 'widget://res/1.mp3'
+}, function(ret, err) {
+    if (ret) {
+        api.alert({
+            msg:'播放完成'
+        });
+
+    } else {
+        api.alert({
+            msg:JSON.stringify(err)
+        });
+    }
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'pausePlay',
+    desc: ['暂停播放音频', 'pausePlay()'],
+    sampleCode: `api.pausePlay();`,
+    usability: ['iOS 系统，Android 系统', '可提供的 3.0.30 及更高版本']
+  }, {
+    name: 'stopPlay',
+    desc: ['停止播放音频', 'stopPlay()'],
+    sampleCode: `api.stopPlay();`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }, {
+    name: 'openVideo',
+    desc: ['打开系统视频播放器', 'openVideo({params})'],
+    params: [{
+      tip: 'url',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: '本地文件路径（支持fs://路径协议）或者网络资源地址'
+      }]
+    }],
+    sampleCode: `api.openVideo({
+    url: 'fs://res/1.mp4'
+});`,
+    usability: ['iOS系统，Android系统', '可提供的1.0.0及更高版本']
+  }]
 }, {
   name: '模块加载',
-  icon: 'api_module_icon'
+  icon: 'api_module_icon',
+  children: [{
+    name: 'require',
+    desc: ['引用模块', 'require()'],
+    sampleCode: `var bMap = api.require("bMap");`,
+    usability: ['iOS系统，Android系统']
+  }]
 }, {
   name: 'WebApp历史',
   icon: 'api_history_icon',
@@ -2420,7 +4179,7 @@ from_bottom     //从底部开始动画`
       }]
     }],
     sampleCode: [`api.historyBack({
-  frameName: 'detail'
+    frameName: 'detail'
 }, function(ret, err) {
     if (!ret.status) {
         api.closeWin();
@@ -2469,9 +4228,9 @@ from_bottom     //从底部开始动画`
       }]
     }],
     sampleCode: [`api.pageUp(function(ret, err) {
-  if (!ret.scrolled) {
-      //已经滚动到顶部
-  }
+    if (!ret.scrolled) {
+        //已经滚动到顶部
+    }
 });`],
     usability: ['iOS系统，Android系统', '可提供的1.1.0及更高版本']
   }, {
@@ -2486,10 +4245,33 @@ from_bottom     //从底部开始动画`
       }]
     }],
     sampleCode: [`api.pageDown(function(ret, err) {
-  if (!ret.scrolled) {
-      //已经滚动到底部
-  }
+    if (!ret.scrolled) {
+        //已经滚动到底部
+    }
 });`],
     usability: ['iOS系统，Android系统', '可提供的1.1.0及更高版本']
+  }, {
+    name: 'setFocus',
+    desc: ['设置input是否获取焦点', 'setFocus({params})'],
+    params: [{
+      tip: 'inputId',
+      desc: [{
+        type: '字符串',
+        default: '无',
+        desc: 'input标签id'
+      }]
+    }, {
+      tip: 'focus',
+      desc: [{
+        type: '布尔',
+        default: '无',
+        desc: '是否获取焦点'
+      }]
+    }],
+    sampleCode: [`api.setFocus({
+    inputId: 'test',
+    focus: true
+});`],
+    usability: ['iOS系统，Android系统', '可提供的1.3.35及更高版本']
   }]
 }]
