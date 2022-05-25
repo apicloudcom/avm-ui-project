@@ -10,7 +10,7 @@
 			<text v-for="(item, index) in dataList"
 				:class="`main-template-page-indicator-item ${index === curTab ? 'main-template-page-indicator-item-active' : ''}`"></text>
 		</view>
-		<text class="experience-btn">立刻体验</text>
+		<text class="experience-btn" @click="rightNowExperience">立刻体验</text>
 	</view>
 </template>
 <script>
@@ -22,27 +22,33 @@ export default {
 			dataList: [
 				{
 					img: 'template_es',
-					name: '企业展示'
+					name: '企业展示',
+					project: 'company-display'
 				},
 				{
 					img: 'template_refresh',
-					name: '生鲜电商'
+					name: '生鲜电商',
+					project: 'fresh-ec'
 				},
 				{
 					img: 'template_ts',
-					name: '堂食点餐'
+					name: '堂食点餐',
+					project: 'ordering-food'
 				},
 				{
 					img: 'template_et',
-					name: '教育培训'
+					name: '教育培训',
+					project: 'education-training'
 				},
 				{
 					img: 'template_od',
-					name: '线上服饰'
+					name: '线上服饰',
+					project: 'online-dress'
 				},
 				{
 					img: 'template_sgm',
-					name: '拼团商城'
+					name: '拼团商城',
+					project: 'group-ec'
 				}
 			],
 			current: 0
@@ -51,6 +57,11 @@ export default {
 	methods: {
 		onchange(e) {
 			this.data.curTab = e.detail.current;
+		},
+		rightNowExperience() {
+			api.toast({
+				msg: this.data.dataList[this.data.curTab].project
+			})
 		}
 	}
 }
@@ -60,17 +71,18 @@ export default {
 	width: 100%;
 	height: 100%;
 	background: linear-gradient(to bottom, #effcf8, #fff);
-	padding: 74px 45px 31px;
+	padding: 74px 0 31px;
 	align-items: center;
 }
 .main-template-swiper {
 	width: 100%;
-	height: 537px;
+	height: 548px;
 }
 .main-template-item-img {
-	width: 100%;
-	height: 489px;
+	width: 82%;
+	height: 500px;
 	border-radius: 6px;
+	margin: 0 8%;
 }
 .main-template-item-text {
 	width: 100%;
