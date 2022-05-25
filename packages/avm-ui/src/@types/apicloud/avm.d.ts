@@ -1,6 +1,6 @@
 declare class Component {
-  public render: (props) => void;
   public props: Record<string, any>;
+  public fire: (eventName: string, payload?: any) => void;
   css?: (() => string) | string;
 }
 

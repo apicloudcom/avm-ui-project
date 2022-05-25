@@ -1,5 +1,5 @@
-import { Stepper } from '../stepper'
-import { DemoBlock } from '../../../demos'
+import {Stepper} from '../stepper'
+import {DemoBlock} from '../../../demos'
 import '../stepper.less'
 
 class Demo1 extends Component {
@@ -15,10 +15,10 @@ class Demo1 extends Component {
   render = () => {
     return (
       <>
-        <DemoBlock title='基础用法(非受控)'>
+        <DemoBlock title='基础用法(非受控)s'>
           <Stepper
             defaultValue={1}
-            onChange={value => {
+            onHandleChange={value => {
               console.log(value)
             }}
           />
@@ -33,19 +33,19 @@ class Demo1 extends Component {
           />
         </DemoBlock>
         <DemoBlock title='步长设置'>
-          <Stepper step={10} defaultValue={10} />
+          <Stepper step={10} defaultValue={10}/>
         </DemoBlock>
         <DemoBlock title='设置输入范围'>
-          <Stepper min={-5} max={5} />
+          <Stepper min={-5} max={5}/>
         </DemoBlock>
         <DemoBlock title='格式化到整数'>
-          <Stepper digits={0} />
+          <Stepper digits={0}/>
         </DemoBlock>
         <DemoBlock title='格式化到一位小数'>
-          <Stepper digits={1} />
+          <Stepper digits={1}/>
         </DemoBlock>
         <DemoBlock title='禁用状态'>
-          <Stepper disabled />
+          <Stepper disabled/>
         </DemoBlock>
         <DemoBlock title='获得/失去焦点'>
           <Stepper

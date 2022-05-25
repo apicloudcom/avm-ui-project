@@ -1,5 +1,5 @@
-import mergeStyle from '../../utils/mergeStyle';
 import css from './button.less';
+import {superProps} from "../../utils/superProps";
 
 const classPrefix = `adm-button`;
 export type ButtonProps = {
@@ -62,7 +62,8 @@ const shapeAttr = {
 }
 
 export class Button extends Component {
-  render = props => {
+  @superProps
+  render(props) {
     props = Object.assign({}, defaultProps, props)
     const disabled = props.disabled || props.loading
     const {textColor, color, bgColor, borderRadius, shape, borderWidth, borderStyle, borderColor, fill} = props
@@ -80,7 +81,6 @@ export class Button extends Component {
 
     const btnCls = classNames(
       classPrefix,
-      props.class,
       props.color ? `${classPrefix}-${props.color}` : null,
       {
         [`${classPrefix}-block`]: props.block,
@@ -92,20 +92,17 @@ export class Button extends Component {
       },
       `${classPrefix}-shape-${props.shape}`
     )
-
-    const {style, ...restProps} = props;
-
     return (
       <button
         type={props.type}
         className={btnCls}
         disabled={disabled}
-        style={mergeStyle(btnStyles, style)}
-        {...restProps}
+        style={btnStyles}
       >
         {props.loading ? (props.loadingText) : (props.children)}
       </button>
     )
   }
+
   css = () => css
 }

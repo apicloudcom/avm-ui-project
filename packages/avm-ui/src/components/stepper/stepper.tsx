@@ -1,6 +1,5 @@
-
-import { bound } from '../../utils/bound'
-import mergeStyle from '../../utils/mergeStyle';
+import {bound} from '../../utils/bound'
+import {superProps} from "../../utils/superProps";
 
 const classPrefix = `adm-stepper`
 
@@ -15,7 +14,7 @@ const toStringVal = val => {
 }
 
 export class Stepper extends Component {
-  
+
 
   data = {
     value: 0,
@@ -28,7 +27,7 @@ export class Stepper extends Component {
     this.data.isInit = false
     this.data.value = val
     this.setInputValue(toStringVal(val))
-    this.props.handleChange && this.props.handleChange(Number(val))
+    this.fire('handleChange', Number(val))
   }
   // 赋值输入框
   setInputValue = val => {
@@ -38,7 +37,7 @@ export class Stepper extends Component {
   setHasFocus = focus => {
     this.data.hasFocus = focus
     if (!this.data.hasFocus) {
-      this.setInputValue(toStringVal( this.data.value))
+      this.setInputValue(toStringVal(this.data.value))
     }
   }
   // 格式化处理输入值
@@ -80,9 +79,8 @@ export class Stepper extends Component {
     }
   }
 
-  render = props => {
+  render(props) {
     this.props = Object.assign({}, defaultProps, props)
-
     if (this.data.isInit) {
       this.data.value = this.props.value || this.props.defaultValue
       this.data.inputValue = this.props.value !== undefined ? toStringVal(this.props.value) : toStringVal(this.props.defaultValue)
@@ -90,18 +88,18 @@ export class Stepper extends Component {
     const borderStyle = '1px solid transparent'
     const {
       disabled,
-      height='28px',
-      inputWidth='32px',
-      inputFontSize='14px',
-      inputFontColor='#333',
-      borderRaduis='2px',
-      border=borderStyle,
-      activeBorder=borderStyle,
-      borderInner=borderStyle,
-      btnFontSize='12px',
-      btnBgColor='#f0f0f0',
-      btnWidth='28px',
-      btnTextColor='#7FA000'
+      height = '28px',
+      inputWidth = '32px',
+      inputFontSize = '14px',
+      inputFontColor = '#333',
+      borderRaduis = '2px',
+      border = borderStyle,
+      activeBorder = borderStyle,
+      borderInner = borderStyle,
+      btnFontSize = '12px',
+      btnBgColor = '#f0f0f0',
+      btnWidth = '28px',
+      btnTextColor = '#7FA000'
     } = this.props;
 
     const btnWidthStyle = {}
@@ -117,7 +115,7 @@ export class Stepper extends Component {
     const btnStyle = {
       ...btnWidthStyle,
       height: height,
-      lineHeight: `${Number(height.replace('px', ''))-1}px`,
+      lineHeight: `${Number(height.replace('px', '')) - 1}px`,
       backgroundColor: btnBgColor,
       fontSize: `${Number(btnFontSize.replace('px', '')) + 5}px`,
       opacity: 1
@@ -134,13 +132,13 @@ export class Stepper extends Component {
       borderRight: borderInner
     }
 
-    return (
+    return superProps(props,
       <div
         className={classNames(classPrefix, {
           [`${classPrefix}-disabled`]: disabled,
           [`${classPrefix}-active`]: this.data.hasFocus,
         })}
-        style={mergeStyle(boxStyle,props.style)}>
+        style={boxStyle}>
         <span
           className={`${classPrefix}-minus`}
           onClick={this.handleMinus}
@@ -177,6 +175,7 @@ export class Stepper extends Component {
       </div>
     )
   }
+
   css = () => {
     return `
       .adm-stepper {

@@ -1,5 +1,5 @@
-
 import {formatLabel} from '../../utils/format-label'
+import {superProps} from "../../utils/superProps";
 
 const classPrefix = `adm-badge`
 
@@ -10,9 +10,11 @@ const defaultProps = {
   isDot: false
 }
 
+
 export class Badge extends Component {
 
-  render = (props) => {
+  @superProps
+  render(props) {
     props = Object.assign({}, defaultProps, props)
     const {content, color, children, right, top, isDot} = props
     // const isDot = content === dot
@@ -31,6 +33,7 @@ export class Badge extends Component {
       right: styleRight,
       top: styleTop
     })
+
     return (
       <div className={`${classPrefix}-row`}>
         <div className={`${classPrefix}-wrap`}>
