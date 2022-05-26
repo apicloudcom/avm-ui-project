@@ -29,7 +29,7 @@ export default {
 				{
 					img: 'template_refresh',
 					name: '生鲜电商',
-					project: 'fe'
+					project: 'fre'
 				},
 				{
 					img: 'template_ts',
