@@ -6,7 +6,7 @@
 		<text class="a-checklist-item-text">{item.text}</text>
 		<view class="a-checklist-item-right">
 			<text class="a-checklist-item-right-text">{item.extraText}</text>
-			<img class="a-checklist-item-right-icon" :src="item.rightIcon || 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/32c33a52906720ff44bd953ad901b853.png'" alt="right">
+			<img class="a-checklist-item-right-icon" :src="item.rightIcon || 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/32c33a52906720ff44bd953ad901b853.png'" alt="right"/>
 		</view>
 	</view>
 </view>
