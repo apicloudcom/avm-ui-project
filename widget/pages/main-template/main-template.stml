@@ -2,7 +2,8 @@
 	<view class="main-template">
 		<swiper class="main-template-swiper" autoplay onchange={this.onchange}>
 			<swiper-item class="main-template-item" v-for="(item, index) in dataList">
-				<image :src="`../../image/${item.img}.png`" alt="templateImg" class="main-template-item-img" mode="aspectFill" />
+				<image :src="`../../image/${item.img}.png`" alt="templateImg" class="main-template-item-img"
+					mode="aspectFill" />
 				<text class="main-template-item-text">{{item.name}}模板</text>
 			</swiper-item>
 		</swiper>
@@ -23,32 +24,32 @@ export default {
 				{
 					img: 'template_es',
 					name: '企业展示',
-					project: 'company-display'
+					project: 'es'
 				},
 				{
 					img: 'template_refresh',
 					name: '生鲜电商',
-					project: 'fresh-ec'
+					project: 'fe'
 				},
 				{
 					img: 'template_ts',
 					name: '堂食点餐',
-					project: 'ordering-food'
+					project: 'of'
 				},
 				{
 					img: 'template_et',
 					name: '教育培训',
-					project: 'education-training'
+					project: 'et'
 				},
 				{
 					img: 'template_od',
 					name: '线上服饰',
-					project: 'online-dress'
+					project: 'od'
 				},
 				{
 					img: 'template_sgm',
 					name: '拼团商城',
-					project: 'group-ec'
+					project: 'sgm'
 				}
 			],
 			current: 0
@@ -59,8 +60,10 @@ export default {
 			this.data.curTab = e.detail.current;
 		},
 		rightNowExperience() {
-			api.toast({
-				msg: this.data.dataList[this.data.curTab].project
+			const project = this.data.dataList[this.data.curTab].project
+			api.openWin({
+				name: project,
+				url: `../template-${project}/template-${project}.stml`
 			})
 		}
 	}
@@ -115,8 +118,8 @@ export default {
 .experience-btn {
 	width: 125px;
 	height: 36px;
-	border: 1px solid #9AC200;
-	color: #9AC200;
+	border: 1px solid #9ac200;
+	color: #9ac200;
 	font-size: 14px;
 	font-weight: 400;
 	border-radius: 20px;
