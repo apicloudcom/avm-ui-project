@@ -247,6 +247,9 @@ export default {
 				name: 'fnSelectCity'
 			}, ret => {
 				this.data.cityName = ret.value.name
+				api.toast({
+					msg: this.data.cityName
+				})
 				api.closeFrame({
 					name: 'citySelector'
 				})
@@ -311,6 +314,7 @@ export default {
 <style>
 .main {
 	height: 100%;
+	background: #fff;
 }
 
 .header-part {

@@ -55,17 +55,17 @@
 				</view>
 			</view>
 		</scroll-view>
-		<view class="footer">
-			<image src="../../image/minus.png" class="minus" onclick="fnMinus();" />
-			<text class="count">1</text>
-			<image src="../../image/add.png" class="add" onclick="fnAdd();" />
-			<image src="../../image/buynow.png" class="buy-button" onclick={this.fnOpenOrderWin} />
-		</view>
 		<view class="minicart">
 			<view class="__main" onclick={this.fnOpenShoppingCartWin}>
 				<text class="__amount">￥29.9</text>
 				<text class="__count">1</text>
 			</view>
+		</view>
+		<view class="footer">
+			<image src="../../image/minus.png" class="minus" onclick="fnMinus();" />
+			<text class="count">1</text>
+			<image src="../../image/add.png" class="add" onclick="fnAdd();" />
+			<image src="../../image/buynow.png" class="buy-button" onclick={this.fnOpenOrderWin} />
 		</view>
 	</view>
 </template>
@@ -129,7 +129,6 @@ export default {
 	width: 100%;
 	height: 100%;
 	background: #f3f3f3;
-	position: relative;
 }
 .nav-header {
 	background-color: #e3007f;
