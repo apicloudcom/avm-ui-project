@@ -1,14 +1,14 @@
 <template>
-	<safe-area class="template-es">
-		<view class="es-tab-bar" >
-			<hoc-tab-bar-es @tabClick="tabClick"/>
+	<safe-area class="template-od">
+		<view class="od-tab-bar" >
+			<hoc-tab-bar-od @tabClick="tabClick" />
 		</view>
 	</safe-area>
 </template>
 <script>
-import '../../components/es/hoc-tab-bar-es.stml'
+import '../../components/od/hoc-tab-bar-od.stml'
 export default {
-	name: 'template-es',
+	name: 'template-od',
 	apiready() {//like created
 		this.openFrameGroup()
 	},
@@ -18,18 +18,18 @@ export default {
 		}
 	},
 	methods: {
-		tabClick(data) {
-			this.setFrameGroupIndex(data.detail)
+		tabClick(item) {
+			this.setFrameGroupIndex(item.detail)
 		},
 		setFrameGroupIndex(index) {
 			api.setFrameGroupIndex({
-				name: 'main-template-es',
+				name: 'main-template-od',
 				index
 			})
 		},
 		openFrameGroup() {
 			api.openFrameGroup({
-				name: 'main-template-es',
+				name: 'main-template-od',
 				scrollEnabled: false,
 				background: '#fff',
 				rect: {
@@ -37,14 +37,17 @@ export default {
 					marginBottom: 90
 				},
 				frames: [{
-					name: 'template-es-main',
-					url: '../template-es-main/template-es-main.stml'
+					name: 'template-od-main',
+					url: '../template-od-main/template-od-main.stml'
 				}, {
-					name: 'template-es-case',
-					url: '../template-es-case/template-es-case.stml'
+					name: 'template-od-sort',
+					url: '../template-od-sort/template-od-sort.stml'
 				}, {
-					name: 'template-es-join',
-					url: '../template-es-join/template-es-join.stml'
+					name: 'template-od-cart',
+					url: '../template-od-cart/template-od-cart.stml'
+				}, {
+					name: 'template-od-user',
+					url: '../template-od-user/template-od-user.stml'
 				}]
 			}, (ret, err) => {
 				var index = ret.index;
@@ -55,12 +58,12 @@ export default {
 }
 </script>
 <style>
-.template-es {
+.template-od {
 	width: 100%;
 	height: 100%;
 	background: #fff;
 }
-.es-tab-bar {
+.od-tab-bar {
 	width: 100%;
 	position: absolute;
 	bottom: 16px;

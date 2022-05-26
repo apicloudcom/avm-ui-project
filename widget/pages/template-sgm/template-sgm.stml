@@ -34,7 +34,7 @@ export default {
 				background: '#fff',
 				rect: {
 					matginTop: 0,
-					marginBottom: 66
+					marginBottom: 70
 				},
 				frames: [{
 					name: 'template-sgm-main',
@@ -63,6 +63,6 @@ export default {
 .sgm-tab-bar {
 	width: 100%;
 	position: absolute;
-	bottom: 10px;
+	bottom: 16px;
 }
 </style>

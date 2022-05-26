@@ -68,6 +68,6 @@ export default {
 .et-tab-bar {
 	width: 100%;
 	position: absolute;
-	bottom: 10px;
+	bottom: 16px;
 }
 </style>

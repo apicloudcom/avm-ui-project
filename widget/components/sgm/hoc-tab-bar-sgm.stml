@@ -49,7 +49,6 @@ export default {
 	flex-direction: row;
 	align-items: center;
 	background: #fff;
-	border-top: 0.5px solid #e8e8e8;
 }
 .tab-bar-item {
 	flex: 1;
