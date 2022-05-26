@@ -16,6 +16,7 @@
 			<text v-for="(item, index) in wareTypeList" @click="fnSetNavMenuIndex(index, item.name)" :key="item.id" :class="`nav-menu ${index === currentIndex ? 'nav-menu-selected' : ''}`">{item.name}</text>
 		</view>
 		<scroll-view
+		 	:show-scrollbar="false"
 			scroll-y='true'
 			class="warelist"
 			refresher-triggered={false}

@@ -1,7 +1,7 @@
 <template>
     <view class="page">
         <hoc-header-bar-et title="我的预约" isBack/>
-        <scroll-view style="flex: 1;" scroll-y>
+        <scroll-view style="flex: 1;" scroll-y :show-scrollbar="false">
             <!--预约课程卡片列表-->
             <hoc-my-order-card-et :list="list" @itemClick="intoDetail" />
         </scroll-view>

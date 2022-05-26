@@ -1,7 +1,7 @@
 <template name='tab-home'>
 	<view class="page">
 		<hoc-header-bar-et title="柚子英语教育"/>
-		<scroll-view class="main" scroll-y>
+		<scroll-view class="main" scroll-y :show-scrollbar="false">
 			<!--头部轮播-->
 			<hoc-swiper-et :swiperList="banners" />
 			<!--课程类别菜单-->

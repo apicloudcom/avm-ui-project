@@ -8,7 +8,7 @@
 			<view></view>
 		</view>
 		<view class="container">
-			<scroll-view class="listView" id="listView" scroll-y='true'>
+			<scroll-view class="listView" id="listView" scroll-y='true' :show-scrollbar="false">
 				<view class="cellSelf">
 					<view class="msg-input contentBgSelf">
 						<text class="text">收到货后，发现产品存在问题如何处理？</text>

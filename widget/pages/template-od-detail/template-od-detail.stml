@@ -2,7 +2,7 @@
 	<view class="page">
 		<!-- 顶部导航 -->
 		<hoc-nav-bar-od msg='商品详情' isBack />
-		<scroll-view scroll-y="true">
+		<scroll-view scroll-y="true" :show-scrollbar="false">
 			<!-- 轮播图 -->
 			<hoc-detail-banner-od :list='bannerList' />
 			<!-- 商品信息 -->

@@ -1,7 +1,7 @@
 <template>
     <view class="page">
         <hoc-header-bar-et title="我的订单" isBack/>
-        <scroll-view style="flex: 1;" scroll-y>
+        <scroll-view style="flex: 1;" scroll-y :show-scrollbar="false">
             <hoc-order-list-et @itemClick="intoDetail" :orderList="orderList" />
         </scroll-view>
     </view>

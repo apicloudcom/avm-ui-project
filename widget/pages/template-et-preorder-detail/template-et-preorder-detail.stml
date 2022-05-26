@@ -1,7 +1,7 @@
 <template name="preorder-detail">
     <view class="page">
         <hoc-header-bar-et title="预约详情" isBack/>
-        <scroll-view style="flex: 1;">
+        <scroll-view style="flex: 1;" :show-scrollbar="false">
             <hoc-course-baseinfo-et
                 id="458287d0-daf0-11ea-860c-79b0f1c26dc1"
                 title="托福基础班"

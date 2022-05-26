@@ -26,7 +26,7 @@
 				<text class="item-title">账单记录</text>
 			</view>
 		</view>
-		<scroll-view class="recharge-main" scroll-y='true'>
+		<scroll-view class="recharge-main" scroll-y='true' :show-scrollbar="false">
 			<view class="recharge-container">
 				<view class="recharge-item">
 					<view class="recharge-top">

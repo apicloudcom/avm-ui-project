@@ -2,7 +2,7 @@
     <view class="page">
         <!-- 顶部导航 -->
         <hoc-nav-bar-od msg='首页' />
-        <scroll-view scroll-y>
+        <scroll-view scroll-y :show-scrollbar="false">
             <!-- 搜索 -->
             <hoc-search-bar-od :placeholder='placeholder' />
             <!-- banner -->

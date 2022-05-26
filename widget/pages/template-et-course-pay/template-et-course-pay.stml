@@ -1,7 +1,7 @@
 <template>
     <view class="page">
         <hoc-header-bar-et title="预约支付" isBack/>
-        <scroll-view style="flex: 1;" scroll-y>
+        <scroll-view style="flex: 1;" scroll-y :show-scrollbar="false">
             <hoc-pay-course-info-et
                 cover="http://aa8954a760b087bd5575.qiniucdn.apicloud-system.com/apicloud/76abf6b3c8df591a726c3156427b1171.png"
                 title="托福基础班"

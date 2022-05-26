@@ -9,7 +9,7 @@
 				<text class="nav-header-text">分享</text>
 			</view>
 		</view>
-		<scroll-view class="scrollView" scroll-y='true'>
+		<scroll-view class="scrollView" scroll-y='true' :show-scrollbar="false">
 			<view class="swiper">
 				<img class="swiper-img"
 					src="http://a8f7e260bce0114731a0.qiniucdn.apicloud-system.com/apicloud/a3f416e37b4a79d69ad63b4b9d711fd9.jpg"

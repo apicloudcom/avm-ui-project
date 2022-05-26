@@ -8,7 +8,7 @@
 			<view></view>
 		</view>
 		<view class="content">
-			<scroll-view scroll-y="true" class="listView">
+			<scroll-view scroll-y="true" class="listView" :show-scrollbar="false">
 				<view class="cell">
 					<view data-id={'56c94a0426f863e874c76caf'} data-wareCount={1} class="container"
 						@click="fnOpenDetailWin('56c94a0426f863e874c76caf', 1)">

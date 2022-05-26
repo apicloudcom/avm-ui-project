@@ -2,7 +2,7 @@
 	<view class="page">
 		<!-- 顶部导航 -->
 		<hoc-nav-bar-es :msg='navText' />
-		<scroll-view scroll-y>
+		<scroll-view scroll-y :show-scrollbar="false">
 			<!-- 案例列表 -->
 			<hoc-case-list-es :list='caseList' />
 		</scroll-view>
