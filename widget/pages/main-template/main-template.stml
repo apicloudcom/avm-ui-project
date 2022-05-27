@@ -80,22 +80,18 @@ export default {
 .main-template {
 	width: 100%;
 	height: 100%;
-	margin-bottom: 31px;
 	align-items: center;
 }
 .main-template-swiper {
 	width: 100%;
 	height: 635px;
-	margin-top: 74px;
-}
-.main-template-item {
-	margin: 0 32px;
 }
 .main-template-item-img {
 	width: 100%;
 	height: 490px;
 	border-radius: 6px;
-	margin: 0 auto;
+	margin-top: 71px;
+	padding: 0 32px;
 }
 .main-template-item-text {
 	width: 100%;
