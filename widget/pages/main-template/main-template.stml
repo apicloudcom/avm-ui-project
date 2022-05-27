@@ -1,9 +1,8 @@
 <template>
-	<view class="main-template">
+	<view class="main-template" :style="`background: ${dataList[this.data.curTab].bgColor}`">
 		<swiper class="main-template-swiper" autoplay onchange={this.onchange}>
 			<swiper-item class="main-template-item" v-for="(item, index) in dataList">
-				<image :src="`../../image/${item.img}.png`" alt="templateImg" class="main-template-item-img"
-					mode="aspectFill" />
+				<image :src="`../../image/${item.img}.png`" alt="templateImg" class="main-template-item-img" mode="aspectFill"/>
 				<text class="main-template-item-text">{{item.name}}模板</text>
 			</swiper-item>
 		</swiper>
@@ -11,7 +10,9 @@
 			<text v-for="(item, index) in dataList"
 				:class="`main-template-page-indicator-item ${index === curTab ? 'main-template-page-indicator-item-active' : ''}`"></text>
 		</view>
-		<text class="experience-btn" @click="rightNowExperience">立刻体验</text>
+		<view class="experience">
+			<text class="experience-btn" @click="rightNowExperience">立刻体验</text>
+		</view>
 	</view>
 </template>
 <script>
@@ -24,32 +25,38 @@ export default {
 				{
 					img: 'template_es',
 					name: '企业展示',
-					project: 'es'
+					project: 'es',
+					bgColor: 'linear-gradient(to bottom, rgba(223, 238, 192, 0.1), #fff)'
 				},
 				{
 					img: 'template_refresh',
 					name: '生鲜电商',
-					project: 'fre'
+					project: 'fre',
+					bgColor: 'linear-gradient(to bottom, #FEF6EC, #fff)'
 				},
 				{
 					img: 'template_ts',
 					name: '堂食点餐',
-					project: 'of'
+					project: 'of',
+					bgColor: 'linear-gradient(to bottom, rgba(245, 130, 130, 0.1), #fff)'
 				},
 				{
 					img: 'template_et',
 					name: '教育培训',
-					project: 'et'
+					project: 'et',
+					bgColor: 'linear-gradient(to bottom, rgba(119, 195, 255, 0.1), #fff)'
 				},
 				{
 					img: 'template_od',
 					name: '线上服饰',
-					project: 'od'
+					project: 'od',
+					bgColor: 'linear-gradient(to bottom, #F6F6F6, #fff)'
 				},
 				{
 					img: 'template_sgm',
 					name: '拼团商城',
-					project: 'sgm'
+					project: 'sgm',
+					bgColor: 'linear-gradient(to bottom, rgba(255, 203, 203, 0.1), #fff)'
 				}
 			],
 			current: 0
@@ -73,19 +80,22 @@ export default {
 .main-template {
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(to bottom, #effcf8, #fff);
-	padding: 74px 0 31px;
+	margin-bottom: 31px;
 	align-items: center;
 }
 .main-template-swiper {
 	width: 100%;
-	height: 548px;
+	height: 635px;
+	margin-top: 74px;
+}
+.main-template-item {
+	margin: 0 32px;
 }
 .main-template-item-img {
-	width: 82%;
-	height: 500px;
+	width: 100%;
+	height: 490px;
 	border-radius: 6px;
-	margin: 0 8%;
+	margin: 0 auto;
 }
 .main-template-item-text {
 	width: 100%;
@@ -93,14 +103,13 @@ export default {
 	font-size: 17px;
 	color: #000;
 	font-weight: 500;
-	line-height: 24px;
 	margin: 24px 0;
 }
 .main-template-page-indicator {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	margin: 0 auto 24px;
+	margin: 0 auto;
 }
 .main-template-page-indicator-item {
 	width: 5px;
@@ -115,16 +124,21 @@ export default {
 	height: 7px;
 	border-radius: 4px;
 }
-.experience-btn {
+.experience {
+	margin: 25px 0 31px;
 	width: 125px;
 	height: 36px;
 	border: 1px solid #9ac200;
+	border-radius: 20px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.experience-btn {
 	color: #9ac200;
 	font-size: 14px;
 	font-weight: 400;
-	border-radius: 20px;
-	line-height: 36px;
-	text-align: center;
-	margin-top: 16px;
+	
 }
 </style>

@@ -4,6 +4,7 @@
     "color": "#888",
     "selectedColor": "#9AC200",
     "scrollEnabled": false,
+    "textOffset": 6,
     "frames": [
       {
         "title": "AVM组件",
